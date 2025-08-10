@@ -2,14 +2,14 @@
 <html xmlns="http://www.w3.org/1999/xhtml" lang="en" xml:lang="en"><head>
 
 <meta charset="utf-8">
-<meta name="generator" content="quarto-1.2.313">
+<meta name="generator" content="quarto-1.6.42">
 
 <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
 
 <meta name="author" content="Your name here">
 <meta name="dcterms.date" content="2025-02-13">
 
-<title>STAT 201: Intro. to Statistics and Data Science - Introduction to R and R Markdown</title>
+<title>Introduction to R and R Markdown – STAT 201: Intro. to Statistics and Data Science</title>
 <style>
 code{white-space: pre-wrap;}
 span.smallcaps{font-variant: small-caps;}
@@ -19,7 +19,7 @@ div.hanging-indent{margin-left: 1.5em; text-indent: -1.5em;}
 ul.task-list{list-style: none;}
 ul.task-list li input[type="checkbox"] {
   width: 0.8em;
-  margin: 0 0.8em 0.2em -1.6em;
+  margin: 0 0.8em 0.2em -1em; /* quarto-specific, see https://github.com/quarto-dev/quarto-cli/issues/4556 */ 
   vertical-align: middle;
 }
 </style>
@@ -37,17 +37,23 @@ ul.task-list li input[type="checkbox"] {
 <script src="../site_libs/quarto-html/tippy.umd.min.js"></script>
 <script src="../site_libs/quarto-html/anchor.min.js"></script>
 <link href="../site_libs/quarto-html/tippy.css" rel="stylesheet">
-<link href="../site_libs/quarto-html/quarto-syntax-highlighting.css" rel="stylesheet" id="quarto-text-highlighting-styles">
+<link href="../site_libs/quarto-html/quarto-syntax-highlighting-2f5df379a58b258e96c21c0638c20c03.css" rel="stylesheet" id="quarto-text-highlighting-styles">
 <script src="../site_libs/bootstrap/bootstrap.min.js"></script>
 <link href="../site_libs/bootstrap/bootstrap-icons.css" rel="stylesheet">
-<link href="../site_libs/bootstrap/bootstrap.min.css" rel="stylesheet" id="quarto-bootstrap" data-mode="light">
+<link href="../site_libs/bootstrap/bootstrap-642b61e8dd9daef820930ed0a6efefa9.min.css" rel="stylesheet" append-hash="true" id="quarto-bootstrap" data-mode="light">
 <script id="quarto-search-options" type="application/json">{
   "location": "navbar",
   "copy-button": false,
   "collapse-after": 3,
   "panel-placement": "end",
   "type": "overlay",
-  "limit": 20,
+  "limit": 50,
+  "keyboard-shortcut": [
+    "f",
+    "/",
+    "s"
+  ],
+  "show-item-context": false,
   "language": {
     "search-no-results-text": "No results",
     "search-matching-documents-text": "matching documents",
@@ -56,54 +62,86 @@ ul.task-list li input[type="checkbox"] {
     "search-more-match-text": "more match in this document",
     "search-more-matches-text": "more matches in this document",
     "search-clear-button-title": "Clear",
+    "search-text-placeholder": "",
     "search-detached-cancel-button-title": "Cancel",
-    "search-submit-button-title": "Submit"
+    "search-submit-button-title": "Submit",
+    "search-label": "Search"
   }
 }</script>
 
+  <script src="https://cdnjs.cloudflare.com/polyfill/v3/polyfill.min.js?features=es6"></script>
   <script src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-chtml-full.js" type="text/javascript"></script>
+
+<script type="text/javascript">
+const typesetMath = (el) => {
+  if (window.MathJax) {
+    // MathJax Typeset
+    window.MathJax.typeset([el]);
+  } else if (window.katex) {
+    // KaTeX Render
+    var mathElements = el.getElementsByClassName("math");
+    var macros = [];
+    for (var i = 0; i < mathElements.length; i++) {
+      var texText = mathElements[i].firstChild;
+      if (mathElements[i].tagName == "SPAN") {
+        window.katex.render(texText.data, mathElements[i], {
+          displayMode: mathElements[i].classList.contains('display'),
+          throwOnError: false,
+          macros: macros,
+          fleqn: false
+        });
+      }
+    }
+  }
+}
+window.Quarto = {
+  typesetMath
+};
+</script>
 
 </head>
 
-<body class="nav-fixed fullcontent">
+<body class="nav-fixed">
 
 <div id="quarto-search-results"></div>
   <header id="quarto-header" class="headroom fixed-top">
-    <nav class="navbar navbar-expand-lg navbar-dark ">
+    <nav class="navbar navbar-expand-lg " data-bs-theme="dark">
       <div class="navbar-container container-fluid">
-      <div class="navbar-brand-container">
+      <div class="navbar-brand-container mx-auto">
     <a class="navbar-brand" href="../index.html">
     <span class="navbar-title">STAT 201: Intro. to Statistics and Data Science</span>
     </a>
   </div>
-          <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarCollapse" aria-controls="navbarCollapse" aria-expanded="false" aria-label="Toggle navigation" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">
+            <div id="quarto-search" class="" title="Search"></div>
+          <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarCollapse" aria-controls="navbarCollapse" role="menu" aria-expanded="false" aria-label="Toggle navigation" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">
   <span class="navbar-toggler-icon"></span>
 </button>
           <div class="collapse navbar-collapse" id="navbarCollapse">
             <ul class="navbar-nav navbar-nav-scroll me-auto">
   <li class="nav-item">
-    <a class="nav-link" href="../index.html">
- <span class="menu-text">Home</span></a>
+    <a class="nav-link" href="../index.html"> 
+<span class="menu-text">Home</span></a>
   </li>  
   <li class="nav-item">
-    <a class="nav-link" href="../schedule.html">
- <span class="menu-text">Schedule</span></a>
+    <a class="nav-link" href="../schedule.html"> 
+<span class="menu-text">Schedule</span></a>
   </li>  
 </ul>
             <ul class="navbar-nav navbar-nav-scroll ms-auto">
   <li class="nav-item">
-    <a class="nav-link" href="https://openintro-ims.netlify.app/"><i class="bi bi-book-half" role="img">
+    <a class="nav-link" href="https://openintro-ims.netlify.app/"> <i class="bi bi-book-half" role="img">
 </i> 
- <span class="menu-text">Textbook</span></a>
+<span class="menu-text">Textbook</span></a>
   </li>  
   <li class="nav-item">
-    <a class="nav-link" href="https://middlebury.instructure.com/"><i class="bi bi-bar-chart-fill" role="img">
+    <a class="nav-link" href="https://middlebury.instructure.com/"> <i class="bi bi-bar-chart-fill" role="img">
 </i> 
- <span class="menu-text">Canvas</span></a>
+<span class="menu-text">Canvas</span></a>
   </li>  
 </ul>
-              <div id="quarto-search" class="" title="Search"></div>
           </div> <!-- /navcollapse -->
+            <div class="quarto-navbar-tools">
+</div>
       </div> <!-- /container-fluid -->
     </nav>
 </header>
@@ -111,7 +149,8 @@ ul.task-list li input[type="checkbox"] {
 <div id="quarto-content" class="quarto-container page-columns page-rows-contents page-layout-article page-navbar">
 <!-- sidebar -->
 <!-- margin-sidebar -->
-    
+    <div id="quarto-margin-sidebar" class="sidebar margin-sidebar">
+    <div class="quarto-alternate-formats"><h2>Other Formats</h2><ul><li><a href="template_intro_R.pdf"><i class="bi bi-file-pdf"></i>PDF</a></li></ul></div></div>
 <!-- main -->
 <main class="content" id="quarto-document-content">
 
@@ -142,25 +181,24 @@ ul.task-list li input[type="checkbox"] {
   </div>
   
 
+
 </header>
 
-<section id="programming-in-r-markdown" class="level1">
-<h1>Programming in R Markdown</h1>
-<p>This document that we are working in is called an <strong>R markdown</strong> document. It allows us to seamlessly move between <code>R</code> code and regular text. The name of the file is easily found at the top this panel. All R markdown files end in ____.</p>
+
+<section id="programming-in-quarto-markdown" class="level1">
+<h1>Programming in Quarto markdown</h1>
+<p>This document that we are working in is called an <strong>Quarto markdown</strong> document. It allows us to seamlessly move between <code>R</code> code and regular text. The name of the file is easily found at the top this panel. All Quarto markdown files end in ____.</p>
 <section id="yaml" class="level2">
 <h2 class="anchored" data-anchor-id="yaml">YAML</h2>
 <p>At the top of a markdown topic, you’ll see code between two sets of three dashed lines. This is known as a <strong>YAML header</strong>, and it contains the “informational” content of a document (e.g.&nbsp;title, author, date). Change these accordingly for each assignment!</p>
 <p>Go ahead and change your name in the author argument of the YAML.</p>
 </section>
-<section id="r-markdown-basics" class="level2">
-<h2 class="anchored" data-anchor-id="r-markdown-basics">R Markdown basics</h2>
+<section id="quarto-markdown-basics" class="level2">
+<h2 class="anchored" data-anchor-id="quarto-markdown-basics">Quarto Markdown basics</h2>
 <p>How do we tell the document which parts correspond to code, and which parts correspond to text?</p>
 <p>In the following, you see three back ticks followed by a left curly brace, the letter r, and right curly brace. A few lines down, you will see three more back ticks. The background in between these lines is gray, with some symbols on the right. These backs ticks must be aligned on the same tabulation.</p>
 <p>This defines ______. All of our <code>R</code> code should go into one.</p>
-<div class="cell">
-
-</div>
-<p>In the code chunk above, let’s evaluate <span class="math inline">\(\sqrt{4}\)</span> (the square root of 4). To do this, type the following code: <code>sqrt(4)</code>. Now evaluating the code in a code chunk is different from evaluating code in the Console. There are two ways to do so:</p>
+<p>In the code chunk above, let’s evaluate <span class="math inline">\(\sqrt{4}\)</span> (the square root of 4). To do this, type the following code: <code>sqrt(4)</code>. Now evaluating the code in a code chunk is different from evaluating code in the Console. There are two ways to evaluate code in a chunk:</p>
 <ol type="1">
 <li></li>
 <li></li>
@@ -169,18 +207,13 @@ ul.task-list li input[type="checkbox"] {
 <section id="saving-progress" class="level2">
 <h2 class="anchored" data-anchor-id="saving-progress">Saving progress</h2>
 <p>At this point it is a good idea to save our progress. Like most document editors, we need to explicitly save our work. You know your work is not saved when _____.</p>
-<p>To save our work in R Markdown document, we can do one of the following:</p>
+<p>To save our work in Quarto Markdown document, we can do one of the following:</p>
 <ol type="1">
 <li>Click on the floppy disk at the top of the panel</li>
-<li>Go to File -&gt; Save</li>
+<li>Go to File, then Save</li>
 <li>Hit Cmd+S</li>
 <li>____ the document</li>
 </ol>
-<section id="knitting" class="level3">
-<h3 class="anchored" data-anchor-id="knitting">Knitting</h3>
-<p>Knitting the document will render your R markdown into its final output form. To knit, simply click on the ball of yarn at the top of the panel. Knitting can take anywhere from a few seconds to a few minutes depending on the amount of code and narrative you have.</p>
-<p>Now, outside of R Studio, go to the Folder where this R Markdown document is located. What do you notice? ______</p>
-</section>
 </section>
 <section id="coding-in-r" class="level2">
 <h2 class="anchored" data-anchor-id="coding-in-r">Coding in R</h2>
@@ -191,21 +224,12 @@ ul.task-list li input[type="checkbox"] {
 <ul>
 <li>A ____ object contains only a single number</li>
 </ul>
-<div class="cell">
-
-</div>
 <ul>
 <li>A ____ or ____ object is a set of characters within one pair of quotation marks</li>
 </ul>
-<div class="cell">
-
-</div>
 <ul>
-<li>A ____ object is an ordered collection of numbers <em>or</em> strings. We can create vectors using the command <code>c()</code>:</li>
+<li>A ____ object is any collection of numbers <em>or</em> any collection of strings. We can create vectors using the command <code>c()</code>:</li>
 </ul>
-<div class="cell">
-
-</div>
 <ul>
 <li><p>A ____ object is either <code>TRUE</code> or <code>FALSE</code>. It is also referred to as a boolean.</p></li>
 <li><p><strong>Data frames</strong> are representations of datasets in <code>R</code> where the rows correspond to observations and columns correspond to variables that describe the observations (more on this later).</p></li>
@@ -218,28 +242,15 @@ ul.task-list li input[type="checkbox"] {
 </section>
 <section id="storing-objects-as-variables" class="level3">
 <h3 class="anchored" data-anchor-id="storing-objects-as-variables">Storing objects as variables</h3>
-<p>Suppose I want to calculate the volume of a cube, where each edge is of length 2. The volume is <span class="math inline">\(\text{edge length}^3\)</span> . We could calculate the area as follows:</p>
-<div class="cell">
-
-</div>
-<p>Now suppose someone tells you that the edge length was actually 2.1 instead of 2. So you modify as follows:</p>
-<div class="cell">
-
-</div>
-<p>Then you get told the edge length is actually 2.2. So frustrating! To save ourselves further troubles, we do the following to make our code <em>reproducible</em>:</p>
-<div class="cell">
-
-</div>
-<p>What did we do in the above code? We _____ or ______ the value 2.2 into the ______ called <code>length</code> using the keys <code>&lt;-</code>.</p>
-<p>Now make a new R code chunk here. In this new code chunk, make a new object called <code>volume</code> and assign to it an appropriate value. Knit the document.</p>
-<p>Once you knit, you should note: when we assign an object a value, its value is <em>not</em> automatically shown as output. In order to display the output, you must _____.</p>
+<p>Suppose I want to save the result of a big calculation to use moving forward. We _____ or ______ the value of 1 + 2 + 3 + 4 + 5 into the ______ called <code>x</code> using the keys <code>&lt;-</code>.</p>
+<p>As you should note: when we assign an object a value, its value is <em>not</em> automatically shown as output. In order to display the output, you must _____.</p>
 </section>
 </section>
 <section id="errors-warnings-and-messages" class="level2">
 <h2 class="anchored" data-anchor-id="errors-warnings-and-messages">Errors, warnings, and messages</h2>
 <p>These are always shown in red text in the Console. Whenever you see them, don’t panic! With practice, you will be able to decipher the messages and de-bug your code with ease.</p>
 <ul>
-<li><p><strong>Errors:</strong> prevent code from executing and documents from knitting. It will be prefaced with “Error in…”. Trying typing in the following code in your Console: <code>1 + a</code>. What happens?</p></li>
+<li><p><strong>Errors:</strong> prevent code from executing and documents from rendering It will be prefaced with “Error in…”. Trying typing in the following code in your Console: <code>1 + a</code>. What happens?</p></li>
 <li><p><strong>Warnings</strong>: your code will run with some caveats. It will be prefaced with “Warning:”. We will see examples of this later on.</p></li>
 <li><p><strong>Messages</strong>: messages in red that do not begin with “Error” or “Warning” are simply friendly messages that might provide you more information about the execution of your code.</p></li>
 </ul>
@@ -256,7 +267,7 @@ ul.task-list li input[type="checkbox"] {
 <li>____ the package</li>
 <li>____ the package</li>
 </ol>
-<p><strong>Unless you update R Studio, you will only need to install a package once. However, you will need to explicitly load in packages every time you work in a new R Markdown document.</strong></p>
+<p><strong>Unless you update R Studio, you will only need to install a package once. However, you will need to explicitly load in packages every time you work in a new Quarto Markdown document.</strong></p>
 <p>There are thousands of available packages to work with. Two of the most common packages we will use are the <code>openintro</code> package and the <code>tidyverse</code> package (though, the <code>tidyverse</code> package is actually a giant package that is comprised of several other packages).</p>
 <section id="package-installation" class="level3">
 <h3 class="anchored" data-anchor-id="package-installation">Package installation</h3>
@@ -275,20 +286,23 @@ ul.task-list li input[type="checkbox"] {
 <li>Press Return/Enter</li>
 </ol></li>
 </ol>
-<p>We will install the <code>openintro</code> package together. Then try installing the <code>tidyverse</code> package on your own!</p>
+<p>We will install the <code>openintro</code> package together.</p>
+<p>Then, try installing the <code>tidyverse</code> package on your own!</p>
 </section>
 <section id="package-loading" class="level3">
 <h3 class="anchored" data-anchor-id="package-loading">Package loading</h3>
-<p>To use the package we have installed, we use the <code>library()</code> command:</p>
-<div class="cell">
-
-</div>
+<p>If we want to use a package, we use the <code>library()</code> command:</p>
 </section>
 </section>
 </section>
-<section id="instructions-for-submission" class="level1">
-<h1>Instructions for submission</h1>
-<p>When you are finished with your work and ready to submit, you should always knit to PDF one last time. You should then submit the most recent knitted <strong>PDF</strong> output to the corresponding Gradescope assignment. Very rarely, I will also ask you to submit the accompanying .qmd file.</p>
+<section id="rendering" class="level1">
+<h1>Rendering</h1>
+<p>Rendering the document will turn your Quarto markdown into its final output form. To render, simply click on the blue arrow button up top that reads “Render”. Rendering can take anywhere from a few seconds to a few minutes depending on the amount of code and narrative you have. It will also save your output!</p>
+<p>Open your STAT 201 folder. What do you notice happens once we’ve rendered?</p>
+</section>
+<section id="submit-to-canvas" class="level1">
+<h1>Submit to Canvas</h1>
+<p>When you are finished with your work and ready to submit, you should always render one last time. You should then submit the most recent rendered output (i.e.&nbsp;PDF) to the corresponding Canvas assignment. Sometimes I will also ask you to submit the accompanying .qmd file.</p>
 
 
 </section>
@@ -321,12 +335,15 @@ window.document.addEventListener("DOMContentLoaded", function (event) {
     icon: icon
   };
   anchorJS.add('.anchored');
-  const clipboard = new window.ClipboardJS('.code-copy-button', {
-    target: function(trigger) {
-      return trigger.previousElementSibling;
+  const isCodeAnnotation = (el) => {
+    for (const clz of el.classList) {
+      if (clz.startsWith('code-annotation-')) {                     
+        return true;
+      }
     }
-  });
-  clipboard.on('success', function(e) {
+    return false;
+  }
+  const onCopySuccess = function(e) {
     // button target
     const button = e.trigger;
     // don't keep focus
@@ -358,11 +375,48 @@ window.document.addEventListener("DOMContentLoaded", function (event) {
     }, 1000);
     // clear code selection
     e.clearSelection();
+  }
+  const getTextToCopy = function(trigger) {
+      const codeEl = trigger.previousElementSibling.cloneNode(true);
+      for (const childEl of codeEl.children) {
+        if (isCodeAnnotation(childEl)) {
+          childEl.remove();
+        }
+      }
+      return codeEl.innerText;
+  }
+  const clipboard = new window.ClipboardJS('.code-copy-button:not([data-in-quarto-modal])', {
+    text: getTextToCopy
   });
-  function tippyHover(el, contentFn) {
+  clipboard.on('success', onCopySuccess);
+  if (window.document.getElementById('quarto-embedded-source-code-modal')) {
+    const clipboardModal = new window.ClipboardJS('.code-copy-button[data-in-quarto-modal]', {
+      text: getTextToCopy,
+      container: window.document.getElementById('quarto-embedded-source-code-modal')
+    });
+    clipboardModal.on('success', onCopySuccess);
+  }
+    var localhostRegex = new RegExp(/^(?:http|https):\/\/localhost\:?[0-9]*\//);
+    var mailtoRegex = new RegExp(/^mailto:/);
+      var filterRegex = new RegExp('/' + window.location.host + '/');
+    var isInternal = (href) => {
+        return filterRegex.test(href) || localhostRegex.test(href) || mailtoRegex.test(href);
+    }
+    // Inspect non-navigation links and adorn them if external
+ 	var links = window.document.querySelectorAll('a[href]:not(.nav-link):not(.navbar-brand):not(.toc-action):not(.sidebar-link):not(.sidebar-item-toggle):not(.pagination-link):not(.no-external):not([aria-hidden]):not(.dropdown-item):not(.quarto-navigation-tool):not(.about-link)');
+    for (var i=0; i<links.length; i++) {
+      const link = links[i];
+      if (!isInternal(link.href)) {
+        // undo the damage that might have been done by quarto-nav.js in the case of
+        // links that we want to consider external
+        if (link.dataset.originalHref !== undefined) {
+          link.href = link.dataset.originalHref;
+        }
+      }
+    }
+  function tippyHover(el, contentFn, onTriggerFn, onUntriggerFn) {
     const config = {
       allowHTML: true,
-      content: contentFn,
       maxWidth: 500,
       delay: 100,
       arrow: false,
@@ -372,8 +426,17 @@ window.document.addEventListener("DOMContentLoaded", function (event) {
       interactive: true,
       interactiveBorder: 10,
       theme: 'quarto',
-      placement: 'bottom-start'
+      placement: 'bottom-start',
     };
+    if (contentFn) {
+      config.content = contentFn;
+    }
+    if (onTriggerFn) {
+      config.onTrigger = onTriggerFn;
+    }
+    if (onUntriggerFn) {
+      config.onUntrigger = onUntriggerFn;
+    }
     window.tippy(el, config); 
   }
   const noterefs = window.document.querySelectorAll('a[role="doc-noteref"]');
@@ -385,9 +448,244 @@ window.document.addEventListener("DOMContentLoaded", function (event) {
       try { href = new URL(href).hash; } catch {}
       const id = href.replace(/^#\/?/, "");
       const note = window.document.getElementById(id);
-      return note.innerHTML;
+      if (note) {
+        return note.innerHTML;
+      } else {
+        return "";
+      }
     });
   }
+  const xrefs = window.document.querySelectorAll('a.quarto-xref');
+  const processXRef = (id, note) => {
+    // Strip column container classes
+    const stripColumnClz = (el) => {
+      el.classList.remove("page-full", "page-columns");
+      if (el.children) {
+        for (const child of el.children) {
+          stripColumnClz(child);
+        }
+      }
+    }
+    stripColumnClz(note)
+    if (id === null || id.startsWith('sec-')) {
+      // Special case sections, only their first couple elements
+      const container = document.createElement("div");
+      if (note.children && note.children.length > 2) {
+        container.appendChild(note.children[0].cloneNode(true));
+        for (let i = 1; i < note.children.length; i++) {
+          const child = note.children[i];
+          if (child.tagName === "P" && child.innerText === "") {
+            continue;
+          } else {
+            container.appendChild(child.cloneNode(true));
+            break;
+          }
+        }
+        if (window.Quarto?.typesetMath) {
+          window.Quarto.typesetMath(container);
+        }
+        return container.innerHTML
+      } else {
+        if (window.Quarto?.typesetMath) {
+          window.Quarto.typesetMath(note);
+        }
+        return note.innerHTML;
+      }
+    } else {
+      // Remove any anchor links if they are present
+      const anchorLink = note.querySelector('a.anchorjs-link');
+      if (anchorLink) {
+        anchorLink.remove();
+      }
+      if (window.Quarto?.typesetMath) {
+        window.Quarto.typesetMath(note);
+      }
+      if (note.classList.contains("callout")) {
+        return note.outerHTML;
+      } else {
+        return note.innerHTML;
+      }
+    }
+  }
+  for (var i=0; i<xrefs.length; i++) {
+    const xref = xrefs[i];
+    tippyHover(xref, undefined, function(instance) {
+      instance.disable();
+      let url = xref.getAttribute('href');
+      let hash = undefined; 
+      if (url.startsWith('#')) {
+        hash = url;
+      } else {
+        try { hash = new URL(url).hash; } catch {}
+      }
+      if (hash) {
+        const id = hash.replace(/^#\/?/, "");
+        const note = window.document.getElementById(id);
+        if (note !== null) {
+          try {
+            const html = processXRef(id, note.cloneNode(true));
+            instance.setContent(html);
+          } finally {
+            instance.enable();
+            instance.show();
+          }
+        } else {
+          // See if we can fetch this
+          fetch(url.split('#')[0])
+          .then(res => res.text())
+          .then(html => {
+            const parser = new DOMParser();
+            const htmlDoc = parser.parseFromString(html, "text/html");
+            const note = htmlDoc.getElementById(id);
+            if (note !== null) {
+              const html = processXRef(id, note);
+              instance.setContent(html);
+            } 
+          }).finally(() => {
+            instance.enable();
+            instance.show();
+          });
+        }
+      } else {
+        // See if we can fetch a full url (with no hash to target)
+        // This is a special case and we should probably do some content thinning / targeting
+        fetch(url)
+        .then(res => res.text())
+        .then(html => {
+          const parser = new DOMParser();
+          const htmlDoc = parser.parseFromString(html, "text/html");
+          const note = htmlDoc.querySelector('main.content');
+          if (note !== null) {
+            // This should only happen for chapter cross references
+            // (since there is no id in the URL)
+            // remove the first header
+            if (note.children.length > 0 && note.children[0].tagName === "HEADER") {
+              note.children[0].remove();
+            }
+            const html = processXRef(null, note);
+            instance.setContent(html);
+          } 
+        }).finally(() => {
+          instance.enable();
+          instance.show();
+        });
+      }
+    }, function(instance) {
+    });
+  }
+      let selectedAnnoteEl;
+      const selectorForAnnotation = ( cell, annotation) => {
+        let cellAttr = 'data-code-cell="' + cell + '"';
+        let lineAttr = 'data-code-annotation="' +  annotation + '"';
+        const selector = 'span[' + cellAttr + '][' + lineAttr + ']';
+        return selector;
+      }
+      const selectCodeLines = (annoteEl) => {
+        const doc = window.document;
+        const targetCell = annoteEl.getAttribute("data-target-cell");
+        const targetAnnotation = annoteEl.getAttribute("data-target-annotation");
+        const annoteSpan = window.document.querySelector(selectorForAnnotation(targetCell, targetAnnotation));
+        const lines = annoteSpan.getAttribute("data-code-lines").split(",");
+        const lineIds = lines.map((line) => {
+          return targetCell + "-" + line;
+        })
+        let top = null;
+        let height = null;
+        let parent = null;
+        if (lineIds.length > 0) {
+            //compute the position of the single el (top and bottom and make a div)
+            const el = window.document.getElementById(lineIds[0]);
+            top = el.offsetTop;
+            height = el.offsetHeight;
+            parent = el.parentElement.parentElement;
+          if (lineIds.length > 1) {
+            const lastEl = window.document.getElementById(lineIds[lineIds.length - 1]);
+            const bottom = lastEl.offsetTop + lastEl.offsetHeight;
+            height = bottom - top;
+          }
+          if (top !== null && height !== null && parent !== null) {
+            // cook up a div (if necessary) and position it 
+            let div = window.document.getElementById("code-annotation-line-highlight");
+            if (div === null) {
+              div = window.document.createElement("div");
+              div.setAttribute("id", "code-annotation-line-highlight");
+              div.style.position = 'absolute';
+              parent.appendChild(div);
+            }
+            div.style.top = top - 2 + "px";
+            div.style.height = height + 4 + "px";
+            div.style.left = 0;
+            let gutterDiv = window.document.getElementById("code-annotation-line-highlight-gutter");
+            if (gutterDiv === null) {
+              gutterDiv = window.document.createElement("div");
+              gutterDiv.setAttribute("id", "code-annotation-line-highlight-gutter");
+              gutterDiv.style.position = 'absolute';
+              const codeCell = window.document.getElementById(targetCell);
+              const gutter = codeCell.querySelector('.code-annotation-gutter');
+              gutter.appendChild(gutterDiv);
+            }
+            gutterDiv.style.top = top - 2 + "px";
+            gutterDiv.style.height = height + 4 + "px";
+          }
+          selectedAnnoteEl = annoteEl;
+        }
+      };
+      const unselectCodeLines = () => {
+        const elementsIds = ["code-annotation-line-highlight", "code-annotation-line-highlight-gutter"];
+        elementsIds.forEach((elId) => {
+          const div = window.document.getElementById(elId);
+          if (div) {
+            div.remove();
+          }
+        });
+        selectedAnnoteEl = undefined;
+      };
+        // Handle positioning of the toggle
+    window.addEventListener(
+      "resize",
+      throttle(() => {
+        elRect = undefined;
+        if (selectedAnnoteEl) {
+          selectCodeLines(selectedAnnoteEl);
+        }
+      }, 10)
+    );
+    function throttle(fn, ms) {
+    let throttle = false;
+    let timer;
+      return (...args) => {
+        if(!throttle) { // first call gets through
+            fn.apply(this, args);
+            throttle = true;
+        } else { // all the others get throttled
+            if(timer) clearTimeout(timer); // cancel #2
+            timer = setTimeout(() => {
+              fn.apply(this, args);
+              timer = throttle = false;
+            }, ms);
+        }
+      };
+    }
+      // Attach click handler to the DT
+      const annoteDls = window.document.querySelectorAll('dt[data-target-cell]');
+      for (const annoteDlNode of annoteDls) {
+        annoteDlNode.addEventListener('click', (event) => {
+          const clickedEl = event.target;
+          if (clickedEl !== selectedAnnoteEl) {
+            unselectCodeLines();
+            const activeEl = window.document.querySelector('dt[data-target-cell].code-annotation-active');
+            if (activeEl) {
+              activeEl.classList.remove('code-annotation-active');
+            }
+            selectCodeLines(clickedEl);
+            clickedEl.classList.add('code-annotation-active');
+          } else {
+            // Unselect the line
+            unselectCodeLines();
+            clickedEl.classList.remove('code-annotation-active');
+          }
+        });
+      }
   const findCites = (el) => {
     const parentEl = el.parentElement;
     if (parentEl) {
@@ -428,6 +726,7 @@ window.document.addEventListener("DOMContentLoaded", function (event) {
 });
 </script>
 </div> <!-- /content -->
+
 
 
 
