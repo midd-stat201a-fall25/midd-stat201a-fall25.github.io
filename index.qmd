@@ -1,5 +1,5 @@
 ---
-title: "Advanced Introduction to Statistics and Data Science"
+title: "Introduction to Statistical and Data Science"
 ---
 
 Welcome to the website for Middlebury College’s Fall 2025 STAT 201A. On this website you will find the course syllabus, schedule, and assignments. The website is frequently updated throughout the semester, so please make a habit of refreshing the page. The icons at the top right will link to the supplemental textbook and Canvas.
