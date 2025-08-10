@@ -1,0 +1,36 @@
+---
+title: "Hypothesis test for single mean (CLT)"
+---
+
+Data `salinity` come from `openintro`.
+
+```{r message = F}
+library(tidyverse)
+library(openintro)
+```
+
+```{r fig.height = 3}
+# visualize and get a feel for the data (important for CLT conditions)
+x <- salinity$salinity_ppt
+n <- length(x)
+ggplot(salinity, aes(x = salinity_ppt)) +
+  geom_histogram(bins = 10)
+
+# create test statistic
+xbar <- mean(x)
+s <- sd(x)
+mu0 <- 38
+se <- s / sqrt(n)
+t <- (xbar - mu0)/se
+t
+
+# obtain p-value
+df <- n-1
+# option 1
+p_val <- 2 * (1 - pt(t, df))
+p_val
+
+# option 2: works no matter if t is positive or negative
+p_val <- 2 * (1 - pt(abs(t), df))
+p_val
+```

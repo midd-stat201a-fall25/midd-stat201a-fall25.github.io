@@ -1,0 +1,102 @@
+---
+title: "Simple Linear Regression: Inference"
+format: 
+  pdf:
+    geometry:
+      - top=2.5cm
+      - left=2.5cm
+      - right=2.5cm
+      - bottom=2.5cm
+include-in-header:
+  - text: |
+      \pagenumbering{gobble}
+      \usepackage{multicol}
+editor_options: 
+  chunk_output_type: console
+---
+
+\vspace{-2cm}
+
+```{r echo = F, message= F}
+knitr::opts_chunk$set(echo = F, warning = F, message= F, messabundance = F, fig.height = 2.25, fig.width = 4, fig.align = "center")
+library(tidyverse)
+library(openintro)
+library(broom)
+library(patchwork)
+library(kableExtra)
+```
+
+Data on 463 courses at UT Austin were obtained to answer the question: "What factors explain differences in instructor teaching evaluation scores?"
+
+We will look at the variables:
+
+-   `score`: course instructor's average teaching score, where average is calculated from all students in that course. Scores ranged from 1-5, with 1 being lowest.
+
+-   `bty_avg`: course instructor's average "beauty" score, where average is calculated from six student evaluations of "beauty". Scores ranged from 1-10, with 1 being lowest.
+
+**Linear regression model**: \vspace{1.5cm}
+
+## Hypothesis test
+
+**Hypotheses:** \vspace{3cm}
+
+**Are conditions for SLR met?**
+
+```{r fig.height=2.5, fig.width=10}
+p1 <- ggplot(evals, mapping = aes(x = bty_avg, y = score)) +
+  geom_point() +
+  labs(x = "Average beauty score", y = "Average rating")+
+  geom_smooth(method = "lm", se = FALSE)+
+  theme_minimal()
+eval_mod <- lm(score ~ bty_avg, data = evals)
+tidy_eval <- eval_mod |>
+  tidy()
+p2 <- eval_mod |>
+  augment() |>
+  ggplot(aes(x = .resid)) +
+  geom_histogram(bins = 25) +
+  labs(x = "Residual") +
+  theme_minimal()
+
+p3 <- eval_mod |>
+  augment() |>
+  ggplot(aes(x = bty_avg, y= .resid)) +
+  geom_point()+
+  labs(y = "Residual", x = "Average beauty score") +
+  geom_hline(yintercept = 0, linetype = "dashed") +
+  theme_minimal()
+
+
+p1 + p2 + p3
+```
+
+\vspace{4cm}
+
+Assuming conditions met...
+
+```{r}
+tidy_eval |>
+  kable(digits = c(3,3,3,3,5)) 
+```
+
+-   Fitted model: \vspace{1cm}
+
+-   Interpretation of intercept and slope: \vspace{4.5cm}
+
+**Calculate the test-statistic and p-value for the hypotheses:** \vspace{4cm}
+
+::: {layout-ncol="2"}
+**If instead** $H_{A}: \beta_{1} > 0$, what code would you write for the p-value?
+
+**If instead** $H_{A}: \beta_{1} < 0$, what code would you write for the p-value?
+:::
+
+\vspace{1.5cm}
+
+## Confidence Interval
+
+Let's obtain a 95% CI for $\beta_{1}$. Assuming conditions for SLR met...
+
+**Critical value code**: \vspace{1cm}
+
+**Construct your interval**: \vspace{2cm}

@@ -1,0 +1,346 @@
+---
+title: "Numerical data"
+subtitle: "Visualization and summary statistics (part 1)"
+date: "February 17, 2025"
+title-slide-attributes:
+    data-background-image: "figs/bikeshare-plots.png"
+    data-background-size: contain
+    data-background-opacity: "0.2"
+format: 
+  revealjs:
+    theme: custom.scss
+    transition: none
+    incremental: true
+    scrollable: true
+    chalkboard: true
+editor: visual
+editor_options: 
+  chunk_output_type: console
+draft: false
+---
+
+# Housekeeping
+
+```{r echo=FALSE, message=FALSE, warning=FALSE}
+knitr::opts_chunk$set(echo = F, warning = F, messabundance = F)
+library(tidyverse)
+library(readr)
+plot_theme <- theme(text = element_text(size = 16))
+```
+
+-   Where to find feedback on coding practice
+-   Problem set 1 due tonight!
+-   Office hours today 2-3pm
+-   Activity!
+
+## Variables types
+
+-   Variables can be broadly broken into two categories: numerical (quantitative) or categorical (qualitative)
+
+-   **Numerical** variables take a wide range of numerical values, and it is sensible to add/subtract/do mathematical operations with those values. Two types:
+
+    1.  **Discrete** if it can only take on finitely many numerical values within a given interval
+
+    2.  **Continuous** if it can take on any infinitely many values within a given interval
+
+-   **Categorical** variables are essentially everything else (more on this next week!)
+
+-   Examples and non-examples?
+
+## Example
+
+We will be looking at some medical insurance data throughout these slides.
+
+::: discuss
+Which of the following variables are numerical? Which are discrete vs. continuous?
+:::
+
+```{r}
+insurance <- read_csv("data/insurance.csv") 
+insurance |>
+  DT::datatable(options = list(pageLength = 5))
+
+```
+
+# Summary statistics for numerical data
+
+## Condensing information
+
+-   We often care about variable's **distribution**: the different values the variable can take on along with how often
+
+-   Rather than provide someone with an entire dataset, it is more useful to provide quick "snapshot" information
+
+-   Two pieces of quantitative information that describe a distribution:
+
+    -   Center
+
+    -   Spread
+
+## Mean
+
+-   Most common way to measure the center of the distribution of a numerical variable is using the **mean** (also called the **average**)
+
+-   ***Sample*** **mean**: a mean calculated using sampled data. The sample mean is typically denoted as $\bar{x}$
+
+    -   $x$ is a placeholder for the variable of interest (e.g. `BMI`, `charges`)
+    -   The bar communicates that we are looking at the average
+
+-   The sample mean is the sum over all the observed values of the variable, divided by total number of observations $n$:
+
+::: fragment
+$$\bar{x} = \frac{x_{1} + x_{2} + \ldots x_{n}}{n} = \frac{1}{n} \sum_{i=1}^{n} x_{i}$$
+:::
+
+## Mean (cont.)
+
+-   The sample mean $\bar{x}$ is an example of a sample statistic
+
+-   The mean over the entire population is an example of a population parameter. The **population mean** is denoted $\mu$ (Greek letter mu)
+
+    -   The sample mean $\bar{x}$ is often used as an estimate for $\mu$ (more on this in a few weeks!)
+
+## Examples
+
+-   Let's calculate the sample mean weight of a piece of candy in our bag. Let $x$ be the weight of a candy.
+
+    -   ::: discuss
+        Calculate your $\bar{x}$
+        :::
+
+    -   **Note**: we did not need individual values $x_{1}, x_{2},\ldots$ to calculate $\bar{x}$!
+
+-   Can we obtain the population mean?
+
+    -   $\mu=$
+
+:::: fragment
+::: discuss
+-   What is the average of the following values? $\qquad 1, 4, 4$
+
+-   If instead there were ten 1's and twenty 4's, would the average be the same?
+
+-   Thus, we see that means depend on proportions!
+:::
+::::
+
+## Variability
+
+-   At the heart of statistics is also the **variability** or spread of the distribution of the variable
+
+-   We will work with variance and standard deviation, which are ways to describe how spread out data are *from their mean*
+
+::: fragment
+```{r fig.width=8, fig.height=3}
+set.seed(10)
+n <- 100
+x <- seq(-5,5,0.01)
+y1 <- dnorm(x, 0, 0.25)
+y2 <- dnorm(x, 0, 1.25)
+data.frame(x = x, data1 = y1, data2 = y2) |>
+  pivot_longer(cols = 2:3, names_to = "variable", values_to = "density") %>%
+  ggplot(aes(x=x, y = density)) +
+  geom_line() +
+  facet_wrap(~variable) +
+  scale_y_continuous(NULL, breaks = NULL)+
+  geom_vline(xintercept =  0, col = "orange", linetype = "dashed", size = 1) +
+  plot_theme
+```
+:::
+
+## Deviation
+
+We begin with **deviation**, which is the distance or difference between an observation from the (sample) mean
+
+-   How might we write this using statistical notation?
+-   Let's write out the deviations of your five sampled weights
+
+## Variance and standard deviation
+
+-   The **sample variance** $s^2$ squares the deviations and takes an average:
+
+    $$
+    s^2 = \frac{1}{n-1}\sum_{i=1}^{n} (x_{i} - \bar{x})^2
+    $$
+
+    -   Let's talk about this notation and intuition behind this formula. In particular, there are at least two things to note
+
+-   ::: discuss
+    Set-up the calculation of the sample variance of your sample
+    :::
+
+    -   I will calculate this in `R`
+
+-   The **sample standard deviation** $s$ is the simply the square root of the sample variance ($s = \sqrt{s^2}$)
+
+## Variance and standard deviation (cont.)
+
+-   Like the mean, the population values for variance and standard deviation are denoted with Greek letters:
+
+    -   $\sigma$ for population standard deviation (Greek letter "sigma")
+
+    -   $\sigma^2$ for population variance
+
+-   ::: discuss
+    If the calculation of standard deviation is a more complicated quantity than the variance, why do we bother with standard deviation?
+    :::
+
+## Live code
+
+Functions to calculate sample mean, variance, and standard deviation in `R`. Each expects a vector of numerical values as input:
+
+::: nonincremental
+-   `mean()`
+
+-   `var()`
+
+-   `sd()`
+:::
+
+# Visualizing numerical data
+
+## Scatterplots
+
+**Scatterplots** are *bivariate* (two-variable) visualizations that provide a case-by-case view of the data for two numerical variables
+
+-   Each point represents the observed pair of values of variables 1 and 2 for a case in the dataset
+
+::: fragment
+```{r fig.width=8, fig.height=4, fig.align='center'}
+insurance |>
+  ggplot(aes(x = bmi, y = charges))+
+  geom_point(size = 2) +
+  ylab("Charges ($)") +
+  xlab("Body mass index")  +
+  plot_theme
+```
+:::
+
+## Scatterplots (cont.)
+
+-   How do we determine which variable to put on each axis?
+
+-   What do scatterplots reveal about the data, and how are they useful?
+
+::: notes
+Associations/patterns (linear, exponential, etc) between two variables. They might not tell the complete story, however!
+
+Positive vs negative associations
+:::
+
+## Visualizing univariate numerical data
+
+-   To visualize the distribution (i.e. behavior) of a single variable, we could create a dot plot where:
+
+    -   Each case is plotted on a horizontal axis as a dot
+
+    -   Values that appear multiple times in the dataset would have stacked dots
+
+-   ::: discuss
+    Pros and cons?
+    :::
+
+-   In the following, we have a dot plot of `BMI` rounded to the nearest integer.
+
+## Binning
+
+-   We will sacrifice precision for convenience by *binning:*
+    -   Segment the variable into equal-sized bins
+    -   Visualize the value of each observation using its corresponding bin
+-   For example, the `bmi` variable has observed values of $15.96$ through $49.6$. Consider the following bins of size 5: \[15, 19), \[19, 23), \[23, 27), ..., \[49, 53)
+    -   Convention of left or right inclusive?
+-   We tabulate/count up the number of observations that fall into each bin.
+
+## Histograms
+
+**Histograms** are visualizations that display the binned counts as bars for each bin.
+
+-   Histograms provide a view of the **density** of the data (the values the data take on as well as how often)
+
+::::::: columns
+:::: {.column width="30%"}
+::: fragment
+```{r}
+insurance |>
+  mutate(bmi_bin = case_when( bmi < 19 ~ "[15, 19)",
+                    bmi >= 19 & bmi < 23 ~ "[19, 23)",
+                    bmi >= 23 & bmi < 27 ~ "[23, 27)",
+                    bmi >= 27 & bmi < 31 ~ "[27, 31)",
+                    bmi >= 31 & bmi < 35 ~ "[31, 35)",
+                    bmi >= 35 & bmi < 39 ~ "[35, 39)",
+                    bmi >= 39 & bmi < 43 ~ "[39, 43)",
+                    bmi >= 43 & bmi < 49 ~ "[43, 49)",
+                    bmi >= 49 & bmi < 53 ~ "[49, 52)")) |>
+  count(bmi_bin, name = "count") |>
+  kableExtra::kable()
+
+```
+:::
+::::
+
+:::: {.column width="70%"}
+::: fragment
+```{r fig.width=8, fig.height=5, fig.align="center"}
+insurance |>
+  ggplot(aes(x = bmi)) +
+  geom_histogram(breaks = seq(15, 53, 4), col = "white") +
+  scale_x_continuous(breaks = seq(15, 50, 5)) +
+  scale_y_continuous(breaks = seq(0, 60, 10)) +
+  xlab("Body mass index") +
+  theme(text = element_text(size = 24))
+```
+:::
+::::
+:::::::
+
+## Describing distributions
+
+A convenient way to describe a variable's behavior is through the ***shape*** of its distribution. Using histograms, we should identify:
+
+1.  **Skewness** (or lack thereof):
+    -   Distributions with long tails to the left are called **left-skewed**
+    -   Distributions with long tails to the right are **right-skewed**
+    -   If not skewed, then the distribution is **symmetric**
+2.  **Modes**: prominent peaks in the distribution
+    -   Distribution may be **unimodal** (one peak), **bimodal** (two peaks), or **multimodal** (more than two peaks)
+    -   Peaks need not be same height
+
+## Histograms (cont.)
+
+::: discuss
+How would you describe the shape (i.e. skewness and modality) of the distributions in the following two histograms?
+:::
+
+::::: columns
+::: {.column width="\"50%"}
+```{r fig.height=8}
+insurance |>
+  ggplot(aes(x = bmi)) +
+  geom_histogram(breaks = seq(15, 53, 4)) +
+  scale_x_continuous(breaks = seq(15, 50, 5)) +
+  scale_y_continuous(breaks = seq(0, 60, 10)) +
+  xlab("Body mass index") +
+  theme(text=element_text(size = 30))
+```
+:::
+
+::: {.column width="\"50%"}
+```{r fig.height=8}
+insurance |>
+  ggplot(aes(x = charges)) +
+  geom_histogram(binwidth = 2500) +
+  xlab("Charges ($)") +
+  theme(text=element_text(size = 30))
+```
+:::
+:::::
+
+## Creating visualizations
+
+Working in your groups:
+
+::: nonincremental
+1.  Using a histogram, visualize the distribution of the sample mean weights from our activity
+2.  Convince yourselves as a group: what is does a case represent in this data?
+3.  Describe the shape of your distribution (i.e. skewness and modality)
+4.  Obtain the sample mean and standard deviation of the sample means
+:::

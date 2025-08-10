@@ -1,0 +1,453 @@
+---
+title: "Categorical data"
+subtitle: "Visualizations and contingency tables"
+date: "February 24, 2024"
+title-slide-attributes:
+    data-background-image: "figs/bikeshare-plots.png"
+    data-background-size: contain
+    data-background-opacity: "0.2"
+format: 
+  revealjs:
+    theme: custom.scss
+    transition: none
+    incremental: true
+    scrollable: true
+editor: visual
+editor_options: 
+  chunk_output_type: console
+draft: false
+---
+
+# Housekeeping
+
+```{r echo = F, warning = F}
+knitr::opts_chunk$set(echo = F)
+library(tidyverse)
+library(readr)
+library(knitr)
+plot_theme <- theme(text = element_text(size = 24))
+insurance <- read_csv("data/insurance.csv")
+```
+
+-   Problem set 2 due tomorrow! Please be sure to submit both written and rendered parts by combining into a single PDF
+-   Office hours canceled today, moved to tomorrow 2-3pm
+-   Problem set 1 graded
+
+## Categorical data
+
+-   Recall that a variable is either numerical or categorical
+
+-   **Categorical** variables are variables that can take one of a limited (usually fixed) number of possible values, known as **levels**
+
+    -   Represent data that can be divided into groups
+
+-   Two types:
+
+    -   **Ordinal**: the levels have a special ordering
+
+    -   **Nominal**: the levels don't have an ordering
+
+        -   We will almost exclusively treat our categorical variables as nominal in this class
+
+-   Examples and non-examples?
+
+## Insurance data
+
+```{r}
+insurance |>
+  DT::datatable(options = list(pageLength = 5))
+```
+
+## Univariate EDA
+
+If we are interested in understanding the distribution of a single categorical variable, it is common to:
+
+::::::: columns
+:::: {.column width="40%"}
+::: fragment
+Display a **frequency table**, which is a table of counts of each level
+
+```{r}
+insurance |>
+  count(smoker)
+```
+:::
+::::
+
+:::: {.column width="60%"}
+::: fragment
+Create a **bar plot**, where different levels are displayed on one axis and the counts are portrayed on the other
+
+```{r}
+ggplot(insurance, aes(x = smoker)) +
+  geom_bar() +
+  plot_theme
+```
+:::
+::::
+:::::::
+
+::: notes
+How do bar plots differ from histograms?
+:::
+
+## Bivariate EDA
+
+-   Perhaps we are interested in examining the distribution of two categorical variables at the same time
+
+-   Summarize the distribution using a two-way table known as a **contingency table**:
+
+    -   Each value in the table counts the number of times a particular combination of variable 1 and variable 2 levels occurred in data
+
+        ::: fragment
+        ```{r}
+        ct <- insurance |>
+          group_by(smoker, sex) |>
+          summarise(n = n()) |>
+          spread(sex, n) |>
+          ungroup() |>
+          kable(caption = "Contingency table") |>
+          kableExtra::column_spec(1, border_right = T)
+        ct
+        ```
+        :::
+
+-   ::: discuss
+    How can we use contingency table to obtain the distribution of just one of the variables?
+    :::
+
+## Dodged bar plot
+
+The **dodged bar plot** directly converts the contingency table to a visualization.
+
+```{r}
+p1 <- ggplot(insurance, aes(x = smoker, fill = sex)) +
+  geom_bar(position = "dodge") +
+  ggtitle("Dodged bar plot") +
+  theme(text = element_text(size = 30))
+p2 <- ggplot(insurance, aes(x = smoker, fill = sex)) +
+  geom_bar() +
+  ggtitle("Stacked bar plot") +
+  theme(text = element_text(size = 30))
+p3 <- ggplot(insurance, aes(x = smoker, fill = sex)) +
+  geom_bar(position = "fill") +
+  ggtitle("Standardized bar plot")  +
+  theme(text = element_text(size = 30))
+```
+
+:::::: columns
+::: {.column width="50%"}
+```{r}
+ct
+```
+:::
+
+:::: {.column width="50%"}
+::: fragment
+```{r}
+p1
+```
+:::
+::::
+::::::
+
+## Stacked bar plot
+
+::::: columns
+::: {.column width="60%"}
+The **stacked bar plot** looks at the counts either row-wise or column-wise.
+:::
+
+::: {.column width="40%"}
+```{r}
+ct
+```
+:::
+:::::
+
+::::::: columns
+:::: {.column width="50%"}
+::: fragment
+```{r fig.height=8}
+p2
+```
+:::
+::::
+
+:::: {.column width="50%"}
+::: fragment
+```{r fig.height=8}
+ggplot(insurance, aes(fill = smoker, x = sex)) +
+  geom_bar() +
+  ggtitle("Stacked bar plot") +
+  theme(text =element_text(size = 30))
+```
+:::
+::::
+:::::::
+
+## Proportions
+
+Can convert the contingency table to proportions row-wise or column-wise to obtain the fractional breakdown of one variable in another.
+
+:::::: columns
+::: {.column width="50%"}
+```{r}
+ct
+```
+:::
+
+:::: {.column width="50%"}
+::: fragment
+```{r}
+insurance |>
+  group_by(smoker, sex) |>
+  summarise(n = n()) |>
+  ungroup() |>
+  group_by(smoker) |>
+  mutate(n = round(n/sum(n), 3)) |>
+  spread(sex, n)  |>
+  kable(caption = "Row-wise proportions") |>
+  kableExtra::column_spec(1, border_right = T)
+```
+:::
+::::
+::::::
+
+:::: fragment
+::: discuss
+-   What does the quantity 0.378 represent?
+-   If we take the proportions row-wise, does each row need to sum to 1?
+-   If we take the proportions row-wise, does each column need to sum to 1?
+:::
+::::
+
+## Proportions (cont.)
+
+::: discuss
+Set up how to find the column-wise proportions using our contingency table
+:::
+
+```{r}
+ct
+```
+
+## Standardized bar plot
+
+The **standardized bar plot** visualizes these row-wise or column-wise proportions.
+
+```{r}
+ggplot(insurance, aes(fill = smoker, x = sex)) +
+  geom_bar(position = "fill") +
+  ggtitle("Standardized bar plot")  +
+  theme(text = element_text(size = 24))
+```
+
+## Choosing a bar plot
+
+```{r fig.align='center'}
+ggpubr::ggarrange(p1 + ggtitle("Dodged"),
+                  p2 + ggtitle("Stacked"),
+                  p3 + ggtitle("Standardized"), ncol = 3, nrow = 1,
+                  common.legend = T, legend = "bottom", widths = c(2,2,2))
+```
+
+::: discuss
+-   Using any of the plots, do you believe the smoker status and sex are associated?
+-   When might you prefer to use the stacked, dodged, or standardized bar plot?
+:::
+
+## Live code
+
+-   Bar plots
+-   Aesthetics: fill, shape
+-   Faceting
+-   Plot background
+
+## Bar plot (univariate)
+
+```{r echo = T}
+ggplot(data = insurance, mapping = aes(x = smoker)) +
+  geom_bar()
+```
+
+::: {style="color: maroon"}
+Note: if your data are already in the form of frequency table, we should use `geom_col()` instead!
+:::
+
+## Bivariate bar plots
+
+::::: columns
+::: {.column width="50%"}
+```{r eval = F, echo = T}
+ggplot(insurance, aes(x = smoker, fill = sex)) +
+  geom_bar(position = "dodge")  
+```
+
+```{r fig.height=10}
+ggplot(insurance, 
+       aes(x = smoker, fill = sex)) +
+  geom_bar(position = "dodge")  +
+  theme(text = element_text(size = 30))
+```
+:::
+
+::: {.column width="50%"}
+```{r echo = T, eval = F}
+ggplot(insurance, aes(x = smoker, fill = sex)) +
+  geom_bar(position = "stack") # this is default
+```
+
+```{r fig.height=10}
+ggplot(insurance, 
+       aes(x = smoker, fill = sex)) +
+  geom_bar(position = "stack") +
+  theme(text = element_text(size = 30))
+```
+:::
+:::::
+
+## Bivariate bar plots (cont.)
+
+```{r eval = F, echo = T}
+ggplot(insurance, aes(x = smoker, fill = sex)) +
+  geom_bar(position = "fill")
+```
+
+```{r}
+ggplot(insurance,  aes(x = smoker, fill = sex)) +
+  geom_bar(position = "fill") +
+  theme(text = element_text(size = 30))
+```
+
+How might we make the bars horizontal instead of vertical?
+
+## Visualizing numerical and categorical
+
+```{r eval = F, echo = T}
+ggplot(data = insurance, mapping = aes(x = bmi, y = charges, col = smoker)) +
+  geom_point() 
+```
+
+```{r echo = F}
+ggplot(data = insurance, mapping = aes(x = bmi, y = charges, 
+                                       col = smoker)) +
+  geom_point(size = 2) +
+  theme(text = element_text(size = 30))
+```
+
+::: {style="color: maroon"}
+What do you notice about the legend for color?
+:::
+
+## Aesthetic: shape
+
+```{r echo = T, eval = F}
+ggplot(data = insurance, mapping = aes(x = bmi, y = charges, shape = smoker)) +
+  geom_point()
+```
+
+```{r}
+ggplot(data = insurance, mapping = aes(x = bmi, y = charges, shape = smoker)) +
+  geom_point(size = 2) +
+  theme(text = element_text(size = 30))
+```
+
+## facet_wrap()
+
+Faceting is used when we want to split a particular visualization by the values of another (categorical) variable
+
+:::::: columns
+::: {.column width="50%"}
+```{r echo = T, eval = F}
+ggplot(data = insurance, 
+       mapping = aes(x = bmi)) +
+  geom_histogram() +
+  facet_wrap(~ smoker) 
+```
+
+```{r}
+ggplot(data = insurance, 
+       mapping = aes(x = bmi)) +
+  geom_histogram() +
+  facet_wrap(~ smoker) +
+  theme(text = element_text(size = 25))
+```
+:::
+
+:::: {.column width="50%"}
+::: fragment
+```{r echo = T, eval = F}
+ggplot(data = insurance, 
+       mapping = aes(x = bmi)) +
+  geom_histogram() +
+  facet_wrap(~ smoker, scales = "free_y")
+```
+
+```{r}
+ggplot(data = insurance, mapping = aes(x = bmi)) +
+  geom_histogram() +
+  facet_wrap(~ smoker, scales = "free_y") +
+  theme(text = element_text(size = 25))
+```
+:::
+::::
+::::::
+
+## facet_grid()
+
+```{r echo = T, eval = F}
+ggplot(data = insurance, mapping = aes(x = bmi)) +
+  geom_histogram() +
+  facet_grid(sex ~ smoker)
+```
+
+```{r}
+ggplot(data = insurance, mapping = aes(x = bmi)) +
+  geom_histogram() +
+  facet_grid(sex ~ smoker) +
+  theme(text = element_text(size = 25))
+```
+
+## Side-by-side box plots
+
+```{r echo = T, eval = F}
+ggplot(data = insurance, 
+       mapping = aes(x = smoker, y = bmi)) +
+  geom_boxplot()
+```
+
+```{r}
+ggplot(data = insurance, 
+      mapping = aes(x = smoker, y = bmi)) +
+  geom_boxplot()+
+  theme(text = element_text(size = 25))
+```
+
+Like faceting, but only for box plots.
+
+## Changing plot theme
+
+::::: columns
+::: {.column width="50%"}
+Change the background of plots by adding on any one of the following:
+
+-   `theme_bw()`, `theme_minimal()`, `theme_gray()`, `theme_void()` and a few more (see all options by checking the help file for any one of these)
+:::
+
+::: {.column width="50%"}
+```{r echo = T, eval = F}
+ggplot(data = insurance, 
+       mapping = aes(x = smoker, y = bmi)) +
+  geom_boxplot() +
+  theme_minimal()
+```
+
+```{r}
+ggplot(data = insurance, mapping = aes(x = smoker, y = bmi)) +
+  geom_boxplot()+
+  theme_minimal()+
+  theme(text = element_text(size = 25))
+```
+:::
+:::::

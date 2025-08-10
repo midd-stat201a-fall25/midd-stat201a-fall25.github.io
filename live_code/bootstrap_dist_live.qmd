@@ -1,0 +1,29 @@
+---
+title: "Bootstrap distribution"
+date: "March 24, 2024"
+editor_options: 
+  chunk_output_type: console
+format:
+    html:
+      code-line-numbers: true
+---
+```{r echo =F}
+set.seed(1)
+```
+
+```{r message = F}
+library(tidyverse)
+x <- c("no","no","no","no","no","no","no","no","yes","yes")
+n <- length(x)
+B <- 1000
+boot_props <- rep(NA, B)
+for(b in 1:B){
+  x_b <- sample(x, size = n, replace = TRUE)
+  boot_props[b] <- sum(x_b == "yes")/n
+}
+
+data.frame(props = boot_props) |>
+  ggplot(aes(x = props)) +
+  geom_histogram(bins = 10)
+```
+

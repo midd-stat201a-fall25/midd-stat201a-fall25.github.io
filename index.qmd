@@ -1,0 +1,37 @@
+---
+title: "Advanced Introduction to Statistics and Data Science"
+---
+
+Welcome to the website for Middlebury College’s Spring 2025 STAT 201. On this website you will find the course syllabus, schedule, and assignments. The website is frequently updated throughout the semester, so please make a habit of refreshing the page. The icons at the top right will link to the supplemental textbook and Canvas.
+
+------------------------------------------------------------------------
+
+## Announcements
+
+-   Final project work!
+
+    -   Sign up for 1:1 meetings outside of office hours [here](https://calendly.com/beckytang/1-1-with-prof-tang)
+
+------------------------------------------------------------------------
+
+## Course details
+
+**Instructor:** Prof. Becky Tang (she/her)
+
+-   Office: WNS 214
+-   Email: btang\@middlebury.edu
+
+**Meeting times and location:**
+
+-   MW 11:15am-12:30pm in Warner 011
+-   R 11:15am-12:30pm in Warner 101
+
+**Office hours**: Monday 2-3pm, Friday 10am-12pm
+
+**TA hours** in Quantitative Center (MBH 202):
+
+-   Sunday, Monday, Thursdays 7-9pm
+
+The [syllabus](syllabus.pdf) (most recent update: 2/7/25) outlines our course policies and a rough schedule. Once classes begin, you should follow the schedule and due dates found on this website.
+
+-   Note the textbooks are optional in this class. However, several practice and homework problems are pulled from the OpenIntro textbook.

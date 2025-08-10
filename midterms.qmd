@@ -1,0 +1,100 @@
+---
+title: "Midterms"
+---
+
+## Midterm 2
+
+### Revision opportunity
+
+-   All questions except for 1c, 1d, 1f, and 2d are eligible for points back
+
+-   Re-do all desired problems on a separate sheet of paper, clearly indicating each problem.
+
+    -   For the multiple choice questions: explain why your original selection was incorrect, and why your new selection is correct.
+
+-   **You should work alone and only use your notes to do your revisions. You cannot consult other people (besides Professor Tang), ChatGPT or other online tools.** To acknowledge this, on your revision, write and sign the Honor Code Pledge "I have neither given nor received unauthorized aid on this assignment." **Revisions submitted without an honor code pledge will not be considered for points back.**
+
+-   Staple revisions to original midterm, and submit them by **Friday 5/9 3:00pm** to Professor Tang's office. There will be a box outside her door where you can drop off the revisions. No peeking!
+
+### Logistics
+
+-   **When and where**: Thursday, 5/1/25 **during class** (75 minutes)
+
+    -   NOTE: this is a change from the syllabus which originally stated an evening midterm.
+
+-   **What**: inference content (Weeks 6-10)
+
+    -   Note: some concepts from Weeks 1-4 are important to understand concepts from Weeks 6-10, but you will not be explicitly assessed on the earlier content
+
+    -   This is a *written* exam. No `dplyr` or `ggplot` code will be assessed, but feel comfortable hand-writing code to obtain p-values and critical values!
+
+    -   You are allowed to bring a single, one-sided 8.5x11 inch piece of paper as your note sheet. **Your note sheet cannot have any example problems.** You will submit your note sheet alongside your midterm. No other outside resources will be allowed.
+
+    -   A calculator will be provided for you.
+
+    -   You will be provided a table [z](z_table.pdf), [t](t_table.pdf), and [$\chi^2$](chi_square_table.pdf) table. We will familiarize ourselves with them in class prior to the midterm.
+
+### Preparation
+
+-   Come to office hours!
+
+<!-- -->
+
+-   My personal working strategy:
+
+    1.  First review your notes and homework
+    2.  Make a first draft of your note sheet, then do some practice problems using only your note sheet to see if what you wrote on it is actually useful for you
+    3.  Make a new note sheet
+    4.  Repeat as necessary
+
+-   Extra practice problems are available [here](midterms/midterm2_practice_probs.pdf).
+
+-   A previous midterm is shared [here](midterms/midterm2_f24.pdf). Note, there are some concepts on the previous midterm that were not taught this semester (e.g. mean difference in paired data).
+
+-   You should make sure you understand how to read the distribution tables. Prof. Tang will not be able to help you read them during the midterm.
+
+    ------------------------------------------------------------------------
+
+## Midterm 1
+
+### Logistics
+
+-   **When and where**: Thursday, 3/13/25 during class (75 minutes)
+
+-   **What**: content through end of Week 4 (i.e. through Simpson's Paradox)
+
+    -   This includes homework and coding practices
+    -   The midterm will be done entirely in a `.qmd` that will be made available to you at the start of class 11:15am on 3/13. The midterm ends at 12:30pm, but you will have an extra 5 minutes to render the assignment and submit to Gradescope. If your submission is not in by 12:35pm, you will receive an automatic 25% penalty.
+    -   Non-coding concepts are also fair game for the midterm!
+
+-   **Important**: Prof. Tang will be proctoring the exam
+
+    -   However, Prof. Tang will *not* help de-bug code or fix rendering issues.
+
+-   You will not have a problem set assigned this week!
+
+-   Friday 3/14 office hours will be moved to Wednesday 3/12 3:15-4:15pm instead.
+
+-   This midterm will be open note in the sense that your notes, my slides, and your homework/coding practices are all available to you.
+
+### Preparation
+
+-   The best preparation you can do for the midterm is to go through your homework and coding practices and be honest with yourself about what you do/don't understand. This means going through the painful process of looking at feedback on Gradescope. For the concepts that you need to practice more, try more problems (see below)!
+
+-   Just because the midterm is open note, this does not mean you cannot study and prepare. You will not have time to try and re-learn what all the functions we learned do!
+
+    -   I suggest going through each of the `ggplot` and `dplyr` functions that we've seen in the course and ensuring you know how they work and when to use them!
+
+-   For extra practice, additional coding problems are made available below. These questions are not necessarily representative of the typical scope and difficulty of individual exam questions. This review is not comprehensive, nor does it represent the expected amount of time for it will take for you to complete the midterm.
+
+    -   In-class practice: [rendered version](midterms/midterm1_practice_inclass_rendered.qmd)
+
+        -   [Solutions](midterms/midterm1_practice_inclass_solns.pdf) (note that many problems have many different solutions)
+
+    -   Practice 1: [rendered version](midterms/midterm1_practice1_render.qmd) ([solutions](midterms/midterm1_practice1_solns.pdf))
+
+        -   `.qmd` template {{< downloadthis midterms/midterm1_practice1.qmd dname="midterm1_practice1" label=".qmd" id=mtcars-btn >}}
+
+    -   Practice 2: [rendered version](midterms/midterm1_practice2_rendered.qmd) ([solutions](midterms/midterm1_practice2_solns.pdf))
+
+        -   `.qmd` template {{< downloadthis midterms/midterm1_practice2.qmd dname="midterm1_practice2" label=".qmd" id=mtcars-btn >}}

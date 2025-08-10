@@ -1,0 +1,44 @@
+---
+title: "ggplot coding practice"
+author: "Your name"
+date: "2/20/2025"
+format: pdf
+---
+
+1.  Load the tidyverse and openintro packages in the code chunk below, then be sure to run the code chunk. We will work with the `mammals` data from the `openintro` package.
+
+```{r}
+# packages
+
+
+```
+
+If you want to see the data frame, type `View(mammals)` in the **Console**. That will open up a new tab displaying the data frame in the Source pane.
+
+2.  Using ggplot, make a boxplot of the body weights of these mammals.
+
+```{r}
+
+```
+
+3. This plot doesn't seem useful at all! Modify your code above to get rid of/hide the potential outliers. Check out the help file for the appropriate function to figure out how to do this!
+
+4.  Using ggplot, make a scatterplot of the gestation time and life span. (Gestation time is how long a baby is in the uterus.) You should notice that a Warning message appears. Describe in common language what the warning is trying to tell you.
+
+```{r}
+
+```
+
+**Answer:**
+
+5.  Now, let's make your plot from above more presentable. Using the `labs()` function, change the axes on your plots to have better titles that include the units. Also add a title. You may copy and paste your from above to get started. Start practicing good coding style by having line breaks between layers of the code!
+
+```{r}
+
+```
+
+6.  Let's add color to your plot! Modify your code above to map the color of the points to the total amount of sleep each mammal gets. You might notice that some points are colored gray, instead of blue. Why do you think that is?
+
+**Answer**:
+
+Once you're finished, be sure to render and submit the outputted PDF file to the corresponding Gradescope assignment!

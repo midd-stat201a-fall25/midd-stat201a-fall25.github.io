@@ -1,0 +1,266 @@
+---
+title: "Hypothesis testing for a mean"
+date: "April 3, 2025"
+title-slide-attributes:
+    data-background-image: "figs/bikeshare-plots.png"
+    data-background-size: contain
+    data-background-opacity: "0.2"
+format: 
+  revealjs:
+    theme: custom.scss
+    transition: none
+    incremental: true
+    scrollable: true
+editor: visual
+editor_options: 
+  chunk_output_type: console
+draft: false
+---
+
+## Housekeeping
+
+-   DataFest tomorrow! See you there!
+
+```{r echo = F, message= F}
+knitr::opts_chunk$set(echo = F, warning = F, messabundance = F)
+library(tidyverse)
+library(openintro)
+library(readr)
+library(kableExtra)
+plot_theme <- theme(text = element_text(size = 24))
+source("../stat201_fns.R")
+```
+
+## Recap
+
+-   We have seen how to perform hypothesis tests for questions involving the following:
+
+    -   A single proportion (coffee consumption)
+
+    -   Independence of two categorical variables (banker sex discrimination)
+
+        -   Think of as one population
+
+    -   Difference in two proportions (blood thinner)
+
+        -   Think of as two populations
+
+-   We are now going to see another hypothesis test, this time for *numerical* data
+
+# Test for a single mean
+
+## Running example + form hypotheses
+
+We will use the `duke_forest` dataset provided in `openintro`. It provides data on some houses that were sold in the Duke Forest neighborhood of Durham, NC in November 2020.
+
+```{r echo = F}
+mu0 <- 5
+```
+
+-   Before we look at the data, we should form our hypotheses. Suppose I am interested in learning if the average price of houses in Duke Forest is \$500,000 or not.
+
+-   ::: discuss
+    What might our hypotheses be?
+    :::
+
+    -   $H_{0}$: $\mu =$ `r mu0` versus $H_{A}$: $\mu\neq$ `r mu0`, where $\mu$ is the true average housing price in Duke Forest in November 2020 (in \$100,000)
+    -   Terminology: I will refer to $\mu_{0} =$ `r mu0` as my "null hypothesized value". (i.e. the specific value of $\mu$ in $H_{0}$)
+
+## Collect and summarise data
+
+```{r}
+library(openintro)
+prices <- duke_forest$price/100000
+n <- length(prices)
+xbar <- round(mean(prices), 3)
+```
+
+```{r}
+ggplot(duke_forest, aes(x = prices)) +
+  geom_histogram(bins = 20) +
+  theme_minimal() +
+  labs(x = "Housing prices in Duke Forest ($100k)") +
+  theme(text = element_text(size = 24))
+```
+
+The observed/sample mean housing price is $\bar{x}_{obs} =$ `r xbar` from a sample of `r n` houses.
+
+-   Now we must determine if we have "convincing evidence"! Choose $\alpha = 0.05$
+
+## Simulating null distribution
+
+To simulate from the null distribution, we need to operate in a world where $H_{0}$ is true
+
+-   So, I need to repeatedly simulate data sets of size `r n` where the true mean is `r mu0`, without changing anything else
+
+-   If I don't want to make any assumptions about how the data behave, how might I do that?
+
+## Bootstrap to the rescue
+
+::: discuss
+How would I obtain a bootstrap distribution of the sample mean price of houses?
+:::
+
+:::::::: columns
+::::: {.column width="30%"}
+:::: fragment
+::: discuss
+Remind ourselves: Where should the bootstrap distribution be centered?
+:::
+::::
+:::::
+
+:::: {.column width="70%"}
+::: fragment
+```{r}
+B <- 5000
+set.seed(2)
+boot_means <- bootstrap_mean(n, B, prices, 2)
+p1 <- data.frame(means = boot_means) |>
+  ggplot(aes(x = means)) +
+  geom_histogram(col = "white", bins = 24) +
+  labs(x = "Mean housing prices ($100k)", title = "Bootstrap distribution")  +
+  theme_minimal()+
+  theme(text = element_text(size = 24))+
+  scale_x_continuous(n.breaks = 8) 
+p1
+```
+:::
+::::
+::::::::
+
+## Bootstrap to null distribution
+
+::::: columns
+::: {.column width="60%"}
+```{r fig.height=8}
+p1 + 
+  geom_vline(xintercept = xbar, col = "pink", size = 2) +
+  labs(caption = "pink line = observed sample mean") +
+  theme(text = element_text(size = 28))
+```
+:::
+
+::: {.column width="40%"}
+-   This is **not** the null distribution! The null distribution should be centered at $\mu_{0} = `r mu0`$
+
+-   However, the null distribution should have the same variability in $\bar{x}$ as the bootstrap distribution.
+:::
+:::::
+
+-   So to get the null distribution, why not just **shift** the bootstrap distribution to be centered where we want it to be?
+
+## Shifting the bootstrap distribution
+
+-   In this example, bootstrap distribution is centered at $\bar{x}_{obs} = `r xbar`$
+
+-   In order to center this distribution at $\mu_{0} = `r mu0`$, just subtract $`r xbar` - `r mu0` = `r xbar - mu0`$ from every single bootstrapped mean
+
+    -   This will give us a simulated distribution for $\bar{x}$ centered at $\mu_{0} = `r mu0`$, which is exactly the null distribution!
+
+    -   ::: {style="color: maroon"}
+        We call this "shifting the bootstrap distribution", because we simply shift where the bootstrap distribution is centered
+        :::
+
+::: fragment
+```{r echo = T}
+mu0 <- 5
+
+# xbar holds observed sample mean
+shift <- xbar - mu0
+
+# boot_means is a vector holding B bootstrapped sample means
+null_dist <- boot_means - shift
+```
+:::
+
+## Null distribution
+
+```{r}
+null_dist_df <- data.frame(means = null_dist) |>
+  mutate(extreme = (means >= mu0 + shift) | (means <= mu0 - shift)  )
+p2 <-  null_dist_df |>
+  ggplot(aes(x = means)) +
+  geom_histogram(col = "white", bins = 24) +
+  labs(x = "Mean housing prices ($100k)", title = "Null distribution")  +
+  theme_minimal()+
+  theme(text = element_text(size = 24))+
+  scale_x_continuous(n.breaks = 8) 
+library(patchwork)
+p1 + p2
+```
+
+-   ::: {style="color: maroon"}
+    Notice where the distributions are centered. Also note: graphs aren't exactly identical due to binning of histogram.
+    :::
+
+## Obtain the p-value
+
+$H_{0}$: $\mu = `r mu0`$ versus $H_{A}$: $\mu \neq `r mu0`$
+
+Our observed sample mean housing price is `r xbar`.
+
+```{r}
+p2
+```
+
+::: discuss
+What does it mean to be "as or more extreme" now?
+:::
+
+## Two-sided alternative hypothesis
+
+-   This is the first time we've seen a *two-sided* hypothesis as a class
+
+-   Since the alternative is "double sided", we can be extreme in **both** the positive and negative direction!
+
+::: fragment
+```{r fig.height=4}
+p2 +
+  geom_vline(xintercept = xbar, col = "magenta", size = 2) +
+  geom_vline(xintercept = mu0 - shift,  col = "magenta", size = 2)
+```
+:::
+
+## Obtain the p-value (cont.)
+
+Let $shift$ represent the amount we shifted the distribution by:
+
+$$shift = `r xbar` - `r mu0` = `r xbar - mu0`$$
+
+Simulated means as or more extreme than $\mu_{0} + shift$ or $\mu_{0} - shift$ will contribute:
+
+::: fragment
+```{r fig.height=3}
+null_dist_df |>
+  ggplot(aes(x = means, fill = extreme)) +
+  geom_histogram(col = "white", bins = 24) +
+  labs(title = "Null distribution", x = "Mean housing prices ($100k)")  +
+  theme_minimal()+
+  theme(text = element_text(size = 20)) +
+  scale_fill_manual(values = c("grey30", "magenta")) +
+  guides(fill = "none")
+
+p_val <- mean(null_dist_df$extreme)
+```
+:::
+
+::: fragment
+```{r echo = T}
+sum( (null_dist >= mu0 + shift) | (null_dist <= mu0 - shift))/B
+```
+:::
+
+## Make decision and conclusion
+
+::: discuss
+Make a decision and conclusion in the context of the research question.
+:::
+
+-   Since our p-value of `r p_val` is less than the significance level of 0.05, we reject $H_{0}$. We have convincing evidence to suggest that the true average housing price of homes in Duke Forest in 2020 was not \$500k.
+
+## Comprehension questions
+
+-   Why did we shift the bootstrap distribution?
+
+-   How do we estimate the p-value in the case of a two-sided alternative hypothesis?

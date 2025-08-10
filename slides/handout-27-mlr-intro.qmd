@@ -1,0 +1,133 @@
+---
+title: "Multiple Linear Regression (MLR)"
+format: 
+  pdf:
+    geometry:
+      - top=2.5cm
+      - left=2.5cm
+      - right=2.5cm
+      - bottom=2.5cm
+include-in-header:
+  - text: |
+      \pagenumbering{gobble}
+      \usepackage{multicol}
+editor_options: 
+  chunk_output_type: console
+---
+
+\vspace{-2cm}
+
+```{r echo = F, message= F}
+knitr::opts_chunk$set(echo = F, warning = F, message= F, messabundance = F, fig.height = 2.25, fig.width = 4, fig.align = "center")
+library(tidyverse)
+library(broom)
+library(patchwork)
+library(kableExtra)
+library(readr)
+parkinsons <- read_csv("https://raw.githubusercontent.com/midd-stat201-spring2025/midd-stat201-spring2025.github.io/refs/heads/main/data/parkinsons.csv")
+pd <- parkinsons |>
+  filter(avg.f.q == 1)
+```
+
+Want to understand what might help explain the voice `shimmer` of a patient with low vocal fundamental frequency.
+
+```{r fig.width=6}
+pd |>
+  pivot_longer(cols = c(jitter, hnr), names_to = "variable", values_to = "val") |>
+  ggplot(aes(x = val, y = shimmer, col = status )) +
+  geom_point() +
+  facet_wrap(~ variable, scales = "free_x") +
+  theme_minimal() +
+  labs(x = "Value")
+```
+
+## Model 1
+
+**Multiple linear regression model:** \vspace{1.5cm}
+
+```{r echo = T}
+shimmer_lm <- lm(shimmer ~ hnr + jitter, data = pd) 
+```
+
+```{r}
+tidy(shimmer_lm) |> 
+ kable(digits = c(3,3,3,3,7))
+```
+
+
+**Fitted model**: \vspace{1.5cm}
+
+**Interpretation of**:
+
+-   **Intercept**: \vspace{3cm}
+
+-   **Remaining coefficients**: \vspace{5cm}
+
+**Model 1 fit**
+
+```{r}
+glance(shimmer_lm)|>
+  select(r.squared, adj.r.squared) |>
+  kable(digits = 4)
+```
+
+**Conditions**
+
+```{r}
+p2 <- augment(shimmer_lm) |>
+  ggplot(aes(x= .resid)) + 
+  geom_histogram(bins = 20) +
+  theme_minimal() +
+  labs(x = "Residual")
+
+p3 <- augment(shimmer_lm) |>
+  ggplot(aes(x=.fitted, y = .resid)) + 
+  geom_point() +
+  geom_hline(yintercept = 0, linetype = "dashed") +
+  theme_minimal() +
+  labs(x = "Estimated shimmer", y = "Residual")
+```
+
+```{r fig.width=6}
+p2 + p3
+```
+
+
+**Inference**
+
+-   **Hypotheses**: \vspace{3cm}
+
+-   **Which variables seem to be associated with `shimmer`? Why?** \vspace{3cm}
+
+## Model 2
+
+Let's see a model that now includes the `status` of the patient as a predictor:
+
+```{r echo = T}
+shimmer_lm2 <- lm(shimmer ~ hnr + jitter + status, data = pd)
+```
+
+```{r}
+tidy(shimmer_lm2) |>
+  kable(digits = c(3, 3, 3, 3, 7))
+```
+
+**Fitted model**: \vspace{1.5cm}
+
+**Interpretation of**:
+
+-   **Intercept**: \vspace{2cm}
+
+-   **Remaining coefficients**: \vspace{5.5cm}
+
+**Model 2 fit**
+
+```{r}
+glance(shimmer_lm) |>
+  select(r.squared, adj.r.squared)|>
+  kable(digits = 4)
+```
+
+**Which model seems "better", and why?**
+
+

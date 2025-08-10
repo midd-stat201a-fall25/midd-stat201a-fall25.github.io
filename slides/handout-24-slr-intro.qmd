@@ -1,0 +1,137 @@
+---
+title: "Introduction to Simple Linear Regression"
+format: 
+  pdf:
+    geometry:
+      - top=2.5cm
+      - left=2.5cm
+      - right=2.5cm
+      - bottom=2.5cm
+include-in-header:
+  - text: |
+      \pagenumbering{gobble}
+      \usepackage{multicol}
+editor_options: 
+  chunk_output_type: console
+---
+
+\vspace{-2cm}
+
+```{r echo = F, message= F}
+knitr::opts_chunk$set(echo = F, warning = F, messabundance = F, fig.height = 2.25, fig.width = 4, fig.align = "center")
+library(tidyverse)
+library(openintro)
+library(broom)
+library(kableExtra)
+```
+
+Some simulated data that we might want to fit a linear regression model to:
+
+```{r}
+set.seed(2)
+n <- 50
+b0 <- 1
+b1 <- 0.5
+epsilon <- rnorm(n, 0, 1.5)
+x <- sort(runif(n, -5,5))
+y <- b0  + b1 * x + epsilon
+fit <- coef(lm(y~x))
+
+df <- data.frame(x, y)
+p <- ggplot(df, aes(x=x, y = y)) +
+  geom_point(size = 2) +
+  theme_minimal() 
+p
+```
+
+A line "fit" to the data above. What are the residuals of the highlighted observations?
+
+```{r fig.width=5}
+ids <- c(9, 22, 45)
+x_fit <- x[ids]
+y_hat <- fit[1] + fit[2] * x
+y_fit <- y_hat[ids]
+df_fit <- data.frame(x = x_fit, x_end = x_fit, y = y[ids], y_end = y_fit)
+p1 <- p + geom_abline(slope = fit[2], intercept = fit[1], col = "yellow", linewidth = 2) +
+  labs(title = "Option 1")
+p_resid <- p1 + 
+  geom_segment(data = df_fit,mapping= aes(x = x, xend = x_end, y = y, yend = y_end), linetype = "dashed", col = "#F8766D")+
+    geom_point(data = df_fit, mapping = aes(x = x, y = y_end, col = "fitted"), shape = 4, size = 4)+
+  geom_point(data = df_fit, mapping = aes(x = x, y = y, col = "observed"), size = 2) +
+  theme(legend.title = element_blank(), plot.title = element_blank()) +
+  labs(y = "y", x = "x")
+p_resid
+```
+
+```{r}
+df |>
+  add_column(y_hat) |>
+  mutate(residual = y - y_hat) |>
+  ggplot(aes(x = x, y = residual)) +
+  geom_point(size = 2) +
+  theme_minimal() +
+  geom_hline(yintercept = 0, linetype = "dashed") +
+  geom_point(data = df_fit, aes(x = x, y = y - y_end), size = 2, col = "#F8766D" ) +
+  labs(title = "Residual plot", caption = "Red dots = specific points from previous plot")
+```
+
+\clearpage
+
+# Running example
+
+Using the `cherry` data from `openintro`: we will see if a linear regression model is appropriate to model the relationship between cherry tree volume (response) and diameter (explanatory).
+
+**Linear regression model** (in context): \vspace{3cm}
+
+::: {style="color: maroon"}
+We check two conditions *before* fitting the the model.
+:::
+
+**Condition 1**: **L**inearity
+
+```{r}
+ggplot(cherry, aes(x= diam, y = volume)) +
+  geom_point() +
+  labs(title = "Cherry tree diameter vs. volume", x = "diameter (inches)", y = "volume (cubic feet)") +
+  theme_minimal()
+```
+
+*Does the linearity condition appear to be met?* \vspace{2cm}
+
+**Condition 2**: **I**ndependence
+
+*Does the independence condition appear to be met?* \vspace{2cm}
+
+**Fitted model** (in context): \vspace{3cm}
+
+::: {style="color: maroon"}
+*After* obtaining the fitted model, we have access to the residuals which we use to assess the remaining two conditions.
+:::
+
+**Condition 3**: **N**ormality
+
+```{r}
+cherry_lm <- lm(volume ~ diam, cherry)
+augment(cherry_lm) |>
+  ggplot(mapping = aes(x = .resid)) +
+  geom_histogram(bins = 20) +
+   theme_minimal() +
+  labs(x = "residuals", title="Histogram of residuals for cherry model")
+```
+
+*Does the Normality condition appear to be met?*\vspace{2cm}
+
+**Condition 4: E**qual variance
+
+```{r}
+augment(cherry_lm) |>
+  ggplot(mapping = aes(x = diam, y = .resid)) +
+  geom_point() +
+   theme_minimal() +
+  geom_hline(yintercept = 0, linetype = "dashed", linewidth =1, col ="darkgrey") +
+  labs(y = "Residual", title = "Residual plot for cherry model", x = "diameter (inches)")
+```
+
+*Does the equal variance condition appear to be met?*\vspace{2cm}
+
+**Given our checks of the conditions, should we believe the linear regression model is appropriate for these data?**

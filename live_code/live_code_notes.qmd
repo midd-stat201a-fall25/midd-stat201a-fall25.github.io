@@ -1,0 +1,18 @@
+---
+title: "STAT 201 Live code notes"
+author: "Your name"
+format: pdf
+---
+
+## 2/21/2025
+
+```{r}
+# url to read data from
+url_file <- "https://raw.githubusercontent.com/midd-stat201-fall2024/midd-stat201-fall2024.github.io/main/live_code/data/insurance.csv"
+
+# if you don't have the readr package, please install it!
+library(readr)
+
+# read data, and assign to variable called insurance
+insurance <- read_csv(url_file)
+```

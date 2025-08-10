@@ -1,0 +1,901 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml" lang="en" xml:lang="en"><head>
+
+<meta charset="utf-8">
+<meta name="generator" content="quarto-1.2.313">
+
+<meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
+
+<meta name="dcterms.date" content="2024-10-16">
+
+<title>STAT 201: Intro. to Statistics and Data Science - Hypothesis Testing with Randomization</title>
+<style>
+code{white-space: pre-wrap;}
+span.smallcaps{font-variant: small-caps;}
+div.columns{display: flex; gap: min(4vw, 1.5em);}
+div.column{flex: auto; overflow-x: auto;}
+div.hanging-indent{margin-left: 1.5em; text-indent: -1.5em;}
+ul.task-list{list-style: none;}
+ul.task-list li input[type="checkbox"] {
+  width: 0.8em;
+  margin: 0 0.8em 0.2em -1.6em;
+  vertical-align: middle;
+}
+pre > code.sourceCode { white-space: pre; position: relative; }
+pre > code.sourceCode > span { display: inline-block; line-height: 1.25; }
+pre > code.sourceCode > span:empty { height: 1.2em; }
+.sourceCode { overflow: visible; }
+code.sourceCode > span { color: inherit; text-decoration: inherit; }
+div.sourceCode { margin: 1em 0; }
+pre.sourceCode { margin: 0; }
+@media screen {
+div.sourceCode { overflow: auto; }
+}
+@media print {
+pre > code.sourceCode { white-space: pre-wrap; }
+pre > code.sourceCode > span { text-indent: -5em; padding-left: 5em; }
+}
+pre.numberSource code
+  { counter-reset: source-line 0; }
+pre.numberSource code > span
+  { position: relative; left: -4em; counter-increment: source-line; }
+pre.numberSource code > span > a:first-child::before
+  { content: counter(source-line);
+    position: relative; left: -1em; text-align: right; vertical-align: baseline;
+    border: none; display: inline-block;
+    -webkit-touch-callout: none; -webkit-user-select: none;
+    -khtml-user-select: none; -moz-user-select: none;
+    -ms-user-select: none; user-select: none;
+    padding: 0 4px; width: 4em;
+    color: #aaaaaa;
+  }
+pre.numberSource { margin-left: 3em; border-left: 1px solid #aaaaaa;  padding-left: 4px; }
+div.sourceCode
+  {   }
+@media screen {
+pre > code.sourceCode > span > a:first-child::before { text-decoration: underline; }
+}
+code span.al { color: #ff0000; font-weight: bold; } /* Alert */
+code span.an { color: #60a0b0; font-weight: bold; font-style: italic; } /* Annotation */
+code span.at { color: #7d9029; } /* Attribute */
+code span.bn { color: #40a070; } /* BaseN */
+code span.bu { color: #008000; } /* BuiltIn */
+code span.cf { color: #007020; font-weight: bold; } /* ControlFlow */
+code span.ch { color: #4070a0; } /* Char */
+code span.cn { color: #880000; } /* Constant */
+code span.co { color: #60a0b0; font-style: italic; } /* Comment */
+code span.cv { color: #60a0b0; font-weight: bold; font-style: italic; } /* CommentVar */
+code span.do { color: #ba2121; font-style: italic; } /* Documentation */
+code span.dt { color: #902000; } /* DataType */
+code span.dv { color: #40a070; } /* DecVal */
+code span.er { color: #ff0000; font-weight: bold; } /* Error */
+code span.ex { } /* Extension */
+code span.fl { color: #40a070; } /* Float */
+code span.fu { color: #06287e; } /* Function */
+code span.im { color: #008000; font-weight: bold; } /* Import */
+code span.in { color: #60a0b0; font-weight: bold; font-style: italic; } /* Information */
+code span.kw { color: #007020; font-weight: bold; } /* Keyword */
+code span.op { color: #666666; } /* Operator */
+code span.ot { color: #007020; } /* Other */
+code span.pp { color: #bc7a00; } /* Preprocessor */
+code span.sc { color: #4070a0; } /* SpecialChar */
+code span.ss { color: #bb6688; } /* SpecialString */
+code span.st { color: #4070a0; } /* String */
+code span.va { color: #19177c; } /* Variable */
+code span.vs { color: #4070a0; } /* VerbatimString */
+code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warning */
+</style>
+
+
+<script src="../site_libs/quarto-nav/quarto-nav.js"></script>
+<script src="../site_libs/quarto-nav/headroom.min.js"></script>
+<script src="../site_libs/clipboard/clipboard.min.js"></script>
+<script src="../site_libs/quarto-search/autocomplete.umd.js"></script>
+<script src="../site_libs/quarto-search/fuse.min.js"></script>
+<script src="../site_libs/quarto-search/quarto-search.js"></script>
+<meta name="quarto:offset" content="../">
+<script src="../site_libs/quarto-html/quarto.js"></script>
+<script src="../site_libs/quarto-html/popper.min.js"></script>
+<script src="../site_libs/quarto-html/tippy.umd.min.js"></script>
+<script src="../site_libs/quarto-html/anchor.min.js"></script>
+<link href="../site_libs/quarto-html/tippy.css" rel="stylesheet">
+<link href="../site_libs/quarto-html/quarto-syntax-highlighting.css" rel="stylesheet" id="quarto-text-highlighting-styles">
+<script src="../site_libs/bootstrap/bootstrap.min.js"></script>
+<link href="../site_libs/bootstrap/bootstrap-icons.css" rel="stylesheet">
+<link href="../site_libs/bootstrap/bootstrap.min.css" rel="stylesheet" id="quarto-bootstrap" data-mode="light">
+<script id="quarto-search-options" type="application/json">{
+  "location": "navbar",
+  "copy-button": false,
+  "collapse-after": 3,
+  "panel-placement": "end",
+  "type": "overlay",
+  "limit": 20,
+  "language": {
+    "search-no-results-text": "No results",
+    "search-matching-documents-text": "matching documents",
+    "search-copy-link-title": "Copy link to search",
+    "search-hide-matches-text": "Hide additional matches",
+    "search-more-match-text": "more match in this document",
+    "search-more-matches-text": "more matches in this document",
+    "search-clear-button-title": "Clear",
+    "search-detached-cancel-button-title": "Cancel",
+    "search-submit-button-title": "Submit"
+  }
+}</script>
+
+<script src="../site_libs/kePrint-0.0.1/kePrint.js"></script>
+<link href="../site_libs/lightable-0.0.1/lightable.css" rel="stylesheet">
+
+  <script src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-chtml-full.js" type="text/javascript"></script>
+
+</head>
+
+<body class="nav-fixed fullcontent">
+
+<div id="quarto-search-results"></div>
+  <header id="quarto-header" class="headroom fixed-top">
+    <nav class="navbar navbar-expand-lg navbar-dark ">
+      <div class="navbar-container container-fluid">
+      <div class="navbar-brand-container">
+    <a class="navbar-brand" href="../index.html">
+    <span class="navbar-title">STAT 201: Intro. to Statistics and Data Science</span>
+    </a>
+  </div>
+          <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarCollapse" aria-controls="navbarCollapse" aria-expanded="false" aria-label="Toggle navigation" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">
+  <span class="navbar-toggler-icon"></span>
+</button>
+          <div class="collapse navbar-collapse" id="navbarCollapse">
+            <ul class="navbar-nav navbar-nav-scroll me-auto">
+  <li class="nav-item">
+    <a class="nav-link" href="../index.html">
+ <span class="menu-text">Home</span></a>
+  </li>  
+  <li class="nav-item">
+    <a class="nav-link" href="../schedule.html">
+ <span class="menu-text">Schedule</span></a>
+  </li>  
+</ul>
+            <ul class="navbar-nav navbar-nav-scroll ms-auto">
+  <li class="nav-item">
+    <a class="nav-link" href="https://openintro-ims.netlify.app/"><i class="bi bi-book-half" role="img">
+</i> 
+ <span class="menu-text">Textbook</span></a>
+  </li>  
+  <li class="nav-item">
+    <a class="nav-link" href="https://middlebury.instructure.com/"><i class="bi bi-bar-chart-fill" role="img">
+</i> 
+ <span class="menu-text">Canvas</span></a>
+  </li>  
+</ul>
+              <div id="quarto-search" class="" title="Search"></div>
+          </div> <!-- /navcollapse -->
+      </div> <!-- /container-fluid -->
+    </nav>
+</header>
+<!-- content -->
+<div id="quarto-content" class="quarto-container page-columns page-rows-contents page-layout-article page-navbar">
+<!-- sidebar -->
+<!-- margin-sidebar -->
+    
+<!-- main -->
+<main class="content" id="quarto-document-content">
+
+<header id="title-block-header" class="quarto-title-block default">
+<div class="quarto-title">
+<h1 class="title">Hypothesis Testing with Randomization</h1>
+</div>
+
+
+
+<div class="quarto-title-meta">
+
+    
+    <div>
+    <div class="quarto-title-meta-heading">Published</div>
+    <div class="quarto-title-meta-contents">
+      <p class="date">October 16, 2024</p>
+    </div>
+  </div>
+  
+    
+  </div>
+  
+
+</header>
+
+<section id="housekeeping" class="level2">
+<h2 class="anchored" data-anchor-id="housekeeping">Housekeeping</h2>
+<ul>
+<li>Office hours change this week</li>
+</ul>
+<div class="cell">
+
+</div>
+</section>
+<section id="where-were-going-today" class="level2">
+<h2 class="anchored" data-anchor-id="where-were-going-today">Where we’re going today</h2>
+<ul>
+<li><p>We will see another kinds of hypotheses for different types of research questions</p></li>
+<li><p>Hypothesis testing framework is the same, but will change how we obtain null distribution</p></li>
+<li><p>Try to see the big picture</p></li>
+</ul>
+</section>
+<section id="test-of-independence" class="level1">
+<h1>Test of independence</h1>
+<section id="running-example-sex-discrimination-study" class="level2">
+<h2 class="anchored" data-anchor-id="running-example-sex-discrimination-study">Running example: sex discrimination study</h2>
+<ul>
+<li><p>Note: this study considered sex as binary “male” or “female”, and did not take into consideration gender identities</p></li>
+<li><p>Participants in the study were 48 bank supervisors who identified as male and were attending a management institute at UNC in 1972</p>
+<ul>
+<li><p>Each supervisor was asked to assume the role of personnel director of a bank</p></li>
+<li><p>They were each given a file to judge whether the person in the file should be promoted</p></li>
+<li><p>The files were identical, except half of them indicated that the candidate was male, and the other half were indicated as female</p></li>
+<li><p>Files were randomly assigned to bank managers</p></li>
+<li><div class="discuss">
+<p>Experiment or observational study?</p>
+</div></li>
+</ul></li>
+<li><div style="color: maroon">
+<p>Research question: Are individuals who identify their sex as female discriminated against in promotion decisions made by their managers who identify as male?</p>
+</div></li>
+</ul>
+</section>
+<section id="defining-hypotheses" class="level2">
+<h2 class="anchored" data-anchor-id="defining-hypotheses">Defining hypotheses</h2>
+<div style="color: maroon">
+<p>Research question: Are individuals who identify their sex as female discriminated against in promotion decisions made by their managers who identify as male?</p>
+</div>
+<ul>
+<li><div class="discuss">
+<p>What is/are the variables(s) here? What types of variables are they?</p>
+</div></li>
+<li><p>We need to construct hypotheses where <span class="math inline">\(H_{0}\)</span> is “status quo” and <span class="math inline">\(H_{A}\)</span> is the claim researchers have</p></li>
+<li><p><span class="math inline">\(H_{0}\)</span>: the variables <code>sex</code> and <code>decision</code> are independent.</p>
+<ul>
+<li>i.e.&nbsp;any observed difference in promotion rates is due to variability</li>
+</ul></li>
+<li><p><span class="math inline">\(H_{A}\)</span>: the variables <code>sex</code> and <code>decision</code> are <em>not</em> independent, and equally-qualified female personnel are less likely to be promoted than male personnel</p></li>
+</ul>
+</section>
+<section id="data" class="level2">
+<h2 class="anchored" data-anchor-id="data">Data</h2>
+<p>For each of the 48 supervisors, the following were recorded:</p>
+<ul>
+<li><p>The sex of the candidate in the file (male/female)</p></li>
+<li><p>The decision (promote/not promote)</p></li>
+</ul>
+<div class="fragment">
+<div class="cell">
+<div class="cell-output cell-output-stderr">
+<pre><code>`summarise()` has grouped output by 'sex'. You can override using the `.groups`
+argument.</code></pre>
+</div>
+<div class="cell-output-display">
+
+<table>
+ <thead>
+  <tr>
+   <th style="text-align:left;"> sex </th>
+   <th style="text-align:left;"> not promote </th>
+   <th style="text-align:left;"> promote </th>
+   <th style="text-align:left;"> total </th>
+  </tr>
+ </thead>
+<tbody>
+  <tr>
+   <td style="text-align:left;border-right:1px solid;"> female </td>
+   <td style="text-align:left;"> 10 </td>
+   <td style="text-align:left;"> 14 </td>
+   <td style="text-align:left;"> 24 </td>
+  </tr>
+  <tr>
+   <td style="text-align:left;border-right:1px solid;"> male </td>
+   <td style="text-align:left;"> 3 </td>
+   <td style="text-align:left;"> 21 </td>
+   <td style="text-align:left;"> 24 </td>
+  </tr>
+  <tr>
+   <td style="text-align:left;border-right:1px solid;"> total </td>
+   <td style="text-align:left;"> 13 </td>
+   <td style="text-align:left;"> 35 </td>
+   <td style="text-align:left;"> 48 </td>
+  </tr>
+</tbody>
+</table>
+
+</div>
+</div>
+</div>
+<ul>
+<li><p>Are we prepared to answer our research question: Are individuals who identify their sex as female discriminated against in promotion decisions made by their managers who identify as male?</p>
+<ul>
+<li><div class="div">
+<p>What evidence do we have?</p>
+</div></li>
+</ul></li>
+</ul>
+</section>
+<section id="data-cont." class="level2">
+<h2 class="anchored" data-anchor-id="data-cont.">Data (cont.)</h2>
+<p>Conditional probability of getting promoted by sex:</p>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb2"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb2-1"><a href="#cb2-1" aria-hidden="true" tabindex="-1"></a>discrimination <span class="sc">|&gt;</span></span>
+<span id="cb2-2"><a href="#cb2-2" aria-hidden="true" tabindex="-1"></a>  <span class="fu">count</span>(sex, decision) <span class="sc">|&gt;</span></span>
+<span id="cb2-3"><a href="#cb2-3" aria-hidden="true" tabindex="-1"></a>  <span class="fu">group_by</span>(sex) <span class="sc">|&gt;</span></span>
+<span id="cb2-4"><a href="#cb2-4" aria-hidden="true" tabindex="-1"></a>  <span class="fu">mutate</span>(<span class="at">cond_prob =</span> n<span class="sc">/</span><span class="fu">sum</span>(n)) <span class="sc">|&gt;</span></span>
+<span id="cb2-5"><a href="#cb2-5" aria-hidden="true" tabindex="-1"></a>  <span class="fu">filter</span>(decision <span class="sc">==</span> <span class="st">"promote"</span>) <span class="sc">|&gt;</span></span>
+<span id="cb2-6"><a href="#cb2-6" aria-hidden="true" tabindex="-1"></a>  <span class="fu">select</span>(<span class="sc">-</span>n)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</div>
+<div class="cell">
+<div class="cell-output cell-output-stdout">
+<pre><code># A tibble: 2 × 3
+# Groups:   sex [2]
+  sex    decision cond_prob
+  &lt;chr&gt;  &lt;chr&gt;        &lt;dbl&gt;
+1 female promote      0.583
+2 male   promote      0.875</code></pre>
+</div>
+</div>
+<ul>
+<li><p>Is the observed difference -0.2916667 convincing evidence? We need to examine variability in the data, assuming <span class="math inline">\(H_{0}\)</span> true.</p></li>
+<li><p>Let’s set <span class="math inline">\(\alpha = 0.05\)</span></p></li>
+</ul>
+</section>
+<section id="simulate-under-null" class="level2">
+<h2 class="anchored" data-anchor-id="simulate-under-null">Simulate under null</h2>
+<ul>
+<li><p>Simulating under <span class="math inline">\(H_{0}\)</span> means operating in a hypothetical word where <code>sex</code> and <code>decision</code> are independent.</p>
+<ul>
+<li>This means that knowing the <code>sex</code> of the candidate should have no bearing on the <code>decision</code> to promote or not</li>
+</ul></li>
+<li><p>We will perform a simulation called a <strong>randomization test</strong> where we randomly re-assign <code>decision</code> and <code>sex</code> outcome pairs to see what would have happened if the bankers’ <code>decision</code> had been independent of candidate’s <code>sex</code> (i.e.&nbsp;if <span class="math inline">\(H_{0}\)</span> true)</p></li>
+</ul>
+</section>
+<section id="randomization-test" class="level2">
+<h2 class="anchored" data-anchor-id="randomization-test">Randomization test</h2>
+<div class="cell">
+<div class="cell-output-display">
+
+<table>
+ <thead>
+  <tr>
+   <th style="text-align:left;"> sex </th>
+   <th style="text-align:left;"> not promote </th>
+   <th style="text-align:left;"> promote </th>
+   <th style="text-align:left;"> total </th>
+  </tr>
+ </thead>
+<tbody>
+  <tr>
+   <td style="text-align:left;border-right:1px solid;"> female </td>
+   <td style="text-align:left;"> 10 </td>
+   <td style="text-align:left;"> 14 </td>
+   <td style="text-align:left;"> 24 </td>
+  </tr>
+  <tr>
+   <td style="text-align:left;border-right:1px solid;"> male </td>
+   <td style="text-align:left;"> 3 </td>
+   <td style="text-align:left;"> 21 </td>
+   <td style="text-align:left;"> 24 </td>
+  </tr>
+  <tr>
+   <td style="text-align:left;border-right:1px solid;"> total </td>
+   <td style="text-align:left;"> 13 </td>
+   <td style="text-align:left;"> 35 </td>
+   <td style="text-align:left;"> 48 </td>
+  </tr>
+</tbody>
+</table>
+
+</div>
+</div>
+<ul>
+<li><p>Write down “promote” on 35 cards and “not promote” on 13 cards. Repeat the following:</p>
+<ul>
+<li><p>Thoroughly shuffle these 48 cards.</p></li>
+<li><p>Deal out a stack of 24 cards to represent males, and the remaining 24 cards to represent females</p>
+<ul>
+<li>This is how we simulate independence under <span class="math inline">\(H_{0}\)</span></li>
+</ul></li>
+<li><p>Calculate the proportion of “promote” cards in each stack, <span class="math inline">\(\hat{p}_{m, sim}\)</span> and <span class="math inline">\(\hat{p}_{f, sim}\)</span></p></li>
+<li><p>Calculate and record the difference <span class="math inline">\(\hat{p}_{f,sim} - \hat{p}_{m,sim}\)</span> (order of difference doesn’t matter so long as you are consistent)</p></li>
+</ul></li>
+</ul>
+</section>
+<section id="randomization-test-activity" class="level2">
+<h2 class="anchored" data-anchor-id="randomization-test-activity">Randomization test (activity)</h2>
+<p>Try it!</p>
+</section>
+<section id="randomization-test-code" class="level2">
+<h2 class="anchored" data-anchor-id="randomization-test-code">Randomization test (code)</h2>
+<p>Let’s perform one iteration of the simulation.</p>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb4"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb4-1"><a href="#cb4-1" aria-hidden="true" tabindex="-1"></a><span class="co"># reproducibility</span></span>
+<span id="cb4-2"><a href="#cb4-2" aria-hidden="true" tabindex="-1"></a><span class="fu">set.seed</span>(<span class="dv">1</span>)</span>
+<span id="cb4-3"><a href="#cb4-3" aria-hidden="true" tabindex="-1"></a>n_female <span class="ot">&lt;-</span> <span class="fu">sum</span>(discrimination<span class="sc">$</span>sex <span class="sc">==</span> <span class="st">"female"</span>)</span>
+<span id="cb4-4"><a href="#cb4-4" aria-hidden="true" tabindex="-1"></a>n_male <span class="ot">&lt;-</span> <span class="fu">sum</span>(discrimination<span class="sc">$</span>sex <span class="sc">==</span> <span class="st">"male"</span>)</span>
+<span id="cb4-5"><a href="#cb4-5" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb4-6"><a href="#cb4-6" aria-hidden="true" tabindex="-1"></a><span class="co"># create cards</span></span>
+<span id="cb4-7"><a href="#cb4-7" aria-hidden="true" tabindex="-1"></a>cards <span class="ot">&lt;-</span> discrimination<span class="sc">$</span>decision</span>
+<span id="cb4-8"><a href="#cb4-8" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb4-9"><a href="#cb4-9" aria-hidden="true" tabindex="-1"></a><span class="co"># shuffle cards</span></span>
+<span id="cb4-10"><a href="#cb4-10" aria-hidden="true" tabindex="-1"></a>shuffled <span class="ot">&lt;-</span> <span class="fu">sample</span>(cards)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</div>
+<div class="cell">
+<div class="cell-output cell-output-stderr">
+<pre><code>`summarise()` has grouped output by 'sex'. You can override using the `.groups`
+argument.</code></pre>
+</div>
+<div class="cell-output-display">
+
+<table>
+ <thead>
+  <tr>
+   <th style="text-align:left;"> sex </th>
+   <th style="text-align:left;"> not promote </th>
+   <th style="text-align:left;"> promote </th>
+   <th style="text-align:left;"> total </th>
+  </tr>
+ </thead>
+<tbody>
+  <tr>
+   <td style="text-align:left;border-right:1px solid;"> female </td>
+   <td style="text-align:left;"> 8 </td>
+   <td style="text-align:left;"> 16 </td>
+   <td style="text-align:left;"> 24 </td>
+  </tr>
+  <tr>
+   <td style="text-align:left;border-right:1px solid;"> male </td>
+   <td style="text-align:left;"> 5 </td>
+   <td style="text-align:left;"> 19 </td>
+   <td style="text-align:left;"> 24 </td>
+  </tr>
+  <tr>
+   <td style="text-align:left;border-right:1px solid;"> total </td>
+   <td style="text-align:left;"> 13 </td>
+   <td style="text-align:left;"> 35 </td>
+   <td style="text-align:left;"> 48 </td>
+  </tr>
+</tbody>
+</table>
+
+</div>
+</div>
+<ul>
+<li>Under this simulation, 0.6666667 of females were promoted, and 0.7916667 of males were promoted. Simulated difference: -0.125</li>
+</ul>
+</section>
+<section id="null-distribution" class="level2">
+<h2 class="anchored" data-anchor-id="null-distribution">Null distribution</h2>
+<div class="cell">
+
+</div>
+<p>Repeat the previous step 1000 times:</p>
+<div class="cell">
+<div class="cell-output-display">
+<p><img src="slides-14-randomization_files/figure-html/unnamed-chunk-9-1.png" class="img-fluid" width="672"></p>
+</div>
+</div>
+</section>
+<section id="obtain-p-value" class="level2">
+<h2 class="anchored" data-anchor-id="obtain-p-value">Obtain p-value</h2>
+<p>Recall, the observed difference in our data was <span class="math inline">\(\hat{p}_{f} - \hat{p}_{m} =\)</span> -0.2916667.</p>
+<ul>
+<li><p>p-value is probability of observing data as or more extreme than our original data, given <span class="math inline">\(H_{0}\)</span> true.</p></li>
+<li><div class="discuss">
+<p>Where does “as or more extreme” correspond to on our plot?</p>
+</div></li>
+</ul>
+<div class="columns">
+<div class="column" style="width:60%;">
+<div class="fragment">
+<div class="cell">
+<div class="cell-output-display">
+<p><img src="slides-14-randomization_files/figure-html/unnamed-chunk-10-1.png" class="img-fluid" width="672"></p>
+</div>
+</div>
+</div>
+</div><div class="column" style="width:40%;">
+<ul>
+<li>Out of 1000 simulations under <span class="math inline">\(H_{0}\)</span>, 29 resulted in a difference in promotion rates as or more extreme than our observed</li>
+<li>So the p-value is 0.029</li>
+</ul>
+</div>
+</div>
+</section>
+<section id="making-decision-and-conclusion" class="level2">
+<h2 class="anchored" data-anchor-id="making-decision-and-conclusion">Making decision and conclusion</h2>
+<p>Our research question: Are individuals who identify their sex as female discriminated against in promotion decisions made by their managers who identify as male?</p>
+<ul>
+<li><span class="math inline">\(H_{0}\)</span>: <code>sex</code> and <code>decision</code> are independent</li>
+<li><span class="math inline">\(H_{A}\)</span>: <code>sex</code> and <code>decision</code> are not independent and equally-qualified female personnel are less likely to get promoted than male personnel by male supervisors</li>
+<li><span class="math inline">\(\alpha = 0.05\)</span></li>
+</ul>
+<div class="discuss">
+<ul>
+<li><p>Interpret our p-value in context.</p></li>
+<li><p>Make a decision and conclusion in response to the research question.</p></li>
+</ul>
+</div>
+</section>
+<section id="making-decision-and-conclusion-answer" class="level2">
+<h2 class="anchored" data-anchor-id="making-decision-and-conclusion-answer">Making decision and conclusion (answer)</h2>
+<ul>
+<li><p>Assuming that <code>sex</code> and <code>decision</code> are independent, the probability of observing a difference in promotion rates as or more extreme as we did is 0.029.</p></li>
+<li><p>Because the observed p-value of 0.029 is less than our significant level 0.05, we reject <span class="math inline">\(H_{0}\)</span>. The data provide strong evidence of sex discrimination against female candidates by the male supervisors.</p></li>
+<li><div class="discuss">
+<p>What kind of error could we have made?</p>
+</div></li>
+</ul>
+</section>
+</section>
+<section id="comparing-two-proportions" class="level1">
+<h1>Comparing two proportions</h1>
+<section id="running-example-cpr" class="level2">
+<h2 class="anchored" data-anchor-id="running-example-cpr">Running example: CPR</h2>
+<p>An experiment was conducted, consisting of two treatments on 90 patients who underwent CPR for a heart attack and subsequently went to the hospital. Each patient was randomly assigned to either:</p>
+<ul>
+<li><p>treatment group: received a blood thinner</p></li>
+<li><p>control group: did not receive a blood thinner</p></li>
+</ul>
+<div class="fragment">
+<p>For each patient, the outcome recorded was whether they survived for at least 24 hours.</p>
+<div class="cell">
+<div class="cell-output cell-output-stderr">
+<pre><code>`summarise()` has grouped output by 'group'. You can override using the
+`.groups` argument.</code></pre>
+</div>
+<div class="cell-output-display">
+
+<table>
+ <thead>
+  <tr>
+   <th style="text-align:left;"> group </th>
+   <th style="text-align:left;"> died </th>
+   <th style="text-align:left;"> survived </th>
+   <th style="text-align:left;"> total </th>
+  </tr>
+ </thead>
+<tbody>
+  <tr>
+   <td style="text-align:left;border-right:1px solid;"> control </td>
+   <td style="text-align:left;"> 39 </td>
+   <td style="text-align:left;"> 11 </td>
+   <td style="text-align:left;"> 50 </td>
+  </tr>
+  <tr>
+   <td style="text-align:left;border-right:1px solid;"> treatment </td>
+   <td style="text-align:left;"> 26 </td>
+   <td style="text-align:left;"> 14 </td>
+   <td style="text-align:left;"> 40 </td>
+  </tr>
+  <tr>
+   <td style="text-align:left;border-right:1px solid;"> total </td>
+   <td style="text-align:left;"> 65 </td>
+   <td style="text-align:left;"> 25 </td>
+   <td style="text-align:left;"> 90 </td>
+  </tr>
+</tbody>
+</table>
+
+</div>
+</div>
+</div>
+<ul>
+<li><div class="discuss">
+<p>What is/are the variables(s) here? What types of variables are they?</p>
+</div></li>
+</ul>
+</section>
+<section id="defining-hypotheses-1" class="level2">
+<h2 class="anchored" data-anchor-id="defining-hypotheses-1">Defining hypotheses</h2>
+<p>The researchers are interested in learning if the blood thinner treatment was effective.</p>
+<div class="discuss">
+<p>In words, try to determine <span class="math inline">\(H_{0}\)</span> and <span class="math inline">\(H_{A}\)</span>.</p>
+</div>
+<ul>
+<li>Let <span class="math inline">\(p_{T}\)</span> and <span class="math inline">\(p_{C}\)</span> denote the proportion of patients who survive when receiving the thinner (Treatment) and when not receiving the treatment (Control), respectively</li>
+</ul>
+<div class="columns">
+<div class="column" style="width:50%;">
+<div class="fragment">
+<p>Option 1</p>
+<ul>
+<li><p><span class="math inline">\(H_{0}\)</span>: <span class="math inline">\(p_{T} \leq p_{C}\)</span></p></li>
+<li><p><span class="math inline">\(H_{A}\)</span>: <span class="math inline">\(p_{T} &gt; p_{C}\)</span></p></li>
+</ul>
+</div>
+</div><div class="column" style="width:50%;">
+<div class="fragment">
+<p>Option 2 (preferred)</p>
+<ul>
+<li><p><span class="math inline">\(H_{0}\)</span>: <span class="math inline">\(p_{T} - p_{C} \leq 0\)</span></p></li>
+<li><p><span class="math inline">\(H_{A}\)</span>: <span class="math inline">\(p_{T} - p_{C}&gt; 0\)</span></p></li>
+</ul>
+</div>
+</div>
+</div>
+</section>
+<section id="collect-data" class="level2">
+<h2 class="anchored" data-anchor-id="collect-data">Collect data</h2>
+<p>Using the data, obtain the observed difference in sample proportions.</p>
+<div class="cell">
+<div class="cell-output-display">
+
+<table>
+ <thead>
+  <tr>
+   <th style="text-align:left;"> group </th>
+   <th style="text-align:left;"> died </th>
+   <th style="text-align:left;"> survived </th>
+   <th style="text-align:left;"> total </th>
+  </tr>
+ </thead>
+<tbody>
+  <tr>
+   <td style="text-align:left;border-right:1px solid;"> control </td>
+   <td style="text-align:left;"> 39 </td>
+   <td style="text-align:left;"> 11 </td>
+   <td style="text-align:left;"> 50 </td>
+  </tr>
+  <tr>
+   <td style="text-align:left;border-right:1px solid;"> treatment </td>
+   <td style="text-align:left;"> 26 </td>
+   <td style="text-align:left;"> 14 </td>
+   <td style="text-align:left;"> 40 </td>
+  </tr>
+  <tr>
+   <td style="text-align:left;border-right:1px solid;"> total </td>
+   <td style="text-align:left;"> 65 </td>
+   <td style="text-align:left;"> 25 </td>
+   <td style="text-align:left;"> 90 </td>
+  </tr>
+</tbody>
+</table>
+
+</div>
+</div>
+<div class="columns">
+<div class="column" style="width:60%;">
+<div class="fragment">
+<div class="cell">
+<div class="sourceCode cell-code" id="cb7"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb7-1"><a href="#cb7-1" aria-hidden="true" tabindex="-1"></a>p_hat_c <span class="ot">&lt;-</span> cpr <span class="sc">|&gt;</span></span>
+<span id="cb7-2"><a href="#cb7-2" aria-hidden="true" tabindex="-1"></a>  <span class="fu">filter</span>(group <span class="sc">==</span> <span class="st">"control"</span>) <span class="sc">|&gt;</span></span>
+<span id="cb7-3"><a href="#cb7-3" aria-hidden="true" tabindex="-1"></a>  <span class="fu">summarise</span>(<span class="at">p =</span> <span class="fu">mean</span>(outcome <span class="sc">==</span> <span class="st">"survived"</span>)) <span class="sc">|&gt;</span></span>
+<span id="cb7-4"><a href="#cb7-4" aria-hidden="true" tabindex="-1"></a>  <span class="fu">pull</span>()</span>
+<span id="cb7-5"><a href="#cb7-5" aria-hidden="true" tabindex="-1"></a>p_hat_t <span class="ot">&lt;-</span> cpr <span class="sc">|&gt;</span></span>
+<span id="cb7-6"><a href="#cb7-6" aria-hidden="true" tabindex="-1"></a>  <span class="fu">filter</span>(group <span class="sc">==</span> <span class="st">"treatment"</span>) <span class="sc">|&gt;</span></span>
+<span id="cb7-7"><a href="#cb7-7" aria-hidden="true" tabindex="-1"></a>  <span class="fu">summarise</span>(<span class="at">p =</span> <span class="fu">mean</span>(outcome <span class="sc">==</span> <span class="st">"survived"</span>)) <span class="sc">|&gt;</span></span>
+<span id="cb7-8"><a href="#cb7-8" aria-hidden="true" tabindex="-1"></a>  <span class="fu">pull</span>()</span>
+<span id="cb7-9"><a href="#cb7-9" aria-hidden="true" tabindex="-1"></a>obs_diff <span class="ot">&lt;-</span> p_hat_t <span class="sc">-</span> p_hat_c</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</div>
+</div>
+</div><div class="column" style="width:40%;">
+<ul>
+<li><p><span class="math inline">\(\hat{p}_{C} = \frac{11}{50} = 0.22\)</span></p></li>
+<li><p><span class="math inline">\(\hat{p}_{T} = \frac{14}{40} = 0.35\)</span></p></li>
+<li><p>Observed difference: <span class="math inline">\(\hat{p}_{T} - \hat{p}_{C} = 0.13\)</span></p></li>
+</ul>
+</div>
+</div>
+<ul>
+<li><p>Is this “convincing evidence” that blood thinner usage after CPR is effective?</p></li>
+<li><p>Set <span class="math inline">\(\alpha = 0.05\)</span></p></li>
+</ul>
+</section>
+<section id="simulate-under-null-1" class="level2">
+<h2 class="anchored" data-anchor-id="simulate-under-null-1">Simulate under null</h2>
+<ul>
+<li><p>We will once again perform a <em>randomization</em> test to try and simulate the difference in proportions under <span class="math inline">\(H_{0}\)</span></p>
+<ul>
+<li>Under <span class="math inline">\(H_{0}\)</span>, treatment group is no better than control group, so let’s simulate assuming that outcome and treatment are independent</li>
+</ul></li>
+<li><p>Write down <code>died</code> on 65 cards, and <code>survived</code> on 25 cards. Then repeat several times:</p>
+<ul>
+<li><p>Shuffle cards well</p></li>
+<li><p>Deal out 50 to be Control group, and remaining 40 to be Treatment group</p></li>
+<li><p>Calculate proportions of survival <span class="math inline">\(\hat{p}_{C, sim}\)</span> and <span class="math inline">\(\hat{p}_{T, sim}\)</span></p></li>
+<li><p>Obtain and record the simulated difference <span class="math inline">\(\hat{p}_{T, sim} - \hat{p}_{C, sim}\)</span></p></li>
+</ul></li>
+</ul>
+</section>
+<section id="simulate-under-null-code" class="level2">
+<h2 class="anchored" data-anchor-id="simulate-under-null-code">Simulate under null (code)</h2>
+<p>Live code</p>
+<div class="cell">
+
+</div>
+</section>
+<section id="visualizing-null-distribution" class="level2">
+<h2 class="anchored" data-anchor-id="visualizing-null-distribution">Visualizing null distribution</h2>
+<div class="cell">
+<div class="cell-output-display">
+<p><img src="slides-14-randomization_files/figure-html/unnamed-chunk-15-1.png" class="img-fluid" width="672"></p>
+</div>
+</div>
+<div class="discuss">
+<p>How would we obtain the p-value in this problem?</p>
+</div>
+</section>
+<section id="calculate-p-value" class="level2">
+<h2 class="anchored" data-anchor-id="calculate-p-value">Calculate p-value</h2>
+<div class="columns">
+<div class="column" style="width:60%;">
+<div class="cell">
+<div class="cell-output-display">
+<p><img src="slides-14-randomization_files/figure-html/unnamed-chunk-16-1.png" class="img-fluid" width="672"></p>
+</div>
+</div>
+</div><div class="column" style="width:40%;">
+<ul>
+<li><p>We observed 148 out of 1000 simulations where the difference in proportions under <span class="math inline">\(H_{0}\)</span> was as or more extreme than our observed difference of 0.13</p></li>
+<li><p>So p-value is 0.148</p></li>
+</ul>
+</div>
+</div>
+</section>
+<section id="interpret-and-make-conclusion" class="level2">
+<h2 class="anchored" data-anchor-id="interpret-and-make-conclusion">Interpret and make conclusion</h2>
+<p>The researchers are interested in learning if the blood thinner treatment was effective.</p>
+<p>Our p-value is 0.148 and our selected significance level was <span class="math inline">\(\alpha = 0.05\)</span>.</p>
+<div class="discuss">
+<ul>
+<li>Make a decision and conclusion about the research question in context.</li>
+</ul>
+</div>
+</section>
+<section id="comprehension-questions" class="level2">
+<h2 class="anchored" data-anchor-id="comprehension-questions">Comprehension questions</h2>
+<ul>
+<li><p>What were the similarities and differences between:</p>
+<ul>
+<li><p>hypothesis test for independence</p></li>
+<li><p>hypothesis test for two proportions</p></li>
+</ul></li>
+<li><p>How do the randomization tests today differ from the test for one proportion that we learned last class?</p></li>
+</ul>
+
+
+</section>
+</section>
+
+</main> <!-- /main -->
+<script id="quarto-html-after-body" type="application/javascript">
+window.document.addEventListener("DOMContentLoaded", function (event) {
+  const toggleBodyColorMode = (bsSheetEl) => {
+    const mode = bsSheetEl.getAttribute("data-mode");
+    const bodyEl = window.document.querySelector("body");
+    if (mode === "dark") {
+      bodyEl.classList.add("quarto-dark");
+      bodyEl.classList.remove("quarto-light");
+    } else {
+      bodyEl.classList.add("quarto-light");
+      bodyEl.classList.remove("quarto-dark");
+    }
+  }
+  const toggleBodyColorPrimary = () => {
+    const bsSheetEl = window.document.querySelector("link#quarto-bootstrap");
+    if (bsSheetEl) {
+      toggleBodyColorMode(bsSheetEl);
+    }
+  }
+  toggleBodyColorPrimary();  
+  const icon = "";
+  const anchorJS = new window.AnchorJS();
+  anchorJS.options = {
+    placement: 'right',
+    icon: icon
+  };
+  anchorJS.add('.anchored');
+  const clipboard = new window.ClipboardJS('.code-copy-button', {
+    target: function(trigger) {
+      return trigger.previousElementSibling;
+    }
+  });
+  clipboard.on('success', function(e) {
+    // button target
+    const button = e.trigger;
+    // don't keep focus
+    button.blur();
+    // flash "checked"
+    button.classList.add('code-copy-button-checked');
+    var currentTitle = button.getAttribute("title");
+    button.setAttribute("title", "Copied!");
+    let tooltip;
+    if (window.bootstrap) {
+      button.setAttribute("data-bs-toggle", "tooltip");
+      button.setAttribute("data-bs-placement", "left");
+      button.setAttribute("data-bs-title", "Copied!");
+      tooltip = new bootstrap.Tooltip(button, 
+        { trigger: "manual", 
+          customClass: "code-copy-button-tooltip",
+          offset: [0, -8]});
+      tooltip.show();    
+    }
+    setTimeout(function() {
+      if (tooltip) {
+        tooltip.hide();
+        button.removeAttribute("data-bs-title");
+        button.removeAttribute("data-bs-toggle");
+        button.removeAttribute("data-bs-placement");
+      }
+      button.setAttribute("title", currentTitle);
+      button.classList.remove('code-copy-button-checked');
+    }, 1000);
+    // clear code selection
+    e.clearSelection();
+  });
+  function tippyHover(el, contentFn) {
+    const config = {
+      allowHTML: true,
+      content: contentFn,
+      maxWidth: 500,
+      delay: 100,
+      arrow: false,
+      appendTo: function(el) {
+          return el.parentElement;
+      },
+      interactive: true,
+      interactiveBorder: 10,
+      theme: 'quarto',
+      placement: 'bottom-start'
+    };
+    window.tippy(el, config); 
+  }
+  const noterefs = window.document.querySelectorAll('a[role="doc-noteref"]');
+  for (var i=0; i<noterefs.length; i++) {
+    const ref = noterefs[i];
+    tippyHover(ref, function() {
+      // use id or data attribute instead here
+      let href = ref.getAttribute('data-footnote-href') || ref.getAttribute('href');
+      try { href = new URL(href).hash; } catch {}
+      const id = href.replace(/^#\/?/, "");
+      const note = window.document.getElementById(id);
+      return note.innerHTML;
+    });
+  }
+  const findCites = (el) => {
+    const parentEl = el.parentElement;
+    if (parentEl) {
+      const cites = parentEl.dataset.cites;
+      if (cites) {
+        return {
+          el,
+          cites: cites.split(' ')
+        };
+      } else {
+        return findCites(el.parentElement)
+      }
+    } else {
+      return undefined;
+    }
+  };
+  var bibliorefs = window.document.querySelectorAll('a[role="doc-biblioref"]');
+  for (var i=0; i<bibliorefs.length; i++) {
+    const ref = bibliorefs[i];
+    const citeInfo = findCites(ref);
+    if (citeInfo) {
+      tippyHover(citeInfo.el, function() {
+        var popup = window.document.createElement('div');
+        citeInfo.cites.forEach(function(cite) {
+          var citeDiv = window.document.createElement('div');
+          citeDiv.classList.add('hanging-indent');
+          citeDiv.classList.add('csl-entry');
+          var biblioDiv = window.document.getElementById('ref-' + cite);
+          if (biblioDiv) {
+            citeDiv.innerHTML = biblioDiv.innerHTML;
+          }
+          popup.appendChild(citeDiv);
+        });
+        return popup.innerHTML;
+      });
+    }
+  }
+});
+</script>
+</div> <!-- /content -->
+
+
+
+</body></html>

@@ -1,0 +1,648 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml" lang="en" xml:lang="en"><head>
+
+<meta charset="utf-8">
+<meta name="generator" content="quarto-1.2.313">
+
+<meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
+
+<meta name="dcterms.date" content="2024-10-14">
+
+<title>STAT 201: Intro. to Statistics and Data Science - Introduction to Hypothesis Testing</title>
+<style>
+code{white-space: pre-wrap;}
+span.smallcaps{font-variant: small-caps;}
+div.columns{display: flex; gap: min(4vw, 1.5em);}
+div.column{flex: auto; overflow-x: auto;}
+div.hanging-indent{margin-left: 1.5em; text-indent: -1.5em;}
+ul.task-list{list-style: none;}
+ul.task-list li input[type="checkbox"] {
+  width: 0.8em;
+  margin: 0 0.8em 0.2em -1.6em;
+  vertical-align: middle;
+}
+pre > code.sourceCode { white-space: pre; position: relative; }
+pre > code.sourceCode > span { display: inline-block; line-height: 1.25; }
+pre > code.sourceCode > span:empty { height: 1.2em; }
+.sourceCode { overflow: visible; }
+code.sourceCode > span { color: inherit; text-decoration: inherit; }
+div.sourceCode { margin: 1em 0; }
+pre.sourceCode { margin: 0; }
+@media screen {
+div.sourceCode { overflow: auto; }
+}
+@media print {
+pre > code.sourceCode { white-space: pre-wrap; }
+pre > code.sourceCode > span { text-indent: -5em; padding-left: 5em; }
+}
+pre.numberSource code
+  { counter-reset: source-line 0; }
+pre.numberSource code > span
+  { position: relative; left: -4em; counter-increment: source-line; }
+pre.numberSource code > span > a:first-child::before
+  { content: counter(source-line);
+    position: relative; left: -1em; text-align: right; vertical-align: baseline;
+    border: none; display: inline-block;
+    -webkit-touch-callout: none; -webkit-user-select: none;
+    -khtml-user-select: none; -moz-user-select: none;
+    -ms-user-select: none; user-select: none;
+    padding: 0 4px; width: 4em;
+    color: #aaaaaa;
+  }
+pre.numberSource { margin-left: 3em; border-left: 1px solid #aaaaaa;  padding-left: 4px; }
+div.sourceCode
+  {   }
+@media screen {
+pre > code.sourceCode > span > a:first-child::before { text-decoration: underline; }
+}
+code span.al { color: #ff0000; font-weight: bold; } /* Alert */
+code span.an { color: #60a0b0; font-weight: bold; font-style: italic; } /* Annotation */
+code span.at { color: #7d9029; } /* Attribute */
+code span.bn { color: #40a070; } /* BaseN */
+code span.bu { color: #008000; } /* BuiltIn */
+code span.cf { color: #007020; font-weight: bold; } /* ControlFlow */
+code span.ch { color: #4070a0; } /* Char */
+code span.cn { color: #880000; } /* Constant */
+code span.co { color: #60a0b0; font-style: italic; } /* Comment */
+code span.cv { color: #60a0b0; font-weight: bold; font-style: italic; } /* CommentVar */
+code span.do { color: #ba2121; font-style: italic; } /* Documentation */
+code span.dt { color: #902000; } /* DataType */
+code span.dv { color: #40a070; } /* DecVal */
+code span.er { color: #ff0000; font-weight: bold; } /* Error */
+code span.ex { } /* Extension */
+code span.fl { color: #40a070; } /* Float */
+code span.fu { color: #06287e; } /* Function */
+code span.im { color: #008000; font-weight: bold; } /* Import */
+code span.in { color: #60a0b0; font-weight: bold; font-style: italic; } /* Information */
+code span.kw { color: #007020; font-weight: bold; } /* Keyword */
+code span.op { color: #666666; } /* Operator */
+code span.ot { color: #007020; } /* Other */
+code span.pp { color: #bc7a00; } /* Preprocessor */
+code span.sc { color: #4070a0; } /* SpecialChar */
+code span.ss { color: #bb6688; } /* SpecialString */
+code span.st { color: #4070a0; } /* String */
+code span.va { color: #19177c; } /* Variable */
+code span.vs { color: #4070a0; } /* VerbatimString */
+code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warning */
+</style>
+
+
+<script src="../site_libs/quarto-nav/quarto-nav.js"></script>
+<script src="../site_libs/quarto-nav/headroom.min.js"></script>
+<script src="../site_libs/clipboard/clipboard.min.js"></script>
+<script src="../site_libs/quarto-search/autocomplete.umd.js"></script>
+<script src="../site_libs/quarto-search/fuse.min.js"></script>
+<script src="../site_libs/quarto-search/quarto-search.js"></script>
+<meta name="quarto:offset" content="../">
+<script src="../site_libs/quarto-html/quarto.js"></script>
+<script src="../site_libs/quarto-html/popper.min.js"></script>
+<script src="../site_libs/quarto-html/tippy.umd.min.js"></script>
+<script src="../site_libs/quarto-html/anchor.min.js"></script>
+<link href="../site_libs/quarto-html/tippy.css" rel="stylesheet">
+<link href="../site_libs/quarto-html/quarto-syntax-highlighting.css" rel="stylesheet" id="quarto-text-highlighting-styles">
+<script src="../site_libs/bootstrap/bootstrap.min.js"></script>
+<link href="../site_libs/bootstrap/bootstrap-icons.css" rel="stylesheet">
+<link href="../site_libs/bootstrap/bootstrap.min.css" rel="stylesheet" id="quarto-bootstrap" data-mode="light">
+<script id="quarto-search-options" type="application/json">{
+  "location": "navbar",
+  "copy-button": false,
+  "collapse-after": 3,
+  "panel-placement": "end",
+  "type": "overlay",
+  "limit": 20,
+  "language": {
+    "search-no-results-text": "No results",
+    "search-matching-documents-text": "matching documents",
+    "search-copy-link-title": "Copy link to search",
+    "search-hide-matches-text": "Hide additional matches",
+    "search-more-match-text": "more match in this document",
+    "search-more-matches-text": "more matches in this document",
+    "search-clear-button-title": "Clear",
+    "search-detached-cancel-button-title": "Cancel",
+    "search-submit-button-title": "Submit"
+  }
+}</script>
+
+  <script src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-chtml-full.js" type="text/javascript"></script>
+
+</head>
+
+<body class="nav-fixed fullcontent">
+
+<div id="quarto-search-results"></div>
+  <header id="quarto-header" class="headroom fixed-top">
+    <nav class="navbar navbar-expand-lg navbar-dark ">
+      <div class="navbar-container container-fluid">
+      <div class="navbar-brand-container">
+    <a class="navbar-brand" href="../index.html">
+    <span class="navbar-title">STAT 201: Intro. to Statistics and Data Science</span>
+    </a>
+  </div>
+          <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarCollapse" aria-controls="navbarCollapse" aria-expanded="false" aria-label="Toggle navigation" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">
+  <span class="navbar-toggler-icon"></span>
+</button>
+          <div class="collapse navbar-collapse" id="navbarCollapse">
+            <ul class="navbar-nav navbar-nav-scroll me-auto">
+  <li class="nav-item">
+    <a class="nav-link" href="../index.html">
+ <span class="menu-text">Home</span></a>
+  </li>  
+  <li class="nav-item">
+    <a class="nav-link" href="../schedule.html">
+ <span class="menu-text">Schedule</span></a>
+  </li>  
+</ul>
+            <ul class="navbar-nav navbar-nav-scroll ms-auto">
+  <li class="nav-item">
+    <a class="nav-link" href="https://openintro-ims.netlify.app/"><i class="bi bi-book-half" role="img">
+</i> 
+ <span class="menu-text">Textbook</span></a>
+  </li>  
+  <li class="nav-item">
+    <a class="nav-link" href="https://middlebury.instructure.com/"><i class="bi bi-bar-chart-fill" role="img">
+</i> 
+ <span class="menu-text">Canvas</span></a>
+  </li>  
+</ul>
+              <div id="quarto-search" class="" title="Search"></div>
+          </div> <!-- /navcollapse -->
+      </div> <!-- /container-fluid -->
+    </nav>
+</header>
+<!-- content -->
+<div id="quarto-content" class="quarto-container page-columns page-rows-contents page-layout-article page-navbar">
+<!-- sidebar -->
+<!-- margin-sidebar -->
+    
+<!-- main -->
+<main class="content" id="quarto-document-content">
+
+<header id="title-block-header" class="quarto-title-block default">
+<div class="quarto-title">
+<h1 class="title">Introduction to Hypothesis Testing</h1>
+</div>
+
+
+
+<div class="quarto-title-meta">
+
+    
+    <div>
+    <div class="quarto-title-meta-heading">Published</div>
+    <div class="quarto-title-meta-contents">
+      <p class="date">October 14, 2024</p>
+    </div>
+  </div>
+  
+    
+  </div>
+  
+
+</header>
+
+<section id="housekeeping" class="level2">
+<h2 class="anchored" data-anchor-id="housekeeping">Housekeeping</h2>
+<ul>
+<li>Office hours change this week</li>
+<li>Mid-semester feedback survey results</li>
+</ul>
+<div class="cell">
+
+</div>
+</section>
+<section id="testing" class="level2">
+<h2 class="anchored" data-anchor-id="testing">Testing</h2>
+<p>We are now entering into second branch of inference-related tasks: testing.</p>
+<ul>
+<li><p>We have some “claim”/question about the target population, and we use sampled data to provide evidence for or against the claim/question.</p></li>
+<li><p>Especially important in experiments where we want to learn the effect of some new drug</p></li>
+<li><p>We will use the <em>hypothesis testing framework</em> to formalize the process of making decisions about research claims.</p>
+<ul>
+<li><p>Because claim is about target population, we will almost always formulate claims in terms of population parameters</p></li>
+<li><p>Then we use sample statistics to provide the evidence for/against</p></li>
+</ul></li>
+</ul>
+</section>
+<section id="step-1-define-hypotheses" class="level2">
+<h2 class="anchored" data-anchor-id="step-1-define-hypotheses">Step 1: Define hypotheses</h2>
+<p>A <strong>hypothesis test</strong> is a statistical technique used to evaluate competing claims using data</p>
+<ul>
+<li><p>We define hypotheses to translate our research question/claim into statistical notation</p></li>
+<li><p>We always define two hypotheses <em>in context</em>: a null hypothesis and an alternative hypothesis</p></li>
+<li><p><strong>Null hypothesis</strong> <span class="math inline">\(H_{0}\)</span>: the hypothesis that represents “business as usual”/status quo/nothing unusual or noteworthy</p></li>
+<li><p><strong>Alternative hypothesis</strong> <span class="math inline">\(H_{A}\)</span>: claim the researchers want to demonstrate</p></li>
+</ul>
+<div class="fragment">
+<p>It will not always be obvious what <span class="math inline">\(H_{0}\)</span> should be, but you will develop intuition for this over time!</p>
+</div>
+</section>
+<section id="defining-hypotheses-in-context" class="level2">
+<h2 class="anchored" data-anchor-id="defining-hypotheses-in-context">Defining hypotheses in context</h2>
+<p>Research question: do the majority of STAT 201A/STAT 201B students get at least 7 hours of sleep?</p>
+<ul>
+<li>Define <span class="math inline">\(p\)</span> as the true proportion of STAT 201A/STAT 201B who get at least 7 hours of sleep on average</li>
+</ul>
+<!-- -->
+<ul>
+<li><p><span class="math inline">\(H_{0}\)</span>: <span class="math inline">\(p \leq 0.5\)</span></p></li>
+<li><p><span class="math inline">\(H_{A}\)</span>: <span class="math inline">\(p &gt; 0.5\)</span></p></li>
+</ul>
+</section>
+<section id="step-2-collect-and-summarize-data" class="level2">
+<h2 class="anchored" data-anchor-id="step-2-collect-and-summarize-data">Step 2: Collect and summarize data</h2>
+<p>Suppose I collect a sample of <span class="math inline">\(n= 10\)</span> students from each class:</p>
+<div class="cell">
+
+</div>
+<div class="columns">
+<div class="column" style="width:50%;">
+<p>In STAT 201A sample: 6 students received at least 7 hours of sleep, and 4 received less than 7 hours</p>
+<ul>
+<li>Sample statistic: <span class="math inline">\(\hat{p}\)</span>: 0.6</li>
+</ul>
+</div><div class="column" style="width:50%;">
+<p>In STAT 201B sample: 7 students received at least 7 hours of sleep, and 3 received less than 7 hours</p>
+<ul>
+<li>Sample statistic: <span class="math inline">\(\hat{p}\)</span>: 0.7</li>
+</ul>
+</div>
+</div>
+<ul>
+<li><div class="discuss">
+<p>Are we prepared to answer our research question based on this evidence?</p>
+</div></li>
+<li>Due to variability in data and <span class="math inline">\(\hat{p}\)</span> we should ask: do the data provide <strong><em>convincing evidence</em></strong> that the majority of students get at least 7 hours of sleep?</li>
+</ul>
+</section>
+<section id="step-3-determine-if-we-have-convincing-evidence" class="level2">
+<h2 class="anchored" data-anchor-id="step-3-determine-if-we-have-convincing-evidence">Step 3: Determine if we have “convincing evidence”</h2>
+<p>“Convincing evidence” for us means that it would be <u>highly unlikely</u> to observe the data we did (or data even more extreme) <strong><em>if</em></strong> <span class="math inline">\(H_{0}\)</span> were true!</p>
+<ul>
+<li><p>We will calculate a <strong>p-value</strong>: the probability of observing data as or more extreme than we did <em>assuming</em> <span class="math inline">\(H_{0}\)</span> true</p>
+<ul>
+<li>Note: p is not the same as true proportion <span class="math inline">\(p\)</span>!</li>
+</ul></li>
+<li><p><u>Highly unlikely</u> is vague and needs to defined by the researcher, ideally before seeing data.</p>
+<ul>
+<li><p>If we want to answer the research question with a binary yes/no, we need some threshold to compare the p-value to. This is called a <strong>significance level</strong> <span class="math inline">\(\alpha\)</span></p></li>
+<li><p>Common choices are <span class="math inline">\(\alpha = 0.05\)</span>, <span class="math inline">\(\alpha = 0.01\)</span> (more on this later)!</p></li>
+</ul></li>
+<li><p>For our example, we will choose <span class="math inline">\(\alpha = 0.05\)</span></p></li>
+</ul>
+</section>
+<section id="how-to-obtain-p-value" class="level2">
+<h2 class="anchored" data-anchor-id="how-to-obtain-p-value">How to obtain p-value?</h2>
+<ul>
+<li><p>How to obtain this probability? It depends!</p>
+<ul>
+<li><p>Option 1: if we have assumptions about how our data behave, we can obtain this probability using theory/math (next week)</p></li>
+<li><p>Option 2: if we don’t want to make assumptions, why not simulate?</p>
+<ul>
+<li>We will call this option “simulating under <span class="math inline">\(H_{0}\)</span>”</li>
+</ul></li>
+</ul></li>
+<li><div style="color: maroon">
+<p>This is the step that requires the most “work”, and what exactly you do will depend on the the type of data and the research question/claim you have</p>
+</div></li>
+<li><p>Remark: hypothesis tests, like confidence intervals, are not unique!</p></li>
+</ul>
+</section>
+<section id="simulating-under-h_0-step-3-cont." class="level2">
+<h2 class="anchored" data-anchor-id="simulating-under-h_0-step-3-cont.">Simulating under <span class="math inline">\(H_{0}\)</span> (step 3 cont.)</h2>
+<ul>
+<li><p>We have to simulate our data under the assumption that <span class="math inline">\(H_{0}\)</span> is true (recall <span class="math inline">\(H_0\)</span>: <span class="math inline">\(p \leq 0.5\)</span>)</p></li>
+<li><p>Imagine a big bag with pink and purple slips of paper</p>
+<ul>
+<li><p>Pink = people who got at least 7 hours of sleep</p></li>
+<li><p>Purple = people who got less than 7 hours</p></li>
+</ul></li>
+<li><p>What proportion of the slips in the bowl should be pink vs purple?</p>
+<ul>
+<li><p><strong>To simulate under</strong> <span class="math inline">\(H_{0}\)</span>, no more than 50% of the slip should be pink</p>
+<ul>
+<li>We want convincing evidence even in the most “borderline” case, so we will choose 50% of the slips to be pink.</li>
+</ul></li>
+</ul></li>
+</ul>
+</section>
+<section id="simulating-under-h_0-step-3-cont.-1" class="level2">
+<h2 class="anchored" data-anchor-id="simulating-under-h_0-step-3-cont.-1">Simulating under <span class="math inline">\(H_{0}\)</span> (step 3 cont.)</h2>
+<ul>
+<li><p>Activity: we now replicate our original sample, this time sampling from this bag of paper slips</p>
+<ul>
+<li><p>We repeatedly take samples from the null distribution, using original sample size <span class="math inline">\(n =\)</span> 10</p></li>
+<li><p>For each sample, calculate the simulated proportion of pink slips, <span class="math inline">\(\hat{p}_{sim}\)</span></p></li>
+</ul></li>
+<li><p>Live code?</p></li>
+</ul>
+<div class="fragment">
+<div class="cell">
+<div class="sourceCode cell-code" id="cb1"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb1-1"><a href="#cb1-1" aria-hidden="true" tabindex="-1"></a><span class="fu">set.seed</span>(<span class="dv">2</span>) <span class="co"># reproducibility</span></span>
+<span id="cb1-2"><a href="#cb1-2" aria-hidden="true" tabindex="-1"></a>B <span class="ot">&lt;-</span> <span class="dv">5000</span> <span class="co"># number of simulations to do to gather enough evidence</span></span>
+<span id="cb1-3"><a href="#cb1-3" aria-hidden="true" tabindex="-1"></a>n <span class="ot">&lt;-</span> <span class="dv">10</span> <span class="co"># size of our original sample</span></span>
+<span id="cb1-4"><a href="#cb1-4" aria-hidden="true" tabindex="-1"></a>p_null_vec <span class="ot">&lt;-</span> <span class="fu">rep</span>(<span class="cn">NA</span>, B) <span class="co"># vector to store the simulated proportions</span></span>
+<span id="cb1-5"><a href="#cb1-5" aria-hidden="true" tabindex="-1"></a><span class="cf">for</span>(b <span class="cf">in</span> <span class="dv">1</span><span class="sc">:</span>B){</span>
+<span id="cb1-6"><a href="#cb1-6" aria-hidden="true" tabindex="-1"></a>  <span class="co"># sample() takes a random sample</span></span>
+<span id="cb1-7"><a href="#cb1-7" aria-hidden="true" tabindex="-1"></a>  null_samp <span class="ot">&lt;-</span> <span class="fu">sample</span>(<span class="at">x =</span> <span class="fu">c</span>(<span class="st">"pink"</span>, <span class="st">"purple"</span>), <span class="co"># pink and purple slips</span></span>
+<span id="cb1-8"><a href="#cb1-8" aria-hidden="true" tabindex="-1"></a>                      <span class="at">size =</span> n, <span class="co"># sample of size n</span></span>
+<span id="cb1-9"><a href="#cb1-9" aria-hidden="true" tabindex="-1"></a>                      <span class="at">replace =</span> T, <span class="co"># tell R that my bowl has infinitely many marbles </span></span>
+<span id="cb1-10"><a href="#cb1-10" aria-hidden="true" tabindex="-1"></a>                      <span class="at">prob =</span> <span class="fu">c</span>(<span class="fl">0.5</span>, <span class="fl">0.5</span>)) <span class="co"># 50% of slips are pink and 50% are purple</span></span>
+<span id="cb1-11"><a href="#cb1-11" aria-hidden="true" tabindex="-1"></a>  </span>
+<span id="cb1-12"><a href="#cb1-12" aria-hidden="true" tabindex="-1"></a>  <span class="co"># calculate and store the proportion of pink slips in this simulation</span></span>
+<span id="cb1-13"><a href="#cb1-13" aria-hidden="true" tabindex="-1"></a>  p_null_vec[b] <span class="ot">&lt;-</span> <span class="fu">sum</span>(null_samp <span class="sc">==</span> <span class="st">"pink"</span>)<span class="sc">/</span>n</span>
+<span id="cb1-14"><a href="#cb1-14" aria-hidden="true" tabindex="-1"></a>}</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</div>
+</div>
+</section>
+<section id="null-distribution-of-statistic" class="level2">
+<h2 class="anchored" data-anchor-id="null-distribution-of-statistic">Null distribution of statistic</h2>
+<p>We can visualize the distribution of <span class="math inline">\(\hat{p}_{sim}\)</span> assuming <span class="math inline">\(H_{0}\)</span> true:</p>
+<div class="cell">
+<div class="cell-output-display">
+<p><img src="slides-13-intro-testing_files/figure-html/unnamed-chunk-4-1.png" class="img-fluid" width="672"></p>
+</div>
+</div>
+<ul>
+<li><p>This is called the <strong>null distribution</strong> of the sample statistic, which is the distribution of the statistic assuming <span class="math inline">\(H_{0}\)</span> is true</p></li>
+<li><div class="discuss">
+<p>Where is the null distribution of <span class="math inline">\(\hat{p}\)</span> centered? Why does that “make sense”?</p>
+</div></li>
+</ul>
+</section>
+<section id="comparing-null-to-observed" class="level2">
+<h2 class="anchored" data-anchor-id="comparing-null-to-observed">Comparing null to observed</h2>
+<p>Let’s return to our original goal of Step 3! We need to find the <strong>p-value</strong>: the probability of observing data as or more extreme as ours, assuming <span class="math inline">\(H_{0}\)</span> were true.</p>
+<ul>
+<li><p>Our observed data were <span class="math inline">\(\hat{p} =\)</span> 0.6 (STAT 201A) or <span class="math inline">\(\hat{p} =\)</span> 0.7 (STAT 201B)</p></li>
+<li><p><span class="math inline">\(H_{0}\)</span>: <span class="math inline">\(p \leq 0.5\)</span> and <span class="math inline">\(H_{A}\)</span>: <span class="math inline">\(p &gt; 0.5\)</span></p></li>
+<li><div class="discuss">
+<p>What does “as or more extreme” mean in this context?</p>
+<p>How can we use the null distribution to obtain this probability?</p>
+</div></li>
+</ul>
+<div class="fragment">
+<div class="columns">
+<div class="column" style="width:50%;">
+<div class="cell">
+<div class="cell-output-display">
+<p><img src="slides-13-intro-testing_files/figure-html/unnamed-chunk-5-1.png" class="img-fluid" width="672"></p>
+</div>
+</div>
+</div><div class="column" style="width:50%;">
+<div class="cell">
+<div class="cell-output-display">
+<p><img src="slides-13-intro-testing_files/figure-html/unnamed-chunk-6-1.png" class="img-fluid" width="672"></p>
+</div>
+</div>
+</div>
+</div>
+</div>
+</section>
+<section id="obtain-p-value-step-3-cont." class="level2">
+<h2 class="anchored" data-anchor-id="obtain-p-value-step-3-cont.">Obtain p-value (step 3 cont.)</h2>
+<p>We can directly obtain (technically estimate) the p-value using our null distribution and our observed <span class="math inline">\(\hat{p}\)</span>!</p>
+<div class="fragment">
+<div class="columns">
+<div class="column" style="width:50%;">
+<div class="cell">
+<div class="cell-output-display">
+<p><img src="slides-13-intro-testing_files/figure-html/unnamed-chunk-7-1.png" class="img-fluid" width="672"></p>
+</div>
+</div>
+<ul>
+<li>Out of 5000 replications, we saw 1946 instances of <span class="math inline">\(\hat{p}_{sim} \geq \hat{p}\)</span></li>
+<li>p-value is <span class="math inline">\(\frac{ 1946}{5000} \approx\)</span> 0.39</li>
+</ul>
+</div><div class="column" style="width:50%;">
+<div class="cell">
+<div class="cell-output-display">
+<p><img src="slides-13-intro-testing_files/figure-html/unnamed-chunk-8-1.png" class="img-fluid" width="672"></p>
+</div>
+</div>
+<ul>
+<li>Out of 5000 replications, we saw 853 instances of <span class="math inline">\(\hat{p}_{sim} \geq \hat{p}\)</span></li>
+<li>p-value is <span class="math inline">\(\frac{ 853}{5000} \approx\)</span> 0.17</li>
+</ul>
+</div>
+</div>
+</div>
+</section>
+<section id="step-4-interpret-p-value-and-make-decision" class="level2">
+<h2 class="anchored" data-anchor-id="step-4-interpret-p-value-and-make-decision">Step 4: Interpret p-value and make decision</h2>
+<ol type="1">
+<li><p>Interpret the p-value in context</p>
+<ul>
+<li><div class="discuss">
+<p>Assuming <span class="math inline">\(H_{0}\)</span> true, the probability of observing a sample proportion as or more extreme as ours (0.6 or 0.7) is 0.39 or 0.17</p>
+</div></li>
+</ul></li>
+<li><p>Make a decision about research claim/question by comparing p-value to significance level <span class="math inline">\(\alpha\)</span></p>
+<ul>
+<li><p>If p-value <span class="math inline">\(&lt; \alpha\)</span>, we <em>reject</em> <span class="math inline">\(H_{0}\)</span> (it was highly unlikely to observe our data given our selected threshold)</p></li>
+<li><p>If p-value <span class="math inline">\(\geq \alpha\)</span>, we <em>fail to reject</em> <span class="math inline">\(H_{0}\)</span> (we did not have enough evidence against the null)</p>
+<ul>
+<li><div style="color: maroon">
+<p>Note: we never “accept <span class="math inline">\(H_{A}\)</span>”!</p>
+</div></li>
+</ul></li>
+<li><div class="discuss">
+<p>Since our p value is greater than <span class="math inline">\(\alpha = 0.05\)</span>, we fail to reject <span class="math inline">\(H_{0}\)</span>. The data do not provide sufficient evidence to suggest that the majority of STAT 201A/STAT 201B students get more than 7 hours of sleep.</p>
+</div></li>
+</ul></li>
+</ol>
+</section>
+<section id="summary-of-testing-framework" class="level2">
+<h2 class="anchored" data-anchor-id="summary-of-testing-framework">Summary of testing framework</h2>
+<p>Four steps for hypothesis test:</p>
+<ol type="1">
+<li>Define null and alternative hypotheses <span class="math inline">\(H_{0}\)</span> and <span class="math inline">\(H_{A}\)</span> in context</li>
+<li>Collect data and set significance level <span class="math inline">\(\alpha\)</span></li>
+<li>Obtain/estimate p-value by modeling randomness that would occur if the <span class="math inline">\(H_{0}\)</span> were true
+<ul>
+<li>We did this using by simulating under the null distribution</li>
+</ul></li>
+<li>Interpret p-value and make a decision in context</li>
+</ol>
+</section>
+<section id="errors-in-decision" class="level2">
+<h2 class="anchored" data-anchor-id="errors-in-decision">Errors in decision</h2>
+<ul>
+<li><p>In Step 4, we make a decision but it could be wrong! (Unfortunately, we will never know)</p></li>
+<li><p>We always fall into one of the following four scenarios:</p></li>
+</ul>
+<div class="fragment">
+<div class="quarto-figure quarto-figure-center">
+<figure class="figure">
+<p><img src="figs/13-error_table_empty.png" class="img-fluid figure-img"></p>
+</figure>
+</div>
+</div>
+<ul>
+<li><div class="discuss">
+<p>Identify which cells are good scenarios, and which are bad</p>
+</div></li>
+</ul>
+</section>
+<section id="errors-in-decision-1" class="level2">
+<h2 class="anchored" data-anchor-id="errors-in-decision-1">Errors in decision</h2>
+<p><img src="figs/13-error_table_filled.png" class="img-fluid"></p>
+<ul>
+<li><div class="discuss">
+<p>What kind of error could we have made in our example?</p>
+</div></li>
+<li><p>It is important to weight the consequences of making each type of error!</p>
+<ul>
+<li>We have some control in this - how? Through <span class="math inline">\(\alpha\)</span>!</li>
+</ul></li>
+</ul>
+</section>
+<section id="comprehension-questions" class="level2">
+<h2 class="anchored" data-anchor-id="comprehension-questions">Comprehension questions</h2>
+<ul>
+<li><p>What are the similarities/differences between the bootstrap distribution of a sample statistic and the simulated null distribution?</p></li>
+<li><p>Do you understand what a p-value represents, and how we obtain it from the null distribution?</p></li>
+<li><p>What role does <span class="math inline">\(\alpha\)</span> play? Why is it important to set <span class="math inline">\(\alpha\)</span> early on?</p></li>
+</ul>
+
+
+</section>
+
+</main> <!-- /main -->
+<script id="quarto-html-after-body" type="application/javascript">
+window.document.addEventListener("DOMContentLoaded", function (event) {
+  const toggleBodyColorMode = (bsSheetEl) => {
+    const mode = bsSheetEl.getAttribute("data-mode");
+    const bodyEl = window.document.querySelector("body");
+    if (mode === "dark") {
+      bodyEl.classList.add("quarto-dark");
+      bodyEl.classList.remove("quarto-light");
+    } else {
+      bodyEl.classList.add("quarto-light");
+      bodyEl.classList.remove("quarto-dark");
+    }
+  }
+  const toggleBodyColorPrimary = () => {
+    const bsSheetEl = window.document.querySelector("link#quarto-bootstrap");
+    if (bsSheetEl) {
+      toggleBodyColorMode(bsSheetEl);
+    }
+  }
+  toggleBodyColorPrimary();  
+  const icon = "";
+  const anchorJS = new window.AnchorJS();
+  anchorJS.options = {
+    placement: 'right',
+    icon: icon
+  };
+  anchorJS.add('.anchored');
+  const clipboard = new window.ClipboardJS('.code-copy-button', {
+    target: function(trigger) {
+      return trigger.previousElementSibling;
+    }
+  });
+  clipboard.on('success', function(e) {
+    // button target
+    const button = e.trigger;
+    // don't keep focus
+    button.blur();
+    // flash "checked"
+    button.classList.add('code-copy-button-checked');
+    var currentTitle = button.getAttribute("title");
+    button.setAttribute("title", "Copied!");
+    let tooltip;
+    if (window.bootstrap) {
+      button.setAttribute("data-bs-toggle", "tooltip");
+      button.setAttribute("data-bs-placement", "left");
+      button.setAttribute("data-bs-title", "Copied!");
+      tooltip = new bootstrap.Tooltip(button, 
+        { trigger: "manual", 
+          customClass: "code-copy-button-tooltip",
+          offset: [0, -8]});
+      tooltip.show();    
+    }
+    setTimeout(function() {
+      if (tooltip) {
+        tooltip.hide();
+        button.removeAttribute("data-bs-title");
+        button.removeAttribute("data-bs-toggle");
+        button.removeAttribute("data-bs-placement");
+      }
+      button.setAttribute("title", currentTitle);
+      button.classList.remove('code-copy-button-checked');
+    }, 1000);
+    // clear code selection
+    e.clearSelection();
+  });
+  function tippyHover(el, contentFn) {
+    const config = {
+      allowHTML: true,
+      content: contentFn,
+      maxWidth: 500,
+      delay: 100,
+      arrow: false,
+      appendTo: function(el) {
+          return el.parentElement;
+      },
+      interactive: true,
+      interactiveBorder: 10,
+      theme: 'quarto',
+      placement: 'bottom-start'
+    };
+    window.tippy(el, config); 
+  }
+  const noterefs = window.document.querySelectorAll('a[role="doc-noteref"]');
+  for (var i=0; i<noterefs.length; i++) {
+    const ref = noterefs[i];
+    tippyHover(ref, function() {
+      // use id or data attribute instead here
+      let href = ref.getAttribute('data-footnote-href') || ref.getAttribute('href');
+      try { href = new URL(href).hash; } catch {}
+      const id = href.replace(/^#\/?/, "");
+      const note = window.document.getElementById(id);
+      return note.innerHTML;
+    });
+  }
+  const findCites = (el) => {
+    const parentEl = el.parentElement;
+    if (parentEl) {
+      const cites = parentEl.dataset.cites;
+      if (cites) {
+        return {
+          el,
+          cites: cites.split(' ')
+        };
+      } else {
+        return findCites(el.parentElement)
+      }
+    } else {
+      return undefined;
+    }
+  };
+  var bibliorefs = window.document.querySelectorAll('a[role="doc-biblioref"]');
+  for (var i=0; i<bibliorefs.length; i++) {
+    const ref = bibliorefs[i];
+    const citeInfo = findCites(ref);
+    if (citeInfo) {
+      tippyHover(citeInfo.el, function() {
+        var popup = window.document.createElement('div');
+        citeInfo.cites.forEach(function(cite) {
+          var citeDiv = window.document.createElement('div');
+          citeDiv.classList.add('hanging-indent');
+          citeDiv.classList.add('csl-entry');
+          var biblioDiv = window.document.getElementById('ref-' + cite);
+          if (biblioDiv) {
+            citeDiv.innerHTML = biblioDiv.innerHTML;
+          }
+          popup.appendChild(citeDiv);
+        });
+        return popup.innerHTML;
+      });
+    }
+  }
+});
+</script>
+</div> <!-- /content -->
+
+
+
+</body></html>

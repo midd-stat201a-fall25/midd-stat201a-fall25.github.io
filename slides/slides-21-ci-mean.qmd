@@ -1,0 +1,529 @@
+---
+title: "CIs and HTs for a single mean"
+subtitle: "CLT-based"
+date: "April 14, 2025"
+title-slide-attributes:
+    data-background-image: "figs/bikeshare-plots.png"
+    data-background-size: contain
+    data-background-opacity: "0.2"
+format: 
+  revealjs:
+    theme: custom.scss
+    transition: none
+    incremental: true
+    scrollable: true
+editor: visual
+editor_options: 
+  chunk_output_type: console
+draft: false
+---
+
+## Housekeeping
+
+-   Dessert social today! 3-4:30pm in WNS 105!
+
+-   Modified office hours today: 1:30-2:30pm instead of 2-3pm
+
+-   Homework 7 due tonight
+
+-   Project proposals due Wednesday night
+
+## Recap
+
+```{r echo = F, message= F}
+knitr::opts_chunk$set(echo = F, warning = F, messabundance = F)
+library(tidyverse)
+library(openintro)
+library(readr)
+library(kableExtra)
+plot_theme <- theme(text = element_text(size = 24))
+source("../stat201_fns.R")
+```
+
+-   CLT: if we have a sufficiently large sample of $n$ independent observations from a population with mean $\mu$ and standard deviation $\sigma$, then $\bar{X} \overset{\cdot}{\sim} N\left(\mu, \frac{\sigma}{\sqrt{n}}\right)$
+
+-   To obtain a $\gamma\times 100\%$ CI via CLT, we use
+
+    ::: fragment
+    $$
+    \text{point estimate} \pm \text{critical value} \times \text{SE} 
+    $$
+    :::
+
+    -   We may need to replace the standard error with an estimate $\widehat{SE}$
+
+## Checking normality
+
+-   Remember, CLT requires a sufficiently large sample size $n$ or assumption of Normality of the underlying data.
+
+-   No perfect way to check Normality, but rule of thumb:
+
+    -   If $n < 30$ small: check that there are no clear outliers
+
+    -   If $n \geq 30$ large: check that there are no particularly extreme outliers
+
+# CI for a single mean
+
+## CI for a single mean (known variance)
+
+Suppose we want a $\gamma\times 100\%$ CI for population mean $\mu$.
+
+-   *If* CLT holds, then we know
+
+    $$
+    \bar{X} \overset{\cdot}{\sim} N\left(\mu, \frac{\sigma}{\sqrt{n}}\right)
+    $$
+
+-   So our $\gamma \times 100\%$ CI for $\mu$ is:
+
+    $$
+    \text{point estimate} \pm \underbrace{\text{critical value} \times \text{SE}}_{\text{Margin of Error}} = \bar{x}_{obs} \pm z_{(1+\gamma)/2}^* \times \frac{\sigma}{\sqrt{n}}
+    $$
+
+## Example: age at marriage
+
+```{r}
+set.seed(2)
+n <- 25
+sd_age <- round(sd(age_at_mar$age), 2)
+x <- sample(age_at_mar$age, n)
+xbar <- mean(x)
+sigma_age <- 5
+se <- sigma_age / sqrt(n)
+s_age <- round(sd(x),2)
+# se <- sd_age / sqrt(n)
+```
+
+In 2006-2010, the CDC conducted a thorough survey asking US women their age at first marriage. Suppose it is known that the standard deviation of the ages at first marriage is `r sigma_age` years. Suppose we randomly sample 25 US women and ask them their age at first marriage (plotted below). Their average age at marriage was `r xbar`.
+
+:::::::: columns
+:::: {.column width="50%"}
+```{r}
+ggplot(data.frame(x), aes(x=x)) +
+  geom_histogram(binwidth = 2, col = "white") +
+  labs(x = "Age at first marriage") +
+  theme_minimal() +
+  theme(text =element_text(size = 28))
+```
+
+::: discuss
+What is/are the population parameter(s)? What is the statistic?
+:::
+::::
+
+::::: {.column width="50%"}
+::: {.fragment style="color: maroon"}
+We will obtain an 80% confidence interval for the mean age of US women at first marriage.
+:::
+
+::: discuss
+-   Are conditions of CLT met?
+
+-   If so, what does CLT tell us?
+:::
+:::::
+::::::::
+
+## Example: age at marriage (cont.)
+
+::: {style="color: maroon"}
+Obtain an 80% confidence interval for the mean age of US women at first marriage.
+:::
+
+-   Because we have a random sample (independence) and there are no outliers in the data (normality condition), we can proceed with CLT!
+
+```{r}
+zstar90 <- round(qnorm(0.9), 2)
+ci <- round(xbar +  zstar90*se*c(-1,1), 2)
+```
+
+::: fragment
+$$\bar{X} \overset{\cdot}{\sim}N\left(\mu, \frac{`r sigma_age`}{\sqrt{`r n`}}\right) = N(\mu, `r se`)$$
+:::
+
+::: discuss
+-   Construct your confidence interval and interpret!
+:::
+
+1.  Point estimate: $\bar{x}_{obs} = `r xbar`$
+2.  Standard error: $\text{SE} = `r se`$
+3.  Critical value: $z_{0.9}^{*} =$ `qnorm(0.9, 0, 1)` $= `r zstar90`$
+
+::: fragment
+So our 80% confidence interval is $`r xbar` \pm `r round(qnorm(0.9),2)` \times `r se` = (`r ci[1]`, `r ci[2]`)$
+:::
+
+## Utility of this model
+
+-   The previous formula for the confidence interval for $\mu$ relies on knowing $\sigma$
+
+-   But wait...
+
+    -   Want to construct a CI for $\mu$ because we don't know its value
+
+    -   If we don't know $\mu$, it seems highly unlikely that we would know $\sigma$!
+
+-   So in practice, we will have to estimate standard error for $\bar{X}$:
+
+::: fragment
+$$
+    \widehat{\text{SE}} = \frac{s}{\sqrt{n}}
+$$
+
+where $s$ is the observed sample standard deviation
+:::
+
+-   Recall we did something similar for CI for $p$, where we replaced $p$ with $\hat{p}_{obs}$
+
+## Variance issue
+
+-   Estimating variance is extremely difficult when $n$ is small, and still not great for large $n$
+
+    -   Thus, replacing $\sigma$ with $s$ invalidates CLT
+
+-   So if $\sigma$ is unknown, we ***cannot*** use the Normal approximation to model $\bar{X}$ for inferential tasks
+
+-   Instead, we will use a new distribution for inference calculations, called the $t$-distribution
+
+## $t$-distribution
+
+-   The $t$**-distribution** is symmetric and bell-curved (like the Normal distribution)
+
+-   Has "thicker tails" than the Normal distribution (the tails decay more slowly)
+
+:::::: columns
+:::: {.column width="60%"}
+::: fragment
+```{r}
+ggplot() +
+  stat_function(fun = dnorm, aes(col = "N(0,1)"), linetype = "dashed", linewidth = 2) +
+  stat_function(fun = dt, args = list(df = 1), aes(col = "t (df = 1)"), linewidth = 2) +
+    stat_function(fun = dt, args = list(df = 2), aes(col = "t (df = 2)"), linewidth = 2) +
+    stat_function(fun = dt, args = list(df = 10), aes(col = "t (df = 20)"), linewidth = 2) +
+  scale_x_continuous(limits = c(-4,4), breaks = -4:4) +
+  theme_minimal() +
+  labs(color = "Distribution", y = "density", x = "x") +
+  theme(text = element_text(size = 28))
+```
+:::
+::::
+
+::: {.column width="40%"}
+-   $t$-distribution is always centered at 0
+-   One parameter: **degrees of freedom (df)** defines exact shape of the $t$
+    -   Denoted $t_{df}$ (e.g. $t_{1}$ or $t_{20}$)
+:::
+::::::
+
+-   As $df$ increases, $t$ resembles the $N(0,1)$. When $df \geq 30$, the $t_{df}$ is nearly identical to $N(0,1)$
+
+## $t$ distribution in `R`
+
+-   `pnorm(x, mean, sd)` and `qnorm(%, mean, sd)` used to find probabilities and percentiles for the Normal distribution
+
+-   Analogous functions for $t$-distribution: `pt(x, df)` and `qt(%, df)`
+
+::::::::: columns
+::::: {.column width="50%"}
+::: fragment
+```{r}
+ub <- -1.5
+df <- 2
+funcShaded_t <- function(x, lower_bound = -Inf, upper_bound = Inf) {
+    y = dt(x, df = df)
+    y[x < lower_bound] <- NA
+    y[x > upper_bound] <- NA
+    return(y)
+}
+
+
+ggplot() +
+  stat_function(fun = dt, args = list(df = df)) +
+  scale_x_continuous(limits = c(-3.5,3.5), breaks = seq(-3.5,3.5, 1)) +
+  theme_minimal() +
+  labs(title = (expression(t[2])), y = "density", x = "x") +
+  theme(text = element_text(size = 28)) +
+  stat_function(fun = funcShaded_t, args = list( upper_bound = ub),  geom = "area", fill = "#84CA72", alpha = .8)  +
+  annotate("text", label = "?", x = ub - 0.75, y = 0.02, size = 15 ) 
+
+prob <- pt(ub, df)
+```
+:::
+
+::: fragment
+`pt(`r ub`,df =`r df`)` = `r prob`
+:::
+:::::
+
+::::: {.column width="50%"}
+::: fragment
+```{r}
+p <- 0.7
+ub <- qt(p, df)
+ggplot() +
+  stat_function(fun = dt, args = list(df = 2)) +
+  scale_x_continuous(limits = c(-4,4), breaks = -4:4) +
+  theme_minimal() +
+  labs(title = (expression(t[2])), y = "density", x = "x") +
+  theme(text = element_text(size = 28)) +
+  stat_function(fun = funcShaded_t, args = list( upper_bound = ub),  geom = "area", fill = "#84CA72", alpha = .8) +
+   annotate("text", label = as.character(p), x = ub - 0.75, y = 0.15, size = 15)+
+   annotate("text", label = "?", x = qt(p, df), y = 0, size = 15 ) 
+```
+:::
+
+::: fragment
+`qt(`r p`, df =`r df`)` = `r ub`
+:::
+:::::
+:::::::::
+
+## CI for a single mean (unknown variance)
+
+-   Still require independent observations and the Normality condition for CLT
+
+-   General formula for $\gamma \times 100\%$ CI is the same, but we simply change what goes into the margin of error.
+
+::: fragment
+$$
+\text{point estimate} \pm t^*_{df, (1+\gamma)/2} \times \widehat{\text{SE}} = \bar{x}_{obs} \pm t_{df, (1+\gamma)/2}^* \times \frac{s}{\sqrt{n}}
+$$
+:::
+
+-   $df = n-1$ (always for this CI)
+
+-   critical value $t^*_{df, (1+\gamma)/2}$ = $(1+\gamma)/2$ percentile of the $t_{df}$ distribution
+
+## Example: age at marriage (cont.)
+
+Let's return to the age at marriage example. Once again, obtain an 80% CI for the average age of first marriage for US women, but now suppose we **don't know** $\sigma$.
+
+::: fragment
+In our sample of $n = 25$ women, we observed a sample mean of $`r xbar`$ years and a sample standard deviation of $s = `r s_age`$ years.
+:::
+
+```{r}
+se_hat <- s_age/ sqrt(n)
+df <- n-1
+tstar90 <- round(qt(0.9, df), 2)
+ci_t <- round(xbar + tstar90*se_hat*c(-1,1), 2)
+```
+
+1.  Point estimate: $\bar{x}_{obs} = `r xbar`$
+2.  Standard error: $\widehat{\text{SE}} = \frac{s}{\sqrt{n}}= \frac{`r s_age`}{\sqrt{`r n`}} = `r se_hat`$
+3.  Critical value:
+    -   $df = n-1 = `r df`$
+    -   $t_{`r df`, 0.9}^*$ = `qt(0.9, df =`r df`)` = `r tstar90`
+
+::: fragment
+So our 80% confidence interval for $\mu$ is:
+
+$$
+`r xbar` \pm `r tstar90` \times `r se_hat` = (`r ci_t[1]`, `r ci_t[2]`)
+$$
+:::
+
+## Remarks
+
+-   Interpretation of CI does not change even if we use a different model!
+
+-   ::: discuss
+    If you have access to both $\sigma$ and $s$, would should you use?
+    :::
+
+    -   You should use $\sigma$!
+
+# Test for a single mean
+
+## Hypothesis test recap
+
+1.  Set hypotheses
+2.  Collect and summarise data, set $\alpha$
+3.  Obtain null distribution and p-value
+    -   For CLT-based method, obtain *test statistic*
+4.  Decision and conclusion
+
+## Hypotheses and null distribution
+
+Want to conduct a hypothesis test for the mean $\mu$ of a population.
+
+-   Hypotheses: $H_0: \mu= \mu_{0}$ versus $H_{A}: \mu \neq \mu_{0} \ (\text{or } \mu > \mu_{0} \text{ or } \mu < \mu_{0})$
+
+-   Verify conditions for CLT
+
+    1.  Independence
+    2.  Approximate normality or large sample size
+
+-   Then from population with mean $\mu$ and standard deviation $\sigma$, we have $\bar{X} \overset{\cdot}{\sim} N\left(\mu, \frac{\sigma}{\sqrt{n}}\right)$
+
+-   ::: discuss
+    What does the (approximate) **null distribution** for $\bar{X}$ look like?
+    :::
+
+::: fragment
+$$
+\bar{X} \overset{\cdot}{\sim}  N\left(\boldsymbol{\mu_{0}}, \frac{\sigma}{\sqrt{n}}\right)
+$$
+:::
+
+## z-test and *t*-test statistics
+
+Our test statistic is always of the form:
+
+$$
+\frac{\text{observed} - \text{null}}{\text{SE}} \qquad \text{ or } \qquad \frac{\text{observed} - \text{null}}{\widehat{\text{SE}}}
+$$
+
+::::::: columns
+:::: {.column width="50%"}
+-   If $\sigma$ known and CLT met, we perform a **z-test** where our test-statistic is:
+
+::: fragment
+$$z = \frac{\bar{x}_{obs} - \mu_{0}}{\frac{\sigma}{\sqrt{n}}} \sim N(0,1)$$
+
+and we obtain our p-value using `pnorm()`
+:::
+::::
+
+:::: {.column width="50%"}
+-   If $\sigma$ unknown and CLT met, we perform a ***t*****-test** by estimating $\sigma$ with $s$. Our test statistic is:
+
+::: fragment
+$$
+t = \frac{\bar{x}_{obs} - \mu_{0}}{\frac{s}{\sqrt{n}}} \sim t_{df} \qquad df = n-1
+$$
+
+and we obtain our p-value using `pt()`
+:::
+::::
+:::::::
+
+-   Everything else proceeds as usual!
+
+## Example: salinity
+
+The salinity level in a body of water is important for ecosystem function.
+
+```{r}
+salinity_dat <- salinity
+x <- salinity_dat$salinity_ppt
+n <- length(x)
+s <- sd(x)
+df <- n-1
+mu0 <- 38
+```
+
+We have `r n` salinity level measurements (ppt) collected from a random sample of water masses in the Bimini Lagoon, Bahamas.
+
+```{r}
+salinity_dat |>
+  ggplot(aes(x = salinity_ppt)) +
+  geom_histogram(bins = 10) +
+  theme_minimal() +
+  labs(x = "Salinity (ppt)") +
+  theme(text = element_text(size = 24))
+```
+
+-   We want to test if the average salinity level in Bimini Lagoon is different from `r mu0` ppm at the $\alpha = 0.05$ level.
+
+## Example: salinity (cont.)
+
+1.  ::: discuss
+    Set hypotheses (define parameters as necessary).
+    :::
+
+    -   Let $\mu$ be the average salinity level in Bimini Lagoon in ppt.
+
+    -   $H_{0}: \mu = `r mu0`$ versus $H_{A}: \mu \neq `r mu0`$
+
+2.  Collect summary information, set $\alpha$.
+
+```{r}
+x <- salinity_dat$salinity_ppt
+n <- length(x)
+xbar <- mean(x)
+s <- sd(x)
+```
+
+-   $\bar{x}_{obs} = `r round(xbar,2)`$
+
+-   $s = `r round(s,2)`$
+
+-   $n = `r n`$
+
+-   $\alpha = 0.05$
+
+## Example: salinity (cont.)
+
+```{r}
+se <- s/sqrt(n)
+t <- round((xbar - mu0)/se, 3)
+```
+
+::: discuss
+3.  Obtain null distribution, test statistic, and p-value
+    i.  Check conditions for CLT
+    ii. If conditions met, obtain null distribution and test-statistic, and determine distribution of test-statistic
+:::
+
+-   Conditions:
+
+    -   Independence: random sample
+
+    -   Approximate normality: $n = `r n`$, but no clear outliers
+
+-   So by CLT, null dist. is $\bar{X} \overset{\cdot}{\sim} N\left(`r mu0`, \frac{\sigma}{\sqrt{`r n`}}\right)$
+
+-   Since we don't know $\sigma$, we perform a $t$-test and obtain the following test-statistic:
+
+    -   $t = \frac{\bar{x}_{obs} - \mu_{0}}{\widehat{SE}} = \frac{`r round(xbar,2)` - `r mu0`}{`r round(s,2)` / \sqrt{`r n`}} = `r t`$
+
+    -   This test-statistic follows a $t_{`r n-1`}$ distribution
+
+## Example: salinity (cont.)
+
+::: discuss
+iii. Use test-statistic to obtain p-value (draw picture and/or write code using appropriate distribution)
+:::
+
+::::::: columns
+:::: {.column width="60%"}
+::: fragment
+```{r fig.height = 5}
+ggplot() +
+  stat_function(fun = dt, args = list(df = n-1)) +
+  scale_x_continuous(limits = c(-3, 3)) +
+  theme_minimal() +
+  labs(title = (expression(t[29])), y = "density", x = "x") +
+  theme(text = element_text(size = 28)) +
+  stat_function(fun = funcShaded_t, args = list( lower_bound = t, upper_bound = Inf),  geom = "area", fill = "#84CA72", alpha = .8)  +
+  stat_function(fun = funcShaded_t, args = list( lower_bound = -Inf, upper_bound = -t),  geom = "area", fill = "#84CA72", alpha = .8)  +
+  labs(y = NULL) +
+  theme(axis.title = element_blank(), axis.text.y = element_blank())
+```
+:::
+::::
+
+:::: {.column width="40%"}
+::: fragment
+Want $P(T \geq `r round(t,2)`) + P(T \leq `r round(t,2)`)$ because $H_{A}$ is two-sided!
+
+```{r echo = T}
+p_val <- 2 * (1 - pt(t, df = n-1))
+p_val
+```
+:::
+::::
+:::::::
+
+## Example: salinity (cont.)
+
+4.  Decision and conclusion
+
+-   Since our p-value `r round(p_val, 3)` is less than 0.05, we reject $H_{0}$.
+
+-   The data do provide sufficient evidence to suggest that the average salinity level in Bimini Lagoon is different from 38 ppt.
+
+::: fragment
+Let's code it up together!
+:::

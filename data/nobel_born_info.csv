@@ -1,0 +1,999 @@
+﻿ID,born_country,born_country_code
+1,Germany,DE
+2,Netherlands,NL
+3,Netherlands,NL
+4,France,FR
+5,France,FR
+6,Poland,PL
+6,Poland,PL
+8,United Kingdom,GB
+9,Slovakia,SK
+10,United Kingdom,GB
+11,Poland,PL
+12,Luxembourg,LU
+13,Italy,IT
+14,Germany,DE
+15,Netherlands,NL
+16,Russia,RU
+17,Sweden,SE
+18,Netherlands,NL
+19,Germany,DE
+20,United Kingdom,GB
+21,Australia,AU
+22,United Kingdom,GB
+23,Germany,DE
+24,Germany,DE
+25,Switzerland,CH
+26,Germany,DE
+27,Denmark,DK
+28,USA,US
+29,Sweden,SE
+30,Germany,DE
+31,Germany,DE
+32,France,FR
+33,USA,US
+34,Scotland,GB
+35,United Kingdom,GB
+36,France,FR
+37,India,IN
+38,Germany,DE
+39,Austria,AT
+40,United Kingdom,GB
+41,United Kingdom,GB
+42,Austria,AT
+43,USA,US
+44,USA,US
+45,United Kingdom,GB
+46,Italy,IT
+47,USA,US
+48,Poland,PL
+49,Poland,PL
+50,Austria,AT
+51,USA,US
+52,United Kingdom,GB
+53,United Kingdom,GB
+54,Japan,JP
+55,United Kingdom,GB
+56,United Kingdom,GB
+57,Ireland,IE
+58,Switzerland,CH
+59,USA,US
+60,Netherlands,NL
+61,Poland,PL
+62,Germany,DE
+63,USA,US
+64,Germany,DE
+65,United Kingdom,GB
+66,USA,US
+66,USA,US
+67,China,CN
+68,China,CN
+69,China,CN
+70,Russia,RU
+71,Russia,RU
+72,Italy,IT
+73,USA,US
+74,USA,US
+75,USA,US
+76,Germany,DE
+77,Azerbaijan,AZ
+78,Hungary,HU
+79,Poland,PL
+80,Germany,DE
+81,USA,US
+82,Russia,RU
+83,Australia,AU
+84,Japan,JP
+85,USA,US
+86,USA,US
+87,France,FR
+88,France,FR
+89,USA,US
+90,USA,US
+91,Sweden,SE
+92,France,FR
+93,Hungary,HU
+95,USA,US
+96,USA,US
+97,Japan,JP
+98,Norway,NO
+99,United Kingdom,GB
+100,United Kingdom,GB
+101,United Kingdom,GB
+102,Denmark,DK
+103,USA,US
+104,USA,US
+105,USA,US
+106,USA,US
+107,USA,US
+108,United Kingdom,GB
+109,USA,US
+110,Russia,RU
+111,Germany,DE
+112,USA,US
+113,USA,US
+114,Pakistan,PK
+115,USA,US
+116,USA,US
+117,USA,US
+118,Netherlands,NL
+119,USA,US
+120,Sweden,SE
+121,USA,US
+122,Pakistan,PK
+123,USA,US
+124,Italy,IT
+125,Netherlands,NL
+126,Poland,PL
+127,Germany,DE
+128,Germany,DE
+129,Switzerland,CH
+130,Germany,DE
+131,Switzerland,CH
+132,USA,US
+133,USA,US
+134,Germany,DE
+135,USA,US
+136,Germany,DE
+137,Germany,DE
+138,USA,US
+139,USA,US
+140,Canada,CA
+141,France,FR
+142,Poland,PL
+143,USA,US
+144,USA,US
+145,Canada,CA
+146,USA,US
+147,USA,US
+148,USA,US
+149,USA,US
+150,USA,US
+151,USA,US
+152,USA,US
+153,Algeria,DZ
+154,USA,US
+155,USA,US
+156,Germany,DE
+157,China,CN
+158,Netherlands,NL
+159,Netherlands,NL
+160,Netherlands,NL
+161,Germany,DE
+162,Sweden,SE
+163,Scotland,GB
+164,Germany,DE
+165,France,FR
+166,Germany,DE
+167,New Zealand,NZ
+168,Latvia,LV
+169,Russia,RU
+172,France,FR
+173,France,FR
+174,France,FR
+175,USA,US
+176,Germany,DE
+177,Poland,PL
+178,Germany,DE
+179,United Kingdom,GB
+180,United Kingdom,GB
+181,Slovenia,SI
+182,Austria,AT
+183,Sweden,SE
+184,Germany,DE
+185,Germany,DE
+186,United Kingdom,GB
+187,Germany,DE
+188,Germany,DE
+189,Germany,DE
+190,Poland,PL
+191,USA,US
+192,USA,US
+193,France,FR
+194,France,FR
+195,Netherlands,NL
+196,United Kingdom,GB
+197,Russia,RU
+198,Austria,AT
+199,Germany,DE
+200,Croatia,HR
+201,Hungary,HU
+202,Germany,DE
+203,Finland,FI
+204,USA,US
+205,USA,US
+206,USA,US
+207,United Kingdom,GB
+208,Sweden,SE
+209,Canada,CA
+210,Germany,DE
+211,Poland,PL
+212,USA,US
+213,USA,US
+214,United Kingdom,GB
+215,United Kingdom,GB
+216,Germany,DE
+217,USA,US
+217,USA,US
+218,USA,US
+219,United Kingdom,GB
+220,Russia,RU
+221,Scotland,GB
+222,United Kingdom,GB
+222,United Kingdom,GB
+223,Czech Republic,CZ
+224,USA,US
+225,USA,US
+226,Austria,AT
+227,United Kingdom,GB
+228,Germany,DE
+229,Italy,IT
+230,Egypt,EG
+231,USA,US
+232,USA,US
+233,Germany,DE
+234,United Kingdom,GB
+235,United Kingdom,GB
+236,Norway,NO
+237,United Kingdom,GB
+238,Norway,NO
+239,France,FR
+240,Germany,DE
+241,USA,US
+242,USA,US
+243,USA,US
+244,Germany,DE
+245,United Kingdom,GB
+246,USA,US
+247,Australia,AU
+248,Bosnia and Herzegovina,BA
+249,USA,US
+250,Russia,RU
+251,United Kingdom,GB
+252,United Kingdom,GB
+253,Germany,DE
+254,USA,US
+255,USA,US
+257,Japan,JP
+258,Ukraine,UA
+259,Lithuania,LT
+260,Canada,CA
+261,USA,US
+262,USA,US
+263,USA,US
+264,USA,US
+265,Taiwan,TW
+266,Germany,DE
+267,USA,US
+268,France,FR
+269,South Korea,KR
+270,Germany,DE
+271,Germany,DE
+272,Germany,DE
+273,Canada,CA
+274,USA,US
+275,USA,US
+276,Switzerland,CH
+277,Canada,CA
+278,USA,US
+279,United Kingdom,GB
+280,Hungary,HU
+281,Netherlands,NL
+282,Mexico,MX
+283,USA,US
+284,USA,US
+285,United Kingdom,GB
+286,USA,US
+287,USA,US
+288,United Kingdom,GB
+289,Denmark,DK
+290,Austria,AT
+291,United Kingdom,GB
+292,Egypt,EG
+293,Poland,PL
+294,India,IN
+295,Faroe Islands (Denmark),DK
+296,Russia,RU
+297,Germany,DE
+298,Italy,IT
+299,Spain,ES
+300,France,FR
+301,Ukraine,UA
+302,Poland,PL
+303,Switzerland,CH
+304,Germany,DE
+305,Sweden,SE
+306,France,FR
+307,France,FR
+308,Austria,AT
+309,Belgium,BE
+310,Denmark,DK
+311,United Kingdom,GB
+312,Germany,DE
+313,Canada,CA
+314,Scotland,GB
+315,Indonesia,ID
+316,Denmark,DK
+317,Austria,AT
+318,France,FR
+319,Netherlands,NL
+320,United Kingdom,GB
+321,Austria,AT
+322,Germany,DE
+323,United Kingdom,GB
+324,United Kingdom,GB
+325,USA,US
+326,USA,US
+327,USA,US
+328,USA,US
+329,Germany,DE
+330,United Kingdom,GB
+331,Germany,DE
+332,Hungary,HU
+333,Belgium,BE
+334,Poland,PL
+335,Denmark,DK
+336,USA,US
+337,USA,US
+338,USA,US
+339,Scotland,GB
+340,Germany,DE
+341,Australia,AU
+342,USA,US
+343,Czech Republic,CZ
+344,Czech Republic,CZ
+345,Argentina,AR
+346,Switzerland,CH
+347,Switzerland,CH
+348,Portugal,PT
+349,USA,US
+350,Poland,PL
+351,USA,US
+352,South Africa,ZA
+353,Ukraine,UA
+354,Germany,DE
+355,Russia,RU
+356,USA,US
+357,USA,US
+358,USA,US
+359,Sweden,SE
+360,France,FR
+361,Germany,DE
+362,USA,US
+363,Switzerland,CH
+364,USA,US
+365,USA,US
+366,USA,US
+367,Spain,ES
+368,USA,US
+369,Australia,AU
+370,Brazil,BR
+371,Hungary,HU
+372,United Kingdom,GB
+373,USA,US
+374,New Zealand,NZ
+375,Australia,AU
+376,United Kingdom,GB
+377,United Kingdom,GB
+378,Poland,PL
+379,Germany,DE
+380,France,FR
+381,France,FR
+382,France,FR
+383,USA,US
+384,Canada,CA
+385,Finland,FI
+386,USA,US
+387,USA,US
+388,USA,US
+389,India,IN
+390,USA,US
+391,Germany,DE
+392,USA,US
+393,Italy,IT
+394,Germany,DE
+395,Sweden,SE
+396,USA,US
+397,USA,US
+398,USA,US
+399,United Kingdom,GB
+400,Austria,AT
+401,Austria,AT
+402,Netherlands,NL
+403,Belgium,BE
+404,United Kingdom,GB
+405,Romania,RO
+406,USA,US
+407,Italy,IT
+408,USA,US
+409,USA,US
+410,USA,US
+411,France,FR
+412,Lithuania,LT
+413,USA,US
+414,Switzerland,CH
+415,USA,US
+416,USA,US
+417,South Africa,ZA
+418,United Kingdom,GB
+419,Venezuela,VE
+420,France,FR
+421,USA,US
+422,USA,US
+423,Canada,CA
+424,Sweden,SE
+425,Sweden,SE
+426,Sweden,SE
+427,United Kingdom,GB
+428,USA,US
+429,United Kingdom,GB
+430,Germany,DE
+431,Argentina,AR
+432,USA,US
+433,USA,US
+434,USA,US
+435,Italy,IT
+436,Japan,JP
+437,Scotland,GB
+438,USA,US
+439,USA,US
+440,USA,US
+441,USA,US
+442,USA,US
+443,USA,US
+444,Germany,DE
+445,Germany,DE
+446,China,CN
+447,USA,US
+448,United Kingdom,GB
+449,USA,US
+450,USA,US
+451,USA,US
+452,USA,US
+453,Germany,DE
+454,USA,US
+455,Australia,AU
+456,Switzerland,CH
+457,USA,US
+458,USA,US
+459,USA,US
+460,USA,US
+461,Poland,PL
+462,Switzerland,CH
+463,France,FR
+464,Switzerland,CH
+465,Switzerland,CH
+466,United Kingdom,GB
+467,NA,NA
+468,Czech Republic,CZ
+470,USA,US
+471,Italy,IT
+472,France,FR
+473,Sweden,SE
+474,Denmark,DK
+475,Belgium,BE
+476,France,FR
+477,NA,NA
+478,Netherlands,NL
+479,Austria,AT
+480,USA,US
+481,Belgium,BE
+482,NA,NA
+482,NA,NA
+482,NA,NA
+483,USA,US
+484,France,FR
+485,Sweden,SE
+486,Norway,NO
+487,Norway,NO
+488,United Kingdom,GB
+489,USA,US
+490,France,FR
+491,Germany,DE
+492,France,FR
+493,Germany,DE
+494,USA,US
+495,Sweden,SE
+496,USA,US
+497,USA,US
+498,United Kingdom,GB
+499,Scotland,GB
+500,Germany,DE
+501,Argentina,AR
+502,United Kingdom,GB
+503,NA,NA
+505,USA,US
+506,USA,US
+507,USA,US
+508,NA,NA
+509,NA,NA
+510,Scotland,GB
+511,USA,US
+512,France,FR
+513,France,FR
+514,USA,US
+515,NA,NA
+515,NA,NA
+516,Canada,CA
+517,Belgium,BE
+518,United Kingdom,GB
+519,Zimbabwe,ZW
+520,Sweden,SE
+523,NA,NA
+524,USA,US
+525,NA,NA
+526,France,FR
+527,NA,NA
+528,USA,US
+529,Germany,DE
+530,Germany,DE
+531,Vietnam,VN
+532,France,FR
+533,Japan,JP
+534,Russia,RU
+535,Northern Ireland,GB
+536,Northern Ireland,GB
+537,NA,NA
+538,Egypt,EG
+539,Belarus,BY
+540,North Macedonia,MK
+541,Argentina,AR
+543,Sweden,SE
+544,Mexico,MX
+545,Poland,PL
+546,South Africa,ZA
+547,NA,NA
+548,Romania,RO
+549,Costa Rica,CR
+550,NA,NA
+551,China,CN
+552,Russia,RU
+553,Myanmar,MM
+554,Guatemala,GT
+555,South Africa,ZA
+556,South Africa,ZA
+557,Egypt,EG
+558,Belarus,BY
+559,Israel,IL
+560,Poland,PL
+561,NA,NA
+562,East Timor,TL
+563,East Timor,TL
+564,NA,NA
+565,USA,US
+566,Northern Ireland,GB
+567,Northern Ireland,GB
+568,NA,NA
+569,France,FR
+571,Germany,DE
+572,Norway,NO
+573,France,FR
+574,Spain,ES
+575,Poland,PL
+576,Italy,IT
+577,India,IN
+578,Germany,DE
+579,Sweden,SE
+580,Germany,DE
+581,Belgium,BE
+582,Germany,DE
+583,India,IN
+584,France,FR
+585,Sweden,SE
+586,Denmark,DK
+587,Denmark,DK
+588,Switzerland,CH
+589,Norway,NO
+590,France,FR
+592,Spain,ES
+593,Ireland,IE
+594,Poland,PL
+596,Ireland,IE
+597,Italy,IT
+600,France,FR
+601,Denmark,DK
+602,Germany,DE
+603,USA,US
+604,Sweden,SE
+605,United Kingdom,GB
+606,Russia,RU
+607,Italy,IT
+608,USA,US
+609,France,FR
+610,USA,US
+613,Finland,FI
+614,Denmark,DK
+615,Chile,CL
+617,Germany,DE
+618,France,FR
+619,USA,US
+620,USA,US
+621,United Kingdom,GB
+622,Sweden,SE
+623,France,FR
+624,United Kingdom,GB
+625,USA,US
+626,Iceland,IS
+627,Spain,ES
+628,Algeria,DZ
+629,Russia,RU
+630,Italy,IT
+631,Guadeloupe Island,GP
+633,Bosnia and Herzegovina,BA
+634,USA,US
+635,Turkey,TR
+637,France,FR
+638,Russia,RU
+639,Ukraine,UA
+640,Germany,DE
+641,Guatemala,GT
+642,Japan,JP
+643,Ireland,IE
+644,Russia,RU
+645,Chile,CL
+647,Germany,DE
+648,United Kingdom,GB
+649,Sweden,SE
+650,Sweden,SE
+651,Italy,IT
+652,Canada,CA
+653,Spain,ES
+654,Poland,PL
+655,Greece,GR
+657,Lithuania,LT
+658,Bulgaria,BG
+659,Colombia,CO
+660,United Kingdom,GB
+661,Czech Republic,CZ
+662,Madagascar,MG
+663,Nigeria,NG
+664,Russia,RU
+665,Egypt,EG
+666,Spain,ES
+667,Mexico,MX
+668,South Africa,ZA
+669,Saint Lucia,LC
+670,USA,US
+671,Japan,JP
+672,Northern Ireland,GB
+673,Poland,PL
+674,Italy,IT
+675,Portugal,PT
+676,Poland,PL
+677,Norway,NO
+678,Netherlands,NL
+679,USA,US
+680,Belarus,BY
+681,United Kingdom,GB
+682,USA,US
+683,Russia,RU
+684,Sweden,SE
+685,Austria,AT
+686,Russia,RU
+687,Netherlands,NL
+688,USA,US
+689,Sweden,SE
+690,United Kingdom,GB
+691,USA,US
+692,USA,US
+693,Saint Lucia,LC
+694,USA,US
+695,USA,US
+696,USA,US
+697,France,FR
+698,United Kingdom,GB
+699,Italy,IT
+700,USA,US
+701,USA,US
+702,France,FR
+703,Norway,NO
+704,USA,US
+705,USA,US
+706,USA,US
+707,United Kingdom,GB
+708,USA,US
+709,USA,US
+710,USA,US
+711,Hungary,HU
+712,USA,US
+713,Poland,PL
+714,USA,US
+715,Scotland,GB
+716,Canada,CA
+717,USA,US
+718,Canada,CA
+719,India,IN
+720,Canada,CA
+721,Russia,RU
+722,Sweden,SE
+723,USA,US
+724,Austria,AT
+725,South Korea,KR
+726,Belarus,BY
+727,Germany,DE
+728,USA,US
+729,USA,US
+730,New Zealand,NZ
+731,Japan,JP
+732,USA,US
+733,USA,US
+734,China,CN
+735,USA,US
+736,United Kingdom,GB
+737,United Kingdom,GB
+738,USA,US
+739,Germany,DE
+740,USA,US
+741,USA,US
+742,Japan,JP
+743,USA,US
+744,USA,US
+745,USA,US
+746,USA,US
+747,NA,NA
+748,NA,NA
+749,Ghana,GH
+750,South Africa,ZA
+751,USA,US
+752,United Kingdom,GB
+753,USA,US
+754,Japan,JP
+755,Italy,IT
+756,USA,US
+757,Japan,JP
+758,Switzerland,CH
+759,Israel,IL
+760,USA,US
+761,Hungary,HU
+762,USA,US
+763,South Africa,ZA
+764,USA,US
+765,United Kingdom,GB
+766,Russia,RU
+767,Russia,RU
+768,United Kingdom,GB
+769,USA,US
+770,USA,US
+771,USA,US
+772,United Kingdom,GB
+773,Iran,IR
+774,USA,US
+775,USA,US
+776,USA,US
+777,USA,US
+778,USA,US
+779,Israel,IL
+780,Hungary,HU
+781,USA,US
+782,Austria,AT
+783,Kenya,KE
+786,Norway,NO
+787,USA,US
+789,Australia,AU
+790,Australia,AU
+791,USA,US
+792,USA,US
+793,Germany,DE
+794,Belgium,BE
+795,USA,US
+796,USA,US
+797,NA,NA
+798,Egypt,EG
+799,Germany,DE
+800,USA,US
+801,United Kingdom,GB
+802,USA,US
+803,USA,US
+804,USA,US
+805,USA,US
+806,USA,US
+807,USA,US
+808,Turkey,TR
+809,Bangladesh,BD
+810,NA,NA
+811,Italy,IT
+812,United Kingdom,GB
+813,United Kingdom,GB
+814,France,FR
+815,Czech Republic,CZ
+816,Germany,DE
+817,Iran,IR
+818,NA,NA
+819,USA,US
+820,Russia,RU
+821,USA,US
+822,USA,US
+823,Germany,DE
+824,France,FR
+825,France,FR
+826,Japan,JP
+827,Japan,JP
+828,Japan,JP
+829,Japan,JP
+830,USA,US
+831,USA,US
+832,France,FR
+833,Finland,FI
+834,USA,US
+835,Australia,AU
+836,USA,US
+837,United Kingdom,GB
+838,China,CN
+839,Canada,CA
+840,USA,US
+841,India,IN
+842,USA,US
+843,Israel,IL
+844,Romania,RO
+845,USA,US
+846,USA,US
+847,USA,US
+848,United Kingdom,GB
+849,Russia,RU
+850,Russia,RU
+851,USA,US
+852,China,CN
+853,Japan,JP
+854,Peru,PE
+855,China,CN
+856,USA,US
+857,USA,US
+858,Cyprus,CY
+861,USA,US
+862,Luxembourg,LU
+863,Canada,CA
+864,USA,US
+865,USA,US
+866,USA,US
+867,Israel,IL
+868,Sweden,SE
+869,Liberia,LR
+870,Liberia,LR
+871,Yemen,YE
+872,USA,US
+873,USA,US
+874,United Kingdom,GB
+875,Japan,JP
+876,Morocco,MA
+877,USA,US
+878,USA,US
+879,USA,US
+880,China,CN
+881,NA,NA
+882,USA,US
+883,USA,US
+884,USA,US
+885,USA,US
+886,Germany,DE
+887,Belgium,BE
+888,United Kingdom,GB
+889,Austria,AT
+890,South Africa,ZA
+891,Israel,IL
+892,Canada,CA
+893,NA,NA
+894,USA,US
+895,USA,US
+896,USA,US
+903,USA,US
+904,Norway,NO
+905,Norway,NO
+906,Japan,JP
+907,Japan,JP
+908,Japan,JP
+909,USA,US
+910,Romania,RO
+911,USA,US
+912,France,FR
+913,India,IN
+914,Pakistan,PK
+915,France,FR
+916,Ireland,IE
+917,Japan,JP
+918,China,CN
+919,Japan,JP
+920,Canada,CA
+921,Sweden,SE
+922,USA,US
+923,Turkey,TR
+924,Ukraine,UA
+925,NA,NA
+926,Scotland,GB
+927,Japan,JP
+928,United Kingdom,GB
+929,United Kingdom,GB
+930,United Kingdom,GB
+931,France,FR
+932,United Kingdom,GB
+933,Netherlands,NL
+934,Colombia,CO
+935,United Kingdom,GB
+936,Finland,FI
+937,USA,US
+938,USA,US
+939,USA,US
+940,USA,US
+941,Germany,DE
+942,USA,US
+943,USA,US
+944,Switzerland,CH
+945,Germany,DE
+946,Scotland,GB
+947,Japan,JP
+948,NA,NA
+949,USA,US
+958,USA,US
+959,Japan,JP
+960,USA,US
+961,France,FR
+962,Canada,CA
+963,USA,US
+964,USA,US
+965,United Kingdom,GB
+966,Democratic Republic of Congo,CD
+967,Iraq,IQ
+968,USA,US
+969,USA,US
+970,Canada,CA
+971,Switzerland,CH
+972,Switzerland,CH
+973,Germany,DE
+974,United Kingdom,GB
+975,Japan,JP
+976,USA,US
+977,United Kingdom,GB
+978,USA,US
+979,Austria,AT
+980,Ethiopia,ET
+981,India,IN
+982,France,FR
+983,USA,US
+984,United Kingdom,GB
+985,Germany,DE
+986,USA,US
+987,France,FR
+988,USA,US
+989,USA,US
+990,United Kingdom,GB
+991,USA,US
+992,USA,US
+993,NA,NA
+994,USA,US
+995,USA,US
+996,Japan,JP
+997,Germany,DE
+998,Italy,IT
+999,Germany,DE
+1000,United Kingdom,GB
+1001,USA,US
+1002,Lebanon,LB
+1003,Tanzania,TZ
+1004,Philippines,PH
+1005,Russia,RU
+1006,Canada,CA
+1007,USA,US
+1008,France,FR
+1009,USA,US
+1010,Austria,AT
+1011,USA,US
+1012,Denmark,DK
+1013,USA,US
+1014,Sweden,SE
+1015,France,FR
+1016,Russia,RU
+1017,Russia,RU
+1018,Ukraine,UA
+1019,USA,US
+1020,USA,US
+1021,USA,US
+1022,Tunisia,TN
+1023,Hungary,HU
+1024,France,FR
+1025,France,FR
+1026,USA,US
+1027,Russia,RU
+1028,Hungary,HU
+1029,USA,US
+1030,Norway,NO
+1031,Iran,IR
+1032,USA,US

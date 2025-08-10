@@ -1,0 +1,35 @@
+---
+title: "RStudio Help Sheet"
+---
+
+![](figs/02-rstudio_interface.png)
+
+------------------------------------------------------------------------
+
+A `.qmd` document in the Source pane might look like the following:
+
+![](figs/code_chunk_yaml.png){width="305"}
+
+------------------------------------------------------------------------
+
+**What is the major difference between running code in an `.qmd` document in the Source pane versus running code in the Console?**
+
+-   All code gets run/executed in the Console
+
+-   The Source pane is simply a text editor: you can write and save code here to edit later. When you run code in the Source pane, it actually gets executed in the Console.
+
+    -   In this course, we will almost always write our code in the Source pane within a `.Rmd` document.
+
+    -   Code run in the Console will be "lost" whenever you quit RStudio.
+
+------------------------------------------------------------------------
+
+The **working directory** is the default location where R will look for files you want to load and where it will put any files you save. All files are read in relation to the current working directory!
+
+-   Where can we see the current working directory?
+
+    ![](figs/02-console-wd.png){width="350"}
+
+-   What if we want to change the working directory?
+
+    ![](figs/02-set-wd.png){width="479"}

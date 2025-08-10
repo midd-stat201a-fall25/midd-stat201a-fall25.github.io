@@ -1,0 +1,287 @@
+---
+title: "Randomization tests"
+format: 
+  pdf:
+    geometry:
+      - top=2.5cm
+      - left=2.5cm
+      - right=2.5cm
+      - bottom=2.5cm
+include-in-header:
+  - text: |
+      \pagenumbering{gobble}
+editor_options: 
+  chunk_output_type: console
+---
+
+\vspace{-2cm}
+
+```{r message = F, include = F}
+library(tidyverse)
+library(kableExtra)
+library(openintro)
+```
+
+## Test of independence
+
+Participants in the study were 48 bank supervisors who identified as male and were attending a management institute at UNC in 1972. Each supervisor was asked to assume the role of personnel director of a bank.
+
+-   Each person given a file to judge whether the person in the file should be promoted
+
+-   The files were identical, except half of them indicated that the candidate was male, and the other half were indicated as female
+
+-   Files were randomly assigned to bank managers
+
+**Research question**: **Are individuals who identify their sex as female discriminated against in promotion decisions made by their managers who identify as male?**
+
+#### Step 1
+
+$H_{0}:$ \vspace{1cm}
+
+$H_{A}:$ \vspace{0.5cm}
+
+#### Step 2
+
+```{r echo = F, message = F}
+set.seed(1)
+sex <- c(rep("male", 24), rep('female', 24))
+decision <- c(rep("promote", 21), rep("not promote", 3), rep("promote", 14), rep("not promote", 10))
+discrimination <- data.frame(sex, decision) |>
+  sample_frac()
+```
+
+
+::::: {layout="[0.4, 0.6]"}
+::: {#firstcol}
+```{r message = F}
+discrimination |> 
+  slice(1:3)
+```
+:::
+
+::: {#secondcol}
+```{r echo = F, message = F}
+ct <- discrimination |>
+  group_by(sex, decision) |>
+  summarise(n = n()) |>
+  spread(decision, n) |>
+  ungroup() |>
+  mutate(total = `not promote`+ promote)
+
+ct <- ct |>
+  rbind(c("total", colSums(ct[-1])))
+
+ct <- ct |> 
+  kable() |>
+  column_spec(1, border_right = T)
+ct
+```
+:::
+:::::
+
+Obtain some relevant/useful summary statistics:
+
+\vspace{2cm}
+
+$\alpha=$
+
+#### Step 3
+
+Simulate under $H_{0}$:
+
+-   Write down "promote" on \_\_\_\_\_\_ cards and "\_\_\_\_\_\_\_\_\_\_\_" on \_\_\_\_\_\_ cards.
+
+-   Then repeat the following $B$ times:
+
+    1.  Shuffle the cards
+
+    2.  Deal out a stack of \_\_\_\_\_\_\_ to represent \_\_\_\_\_\_\_ candidates and \_\_\_\_\_\_\_\_ to represent \_\_\_\_\_\_\_ candidates.
+
+    3.  
+
+\vspace{1cm}
+
+```{r echo = T}
+#| code-line-numbers: true
+set.seed(100)
+n <- nrow(discrimination)
+n_f <- sum(discrimination$sex == "female")
+n_m <- sum(discrimination$sex == "male")
+decisions <- discrimination$decision
+B <- 1000
+diff_props_null <- rep(NA, B)
+for(b in 1:B){
+  shuffled <- sample(decisions, n)
+  rand_f <- shuffled[1:n_f]
+  rand_m <- shuffled[-c(1:n_f)]
+  
+  p_f_sim <-  mean(rand_f == "promote")
+  p_m_sim <-mean(rand_m == "promote")
+  
+  diff_props_null[b] <- p_f_sim - p_m_sim
+}
+```
+
+\clearpage
+
+```{r echo = F, fig.height=3}
+null_dist <- data.frame(prop_diff = diff_props_null)
+null_dist |>
+  ggplot(aes(x = prop_diff)) +
+  geom_histogram(binwidth = 0.05, col = "white") +
+  labs(x = "Difference in promotion rates (female - male)",
+       title = "Null distribution") +
+  theme(text = element_text(size= 16)) +
+  scale_x_continuous(n.breaks = 10)
+```
+
+-   p-value:
+
+#### Step 4
+
+-   Decision:
+
+\vspace{1cm}
+
+-   Conclusion:
+
+\vspace{1cm}
+
+-   Possible error:
+
+
+\clearpage
+
+## Test for difference in proportions
+
+An experiment was conducted, consisting of two treatments on 90 patients who underwent CPR for a heart attack and subsequently went to the hospital. Each patient was randomly assigned to either:
+
+- treatment group: received a blood thinner
+- control group: did not receive a blood thinner
+
+For each patient, the outcome recorded was whether they survived for at least 24 hours.
+
+**Research question**: **Is the blood thinner treatment effective for patients who undergo CPR after a heart attack??**
+
+#### Step 1
+
+\vspace{2cm}
+
+
+$H_{0}:$ \vspace{1cm}
+
+$H_{A}:$ \vspace{0.5cm}
+
+#### Step 2
+
+```{r echo = F, message = F}
+set.seed(1)
+sex <- c(rep("male", 24), rep('female', 24))
+decision <- c(rep("promote", 21), rep("not promote", 3), rep("promote", 14), rep("not promote", 10))
+discrimination <- data.frame(sex, decision) |>
+  sample_frac()
+```
+
+
+::::: {layout="[0.4, 0.6]"}
+::: {#firstcol}
+```{r message = F, eval = F}
+cpr |>
+  slice(1:3)
+```
+```{r echo = F, eval = T}
+set.seed(1)
+cpr |>
+  sample_n(3) |>
+  data.frame()
+```
+:::
+
+::: {#secondcol}
+```{r echo = F, message = F}
+ct <- cpr |>
+  mutate(group = as.character(group))|>
+  group_by(group, outcome) |>
+  summarise(n = n()) |>
+  spread(outcome, n) |>
+  ungroup() |>
+  mutate(total = survived + died)
+
+ct <- ct |>
+  rbind(c("total", colSums(ct[-1])))
+
+ct <- ct |> 
+  kable() |>
+  column_spec(1, border_right = T)
+ct
+```
+:::
+:::::
+
+Obtain some relevant/useful summary statistics:
+
+\vspace{2cm}
+
+$\alpha=$
+
+#### Step 3
+
+Simulate under $H_{0}$:
+
+-   Write down "\_\_\_\_\_\_\_\_\_\_\_"  on \_\_\_\_\_\_ cards and "\_\_\_\_\_\_\_\_\_\_\_" on \_\_\_\_\_\_ cards.
+
+-   Then repeat the following $B$ times:
+
+    1.  Shuffle the cards
+
+    2.  Deal out a stack of \_\_\_\_\_\_\_ to represent \_\_\_\_\_\_\_ candidates and \_\_\_\_\_\_\_\_ to represent \_\_\_\_\_\_\_ candidates.
+
+    3.  
+
+\vspace{1cm}
+
+```{r echo = T}
+#| code-line-numbers: true
+set.seed(310)
+n_t <- sum(cpr$group == "treatment")
+n_c <- sum(cpr$group == "control")
+cards <- cpr$outcome
+B <- 1000
+diff_props_null <- rep(NA , B)
+for(b in 1:B){
+  shuffled <- sample(cards)
+  treat_sim <- shuffled[1:n_t]
+  control_sim <- shuffled[-c(1:n_t)]
+  
+  p_t_sim <- mean(treat_sim == "survived")
+  p_c_sim <- mean(control_sim == "survived")
+  
+  diff_props_null[b] <- p_t_sim - p_c_sim
+}
+```
+
+\clearpage
+
+```{r echo = F, fig.height=3}
+data.frame(diffs = diff_props_null) |>
+  ggplot(aes(x = diffs))+
+  geom_histogram(binwidth = 0.025, col = "white")+
+  labs(x = "Difference in survival rates (treat - control)",
+       title = "Null distribution") +
+  theme(text = element_text(size= 16)) +
+  scale_x_continuous(n.breaks = 10)
+```
+
+-   p-value:
+
+#### Step 4
+
+-   Decision:
+
+\vspace{1cm}
+
+-   Conclusion:
+
+\vspace{1cm}
+
+-   Possible error:

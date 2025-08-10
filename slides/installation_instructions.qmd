@@ -1,0 +1,51 @@
+---
+title: "Installation instructions"
+toc: true
+---
+
+Please install `R` and RStudio (in this order). Instructions are provided below depending on if you have a Mac/Windows or Linux. Be sure to verify that your installation was successful (see last part of this page). Please come by installation office hours if you have trouble or would like guidance during the installation process!
+
+# Mac/Windows
+
+## Installing `R`
+
+1.  Go to the [CRAN website](https://lib.stat.cmu.edu/R/CRAN/) and click on the appropriate link under "Download and Install R". Then:
+    i.  **Windows**: click on the blue text that says "Install R for the first time".
+    ii. **macOS**: check your Mac OS system and if you have a chip (Apple icon -\> About this Mac -\> Overview)
+        i.  Then on the website, click the newest release that supports your current OS version. This will most likely be R-4.4.1-arm64.pkg or R-4.4.1-x86_64.pkg.
+
+            ![](figs/02-macOS-R.png){width="361"}
+2.  A file will download, most likely to your *Downloads* folder. Run the file by clicking on it. Allow the app to make changes to your device if prompted.
+3.  Follow the installation instructions, until you click on "Finish" to exit the installation setup. At this point, `R` should be successfully installed!
+
+## Installing RStudio
+
+1.  Go to this [Posit website](https://posit.co/download/rstudio-desktop/) and scroll down a little until you see two steps. We already did Step 1!
+2.  Under **Step 2**, click the blue Download RStudio Desktop button recommended for your computer
+    a.  **macOS** users: double check you have an OS that is recent enough! If not, find an older version of RStudio suitable for you OS.
+3.  Run the downloaded RStudio Executable file until you hit the "Finish" button. It may be the case that you don't have to click anything at all.
+4.  After RStudio finishes downloading, a window like this might pop up. If so, go ahead and drag the RStudio icon into the Applications folder.
+
+::: fragment
+![](figs/02-RStudio_download.png){width="273"}
+:::
+
+# Linux
+
+## Installing `R`
+
+1.  Follow the instructions on for Steps 1 and 2 on [this website](#0).
+
+## Installing RStudio
+
+1.  Go to step 3 of the same website
+
+# Verify
+
+Open up RStudio by (double) clicking on the icon found in your Applications folder or searching for it in your search bar. The icon looks like this:
+
+![](figs/02-rstudio-icon.png)
+
+Once you open up RStudio, you should have an interface that looks like the following (don't worry if there are slight discrepancies). If so, your installation was a success! If not, swing by installation help hours.
+
+![](figs/02-rstudio-success.png){width="619"}

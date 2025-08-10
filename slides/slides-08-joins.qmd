@@ -1,0 +1,684 @@
+---
+title: "Joining data frames"
+date: "February 27, 2025"
+title-slide-attributes:
+    data-background-image: "figs/bikeshare-plots.png"
+    data-background-size: contain
+    data-background-opacity: "0.2"
+format: 
+  revealjs:
+    theme: custom.scss
+    transition: none
+    incremental: true
+    scrollable: true
+editor: visual
+editor_options: 
+  chunk_output_type: console
+draft: false
+---
+
+## Housekeeping
+
+```{r echo = F, warning = F, message = F}
+library(tidyverse)
+knitr::opts_chunk$set(echo = T, warning = F, messabundance = F)
+library(kableExtra)
+```
+
+-   Wrangling coding practice due tonight!
+
+-   Office hours tomorrow 10am-12pm
+
+-   Problem Set 3 has large `R` component
+
+## Joining data frames
+
+Assume we have two data frame, `x` and `y`. There are some shared variables (i.e. columns) in the two. Suppose we want to combine them together into one single data frame.
+
+::: fragment
+```{r eval = F}
+something_join(x, y)
+```
+:::
+
+-   Mutating joins:
+
+    -   `left_join()`: return all rows from `x`
+    -   `right_join()`: return all rows from `y`
+    -   `full_join()`: return all rows from both `x` and `y`
+    -   `inner_join()`: all rows from `x` where there are matching values in `y`, return all combination of multiple matches in the case of multiple matches
+
+-   Filtering joins:
+
+    -   `semi_join()`: return all rows from `x` where there are matching values in `y`, keeping just columns from `x`
+    -   `anti_join()`: return all rows from `x` where there are not matching values in `y`, never duplicate rows of `x`
+
+## Setup
+
+For the next few slides...
+
+::::: columns
+::: {.column width="50%"}
+```{r echo=FALSE}
+x <-data.frame(ID = c(1, 2, 3), x_val = c("x1", "x2", "x3"))
+```
+
+```{r eval = F}
+x
+```
+
+```{r echo = F}
+kable(x)
+```
+:::
+
+::: {.column width="50%"}
+```{r echo=FALSE}
+y <- data.frame(ID = c(1, 2, 4), y_val = c("y1", "y2", "y4"))
+```
+
+```{r eval = F}
+y
+```
+
+```{r echo = F}
+kable(y)
+```
+:::
+:::::
+
+## `left_join()`
+
+Adds columns to `x` from `y`, matching all rows in `x`
+
+:::::::: columns
+:::::: {.column width="50%"}
+::::: columns
+::: {.column width="40%"}
+```{r eval = F}
+x
+```
+
+```{r echo = F}
+kable(x) %>%
+  kable_styling(font_size = 25)
+```
+:::
+
+::: {.column width="40%"}
+```{r eval = F}
+y
+```
+
+```{r echo = F}
+kable(y)%>%
+  kable_styling(font_size = 25)
+```
+:::
+:::::
+
+```{r eval = F}
+left_join(x, y, by = "ID")
+```
+
+```{r echo = F}
+left_join(x, y, by = "ID") |>
+  kable()%>%
+  kable_styling(font_size = 25)
+```
+::::::
+
+::: {.column width="50%"}
+![](figs/08-left-join.gif)
+:::
+::::::::
+
+## `right_join()`
+
+Adds columns to `x` from `y`, matching all rows in `y`
+
+:::::::: columns
+:::::: {.column width="50%"}
+::::: columns
+::: {.column width="40%"}
+```{r eval = F}
+x
+```
+
+```{r echo = F}
+kable(x) %>%
+  kable_styling(font_size = 25)
+```
+:::
+
+::: {.column width="40%"}
+```{r eval = F}
+y
+```
+
+```{r echo = F}
+kable(y)%>%
+  kable_styling(font_size = 25)
+```
+:::
+:::::
+
+```{r eval = F}
+right_join(x, y, by = "ID")
+```
+
+```{r echo = F}
+right_join(x, y, by = "ID") |>
+  kable()%>%
+  kable_styling(font_size = 25)
+```
+::::::
+
+::: {.column width="50%"}
+![](figs/08-right-join.gif)
+:::
+::::::::
+
+## `full_join()`
+
+Adds columns to `x` from `y`, matching all rows in `x` OR `y`
+
+:::::::: columns
+:::::: {.column width="50%"}
+::::: columns
+::: {.column width="40%"}
+```{r eval = F}
+x
+```
+
+```{r echo = F}
+kable(x) %>%
+  kable_styling(font_size = 25)
+```
+:::
+
+::: {.column width="40%"}
+```{r eval = F}
+y
+```
+
+```{r echo = F}
+kable(y)%>%
+  kable_styling(font_size = 25)
+```
+:::
+:::::
+
+```{r eval = F}
+full_join(x, y, by = "ID")
+```
+
+```{r echo = F}
+full_join(x, y, by = "ID") |>
+  kable()%>%
+  kable_styling(font_size = 25)
+```
+::::::
+
+::: {.column width="50%"}
+![](figs/08-full-join.gif)
+:::
+::::::::
+
+## `inner_join()`
+
+All rows from `x` where there are matching values in `y`, return all combination of multiple matches in the case of multiple matches
+
+:::::::: columns
+:::::: {.column width="50%"}
+::::: columns
+::: {.column width="40%"}
+```{r eval = F}
+x
+```
+
+```{r echo = F}
+kable(x) %>%
+  kable_styling(font_size = 25)
+```
+:::
+
+::: {.column width="40%"}
+```{r eval = F}
+y
+```
+
+```{r echo = F}
+kable(y)%>%
+  kable_styling(font_size = 25)
+```
+:::
+:::::
+
+```{r eval = F}
+inner_join(x, y, by = "ID")
+```
+
+```{r echo = F}
+inner_join(x, y, by = "ID") |>
+  kable()%>%
+  kable_styling(font_size = 25)
+```
+::::::
+
+::: {.column width="50%"}
+![](figs/08-inner-join.gif)
+:::
+::::::::
+
+## `inner_join()` (cont.)
+
+Example with multiple matches:
+
+::::: columns
+::: {.column width="40%"}
+```{r eval = F}
+x2
+```
+
+```{r echo = F}
+x2 <- x |>
+  add_row(ID = 1, x_val = "new_x")
+kable(x2) %>%
+  kable_styling(font_size = 20)
+```
+:::
+
+::: {.column width="40%"}
+```{r eval = F}
+y2
+```
+
+```{r echo = F}
+y2 <- y |>
+  add_row(ID = 1, y_val = "new_y")
+kable(y2)%>%
+  kable_styling(font_size = 20)
+```
+:::
+:::::
+
+```{r eval = F}
+inner_join(x2, y2, by = "ID")
+```
+
+```{r echo = F, warning = T}
+inner_join(x2, y2, by = "ID") |>
+  kable()%>%
+  kable_styling(font_size = 20)
+```
+
+## `semi_join()`
+
+Returns all rows from `x` **with** a match in `y`, but does not add columns from `y`
+
+:::::::: columns
+:::::: {.column width="50%"}
+::::: columns
+::: {.column width="40%"}
+```{r eval = F}
+x
+```
+
+```{r echo = F}
+kable(x) %>%
+  kable_styling(font_size = 25)
+```
+:::
+
+::: {.column width="40%"}
+```{r eval = F}
+y
+```
+
+```{r echo = F}
+kable(y)%>%
+  kable_styling(font_size = 25)
+```
+:::
+:::::
+
+```{r eval = F}
+semi_join(x, y, by = "ID")
+```
+
+```{r echo = F}
+semi_join(x, y, by = "ID") |>
+  kable()%>%
+  kable_styling(font_size = 25)
+```
+::::::
+
+::: {.column width="50%"}
+![](figs/08-semi-join.gif)
+:::
+::::::::
+
+## `anti_join()`
+
+Returns all rows from `x` **without** any match in `y`, and not add columns from `y`
+
+:::::::: columns
+:::::: {.column width="50%"}
+::::: columns
+::: {.column width="40%"}
+```{r eval = F}
+x
+```
+
+```{r echo = F}
+kable(x) %>%
+  kable_styling(font_size = 25)
+```
+:::
+
+::: {.column width="40%"}
+```{r eval = F}
+y
+```
+
+```{r echo = F}
+kable(y)%>%
+  kable_styling(font_size = 25)
+```
+:::
+:::::
+
+```{r eval = F}
+anti_join(x, y, by = "ID")
+```
+
+```{r echo = F}
+anti_join(x, y, by = "ID") |>
+  kable()%>%
+  kable_styling(font_size = 25)
+```
+::::::
+
+::: {.column width="50%"}
+![](figs/08-anti-join.gif)
+:::
+::::::::
+
+## Joining with different variable names
+
+If the variables in `x` and `y` have different names but we know they represent the same variable:
+
+::::: columns
+::: {.column width="40%"}
+```{r eval = F}
+x
+```
+
+```{r echo = F}
+kable(x) %>%
+  kable_styling(font_size = 25)
+```
+:::
+
+::: {.column width="40%"}
+```{r eval = F}
+y3
+```
+
+```{r echo = F}
+y3 <- y |>
+  rename("ID_y" = 1)
+kable(y3)%>%
+  kable_styling(font_size = 25)
+```
+:::
+:::::
+
+::: fragment
+```{r eval = F}
+left_join(x, y3, by =  c("ID" = "ID_y"))
+```
+
+```{r echo = F}
+left_join(x, y3, by = c("ID" = "ID_y"))|>
+  kable()%>%
+  kable_styling(font_size = 25)
+```
+:::
+
+## Joining on multiple variables
+
+Can specify more than one variable in the `by` argument. Will need to a vector of character objects.
+
+::::: columns
+::: {.column width="50%"}
+```{r eval = F}
+enrollment
+```
+
+```{r echo= F}
+enrollment <- data.frame(student_id = c(1, 1, 2, 3), course = c("STAT 310", "MATH 223" , "STAT 310", "STAT 201"), start_year = c("F22", "F22", "F23", "W24"))
+enrollment |>
+  kable() |>
+  kable_styling(font_size = 25)
+```
+:::
+
+::: {.column width="50%"}
+```{r eval = F}
+payment
+```
+
+```{r echo = F}
+payment <- data.frame(student_id = c(1, 1, 2, 3), Course = c("STAT 310", "MATH 223" , "STAT 310", "STAT 201"), status = c("paid", "paid" , "unpaid", "paid"))
+payment |>
+  kable() |>
+  kable_styling(font_size = 25)
+```
+:::
+:::::
+
+::: fragment
+```{r eval = F}
+# note, multiple join functions would work in this example!
+inner_join(enrollment, payment, by = c("student_id", "course" = "Course"))
+```
+
+```{r echo = F}
+# note, multiple join functions would work in this example!
+inner_join(enrollment, payment, by = c("student_id", "course" = "Course")) |>
+   kable() |>
+  kable_styling(font_size = 25)
+```
+:::
+
+# Live code
+
+## Example
+
+We have data on fishery harvests (in tons) by countries from 2016:
+
+```{r echo = F}
+library(readr)
+fish_url <- "https://raw.githubusercontent.com/midd-stat201-spring2025/midd-stat201-spring2025.github.io/refs/heads/main/data/fisheries.csv"
+countries_url <- "https://raw.githubusercontent.com/math118-fall2022/website/refs/heads/master/docs/slides/lec-slides/data/continents.csv"
+fish <- read_csv(fish_url)
+continents <- read_csv(countries_url)
+```
+
+```{r eval = F}
+fish |>
+    slice(1:9)
+```
+
+```{r echo = F}
+fish |>
+  slice(1:9) |>
+  kable() |>
+  kable_styling(font_size = 20)
+```
+
+## Bringing in continent
+
+Suppose I would like to explore the data on a continent level. We don't have continent in the current data frame, but we could join in the following data:
+
+```{r eval = F}
+continents |>
+  slice(1:5)
+```
+
+```{r echo = F}
+continents |> 
+  slice(1:5) |>
+  kable() |>
+  kable_styling(font_size = 20)
+```
+
+::: discuss
+-   We want to keep all rows and columns from `fish` and add a column for corresponding continents. Which join function should we use?
+
+-   We want to keep all rows from `fish` for which we have a corresponding continent and add a column for corresponding continents. Which join function should we use?
+:::
+
+## Example (cont.)
+
+:::::: columns
+::: {.column width="\"50%"}
+```{r eval = F}
+left_join(fish, continents, by = "country") |>
+  slice(1:9)
+```
+
+```{r echo = F}
+left_join(fish, continents, by = "country") |>
+  slice(1:9) |>
+  kable() |>
+  kable_styling(font_size = 20)
+```
+
+-   Notice the `NA`
+:::
+
+:::: {.column width="\"50%"}
+::: fragment
+```{r eval = F}
+inner_join(fish, continents, by = "country") |>
+  slice(1:9)
+```
+
+```{r echo = F}
+inner_join(fish, continents, by = "country") |>
+  slice(1:9) |>
+  kable() |>
+  kable_styling(font_size = 20)
+```
+:::
+::::
+::::::
+
+-   Could also use the following piping code:
+
+::: fragment
+```{r eval = F}
+fish |>
+  left_join(continents, by = "country")
+```
+:::
+
+## `group_by()`
+
+```{r}
+fish |>
+  left_join(continents, by = "country") |>
+  group_by(continent) |> # get continent-level summary stats
+  summarise(mean_capture = mean(capture), sd_capture = sd(capture))
+```
+
+## Visualize
+
+```{r eval = F}
+fish |>
+  na.omit() |> #remove any observations with any NAs
+  left_join(continents, by = "country") |>
+  ggplot(aes(x = continent, y = capture)) +
+  geom_boxplot(outliers = F) +
+  theme_bw() +
+  labs(caption = "Excluding outliers")
+```
+
+```{r echo = F}
+fish |>
+  left_join(continents, by = "country") |>
+  na.omit() |> #remove observations with any NAs
+  ggplot(aes(x = continent, y = capture)) +
+  geom_boxplot(outliers = F) +
+  theme_bw() +
+  labs(caption = "Excluding outliers") +
+  theme(text = element_text(size = 20))
+```
+
+## Visualize (cont.)
+
+```{r eval = F}
+fish |>
+  mutate(log_capture = log(capture)) |>
+  left_join(continents, by = "country") |>
+  na.omit() |> #remove observations with any NAs
+  ggplot(aes(x = continent, y = capture)) +
+  geom_boxplot(outliers = F) +
+  theme_bw() +
+  labs(caption = "Excluding outliers", y = "Log capture")
+```
+
+```{r echo = F, warning = T}
+fish |>
+  mutate(log_capture = log(capture)) |>
+  left_join(continents, by = "country") |>
+  na.omit() |> #remove observations with any NAs
+  ggplot(aes(x = continent, y = log_capture)) +
+  geom_boxplot() +
+  theme_bw() +
+  labs(caption = "Excluding countries with 0 capture", y = "Log capture") +
+  theme(text = element_text(size = 20))
+```
+
+## Removing NAs
+
+-   `na.omit()` will remove **all** observations with any `NA`, regardless of where the `NA` appears
+
+-   If you want a more delicate touch and would like to remove observations with an `NA` for a given variable, we can use `is.na()`
+
+    -   This function takes in a variable as input, and outputs `TRUE` for each observation with an `NA` value in that variable, and `FALSE` otherwise
+    
+    - Useful with the `filter()` function!
+    
+::: {.fragment}
+:::: {.columns}
+
+::: {.column width="50%"}
+    
+```{r}
+fish |>
+  full_join(continents, by = "country") |>
+  mutate(prop_capture = capture / (capture + aquaculture)) |>
+  na.omit() |>
+  summarise(avg_prop = mean(prop_capture))
+```
+
+:::
+
+::: {.column width="50%"}
+```{r}
+fish |>
+  full_join(continents, by = "country") |>
+  mutate(prop_capture = capture / (capture + aquaculture)) |>
+  filter(!is.na(prop_capture)) |>
+  summarise(avg_prop = mean(prop_capture))
+```
+:::
+
+::::
+:::
+
+- Notice the difference!

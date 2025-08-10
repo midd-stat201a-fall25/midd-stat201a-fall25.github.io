@@ -1,0 +1,41 @@
+---
+title: "Coding practice: grouping and case_when"
+author: "Your name"
+format: pdf
+---
+
+0.  Change your name in the YAML and load in the packages necessary for wrangling and making beautiful tables.
+
+```{r}
+
+```
+
+We will once again work the the `diamonds` dataset.
+
+1.  Create a new data frame called `diamonds2` that contains all the data in `diamonds` with an additional variable called `price_ct` which is the price of the diamond per carat.
+
+Then create a beautiful table (i.e. not data frame) that shows the average price per carat for each cut of diamond, arranged from highest to lowest.
+
+```{r}
+
+```
+
+2.  Create a table that displays the proportion of diamonds whose price per carat of exceeds 8000 USD for each color of diamond. Your table should only display the color of the diamonds and the proportion that are greater than 8000 USD.
+
+```{r}
+
+```
+
+3.  To your `diamonds2` data frame, use `case_when()` to add variable called `carat_cat` that takes the values:
+
+-   "< 1" if the diamond is less than 1 carat
+-   "1-3" if the diamond is between 1 and 3 carats, inclusive
+-   "> 3" if the diamond is more than 3 carats
+
+Then using an appropriate plot type, visualize the distribution of price per carat for each of the categories you created. Make sure your plot has informative axis labels. What do you notice?
+
+```{r}
+
+```
+
+**Answer:**

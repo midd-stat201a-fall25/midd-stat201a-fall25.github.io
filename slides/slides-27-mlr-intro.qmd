@@ -1,0 +1,475 @@
+---
+title: "Introduction to Multiple Linear Regression"
+date: "April 28, 2025"
+title-slide-attributes:
+    data-background-image: "figs/bikeshare-plots.png"
+    data-background-size: contain
+    data-background-opacity: "0.2"
+format: 
+  revealjs:
+    theme: custom.scss
+    transition: none
+    incremental: true
+    scrollable: true
+editor: visual
+editor_options: 
+  chunk_output_type: console
+draft: false
+---
+
+## Housekeeping
+
+```{r echo = F, message= F}
+knitr::opts_chunk$set(echo = F, warning = F, messabundance = F)
+library(tidyverse)
+library(moderndive)
+library(openintro)
+library(readr)
+library(patchwork)
+library(quantreg)
+library(broom)
+library(kableExtra)
+plot_theme <-  theme_minimal() +
+  theme(text= element_text(size = 28))
+source("../stat201_fns.R")
+```
+
+-   Study for midterm!
+-   Today's content will not be assessed on midterm, but might be useful for your final project and future coursework!
+
+## Voice shimmer and jitter data
+
+Recall the data from a previous problem set about voice jitter and shimmer among patients with and without Parkinson's Disease (PD).
+
+```{r}
+library(readr)
+parkinsons <- read_csv("https://raw.githubusercontent.com/midd-stat201-spring2025/midd-stat201-spring2025.github.io/refs/heads/main/data/parkinsons.csv")
+```
+
+The variables in the dataset are as follows:
+
+::: nonincremental
+-   `clip`: ID of the recording
+-   `jitter`: a measure of variation in fundamental frequency
+-   `shimmer`: a measure of variation in amplitude
+-   `hnr`: a ratio of total components vs. noise in the voice recording
+-   `status`: PD vs. Healthy
+-   `avg.f.q`: 1, 2, or 3, corresponding to average vocal fundamental frequency (1 = low, 2 = mid, 3 = high)
+:::
+
+## Analysis goal
+
+Want to understand what might help explain the voice `shimmer` of a patient with low vocal fundamental frequency.
+
+::::: columns
+::: {.column width="60%"}
+```{r}
+pd <- parkinsons |>
+  filter(avg.f.q == 1)
+pd |>
+  pivot_longer(cols = c(jitter, hnr), names_to = "variable", values_to = "val") |>
+  ggplot(aes(x = val, y = shimmer, col = status )) +
+  geom_point(size = 3) +
+  facet_wrap(~ variable, scales = "free_x") +
+  theme_minimal() +
+  theme(text = element_text(size = 24)) +
+  labs(x = "Value")
+```
+:::
+
+::: {.column width="40%"}
+-   ::: discuss
+    What do you notice about how `shimmer` relates to `hnr`, `jitter`, and `status`?
+    :::
+
+-   Can we somehow incorporate all the predictors into the same model for `shimmer`? Do you think we need to?
+:::
+:::::
+
+# Multiple linear regression
+
+## Multiple linear regression
+
+-   We have seen *simple* linear regression, where we had one explanatory variable
+
+-   Extend to include multiple explanatory variables
+
+    -   Seems natural: usually several factors affect behavior of phenomena
+
+-   **Multiple linear regression** takes the form: $$y = \beta_{0} + \beta_{1} x_{1} + \beta_{2} x_{2} + \ldots + \beta_{p} x_{p} + \epsilon$$
+
+    -   Now there are $p$ different explanatory variables $x_{1},\ldots, x_{p}$ per observation
+
+    -   Still one response $y$ and error $\epsilon$ per observation
+
+-   Represents a holistic approach for modeling all of the variables simultaneously
+
+## PD data (cont.)
+
+Let's start off by building a model that does not include `status`, as the EDA didn't seem to show a strong relationship between `status` and `shimmer`.
+
+-   Our multiple linear regression model is:
+
+    $$\text{shimmer} = \beta_{0} + \beta_{1} \text{hnr} + \beta_{2} \text{jitter} + \epsilon$$
+
+-   Just as in the case of SLR, the estimates of $\beta_{0}, \beta_{1}, \beta_{2}$ parameters are chosen via the least squares criterion
+
+## Multiple regression in `R`
+
+Very easy to code:
+
+```{r echo = T, eval = F}
+shimmer_lm <- lm(shimmer ~ hnr + jitter, data = pd)
+tidy(shimmer_lm)
+```
+
+```{r}
+shimmer_lm <- lm(shimmer ~ hnr + jitter, data = pd)
+mlr_coefs <- round(coef(shimmer_lm),3)
+tidy(shimmer_lm) |>
+  kable(digits = c(0,3,3,3,7)) |>
+  kable_styling(font_size = 25)
+```
+
+-   Simply identify the estimated coefficients from the output to obtain fitted model
+
+-   ::: discuss
+    Try writing down the fitted model
+    :::
+
+::: fragment
+$$
+\begin{align*}
+\widehat{\text{shimmer}} &= `r mlr_coefs[1]`  `r mlr_coefs[2]` \text{hnr}+ `r mlr_coefs[3]` \text{jitter} 
+\end{align*}
+$$
+:::
+
+## Interpretation of intercept
+
+-   Interpretation of the estimated intercept $b_{0}$ in MLR is very similar to SLR!
+
+::: fragment
+$$
+\begin{align*}
+\widehat{\text{shimmer}} &= `r mlr_coefs[1]`  `r mlr_coefs[2]` \text{hnr} + `r mlr_coefs[3]` \text{jitter} 
+\end{align*}
+$$
+:::
+
+-   ::: discuss
+    Try interpreting the intercept!
+    :::
+
+-   We simply plug in 0 for all the explanatory variables
+
+    -   The estimated voice shimmer of a patient with 0 hnr and 0 voice jitter is `r mlr_coefs[1]`.
+
+## Interpretation of non-intercept
+
+-   When we have more than one predictor variable, interpretation of the coefficients requires a bit of care
+
+    -   Multiple moving parts
+
+-   Interpretation of a particular non-intercept coefficient $b_{k}$ relies on "holding the other variables fixed/constant" (assuming the model is appropriate)
+
+::: fragment
+$$
+\begin{align*}
+\widehat{\text{shimmer}} &= `r mlr_coefs[1]`  `r mlr_coefs[2]` \text{hnr} + `r mlr_coefs[3]` \text{jitter} 
+\end{align*}
+$$
+:::
+
+-   For every one unit increase in a person's HNR, their voice shimmer is expected/estimated to $\color{orange}{\text{decrease by } `r abs(mlr_coefs[2])`}$, **holding their voice jitter value constant**
+
+-   ::: discuss
+    Interpret the coefficient associated with jitter
+    :::
+
+## Interpretation of non-intercept (cont.)
+
+$$
+\begin{align*}
+\widehat{\text{shimmer}} &= `r mlr_coefs[1]`  `r mlr_coefs[2]` \text{hnr} + `r mlr_coefs[3]` \text{jitter} 
+\end{align*}
+$$
+
+-   For every one unit increase in a patient's voice jitter, their voice shimmer is expected to $\color{orange}{\text{increase by } `r mlr_coefs[3]`}$ units, holding their HNR value constant
+
+## More isn't always better
+
+-   You might be tempted to throw in all available predictors into your model! Don't fall into temptation!
+
+-   Quality over quantity
+
+-   For SLR, we used the coefficient of determination $R^2$ to assess how good the model was
+
+    -   $R^2$ is less helpful when there are many variables
+
+    -   Why? The $R^2$ will never decrease (and will *almost* *always* increase) when we include an additional predictor
+
+## Adjusted $R^2$
+
+-   For multiple linear regression, we use the **adjusted** $R^2$ to assess the quality of model fit
+
+    -   "Adjusted" for the presence of additional predictors
+
+    -   Take STAT 211 to learn the formula and intuition behind it!
+
+-   Adjusted $R^2$ is always less than $R^2$, and doesn't have a nice interpretation
+
+-   When choosing between models, one method is to choose the one with highest adjusted $R^2$
+
+## Adjusted $R^2$ (cont.)
+
+::::: columns
+::: {.column width="60%"}
+```{r echo = T}
+summary(shimmer_lm)
+```
+:::
+
+::: {.column width="40%"}
+```{r echo = T, eval = F}
+glance(shimmer_lm)
+```
+
+```{r}
+glance(shimmer_lm)|>
+  kable(digits = 4) |>
+  kable_styling(font_size = 20)
+```
+:::
+:::::
+
+## Conditions for inference
+
+We still need LINE to hold
+
+-   **Linearity**: harder to assess now that multiple predictors are involved. Good idea to make several scatter plots
+
+-   **Independence**: same as before
+
+-   **Nearly normal residuals**: same as before
+
+-   **Equal variance**: residual plot has *fitted* values $\hat{y}$ on the x-axis
+
+::: fragment
+```{r fig.height=3}
+p2 <- augment(shimmer_lm) |>
+  ggplot(aes(x= .resid)) + 
+  geom_histogram(bins = 20) +
+  theme_minimal() +
+  theme(text =element_text(size = 25)) +
+  labs(x = "Residual")
+
+p3 <- augment(shimmer_lm) |>
+  ggplot(aes(x=.fitted, y = .resid)) + 
+  geom_point(size = 2) +
+  geom_hline(yintercept = 0, linetype = "dashed") +
+  theme_minimal() +
+  theme(text =element_text(size = 25)) +
+  labs(x = "Estimated shimmer", y = "Residual")
+
+p2 + p3
+```
+:::
+
+# Inference in MLR
+
+## Hypothesis testing in MLR
+
+-   In MLR, we are interested in the effect of each predictor variable on the response $y$.
+
+    -   Need to account for presence of other predictors in the model
+
+-   $H_{0}: \beta_{k} = 0$, given other predictors in the model
+
+-   $H_{A}: \beta_{k} \neq 0$, given other predictors in the model (or $>, <$)
+
+-   We can write down one null hypothesis for each coefficient in the model
+
+## Hypothesis tests from `lm()`
+
+$$\text{shimmer} = \beta_{0} + \beta_{1} \text{hnr} + \beta_{2} \text{jitter} + \epsilon$$
+
+We can test the following null hypotheses (no need to write down):
+
+-   $H_{0}: \beta_{1} = 0$, given jitter is included in the model
+    -   i.e. HNR has no effect on shimmer once we account for jitter
+-   $H_{0}: \beta_{2} = 0$, given HNR is included in the model
+
+## Hypothesis tests from `lm()`
+
+```{r}
+tidy(shimmer_lm) |>
+  kable(digits = c(0,2,3,3,7)) |>
+  kable_styling(font_size = 25)
+```
+
+-   Output from `lm()` provides:
+
+    -   Test statistic, which follows $t_{n-p}$ where $p =$ total number of unknown parameters (i.e. $\beta$ terms)
+
+    -   **p-values for testing two-sided** $H_{A}$ **provided**
+
+:::: fragment
+::: discuss
+Based on the model fit, which variables seem to be important predictors of voice `shimmer`? Why?
+:::
+::::
+
+## Hypothesis tests from `lm()` (cont.)
+
+```{r}
+tidy(shimmer_lm) |>
+  kable(digits = c(0,3,3,3,7)) |>
+  kable_styling(font_size = 25)
+```
+
+-   HNR **does** seem to be an important predictor for voice shimmer, even when including jitter in the model
+
+    -   Low p-value suggests it would be extremely unlikely to see data that produce $b_{1} =  `r mlr_coefs[2]`$ if the true relationship between shimmer and HNR was non-existent (i.e., if $\beta_{1} = 0$) and the model also included jitter
+
+-   Jitter **does** seem to be an important predictor, even when including HNR in the model
+
+## More complex model
+
+Let's see a model that now includes the `status` of the patient as a predictor:
+
+```{r echo = T, eval = F}
+shimmer_lm2 <- lm(shimmer ~ hnr + jitter + status, data = pd)
+tidy(shimmer_lm2)
+```
+
+```{r}
+shimmer_lm2 <- lm(shimmer ~ hnr + jitter + status, data = pd)
+tidy(shimmer_lm2) |>
+  kable(digits = c(0, 3, 3, 3, 7)) |>
+  kable_styling(font_size = 25)
+coefs <- round(coef(shimmer_lm2), 3)
+
+```
+
+-   Remember, `status` is categorical with two levels. `lm()` converted to indicator variable for us: `statusPD = 1` when `status = "PD"`
+
+:::: fragment
+::: discuss
+Write out the fitted model.
+:::
+::::
+
+## Interpretation with categorical variable
+
+$$
+\widehat{\text{shimmer}} = `r coefs[1]` `r coefs[2]` \text{hnr} + `r coefs[3]` \text{jitter} + `r coefs[4]` \text{statusPD}
+$$
+
+-   ::: discuss
+    Try interpreting the intercept here!
+    :::
+
+-   What does it mean for the explanatory variables to be 0? It means `hnr = 0`, `jitter = 0`, and the patient does not have `PD`
+
+    -   A "healthy" patient with HNR and jitter values of 0 is estimated to have a voice shimmer of `r coefs[1]`
+
+## Interpretation of slope coefficients
+
+$$
+\widehat{shimmer} = `r coefs[1]`  `r coefs[2]` \text{hnr} + `r coefs[3]` \text{jitter} + `r coefs[4]` \text{statusPD}
+$$
+
+::: discuss
+Try interpreting the coefficients of `hnr`, `jitter`, and `statusPD`. Remember the special wording/acknowledgement now that we are in MLR world!
+:::
+
+-   Coefficient for `hnr`: for every one unit increase in HNR, we expect the patient's shimmer to decrease by `r abs(coefs[2])` units, holding the other variables (jitter and status) constant.
+
+-   Coefficient for `jitter`: for every one unit increase in jitter, we expect the patient's shimmer to increase by `r coefs[3]` units, holding the other variables constant.
+
+-   Coefficient for `statusPD`: patients with PD are estimated to have a voice shimmer `r coefs[4]` units higher than patients without PD, holding the other variables constant
+
+## Effect of `status`
+
+```{r}
+tidy(shimmer_lm2) |>
+  kable(digits = c(0, 3, 3, 3, 7)) |>
+  kable_styling(font_size = 26)
+```
+
+::: discuss
+Based off the model output, does it appear that `status` is an important predictor of a patient's voice `shimmer`? Why or why not? What about the other two variables `hnr` and `jitter`?
+:::
+
+## Comparing models
+
+Let's compare the two models:
+
+::::: columns
+::: {.column width="50%"}
+```{r echo = T, eval = F}
+tidy(shimmer_lm) |>
+  select(term, estimate, p.value)
+```
+
+```{r }
+tidy(shimmer_lm)  |>
+  select(term, estimate, p.value)|>
+  kable(digits = c(0,3, 6)) |>
+  kable_styling(font_size = 24)
+```
+
+```{r echo = T, eval = F}
+glance(shimmer_lm)
+```
+
+```{r }
+glance(shimmer_lm) |>
+  kable(digits = 4) |>
+  kable_styling(font_size = 25)
+```
+:::
+
+::: {.column width="50%"}
+```{r echo = T, eval = F}
+tidy(shimmer_lm2) |>
+  select(term, estimate, p.value)
+```
+
+```{r}
+tidy(shimmer_lm2)  |>
+  select(term, estimate, p.value)|>
+  kable(digits = c(0,3, 6)) |>
+  kable_styling(font_size = 24)
+```
+
+```{r echo = T, eval = F}
+glance(shimmer_lm2)
+```
+
+```{r}
+glance(shimmer_lm2) |>
+  kable(digits = 4) |>
+  kable_styling(font_size = 25)
+```
+:::
+:::::
+
+::: discuss
+What do you notice about the estimated coefficients, $R^2$, and adjusted $R^2$ across the two models?
+:::
+
+## Remarks
+
+-   We have only scratched the surface of MLR
+
+-   Things to consider (beyond our course):
+
+    -   Multicollinearity (when the predictor variables are correlated with each other)
+
+    -   Model selection
+
+    -   More than one categorical variable
+
+    -   Interaction effects

@@ -1,0 +1,136 @@
+---
+title: "CI and HT for differences via CLT"
+format: 
+  pdf:
+    geometry:
+      - top=2.5cm
+      - left=2.5cm
+      - right=2.5cm
+      - bottom=2.5cm
+include-in-header:
+  - text: |
+      \pagenumbering{gobble}
+      \usepackage{multicol}
+editor_options: 
+  chunk_output_type: console
+---
+
+\vspace{-2cm}
+
+```{r echo = F, message= F}
+knitr::opts_chunk$set(echo = F, warning = F, messabundance = F)
+library(tidyverse)
+library(openintro)
+library(patchwork)
+library(kableExtra)
+```
+
+# Difference in proportions
+
+A survey asked 827 randomly sampled registered voters in California: Do you support or oppose drilling for oil and natural gas off the Coast of California? We have the following distribution of responses separated by whether the respondent graduated from college:
+
+```{r message = F}
+drilling <- openintro::offshore_drilling |>
+  slice(-1) |>
+  rename("position" = 1,  "college_grad" = 2) |>
+    filter(position != "do_not_know") |>
+  mutate(position = as.character(position),
+         college_grad = as.character(college_grad)) 
+ct <- drilling |>
+  group_by(position, college_grad) |>
+  summarise(n = n()) |>
+  spread(college_grad, n) |>
+  ungroup() |>
+  mutate(total =  no + yes)
+
+ct <- ct |>
+  rbind(c("total", colSums(ct[-1])))
+
+ct <- ct |> 
+  kable() |>
+  column_spec(1, border_right = T)
+ct
+```
+
+### Confidence interval
+
+Let population 1 be college attendees, and population 2 be non-college attendees. We want a 95% CI for $p_{1} - p_{2}$, where $p_{i}$ is the proportion of population $i$ who support offshore drilling.
+
+-   Obtain useful statistics: \vspace{3cm}
+
+-   Check conditions for CLT: \vspace{5cm}
+
+-   Are conditions for CLT met? \vspace{1cm}
+
+-   Collect the components of confidence interval: \vspace{5cm}
+
+-   Construct interval: \vspace{2cm}
+
+-   Interpret: \vspace{3cm}
+
+### Hypothesis test
+
+Do the data provide strong evidence at the 0.05 level that the proportion of college graduates who support off-shore drilling in California is different than that of non-college graduates?
+
+-   Define hypotheses \vspace{3cm}
+
+-   Obtain pooled proportion \vspace{3cm}
+
+-   Check conditions for CLT \vspace{5cm}
+
+-   Are conditions for CLT met?
+
+-   What is the null distribution of $\hat{p}_{1} - \hat{p}_{2}$? \vspace{2cm}
+
+-   Find the value of the test-statistic \vspace{2cm}
+
+-   Draw picture and write code to obtain p-value \vspace{4cm}
+
+\clearpage
+
+## Difference in means
+
+The Mauna Loa Observatory in Hawaii of monitors atmospheric solar, atmospheric, and meteorological parameters. We have data on annual atmospheric CO2 concentrations from 1980-2015. Specifically, we are interested in comparing CO2 levels between years 2000-2015 and years 1980-1999.
+
+```{r fig.height = 2, message = F}
+co2 <- read_csv("data/co2_annmean_mlo.csv") |>
+  rename("CO2" = "mean")
+co2_subset <- co2 |>
+  filter(year %in% 1980:2015) |>
+  mutate(group = if_else(year < 2000, "1980-1999", "2000-2015"))
+ggplot(co2_subset,aes(x =CO2)) +
+  geom_histogram(bins = 10) +
+  facet_wrap(~group, scales = "free") +
+  theme_minimal() +
+  labs(x = "CO2 (ppm)")
+co2_subset |>
+  group_by(group) |>
+  summarise(n = n(), xbar = mean(CO2), s = sd(CO2)) |>
+  kable(digits = 2) 
+```
+
+### Confidence interval
+
+Obtain a 90% confidence interval for the difference between the average atmospheric C02 levels (ppm) from years 2000-2015 and years 1980-1999.
+
+-   Define parameters \vspace{2cm}
+
+-   Check conditions for CLT \vspace{4cm}
+
+-   Are conditions for CLT met? \vspace{0.5cm}
+
+-   Collect the components of confidence interval: \vspace{4cm}
+
+-   Construct interval: \vspace{2cm}
+
+-   Interpret: \vspace{2cm}
+
+### Hypothesis test
+
+-   Define hypotheses \vspace{2cm}
+
+-   We already checked conditions!
+
+-   Find the value of the test-statistic and its distribution \vspace{5cm}
+
+-   Draw picture and write code to obtain p-value \vspace{4cm}

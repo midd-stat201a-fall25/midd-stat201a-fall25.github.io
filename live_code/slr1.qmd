@@ -1,0 +1,119 @@
+---
+title: "Linear regression in R"
+---
+
+```{r message = F}
+library(tidyverse)
+library(openintro)
+```
+
+### `lm()` function
+
+The function that will obtain the coefficients for the least-squares line is the `lm()` function. The syntax is as follows:
+
+`lm(response ~ explanatory, data)`
+
+### Example: `elmhurst` data
+
+Let's once again consider the `elmhurst` data from `openintro`, where we want to fit the model
+
+$$\text{gift aid} = \beta_{0} + \beta_{1} \times \text{income} + \epsilon$$
+
+What does this look like in `R`?
+
+```{r eval = F}
+lm(gift_aid ~ family_income, data = elmhurst)
+```
+
+*Note that the variables have to be spelled as they appear in the data frame!*
+
+The output from this line of code is:
+
+```{r echo = F}
+lm(gift_aid ~ family_income, data = elmhurst)
+```
+
+This isn't the most informative of output, so what we will do is use an additional function called `summary()` that will give us much more information!
+
+We will first store the output from `lm()` as a variable called `elmhurst_lm`:
+
+```{r}
+elmhurst_lm <- lm(gift_aid ~ family_income, data = elmhurst)
+```
+
+Then we will use the `summary()` function and pass in the linear model:
+
+```{r}
+summary(elmhurst_lm)
+```
+
+There's a lot more information here! We can now see the $b_{0}$ and $b_{1}$ estimates, along with some extra information. In particular, the "Multiple R-squared" quantity is the coefficient of determination $R^2$!
+
+Sometimes we just want the coefficients. The `coef()` function will output the coefficients as a vector. These can be nice for reproducibility and in-line code:
+
+```{r}
+coef(elmhurst_lm)
+```
+
+## Pretty output using `broom`
+
+The `broom` package has a function that turns the output from `lm()` into tidy, data frame form. We simply pass in the fitted model into the function of interest!
+
+::: column-margin
+Install the package either by typing `install.packages("broom")` in your Console, or in the Packages pane.
+:::
+
+### `tidy()`
+
+The function `tidy()` turns the information about the coefficients into a nice data frame:
+
+```{r}
+library(broom)
+tidy(elmhurst_lm)
+```
+
+Since this is in data frame form, each column is a variable, and all of our `dplyr` wrangling functions work!
+
+```{r}
+tidy(elmhurst_lm) |>
+  pull(estimate)
+```
+
+### `glance()`
+
+The function `glance()` turns the extra information about the model fit into nice data frame:
+
+```{r}
+glance(elmhurst_lm)
+glance(elmhurst_lm) |>
+  pull(r.squared)
+```
+
+### `augment()`
+
+The function `augment()` takes a fitted SLR model input, and combines the `x` and `y` variables from the original data frame (i.e. `family_income` and `gift_aid`) with extra variables whose values come from the model fit
+
+```{r}
+augment(elmhurst_lm) |>
+  slice(1:3)
+```
+
+You can see we have the new variables:
+
+-   `.fitted`: the fitted (estimated) values $\hat{y}$ for the corresponding observation
+
+-   `.resid`: the residual for the observation
+
+::: column-margin
+The periods are important!
+:::
+
+We can use the output from augment to plot histogram of residuals:
+
+```{r fig.height=3.5, fig.width=6}
+augment(elmhurst_lm) |>
+  ggplot(aes(x = .resid)) +
+  geom_histogram(bins = 15)
+```
+
+## 

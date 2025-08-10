@@ -1,0 +1,18 @@
+---
+title: "Problem Set 0"
+---
+
+**Due**: 2/12/25 before class
+
+Either typed or written + scanned, submit a **PDF** to the corresponding Canvas assignment (via Gradescope) answering the following questions:
+
+1.  What is your name and your preferred gender pronouns?
+2.  What year are you at Middlebury?
+3.  What classes are you most excited and nervous about this semester? (No offense taken or brownie points given if you list this course!)
+4.  What is your major(s)/area of interest? If you don't know, that's also fine!
+5.  Why are you interested in taking this course?
+6.  When and where did you take a Calculus class?
+7.  Do you have any programming experience? If so, in what capacity?
+8.  Please identify which of my office hours times work for you, if any. (Monday 2-3pm, Friday 10-11am)
+9.  Is there anything that might be important for me to know about demands on your time this semester? (e.g. clubs, sports, five-course semester)
+10. Optional: any questions for me?

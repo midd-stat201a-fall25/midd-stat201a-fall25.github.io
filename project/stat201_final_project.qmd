@@ -1,0 +1,39 @@
+---
+title: "STAT 201: Final Project Report Template"
+author: "Team name: Names here"
+date: "May 18, 2025"
+format: pdf
+---
+
+```{r echo = F, message = FALSE, warning =FALSE}
+# hide all code
+knitr::opts_chunk$set(echo = FALSE, message = FALSE, warning = FALSE)
+
+# set figure sizes globally
+knitr::opts_chunk$set(fig.width = 5, fig.height = 2.75)
+
+## load all your packages here
+library(readr)
+```
+
+```{r}
+# load data here
+```
+
+## Introduction
+
+## Data Collection
+
+## Methods
+
+```{r}
+
+```
+
+## Results
+
+```{r}
+
+```
+
+## Discussion

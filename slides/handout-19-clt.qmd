@@ -1,0 +1,183 @@
+---
+title: "Central Limit Theorem"
+format: 
+  pdf:
+    geometry:
+      - top=2.5cm
+      - left=2.5cm
+      - right=2.5cm
+      - bottom=2.5cm
+include-in-header:
+  - text: |
+      \pagenumbering{gobble}
+      \usepackage{multicol}
+editor_options: 
+  chunk_output_type: console
+---
+
+\vspace{-2cm}
+
+```{r echo = F, message= F}
+knitr::opts_chunk$set(echo = F, warning = F, messabundance = F)
+library(tidyverse)
+library(openintro)
+library(patchwork)
+```
+
+# Sample means
+
+## Height example
+
+```{r}
+mu <- round(mean(nba_heights$h_in), 2)
+sigma <- round(sd(nba_heights$h_in), 2)
+n <- 20
+set.seed(11)
+x <- sample(nba_heights$h_in, n)
+p_nba <- ggplot(data.frame(x), aes(x = x)) +
+  geom_histogram(bins = 20, color = "white") +
+  labs(x = "Player height (in)") +
+  theme_minimal() +
+  theme(text = element_text(size = 13))
+```
+
+The average height of all NBA players in the 2008-9 season is `r mu` inches, with a population standard deviation of `r sigma` inches. We randomly sampled `r n` of these players and recorded their heights, as shown.
+
+```{r fig.height=2, fig.width=3}
+p_nba
+```
+
+***What is the sampling distribution of the sample mean heights?***
+
+**Check conditions**
+
+\vspace{4cm}
+
+**Proceed if conditions met**
+
+\vspace{2cm}
+
+```{r fig.height=2.5, fig.width=4}
+set.seed(11)
+x <- sample(nba_heights$h_in, n)
+sample_df <- data.frame(h_in = x, dist = "sample")
+sampling_df <- data.frame(h_in = replicate(200, mean(sample(nba_heights$h_in, n))), dist = "sampling")
+pop_df <- data.frame(h_in = nba_heights$h_in, dist = "population")
+
+rbind(sample_df, sampling_df, pop_df) |>
+  ggplot(aes(x = h_in, fill = dist, col = dist))+
+  geom_histogram(bins = 25, alpha = 0.75,
+                 mapping = aes(y = stat(density)))+
+                 #position = "identity") +
+  scale_fill_viridis_d(option = "F") +
+  scale_color_viridis_d(option = "F") +
+  theme_minimal() +
+  labs(x = "Height (in)",
+       title = "Different distributions",
+       fill = NULL, col = NULL)
+```
+
+## Bank example
+
+Customers are standing in line at a bank.
+
+-   Let $X_{i}$ represent the service time for customer $i$.
+
+-   Suppose that the average service time for all customers is 5 minutes, with a standard deviation of 6 minutes.
+
+-   Assume that a bank currently has 36 customers in it, and all customers are independent of each other.
+
+-   ***What is the probability that the average service time of all these customers is less than 4 minutes?***
+
+**Check conditions**
+
+\vspace{4cm}
+
+**Proceed if conditions met**
+
+\vspace{3cm}
+
+\clearpage
+
+# Sample proportions
+
+## M&Ms
+
+Mars, Inc. is the company that makes M&M's. In 2008, Mars changed their color distribution to have 13% red candies.
+
+Let $\hat{p}$ represent the proportion of red M&M's in a random sample of $n$ M&M's.
+
+***What is the sampling distribution of*** $\hat{p}$ ***if we take a random sample of size***:
+
+```{r}
+p <- 0.13
+n <- 100
+p1 <- ggplot() +
+   geom_function(fun = dnorm, args = list(mean = p, sd = sqrt(p*(1-p)/n)))+
+  theme_minimal() +
+  scale_x_continuous(limits = c(-0.2, 1.1), n.breaks = 6) +
+  theme(axis.text.y = element_blank(), axis.title.y = element_blank()) +
+  labs(x = expression(hat(p)), title = expression(N(0.13, 0.034)),) +
+  theme(text = element_text(size = 13))
+
+n <- 10
+p2 <- ggplot() +
+   geom_function(fun = dnorm, args = list(mean = p, sd = sqrt(p*(1-p)/n)))+
+  theme_minimal() +
+  scale_x_continuous(limits = c(-0.5, 1.1), n.breaks = 6) +
+  theme(axis.text.y = element_blank(), axis.title.y = element_blank()) +
+  labs(x = expression(hat(p)), title = expression(N(0.13, 0.106))) +
+  theme(text = element_text(size = 13))
+```
+
+::: {layout-ncol="2"}
+[$\mathbf{n = 100}$]{.underline}
+
+[$\mathbf{n = 10}$]{.underline}
+
+**Check conditions**
+
+**Check conditions**
+
+\vspace{5cm}
+
+\vspace{5cm}
+
+**Proceed if conditions met**
+
+**Proceed if conditions met**
+
+\vspace{5cm}
+
+\vspace{5cm}
+
+```{r fig.height=2, fig.width=2.5}
+p1
+```
+
+```{r fig.height=2, fig.width=2.5}
+p2
+```
+:::
+
+\clearpage
+
+# CLT-based CI for single proportion
+
+$$\text{point est.} \pm \text{critical value} \times \text{SE}$$
+
+## Poll example
+
+A poll of 100 randomly sampled registered voters in a town was conducted, asking voters if they support legalized marijuana. It was found that 60% of respondents were in support.
+
+***Find a 90% confidence interval for the true proportion of town residents in favor of legalized marijuana.***
+
+**Check conditions**
+
+\vspace{4cm}
+
+**If conditions met, construct CI**
+
+\vspace{8cm}
+
+**Interpret the confidence interval in context!**

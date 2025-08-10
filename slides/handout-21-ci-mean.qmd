@@ -1,0 +1,140 @@
+---
+title: "CI and HT for single mean via CLT"
+format: 
+  pdf:
+    geometry:
+      - top=2.5cm
+      - left=2.5cm
+      - right=2.5cm
+      - bottom=2.5cm
+include-in-header:
+  - text: |
+      \pagenumbering{gobble}
+      \usepackage{multicol}
+editor_options: 
+  chunk_output_type: console
+---
+
+\vspace{-2cm}
+
+```{r echo = F, message= F}
+knitr::opts_chunk$set(echo = F, warning = F, messabundance = F)
+library(tidyverse)
+library(openintro)
+library(patchwork)
+```
+
+# Confidence interval for single mean
+
+## Age at marriage (part 1)
+
+```{r echo = F}
+set.seed(2)
+n <- 25
+sd_age <- round(sd(age_at_mar$age), 2)
+x <- sample(age_at_mar$age, n)
+xbar <- mean(x)
+sigma_age <- 5
+```
+
+In 2006-2010, the CDC conducted a thorough survey asking US women their age at first marriage. Suppose it is known that the standard deviation of the ages at first marriage is `r sigma_age` years. Suppose we randomly sample 25 US women and ask them their age at first marriage (plotted below). Their average age at marriage was `r xbar`.
+
+```{r fig.height=2.5, fig.width=3}
+ggplot(data.frame(x), aes(x=x)) +
+  geom_histogram(binwidth = 2, col = "white") +
+  labs(x = "Age at first marriage") +
+  theme_minimal() 
+```
+
+**Obtain an 80% confidence interval for the mean age of US women at first marriage (not using simulation).**
+
+Check conditions for CLT:
+
+\vspace{3cm}
+
+What does CLT tell us?
+
+\vspace{2cm}
+
+\clearpage
+
+If conditions for CLT met, proceed to construct interval:
+
+-   Point estimate: \vspace{1cm}
+
+-   Standard error: \vspace{1cm}
+
+-   Critical value (write code/draw picture):
+
+\vspace{3cm}
+
+Confidence interval: \vspace{1cm}
+
+## Age at marriage (part 2)
+
+```{r}
+s <- sd(x)
+```
+
+Now suppose we don't know the population standard deviation, so all we have access to is the sample standard deviation of `r round(s,2)`.
+
+**Obtain an 80% confidence interval for the mean age of US women at first marriage (not using simulation).**
+
+Note: conditions are still met.
+
+Proceed to construct interval:
+
+-   Point estimate: \vspace{1cm}
+
+-   Standard error: \vspace{1cm}
+
+-   Critical value (write code/draw picture):
+
+\vspace{3cm}
+
+Confidence interval: \vspace{1cm}
+
+\clearpage
+
+# Hypothesis test for single mean
+
+## Salinity example
+
+```{r}
+salinity_dat <- salinity
+x <- salinity_dat$salinity_ppt
+n <- length(x)
+s <- sd(x)
+df <- n-1
+mu0 <- 38
+```
+
+We have `r n` salinity level measurements (ppt) collected from a random sample of water masses in the Bimini Lagoon, Bahamas (see below).
+
+We want to test if the average salinity level in Bimini Lagoon is different from `r mu0` ppm at the $\alpha = 0.05$ level.
+
+```{r fig.height=2.5, fig.width=3}
+salinity_dat |>
+  ggplot(aes(x = salinity_ppt)) +
+  geom_histogram(bins = 10) +
+  theme_minimal() +
+  labs(x = "Salinity (ppt)") 
+```
+
+1.  Set hypotheses \vspace{3cm}
+2.  Collect/summarise data, set $\alpha$ \vspace{3cm}
+3.  Obtain null distribution, test statistic, and p-value
+
+-   Check conditions for CLT: \vspace{3cm}
+
+-   Can we proceed with CLT-based method?
+
+-   Null distribution: \vspace{2cm}
+
+-   Test-statistic: \vspace{3cm}
+
+-   Distribution of test-statistic: \vspace{2cm}
+
+-   p-value: draw picture and write code to obtain p-value \vspace{7cm}
+
+4.  Make decision and conclusion in context.

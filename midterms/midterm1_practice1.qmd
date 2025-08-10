@@ -1,0 +1,76 @@
+---
+title: "STAT 201: Midterm 1 Practice 1"
+author: "Your name"
+format: pdf
+---
+
+In the following code chunk, load your libraries for wrangling, plotting, and making pretty tables. Then run the code chunk:
+
+```{r message = F}
+library(readr)
+```
+
+We have data from over 1000 wines in the dataset `wine_ratings`. Each case in the dataset represents one bottle of wine. The wines included in the dataset are wines that were tasted and reviewed.
+
+-   `country`: country of origin
+-   `variety`: grape type
+-   `points`: the number of points WineEnthusiast rated the wine on a scale of 1-100 (100 best)
+-   `price`: price of the wine (USD)
+-   `title`: title of the wine review, which often contains the year of the wine
+-   `taster_name`: name of taster/reviewer
+-   `description`: flavor and taste profile as written by the reviewer
+-   `year`: year/vintage of the wine, if available in the title of the review
+
+Run the following code to load in the data and take a look at it before continuing!
+
+```{r echo = F}
+wine_ratings <- read_csv("https://raw.githubusercontent.com/midd-stat201-spring2025/midd-stat201-spring2025.github.io/refs/heads/main/data/wine_ratings.csv", show_col_types = FALSE, col_types = "ccnncccn")
+```
+
+### Exercise 1
+
+First, modify the `wine_ratings` data to remove observations for which we don't have information about price.
+
+First, find the three countries that are most represented in the dataset. Once you have identified those countries, create a new data frame called `wine_ratings_top` that only retains observations from those three countries.
+
+```{r}
+
+```
+
+### Exercise 2
+
+Obtain the mean and standard deviation of the points and prices of the wines for each of the three countries using the observations for which we have information about these variables. Display as a beautiful table. Briefly interpret what you see.
+
+```{r}
+
+```
+
+**Answer**:
+
+### Exercise 3
+
+For each of the three countries identified earlier, what proportion of their wines that were produced before 2010 received over 90 points? Display a beautiful table that only shows the country name and the proportion.
+
+```{r}
+
+```
+
+### Exercise 4
+
+Find the rendered version of this document on the course website. Re-create the plot you see there and interpret it.
+
+```{r}
+
+```
+
+**Answer**:
+
+## Exercise 5
+
+Among all wines in the original dataset that have at least 25 reviews and information about prices, determine which type of wine grape seems to be the worst value. In your answer, briefly describe your methods/reasoning and identify the wine variety.
+
+```{r}
+
+```
+
+**Answer:**

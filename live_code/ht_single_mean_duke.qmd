@@ -1,0 +1,44 @@
+---
+title: "Simulation test for a single mean"
+date: "April 3, 2025"
+---
+
+```{r message = F, include = F}
+library(openintro)
+library(tidyverse)
+```
+
+```{r eval = F}
+library(readr)
+library(tidyverse)
+# change the following file path accordingly
+duke_forest <- read_csv("~/Desktop/STAT 201/duke_forest.csv")
+```
+
+```{r}
+prices <- duke_forest |>
+  pull(price)
+
+prices <- prices / 100000
+
+xbar <- mean(prices)
+n <- length(prices)
+
+# bootstrap distribution of sample means (5000 iterations)
+set.seed(5)
+B <- 5000
+boot_means <- rep(NA, B)
+for(b in 1:B){
+  boot_samp <- sample(prices, n, replace = T)
+  boot_means[b] <- mean(boot_samp)
+}
+
+mu0 <- 5
+shift <- xbar - mu0
+null_dist <- boot_means - shift
+
+p_val <- mean(null_dist >= xbar | null_dist <= (mu0 - shift)) 
+
+```
+
+P-value of `r p_val`

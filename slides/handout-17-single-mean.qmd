@@ -1,0 +1,92 @@
+---
+title: "Simulation test for single mean"
+format: 
+  pdf:
+    geometry:
+      - top=2.5cm
+      - left=2.5cm
+      - right=2.5cm
+      - bottom=2.5cm
+include-in-header:
+  - text: |
+      \pagenumbering{gobble}
+editor_options: 
+  chunk_output_type: console
+---
+\vspace{-2cm}
+
+I am interested in learning if the average price of houses in Duke Forest in 2020 was $500,000 or not. \vspace{1cm}
+
+
+$H_{0}:$
+\vspace{1cm}
+
+$H_{A}:$
+\vspace{1cm}
+
+```{r echo = F, message= F}
+library(tidyverse)
+library(openintro)
+prices <- duke_forest$price/100000
+n <- length(prices)
+xbar <- round(mean(prices), 3)
+```
+
+Summary information:
+\vspace{1cm}
+
+$\alpha:$
+\vspace{1cm}
+
+```{r echo = F, fig.height=3}
+B <- 5000
+set.seed(2)
+boot_means <- rep(NA, B)
+for(b in 1:B){
+  boot_means[b] <- mean(sample(prices, length(prices), replace = T))
+}
+p1 <- data.frame(means = boot_means) |>
+  ggplot(aes(x = means)) +
+  geom_histogram(col = "white", bins = 24) +
+  labs(x = "Mean housing prices ($100k)", title = "Bootstrap distribution")  +
+  theme_minimal()+
+  theme(text = element_text(size = 16))+
+  scale_x_continuous(n.breaks = 8) 
+p1
+```
+
+\clearpage
+
+**How do we obtain the null distribution?**
+
+
+```{r echo = T}
+#| code-line-numbers: true
+mu0 <- 5
+
+# xbar holds observed sample mean
+shift <- xbar - mu0
+
+# boot_means is a vector holding B bootstrapped sample means
+null_dist <- boot_means - shift
+```
+
+```{r echo = F, fig.height=3}
+null_dist_df <- data.frame(means = null_dist) |>
+  mutate(extreme = (means >= mu0 + shift) | (means <= mu0 - shift)  )
+p2 <-  null_dist_df |>
+  ggplot(aes(x = means)) +
+  geom_histogram(col = "white", bins = 24) +
+  labs(x = "Mean housing prices ($100k)", title = "Null distribution")  +
+  theme_minimal()+
+  theme(text = element_text(size = 16))+
+  scale_x_continuous(n.breaks = 8) 
+p2
+```
+
+p-value: \vspace{2cm}
+
+Decision: \vspace{1cm}
+
+Conclusion: \vspace{1cm}
+

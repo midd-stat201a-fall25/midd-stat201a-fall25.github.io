@@ -1,0 +1,101 @@
+---
+title: "Chi-squared test for Independence"
+format: 
+  pdf:
+    geometry:
+      - top=2.5cm
+      - left=2.5cm
+      - right=2.5cm
+      - bottom=2.5cm
+include-in-header:
+  - text: |
+      \pagenumbering{gobble}
+      \usepackage{multicol}
+editor_options: 
+  chunk_output_type: console
+---
+
+\vspace{-2cm}
+
+```{r echo = F, message= F}
+knitr::opts_chunk$set(echo = F, warning = F, messabundance = F)
+library(tidyverse)
+library(openintro)
+library(patchwork)
+library(kableExtra)
+```
+
+# Example: coffee and mortality
+
+Observed data:
+
+|                   | Did not die | Died | Total |
+|-------------------|-------------|------|-------|
+| No coffee         | 5438        | 1039 | 6477  |
+| Occasional coffee | 29712       | 4440 | 34152 |
+| Regular coffee    | 24934       | 3601 | 28535 |
+| Total             | 60084       | 9080 | 69164 |
+
+$H_{0}$: \vspace{0.5cm}
+
+$H_{A}$:
+
+**Table of expected counts**
+
+|                   | Did not die               | Died         | Total |
+|-------------------|---------------------------|--------------|-------|
+| No coffee         | \vspace{1cm} \hspace{4cm} | \hspace{4cm} | 6477  |
+| Occasional coffee | \vspace{1cm}              |              | 34152 |
+| Regular coffee    | \vspace{1cm}              |              | 28535 |
+| Total             | 60084                     | 9080         | 69164 |
+
+**Our observed test-statistic:** \vspace{5cm}
+
+**Distribution of our test-statistic:** \vspace{3cm}
+
+**P-value (code and picture)**: \vspace{4cm}
+
+**Conditions** (better late than never!):
+
+1.  \vspace{0.5cm}
+2.  
+
+\clearpage
+
+# Termites
+
+Observed data:
+
+|                   | Unharmed | Paralyzed | Dead | Total |
+|-------------------|----------|-----------|------|-------|
+| Blue              | 3        | 11        | 26   | 40    |
+| White             | 31       | 4         | 5    | 40    |
+| Blue w/o crystals | 26       | 8         | 7    | 41    |
+| White w/ crystals | 17       | 5         | 18   | 40    |
+| Total             | 77       | 28        | 56   | 161   |
+
+$H_{0}$: \vspace{1cm}
+
+$H_{A}$: \vspace{1cm}
+
+**Check conditions**
+
+Table of expected counts
+
+|                   | Unharmed     | Paralyzed    | Dead         | Total |
+|-------------------|--------------|--------------|--------------|-------|
+| Blue              | \vspace{1cm} | \hspace{1cm} | \hspace{2cm} | 40    |
+| White             | \vspace{1cm} |              |              | 40    |
+| Blue w/o crystals | \vspace{1cm} |              |              | 41    |
+| White w/ crystals | \vspace{1cm} |              |              | 40    |
+| Total             | 77           | 28           | 56           | 161   |
+
+\vspace{1cm}
+
+Are conditions for inference satisfied? \vspace{3cm}
+
+**Our observed test-statistic:** \vspace{5cm}
+
+**Distribution of our test-statistic:** \vspace{3cm}
+
+**P-value (code and picture)**: \vspace{4cm}

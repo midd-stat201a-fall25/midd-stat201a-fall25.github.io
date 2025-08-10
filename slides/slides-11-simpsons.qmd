@@ -1,0 +1,501 @@
+---
+title: "Simpson's paradox"
+date: "March 6, 2025"
+title-slide-attributes:
+    data-background-image: "figs/bikeshare-plots.png"
+    data-background-size: contain
+    data-background-opacity: "0.2"
+format: 
+  revealjs:
+    theme: custom.scss
+    transition: none
+    incremental: true
+    scrollable: true
+editor: visual
+editor_options: 
+  chunk_output_type: console
+draft: false
+---
+
+# Housekeeping
+
+-   Content through today is fair game for Midterm 1
+
+```{r echo = F}
+knitr::opts_chunk$set(echo = F, warning = F, messabundance = F)
+library(tidyverse)
+library(readr)
+plot_theme <- theme_bw() +
+  theme(text = element_text(size = 16)) 
+set.seed(1)
+admissions <- read_csv("data/ucb_admissions.csv") |>
+  sample_frac()
+```
+
+# Brief recap
+
+## Study design
+
+-   What are the differences between observational studies and experimental studies?
+
+-   What is a confounding variable?
+
+## UC Berkeley admissions
+
+Observational study on sex bias based on Fall 1973 admissions data to the graduate program at the University of California, Berkeley
+
+|           | Admit | Deny | Total |
+|-----------|-------|------|-------|
+| **Men**   | 3738  | 4704 | 8442  |
+| **Women** | 1494  | 2827 | 4321  |
+| **Total** | 5232  | 7531 | 12763 |
+
+::: discuss
+1.  What is the probability* of admission for a randomly selected applicant?
+
+2.  What is the probability of admission among men? Among women?
+
+3.  Are the probabilities you found marginal, joint, or conditional probabilities?
+:::
+
+:::: fragment
+::: discuss
+Suppose we want to understand the relationship between gender and admission decision. What sort of visualization might be appropriate for representing this data?
+:::
+::::
+
+## UC Berkeley admissions (cont.)
+
+::: fragment
+```{r}
+admissions |>
+  ggplot(aes(x = Gender, fill = Decision)) +
+  geom_bar(position = "fill") +
+  ggtitle("Admission decisions by gender") +
+  plot_theme+
+  scale_fill_brewer(palette = "Accent")
+```
+:::
+
+# Case study
+
+## Dive into data
+
+We have more nuanced data about the graduate admissions: we know the department that each person was applied to.
+
+We will consider the six largest departments: A, B, C, D, E, F
+
+-   The first six observations in the data frame are as follows:
+
+::: fragment
+```{r echo = T}
+# head() gives us the first 6 rows
+head(admissions)
+```
+:::
+
+-   ::: discuss
+    What sort of EDA would be interesting/appropriate for these data?
+    :::
+
+## Frequency tables
+
+Number of applicants by department:
+
+::::: columns
+::: {.column width="30%"}
+Female applicants:
+
+```{r echo = T, eval = F}
+admissions |>
+  filter(Gender == "Female") |> 
+  count(Dept)
+```
+
+```{r}
+admissions |>
+  filter(Gender == "Female") |> 
+  count(Dept) |>
+  # pivot_wider(names_from = c(Gender, Decision), names_sep= ": ", values_from = n ) |>
+  kableExtra::kable()
+
+```
+:::
+
+::: {.column width="30%"}
+Male applicants:
+
+```{r echo = T, eval = F}
+admissions |>
+  filter(Gender == "Male") |> 
+  count(Dept)
+```
+
+```{r}
+admissions |>
+  filter(Gender == "Male") |> 
+  count(Dept) |>
+  # pivot_wider(names_from = c(Gender, Decision), names_sep= ": ", values_from = n ) |>
+  kableExtra::kable() 
+
+```
+:::
+
+::: {.column width="30%"}
+Both groups:
+
+```{r echo = T, eval = F}
+admissions |>
+  count(Dept, Gender)
+```
+
+```{r}
+admissions |>
+  count(Dept, Gender) |>
+  # pivot_wider(names_from = c(Gender, Decision), names_sep= ": ", values_from = n ) |>
+  kableExtra::kable() |>
+    kableExtra::kable_styling(font_size = 20)
+
+```
+:::
+:::::
+
+## More-detailed frequency tables
+
+Number of applicants by department and admission status:
+
+::::: columns
+::: {.column width="50%"}
+Female applicants:
+
+```{r}
+admissions |>
+  filter(Gender == "Female") |> 
+  count(Dept, Decision) |>
+  # pivot_wider(names_from = c(Gender, Decision), names_sep= ": ", values_from = n ) |>
+  kableExtra::kable()|>
+  kableExtra::kable_styling(font_size = 20)
+
+```
+:::
+
+::: {.column width="50%"}
+Male applicants:
+
+```{r}
+admissions |>
+  filter(Gender == "Male") |> 
+  count(Dept, Decision) |>
+  kableExtra::kable()|>
+  kableExtra::kable_styling(font_size = 20)
+
+```
+:::
+:::::
+
+## Visualize
+
+Can visualize three categorical variables at once!
+
+```{r}
+admissions |>
+  ggplot(aes(x = Gender, fill = Decision)) +
+  geom_bar(position = 'fill') +
+  facet_wrap(~ Dept) +
+  plot_theme +
+  scale_fill_brewer(palette = "Accent")
+```
+
+## Closer look
+
+Probability of admission conditioning on gender and department:
+
+:::::: columns
+::: {.column width="50%"}
+```{r}
+df1 <- admissions |> 
+  count(Dept, Gender,name = "Total")
+
+admissions |>
+  count(Dept, Gender, Decision) |>
+  group_by(Dept, Gender) |>
+  mutate(cond_prob = n / sum(n)) |>
+  ungroup() |>
+  filter(Decision == "Admit") |>
+  rename("cond_prob_admit" = "cond_prob")|>
+  select(-n, -Decision) |>
+  # right_join(df1) |>
+  #pivot_wider(names_from = Gender, values_from = c(p_admit, Total),
+  #            names_glue = "{Gender}_{.value}") |>
+  kableExtra::kable(digits = 2)|>
+  kableExtra::kable_styling(font_size = 25)
+```
+:::
+
+:::: {.column width="50%"}
+::: discuss
+-   Are all departments uniform in admission rates?
+-   Do admissions still seem biased against female applicants?
+:::
+::::
+::::::
+
+## What's going on?
+
+:::::::: columns
+::: {.column width="50%"}
+-   But wait... didn't we start by noting that men were way more likely to be admitted than women?
+
+-   The first two departments (A and B) are easy to get into
+
+-   The following table shows for each gender, the proportion of applicants each department received.
+:::
+
+:::::: {.column width="50%"}
+::: fragment
+```{r}
+admissions |>
+  count(Gender, Dept) |>
+  group_by(Gender) |>
+  mutate(cond_prop = n /sum(n)) |>
+  ungroup() |>
+  arrange(Gender, Dept) |>
+  select(-n) |>
+  kableExtra::kable(digits = 3)|>
+  kableExtra::kable_styling(font_size = 23)
+```
+:::
+
+:::: fragment
+::: discuss
+What do you notice?
+:::
+::::
+::::::
+::::::::
+
+## Simpson's paradox
+
+The UC Berkeley admissions observational study is an example of **Simpson's paradox**: when omitting one explanatory variable causes the measure/degree of association between another explanatory variable and a response variable to reverse or disappear
+
+-   In other words, the inclusion/exclusion of a third variable in the analysis can change the apparent relationship between the other two variables
+-   What was the confounding variable in UC Berkeley study?
+
+::::::: columns
+:::: {.column width="50%"}
+::: fragment
+```{r}
+df <- tribble(
+  ~x1, ~y, ~x2,
+  2,   4,  0,
+  3,   3,  0,
+  4,   2,  0,
+  5,   1,  0,
+  6,   11, 1,
+  7,   10, 1,
+  8,   9,  1,
+  9,   8,  1
+)
+ggplot() +
+  geom_point(data = df, aes(x1, y), size = 5) +
+  geom_smooth(data = df, aes(x1, y), lwd = 3, method = lm, se = FALSE, 
+              color = "black", linetype = "dashed") +
+  theme(text = element_text(size = 20))
+```
+:::
+::::
+
+:::: {.column width="50%"}
+::: fragment
+```{r  echo=FALSE, message=FALSE}
+ggplot() +
+  geom_point(data = df, aes(x1, y, color = factor(x2)), size = 5) +
+  geom_smooth(data = df, aes(x1, y, color = factor(x2)), method = lm,
+              lwd = 2.75) +
+  geom_smooth(data = df, aes(x1, y), method = lm, se = FALSE, 
+              color = "black", linetype = "dashed", lwd = 3) +
+  labs(color = "x2")+
+  theme(text = element_text(size = 20))
+```
+:::
+::::
+:::::::
+
+# Live code
+
+-   More robust filtering
+
+-   Using wrangling to obtain probabilities
+
+-   `case_when()` to create more complex categorical variables
+
+## Filtering for multiple levels
+
+Suppose I want to retain observations in the first three departments. We could do the following:
+
+```{r eval = F, echo = T}
+admissions |>
+  filter(Dept == "A" | Dept == "B" | Dept == "C")
+```
+
+Or I could streamline using the `%in%` operator:
+
+```{r eval = F, echo = T}
+admissions |>
+  filter(Dept %in% c("A", "B", "C"))
+```
+
+-   This reads: filter for observations where the `Dept` value is in the vector of options (A, B, C)
+
+## Wrangling for probabilities
+
+:::::: columns
+::: {.column width="50%"}
+What is the probability that someone was admitted?
+
+```{r eval = T, echo = T}
+admissions |>
+  count(Decision) |>
+  mutate(prob = n/sum(n)) |>
+  select(-n)
+```
+:::
+
+:::: {.column width="50%"}
+::: fragment
+What is the probability that someone was admitted, conditioned on gender?
+
+```{r eval = T, echo = T}
+admissions |>
+  count(Gender, Decision) |>
+  group_by(Gender) |>
+  mutate(cond_prob = n/sum(n)) |>
+  select(-n)
+```
+:::
+::::
+
+- How might I extend to also condition on Department?
+::::::
+
+## More complex categorical variables
+
+Suppose I want to create a new variable called `Dept2` that takes the values:
+
+-   "Group 1" if someone applied to Department A or B
+-   "Group 2" if someone applied to Department C or D
+-   "Group 3" if someone applied to Department E or F
+
+::: fragment
+```{r eval = F, echo = T}
+# option 1 (awful): nested if_else()
+admissions |>
+  mutate(Dept2 = if_else(Dept %in% c("A", "B"), "Group 1",
+                           if_else(Dept %in% c("C", "D"), "Group 2",
+                                   "Group 3")))
+```
+```{r eval = T, echo = F}
+# option 1 (awful): nested if_else()
+set.seed(2)
+admissions |>
+  mutate(Dept2 = if_else(Dept %in% c("A", "B"), "Group 1",
+                           if_else(Dept %in% c("C", "D"), "Group 2",
+                                   "Group 3"))) |>
+  sample_frac() |>
+  slice(1:5)
+```
+:::
+
+## case_when()
+
+We will use the `case_when()` function which generalizes `if_else()`. We use the following notation: `<logical condition> ~ <value of variable>`. Different "ifs" are separated by commas, and the logical conditions are checked sequentially.
+
+::::: columns
+::: {.column width="50%"}
+```{r echo = T, eval = F}
+admissions |>
+  mutate(Dept2 = case_when(
+    Dept %in% c("A", "B") ~ "Group 1",
+    Dept %in% c("C", "D") ~ "Group 2",
+    Dept %in% c("E", "F") ~ "Group 3",
+  )) 
+```
+
+```{r echo = F, eval = T}
+set.seed(2)
+admissions |>
+  mutate(Dept2 = case_when(
+    Dept %in% c("A", "B") ~ "Group 1",
+    Dept %in% c("C", "D") ~ "Group 2",
+    Dept %in% c("E", "F") ~ "Group 3",
+  )) |>
+  sample_frac() |>
+  slice(1:5)
+```
+:::
+
+::: {.column width="50%"}
+```{r echo =T, eval = F}
+#| code-line-numbers: "1,2,7"
+# The following is also acceptable, but 
+# relies on sequential ordering:
+admissions |>
+  mutate(Dept2 = case_when(
+    Dept %in% c("A", "B") ~ "Group 1",
+    Dept %in% c("C", "D") ~ "Group 2",
+    T ~ "Group 3",
+  )) |>
+  sample_frac() 
+```
+
+```{r echo = F, eval = T}
+set.seed(2)
+admissions |>
+  mutate(Dept2 = case_when(
+    Dept %in% c("A", "B") ~ "Group 1",
+    Dept %in% c("C", "D") ~ "Group 2",
+    T ~ "Group 3",
+  )) |>
+  sample_frac() |>
+  slice(1:5)
+```
+:::
+:::::
+
+## Prettier tables using `kable()`
+
+- When we finish wrangling, the output is always a data frame
+
+    - While this is so useful for coding, it's not the most beautiful when rendering!
+    
+    - How can we make turn the data frame into a beautiful table?
+
+- We will need to first install the `kableExtra` library.
+
+:::: {.columns}
+::: {.column width="50%"}
+::: {.fragment}
+```{r echo = T, eval = T}
+library(kableExtra)
+
+admissions |>
+  count(Decision) |>
+  mutate(prob = n/sum(n)) |>
+  kable()
+```
+:::
+:::
+
+::: {.column width="50%"}
+- Can specify number of digits:
+
+::: {.fragment}
+```{r echo = T, eval = T}
+admissions |>
+  count(Decision) |>
+  mutate(prob = n/sum(n)) |>
+  kable(digits = 3)
+```
+:::
+:::
+::::

@@ -1,0 +1,51 @@
+---
+title: "Categorical data coding practice"
+author: "Your name"
+date: "2/24/2025"
+format: pdf
+---
+
+```{r}
+# load additional packages here
+
+```
+
+0. In the code chunk above, add a line of code to load in the package necessary for ggplot-ing. Also change your name in the YAML.
+
+1.  We will be using the `diamonds` dataset that is included in the package you loaded above. Please take a look at the Help file. Create vertical side-by-side boxplots that display the distribution of diamond prices for each color of diamond.  
+
+Then answer the following question: which diamonds seem to be the most expensive? Is this result surprising to you given the description of the data? If so, what might be a possible explanation?
+
+```{r}
+
+```
+
+**Answer**:
+
+2. Now visualize the distribution of diamonds prices using histograms, where we have one histogram for each color. You should be able to do this in just three lines/layers of code!
+
+Then answer the following: which visualization (the boxplots or the histograms) do you think is more effective for answering the research question of "which diamonds seem to be the most expensive"? Briefly explain why.
+
+```{r}
+
+```
+
+**Answer**:
+
+
+3.  Using an *appropriate* type of bar plot, compare the distribution of how clear a diamond is across the distribution of the quality of th cut. Do the frequencies of occurrences of the levels of one variable depend on/change with the levels of the second variable? That is, do you think there is an association between the two variables?
+
+```{r}
+
+
+```
+
+**Answer**:
+
+4.  We will change the colors in our bar plot! Look at the Help file for the function `scale_fill_brewer()`. You should see many options of different palettes. Add this function to your code above (use good coding style!), and set the palette argument to one of the palette names. Play around until you've settled on one!
+
+5.  You used the function `scale_fill_brewer()` above, but there is a similar function called `scale_color_brewer()`. Why do you think we used the first function and not the second? (You can explore this by changing your code above to `scale_color_brewer` and seeing what happens. Be sure to revert back to `scale_fill_brewer` before submitting!)
+
+**Answer**:
+
+Once you're finished, be sure to knit and submit the rendered PDF to the corresponding Gradescope assignment!

@@ -1,0 +1,41 @@
+---
+title: "Data wrangling coding practice"
+author: "Your name"
+date: "2/26/2025"
+format: pdf
+---
+
+0.  Load in the `tidyverse` and `openintro` packages in the code chunk below. We will once again work with the `starbucks` data from the `openintro` package.
+
+```{r}
+# load packages here
+
+```
+
+1.  Wrangle the `starbucks` data to show a data frame that contains the number of each type of Starbucks item. Display the resulting data frame in descending order.
+
+```{r}
+
+```
+
+2.  Wrangle the data to display the five Starbucks items with the highest amount of calories. Only display the name of the items and their calorie content.
+
+```{r}
+
+```
+
+3.  Three macronutrients serve as sources of calories (i.e. energy) in food: carbohydrates, proteins, and fat. Carbohydrates contain 4 calories per gram, proteins contain 4 calories per gram, and fats contain 9 calories per gram.
+
+Wrangle the data to add a new variable called `theoretical_cals` which represents the number of calories each item in the `starbucks` data theoretically should have based on its levels of carbohydrates, protein, and fat. Store the resulting data frame as a new data frame called `starbucks_new`.
+
+```{r}
+
+```
+
+4.  Using your `starbucks_new` data frame from the previous step, display a summary table/data frame that shows the standard deviation of the differences between the reported calories and theoretical calories. Make sure to specify an informative/nicer name in your summary table.
+
+```{r}
+
+```
+
+Once you're finished, be sure to render and submit the PDF file to the corresponding Gradescope assignment!

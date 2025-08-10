@@ -1,0 +1,83 @@
+---
+title: "STAT 201: Problem Set 4 (R)"
+author: "Your name"
+date: "03/10/2025"
+format: pdf
+---
+
+Today’s data comes from a study of conducted in Whickham, England. In this study, the researchers recorded each participant’s age, smoking status at the start of the study, and their health outcome 20 years later.
+
+The data is in the mosaicData package. *You may have to install the package first!* Then run the following code:
+
+```{r message=FALSE}
+library(tidyverse)
+library(kableExtra)
+library(mosaicData)
+```
+
+We will work with the `Whickham` data from the package. You should open its Help file and take a view of the data before proceeding. Note that the type "factor" can be though of as a categorical variable. **Make sure you understand the data before proceeding!**
+
+1. Before looking at the data and using your intuition: What would you expect the relationship between smoking status and health outcome to be?
+
+**Answer:**
+
+2.  Create an standardized bar plot that depicts the relationship between smoking status and health outcome. This about what the explanatory and response variables should be and how that affects your plot. Make sure you have informative labels and titles. Change the background of the plot to something besides the default, and also change the colors of the bars to be something besides the default (e.g. `scale_fill_viridis_d()` or `scale_fill_brewer()`).
+
+```{r}
+
+```
+
+3.  Using wrangling code, calculate the conditional probabilities of death for each smoking status. Your resulting table should:
+
+- Only report only the probabilities for when outcome is Dead
+
+- Only retain the variables for smoke statu and the conditional probabilities in a meaningful order
+
+- Render as a beautiful table, not a data frame
+
+```{r}
+
+```
+
+4. Do your calculations and visualization from Exercises 2 and 3 align with your hypothesis from Exercise 1? Briefly explain why or why not.
+
+**Answer:**
+
+
+5.  Using `case_when()`, create a new variable for future use called `age_cat` that takes the values as follows:
+
+-   "18-44": if someone is less than or equal to 44 years old
+-   "45-64": if someone is between 45 and 64 years old, inclusive
+-   "65+": if someone is older than 64
+
+Store the resulting data frame into a new data frame called `Whickham2`
+
+```{r}
+
+```
+
+6.  Re-create your first visualization from Exercise 2, this time bringing in your new `age_cat` variable in an appropriate way. Make sure you have informative labels and titles, and use the same color choice you as in Exercise 2.
+
+```{r}
+
+```
+
+7.  Elaborate on your table from Exercise 3 above by breaking it down by age category. Your resulting table should:
+
+- Only report only the probabilities for when outcome is Dead
+
+- Only retain the variables for smoke status, the conditional probabilities, and age category in a meaningful order
+
+- Present the results such that multiple rows with the same age categories appear in consecutive order in the table 
+
+- Render as a beautiful table, not a data frame
+
+```{r}
+
+```
+
+8. Compare the two visualizations and the two summary tables. What changed, and what might explain the change?
+
+**Answer**:
+
+When finished, render one more time and submit the PDF to Gradescope!

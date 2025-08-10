@@ -1,0 +1,71 @@
+---
+title: "STAT 201: Practice Midterm"
+author: "Your name"
+format: pdf
+---
+
+**HONOR CODE PLEDGE:**
+
+Write your name in the YAML and load your packages necessary for wrangling code, plotting, and creating beautiful tables:
+
+```{r message = F, echo = T}
+library(readr)
+```
+
+Run the following code chunk to load in the data: 
+
+```{r echo = F}
+gun_violence <- readr::read_csv("https://raw.githubusercontent.com/midd-stat201-spring2025/midd-stat201-spring2025.github.io/refs/heads/main/data/gun_violence.csv", show_col_types = FALSE, col_types = "nccccnnnccc") 
+
+census <- read_csv("https://raw.githubusercontent.com/midd-stat201-spring2025/midd-stat201-spring2025.github.io/refs/heads/main/data/census_long.csv", show_col_types = FALSE, col_types = "cccn")
+
+laws <- read_csv("https://raw.githubusercontent.com/midd-stat201-spring2025/midd-stat201-spring2025.github.io/refs/heads/main/data/gun_laws17.csv", show_col_types = FALSE)
+```
+
+## Question 1
+
+```{r}
+
+```
+
+**Answer**:
+
+## Question 2
+
+
+```{r}
+
+
+```
+
+## Question 3
+
+```{r}
+
+
+```
+
+**Answer**:
+
+## Question 4
+
+```{r}
+
+```
+
+## Question 5
+
+
+```{r}
+
+```
+
+**Answer:**
+
+## Question 6
+
+```{r}
+
+```
+
+**Answer:**

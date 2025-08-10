@@ -1,0 +1,49 @@
+---
+title: "Numerical data coding practice"
+author: "Your name"
+date: "2/19/2025"
+format: pdf
+---
+
+1.  Change your name in the YAML.
+
+2.  In the following code chunk, load in the `openintro` package. Then run this code chunk. We need this package to once again work with the `cherry` data frame.
+
+```{r}
+
+```
+
+3.  If we have a data frame (like `cherry`), we can access a specific variable's data in the data frame by typing the code like the following: `data_frame_name$variable_name`. Note that the spelling of the variable name must match how it appears in the data frame!
+
+In the code chunk below, obtain the values of the observed diameters of these trees using code. Then answer: what type of object is output from the code?
+
+```{r}
+
+
+```
+
+**Answer:**
+
+4.  In the code chunk below, write code to find the mean and median of the height of trees in the `cherry` data frame. Based on what you find, answer the following: do you believe the distribution of the height of cherry trees is skewed or symmetric? Why?
+
+```{r}
+
+```
+
+**Answer:**
+
+5.  Let's confirm your answer above by creating a rather ugly (but easy to obtain) histogram. The `hist()` function requires one input: a vector of numerical values to visualize. Plot a histogram of the heights of these trees.
+
+```{r}
+
+```
+
+6.  Optional: modify the plot above by specifying some of all of following extra inputs to the `hist()` function.
+
+-   main: plot title (must be a string object)
+-   xlab: x-axis label (must be a string object)
+-   col: color to fill the bars in with (must be a valid color specified as a string object)
+
+This looks like `hist(data, main = "Title", xlab = "x-axis title", col = "some color")`.
+
+Once you're finished, be sure to render and submit the outputted PDF file to the corresponding Gradescope assignment!

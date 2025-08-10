@@ -1,0 +1,71 @@
+---
+title: "Bootstrap confidence intervals"
+author: "Your name"
+date: "3/26/25"
+format: pdf
+---
+
+We will work with the average hours of sleep our class reported. Run the following code chunk to load the data:
+
+```{r message=FALSE}
+library(tidyverse)
+library(readr)
+sleep <- read_csv("https://raw.githubusercontent.com/midd-stat201-spring2025/midd-stat201-spring2025.github.io/refs/heads/main/data/coffee_sleep.csv")
+```
+
+We will intialize a pseudo-random-number-generator using the `set.seed()` function. You can choose any whole number to input as the parameter to this function. For example, I used the seed of 201. If I have the exact same seed and code as you, then we will produce the same random results.
+
+```{r}
+set.seed(201)
+```
+
+1.  We will first take an original sample of size 10.
+
+    Create a variable that represents and stores the target sample size. Then, take a random sample of size 10 of average sleep hours from our population. Store your sample into a variable called `x`.
+
+```{r}
+# create a variable for sample size
+
+# obtain and store our sample
+
+```
+
+2.  Then, we will take 5000 bootstrap iterations. Store this value as a variable B for reproducibility.
+
+    Then obtain a bootstrap distribution of the sample means using your original sample. *Remember to store the bootstrap statistics somewhere! Please use a meaningful variable name.* It may be useful to look at and modify the live code from previous class (on website). Your code shouldn't print out/show us any output.
+
+```{r}
+# store number of bootstrap iterations
+
+```
+
+3.  Use the `quantile()` function to obtain the bounds for a 80%, 90%, and 99% bootstrap confidence interval, respectively. Store these bounds as variables with different (but meaningful) variable names (you should have 6 variables total).
+
+Your code shouldn't print out/show us any output.
+
+```{r}
+# 80%
+
+# 90%
+
+# 99%
+
+```
+
+4.  In the space provided below, report the three confidence intervals in the format of (lower, upper) *using in-line code*.
+
+In-line code allows us to be reproducible. Remember, the format is: `r` where after the space within the back-ticks you type the appropriate R code.
+
+80% CI:
+
+90%: CI:
+
+99% CI:
+
+5.  How do the confidence interval widths change as the level of confidence increases?
+
+**Answer:**
+
+6.  Interpret one of your confidence intervals in context. *Use in-line code in your answer.*
+
+**Answer:**

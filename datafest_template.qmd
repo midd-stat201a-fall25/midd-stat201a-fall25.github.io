@@ -1,0 +1,47 @@
+---
+title: "DataFest"
+author: "Team name here!!"
+format: pdf
+---
+
+```{r message = F}
+# add extra packages as necessary
+library(tidyverse)
+library(readr)
+
+# load data
+```
+
+## Introduction
+
+Write your introduction here! Make sure to very clearly state the research question(s) you're trying to answer.
+
+## Data cleaning/wrangling
+
+Discuss at a high-level the wrangling you needed to do to get your data into a position to implement your methods below. (This might be one of the last parts of the report you right).
+
+```{r}
+# any code you might need to do macro-level wrangling
+```
+
+## Methods
+
+Brief description of methods used to answer your research question(s), along with justification for why your methods is/are appropriate. Remember, we need at least one visualization and one simulation-based inference method!
+
+There shouldn't any code in this section because you are just describing your methods.
+
+## Results with interpretation
+
+Implement your methods described above. This section is mostly code, with just some text for interpretation in context. 
+
+```{r}
+
+```
+
+## Conclusion
+
+Brief conclusion about what you would do differently/wish you had!
+
+## Acknowledgements
+
+Please briefly describe each team member's contribution to the project!

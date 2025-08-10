@@ -1,0 +1,326 @@
+---
+title: "Data ethics"
+date: "March 12, 2025"
+title-slide-attributes:
+    data-background-image: "figs/bikeshare-plots.png"
+    data-background-size: contain
+    data-background-opacity: "0.2"
+format: 
+  revealjs:
+    theme: custom.scss
+    transition: none
+    incremental: true
+    scrollable: true
+editor: visual
+editor_options: 
+  chunk_output_type: console
+draft: false
+---
+
+# Housekeeping
+
+-   Midterm 1 tomorrow! Bring a fully charged laptop!
+-   Extra office hours today 3:15-4:15pm
+-   Lots of material comes from Modern Dive and Dr. Shannon Vallor's module "An Introduction to Data Ethics"
+
+```{r echo = F}
+knitr::opts_chunk$set(echo = F, warning = F, messabundance = F)
+library(tidyverse)
+library(readr)
+library(kableExtra)
+plot_theme <- theme_bw() +
+  theme(text = element_text(size = 16)) 
+```
+
+## What is ethics? Why discuss?
+
+-   Philosopher Socrates is quoted as saying that "the most important thing is not life, but the good life"[^1]
+    -   Questions of ethics attempt to answer the question: What is a life worth living?
+-   Ethics involves human choice, and goes beyond "intent"
+-   Ethics enters politically, personally, and professionally
+    -   Professional ethics describes the standard of behavior expected of workplace professional (depends on the field)
+-   Questions of technological and data ethics are emerging due to speed at which these fields are growing
+    -   Technology increasingly affects *how* and how *successfully* humans are seeking the "good life"
+
+[^1]: Plato, *Crito*
+
+## Ethical benefits and harms of data?
+
+::::::: columns
+:::: {.column width="50%"}
+::: discuss
+Data does have benefits for society! What are some?
+:::
+
+-   Increasing human understanding of our world
+
+-   Can lead to more efficient use of resources
+
+-   Predictive accuracy and personalization
+::::
+
+:::: {.column width="50%"}
+::: discuss
+Data does have harms for society! What are some?
+:::
+
+-   Harms to privacy and security, lack of consent
+
+-   Harms to fairness and justice
+
+    -   Biases arise from falsehood, sampling errors, and discriminatory practices
+
+-   Harms to transparency and autonomy
+
+    -   "Black box"/"deep learning" algorithms, proprietary software
+
+-   Many harms are implicit (which makes them hard to mitigate!)
+::::
+:::::::
+
+## Ethics in technology and data
+
+-   Technologies are not ethically "neutral"--they are built and informed by humans, and so they naturally reflect the values and biases that humans have
+
+-   ::: discuss
+    Have you heard of the term "big data"? If so, what does it mean to you?
+    :::
+
+-   "Big data" is more than just the explosive growth of large datasets!
+
+    -   It involves the ways/techniques that these large datasets are **stored, processed, and analyzed**
+    -   Humans enter at these steps!
+
+## What can *you* do?
+
+-   With this class, you should learn to make visualizations and tables that are factual and not intended to deceive your audience
+
+    -   You can and should tell stories with your visualizations, but you **should not purposefully hide or distort** important aspects of the data (e.g. outliers, omit confounders, only display results that confirm your hypothesis)
+
+-   Don't lie with statistics!
+
+-   Make all your work reproducible, and open-source (i.e. public)
+
+## Example 1: stand your ground
+
+-   In 2005, the Florida legislature passed a controversial "Stand Your Ground" law
+
+    -   The law allowed for a broader class of scenarios where the use of deadly force by citizens could be justified
+
+    -   Proponents of the law thought it would reduce crime
+
+    -   Opponents worried it would increase the amount of lethal force
+
+## Example 1: stand your ground (cont.)
+
+Nine years later, in 2014, Reuters published a graphic similar to the one below[^2]:
+
+[^2]: <https://mdsr-book.github.io/mdsr2e/ch-ethics.html#ethics-intro>
+
+:::::: columns
+::: {.column width="80%"}
+![](figs/12-florida-1.png){width="806"}
+:::
+
+:::: {.column width="20%"}
+::: discuss
+What is the story the figure is trying to tell?
+
+Is it factually correct?
+
+Is it deceptive?
+:::
+::::
+::::::
+
+## Example 2: COVID-19 reporting
+
+In May 2020, the state of Georgia published the following graphical display of COVID-19 cases:
+
+:::::: columns
+::: {.column width="80%"}
+![](figs/12-covid-ga-recreation.jpg){width="803"}
+:::
+
+:::: {.column width="20%"}
+::: discuss
+What is the story the figure is trying to tell?
+
+Is it factually correct?
+
+Is it deceptive?
+:::
+::::
+::::::
+
+## Data viz worst practices
+
+Don't do the following:
+
+1.  Use misleading scales
+2.  Cherry-pick the data/only visualize specific data points
+3.  Have ambiguous legends/labels
+4.  Use colors that convey a bias
+5.  Fail to explain your methods
+
+# Algorithmic bias
+
+*Less a feature of this course, but important to keep in mind if/when you progress further in statistics, data science, and computer science!*
+
+-   Often related to lack of transparency
+-   Algorithms have to be "trained" on data.
+    -   Garbage in, garbage out
+
+## Example 3: health care recommendation
+
+-   Goal: identify patients for “high-risk care management” programs that seek to improve the care of patients with complex health needs by providing additional resources
+    -   Such programs are considered effective at improving outcomes and satisfaction while reducing costs
+    -   But these programs are themselves costly -\> want to identify patients who have the highest "medical need"
+-   **Algorithm’s designers used previous patients’ health care spending as a proxy for medical need**
+-   Assigned patients a "risk score", where higher risk meant more complex needs and therefore priority
+    -   Patients with highest risk scores automatically qualified for program
+    -   Patients with lower (but still high) risk scores were interviewed for potential candidacy
+
+## Example 3: health care (cont.)
+
+:::::: columns
+:::: {.column width="30%"}
+::: discuss
+Interpret the plot[^3].
+
+What do you notice happened?
+:::
+::::
+
+::: {.column width="70%"}
+![](figs/12-risk_expenditure.png){fig-align="right" width="550"}
+:::
+::::::
+
+[^3]: Obermeyer, Z., Powers, B., Vogeli, C., & Mullainathan, S. (2019).
+
+## Example 3: health care (cont.)
+
+::: discuss
+Discuss what's going on in these two new plots. Then use them to explain the results of the algorithm.
+:::
+
+::::: columns
+::: {.column width="50%"}
+![](figs/12-illness_expenditure.png){width="477"}
+:::
+
+::: {.column width="50%"}
+![](figs/12-risk_illness.png){width="463"}
+:::
+:::::
+
+::: notes
+Even though black patients tend to have more severe medical conditions, algorithm is built to predict health care costs rather than illness
+:::
+
+## Example 4: COMPAS and ProPublica analysis[^4]
+
+[^4]: <https://www.propublica.org/article/machine-bias-risk-assessments-in-criminal-sentencing>
+
+Famous case study of algorithmic bias!
+
+-   For more than 7,000 people arrested in Broward County, Florida in 2013 and 2014, "**risk scores**" were assigned via an algorithm that were used to *predict the likelihood of the person committing a future crime*
+
+    -   Intention of algorithm's designers: higher risk scores should accurately predict if someone will be charged with a future crime
+
+-   To determine accuracy of the risk scores, these people were tracked over the next two years to see if they were charged with new crimes
+
+-   ::: discuss
+    Who might want such risk scores? How might they be used?
+    :::
+
+## Example 4: ProPublica (cont.)
+
+Distribution of risk scores:
+
+::::: columns
+::: {.column width="50%"}
+![](figs/12-white-scores.png)
+:::
+
+::: {.column width="50%"}
+![](figs/12-black_scores.png)
+:::
+:::::
+
+-   Lets's now see how the algorithms performed
+
+## Example 4: ProPublica (cont.)
+
+-   Only 20% of those predicted to commit violent crimes actually did
+
+-   Algorithm had higher accuracy (61%) when full range of crimes taken into account (e.g. misdemeanors)
+
+::: fragment
+![](figs/12-propublica-results.png)
+:::
+
+-   Black defendants were more likely to be **falsely** flagged as "higher"/future criminals, and at *almost twice the rate* as White defendants
+
+-   White defendants **mislabeled** as "low risk" more often than black defendants
+
+-   ::: discuss
+    Are risk scores inherently bad?
+    :::
+
+## Example 5: facial criminal prediction
+
+*Activity borrowed from Prof. Chodrow in CS department.*
+
+-   In 2016, researchers Xiaolin Wu and Xi Zhang [published a paper](https://confilegal.com/wp-content/uploads/2016/11/ESTUDIO-UNIVERSIDAD-DE-JIAO-TONG-SHANGHAI.pdf) detailing an algorithm that predicted whether an individual is likely to commit a crime in the future, based only on a picture of their face
+
+    -   According to the paper, their algorithm was "very accurate" (details beyond this course)
+
+-   ::: discuss
+    Read Section 2 of the paper and answer the following questions:
+
+    1.  How were the data obtained?
+    2.  What would be the "explanatory" and "response variables"? Are the values of the response variables directly observed, or inferred?
+    :::
+
+## Example 5: facial criminal prediction (cont.)
+
+-   ::: discuss
+    Now look to Figure 1 from the paper. What do you notice? What questions might you have?
+    :::
+
+-   The authors' algorithm identified certain features of the face that were highly predictive of criminality, including
+
+    -   the curvature of upper lip
+
+    -   the distance between two eye inner corners
+
+    -   the angle enclosed by rays from the nose tip to the two corners of the mouth
+
+-   ::: discuss
+    One possible explanation is that these features are expressions of genetic markers that are also associated with criminality. Can you suggest another possible explanation?
+    :::
+
+## Example 6: race prediction
+
+Imai and Khanna (2016) built a racial prediction algorithm using a Bayes classifier trained on voter registration records from Florida and the U.S. Census Bureau’s name list.
+
+-   Their algorithm takes in a list of last names (and optionally their home address) and returns predicted probabilities for a person’s race.
+
+-   In addition to the publishing the paper detailing the methodology, the authors published the software for the classifier on GitHub under an open-source license.
+
+## Example 6: race prediction (cont.)
+
+```{r message = F, echo = T}
+library(tidyverse)
+library(wru) # uses 2020 census data by default
+names <- data.frame(surname =  c("Tang", "Lyford", "Peterson", "Flores", "Malcolm"))
+predict_race(voter.file = names, surname.only = TRUE) %>% 
+  select(surname, pred.whi, pred.bla, pred.his, pred.asi, pred.oth) |>
+  kable(digits = 3)
+```
+
+-   ::: discuss
+    What might this algorithm be useful for? What are some questions you have about it? Is it ethical to use this software? Does your answer change depending on the intended use? Does it matter that the software is open-source?
+    :::

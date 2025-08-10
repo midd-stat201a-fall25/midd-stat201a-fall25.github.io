@@ -1,0 +1,145 @@
+---
+title: "Hypothesis test for single proportion via CLT"
+format: 
+  pdf:
+    geometry:
+      - top=2.5cm
+      - left=2.5cm
+      - right=2.5cm
+      - bottom=2.5cm
+include-in-header:
+  - text: |
+      \pagenumbering{gobble}
+      \usepackage{multicol}
+editor_options: 
+  chunk_output_type: console
+---
+
+\vspace{-2cm}
+
+```{r echo = F, message= F}
+knitr::opts_chunk$set(echo = F, warning = F, messabundance = F)
+library(tidyverse)
+library(openintro)
+library(patchwork)
+```
+
+# Soda taste test example
+
+Some people claim they can tell the difference between a diet soda and a regular soda in the first sip. A researcher wanted to test this claim using a hypothesis test at the 0.05 significance level.
+
+-   He randomly sampled 80 people.
+-   He then filled 80 plain white cups with soda, half diet and half regular through random assignment, and asked each person to take one sip from their cup and identify the soda as diet or regular.
+-   53 participants correctly identified the soda.
+
+Let $p$ be the proportion of people who correctly identify soda type.
+
+### Step 1
+
+$H_{0}:$
+
+\vspace{0.5cm}
+
+$H_{A}:$
+
+### Step 2
+
+Calculate useful summary information and set $\alpha$
+
+### Step 3
+
+Find null distribution of $\hat{p}$ via CLT.
+
+-   Check conditions:
+
+    \vspace{4cm}
+
+Because conditions for CLT are \_\_\_\_\_\_\_\_\_\_, we \_\_\_\_\_\_\_ obtain the null distribution using CLT.
+
+-   Obtain null distribution of $\hat{p}$:
+
+    \vspace{2.5cm}
+
+To find p-value:
+
+-   Calculate our observed test statistic:
+
+    $$
+     = \frac{\text{point est.} - \text{null value}}{\text{SE}_{0}}
+    $$
+
+\vspace{1cm}
+
+-   Calculate p-value
+
+    -   Draw a picture of a Normal distribution, and shade in the correct area. Write out a statement in the form of $P()$ that represents what we want to find.
+
+        \vspace{5.5cm}
+
+    -   Write `R` code that corresponds to the probability of interest
+
+        \vspace{1cm}
+
+### Step 4
+
+Decision:
+
+\vspace{1cm}
+
+Conclusion:
+
+\vspace{3cm}
+
+# M&Ms example
+
+M&M's reported that 14% of its candies are yellow. We are interested in testing this claim. In a random sample of 100 M&M's, 9 were found to be yellow. Conduct a hypothesis test via CLT at the $0.10$ level.
+
+### Step 1
+
+\vspace{4cm}
+
+### Step 2
+
+\vspace{2cm}
+
+### Step 3
+
+Verify conditions for CLT-based hypothesis test are met:
+
+1.  
+
+\vspace{2cm}
+
+2.  
+
+\vspace{4cm}
+
+Because conditions for CLT are \_\_\_\_\_\_\_\_\_, we \_\_\_\_\_\_\_ obtain the null distribution using CLT.
+
+-   Null distribution: \vspace{3cm}
+
+To find p-value:
+
+-   Calculate our observed test statistic
+
+\vspace{3cm}
+
+-   Calculate p-value
+
+    -   Draw a picture of a Normal distribution, and shade in the correct area
+
+        \vspace{4cm}
+
+    -   Write probability statement and `R` code that corresponds to the probability of interest
+
+        \vspace{3cm}
+
+### Step 4
+
+Decision:
+
+\vspace{1.5cm}
+
+Conclusion:
+
+\vspace{3cm}

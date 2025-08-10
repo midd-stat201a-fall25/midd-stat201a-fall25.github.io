@@ -1,0 +1,136 @@
+---
+title: "STAT 201: Midterm 1 Practice 1"
+author: "Your name"
+format: pdf
+---
+
+In the following code chunk, load your libraries for wrangling, plotting, and making pretty tables. Then run the code chunk:
+
+```{r message = F, echo = F}
+library(readr)
+library(tidyverse)
+library(kableExtra)
+```
+
+We have data from over 1000 wines in the dataset `wine_ratings`. Each case in the dataset represents one bottle of wine. The wines included in the dataset are wines that were tasted and reviewed.
+
+-   `country`: country of origin
+
+-   `variety`: grape type
+
+-   `points`: the number of points WineEnthusiast rated the wine on a scale of 1-100 (100 best)
+
+-   `price`: price of the wine (USD)
+
+-   `title`: title of the wine review, which often contains the year of the wine
+
+-   `taster_name`: name of taster/reviewer
+
+-   `description`: flavor and taste profile as written by the reviewer
+
+-   `year`: year/vintage of the wine, if available in the title of the review
+
+Run the following code to load in the data and take a look at it before continuing!
+
+```{r echo = F}
+wine_ratings <- read_csv("https://raw.githubusercontent.com/midd-stat201-spring2025/midd-stat201-spring2025.github.io/refs/heads/main/data/wine_ratings.csv", show_col_types = FALSE, col_types = "ccnncccn")
+```
+
+### Exercise 1
+
+First, modify the `wine_ratings` data to remove observations for which we don't have information about price. 
+
+Then find the three countries that are most represented in the dataset. Once you have identified those countries, create a new data frame called `wine_ratings_top` that only retains observations from those three countries.
+
+```{r echo = F, eval = T}
+wine_ratings <- wine_ratings |>
+  filter(!is.na(price))
+# wine_ratings |>
+#   count(country) |>
+#   arrange(-n) |>
+#   slice(1:3)
+
+wine_ratings_top <- wine_ratings |>
+  filter(country %in% c("US", "France", "Italy"))
+```
+
+### Exercise 2
+
+Obtain the mean and standard deviation of the points and prices of the wines for each of the three countries. Display as an informative, beautiful table. Briefly interpret what you see.
+
+```{r echo = F, eval = F}
+wine_ratings_top |>
+  group_by(country) |>
+  summarise(mean_pts = mean(points), mean_price = mean(price), sd_points = sd(points), sd_price = sd(price)) |>
+  kable()
+```
+
+**Answer:**
+
+### Exercise 3
+
+For each of the three countries identified earlier, what proportion of their wines that were produced before 2010 received over 90 points? Display a beautiful table that only shows the country name and the proportion.
+
+```{r echo = F, eval = F}
+wine_ratings_top |>
+  filter(year < 2010) |>
+  mutate(over90 = if_else(points > 90, T, F)) |>
+  count(over90, country) |>
+  group_by(country) |>
+  mutate(prop = n/sum(n)) |>
+  ungroup() |>
+  filter(over90 == TRUE) |>
+  select(country, prop) |>
+  kable()
+```
+
+### Exercise 4
+
+Re-create the following plot and interpret it:
+
+```{r echo = F}
+wine_ratings |>
+  mutate(price_cat = case_when(
+    price < 10 ~ "cheap (< $10)",
+    price >= 10 & price <= 30 ~ "moderate ($10-30)",
+    price > 30 & price <= 100 ~ "pricey ($31-100)",
+    price > 100 ~ "very expensive (> $100)"
+  )) |>
+  ggplot(aes(x = price_cat, y = points)) +
+  geom_boxplot(outlier.color = "orange") +
+  labs(x = "Price category", y = "Points", title = "Ratings by price point") 
+
+```
+
+**Answer:**
+
+## Exercise 5
+
+Among all wines in the original dataset that have at least 25 reviews and information about prices, determine which type of wine grape seems to be the worst value. In your answer, briefly describe your methods/reasoning and identify the wine variety.
+
+```{r echo = F, eval = F}
+## option 1
+most_reviewed <- wine_ratings |>
+  count(variety) |>
+  filter(n >= 25)
+
+wine_ratings |>
+  mutate(point_price = points/price) |>
+  inner_join(most_reviewed, by = "variety") |>
+  group_by(variety) |>
+  summarise(mean = mean(point_price)) |>
+  arrange(mean) |>
+  slice(1) 
+
+## option 2
+wine_ratings |>
+  mutate(point_price = points/price) |>
+  group_by(variety) |>
+  summarise(mean = mean(point_price), n = n()) |>
+  arrange(-n) |>
+  filter(n >= 25) |>
+  arrange(mean) |>
+  slice(1)
+```
+
+**Answer:**

@@ -1,0 +1,996 @@
+---
+title: "HTs and CIs for differences"
+subtitle: "Difference in means and proportions"
+date: "April 17, 2025"
+title-slide-attributes:
+    data-background-image: "figs/bikeshare-plots.png"
+    data-background-size: contain
+    data-background-opacity: "0.2"
+format: 
+  revealjs:
+    theme: custom.scss
+    transition: none
+    incremental: true
+    scrollable: true
+editor: visual
+editor_options: 
+  chunk_output_type: console
+draft: false
+---
+
+## Housekeeping
+
+```{r echo = F, message= F}
+knitr::opts_chunk$set(echo = F, warning = F, messabundance = F)
+library(tidyverse)
+library(openintro)
+library(readr)
+library(kableExtra)
+plot_theme <- theme(text = element_text(size = 24))
+source("../stat201_fns.R")
+
+funcShaded_t <- function(x, lower_bound = -Inf, upper_bound = Inf) {
+    y = dt(x, df = df)
+    y[x < lower_bound] <- NA
+    y[x > upper_bound] <- NA
+    return(y)
+}
+funcShaded <- function(x, lower_bound = -Inf, upper_bound = Inf) {
+    y = dnorm(x, mean = mu, sd = sd)
+    y[x < lower_bound] <- NA
+    y[x > upper_bound] <- NA
+    return(y)
+}
+```
+
+-   Project proposals due tonight!
+
+## Recap
+
+-   Test and CI for a single mean
+
+    -   If we know $\sigma$, use standard Normal distribution
+
+    -   If we don't know $\sigma$ and only have access to $s$, use $t$ distribution
+
+# Difference in two proportions
+
+Now suppose we have samples of binary outcomes from two different populations.
+
+## Difference of two proportions
+
+Suppose we have two populations 1 and 2, and want to either estimate the value of or conduct a test for the **difference in population proportions**: $p_{1} - p_{2}$
+
+-   We have samples of size $n_{1}$ and $n_{2}$ from each population
+
+-   Reasonable point estimate: $\hat{p}_{1, obs} - \hat{p}_{2,obs}$
+
+-   We will obtain the sampling distribution of the difference of two sample proportions
+
+-   **Now that we have two populations, conditions for CLT will look slightly different!**
+
+## Sampling dist. of difference of two proportions
+
+-   In order to use CLT approximation, we have to ensure conditions are met:
+
+    1.  **Independence (extended)**: data are independent within *and* between groups
+    2.  **Success-failure (extended)**: success-failure conditions holds for ***both*** groups
+        -   $n_{1} p_{1} \geq 10$, $n_{1} (1-p_{1}) \geq 10$, $n_{2} p_{2} \geq 10$, and $n_{2} (1-p_{2}) \geq 10$
+
+-   If above hold, then:
+
+::: fragment
+$$
+\hat{p}_{1} - \hat{p}_{2} \overset{\cdot}{\sim} N\left(p_{1} - p_{2}, \sqrt{\frac{p_{1} (1-p_{1})}{n_{1}} + \frac{p_{2} (1-p_{2})}{n_{2}}} \right)
+$$
+
+where $p_{1}$ and $p_{2}$ are the population proportions
+:::
+
+## Confidence interval for difference in proportions
+
+If we want to obtain a $\gamma\times 100\%$ CI for $p_{1} - p_{2}$, that means we don't know the value of $p_{1} - p_{2}$!
+
+-   Like in the case of the CI for a single proportion, we will use our observed proportions to check success-failure
+
+-   ::: important
+    **Success-failure condition for CI for difference in proportions:**
+    :::
+
+    -   $n_{1} \hat{p}_{1,obs} \geq 10$ and $n_{1} (1-\hat{p}_{1,obs}) \geq 10$
+
+    -   $n_{2} \hat{p}_{2,obs} \geq 10$ and $n_{2} (1-\hat{p}_{2,obs}) \geq 10$
+
+-   Then our formula for the CI is the same as before:
+
+::: fragment
+$$
+\begin{align*}
+&\text{point. est} \pm \text{critical val.}\times \widehat{\text{SE}} = \\
+&(\hat{p}_{1,obs} - \hat{p}_{2,obs}) \pm z^{*}_{(1+\gamma)/2} \sqrt{\frac{\hat{p}_{1,obs} (1-\hat{p}_{1,obs})}{n_{1}} + \frac{\hat{p}_{2,obs} (1-\hat{p}_{2,obs})}{n_{2}}}
+\end{align*}
+$$
+:::
+
+## Diff. props CI example: offshore drilling
+
+A survey asked 592 randomly sampled registered voters in California: Do you support or oppose drilling for oil and natural gas off the Coast of California? We have the following distribution of responses separated by whether the respondent graduated from college:
+
+```{r}
+drilling <- openintro::offshore_drilling |>
+  slice(-1) |>
+  rename("position" = 1,  "college_grad" = 2) |>
+    filter(position != "do_not_know") |>
+  mutate(position = as.character(position),
+         college_grad = as.character(college_grad)) 
+ct <- drilling |>
+  group_by(position, college_grad) |>
+  summarise(n = n()) |>
+  spread(college_grad, n) |>
+  ungroup() |>
+  mutate(total =  no + yes)
+
+ct <- ct |>
+  rbind(c("total", colSums(ct[-1])))
+
+ct <- ct |> 
+  kable() |>
+  column_spec(1, border_right = T)
+ct
+
+n1 <- sum(drilling$college_grad == "yes")
+n2 <- sum(drilling$college_grad == "no")
+
+counts <- drilling |>
+  group_by(college_grad) |>
+  count(position) |>
+  ungroup() |>
+  filter(position == "support")
+x1 <- counts |>
+  filter(college_grad == "yes") |>
+  pull(n)
+x2 <- counts |>
+  filter(college_grad == "no") |>
+  pull(n)
+p_hats_df <- drilling |>
+  group_by(college_grad) |>
+  summarise(prop = mean(position == "support"))
+p_hat1 <- p_hats_df |>
+  filter(college_grad == "yes") |>
+  pull(prop) |>
+  round(3)
+p_hat2 <- p_hats_df |>
+  filter(college_grad == "no") |>
+  pull(prop) |>
+  round(3)
+obs_diff <- p_hat1 - p_hat2
+se_hat <- round(sqrt(p_hat1 * (1-p_hat1)/n1 + p_hat2 * (1-p_hat2)/n2), 3)
+z_star <- round(qnorm(0.975, 0, 1),2)
+lb <- obs_diff - z_star *se_hat
+ub <- obs_diff +z_star *se_hat 
+```
+
+::: discuss
+Let's obtain a 95% CI via the CLT for the difference in the proportion of college and non-college Californians who support offshore drilling.
+:::
+
+## Diff. props CI example (cont.)
+
+Let population 1 be college attendees, and population 2 be non-college attendees. We want a 95% CI for $p_{1} - p_{2}$, where $p_{i}$ is the proportion of population $i$ who support offshore drilling.
+
+::::: columns
+::: {.column width="40%"}
+-   ::: discuss
+    Obtain useful statistics
+    :::
+
+    -   $n_{1} = `r n1`$, $n_{2} = `r n2`$
+
+    -   $\hat{p}_{1, obs} = \frac{`r x1`}{`r n1`} = `r p_hat1`$
+
+    -   $\hat{p}_{2, obs} = \frac{`r x2`}{`r n2`} = `r p_hat2`$
+:::
+
+::: {.column width="60%"}
+-   ::: discuss
+    Check conditions for CLT.
+    :::
+
+    -   **Independence (extended)**? Randomly sampled
+
+    -   **Success-failure (extended)**?
+
+        -   $n_{1}\hat{p}_{1,obs} = 154 \geq 10$
+        -   $n_{1}(1-\hat{p}_{1,obs}) = 180 \geq 10$
+        -   $n_{2}\hat{p}_{2,obs} = 132 \geq 10$
+        -   $n_{2}(1-\hat{p}_{2,obs}) = 126 \geq 10$
+:::
+:::::
+
+-   Since both conditions are met, we can proceed with the CLT.
+
+## Diff. props CI example (cont.)
+
+Collect the components of CI:
+
+::::: columns
+::: {.column width="35%"}
+-   ::: discuss
+    Point estimate
+    :::
+
+-   ::: discuss
+    Critical value (code)
+    :::
+
+-   ::: discuss
+    $\text{SE}$ or $\widehat{\text{SE}}$
+    :::
+:::
+
+::: {.column width="65%"}
+-   $\hat{p}_{1,obs} - \hat{p}_{2,obs} = `r p_hat1` - `r p_hat2` = `r obs_diff`$
+
+-   $z^{*}_{0.975} =$ `qnorm(0.975, 0, 1)` $\approx `r z_star`$
+
+-   $\widehat{\text{SE}} = \sqrt{\frac{`r p_hat1`(1 - `r p_hat1`)}{`r n1`} + \frac{`r p_hat2`(1 - `r p_hat2`)}{`r n2`}} = `r se_hat`$
+:::
+:::::
+
+-   So putting it all together, our 95% CI is:
+
+    $$
+    `r obs_diff` \pm `r z_star` \times `r se_hat` = (`r round(lb, 3)`, `r round(ub, 3)`)
+    $$
+
+-   ::: discuss
+    Interpret!
+    :::
+
+## Hypothesis test for difference in proportions
+
+Hypothesis tests for difference in proportions in this class will take the form:
+
+::: fragment
+$$
+\begin{align*}
+H_{0}: p_{1} - p_{2}  &= 0 \\
+H_{A}: \ p_{1} - p_{2}  &\neq 0\\
+\text{ or }\ &<   \\
+\text{ or }\ &>
+\end{align*}
+$$
+:::
+
+-   For success-failure condition for difference in two proportions, we don't have null-hypothesized values for $p_{1}$ or $p_{2}$.
+
+-   So how do we check the condition??
+
+## Pooled proportion
+
+-   Since $H_{0}: p_{1} = p_{2}$, then under the null $\hat{p}_{1,obs}$ and $\hat{p}_{2,obs}$ come from the ***same*** population
+
+-   So under this null, we use a special proportion called the **pooled proportion**:
+
+::: fragment
+$$
+\hat{p}_{pooled} = \frac{\text{total # of successes from both samples}}{\text{combined sample size}}
+$$
+
+-   ::: {style="color: maroon"}
+    This is the best estimate of both $p_{1}$ and $p_{2}$ if $H_{0}: p_{1} = p_{2}$ *is true*!
+    :::
+:::
+
+-   For this reason, **use** $\hat{p}_{pooled}$ **to verify success-failure conditions for HT for difference of proportions:**
+    -   $n_{1} \hat{p}_{pooled} \geq 10$ and $n_{1} (1-\hat{p}_{pooled}) \geq 10$
+    -   $n_{2} \hat{p}_{pooled} \geq 10$ and $n_{2} (1-\hat{p}_{pooled}) \geq 10$
+
+## Hypothesis test (cont.)
+
+3.  Obtain null distribution
+    -   If conditions satisfied, then we know the sampling distribution of $\hat{p}_{1} - \hat{p}_{2}$
+    -   To obtain the **null distribution** we assume $H_{0}: p_{1} - p_{2} = 0$ is true and we $\hat{p}_{pooled}$ to estimate $p_{1}$ and $p_{2}$ to approximate standard error under the null:
+
+::: fragment
+$$
+\begin{align*}
+\hat{p}_{1} - \hat{p}_{2} &\overset{\cdot}{\sim} N\left(p_{1} - p_{2}, \sqrt{\frac{p_{1} (1-p_{1})}{n_{1}} + \frac{p_{2} (1-p_{2})}{n_{2}}}  \right) \qquad \text{(CLT)} \\ &\overset{\cdot}{\sim} N\big(0, \underbrace{\sqrt{\frac{\hat{p}_{pooled}(1 - \hat{p}_{pooled})}{n_{1}} + \frac{\hat{p}_{pooled}(1 - \hat{p}_{pooled})}{n_{2}}}}_{\widehat{\text{SE}}_{0}} \big) \qquad (H_{0})
+\end{align*}
+$$
+:::
+
+## Hypothesis test (cont.)
+
+Obtain test-statistic:
+
+$$
+z = \frac{\text{point estimate} - \text{null value}}{\text{SE}} \approx \frac{(\hat{p}_{1,obs} - \hat{p}_{2,obs}) - 0}{\widehat{\text{SE}}_{0}}
+$$
+
+-   To obtain p-value, we want $\text{Pr}(Z \geq z)$ and/or $\text{Pr}(Z \leq z)$ where $Z \sim N(0,1)$
+
+    -   Obtain using `pnorm(z, 0, 1)`
+
+## Diff. props HT example: offshore drilling (again)
+
+Using the same data as before, let's answer the following question:
+
+```{r}
+p_pooled <- round((x1 + x2)/(n1 + n2), 3)
+se0 <- round(sqrt((p_pooled) * (1-p_pooled) / n1 + (p_pooled) * (1-p_pooled) / n2), 3)
+z <- round((p_hat1 - p_hat2) / se0, 3)
+```
+
+::: {style="color: maroon"}
+Do the data provide strong evidence at the 0.05 level that the proportion of college graduates who support off-shore drilling in California is different than that of non-college graduates?
+:::
+
+-   Let $p_{1}$ and $p_{2}$ be defined as before.
+
+-   ::: discuss
+    Define hypotheses
+    :::
+
+    -   $H_{0}: p_{1} - p_{2} = 0$ and $H_{A}: p_{1} - p_{2} \neq 0$
+
+## Diff. props HT example (cont.)
+
+::: discuss
+Obtain pooled proportion, and use it to check conditions for CLT.
+:::
+
+-   $\hat{p}_{pooled} =\frac{`r x1` + `r x2`}{`r n1` + `r n2`} = \frac{`r x1 + x2`}{`r n1 + n2`} = `r p_pooled`$
+
+-   Conditions
+
+    -   Independence (extended): random sample
+
+    -   Success-failure (extended):
+
+        -   $n_{1} \hat{p}_{pooled} = `r n1` \times `r p_pooled` = `r round(n1 * p_pooled, 2)` \geq 10$
+
+        -   $n_{1} (1 - \hat{p}_{pooled}) = `r n1` \times (1 - `r p_pooled`) = `r round(n1 * (1- p_pooled) , 2)` \geq 10$
+
+        -   $n_{2} \hat{p}_{pooled} = `r n2` \times `r p_pooled` = `r round(n2 * p_pooled, 2)` \geq 10$
+
+        -   $n_{2} (1 - \hat{p}_{pooled}) = `r n2` \times (1 - `r p_pooled`) = `r round(n2 * (1- p_pooled) , 2)` \geq 10$
+
+-   Since conditions are met, we can proceed with CLT-based test!
+
+## Diff. props HT example (cont.)
+
+-   ::: discuss
+    Find the null distribution for $\hat{p}_{1} - \hat{p}_{2}$.
+    :::
+
+::: fragment
+$$
+\hat{p}_{1} - \hat{p}_{2} \overset{\cdot}{\sim}N\left(0, \sqrt{\frac{`r p_pooled`(1 - `r p_pooled`)}{`r n1`} + \frac{`r p_pooled`(1 - `r p_pooled`)}{`r n2`}} = `r se0` \right)
+$$
+:::
+
+-   ::: discuss
+    Set up calculation for test statistic
+    :::
+
+::: fragment
+$$
+    z =\frac{( \hat{p}_{1, obs}- \hat{p}_{2, obs}) - 0}{\widehat{\text{SE}}_{0}} = \frac{(`r p_hat1` - `r p_hat2`) - 0}{`r se0`} = `r z`
+$$
+:::
+
+## Diff. props HT example (cont.)
+
+::: discuss
+Draw picture and write code for p-value
+:::
+
+:::::: columns
+:::: {.column width="50%"}
+::: fragment
+```{r fig.height = 3.5}
+mu <- 0; sd <- 1
+ggplot() +
+  stat_function(fun = dnorm, args = list(mean =mu, sd = sd)) +
+  scale_x_continuous(limits = c(-3.5,3.5), breaks = -3:3) +
+  theme_minimal() +
+  stat_function(fun = funcShaded, args = list(lower_bound = -z),  geom = "area", fill = "tomato", alpha = .8) +
+    stat_function(fun = funcShaded, args = list(upper_bound = z),  geom = "area", fill = "tomato", alpha = .8) +
+  theme(text = element_text(size = 20),
+        axis.text.y = element_blank()) +
+  labs(y = NULL, x = "z")
+```
+:::
+::::
+
+::: {.column width="50%"}
+-   p-value calculation:
+
+    -   $\text{Pr}(Z \leq z) + \text{Pr}(Z \geq -z)$
+
+    -   `2 * pnorm(`r z`, 0, 1)` = `r 2*pnorm(z, 0, 1)`
+:::
+::::::
+
+:::: fragment
+::: discuss
+Make a decision and conclusion in context.
+:::
+::::
+
+-   Since our p-value is greater than 0.05, we fail to reject $H_{0}$. The data do not provide strong evidence of a difference between the proportions of college graduates and non-college graduates who support off-shore drilling among California voters.
+
+# Difference in two means
+
+## Difference in two means
+
+We still have two populations, but the variable of interest is quantitative (i.e. not binary).
+
+We are interested in learning about the difference in the means of each population.
+
+-   Let $\mu_{1}$ and $\mu_{2}$ represent the population means for the two populations 1 and 2
+
+-   Samples of size $n_{1}$ and $n_{2}$ from each population, respectively
+
+-   **Conditions for CLT**
+
+    1.  **Independence** (extended): need data within *and* between the two groups
+
+        -   e.g.the two data sets come from independent random samples or from a randomized experiment
+
+    2.  **Normality**: we need to check for approximate normality for ***both*** groups separately
+
+## CLT for difference in two sample means
+
+If CLT conditions met, the distribution of difference in sample means is:
+
+::: fragment
+$$
+\bar{X}_{1} - \bar{X}_{2} \overset{\cdot}{\sim} N\left(\mu_{1} - \mu_{2}, \sqrt{\frac{\sigma_{1}^2}{n_{1}} + \frac{\sigma_{2}^2}{n_{2}}} \right)
+$$ where $n_{1}$ and $n_{2}$ are the sample sizes.
+:::
+
+-   Remember, we often do not know $\sigma_{1}$ nor $\sigma_{2}$
+-   In practice, will have to estimate with $s_{1}$ and $s_{2}$ and use the $t$-distribution
+
+## CI for difference in two means
+
+If the conditions hold, then our usual formula for $\gamma \times 100\%$ CI still holds:
+
+$$
+\text{point estimate} \pm \text{critical value} \times \text{SE}
+$$
+
+Point estimate: $\bar{x}_{1,obs} - \bar{x}_{2,obs}$
+
+::::::: columns
+:::: {.column width="50%"}
+::: {.fragment style="color: maroon"}
+If $\sigma_{1}$ and $\sigma_{2}$ known:
+:::
+
+-   $\text{SE} = \sqrt{\frac{\sigma_{1}^2}{n_{1}} + \frac{\sigma_{2}^2}{n_{2}}}$
+
+-   Critical value: $z_{(1+\gamma)/2}^*$
+
+    -   $(1+\gamma)/2$ percentile of $N(0,1)$
+::::
+
+:::: {.column width="50%"}
+::: {.fragment style="color: maroon"}
+If $\sigma_{1}$ and $\sigma_{2}$ unknown:
+:::
+
+-   $\widehat{\text{SE}} \approx \sqrt{\frac{s_{1}^2}{n_{1}} + \frac{s_{2}^2}{n_{2}}}$
+
+-   critical value: $t_{df, (1+\gamma)/2}^*$
+
+    -   $(1+\gamma)/2$ percentile of $t_{df}$
+
+    -   $df = \min\{n_{1} -1, n_{2} - 1\}$
+::::
+:::::::
+
+## Diff. means CI example: C02 concentrations
+
+-   The Mauna Loa Observatory in Hawaii of monitors atmospheric solar, atmospheric, and meteorological parameters
+
+-   We have data on annual atmospheric CO2 concentrations from 1980-2015.
+
+-   ::: important
+    We will obtain a 90% confidence interval for the difference between the average atmospheric C02 levels (ppm) from years 2000-2015 and years 1980-1999.
+    :::
+
+:::::: fragment
+::::: columns
+::: {.column width="\"50%"}
+```{r fig.height=5}
+co2 <- read_csv("data/co2_annmean_mlo.csv") |>
+  rename("CO2" = "mean")
+co2_subset <- co2 |>
+  filter(year %in% 1980:2015) |>
+  mutate(group = if_else(year < 2000, "1980-1999", "2000-2015"))
+ggplot(co2_subset,aes(x =CO2)) +
+  geom_histogram(bins = 10) +
+  facet_wrap(~group, scales = "free") +
+  theme_minimal() +
+  theme(text= element_text(size = 26)) + 
+  labs(x = "CO2 (ppm)")
+```
+:::
+
+::: {.column width="\"50%"}
+```{r}
+co2_subset |>
+  group_by(group) |>
+  summarise(n = n(), xbar = mean(CO2), s = sd(CO2)) |>
+  kable(digits = 2) 
+```
+:::
+:::::
+::::::
+
+```{r}
+x1 <- co2_subset |>
+  filter(group == "2000-2015") |>
+  pull(CO2) 
+x2 <- co2_subset |>
+  filter(group != "2000-2015") |>
+  pull(CO2)
+n1 <- length(x1); n2 <- length(x2)
+xbar1 <- round(mean(x1), 2); xbar2 <- round(mean(x2),2)
+obs_diff <- xbar1 - xbar2
+s1 <- round(sd(x1),2); s2 <- round(sd(x2), 2)
+df <- min(c(n1,n2)) - 1
+cv <- round(qt(0.95, df), 2)
+se <- round(sqrt( (s1^2)/n1 + (s2^2)/n2), 2)
+lb <- obs_diff - cv*se
+ub <- obs_diff + cv*se
+```
+
+## Diff. means CI example (cont.)
+
+::: discuss
+Define parameters.
+:::
+
+-   Let $\mu_{1}$ be the average CO2 levels from 2000-2015 and $\mu_{2}$ the average CO2 levels from 1980-1999.
+-   Want to obtain a 90% CI for $\mu_{1} - \mu_{2}$
+    -   Note: could also do $\mu_{2} - \mu_{1}$ (interpretation just changes slightly)
+
+:::: fragment
+::: discuss
+Check conditions for CLT.
+:::
+::::
+
+-   Independence (extended): most likely violated because CO2 levels are probably dependent across time. BUT let's proceed with caution anyway.
+
+-   Normality: $n_{1} = `r n1` < 30$ and $n_{2} = `r n2` < 30$. But since histograms don't reveal outliers, Normality condition appears met.
+
+## Diff. means CI example (cont.)
+
+::: discuss
+Collect components for CI:
+:::
+
+::::: columns
+::: {.column width="35%"}
+-   Point estimate
+
+-   Critical value (code)
+
+-   $\text{SE}$ or $\widehat{\text{SE}}$
+:::
+
+::: {.column width="65%"}
+-   $\bar{x}_{1,obs} - \bar{x}_{2,obs} = `r xbar1` - `r xbar2` = `r obs_diff`$
+
+-   Since we don't know $\sigma_{1}$ nor $\sigma_{2}$, need to use $t$-distribution
+
+    -   Degrees of freedom = $\min\{`r n1` - 1, `r n2` -1\} = `r df`$
+
+    -   $t^*_{0.95}$ = `qt(0.95, df = 15)` = `r cv`
+
+-   $\widehat{\text{SE}} = \sqrt{\frac{`r s1`^2}{`r n1`} + \frac{`r s2`^2}{`r n2`}} = `r se`$
+:::
+:::::
+
+-   ::: discuss
+    Put it all together:
+    :::
+
+::: fragment
+$$
+\text{point est.} \pm \text{crit. val}\times \text{SE} = `r obs_diff` \pm `r cv` \times `r se` = (`r lb`, `r ub`)
+$$
+:::
+
+## Diff. means CI example (cont.)
+
+::: discuss
+Interpret our CI of (`r lb`, `r ub`) in context!
+:::
+
+## Hypothesis test for difference in means
+
+Now suppose we're interested in testing for the difference between $\mu_{1}$ and $\mu_{2}$.
+
+-   $H_{0}: \mu_{1} - \mu_{2} = 0$ versus $H_{A}: \mu_{1} - \mu_{2} \neq 0$ (or $<$ or $>$)
+
+-   Same conditions as in CI are necessary for CLT-based inference!
+
+    1.  Independence (extended)
+    2.  Normality condition for **both** groups
+
+-   If CLT met, then under $H_{0}$, the **null distribution** is
+
+::: fragment
+$$
+\bar{X}_{1} - \bar{X}_{2} \overset{\cdot}{\sim} N\left(0, \sqrt{\frac{\sigma_{1}^2}{n_{1}} + \frac{\sigma_{2}^2}{n_{2}}} \right)
+$$
+:::
+
+## Test statistic for difference in means
+
+Test-statistic is of form:
+
+$$
+\frac{\text{point est.} - \text{null value}}{\text{SE}_{0}}
+$$
+
+::::::: columns
+::: {.column width="50%"}
+If $\sigma_{1}, \sigma_{2}$ known, our test-statistic is:
+
+$$
+z = \frac{(\bar{x}_{1,obs} - \bar{x}_{2,obs}) - 0}{ \sqrt{\frac{\sigma_{1}^2}{n_{1}} + \frac{\sigma_{2}^2}{n_{2}}}} \sim N(0,1)
+$$
+:::
+
+::::: {.column width="50%"}
+If $\sigma_{1}, \sigma_{2}$ unknown, our test-statistic is
+
+:::: columns
+::: {.column width="50%"}
+$$
+t = \frac{(\bar{x}_{1,obs} - \bar{x}_{2,obs}) - 0}{ \sqrt{\frac{s_{1}^2}{n_{1}} + \frac{s_{2}^2}{n_{2}}}} \sim t_{df}
+$$
+
+$df = \min\{n_{1}-1, n_{2}-1 \}$
+:::
+::::
+:::::
+:::::::
+
+## Diff. means HT example: CO2
+
+Now let's test if the mean CO2 level in 2000-2015 was greater than that mean CO2 level in 1980-1999 at the $0.05$ level using CLT.
+
+1.  $H_{0}: \mu_{1} - \mu_{2} = 0$ versus $H_{A}: \mu_{1} > \mu_{2}$, where $\mu_{1}$ and $\mu_{2}$ were defined previously
+2.  Let $\alpha = 0.05$
+3.  Conditions for CLT are same as before (proceed with caution)
+
+## Diff. means HT example (cont.)
+
+```{r}
+t <- (xbar1 - xbar2)/se
+p_val <- 1 - pt(t, df)
+```
+
+Obtain test-statistic and p-value.
+
+-   ::: discuss
+    Find the value of the test-statistic and its distribution
+    :::
+
+::: fragment
+$$
+t = \frac{(`r xbar1` - `r xbar2`)- 0}{`r se`} = `r t` \sim t_{`r df`}
+$$
+:::
+
+-   ::: discuss
+    Write code for p-value (optionally draw picture)
+    :::
+
+-   p-value = `` 1- pt(`r t`, df = `r df`) `` = `r p_val` (tiny!)
+
+````{=html}
+<!--
+# Hypothesis test for mean paired difference
+
+## Paired data (recap)
+
+-   Recall paired data: we have two set of data $\boldsymbol{x}$ and $\boldsymbol{y}$ where each $x_{i}$ has a corresponding to one $y_{i}$
+
+    -   Can obtain differences $d_{i} = y_{i} - x_{i}$
+
+    -   We are interested in the true mean difference $\mu_{d}$
+
+-   Recall: if observational units are independent and the differences are approximately Normal, then CLT gives us:
+
+::: fragment
+$$
+\bar{d} \overset{\cdot}{\sim} N\left(\mu_{d}, \frac{\sigma_{d}}{\sqrt{n}}\right)
+$$
+:::
+
+-   We don't typically know $\sigma_{d}$, so replace with sample $s_{d}$ (and then use $t$ distribution)
+
+## Hypothesis test
+
+-   Hypotheses: $H_0: \mu_{d} = \mu_{0}$ versus $H_{A}: \mu_{d} \neq \mu_0$ (or $>$ or $<$ )
+
+-   Obtain summary statistics $\bar{d}_{obs}$ and $s_{d}$
+
+-   ::: discuss
+    Check if CLT holds. If so, what is our **null distribution**?
+    :::
+
+::: fragment
+$$
+\bar{d} \overset{\cdot}{\sim} N\left(\mu_0, \frac{\sigma_{d}}{\sqrt{n}} \right)
+$$
+:::
+
+-   ::: discuss
+    Because we don't know $\sigma_{d}$, our **test statistic** here is:
+    :::
+
+::: fragment
+$$
+t = \frac{\bar{d}_{obs} - \mu_0}{\frac{s_{d}}{\sqrt{n}}} \sim t_{df}
+$$
+
+where $df = n-1$
+:::
+
+## Example: zinc (revisited)
+
+```{r}
+zinc <- data.frame(bottom = c(0.430, 0.266, 0.567, 0.531, 0.707, 0.716, .651,	.589,	.469,	.723),
+                   surface = c(.415,	.238,	.390,	.410,	.605,	.609,	.632,	.523,	.411,	.612))
+```
+
+Data consist of measured zinc concentrations in bottom water and surface water at 10 randomly sampled wells:
+
+::: {style="color: maroon"}
+Do the data suggest that the true average concentration in the bottom water is greater than that of surface water? Let's now answer this using a hypothesis test at the 0.05 level.
+:::
+
+-   ::: discuss
+    Define parameters and hypotheses
+    :::
+
+    -   Let $\mu_{d}$ be the true mean difference between zinc concentrations (bottom-surface)
+    -   $H_{0}: \mu_{d} = 0$ versus $H_{A}: \mu_{d} > 0$
+
+-   Last week, we saw conditions for CLT were satisfied
+
+## Example: zinc (cont.)
+
+```{r echo = T}
+zinc <- zinc |>
+  mutate(d = bottom - surface)
+d_bar <- mean(zinc$d)
+d_bar
+s_d <- sd(zinc$d)
+s_d
+```
+
+```{r}
+n <- nrow(zinc)
+d_bar <- round(d_bar, 4)
+s_d <- round(s_d, 3)
+se <- round(s_d/sqrt(n), 3)
+t <- round((d_bar - 0)/(s_d/sqrt(n)), 3)
+df <- n-1
+p_val <- round(1 - pt(t, df), 3)
+```
+
+::: discuss
+Find the test-statistic
+:::
+
+## Example: zinc (cont.)
+
+::: fragment
+$$t = \frac{\bar{d}_{obs} - \mu_{0}}{s_{d}/\sqrt{n}} = \frac{`r d_bar` - 0}{`r s_d`/\sqrt{`r n`}} = `r t`  \sim t_{`r df`}$$
+:::
+
+-   So our p-value is $\text{Pr}(T \geq t) = \text{Pr}(T \geq `r t`) = 1 - \texttt{pt(`r t`, `r df`)} = `r p_val`$
+
+-   We reject $H_{0}$! The data provide convincing evidence that zinc concentrations of bottom well water is greater than those of surface water.
+
+# Hypothesis test for difference in means
+
+## Sampling distribution for difference in means
+
+-   Two populations, interest in $\mu_{1} - \mu_{2}$ (or other order)
+
+-   Samples of size $n_{1}$ and $n_{2}$
+
+-   If CLT holds, we learned sampling distribution of difference in sample means is:
+
+::: fragment
+$$
+\bar{X}_{1} - \bar{X}_{2} \overset{\cdot}{\sim} N\left(\mu_{1} - \mu_{2}, \sqrt{\frac{\sigma_{1}^2}{n_{1}} + \frac{\sigma_{2}^2}{n_{2}}} \right)
+$$
+:::
+
+-   When we don't know the population standard deviations, we replace the $\sigma$ with $s$ and use a $t$ distribution
+
+-   Same thing will happen for hypothesis test!
+
+    -   ::: {style="color: maroon"}
+        Same conditions for inference: independence (extended) and approximate normality/large sample size (extended)
+        :::
+
+## Hypothesis test
+
+Hypotheses $H_{0}: \mu_{1} = \mu_{2}$ versus $H_{A}: \mu_{1} \neq \mu_{2}$ (or $>$ or $<$)
+
+-   If CLT holds, our **null distribution** for the difference in sample means is:
+
+::: fragment
+$$
+\bar{X}_{1} - \bar{X}_{2} \overset{\cdot}{\sim} N\left(0, \sqrt{\frac{\sigma_{1}^2}{n_{1}} + \frac{\sigma_{2}^2}{n_{2}} }\right)
+$$
+:::
+
+-   ::: discuss
+    In practice, use $s_{1}$ and $s_{2}$. So our **test-statistic** is...
+    :::
+
+::: fragment
+$$
+t= \frac{\text{point est} - \text{null value} }{\widehat{\text{SE}}_{0}} = \frac{(\bar{x}_{1} - \bar{x}_{2}) - 0}{\sqrt{\frac{s_{1}^2}{n_{1}} + \frac{s_{2}^2}{n_{2}}}} \sim t_{df}
+$$
+
+where $df = \min(n_{1}-1, n_{2}-1)$
+:::
+
+## Activity
+
+Munchkins!
+
+# CI for paired mean
+
+## Paired data
+
+Suppose we have two sets of observations/data $\boldsymbol{x} = (x_{1}, x_{2}, \ldots x_{n})$ and $\boldsymbol{y} = (y_{1}, y_{2}, \ldots, y_{n})$
+
+-   The data are considered **paired data** if each $x_{i}$ corresponds to exactly one $y_{i}$
+
+-   Example: your score on the midterm and your score on the final
+
+-   When analyzing paired data, we are typically interested in the difference in outcomes of each pair of observations
+
+## Paired differences
+
+-   Let $d_{i} = y_{i} - x_{i}$ for each $i = 1,\ldots, n$ be the observed differences
+
+-   The $d_{i}$ come from larger population with true mean difference $\mu_{d}$ and standard deviation of differences $\sigma_{d}$
+
+-   The sample mean difference and sample standard deviation of the differences are
+
+::: fragment
+$$\bar{d} = \frac{1}{n}\sum_{i=1}^{n} d_{i} \qquad \qquad s_{d} = \frac{1}{n-1}\sum_{i=1}^{n} (d_{i} - \bar{d})^2 $$
+:::
+
+## CLT for mean difference in pairs
+
+-   Suppose the $n$ observational units are independent and the distribution of the differences is approximately normal. Then CLT says:
+
+    $$
+    \bar{d} \overset{\cdot}{\sim} N\left(\mu_{d}, \frac{\sigma_{d}}{\sqrt{n}} \right)
+    $$
+
+-   We are usually interested in performing inference for $\mu_{d}$ when both $\mu_{d}$ and $\sigma_{d}$ unknown
+
+-   Our formula for $\gamma\times 100\%$ CI for $\mu_{d}$ is analogous to the formula for one mean when $\sigma$ unknown:
+
+::: fragment
+$$
+\begin{align*}
+\text{point estimate} &\pm t^*_{df, (1+\gamma)/2} \times \widehat{\text{SE}} \\
+\bar{d} &\pm t_{df, (1+\gamma)/2}^* \times \frac{s_{d}}{\sqrt{n}}
+\end{align*}
+$$
+
+where $df = n-1$
+:::
+
+## Example: zinc
+
+```{r}
+zinc <- data.frame(bottom = c(0.430, 0.266, 0.567, 0.531, 0.707, 0.716, .651,	.589,	.469,	.723),
+                   surface = c(.415,	.238,	.390,	.410,	.605,	.609,	.632,	.523,	.411,	.612))
+```
+
+Data consist of measured zinc concentrations in bottom water and surface water at 10 randomly sampled wells:
+
+::: {style="color: maroon"}
+Do the data suggest that the true average concentration in the bottom water is different than that of surface water? Let's answer this using a 95% confidence interval.
+:::
+
+::::::: columns
+::: {.column width="50%"}
+```{r}
+zinc |>
+  mutate(d = bottom - surface) |>
+  ggplot(aes(x = d)) +
+  geom_histogram(bins = 10) +
+  labs(x = "Observed difference (bottom - surface)") +
+  theme_minimal() +
+  theme(text= element_text(size =28))
+```
+:::
+
+::::: {.column width="50%"}
+:::: fragment
+```{r}
+head(zinc)
+```
+
+::: discuss
+Are the data paired? Does CLT apply?
+:::
+::::
+:::::
+:::::::
+
+## Example: zinc (cont.)
+
+::::: columns
+::: {.column width="40%"}
+```{r echo = T}
+zinc <- zinc |>
+  mutate(d = bottom - surface)
+d_bar <- mean(zinc$d)
+d_bar
+s_d <- sd(zinc$d)
+s_d
+```
+
+```{r}
+n <- nrow(zinc)
+d_bar <- round(d_bar, 4)
+s_d <- round(s_d, 3)
+se <- round(s_d/sqrt(n), 3)
+df <- n-1
+tstar <- round(qt(0.975, df), 2)
+zinc_ci <- round(d_bar + tstar*se*c(-1,1), 3)
+```
+:::
+
+::: {.column width="60%"}
+1.  point estimate: $\bar{d} = `r d_bar`$
+
+2.  SE $\approx$ $\frac{s_{d}}{\sqrt{n}} = \frac{`r s_d`}{\sqrt{`r n`}} = `r se`$
+
+3.  ::: discuss
+    critical value: what code would you write?
+    :::
+
+    -   $df = n-1 = `r n-1`$
+
+    -   $t_{`r df`, 0.975}^{*} =$ `qt(0.975,`r df`)` $= `r tstar`$
+:::
+:::::
+
+::: fragment
+So our 95% confidence interval is:
+
+$$`r d_bar` \pm `r tstar`(`r se`) = (`r zinc_ci`)$$
+:::
+
+:::: fragment
+::: {style="color: maroon"}
+Do the data suggest that the true average concentration in the bottom water is different than that of surface water? Explain.
+:::
+::::
+-->
+````

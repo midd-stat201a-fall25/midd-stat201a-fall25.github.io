@@ -1,0 +1,991 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml" lang="en" xml:lang="en"><head>
+
+<meta charset="utf-8">
+<meta name="generator" content="quarto-1.2.313">
+
+<meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
+
+<meta name="dcterms.date" content="2024-11-07">
+
+<title>STAT 201: Intro. to Statistics and Data Science - SLR coefficient estimates</title>
+<style>
+code{white-space: pre-wrap;}
+span.smallcaps{font-variant: small-caps;}
+div.columns{display: flex; gap: min(4vw, 1.5em);}
+div.column{flex: auto; overflow-x: auto;}
+div.hanging-indent{margin-left: 1.5em; text-indent: -1.5em;}
+ul.task-list{list-style: none;}
+ul.task-list li input[type="checkbox"] {
+  width: 0.8em;
+  margin: 0 0.8em 0.2em -1.6em;
+  vertical-align: middle;
+}
+pre > code.sourceCode { white-space: pre; position: relative; }
+pre > code.sourceCode > span { display: inline-block; line-height: 1.25; }
+pre > code.sourceCode > span:empty { height: 1.2em; }
+.sourceCode { overflow: visible; }
+code.sourceCode > span { color: inherit; text-decoration: inherit; }
+div.sourceCode { margin: 1em 0; }
+pre.sourceCode { margin: 0; }
+@media screen {
+div.sourceCode { overflow: auto; }
+}
+@media print {
+pre > code.sourceCode { white-space: pre-wrap; }
+pre > code.sourceCode > span { text-indent: -5em; padding-left: 5em; }
+}
+pre.numberSource code
+  { counter-reset: source-line 0; }
+pre.numberSource code > span
+  { position: relative; left: -4em; counter-increment: source-line; }
+pre.numberSource code > span > a:first-child::before
+  { content: counter(source-line);
+    position: relative; left: -1em; text-align: right; vertical-align: baseline;
+    border: none; display: inline-block;
+    -webkit-touch-callout: none; -webkit-user-select: none;
+    -khtml-user-select: none; -moz-user-select: none;
+    -ms-user-select: none; user-select: none;
+    padding: 0 4px; width: 4em;
+    color: #aaaaaa;
+  }
+pre.numberSource { margin-left: 3em; border-left: 1px solid #aaaaaa;  padding-left: 4px; }
+div.sourceCode
+  {   }
+@media screen {
+pre > code.sourceCode > span > a:first-child::before { text-decoration: underline; }
+}
+code span.al { color: #ff0000; font-weight: bold; } /* Alert */
+code span.an { color: #60a0b0; font-weight: bold; font-style: italic; } /* Annotation */
+code span.at { color: #7d9029; } /* Attribute */
+code span.bn { color: #40a070; } /* BaseN */
+code span.bu { color: #008000; } /* BuiltIn */
+code span.cf { color: #007020; font-weight: bold; } /* ControlFlow */
+code span.ch { color: #4070a0; } /* Char */
+code span.cn { color: #880000; } /* Constant */
+code span.co { color: #60a0b0; font-style: italic; } /* Comment */
+code span.cv { color: #60a0b0; font-weight: bold; font-style: italic; } /* CommentVar */
+code span.do { color: #ba2121; font-style: italic; } /* Documentation */
+code span.dt { color: #902000; } /* DataType */
+code span.dv { color: #40a070; } /* DecVal */
+code span.er { color: #ff0000; font-weight: bold; } /* Error */
+code span.ex { } /* Extension */
+code span.fl { color: #40a070; } /* Float */
+code span.fu { color: #06287e; } /* Function */
+code span.im { color: #008000; font-weight: bold; } /* Import */
+code span.in { color: #60a0b0; font-weight: bold; font-style: italic; } /* Information */
+code span.kw { color: #007020; font-weight: bold; } /* Keyword */
+code span.op { color: #666666; } /* Operator */
+code span.ot { color: #007020; } /* Other */
+code span.pp { color: #bc7a00; } /* Preprocessor */
+code span.sc { color: #4070a0; } /* SpecialChar */
+code span.ss { color: #bb6688; } /* SpecialString */
+code span.st { color: #4070a0; } /* String */
+code span.va { color: #19177c; } /* Variable */
+code span.vs { color: #4070a0; } /* VerbatimString */
+code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warning */
+</style>
+
+
+<script src="../site_libs/quarto-nav/quarto-nav.js"></script>
+<script src="../site_libs/quarto-nav/headroom.min.js"></script>
+<script src="../site_libs/clipboard/clipboard.min.js"></script>
+<script src="../site_libs/quarto-search/autocomplete.umd.js"></script>
+<script src="../site_libs/quarto-search/fuse.min.js"></script>
+<script src="../site_libs/quarto-search/quarto-search.js"></script>
+<meta name="quarto:offset" content="../">
+<script src="../site_libs/quarto-html/quarto.js"></script>
+<script src="../site_libs/quarto-html/popper.min.js"></script>
+<script src="../site_libs/quarto-html/tippy.umd.min.js"></script>
+<script src="../site_libs/quarto-html/anchor.min.js"></script>
+<link href="../site_libs/quarto-html/tippy.css" rel="stylesheet">
+<link href="../site_libs/quarto-html/quarto-syntax-highlighting.css" rel="stylesheet" id="quarto-text-highlighting-styles">
+<script src="../site_libs/bootstrap/bootstrap.min.js"></script>
+<link href="../site_libs/bootstrap/bootstrap-icons.css" rel="stylesheet">
+<link href="../site_libs/bootstrap/bootstrap.min.css" rel="stylesheet" id="quarto-bootstrap" data-mode="light">
+<script id="quarto-search-options" type="application/json">{
+  "location": "navbar",
+  "copy-button": false,
+  "collapse-after": 3,
+  "panel-placement": "end",
+  "type": "overlay",
+  "limit": 20,
+  "language": {
+    "search-no-results-text": "No results",
+    "search-matching-documents-text": "matching documents",
+    "search-copy-link-title": "Copy link to search",
+    "search-hide-matches-text": "Hide additional matches",
+    "search-more-match-text": "more match in this document",
+    "search-more-matches-text": "more matches in this document",
+    "search-clear-button-title": "Clear",
+    "search-detached-cancel-button-title": "Cancel",
+    "search-submit-button-title": "Submit"
+  }
+}</script>
+
+<script src="../site_libs/kePrint-0.0.1/kePrint.js"></script>
+<link href="../site_libs/lightable-0.0.1/lightable.css" rel="stylesheet">
+
+  <script src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-chtml-full.js" type="text/javascript"></script>
+
+</head>
+
+<body class="nav-fixed fullcontent">
+
+<div id="quarto-search-results"></div>
+  <header id="quarto-header" class="headroom fixed-top">
+    <nav class="navbar navbar-expand-lg navbar-dark ">
+      <div class="navbar-container container-fluid">
+      <div class="navbar-brand-container">
+    <a class="navbar-brand" href="../index.html">
+    <span class="navbar-title">STAT 201: Intro. to Statistics and Data Science</span>
+    </a>
+  </div>
+          <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarCollapse" aria-controls="navbarCollapse" aria-expanded="false" aria-label="Toggle navigation" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">
+  <span class="navbar-toggler-icon"></span>
+</button>
+          <div class="collapse navbar-collapse" id="navbarCollapse">
+            <ul class="navbar-nav navbar-nav-scroll me-auto">
+  <li class="nav-item">
+    <a class="nav-link" href="../index.html">
+ <span class="menu-text">Home</span></a>
+  </li>  
+  <li class="nav-item">
+    <a class="nav-link" href="../schedule.html">
+ <span class="menu-text">Schedule</span></a>
+  </li>  
+</ul>
+            <ul class="navbar-nav navbar-nav-scroll ms-auto">
+  <li class="nav-item">
+    <a class="nav-link" href="https://openintro-ims.netlify.app/"><i class="bi bi-book-half" role="img">
+</i> 
+ <span class="menu-text">Textbook</span></a>
+  </li>  
+  <li class="nav-item">
+    <a class="nav-link" href="https://middlebury.instructure.com/"><i class="bi bi-bar-chart-fill" role="img">
+</i> 
+ <span class="menu-text">Canvas</span></a>
+  </li>  
+</ul>
+              <div id="quarto-search" class="" title="Search"></div>
+          </div> <!-- /navcollapse -->
+      </div> <!-- /container-fluid -->
+    </nav>
+</header>
+<!-- content -->
+<div id="quarto-content" class="quarto-container page-columns page-rows-contents page-layout-article page-navbar">
+<!-- sidebar -->
+<!-- margin-sidebar -->
+    
+<!-- main -->
+<main class="content" id="quarto-document-content">
+
+<header id="title-block-header" class="quarto-title-block default">
+<div class="quarto-title">
+<h1 class="title">SLR coefficient estimates</h1>
+</div>
+
+
+
+<div class="quarto-title-meta">
+
+    
+    <div>
+    <div class="quarto-title-meta-heading">Published</div>
+    <div class="quarto-title-meta-contents">
+      <p class="date">November 7, 2024</p>
+    </div>
+  </div>
+  
+    
+  </div>
+  
+
+</header>
+
+<section id="housekeeping" class="level2">
+<h2 class="anchored" data-anchor-id="housekeeping">Housekeeping</h2>
+<div class="cell">
+
+</div>
+<ul>
+<li><p>No TA hours tonight</p></li>
+<li><p>Will discuss details of Midterm 2 next week!</p></li>
+<li><p>Revisions for proposals due Saturday 11:59pm</p></li>
+</ul>
+</section>
+<section id="recap" class="level1">
+<h1>Recap</h1>
+<ul>
+<li><strong>Linear regression</strong>: statistical method where the relationship between variable <span class="math inline">\(x\)</span> and variable <span class="math inline">\(y\)</span> is modeled as a <strong>line + error:</strong></li>
+</ul>
+<div class="fragment">
+<p><span class="math display">\[
+y = \underbrace{\beta_{0} + \beta_{1} x}_{\text{line}} + \underbrace{\epsilon}_{\text{error}}
+\]</span></p>
+</div>
+<ul>
+<li><p><span class="math inline">\(\beta_{0}\)</span> and <span class="math inline">\(\beta_{1}\)</span> are population parameters and their corresponding point estimates <span class="math inline">\(b_{0}\)</span> and <span class="math inline">\(b_{1}\)</span> are estimated from the data</p></li>
+<li><p><strong>Fitted</strong> model: <span class="math inline">\(\hat{y} = b_{0} + b_{1}x\)</span></p></li>
+<li><p>Residual: <span class="math inline">\(e_{i} = \hat{y}_{i} - y_{i}\)</span></p></li>
+<li><p>LINE conditions: <strong>L</strong>inearity, <strong>I</strong>ndependence, <strong>N</strong>ormal residuals, <strong>E</strong>qual variance</p></li>
+</ul>
+</section>
+<section id="fitting-the-least-squares-line" class="level1">
+<h1>Fitting the least-squares line</h1>
+<section id="parameter-estimates" class="level2">
+<h2 class="anchored" data-anchor-id="parameter-estimates">Parameter estimates</h2>
+<ul>
+<li>Like in previous topics, we have to estimate the parameters using data</li>
+<li>We want to estimate <span class="math inline">\(\beta_{0}\)</span> and <span class="math inline">\(\beta_{1}\)</span> using the <span class="math inline">\((x_{i}, y_{i})\)</span>
+<ul>
+<li>In practice, we let software do this for us</li>
+</ul></li>
+<li>However, we <em>can</em> derive the least-squares estimates using properties of the least-squares line</li>
+</ul>
+</section>
+<section id="estimating-slope-and-intercept" class="level2">
+<h2 class="anchored" data-anchor-id="estimating-slope-and-intercept">Estimating slope and intercept</h2>
+<div class="columns">
+<div class="column" style="width:50%;">
+<p>First obtain <span class="math inline">\(b_{1}\)</span>:</p>
+<div class="fragment">
+<p><span class="math display">\[
+b_{1} =\frac{s_{y}}{s_{x}} R
+\]</span></p>
+<p>where:</p>
+</div>
+<ul>
+<li><p><span class="math inline">\(s_{x}\)</span> and <span class="math inline">\(s_{y}\)</span> are the sample standard deviations of the explanatory and response variables</p></li>
+<li><p><span class="math inline">\(R\)</span> is the correlation between <span class="math inline">\(x\)</span> and <span class="math inline">\(y\)</span></p></li>
+</ul>
+</div><div class="column" style="width:50%;">
+<div class="fragment">
+<p>Then obtain <span class="math inline">\(b_{0}\)</span>:</p>
+<div class="fragment">
+<p><span class="math display">\[b_{0} = \bar{y} - b_{1} \bar{x}\]</span> where</p>
+</div>
+<ul>
+<li><p><span class="math inline">\(\bar{y}\)</span> is the sample mean of the response variable</p></li>
+<li><p><span class="math inline">\(x\)</span> is the sample mean of the explanatory variable</p></li>
+</ul>
+</div>
+</div>
+</div>
+<ul>
+<li><div style="color: maroon">
+<p>Take STAT 0211 or 0311 to see where these formulas come from!</p>
+</div></li>
+</ul>
+</section>
+<section id="fitting-cherry-model-by-hand" class="level2">
+<h2 class="anchored" data-anchor-id="fitting-cherry-model-by-hand">Fitting <code>cherry</code> model (by hand)</h2>
+<div class="cell">
+
+</div>
+<p>Verify estimates <span class="math inline">\(b_{0} = -36.94\)</span> and <span class="math inline">\(b_{1} = 5.07\)</span> from our model for the cherry data:</p>
+<div class="columns">
+<div class="column" style="width:55%;">
+<div class="cell">
+<div class="sourceCode cell-code" id="cb1"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb1-1"><a href="#cb1-1" aria-hidden="true" tabindex="-1"></a>cherry <span class="sc">|&gt;</span></span>
+<span id="cb1-2"><a href="#cb1-2" aria-hidden="true" tabindex="-1"></a>  <span class="fu">pivot_longer</span>(<span class="at">cols =</span> <span class="fu">c</span>(diam, volume), </span>
+<span id="cb1-3"><a href="#cb1-3" aria-hidden="true" tabindex="-1"></a>               <span class="at">names_to =</span> <span class="st">"variable"</span>, </span>
+<span id="cb1-4"><a href="#cb1-4" aria-hidden="true" tabindex="-1"></a>               <span class="at">values_to =</span> <span class="st">"val"</span>) <span class="sc">|&gt;</span></span>
+<span id="cb1-5"><a href="#cb1-5" aria-hidden="true" tabindex="-1"></a>  <span class="fu">select</span>(<span class="sc">-</span>height) <span class="sc">|&gt;</span></span>
+<span id="cb1-6"><a href="#cb1-6" aria-hidden="true" tabindex="-1"></a>  <span class="fu">group_by</span>(variable) <span class="sc">|&gt;</span></span>
+<span id="cb1-7"><a href="#cb1-7" aria-hidden="true" tabindex="-1"></a>  <span class="fu">summarise</span>(<span class="at">mean =</span> <span class="fu">mean</span>(val), <span class="at">s =</span> <span class="fu">sd</span>(val)) </span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</div>
+<div class="cell">
+<div class="cell-output-display">
+
+<table class="table" style="font-size: 30px; margin-left: auto; margin-right: auto;">
+ <thead>
+  <tr>
+   <th style="text-align:left;"> variable </th>
+   <th style="text-align:right;"> mean </th>
+   <th style="text-align:right;"> s </th>
+  </tr>
+ </thead>
+<tbody>
+  <tr>
+   <td style="text-align:left;"> diam </td>
+   <td style="text-align:right;"> 13.248 </td>
+   <td style="text-align:right;"> 3.138 </td>
+  </tr>
+  <tr>
+   <td style="text-align:left;"> volume </td>
+   <td style="text-align:right;"> 30.171 </td>
+   <td style="text-align:right;"> 16.438 </td>
+  </tr>
+</tbody>
+</table>
+
+</div>
+</div>
+</div><div class="column" style="width:45%;">
+<div class="cell">
+<div class="sourceCode cell-code" id="cb2"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb2-1"><a href="#cb2-1" aria-hidden="true" tabindex="-1"></a>R <span class="ot">&lt;-</span> <span class="fu">cor</span>(cherry<span class="sc">$</span>diam, cherry<span class="sc">$</span>volume)</span>
+<span id="cb2-2"><a href="#cb2-2" aria-hidden="true" tabindex="-1"></a>R</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stdout">
+<pre><code>[1] 0.9671194</code></pre>
+</div>
+</div>
+<div class="discuss">
+<p>What does this value of <span class="math inline">\(R\)</span> tell us?</p>
+</div>
+</div>
+</div>
+<div class="cell">
+
+</div>
+<div class="columns">
+<div class="column" style="width:40%;">
+<div class="discuss">
+<ul>
+<li><p>Set-up the calculations:</p>
+<ul>
+<li><p><span class="math inline">\(b_{1} = \frac{s_{y}}{s_{x}} R\)</span></p></li>
+<li><p><span class="math inline">\(b_{0} = \bar{y} -b_{1} \bar{x}\)</span></p></li>
+</ul></li>
+</ul>
+</div>
+</div><div class="column" style="width:60%;">
+<ul>
+<li><p><span class="math inline">\(b_{1} = \frac{16.438}{3.138} \times 0.967 = 5.07\)</span></p></li>
+<li><p><span class="math inline">\(b_{0} = 30.171 - 5.07 \times 13.248 = -36.94\)</span></p></li>
+<li><p>What do these numbers really mean?</p></li>
+</ul>
+</div>
+</div>
+</section>
+</section>
+<section id="interpreting-parameters" class="level1">
+<h1>Interpreting parameters</h1>
+<p>Interpreting the parameters (i.e.&nbsp;<strong>coefficients</strong>) in a regression model is one of <em>the most</em> important steps in an analysis!</p>
+<section id="intercept-interpretation" class="level2">
+<h2 class="anchored" data-anchor-id="intercept-interpretation">Intercept interpretation</h2>
+<p>Our fitted model is <span class="math inline">\(\hat{y} = b_{0} + b_{1}x\)</span>.</p>
+<ul>
+<li>To interpret the estimate of the intercept coefficient <span class="math inline">\(b_{0}\)</span>, simply plug in <span class="math inline">\(x= 0\)</span>:</li>
+</ul>
+<p><span class="math display">\[
+\hat{y} = b_{0} + b_{1} x = b_{0} + b_{1}(0) = b_{0}
+\]</span></p>
+<ul>
+<li>So, the intercept describes the <strong>average/expected</strong> value of the response variable <span class="math inline">\(y\)</span> if <span class="math inline">\(x=0\)</span></li>
+</ul>
+</section>
+<section id="intercept-in-cherry-model" class="level2">
+<h2 class="anchored" data-anchor-id="intercept-in-cherry-model">Intercept in <code>cherry</code> model</h2>
+<p><span class="math display">\[
+\widehat{\text{volume}} = -36.94 + 5.07 \times \text{diameter}
+\]</span></p>
+<ul>
+<li>Interpretation of intercept in context: for a tree with a diameter of 0 inches, the expected volume would be -36.94 cubic feet
+<ul>
+<li>This interpretation is mathematically correct, but practically speaking is useless</li>
+</ul></li>
+<li>The intercept’s interpretation only makes sense when a value of <span class="math inline">\(x=0\)</span> for the explanatory variable is plausible!
+<ul>
+<li>This is typically not the case/relevant in many applications</li>
+<li>Trees with 0 diameter are not able to sampled</li>
+</ul></li>
+</ul>
+</section>
+<section id="slope-interpretation" class="level2">
+<h2 class="anchored" data-anchor-id="slope-interpretation">Slope interpretation</h2>
+<ul>
+<li>Let <span class="math inline">\(\hat{y}_{1}\)</span> be the estimated response for a given value of <span class="math inline">\(x\)</span>, so <span class="math inline">\(\hat{y}_{1} = b_{0} + b_{1} x\)</span></li>
+<li>What happens when we increase <span class="math inline">\(x\)</span> by 1?</li>
+<li>Let <span class="math inline">\(\hat{y}_{2}\)</span> be the estimated response for <span class="math inline">\(x +1\)</span>:</li>
+</ul>
+<div class="fragment">
+<p><span class="math display">\[
+\begin{align*}
+\hat{y}_{2} &amp;= b_{0} + b_{1} (x + 1)  \\
+&amp;= \color{orange}{b_{0} + b_{1}x}  + b_{1} \\
+&amp;= \color{orange}{\hat{y}_{1}} + b_{1} \Rightarrow \\
+b_{1} &amp;= \hat{y}_{2} - \hat{y}_{1}
+\end{align*}
+\]</span></p>
+</div>
+<ul>
+<li>Interpretation: for a 1 unit increase in the explanatory variable <span class="math inline">\(x\)</span>, we expect the response variable to change by <span class="math inline">\(b_{1}\)</span> units</li>
+</ul>
+</section>
+<section id="slope-in-cherry-model" class="level2">
+<h2 class="anchored" data-anchor-id="slope-in-cherry-model">Slope in <code>cherry</code> model</h2>
+<p><span class="math display">\[
+\widehat{\text{volume}} = -36.94 + 5.07 \times \text{diameter}
+\]</span></p>
+<ul>
+<li>Interpretation in context: for every 1 inch increase in diameter, we expect that volume of cherry trees to increase by 5.07 cubic feet</li>
+</ul>
+</section>
+<section id="example-elmhurst" class="level2">
+<h2 class="anchored" data-anchor-id="example-elmhurst">Example: <code>elmhurst</code></h2>
+<p>The <code>elmhurst</code> dataset from <code>openintro</code> provides a random sample of 50 students gift aid for students at Elmhurst College.</p>
+<ul>
+<li>We will examine the relationship between the family income of the student and the gift aid that student received (in $1000s)</li>
+</ul>
+<div class="columns">
+<div class="column" style="width:70%;">
+<div class="fragment">
+<div class="cell">
+<div class="cell-output-display">
+<p><img src="slides-24-slr-interpretation_files/figure-html/unnamed-chunk-7-1.png" class="img-fluid" width="672"></p>
+</div>
+</div>
+</div>
+</div><div class="column" style="width:30%;">
+<div class="fragment">
+<div class="discuss">
+<p>Are the first two conditions of LINE satisfied?</p>
+</div>
+</div>
+</div>
+</div>
+</section>
+<section id="example-elmhurst-cont." class="level2">
+<h2 class="anchored" data-anchor-id="example-elmhurst-cont.">Example: <code>elmhurst</code> (cont.)</h2>
+<div class="columns">
+<div class="column" style="width:60%;">
+<div class="cell">
+
+</div>
+<p>We run the model in <code>R</code>, and the output looks something like this:</p>
+<div class="cell">
+<div class="cell-output-display">
+
+<table class="table" style="font-size: 24px; margin-left: auto; margin-right: auto;">
+ <thead>
+  <tr>
+   <th style="text-align:left;"> term </th>
+   <th style="text-align:right;"> estimate </th>
+   <th style="text-align:right;"> std.error </th>
+   <th style="text-align:right;"> statistic </th>
+   <th style="text-align:right;"> p.value </th>
+  </tr>
+ </thead>
+<tbody>
+  <tr>
+   <td style="text-align:left;"> (Intercept) </td>
+   <td style="text-align:right;"> 24.319 </td>
+   <td style="text-align:right;"> 1.291 </td>
+   <td style="text-align:right;"> 18.831 </td>
+   <td style="text-align:right;"> 0 </td>
+  </tr>
+  <tr>
+   <td style="text-align:left;"> family_income </td>
+   <td style="text-align:right;"> -0.043 </td>
+   <td style="text-align:right;"> 0.011 </td>
+   <td style="text-align:right;"> -3.985 </td>
+   <td style="text-align:right;"> 0 </td>
+  </tr>
+</tbody>
+</table>
+
+</div>
+</div>
+</div><div class="column" style="width:40%;">
+<div class="cell">
+<div class="cell-output cell-output-stderr">
+<pre><code>`geom_smooth()` using formula = 'y ~ x'</code></pre>
+</div>
+<div class="cell-output-display">
+<p><img src="slides-24-slr-interpretation_files/figure-html/unnamed-chunk-10-1.png" class="img-fluid" width="672"></p>
+</div>
+</div>
+</div>
+</div>
+<ul>
+<li><p>The values in the estimate column are our <span class="math inline">\(b_{0}\)</span> and <span class="math inline">\(b_{1}\)</span>:</p>
+<div class="discuss">
+<ul>
+<li><span class="math inline">\(b_{0} =\)</span> ? and <span class="math inline">\(b_{1} =\)</span> ?</li>
+<li>What do you think the second column is?</li>
+</ul>
+</div></li>
+<li><div class="discuss">
+<p>Write out our fitted model in context</p>
+</div></li>
+</ul>
+</section>
+<section id="example-elmhurst-model" class="level2">
+<h2 class="anchored" data-anchor-id="example-elmhurst-model">Example: <code>elmhurst</code> model</h2>
+<p><span class="math display">\[
+\widehat{\text{aid}} = 24.319 + -0.043 \times \text{family_income}
+\]</span></p>
+<ul>
+<li>Before we interpret the coefficients, we should verify that the linear model is appropriate for the data!</li>
+</ul>
+<div class="fragment">
+<div class="cell">
+<div class="cell-output-display">
+<p><img src="slides-24-slr-interpretation_files/figure-html/unnamed-chunk-11-1.png" class="img-fluid" width="672"></p>
+</div>
+</div>
+</div>
+<div class="fragment">
+<div class="discuss">
+<p>Do you believe the last two conditions of LINE are satisfied?</p>
+</div>
+</div>
+</section>
+<section id="example-elmhurst-interpretation" class="level2">
+<h2 class="anchored" data-anchor-id="example-elmhurst-interpretation">Example: <code>elmhurst</code> interpretation</h2>
+<p><span class="math display">\[
+\widehat{\text{aid}} = 24.319 + -0.043 \times \text{family_income}
+\]</span></p>
+<div class="columns">
+<div class="column" style="width:50%;">
+<div class="discuss">
+<ul>
+<li><p>Interpret the slope in context</p></li>
+<li><p>Interpret the intercept in context</p></li>
+<li><p>Is the meaning of the intercept relevant?</p></li>
+</ul>
+</div>
+</div><div class="column" style="width:50%;">
+<ul>
+<li>Slope: for every $1000 increase in family income, we expect that the student’s gift aid will decrease by $43.</li>
+<li>Intercept: for a student whose family income is $0, we expect that average amount of aid they will receive is $2.4319^{4}</li>
+<li>Since a family could have an income of $0, the intercept does seem relevant</li>
+</ul>
+</div>
+</div>
+</section>
+<section id="words-of-caution" class="level2">
+<h2 class="anchored" data-anchor-id="words-of-caution">Words of caution</h2>
+<ul>
+<li><p>The estimates from the fitted model will always be imperfect</p>
+<ul>
+<li>The linear equation is good at capturing trends, no individual outcome will be perfectly predicted</li>
+</ul></li>
+<li><p><strong>Do not try to use the model for</strong> <span class="math inline">\(x\)</span> <strong>values</strong> <strong>beyond the range of the observed</strong> <span class="math inline">\(x\)</span>!</p>
+<ul>
+<li><p>The true relationship between <span class="math inline">\(x\)</span> and <span class="math inline">\(y\)</span> is almost always much more complex than our simple line</p></li>
+<li><p>We do not know how the relationship behaves outside our limited window</p></li>
+</ul></li>
+</ul>
+</section>
+<section id="extrapolation" class="level2">
+<h2 class="anchored" data-anchor-id="extrapolation">Extrapolation</h2>
+<p>Suppose we would like to use our fitted model to estimate the expected gift aid for someone whose family income is $1,000,000:</p>
+<ul>
+<li><div class="discuss">
+<p>Find the estimated gift aid (careful with units)</p>
+</div>
+<ul>
+<li><span class="math inline">\(\widehat{\text{aid}} = 24.319 + -0.043 \times 1000 = -18.681\)</span></li>
+<li>This is ridiculous!</li>
+</ul></li>
+<li><p>This is an example of <strong>extrapolation</strong>: using the model to estimate values outside the scope of the original data</p>
+<ul>
+<li>We should <em>never</em> extrapolate!</li>
+</ul></li>
+</ul>
+</section>
+</section>
+<section id="strength-of-fit" class="level1">
+<h1>Strength of fit</h1>
+<p>If we fit a model and determine LINE was met, we still need a way to describe how “good” the fit is!</p>
+<section id="describing-the-fit" class="level2">
+<h2 class="anchored" data-anchor-id="describing-the-fit">Describing the fit</h2>
+<ul>
+<li><p>Recall sample correlation <span class="math inline">\(R\)</span> describes the linear relationship between variables <span class="math inline">\(x\)</span> and <span class="math inline">\(y\)</span></p></li>
+<li><p>We typically use the <strong>coefficient of determination</strong> or <span class="math inline">\(R^2\)</span> (<strong>R-squared</strong>) to describe strength of linear fit</p>
+<ul>
+<li>Describes amount of variation in <span class="math inline">\(y\)</span> that is explained by predictor <span class="math inline">\(x\)</span> in the least squares line</li>
+</ul></li>
+<li><p>It turns out that <span class="math inline">\(R^2\)</span> in SLR is exactly … <span class="math inline">\(R\)</span> squared (i.e.&nbsp;the square of the sample correlation)</p>
+<ul>
+<li><div class="discuss">
+<p>What are the possible values of <span class="math inline">\(R^2\)</span>? What are desirable values of <span class="math inline">\(R^2\)</span>?</p>
+</div></li>
+</ul></li>
+</ul>
+</section>
+<section id="example-elmhurst-model-fit" class="level2">
+<h2 class="anchored" data-anchor-id="example-elmhurst-model-fit">Example: <code>elmhurst</code> model fit</h2>
+<div class="cell">
+
+</div>
+<ul>
+<li><p>The sample correlation between <code>family income</code> and <code>aid</code> is <span class="math inline">\(R=\)</span> -0.499</p></li>
+<li><p>So the coefficient of determination is <span class="math inline">\(R^2 = (-0.499)^2 = 0.249\)</span></p>
+<ul>
+<li><strong>Interpretation</strong>: using a linear model, about 24.9% of the variability in <code>aid</code> received by the student is explained by <code>family income</code></li>
+</ul></li>
+</ul>
+</section>
+</section>
+<section id="categorical-predictor" class="level1">
+<h1>Categorical predictor</h1>
+<p>Thus far, we have assumed that <span class="math inline">\(x\)</span> is numerical. Now let <span class="math inline">\(x\)</span> be categorical.</p>
+<section id="categorical-predictor-with-two-levels" class="level2">
+<h2 class="anchored" data-anchor-id="categorical-predictor-with-two-levels">Categorical predictor with two levels</h2>
+<ul>
+<li><p>Remember that the different groupings/categories of categorical variables are called levels</p></li>
+<li><div style="color: maroon">
+<p>Now assume that <span class="math inline">\(x\)</span> is categorical with two levels</p>
+</div></li>
+<li><p>Running example: the <code>possum</code> data from <code>openintro</code></p>
+<ul>
+<li>Response variable: <code>tail_l</code> (tail length in cm)</li>
+<li>Explanatory variable: <code>pop</code> (either <code>Vic</code> or <code>other</code>)</li>
+</ul></li>
+<li><p>Maybe we would think to write our regression as</p></li>
+</ul>
+<div class="fragment">
+<p><span class="math display">\[\text{tail length} = \beta_{0} + \beta_{1} \text{pop} + \epsilon\]</span></p>
+</div>
+<ul>
+<li><div class="discuss">
+<p>Why doesn’t this work?</p>
+</div>
+<ul>
+<li>Functions require a numerical input!</li>
+</ul></li>
+</ul>
+</section>
+<section id="indicator-variables" class="level2">
+<h2 class="anchored" data-anchor-id="indicator-variables">Indicator variables</h2>
+<p>We need a mechanism to convert the categorical levels into numerical form!</p>
+<div class="columns">
+<div class="column" style="width:60%;">
+<ul>
+<li>This is achieved through an <strong>indicator variable</strong> which takes the value 1 for one specific level and the value 0 otherwise:</li>
+</ul>
+<div class="fragment">
+<p><span class="math display">\[
+\text{pop_other} = \begin{cases}
+0 &amp; \text{ if  pop = Vic} \\
+1 &amp; \text{ if  pop = other}
+\end{cases}
+\]</span></p>
+</div>
+</div><div class="column" style="width:40%;">
+<div class="fragment">
+<div class="cell">
+<div class="cell-output-display">
+
+<table class="table" style="font-size: 25px; margin-left: auto; margin-right: auto;">
+ <thead>
+  <tr>
+   <th style="text-align:right;"> tail_l </th>
+   <th style="text-align:left;"> pop </th>
+   <th style="text-align:right;"> pop_new </th>
+  </tr>
+ </thead>
+<tbody>
+  <tr>
+   <td style="text-align:right;"> 38.0 </td>
+   <td style="text-align:left;"> other </td>
+   <td style="text-align:right;"> 1 </td>
+  </tr>
+  <tr>
+   <td style="text-align:right;"> 34.0 </td>
+   <td style="text-align:left;"> Vic </td>
+   <td style="text-align:right;"> 0 </td>
+  </tr>
+  <tr>
+   <td style="text-align:right;"> 36.0 </td>
+   <td style="text-align:left;"> Vic </td>
+   <td style="text-align:right;"> 0 </td>
+  </tr>
+  <tr>
+   <td style="text-align:right;"> 36.5 </td>
+   <td style="text-align:left;"> Vic </td>
+   <td style="text-align:right;"> 0 </td>
+  </tr>
+  <tr>
+   <td style="text-align:right;"> 41.5 </td>
+   <td style="text-align:left;"> other </td>
+   <td style="text-align:right;"> 1 </td>
+  </tr>
+</tbody>
+</table>
+
+</div>
+</div>
+</div>
+</div>
+</div>
+<ul>
+<li><p>The level that corresponds to 0 is called the <strong>base</strong> <strong>level</strong></p>
+<ul>
+<li>So <code>Vic</code> is the base level</li>
+<li>Choosing which level is the base level can sometimes be important</li>
+</ul></li>
+</ul>
+</section>
+<section id="example-possum-model" class="level2">
+<h2 class="anchored" data-anchor-id="example-possum-model">Example: <code>possum</code> model</h2>
+<p>This yields the SLR model</p>
+<p><span class="math display">\[\text{tail length} = \beta_{0} + \beta_{1} \text{pop_other} + \epsilon\]</span></p>
+<div class="fragment">
+<p>Our estimates are as follows:</p>
+<div class="cell">
+<div class="cell-output-display">
+
+<table class="table" style="font-size: 25px; margin-left: auto; margin-right: auto;">
+ <thead>
+  <tr>
+   <th style="text-align:left;"> term </th>
+   <th style="text-align:right;"> estimate </th>
+   <th style="text-align:right;"> std.error </th>
+   <th style="text-align:right;"> statistic </th>
+   <th style="text-align:right;"> p.value </th>
+  </tr>
+ </thead>
+<tbody>
+  <tr>
+   <td style="text-align:left;"> (Intercept) </td>
+   <td style="text-align:right;"> 35.935 </td>
+   <td style="text-align:right;"> 0.253 </td>
+   <td style="text-align:right;"> 142.065 </td>
+   <td style="text-align:right;"> 0 </td>
+  </tr>
+  <tr>
+   <td style="text-align:left;"> popother </td>
+   <td style="text-align:right;"> 1.927 </td>
+   <td style="text-align:right;"> 0.339 </td>
+   <td style="text-align:right;"> 5.690 </td>
+   <td style="text-align:right;"> 0 </td>
+  </tr>
+</tbody>
+</table>
+
+</div>
+</div>
+</div>
+<ul>
+<li><div class="discuss">
+<p>Write out the equation of our fitted model</p>
+</div></li>
+</ul>
+</section>
+<section id="intercept-for-categorical-x" class="level2">
+<h2 class="anchored" data-anchor-id="intercept-for-categorical-x">Intercept for categorical <span class="math inline">\(x\)</span></h2>
+<p>Our fitted model is:</p>
+<p><span class="math display">\[\widehat{\text{tail length}} = 35.935 + 1.927 \times \text{pop_other}\]</span></p>
+<ul>
+<li>Let’s interpret the intercept by plugging in <span class="math inline">\(0\)</span> for the explanatory variable:</li>
+</ul>
+<div class="fragment">
+<p><span class="math display">\[\widehat{\text{tail length}} = 35.935 + 1.927\times 0 = 35.935\]</span></p>
+</div>
+<ul>
+<li><p>But wait, when is <span class="math inline">\(\text{pop_other} = 0\)</span>? When the possum is from Victoria!</p></li>
+<li><div style="color: maroon">
+<p>So when <span class="math inline">\(x\)</span> is categorical, the interpretation of <span class="math inline">\(b_{0}\)</span> is the expected value of the response variable for the base level of <span class="math inline">\(x\)</span></p>
+</div></li>
+<li><div class="discuss">
+<p>Interpret <span class="math inline">\(b_{0}\)</span> in context</p>
+</div>
+<ul>
+<li>The expected tail length of possums from Victoria is 35.935 cm</li>
+</ul></li>
+</ul>
+</section>
+<section id="slope-for-categorical-x" class="level2">
+<h2 class="anchored" data-anchor-id="slope-for-categorical-x">Slope for categorical <span class="math inline">\(x\)</span></h2>
+<p><span class="math display">\[\widehat{\text{tail length}} = 35.935 + 1.927\times \text{pop_other}\]</span></p>
+<p><span class="math display">\[
+\text{pop_other} = \begin{cases}
+0 &amp; \text{ if  pop = Vic} \\
+1 &amp; \text{ if  pop = other}
+\end{cases}
+\]</span></p>
+<ul>
+<li><p>Remember, the slope coefficient is interpreted as the expected change in <span class="math inline">\(y\)</span> for a one unit increase in <span class="math inline">\(x\)</span></p></li>
+<li><div class="discuss">
+<p>What does it mean for the indicator variable to increase by one unit here?</p>
+</div>
+<ul>
+<li><span class="math inline">\(\text{pop_other}\)</span> increases by one unit by going from 0 to 1. This corresponds to a <code>pop</code> value of “other”</li>
+</ul></li>
+<li><div style="color: maroon">
+<p>When <span class="math inline">\(x\)</span> is categorical, the interpretation of <span class="math inline">\(b_{1}\)</span> is the expected change in <span class="math inline">\(y\)</span> when moving from the base level to the non-base level</p>
+</div></li>
+<li><div class="discuss">
+<p>Try interpreting <span class="math inline">\(b_{1}\)</span> in context!</p>
+</div></li>
+</ul>
+</section>
+<section id="slope-for-categorical-x-cont." class="level2">
+<h2 class="anchored" data-anchor-id="slope-for-categorical-x-cont.">Slope for categorical <span class="math inline">\(x\)</span> (cont.)</h2>
+<p><span class="math display">\[\widehat{\text{tail length}} = 35.935 + 1.927\times \text{pop_other}\]</span></p>
+<p><span class="math display">\[
+\text{pop_other} = \begin{cases}
+0 &amp; \text{ if  pop = Vic} \\
+1 &amp; \text{ if  pop = other}
+\end{cases}
+\]</span></p>
+<ul>
+<li>Interpretation of slope: possums from outside of Victoria are expected to have tail lengths about 1.927 cm longer than possums from Victoria</li>
+<li>Note: interpretations for <span class="math inline">\(b_{0}\)</span> and <span class="math inline">\(b_{1}\)</span> for categorical <span class="math inline">\(x\)</span> are the same as for numerical <span class="math inline">\(x\)</span>, but they have more specific/nuanced interpretations when placed in context</li>
+</ul>
+</section>
+<section id="assessing-linear-fit" class="level2">
+<h2 class="anchored" data-anchor-id="assessing-linear-fit">Assessing linear fit</h2>
+<ul>
+<li><p>When <span class="math inline">\(x\)</span> is categorical, the LINE conditions still need to hold</p></li>
+<li><p>When <span class="math inline">\(x\)</span> only has two levels, the <strong>L</strong>inearity assumption will always be satisfied</p></li>
+<li><p>We need to evaluate <strong>N</strong>early normal residuals and <strong>E</strong>qual variance for each level:</p></li>
+</ul>
+<div class="fragment">
+<div class="cell">
+<div class="cell-output-display">
+<p><img src="slides-24-slr-interpretation_files/figure-html/unnamed-chunk-15-1.png" class="img-fluid" width="1152"></p>
+</div>
+</div>
+</div>
+</section>
+</section>
+<section id="live-code" class="level1">
+<h1>Live code</h1>
+
+
+</section>
+
+</main> <!-- /main -->
+<script id="quarto-html-after-body" type="application/javascript">
+window.document.addEventListener("DOMContentLoaded", function (event) {
+  const toggleBodyColorMode = (bsSheetEl) => {
+    const mode = bsSheetEl.getAttribute("data-mode");
+    const bodyEl = window.document.querySelector("body");
+    if (mode === "dark") {
+      bodyEl.classList.add("quarto-dark");
+      bodyEl.classList.remove("quarto-light");
+    } else {
+      bodyEl.classList.add("quarto-light");
+      bodyEl.classList.remove("quarto-dark");
+    }
+  }
+  const toggleBodyColorPrimary = () => {
+    const bsSheetEl = window.document.querySelector("link#quarto-bootstrap");
+    if (bsSheetEl) {
+      toggleBodyColorMode(bsSheetEl);
+    }
+  }
+  toggleBodyColorPrimary();  
+  const icon = "";
+  const anchorJS = new window.AnchorJS();
+  anchorJS.options = {
+    placement: 'right',
+    icon: icon
+  };
+  anchorJS.add('.anchored');
+  const clipboard = new window.ClipboardJS('.code-copy-button', {
+    target: function(trigger) {
+      return trigger.previousElementSibling;
+    }
+  });
+  clipboard.on('success', function(e) {
+    // button target
+    const button = e.trigger;
+    // don't keep focus
+    button.blur();
+    // flash "checked"
+    button.classList.add('code-copy-button-checked');
+    var currentTitle = button.getAttribute("title");
+    button.setAttribute("title", "Copied!");
+    let tooltip;
+    if (window.bootstrap) {
+      button.setAttribute("data-bs-toggle", "tooltip");
+      button.setAttribute("data-bs-placement", "left");
+      button.setAttribute("data-bs-title", "Copied!");
+      tooltip = new bootstrap.Tooltip(button, 
+        { trigger: "manual", 
+          customClass: "code-copy-button-tooltip",
+          offset: [0, -8]});
+      tooltip.show();    
+    }
+    setTimeout(function() {
+      if (tooltip) {
+        tooltip.hide();
+        button.removeAttribute("data-bs-title");
+        button.removeAttribute("data-bs-toggle");
+        button.removeAttribute("data-bs-placement");
+      }
+      button.setAttribute("title", currentTitle);
+      button.classList.remove('code-copy-button-checked');
+    }, 1000);
+    // clear code selection
+    e.clearSelection();
+  });
+  function tippyHover(el, contentFn) {
+    const config = {
+      allowHTML: true,
+      content: contentFn,
+      maxWidth: 500,
+      delay: 100,
+      arrow: false,
+      appendTo: function(el) {
+          return el.parentElement;
+      },
+      interactive: true,
+      interactiveBorder: 10,
+      theme: 'quarto',
+      placement: 'bottom-start'
+    };
+    window.tippy(el, config); 
+  }
+  const noterefs = window.document.querySelectorAll('a[role="doc-noteref"]');
+  for (var i=0; i<noterefs.length; i++) {
+    const ref = noterefs[i];
+    tippyHover(ref, function() {
+      // use id or data attribute instead here
+      let href = ref.getAttribute('data-footnote-href') || ref.getAttribute('href');
+      try { href = new URL(href).hash; } catch {}
+      const id = href.replace(/^#\/?/, "");
+      const note = window.document.getElementById(id);
+      return note.innerHTML;
+    });
+  }
+  const findCites = (el) => {
+    const parentEl = el.parentElement;
+    if (parentEl) {
+      const cites = parentEl.dataset.cites;
+      if (cites) {
+        return {
+          el,
+          cites: cites.split(' ')
+        };
+      } else {
+        return findCites(el.parentElement)
+      }
+    } else {
+      return undefined;
+    }
+  };
+  var bibliorefs = window.document.querySelectorAll('a[role="doc-biblioref"]');
+  for (var i=0; i<bibliorefs.length; i++) {
+    const ref = bibliorefs[i];
+    const citeInfo = findCites(ref);
+    if (citeInfo) {
+      tippyHover(citeInfo.el, function() {
+        var popup = window.document.createElement('div');
+        citeInfo.cites.forEach(function(cite) {
+          var citeDiv = window.document.createElement('div');
+          citeDiv.classList.add('hanging-indent');
+          citeDiv.classList.add('csl-entry');
+          var biblioDiv = window.document.getElementById('ref-' + cite);
+          if (biblioDiv) {
+            citeDiv.innerHTML = biblioDiv.innerHTML;
+          }
+          popup.appendChild(citeDiv);
+        });
+        return popup.innerHTML;
+      });
+    }
+  }
+});
+</script>
+</div> <!-- /content -->
+
+
+
+</body></html>

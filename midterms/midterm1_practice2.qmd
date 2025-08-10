@@ -1,0 +1,63 @@
+---
+title: "Midterm 1 Practice 2"
+author: "Your name"
+format: pdf
+---
+
+In many cities, there is a bike-share system where people can rent bicycles by the hour. People can use the bikes by either registering as members and purchasing a pass at a discounted rate, or by being a casual rider and paying per trip. We have data from Washington D.C.'s bike-share system from June-August 2012. The data are loaded in and stored as `bikes`. Each case is one rental. The variables are as follows:
+
+-   `month`: month (6 = June, 7 = July, 8 = August)
+-   `day`: day of the month (1-30)
+-   `hour`: hour (0, 6-23, where 0 = 12:00am, 6 = 6:00am, ..., 23 = 11:00pm)
+-   `day_week`: day of the week
+-   `type`: whether the renter was a member or a non-member ("registered" or "casual")
+
+0.  To the code chunk below, add libraries necessary for data wrangling, plotting, and making pretty tables.
+
+```{r message = F, echo = F}
+library(readr)
+
+bikes <- read_csv("https://raw.githubusercontent.com/midd-stat201-spring2025/midd-stat201-spring2025.github.io/refs/heads/main/data/bikes_summer.csv", show_col_types = F)
+```
+
+1.  Modify the `bikes` data frame to include a variable that represents the time of day where:
+
+    -   Rentals from 6:00-8:00am are "early morning"
+    -   Rentals from 9:00am-12:00pm are "late morning"
+    -   Rentals from 1:00pm-4:00pm are "afternoon"
+    -   Rentals from 5:00pm-8:00pm are "early evening"
+    -   Rentals at any other time are "evening"
+
+```{r}
+
+```
+
+2.  For rentals in 2011, do the time of day and the type of renter appear associated? Create an appropriate, well-labeled visualization and interpret it to answer the question.
+
+```{r}
+
+```
+
+**Answer:**
+
+3.  Create a beautiful table that displays the proportion of rentals by registered users for each day of the week, displayed in order of highest to lowest. Your table should only retain the day of the week and the proportion of registered users. What do you notice?
+
+```{r}
+
+```
+
+**Answer:**
+
+4.  Create a beautiful summary table that displays the mean and standard deviation of daily number of bike rentals in June 2012.
+
+```{r}
+
+```
+
+5.  Re-create the graph seen on the rendered version. 
+
+```{r}
+
+```
+
+

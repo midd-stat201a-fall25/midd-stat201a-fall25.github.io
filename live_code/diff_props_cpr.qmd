@@ -1,0 +1,54 @@
+---
+title: "Code for CPR example"
+date: "April 2, 2025"
+---
+
+```{r message = F}
+library(openintro)
+library(tidyverse)
+
+# summarise data
+## option 1: harder to remember
+props <- cpr |>
+  group_by(group) |>
+  summarise(prop = mean(outcome == "survived")) |>
+  pull(prop)
+
+diff_prop_obs <- props[2] - props[1]
+
+## option 2: more code, but clearer
+p_c_obs <- cpr |>
+  group_by(group) |>
+  summarise(prop = mean(outcome == "survived")) |>
+  filter(group == "control") |>
+  pull(prop)
+
+p_t_obs <- cpr |>
+  group_by(group) |>
+  summarise(prop = mean(outcome == "survived")) |>
+  filter(group == "treatment") |>
+  pull(prop)
+diff_prop_obs <- p_t_obs - p_c_obs
+
+### step 3: simulate null
+set.seed(310)
+n_t <- sum(cpr$group == "treatment")
+n_c <- sum(cpr$group == "control")
+cards <- cpr$outcome
+B <- 1000
+diff_props_null <- rep(NA , B)
+for(b in 1:B){
+  shuffled <- sample(cards)
+  treat_sim <- shuffled[1:n_t]
+  control_sim <- shuffled[-c(1:n_t)]
+  
+  p_t_sim <- mean(treat_sim == "survived")
+  p_c_sim <- mean(control_sim == "survived")
+  
+  diff_props_null[b] <- p_t_sim - p_c_sim
+}
+
+# p-value: we want "greater than" direction
+p_val <- mean(diff_props_null >= diff_prop_obs)
+```
+

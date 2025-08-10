@@ -1,0 +1,39 @@
+project:
+  type: website
+  output-dir: docs
+  render:
+    - "*.qmd"
+
+website:
+  title: "STAT 201: Intro. to Statistics and Data Science"
+  navbar:
+    left:
+      - file: index.qmd
+        text: "Home"
+      - file: schedule.qmd
+        text: "Schedule"
+      - file: midterms.qmd
+        text: "Midterms"
+      - file: datafest.qmd
+        text: "DataFest"
+      - file: project/project_description.qmd
+        text: "Project"
+    right:
+      - icon: book-half
+        text: "Textbook"
+        href: https://openintro-ims.netlify.app/
+      - icon: bar-chart-fill
+        text: "Canvas"
+        href: https://middlebury.instructure.com/
+
+
+format:
+  html:
+    theme: 
+      - united
+      - customs.scss
+    toc: false
+    page-layout: article
+
+editor: visual
+

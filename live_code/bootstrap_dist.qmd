@@ -1,0 +1,50 @@
+---
+title: "Bootstrap distribution demo"
+date: "March 24, 2024"
+html:
+  code-line-numbers: true
+---
+
+```{r message = F, fig.height=3}
+library(tidyverse)
+
+# "set seed" for reproducibility
+set.seed(1)
+
+# our original sample
+x_orig <- c("yes", "no", "yes", "yes", "no", "yes", "yes", "yes", "yes", "no")
+
+# sample size stored as variable for reproducibility
+n <- length(x_orig)
+
+# number of bootstrap samples to take
+B <- 5000
+
+# vector to store bootstrap statistics
+# starts off as vector full of NAs of length B
+bootstrap_props <- rep(NA, B)
+
+# for loop
+for(b in 1:B){
+  # obtain bootstrap resample (will change every iteration)
+  x_b <- sample(x = x_orig, size = n, replace = TRUE)
+  
+  # calculate bootstrap statistic (will change every iteration)
+  boot_mean <- mean(x_b == "yes")
+  
+  # store into b-th position, replacing the NA
+  bootstrap_props[b] <- boot_mean
+}
+
+# visualize bootstrap dist.
+
+## first create data frame
+boot_df <- data.frame(props = bootstrap_props) 
+
+## ggplot
+ggplot(boot_df, aes(x = props))+
+  geom_histogram(bins = 10, col = "white") +
+  labs(title = "Bootstrap distribution",
+       subtitle = "Population: STAT 201A students",
+       x = "Proportion who drink coffee")
+```

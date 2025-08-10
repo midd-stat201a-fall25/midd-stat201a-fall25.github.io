@@ -1,0 +1,142 @@
+---
+title: "Simple Linear Regression: Interpretation"
+format: 
+  pdf:
+    geometry:
+      - top=2.5cm
+      - left=2.5cm
+      - right=2.5cm
+      - bottom=2.5cm
+include-in-header:
+  - text: |
+      \pagenumbering{gobble}
+      \usepackage{multicol}
+editor_options: 
+  chunk_output_type: console
+---
+
+\vspace{-2cm}
+
+```{r echo = F, message= F}
+knitr::opts_chunk$set(echo = F, warning = F, messabundance = F, fig.height = 2.25, fig.width = 4, fig.align = "center")
+library(tidyverse)
+library(openintro)
+library(broom)
+library(patchwork)
+library(kableExtra)
+```
+
+# Example 1: continuous $x$
+
+The `elmhurst` dataset from `openintro` provides a random sample of 50 students' gift aid for students at Elmhurst College.We will examine the relationship between the family `income` of the student and the `gift aid` that student received (in \$1000s)
+
+```{r fig.height=2}
+ggplot(elmhurst, aes(x = family_income, y = gift_aid)) +
+  geom_point() +
+  labs(x = "Family income ($1000s)", y = "Gift aid ($1000s)") +
+  theme_minimal() 
+```
+
+**Linear regression model**: \vspace{2cm}
+
+**Are the first two conditions of LINE satisfied?** \vspace{2cm}
+
+**Find the coefficient estimates**:
+
+```{r echo = F}
+R <- cor(elmhurst$family_income, elmhurst$gift_aid)
+t2 <- data.frame(R = R) |>
+  kable(digits = 3)
+```
+
+```{r echo = F}
+elmhurst_lm <- lm(gift_aid ~ family_income, data = elmhurst)
+t1 <- elmhurst |>
+  pivot_longer(cols = c(family_income, gift_aid), 
+               names_to = "variable", 
+               values_to = "val") |>
+  select(-price_paid) |>
+  group_by(variable) |>
+  summarise(mean = mean(val), s = sd(val))|>
+  kable(digits = 2) 
+```
+
+::: {layout-ncol="2"}
+```{r}
+t1
+```
+
+```{r}
+t2
+```
+:::
+
+\vspace{4cm}
+
+**Fitted regression model**: \vspace{2cm}
+
+**Check remaining conditions:**
+
+```{r fig.height=2, fig.width=6}
+p1 <- augment(elmhurst_lm)  |>
+  ggplot(aes(x = .resid)) +
+  geom_histogram(bins = 15) +
+  labs(x = "Residual") +
+  theme_minimal() 
+p2 <- augment(elmhurst_lm)  |>
+  ggplot(aes(x = family_income, y = .resid)) +
+  geom_point() +
+  labs(x = "Family income ($1000s)", y = "Residual") +
+  geom_hline(yintercept = 0, linetype = "dashed")+
+  theme_minimal() 
+
+p1 + p2
+```
+
+\vspace{2cm}
+
+**Interpret** $b_{0}$ in context: \vspace{4cm}
+
+**Interpret** $b_{1}$ in context: \vspace{4cm}
+
+**Find and interpret the coefficient of determination:** \vspace{3cm}
+
+\clearpage
+
+# Example 2: categorical $x$
+
+Running example: the `possum` data from `openintro` which has data representing possums in Australia and New Guinea
+
+-   Response variable: `tail_l` (tail length in cm)
+
+-   Explanatory variable: `pop` (either "Vic" for possums from Victoria or "other" for possums from New South Wales or Queensland)
+
+**Write out our indicator variable here:** \vspace{3cm}
+
+**Linear regression model**: \vspace{2cm}
+
+**Fitted model**: \vspace{2cm}
+
+**Interpret** $b_{0}$ in context: \vspace{4cm}
+
+**Interpret** $b_{1}$ in context: \vspace{4cm}
+
+\clearpage
+
+**Retroactively check conditions**
+
+```{r fig.height=2.5, fig.width = 6}
+possum_lm <- lm(tail_l ~ pop, data = possum)
+p1 <- augment(possum_lm) |>
+  ggplot(aes(x = .resid)) + 
+  geom_histogram(bins = 15) +
+  facet_wrap(~pop) +
+  theme_minimal() +
+  labs(x = "Residual")
+p2 <- augment(possum_lm) |>
+  ggplot(aes(x = pop, y = .resid)) + 
+  geom_point() +
+  theme_minimal() +
+  labs(y = "Residual")
+p1 + p2
+```

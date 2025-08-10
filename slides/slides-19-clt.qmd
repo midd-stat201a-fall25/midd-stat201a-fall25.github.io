@@ -1,0 +1,539 @@
+---
+title: "Central Limit Theorem"
+date: "April 9, 2025"
+title-slide-attributes:
+    data-background-image: "figs/bikeshare-plots.png"
+    data-background-size: contain
+    data-background-opacity: "0.2"
+format: 
+  revealjs:
+    theme: custom.scss
+    transition: none
+    incremental: true
+    scrollable: true
+editor: visual
+editor_options: 
+  chunk_output_type: console
+draft: false
+---
+
+## Housekeeping
+
+-   Final project groups!
+
+-   No office hours this Friday, but make-up hours Thursday 2:30-3:30pm
+
+## Recap
+
+```{r echo = F, message= F}
+knitr::opts_chunk$set(echo = F, warning = F, messabundance = F)
+library(tidyverse)
+library(openintro)
+library(readr)
+library(kableExtra)
+plot_theme <- theme(text = element_text(size = 24))
+source("../stat201_fns.R")
+```
+
+-   Normal distribution: symmetric, bell-shaped curve that is described by mean $\mu$ and standard deviation $\sigma$
+
+    -   Common model used to describe behavior of continuous variables
+
+-   Use area under the Normal curve to obtain probabilities
+
+-   68-95-99.7 rule
+
+-   z-score standardizes observations to allow for easier comparison: $z = \frac{x- \mu}{\sigma}$
+
+    -   If the data are known to be Normal, then the z-scores are $N(0,1)$
+
+## Where we're going
+
+-   We are going to learn one of the BIGGEST theorems in Statistics
+
+-   Uses the Normal distribution, and will be immensely helpful for inference tasks of confidence intervals and hypothesis testing
+
+# Central Limit Theorem
+
+## Central Limit Theorem (CLT)
+
+-   Assume that you have a **sufficiently large** sample of $n$ **independent** values $x_{1},\ldots, x_{n}$ from a population with mean $\mu$ and standard deviation $\sigma$.
+
+-   Then the distribution of sample means is approximately Normal:
+
+    $$
+    \bar{X} \overset{\cdot}{\sim} N\left(\mu, \frac{\sigma}{\sqrt{n}}\right)
+    $$
+
+    -   That is, the *sampling distribution* of the sample mean is approximately normal with mean $\mu$ and standard error $\sigma/\sqrt{n}$
+
+## CLT assumptions
+
+1.  Independent samples:
+
+    -   Usually achieved by random sampling
+
+2.  Normality condition:
+
+    -   If the data $x_{1},\ldots, x_{n}$ are known to be Normal and independent, then the distribution of $\bar{X}$ is ***exactly*** Normal
+    -   If data are not known to be Normal, then check:
+        -   If $n$ is small $(n < 30)$: if there are no clear outliers, we assume data are approximately normal
+
+        -   If $n$ is larger $(30 \leq n < ?)$: if there are no particularly extreme outliers, we assume data are approximately normal
+
+-   ::: important
+    If any of these aren't met, then we *cannot* use CLT
+    :::
+
+## Normality condition
+
+::: discuss
+Do you believe the normality condition is satisfied in the following two samples?
+:::
+
+::::: columns
+::: {.column width="65%"}
+![](figs/16-normality.png){width="600"}
+:::
+
+::: {.column width="35%"}
+-   Sample 1: small $n < 30$. But histogram and boxplot reveals no clear outliers, so I would say normality condition is met.
+
+-   Sample 2: larger $n \geq 30$. Even though $n$ is larger, there is a particularly extreme outlier, so I would say normality condition is not met.
+:::
+:::::
+
+## CLT again
+
+Let's see it again: If the assumptions of independence and Normality condition apply, then
+
+$$\bar{X} \overset{\cdot}{\sim} N\left(\mu, \frac{\sigma}{\sqrt{n}} \right)$$ where $\mu$ and $\sigma$ are the population mean and standard deviation, and $\bar{X}$ is the sample mean obtained from a sample of size $n$.
+
+::: discuss
+-   What does the $\frac{\sigma}{\sqrt{n}}$ represent?
+-   For fixed $\sigma$, how does the sampling distribution change as $n$ increases?
+:::
+
+## Height example
+
+```{r}
+mu <- round(mean(nba_heights$h_in), 2)
+sigma <- round(sd(nba_heights$h_in), 2)
+n <- 20
+```
+
+The average height of all NBA players in the 2008-9 season is `r mu` inches, with a population standard deviation of `r sigma` inches. We randomly sampled `r n` of these players and recorded their heights, as shown below.
+
+```{r}
+set.seed(11)
+x <- sample(nba_heights$h_in, n)
+ggplot(data.frame(x), aes(x = x)) +
+  geom_histogram(bins = 20, color = "white") +
+  labs(x = "Player height (in)") +
+  theme_minimal() +
+  theme(text = element_text(size = 22))
+```
+
+:::: fragment
+::: discuss
+What is the sampling distribution of the sample mean heights? Do we know it exactly?
+:::
+::::
+
+## Height example: solution
+
+We don't know if the data are Normal. But:
+
+1.  Independence? Yes: we have independent samples!
+2.  Normality condition? Yes: even though we have small sample size, the histogram of the data looks approximately Normal (no clear outliers).
+
+-   So CLT applies! By CLT: $\bar{X} \overset{\cdot}{\sim} N\left(`r mu`, \frac{`r sigma`}{\sqrt{`r n`}}\right)$
+
+:::::: columns
+::: {.column width="50%"}
+-   If data instead looked like the following, I would say normality condition is violated:
+:::
+
+:::: {.column width="50%"}
+::: fragment
+```{r}
+set.seed(2)
+height_sort <- nba_heights |>
+  arrange(desc(h_in)) |>
+  slice(1:100) |>
+  sample_n(n-1) |>
+  pull(h_in)
+x <- c(height_sort, min(nba_heights$h_in))
+ggplot(data.frame(x), aes(x = x)) +
+  geom_histogram(bins = 20, color = "white") +
+  labs(x = "Player height (in)") +
+  theme_minimal() +
+  theme(text = element_text(size = 30))
+```
+:::
+::::
+::::::
+
+## The three different dists.
+
+Note: $y$-axis is density (how likely each $x$ value is from the given distribution).
+
+```{r}
+set.seed(11)
+x <- sample(nba_heights$h_in, n)
+sample_df <- data.frame(h_in = x, dist = "sample")
+sampling_df <- data.frame(h_in = replicate(200, mean(sample(nba_heights$h_in, n))), dist = "sampling")
+pop_df <- data.frame(h_in = nba_heights$h_in, dist = "population")
+
+rbind(sample_df, sampling_df, pop_df) |>
+  ggplot(aes(x = h_in, fill = dist, col = dist))+
+  geom_histogram(bins = 25, alpha = 0.75,
+                 mapping = aes(y = stat(density)))+
+                 #position = "identity") +
+  scale_fill_viridis_d(option = "F") +
+  scale_color_viridis_d(option = "F") +
+  theme_minimal() +
+  labs(x = "Height (in)",
+       title = "Different distributions",
+       fill = NULL, col = NULL) +
+  theme(text = element_text(size = 20))
+```
+
+::: discuss
+What do you notice about how the three distributions compare? Are some distributions very similar? Are some very different? Why do you think this is?
+:::
+
+## Bank example
+
+Customers are standing in line at a bank.
+
+-   Let $X_{i}$ represent the service time for customer $i$.
+
+-   Suppose that the average service time for all customers is 5 minutes, with a standard deviation of 6 minutes.
+
+::: discuss
+-   Assume that a bank currently has 36 customers in it, and all customers are independent of each other. What is the probability that the average service time of all these customers is less than 4 minutes?
+:::
+
+## Bank example: solution
+
+-   We want $\text{Pr}(\bar{X} < 4)$
+
+-   Conditions for CLT met: independence (random sample) and sufficiently large sample size $(n=36)$.
+
+    -   So by CLT, $\bar{X} \overset{\cdot}{\sim}N(5, \frac{6}{\sqrt{36}}) = N(5, 1)$
+
+-   Using 68-95-99.7 rule, probability that the average service time of all these customers is less than 4 minutes is about $1 - (0.34 + 0.5) = 0.16$
+
+    -   `pnorm(4, 5, 1)` = `r round(pnorm(4,5,1), 3)`
+
+# CLT for proportions
+
+Remember: a proportion can be viewed as a mean! So the CLT will apply to proportions as well!
+
+## **CLT for sample proportions**
+
+Suppose we have some true population proportion $p$. If we take a sample of size $n$ from the population, then the CLT tells us that **sampling distribution of** $\hat{p}$ is approximately Normal if we have:
+
+1.  Independence
+
+2.  "Success-failure" condition: $np \geq 10$ *and* $n(1-p) \geq 10$
+
+::: fragment
+If these two conditions hold, then by CLT:
+
+$$
+\hat{p} \overset{\cdot}{\sim} N\left(p, \sqrt{\frac{p(1-p)}{n}}\right)
+$$
+:::
+
+::: discuss
+-   Why is the condition called "success-failure"?
+-   Are you comfortable with using a Normal distribution to approximate the sampling distribution of $\hat{p}$?
+:::
+
+## M&M's example
+
+Mars, Inc. is the company that makes M&M's. In 2008, Mars changed their color distribution to have 13% red candies.
+
+:::: fragment
+::: discuss
+Let $\hat{p}$ represent the proportion of red M&M's in a random sample of $n$ M&M's. What is the sampling distribution of $\hat{p}$ if we take a random sample of sizes:
+
+-   $n = 100$, vs.
+
+-   $n = 10$
+:::
+::::
+
+## M&M's example: solution
+
+1.  Independence? Yes, due to the random sample.
+2.  Success-failure? Depends...
+
+::::::: columns
+:::: {.column width="60%"}
+-   **If** $n= 100$**:**
+
+    -   $np = 100(0.13) = 13 \geq 10$
+
+    -   $n(1-p) = 100(0.87) = 87 \geq 10$
+
+-   So CLT applies!
+
+::: fragment
+$$
+\begin{align*}
+\hat{p} &\overset{\cdot}{\sim} N\left(0.13, \sqrt{\frac{0.13(1-0.13)}{100}}\right) \\
+&= N(0.13, 0.034 )
+\end{align*}
+$$
+:::
+::::
+
+:::: {.column width="40%"}
+::: fragment
+```{r fig.height=8}
+p <- 0.13
+n <- 100
+ggplot() +
+   geom_function(fun = dnorm, args = list(mean = p, sd = sqrt(p*(1-p)/n)),
+                 linewidth = 2)+
+  theme_minimal() +
+  scale_x_continuous(limits = c(-0.2, 1.1), n.breaks = 6) +
+  theme(axis.text.y = element_blank(), axis.title.y = element_blank()) +
+  labs(x = expression(hat(p)), title = "Theoretical sampling distribution", subtitle = "By CLT") +
+  theme(text = element_text(size = 30))
+```
+:::
+::::
+:::::::
+
+## M&M's example: solution (cont.)
+
+-   **If** $n = 10$**:**
+    -   $np = 10(0.13) = 1.3 < 10$
+-   Success-failure condition not met. **Cannot use CLT.**
+
+::::::: columns
+::: {.column width="50%"}
+-   If we incorrectly applied CLT, we *might* think $$\begin{align*}
+    \hat{p} &\overset{\cdot}{\sim} N\left(0.13, \sqrt{\frac{0.13(1-0.13)}{10}}\right) \\
+    &=  N(0.13, 0.106 )
+    \end{align*}$$
+
+-   What does this distribution look like?
+:::
+
+::::: {.column width="50%"}
+:::: fragment
+::: discuss
+Why is this scary??
+:::
+
+```{r fig.height = 7}
+n <- 10
+ggplot() +
+   geom_function(fun = dnorm, args = list(mean = p, sd = sqrt(p*(1-p)/n)),
+                 linewidth = 2)+
+  theme_minimal() +
+  scale_x_continuous(limits = c(-0.5, 1.1), n.breaks = 6) +
+  theme(axis.text.y = element_blank(), axis.title.y = element_blank()) +
+  labs(x = expression(hat(p)), title = "Incorrect theoretical sampling distribution") +
+  theme(text = element_text(size = 30))
+```
+::::
+:::::
+:::::::
+
+## Why is CLT so important?
+
+1.  Allows statisticians safely assume that the mean's sampling distribution is approximately Normal. The Normal distribution has nice properties and is easy to work with.
+
+2.  Can be applied to both continuous and discrete numeric data!
+
+3.  Does not depend on the underlying distribution of the data.
+
+-   For many of these reasons, we can use the CLT for inference!
+
+-   NOTE: we might not know what $\mu$ or $p$ actually are, but CLT tells us that the sampling distributions of $\bar{X}$ and $\hat{p}$ are centered at their theoretical values!
+
+# Confidence Intervals via CLT
+
+## Mathematical CIs
+
+-   The CLT gives us the sampling distribution of a sample mean "for free" (assuming conditions are met)
+
+-   Formula for a (symmetric) $\gamma \times 100\%$ confidence interval:
+
+    $$
+    \text{point estimate} \pm \underbrace{\text{critical value} \times \text{SE}}_{\text{Margin of Error}}
+    $$
+
+    1.  **point estimate**: the "best guess" statistic from our observed data (e.g. $\hat{p}_{obs}$ and $\bar{x}_{obs}$)
+
+    2.  **SE**: standard error of the statistic
+
+    3.  **critical value**: percentile that guarantees the $\gamma\times 100$. This will vary depending on your data/assumptions
+
+## Towards a CI for a single proportion
+
+Suppose that I have a sample of $n$ binary values. Using the sample, I want a $\gamma \times 100\%$ confidence interval for the probability of success $p$.
+
+::: fragment
+[**If**]{.underline} assumptions of CLT for sample proportions hold, then we know
+
+$$
+\hat{p} \overset{\cdot}{\sim} N\left(p, \sqrt{\frac{p(1-p)}{n}}\right)
+$$
+:::
+
+-   ::: important
+    How do we know if success-failure condition holds without knowing $p$?
+    :::
+
+    -   Let's use our best guess: $\hat{p}_{obs}$
+
+    -   Success-failure condition ***for confidence intervals***: $n\hat{p}_{obs}$ and $n(1-\hat{p}_{obs})$ both $\geq 10$
+
+## Towards a CI for a single proportion (cont.)
+
+We can use/manipulate the CLT result to obtain a confidence interval for $p$!
+
+1.  **Point estimate**: $\hat{p}_{obs}$
+
+2.  **Standard error**: $SE = \sqrt{\frac{p(1-p)}{n}}$
+
+    -   But we still don't have $p$!
+
+    -   Instead, use the following approximation for CI:
+
+::: fragment
+$$\widehat{\text{SE}} \approx \sqrt{\frac{\hat{p}_{obs}(1-\hat{p}_{obs})}{n}}$$
+:::
+
+## Towards a CI for a single proportion (cont.)
+
+3.  **Critical value**: to obtain the middle $\gamma \times 100\%$, use the $\frac{1-\gamma}{2}$ and $\frac{1+\gamma}{2}$ percentiles of the $N(0,1)$ distribution
+
+    -   $z_{(1-\gamma)/2}^{*}$ (lower bound) and $z_{(1+\gamma)/2}^{*}$ (upper bound)
+
+    -   Note: $z_{(1+\gamma)/2}^{*} = - z_{(1-\gamma)/2}^{*}$
+
+::: fragment
+```{r fig.height=3.5}
+funcShaded <- function(x, lower_bound = -Inf, upper_bound = Inf) {
+    y = dnorm(x, mean = mu, sd = sd)
+    y[x < lower_bound] <- NA
+    y[x > upper_bound] <- NA
+    return(y)
+}
+gamma <- 0.9
+mu <- 0; sd <- 1
+lb <- qnorm((1-gamma)/2)
+ub <- qnorm((1+gamma)/2)
+df <- data.frame(x = c(lb + 0.025, ub -0.025))|>
+  mutate(y = dnorm(x))
+temp_lb <- expression({z^"*"}[(1 - gamma)/2])
+temp_ub <- expression({z^"*"}[(1 + gamma)/2])
+x_lb <- lb-1
+x_ub <- ub + 1
+y_lb <- y_ub <- 0.15
+ggplot() +
+  stat_function(fun = dnorm, args = list(mean = mu, sd = sd)) +
+  theme_minimal() +
+  scale_x_continuous(limits = c(-3.1,3.1), 
+                     n.breaks = 7) +
+  stat_function(fun = funcShaded, args = list(lower_bound = lb, upper_bound = ub),  geom = "area", fill = "gray", alpha = .8) +
+  theme(axis.text.y = element_blank()) +
+  labs( y = NULL, x = "z", title = expression(N(0,1))) +
+  theme(text = element_text(size = 25)) + 
+   geom_segment(data = df, aes(x=x, y=y, xend = x, yend = 0), linetype = "dashed", linewidth = 1) +
+   annotate("text", x = c(0), y = c(0.2), label = c(expression(gamma)), size = 15) +
+   annotate("text", x = c(x_lb), y = c(y_lb), label = as.character(temp_lb), parse = T, size = 10)  +
+     annotate("text", x = c(x_ub), y = c(y_ub), label = as.character(temp_ub), parse = T, size = 10) +
+  geom_segment(aes(x = x_lb, y = y_lb-0.05, xend = lb, yend = 0), arrow = arrow())+
+    geom_segment(aes(x = x_ub, y = y_ub-0.05, xend = ub, yend = 0), arrow = arrow())
+
+```
+:::
+
+## CI for single proportion
+
+So the formula for a (symmetric) $\gamma\times 100\%$ CI for $p$ is:
+
+::: fragment
+$$
+\hat{p}_{obs} \pm z_{(1+\gamma)/2}^{*}\times \sqrt{\frac{\hat{p}_{obs}(1-\hat{p}_{obs})}{n}}
+$$where the critical value $z^{*}_{(1+\gamma)/2}$ is obtained from $N(0,1)$ distribution.
+:::
+
+::: {.fragment style="color: maroon"}
+NOTE: we could have obtained the CI directly from the sampling distribution of $\hat{p}$. However, the critical value of $z_{(1+\gamma)/2}^{*}\sim N(0,1)$ is very general. Does not depend on the specific data you have!
+:::
+
+## Example
+
+A poll of 100 randomly sampled registered voters in a town was conducted, asking voters if they support legalized marijuana. It was found that 60% of respondents were in support.
+
+::: discuss
+What is the population parameter? What is the point estimate/statistic?
+:::
+
+::: {.fragment style="color: maroon"}
+Find a (symmetric) 90% confidence interval for the true proportion of town residents in favor of legalized marijuana.
+:::
+
+-   ::: discuss
+    Conditions met?
+    :::
+
+    -   Independence: random sample
+
+    -   Success-failure condition: $n\hat{p}_{obs} =100(0.6) = 60 \geq 10$ and $n(1-\hat{p}_{obs}) = 100(0.4) = 40 \geq 10$
+
+-   Because conditions for CLT are met, we can proceed.
+
+## Example (cont.)
+
+::: {.fragment style="color: maroon"}
+Find 90% CI for proportion of town residents in favor of legalized marijuana.
+:::
+
+::: fragment
+Gathering components for CI:
+:::
+
+1.  Point estimate: $\hat{p}_{obs}$ = 0.6
+
+2.  Standard error: $\widehat{SE} = \sqrt{\frac{0.6(0.4)}{100}} \approx 0.049$
+
+3.  ::: discuss
+    Critical value: what percentiles do we want?
+    :::
+
+    -   $z_{0.95}^{*} =$ `qnorm(0.95, mean = 0, sd = 1)` $\approx 1.645$
+
+::: fragment
+So our 90% confidence interval for $p$ is:
+
+$$
+\hat{p}_{obs} \pm z^{*}_{0.95} \widehat{SE} = 0.6 \pm 1.645(0.049) = (0.519, 0.681)
+$$
+:::
+
+:::: fragment
+::: discuss
+Interpret the confidence interval in context!
+:::
+::::
+
+## Comprehension questions
+
+-   What is the main takeaway of the CLT?
+
+-   What are the assumptions of the CLT?
+
+-   What is the Normal approximation for CLT?
+
+-   How do we construct a $\gamma \times 100\%$ confidence interval using a mathematical model?

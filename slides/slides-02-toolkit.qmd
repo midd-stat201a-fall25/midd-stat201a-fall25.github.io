@@ -1,0 +1,133 @@
+---
+title: "Toolkit"
+date: "February 13, 2025"
+title-slide-attributes:
+    data-background-image: "figs/bikeshare-plots.png"
+    data-background-size: contain
+    data-background-opacity: "0.2"
+format: 
+  revealjs:
+    theme: custom.scss
+    transition: none
+    incremental: true
+    scrollable: true
+editor: visual
+editor_options: 
+  chunk_output_type: console
+draft: false
+---
+
+# Housekeeping
+
+-   A few more homework problems released today. Yesterday and today's problems are due to Gradescope by Monday 11:59pm
+
+-   Office hours reminder!
+
+# Agenda
+
+-   Reproducible data analysis
+
+-   Toolkit
+
+    -   `R` and RStudio (Posit)
+
+    -   Quarto markdown
+
+-   Practice!
+
+## Reproducibility
+
+-   Allows your code execution or an experiment to be repeated by another person
+
+-   Goals:
+
+    -   Are the tables and figures generated directly from the code?
+
+    -   Does the code actually do what you think it does?
+
+    -   Can your code be used for other data/analyses?
+
+## Toolkit
+
+![](figs/02-toolkit.png){width="365"}
+
+-   We will use the programming language **`R`** to write code
+
+-   How will interact with the `R` code? In the integrated development environment called **RStudio.** Helps us be more productive with `R`
+
+    -   `R` is like a car engine, and RStudio is like a car's dashboard
+
+-   We will liberate our programming by keeping code, narrative, and output all in the same interface using **Quarto Markdown** documents
+
+## Quarto Markdown
+
+-   Allows us to create fully reproducible reports
+
+-   Can code in *code chunks* and type regular text/narrative outside of these chunks
+
+-   How will we use Quarto Markdown?
+
+    -   You coding practice problems and some problems on your weekly assignments will be assigned as a Quarto Markdown document (.qmd)
+
+    -   You will almost always be provided with a template .qmd to start with (the exception being the end of the semester when you've mastered this material!)
+
+```{=html}
+<!--
+# Installation
+
+## Installing `R`
+
+Please be patient! This process may be time-consuming and stressful, but it is necessary for the rest of the course!
+
+1.  **WINDOWS/MAC**: Go to the [CRAN website](https://lib.stat.cmu.edu/R/CRAN/) and click on the appropriate link under "Download and Install R". Then:
+    i.  If you are **Windows**: click on the blue text that says "install R for the first time".
+    ii. If you are **macOS**: check your Mac OS system and if you have a chip (Apple icon -\> About this Mac -\> Overview)
+        i.  Then on the website, click the newest release that supports your current OS version. This will most likely be R-4.4.1-arm64.pkg or R-4.4.1-x86_64.pkg.
+
+            ![](figs/02-macOS-R.png){width="267"}
+2.  **LINUX**: follow the instructions on for Steps 1 and 2 on [this website](https://posit.co/download/rstudio-server/).
+
+## Install R (cont.)
+
+2.  A file will download, most likely to your *Downloads* folder. Run the file by clicking on it. Allow the app to make changes to your device if prompted.
+
+    ![](figs/02-R_wizard.png){width="347"}
+
+3.  Follow the installation instructions, until you click on "Finish" to exit the installation setup. At this point, `R` should be successfully installed!
+
+## Installing RStudio
+
+1.  **LINUX**: go to step 3 of the same website
+
+2.  **WINDOWS/MACS**: Go to the [Posit website](https://posit.co/download/rstudio-desktop/) and scroll down a little until you see two steps. We already did Step 1!
+
+    i.  Under Step 2, click the blue Download RStudio Desktop button recommended for your computer
+
+        a.  macOS users: double check you have an OS that is recent enough! Otherwise, raise your hand!
+
+    ii. Run the downloaded RStudio Executable file until you hit the "Finish" button. It may be the case that you don't have to click anything at all.
+
+    iii. After RStudio finishes downloading, a window like this might pop up. If so, go ahead and drag the RStudio icon into the Applications folder.
+
+    ::: fragment
+    ![](figs/02-RStudio_download.png){width="273"}
+    :::
+    
+-->
+```
+
+## RStudio
+
+To open RStudio, simply double click on the RStudio icon (you do not need to click on the `R` icon)
+
+::: fragment
+![](figs/02-rstudio_interface.png)
+:::
+
+## Make a folder
+
+Create a new folder on your Desktop that is named **STAT 201**.
+
+-   ::: {style="color: maroon"}
+    All of your files for this course should go into this folder!!!!
+    :::

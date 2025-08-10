@@ -1,0 +1,686 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml" lang="en" xml:lang="en"><head>
+
+<meta charset="utf-8">
+<meta name="generator" content="quarto-1.2.313">
+
+<meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
+
+
+<title>STAT 201: Intro. to Statistics and Data Science - Final project</title>
+<style>
+code{white-space: pre-wrap;}
+span.smallcaps{font-variant: small-caps;}
+div.columns{display: flex; gap: min(4vw, 1.5em);}
+div.column{flex: auto; overflow-x: auto;}
+div.hanging-indent{margin-left: 1.5em; text-indent: -1.5em;}
+ul.task-list{list-style: none;}
+ul.task-list li input[type="checkbox"] {
+  width: 0.8em;
+  margin: 0 0.8em 0.2em -1.6em;
+  vertical-align: middle;
+}
+</style>
+
+
+<script src="../site_libs/quarto-nav/quarto-nav.js"></script>
+<script src="../site_libs/quarto-nav/headroom.min.js"></script>
+<script src="../site_libs/clipboard/clipboard.min.js"></script>
+<script src="../site_libs/quarto-search/autocomplete.umd.js"></script>
+<script src="../site_libs/quarto-search/fuse.min.js"></script>
+<script src="../site_libs/quarto-search/quarto-search.js"></script>
+<meta name="quarto:offset" content="../">
+<script src="../site_libs/quarto-html/quarto.js"></script>
+<script src="../site_libs/quarto-html/popper.min.js"></script>
+<script src="../site_libs/quarto-html/tippy.umd.min.js"></script>
+<script src="../site_libs/quarto-html/anchor.min.js"></script>
+<link href="../site_libs/quarto-html/tippy.css" rel="stylesheet">
+<link href="../site_libs/quarto-html/quarto-syntax-highlighting.css" rel="stylesheet" id="quarto-text-highlighting-styles">
+<script src="../site_libs/bootstrap/bootstrap.min.js"></script>
+<link href="../site_libs/bootstrap/bootstrap-icons.css" rel="stylesheet">
+<link href="../site_libs/bootstrap/bootstrap.min.css" rel="stylesheet" id="quarto-bootstrap" data-mode="light">
+<link href="../site_libs/quarto-contrib/downloadthis-1.9.1/downloadthis.css" rel="stylesheet">
+<script id="quarto-search-options" type="application/json">{
+  "location": "navbar",
+  "copy-button": false,
+  "collapse-after": 3,
+  "panel-placement": "end",
+  "type": "overlay",
+  "limit": 20,
+  "language": {
+    "search-no-results-text": "No results",
+    "search-matching-documents-text": "matching documents",
+    "search-copy-link-title": "Copy link to search",
+    "search-hide-matches-text": "Hide additional matches",
+    "search-more-match-text": "more match in this document",
+    "search-more-matches-text": "more matches in this document",
+    "search-clear-button-title": "Clear",
+    "search-detached-cancel-button-title": "Cancel",
+    "search-submit-button-title": "Submit"
+  }
+}</script>
+
+  <script src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-chtml-full.js" type="text/javascript"></script>
+
+</head>
+
+<body class="nav-fixed">
+
+<div id="quarto-search-results"></div>
+  <header id="quarto-header" class="headroom fixed-top">
+    <nav class="navbar navbar-expand-lg navbar-dark ">
+      <div class="navbar-container container-fluid">
+      <div class="navbar-brand-container">
+    <a class="navbar-brand" href="../index.html">
+    <span class="navbar-title">STAT 201: Intro. to Statistics and Data Science</span>
+    </a>
+  </div>
+          <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarCollapse" aria-controls="navbarCollapse" aria-expanded="false" aria-label="Toggle navigation" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">
+  <span class="navbar-toggler-icon"></span>
+</button>
+          <div class="collapse navbar-collapse" id="navbarCollapse">
+            <ul class="navbar-nav navbar-nav-scroll me-auto">
+  <li class="nav-item">
+    <a class="nav-link" href="../index.html">
+ <span class="menu-text">Home</span></a>
+  </li>  
+  <li class="nav-item">
+    <a class="nav-link" href="../schedule.html">
+ <span class="menu-text">Schedule</span></a>
+  </li>  
+  <li class="nav-item">
+    <a class="nav-link" href="../midterms.html">
+ <span class="menu-text">Midterms</span></a>
+  </li>  
+  <li class="nav-item">
+    <a class="nav-link" href="../datafest.html">
+ <span class="menu-text">DataFest</span></a>
+  </li>  
+  <li class="nav-item">
+    <a class="nav-link active" href="../project/project_description.html" aria-current="page">
+ <span class="menu-text">Project</span></a>
+  </li>  
+</ul>
+            <ul class="navbar-nav navbar-nav-scroll ms-auto">
+  <li class="nav-item">
+    <a class="nav-link" href="https://openintro-ims.netlify.app/"><i class="bi bi-book-half" role="img">
+</i> 
+ <span class="menu-text">Textbook</span></a>
+  </li>  
+  <li class="nav-item">
+    <a class="nav-link" href="https://middlebury.instructure.com/"><i class="bi bi-bar-chart-fill" role="img">
+</i> 
+ <span class="menu-text">Canvas</span></a>
+  </li>  
+</ul>
+              <div id="quarto-search" class="" title="Search"></div>
+          </div> <!-- /navcollapse -->
+      </div> <!-- /container-fluid -->
+    </nav>
+</header>
+<!-- content -->
+<div id="quarto-content" class="quarto-container page-columns page-rows-contents page-layout-article page-navbar">
+<!-- sidebar -->
+<!-- margin-sidebar -->
+    <div id="quarto-margin-sidebar" class="sidebar margin-sidebar">
+        <nav id="TOC" role="doc-toc" class="toc-active">
+    <h2 id="toc-title">On this page</h2>
+   
+  <ul>
+  <li><a href="#deadlines" id="toc-deadlines" class="nav-link active" data-scroll-target="#deadlines">Deadlines</a></li>
+  <li><a href="#description" id="toc-description" class="nav-link" data-scroll-target="#description">Description</a></li>
+  <li><a href="#requirements" id="toc-requirements" class="nav-link" data-scroll-target="#requirements">Requirements</a></li>
+  <li><a href="#report" id="toc-report" class="nav-link" data-scroll-target="#report">Report</a></li>
+  <li><a href="#presentation" id="toc-presentation" class="nav-link" data-scroll-target="#presentation">Presentation</a>
+  <ul class="collapse">
+  <li><a href="#presentation-order" id="toc-presentation-order" class="nav-link" data-scroll-target="#presentation-order">Presentation order</a></li>
+  </ul></li>
+  <li><a href="#misc.-submission-items" id="toc-misc.-submission-items" class="nav-link" data-scroll-target="#misc.-submission-items">Misc. submission items</a>
+  <ul class="collapse">
+  <li><a href="#finalized-data-set-dictionary" id="toc-finalized-data-set-dictionary" class="nav-link" data-scroll-target="#finalized-data-set-dictionary">Finalized data set + dictionary</a></li>
+  <li><a href="#reflection" id="toc-reflection" class="nav-link" data-scroll-target="#reflection">Reflection</a></li>
+  </ul></li>
+  <li><a href="#grading" id="toc-grading" class="nav-link" data-scroll-target="#grading">Grading</a>
+  <ul class="collapse">
+  <li><a href="#general-grading-structure" id="toc-general-grading-structure" class="nav-link" data-scroll-target="#general-grading-structure">General grading structure</a></li>
+  </ul></li>
+  </ul>
+</nav>
+    </div>
+<!-- main -->
+<main class="content" id="quarto-document-content">
+
+<header id="title-block-header" class="quarto-title-block default">
+<div class="quarto-title">
+<h1 class="title">Final project</h1>
+</div>
+
+
+
+<div class="quarto-title-meta">
+
+    
+  
+    
+  </div>
+  
+
+</header>
+
+<section id="deadlines" class="level2">
+<h2 class="anchored" data-anchor-id="deadlines">Deadlines</h2>
+<table class="table">
+<thead>
+<tr class="header">
+<th>Deliverable</th>
+<th>Date</th>
+<th>Time</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td><a href="#group">Group creation</a></td>
+<td>Thursday 4/10</td>
+<td>Beginning of class</td>
+</tr>
+<tr class="even">
+<td><a href="#proposal">Proposal for data collection</a></td>
+<td>Wednesday 4/16</td>
+<td>11:59pm</td>
+</tr>
+<tr class="odd">
+<td>Revised proposal for data collection (if applicable)</td>
+<td>Sunday 4/20</td>
+<td>11:59pm</td>
+</tr>
+<tr class="even">
+<td>Collect your data</td>
+<td>Anytime between proposal approval and Sunday 5/04</td>
+<td></td>
+</tr>
+<tr class="odd">
+<td><a href="#dataset">Excel/GoogleSheets of your data</a></td>
+<td>Monday 5/05</td>
+<td>Beginning of class</td>
+</tr>
+<tr class="even">
+<td>Rough draft of <a href="#report">report</a></td>
+<td>Sunday 5/11</td>
+<td>11:59pm</td>
+</tr>
+<tr class="odd">
+<td>Final <a href="#presentation">Presentation</a></td>
+<td>Thursday 5/15</td>
+<td>9am-12pm (slides due at 8am)</td>
+</tr>
+<tr class="even">
+<td>Final report (rendered version and .qmd) and data with data dictionary</td>
+<td>Sunday 12/18 (tentative)</td>
+<td>11:59pm</td>
+</tr>
+<tr class="odd">
+<td>Reflection*</td>
+<td>Sunday 12/18 (tentative)</td>
+<td>11:59pm</td>
+</tr>
+</tbody>
+</table>
+<p>*Reflection should be submitted individually. All other deliverables are one-per-group.</p>
+</section>
+<section id="description" class="level2">
+<h2 class="anchored" data-anchor-id="description">Description</h2>
+<p>As a final project, you will work (optionally) in groups to collect and analyze data from fellow Middlebury students! The final project will give you a chance to demonstrate and celebrate your mastery over the the statistics and data science concepts you have learned this entire semester! You and your group will come up with a list of research questions that you will subsequently answer using appropriate statistical methods.</p>
+<p>In particular, your group will:</p>
+<ul>
+<li>come up with a list of inferential research questions you are interested in answering</li>
+<li>determine your target population, create a list of variables you’d like to observe, and devise an appropriate sampling strategy</li>
+<li>have a finalized data set that anyone can access and use, accompanied by a “data dictionary”</li>
+<li>present your project to the class</li>
+<li>submit a well-written, professional report</li>
+<li>submit a reflection on the project, which will include a rubric for how much each team member contributed</li>
+</ul>
+<p>You should have fun and be creative with this project!! Your research questions can be serious or funny (so long as they are PG-13 and below!)</p>
+<div style="color: maroon">
+<p>Week 12 of the semester will be mostly devoted to project work time.</p>
+</div>
+</section>
+<section id="requirements" class="level2">
+<h2 class="anchored" data-anchor-id="requirements">Requirements</h2>
+<p>The following looks like a lot, but is meant to provide you structure for strong final project that you are proud of!</p>
+<div id="group">
+<section id="group-creation" class="level3">
+<h3 class="anchored" data-anchor-id="group-creation">Group creation</h3>
+</section>
+</div>
+<p>Each group will ideally contain three people.</p>
+<p>By the due date listed in the table above, you should either:</p>
+<ol type="1">
+<li>form a group of three on your own and then e-mail Prof.&nbsp;Tang your decision, cc-ing everyone in the group</li>
+<li>form a group of two and then e-mail Prof.&nbsp;Tang your decision, cc-ing the other person in the group.</li>
+<li>e-mail Prof.&nbsp;Tang if you would like to work alone</li>
+</ol>
+<div id="proposal">
+<section id="proposal-for-data-collection" class="level3">
+<h3 class="anchored" data-anchor-id="proposal-for-data-collection">Proposal for data collection</h3>
+</section>
+</div>
+<p>By the due date listed in the table above, your group should submit to <strong>Canvas</strong> a document detailing the following:</p>
+<ol type="1">
+<li>Your <strong>target population(s)</strong> of interest</li>
+<li>A list of <strong>research questions</strong> your group is interested in exploring/answering. You should have <em>at least</em> one question per group member, but more is better!
+<ul>
+<li>Note: we have not learned about regression yet. But we will soon learn linear regression, which answers questions about how changes in variable <span class="math inline">\(x\)</span> might lead to changes in continuous variable <span class="math inline">\(y\)</span></li>
+</ul></li>
+<li>A list of <strong>variables</strong> you will observe/collect from each observational unit that you may be <strong>useful</strong> and/or required for answering your research question(s).
+<ul>
+<li>You should plan to collect <strong><em>at least</em></strong> <strong>four numerical</strong> variables (at least two of which are continuous), and <strong><em>at least</em></strong> <strong>two categorical</strong> variables</li>
+</ul></li>
+<li>A detailed description of <strong>how you plan to collect your data</strong> (i.e.&nbsp;survey students)
+<ul>
+<li>How many people do you plan to include in your data?</li>
+<li>How will you have people submit their data? (e.g.&nbsp;fill out a paper form, GoogleForm)</li>
+<li>If you want to conduct an observational study: will you implement SRS, stratified, clustering, etc? How exactly will you implement this sampling method?</li>
+<li>If you want to conduct an experiment: will you randomly recruit people to your study? How will you randomly assign treatments? (Make sure your experiment is ethical!!)</li>
+</ul></li>
+<li>A rough <strong>description of the statistical methods</strong> you might use to answer each question you listed in (2).
+<ul>
+<li>This might be along the lines of “hypothesis test for a single mean” or “confidence interval for a proportion” or “linear regression” along with a one-two sentence justification for the method is appropriate.</li>
+<li>It is possible that we haven’t yet learned a method to answer some of your questions. If so, please indicate this on your proposal along with a brief justification for why you think what we have currently learned doesn’t apply.</li>
+</ul></li>
+</ol>
+<div style="color: maroon">
+<p>Once you have submitted your proposal, Prof.&nbsp;Tang will give you feedback. Based on the feedback, your group will either have to submit a revised proposal, or you will be given the okay to go forth and collect your data.</p>
+</div>
+<div id="dataset">
+<section id="data-set" class="level3">
+<h3 class="anchored" data-anchor-id="data-set">Data set</h3>
+</section>
+</div>
+<p>Once you have collected your data, you should compile it all into a single Excel or GoogleSheets. Please give each variable an informative one-word name (use underscores to make longer names). This should be submitted to Canvas by the beginning of Week 12. If you link a GoogleSheets, please ensure that you give me access!</p>
+</section>
+<section id="report" class="level2">
+<h2 class="anchored" data-anchor-id="report">Report</h2>
+<p>Each group will write a final report created in an <code>.qmd</code> file. You can download the template here:</p>
+<p><a href="#mtcars-btn" onclick="fetch('data:text/plain;base64,LS0tCnRpdGxlOiAiU1RBVCAyMDE6IEZpbmFsIFByb2plY3QgUmVwb3J0IFRlbXBsYXRlIgphdXRob3I6ICJUZWFtIG5hbWU6IE5hbWVzIGhlcmUiCmRhdGU6ICJNYXkgMTgsIDIwMjUiCmZvcm1hdDogcGRmCi0tLQoKYGBge3IgZWNobyA9IEYsIG1lc3NhZ2UgPSBGQUxTRSwgd2FybmluZyA9RkFMU0V9CiMgaGlkZSBhbGwgY29kZQprbml0cjo6b3B0c19jaHVuayRzZXQoZWNobyA9IEZBTFNFLCBtZXNzYWdlID0gRkFMU0UsIHdhcm5pbmcgPSBGQUxTRSkKCiMgc2V0IGZpZ3VyZSBzaXplcyBnbG9iYWxseQprbml0cjo6b3B0c19jaHVuayRzZXQoZmlnLndpZHRoID0gNSwgZmlnLmhlaWdodCA9IDIuNzUpCgojIyBsb2FkIGFsbCB5b3VyIHBhY2thZ2VzIGhlcmUKbGlicmFyeShyZWFkcikKYGBgCgpgYGB7cn0KIyBsb2FkIGRhdGEgaGVyZQpgYGAKCiMjIEludHJvZHVjdGlvbgoKIyMgRGF0YSBDb2xsZWN0aW9uCgojIyBNZXRob2RzCgpgYGB7cn0KCmBgYAoKIyMgUmVzdWx0cwoKYGBge3J9CgpgYGAKCiMjIERpc2N1c3Npb24K').then(res => res.blob()).then(blob => {
+      const downloadURL = window.URL.createObjectURL(blob);
+      const a = document.createElement('a');
+      document.body.appendChild(a);
+      a.href = downloadURL;
+      a.download = 'stat201_final_project.qmd'; a.click();
+      window.URL.revokeObjectURL(downloadURL);
+      document.body.removeChild(a);
+        });"><button class="btn btn-default downloadthis  " id="mtcars-btn"><i class="bi bi-download"></i> template </button></a></p>
+<p>Example projects from Fall 2024:</p>
+<ul>
+<li><p><a href="f24_living_sleep.pdf">Example 1</a></p></li>
+<li><p><a href="f24_newengland_other.pdf">Example 2</a></p></li>
+</ul>
+<p>Your report will be submitted both as a PDF and as a <code>.qmd</code> file. <strong>The code in your report should be as reproducible as possible</strong> (e.g.&nbsp;not hard coding specific values, setting a seed when appropriate). All tables should be beautiful!</p>
+<p><strong>Additionally, only the output/execution from the code relevant for the report should be visible to the reader, not the code itself.</strong> This means that as the viewer, I should not see any code or extraneous output. The former is achieved by setting the chunk header option <code>echo = F</code>. That being said, if there is some code that you believe is useful/important for the reader to see, you are welcome to make that code visible by setting <code>echo = T</code>.</p>
+<p>The report does not have a minimum length, but should contain each of the following sections. <em>The report should also have an informative, academically appropriate title along with each group member’s name.</em></p>
+<section id="introduction" class="level4">
+<h4 class="anchored" data-anchor-id="introduction"><strong>Introduction</strong></h4>
+<ul>
+<li>The introduction should introduce your research questions and the population(s) of interest. <strong>Your report should have at least one research question per team member</strong>. In the introduction, you should briefly motivate the research questions (i.e.&nbsp;explain why they were of interest to your group)!
+<ul>
+<li>It could be helpful to identify/label your research questions as “Question 1”, “Question 2”, etc. for easier reference moving forward.</li>
+</ul></li>
+</ul>
+</section>
+<section id="data-collection" class="level4">
+<h4 class="anchored" data-anchor-id="data-collection"><strong>Data collection</strong></h4>
+<p>This section should describe your data and the sampling process: <strong>how</strong> the data were collected and a summary description of the variables you collected.</p>
+</section>
+<section id="methods" class="level4">
+<h4 class="anchored" data-anchor-id="methods"><strong>Methods</strong></h4>
+<p>For <strong>each</strong> research question, you should:</p>
+<ol type="1">
+<li><p>Identify the specific variables used to address the research question. Also describe if you had to create/mutate new variables or filter out/subset your analysis to focus on certain observations for this research question. For each analysis, please tell us the sample size you ended up with.</p></li>
+<li><p>Include at least one visualization or table of summary statistics that will be useful/informative for answering the research question. Briefly interpret the visualization/summary table.</p>
+<ul>
+<li>It is okay if if one visualization is complex enough to address multiple research questions!</li>
+</ul></li>
+<li><p>Describe and justify the statistical method(s) that you will use to answer your research questions. Part of the “justification” component includes conditions being met, if applicable. For linear regression, you should only verify the “L” and the “I” at this point.</p>
+<ul>
+<li><p>Be specific about different groups/populations, direction of differences, explanatory vs response variable, etc.</p></li>
+<li><p>If you are conducting a hypothesis test, don’t forget to define your hypotheses and set the significance level. If you are creating a confidence interval, be sure to specify the level of confidence.</p></li>
+</ul></li>
+</ol>
+</section>
+<section id="results" class="level4">
+<h4 class="anchored" data-anchor-id="results"><strong>Results</strong></h4>
+<ul>
+<li>Using appropriate code, conduct the statistical methods you described in the Methods section for each research question. Then interpret your results in context (i.e.&nbsp;use your interval/p-value/model to actually answer the question).
+<ul>
+<li>If you do linear regression, you should check the “N” and “E” conditions here.</li>
+</ul></li>
+<li>The goal is not to do an exhaustive data analysis (i.e., do not calculate every statistic and procedure you have learned for every variable), but rather let me know that you are proficient at asking meaningful questions and answering them with results of data analysis, that you are proficient in using R, and that you are proficient at interpreting and presenting the results.</li>
+</ul>
+</section>
+<section id="discussion" class="level4">
+<h4 class="anchored" data-anchor-id="discussion"><strong>Discussion</strong></h4>
+<p>This section is a conclusion and discussion. This will require:</p>
+<ol type="1">
+<li>A summary of what you have learned about your research questions along with statistical arguments supporting your conclusions.</li>
+<li>A critique your own methods and provide suggestions for improving your analysis. Issues pertaining to the reliability and validity of your data/data collection and appropriateness of the statistical analysis should also be discussed here.</li>
+<li>A paragraph on what your group would do differently if you were able to start over with the project or what you would do next if you were going to continue work on the project should also be included.</li>
+</ol>
+</section>
+</section>
+<section id="presentation" class="level2">
+<h2 class="anchored" data-anchor-id="presentation">Presentation</h2>
+<p>Each group will present their work during the exam period. Presentation duration lengths (before questions) are:</p>
+<ul>
+<li><p>Groups of one: 5-7 minutes</p></li>
+<li><p>Groups of two: 7-9 minutes</p></li>
+<li><p>Groups of three: 9-11 minutes</p></li>
+</ul>
+<p>Part of your presentation grade will be sticking to the presentation duration. Your presentation will be followed by a few minutes for questions from the audience.</p>
+<p>Your presentation should be accompanied by <strong>slides</strong> that summarize and showcase your project. Introduce your research questions and data/data collection, showcase visualizations, and provide some conclusions. These slides should serve as a brief visual accompaniment and will be graded for content and quality. <strong>I recommend roughly one slide per minute of your presentation.</strong></p>
+<p>The slides are due to Canvas <strong>one hour before our final exam/presentation period.</strong></p>
+<ul>
+<li>You do not need to discuss all of your research questions if you don’t want to! You are not expected to have finished all your analyses by the time you present, but you should have <em>some</em> results (whether preliminary or finalized).</li>
+<li>It’s most important that your audience understands the research questions you present, how you obtained your data, and how you plan to answer the research questions.</li>
+<li>Pictures and summary tables are always preferred over sentences!</li>
+<li>A general recommendation is to have one slide per minute of the presentation.</li>
+<li>All presenters should speak roughly an equal amount of time.</li>
+<li>Make sure the font is large enough. Also, less is more!</li>
+</ul>
+<p>Part of the presentation component is participation. You should be an engaged audience member. You will be asked to give feedback to a few groups and you are expected to ask questions.</p>
+<section id="presentation-order" class="level3">
+<h3 class="anchored" data-anchor-id="presentation-order">Presentation order</h3>
+<ol type="1">
+<li>LeBronJames (Dylan, Owen)</li>
+<li>LeMiddDash (Arthur, Hayes, Tommy)</li>
+<li>No.&nbsp;(Natalie A., Calvin, Aaliyah)</li>
+<li>The Trash CAN (Naomi, Conor, Aidan)</li>
+<li>The Outlier (JuJu)</li>
+<li>Standard Deviants (Charlie, Haru, Luke)</li>
+<li>Minnie &amp; Morgan</li>
+<li>CLIck (Lilah, Clio, Isa)</li>
+<li>I hate group names (Natalie O., Alden)</li>
+</ol>
+</section>
+</section>
+<section id="misc.-submission-items" class="level2">
+<h2 class="anchored" data-anchor-id="misc.-submission-items">Misc. submission items</h2>
+<section id="finalized-data-set-dictionary" class="level3">
+<h3 class="anchored" data-anchor-id="finalized-data-set-dictionary">Finalized data set + dictionary</h3>
+<p>You will be asked to submit your finalized, clean dataset. This may take the form of a <code>.csv</code> file or a link to a GoogleSheet. Please give each variable an informative one-word name. Alongside the submission, please include a separate file for the <strong>data dictionary</strong>: a bulleted list or table containing each variable name, a brief description of the variable, and the variable type. Include units if appropriate. If the variable is categorical, please provide all the levels as they appear in the cleaned data.</p>
+<p>The purpose of the data dictionary is to enable future use of your data.</p>
+</section>
+<section id="reflection" class="level3">
+<h3 class="anchored" data-anchor-id="reflection">Reflection</h3>
+<p>You will be asked to write a brief reflection about the final project. There will be a few questions/prompts pertaining to your specific contribution, learning, and experience, along with an opportunity to comment on the group dynamics and working methods. The prompts/questions will be provided on the associated Canvas assignment.</p>
+</section>
+</section>
+<section id="grading" class="level2">
+<h2 class="anchored" data-anchor-id="grading">Grading</h2>
+<section id="general-grading-structure" class="level3">
+<h3 class="anchored" data-anchor-id="general-grading-structure">General grading structure</h3>
+<p>Grading of the project will take into account the following:</p>
+<ul>
+<li>Content - What is the quality of research and/or policy question and relevancy of data to those questions?</li>
+<li>Correctness - Are statistical procedures carried out and explained correctly?</li>
+<li>Writing and Presentation - What is the quality of the statistical presentation, writing, and explanations?</li>
+<li>Creativity and Critical Thought - Is the project carefully thought out? Are the limitations carefully considered? Does it appear that time and effort went into the planning and implementation of the project?</li>
+<li>Contribution to group – Did you contribute meaningfully to all aspects of the project?</li>
+</ul>
+<p>A general breakdown of scoring for the final report and presentation is as follows:</p>
+<ul>
+<li><em>90%-100%</em>: Outstanding effort. Student understands how to apply all statistical concepts, can put the results into a cogent argument, can identify weaknesses in the argument, and can clearly communicate the results to others.</li>
+<li><em>80%-89%</em>: Good effort. Student understands most of the concepts, puts together an adequate argument, identifies some weaknesses of their argument, and communicates most results clearly to others.</li>
+<li><em>70%-79%</em>: Passing effort. Student has misunderstanding of concepts in several areas, has some trouble putting results together in a cogent argument, and communication of results is sometimes unclear.</li>
+<li><em>60%-69%</em>: Struggling effort. Student is making some effort, but has misunderstanding of many concepts and is unable to put together a cogent argument. Communication of results is unclear.</li>
+<li><em>Below 60%</em>: Student is not making a sufficient effort.</li>
+</ul>
+<table class="table">
+<colgroup>
+<col style="width: 33%">
+<col style="width: 33%">
+<col style="width: 33%">
+</colgroup>
+<thead>
+<tr class="header">
+<th>Component</th>
+<th>Section</th>
+<th>Points</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td><strong>Project proposal</strong></td>
+<td></td>
+<td>15 points</td>
+</tr>
+<tr class="even">
+<td><strong>Initial data set submission</strong></td>
+<td></td>
+<td>1 point</td>
+</tr>
+<tr class="odd">
+<td><strong>Rough draft</strong></td>
+<td>Pick one-two sections you’d like Prof.&nbsp;Tang to give feedback on!</td>
+<td>5 points</td>
+</tr>
+<tr class="even">
+<td><strong>Presentation</strong></td>
+<td>Presentation style: well-practiced, equal distribution of speaking time, within time limit</td>
+<td>8 points</td>
+</tr>
+<tr class="odd">
+<td></td>
+<td>Slides: content, quality</td>
+<td>5 points</td>
+</tr>
+<tr class="even">
+<td></td>
+<td>Participation</td>
+<td>2 points</td>
+</tr>
+<tr class="odd">
+<td><strong>Final report</strong></td>
+<td>Introduction</td>
+<td>5 points</td>
+</tr>
+<tr class="even">
+<td></td>
+<td>Data collection description</td>
+<td>5 points</td>
+</tr>
+<tr class="odd">
+<td></td>
+<td>Methods</td>
+<td>25 points</td>
+</tr>
+<tr class="even">
+<td></td>
+<td>Results</td>
+<td>20 points</td>
+</tr>
+<tr class="odd">
+<td></td>
+<td>Discussion</td>
+<td>10 points</td>
+</tr>
+<tr class="even">
+<td></td>
+<td>Clean code + reproducibility</td>
+<td>3 points</td>
+</tr>
+<tr class="odd">
+<td></td>
+<td>Submission of both PDF and .qmd report</td>
+<td>1 point</td>
+</tr>
+<tr class="even">
+<td><strong>Reflection</strong></td>
+<td></td>
+<td>3 points</td>
+</tr>
+<tr class="odd">
+<td><strong>Misc. items</strong></td>
+<td>Finalized data set with accompanying dictionary (5/18)</td>
+<td>2 point</td>
+</tr>
+<tr class="even">
+<td></td>
+<td>Contribution to group</td>
+<td>10 points</td>
+</tr>
+<tr class="odd">
+<td></td>
+<td>DataFest project</td>
+<td>5 points</td>
+</tr>
+<tr class="even">
+<td><strong>Total</strong></td>
+<td></td>
+<td>125 points</td>
+</tr>
+</tbody>
+</table>
+
+
+</section>
+</section>
+
+</main> <!-- /main -->
+<script id="quarto-html-after-body" type="application/javascript">
+window.document.addEventListener("DOMContentLoaded", function (event) {
+  const toggleBodyColorMode = (bsSheetEl) => {
+    const mode = bsSheetEl.getAttribute("data-mode");
+    const bodyEl = window.document.querySelector("body");
+    if (mode === "dark") {
+      bodyEl.classList.add("quarto-dark");
+      bodyEl.classList.remove("quarto-light");
+    } else {
+      bodyEl.classList.add("quarto-light");
+      bodyEl.classList.remove("quarto-dark");
+    }
+  }
+  const toggleBodyColorPrimary = () => {
+    const bsSheetEl = window.document.querySelector("link#quarto-bootstrap");
+    if (bsSheetEl) {
+      toggleBodyColorMode(bsSheetEl);
+    }
+  }
+  toggleBodyColorPrimary();  
+  const icon = "";
+  const anchorJS = new window.AnchorJS();
+  anchorJS.options = {
+    placement: 'right',
+    icon: icon
+  };
+  anchorJS.add('.anchored');
+  const clipboard = new window.ClipboardJS('.code-copy-button', {
+    target: function(trigger) {
+      return trigger.previousElementSibling;
+    }
+  });
+  clipboard.on('success', function(e) {
+    // button target
+    const button = e.trigger;
+    // don't keep focus
+    button.blur();
+    // flash "checked"
+    button.classList.add('code-copy-button-checked');
+    var currentTitle = button.getAttribute("title");
+    button.setAttribute("title", "Copied!");
+    let tooltip;
+    if (window.bootstrap) {
+      button.setAttribute("data-bs-toggle", "tooltip");
+      button.setAttribute("data-bs-placement", "left");
+      button.setAttribute("data-bs-title", "Copied!");
+      tooltip = new bootstrap.Tooltip(button, 
+        { trigger: "manual", 
+          customClass: "code-copy-button-tooltip",
+          offset: [0, -8]});
+      tooltip.show();    
+    }
+    setTimeout(function() {
+      if (tooltip) {
+        tooltip.hide();
+        button.removeAttribute("data-bs-title");
+        button.removeAttribute("data-bs-toggle");
+        button.removeAttribute("data-bs-placement");
+      }
+      button.setAttribute("title", currentTitle);
+      button.classList.remove('code-copy-button-checked');
+    }, 1000);
+    // clear code selection
+    e.clearSelection();
+  });
+  function tippyHover(el, contentFn) {
+    const config = {
+      allowHTML: true,
+      content: contentFn,
+      maxWidth: 500,
+      delay: 100,
+      arrow: false,
+      appendTo: function(el) {
+          return el.parentElement;
+      },
+      interactive: true,
+      interactiveBorder: 10,
+      theme: 'quarto',
+      placement: 'bottom-start'
+    };
+    window.tippy(el, config); 
+  }
+  const noterefs = window.document.querySelectorAll('a[role="doc-noteref"]');
+  for (var i=0; i<noterefs.length; i++) {
+    const ref = noterefs[i];
+    tippyHover(ref, function() {
+      // use id or data attribute instead here
+      let href = ref.getAttribute('data-footnote-href') || ref.getAttribute('href');
+      try { href = new URL(href).hash; } catch {}
+      const id = href.replace(/^#\/?/, "");
+      const note = window.document.getElementById(id);
+      return note.innerHTML;
+    });
+  }
+  const findCites = (el) => {
+    const parentEl = el.parentElement;
+    if (parentEl) {
+      const cites = parentEl.dataset.cites;
+      if (cites) {
+        return {
+          el,
+          cites: cites.split(' ')
+        };
+      } else {
+        return findCites(el.parentElement)
+      }
+    } else {
+      return undefined;
+    }
+  };
+  var bibliorefs = window.document.querySelectorAll('a[role="doc-biblioref"]');
+  for (var i=0; i<bibliorefs.length; i++) {
+    const ref = bibliorefs[i];
+    const citeInfo = findCites(ref);
+    if (citeInfo) {
+      tippyHover(citeInfo.el, function() {
+        var popup = window.document.createElement('div');
+        citeInfo.cites.forEach(function(cite) {
+          var citeDiv = window.document.createElement('div');
+          citeDiv.classList.add('hanging-indent');
+          citeDiv.classList.add('csl-entry');
+          var biblioDiv = window.document.getElementById('ref-' + cite);
+          if (biblioDiv) {
+            citeDiv.innerHTML = biblioDiv.innerHTML;
+          }
+          popup.appendChild(citeDiv);
+        });
+        return popup.innerHTML;
+      });
+    }
+  }
+});
+</script>
+</div> <!-- /content -->
+
+
+
+</body></html>
