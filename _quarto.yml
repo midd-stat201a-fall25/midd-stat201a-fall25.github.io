@@ -3,6 +3,8 @@ project:
   output-dir: docs
   render:
     - "*.qmd"
+    - "!practice_probs/*.qmd"
+    - "!midterms/*.qmd"
 
 website:
   title: "STAT 201: Intro. to Statistics and Data Science"
@@ -12,6 +14,8 @@ website:
         text: "Home"
       - file: schedule.qmd
         text: "Schedule"
+      - file: experience.qmd
+        text: "SDS Experience"
     right:
       - icon: book-half
         text: "Textbook"

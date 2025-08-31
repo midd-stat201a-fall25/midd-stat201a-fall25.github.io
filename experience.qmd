@@ -1,0 +1,34 @@
+---
+title: "Statistics and Data Science Experience"
+---
+
+The Statistics and Data Science Experience assignment consists of two parts:
+
+1.  Having the experience
+2.  Reflect on the experience
+
+The assignment is due on **Monday, 12/01 at 11:59pm to Canvas**.
+
+## Experience
+
+Below lists opportunities that count toward having a Statistics or Data Science experience. Note that the list is dynamic and new opportunities may arise as the semester progresses.
+
+1.  Have a minimum 20-minute conversation with a statistician or data scientist and learn about their work.
+    -   Middlebury has several professors who consider themselves a statistician and/or data scientist. You might reach out to one and invite them to eat lunch with you in the dining hall or chat over coffee.
+    -   For this opportunity, a maximum of two students may attend the same conversation.
+2.  Attend one of the events below (for at least 30 minutes)
+    -   11/08: Women in Data Science Conference at Middlebury
+    -   More forthcoming!
+3.  GitHub repo + Tidy Tuesday (TBA)
+
+## Reflect
+
+After having your experience, please create a brief set of slides (e.g. PowerPoint or Google Presentations) that contain the following content:
+
+1.  Title slide that includes the name of the experience and your name
+2.  Description of the experience
+3.  Something(s) you learned from the experience (3-5 sentences/bullet points)
+4.  Connection to STAT 201 (3-5 sentences/bullet points)
+5.  A photo of the experience with a descriptive caption. *Please obtain consent from all people in the photo to share the photo with Prof. Tang and if possible, a public-facing website or bulletin board. If someone does not agree to share the photo with the public, please note that in the slide!*
+
+The slides should be well-designed and have large enough font for presenting to an audience.

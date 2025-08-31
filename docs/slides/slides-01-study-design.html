@@ -6,7 +6,7 @@
 
 <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
 
-<meta name="dcterms.date" content="2025-02-12">
+<meta name="dcterms.date" content="2025-09-10">
 
 <title>Study design – STAT 201: Intro. to Statistics and Data Science</title>
 <style>
@@ -125,6 +125,10 @@ window.Quarto = {
     <a class="nav-link" href="../schedule.html"> 
 <span class="menu-text">Schedule</span></a>
   </li>  
+  <li class="nav-item">
+    <a class="nav-link" href="../experience.html"> 
+<span class="menu-text">SDS Experience</span></a>
+  </li>  
 </ul>
             <ul class="navbar-nav navbar-nav-scroll ms-auto">
   <li class="nav-item">
@@ -166,7 +170,7 @@ window.Quarto = {
     <div>
     <div class="quarto-title-meta-heading">Published</div>
     <div class="quarto-title-meta-contents">
-      <p class="date">February 12, 2025</p>
+      <p class="date">September 10, 2025</p>
     </div>
   </div>
   
@@ -239,7 +243,7 @@ window.Quarto = {
 <li><p><strong>Non-response bias</strong>: the values of the response variable of non-respondents differ systematically from those that do respond</p></li>
 <li><p><strong>Response bias</strong>: systematic favoring of certain response variable values that occurs when people don’t answer truthfully (e.g.&nbsp;lying)</p></li>
 </ul></li>
-<li><p>Any type of bias could lead to our sample being non representative or not generalizable</p></li>
+<li><p>Any type of bias could lead to our sample being non representative or not generalizeable</p></li>
 </ul>
 </section>
 <section id="example-literary-digest-poll" class="level2">
@@ -292,7 +296,7 @@ window.Quarto = {
 <ul>
 <li>No one has full discretion about who is included in the sample</li>
 </ul></li>
-<li><p><strong>Random sampling usually yields a representative and generalizable sample</strong></p></li>
+<li><p><strong>Random sampling <em>usually</em> yields a representative and generalizable sample</strong></p></li>
 <li><p>Examples include: simple random, stratified, cluster, systematic</p></li>
 </ul>
 </section>
@@ -386,8 +390,8 @@ window.Quarto = {
 </div></li>
 </ul>
 </section>
-<section id="treatment-vs-control" class="level2">
-<h2 class="anchored" data-anchor-id="treatment-vs-control">Treatment vs control</h2>
+<section id="experiments-treatment-vs-control" class="level2">
+<h2 class="anchored" data-anchor-id="experiments-treatment-vs-control">Experiments: Treatment vs control</h2>
 <ul>
 <li><p>Treatments are typically divided into two categories:</p>
 <ol type="1">
@@ -408,10 +412,7 @@ window.Quarto = {
 <section id="randomized-experiments" class="level2">
 <h2 class="anchored" data-anchor-id="randomized-experiments">Randomized experiments</h2>
 <ul>
-<li><p>When the researcher <em>randomly</em> assigns the treatments, we have a <strong>randomized experiment</strong></p>
-<ul>
-<li>Randomized experiments are critical when trying to assess the causal effect of the explanatory variable on the response variable</li>
-</ul></li>
+<li><p>When the researcher <em>randomly</em> <em>assigns the treatments</em>, we have a <strong>randomized experiment</strong></p></li>
 <li><p><strong>Note</strong>: random assignment in experiments <span class="math inline">\(\ne\)</span> random sampling for participation in the sample</p></li>
 <li><p>Continuing example:</p>
 <ul>
@@ -423,7 +424,8 @@ window.Quarto = {
 <section id="confounding-variables" class="level2">
 <h2 class="anchored" data-anchor-id="confounding-variables">Confounding variables</h2>
 <ul>
-<li><p>Understanding a <em>causal</em> relationship is made difficult by <strong>confounding</strong> <strong>variables</strong>: variables that are associated with both the explanatory and response variable of interest</p>
+<li><p>Oftentimes, we design an experiment to identify a <em>causal</em> relationship: does changing <span class="math inline">\(x\)</span> cause a change in <span class="math inline">\(y\)</span>?</p></li>
+<li><p>Assessing causality is made difficult by <strong>confounding</strong> <strong>variables</strong>: variables that are associated with both the explanatory and response variable of interest</p>
 <ul>
 <li><div style="color: maroon">
 <p>Confounders are bad!! Why?</p>
@@ -444,11 +446,14 @@ window.Quarto = {
 <section id="principles-of-experimental-design" class="level2">
 <h2 class="anchored" data-anchor-id="principles-of-experimental-design">Principles of experimental design</h2>
 <ol type="1">
-<li><p><strong>Randomization</strong>: randomly assign patients to treatments</p>
+<li><p><strong>Randomization/randomized experiment</strong>: randomly assign patients to treatments</p>
 <ul>
-<li>Helps account possible confounding variables</li>
+<li><p>Helps account for possible confounders!!</p></li>
+<li><div class="discuss">
+<p>How would randomization help reduce confounding in the heart disease example?</p>
+</div></li>
 </ul></li>
-<li><p><strong>Controlling</strong> <strong>for differences</strong> in the treatment: ensure that everyone follows the same protocol exactly</p></li>
+<li><p><strong>Controlling</strong> <strong>for differences</strong>: ensure that everyone follows the same protocol exactly</p></li>
 <li><p><strong>Replication</strong>: the more cases we observe, the more confidence we have in the effect of the explanatory on the response</p>
 <ul>
 <li>Achieved by collecting a sufficiently large sample in a single study, or repeating the entire study more than once</li>
@@ -459,14 +464,14 @@ window.Quarto = {
 <h2 class="anchored" data-anchor-id="reducing-bias-in-human-experiments">Reducing bias in human experiments</h2>
 <ul>
 <li><p>Biases can still unintentionally arise in experiments, even if we follow these three principles.</p></li>
-<li><p>We should make the experiment a <strong>blind experiment</strong> by not allowing participants to know which group they’ve been assigned to</p>
+<li><p><strong>Blind experiment</strong> by not allowing participants to know which treatment they are receiving</p>
 <ul>
-<li><p>Give a fake treatment known as a <strong>placebo</strong> to those in the control group (e.g.&nbsp;a sugar pill that looks exactly like the actual treatment pill)</p></li>
+<li><p>Give a fake treatment known as a <strong>placebo</strong> to those in the control group (e.g.&nbsp;a sugar pill)</p></li>
 <li><p><strong>Placebo effect:</strong> a placebo results in a slight but real improvement in control patients</p></li>
 </ul></li>
-<li><p>Doctors and researchers involved in the study should also be blinded so they do not give preferential treatment or care to patients in certain groups.</p>
+<li><p>Best practice: Doctors and researchers involved in the study should <em>also</em> be blinded so they do not give preferential treatment or care to patients in certain groups.</p>
 <ul>
-<li><strong>Double-blind</strong> experiments: <em>both</em> the patients and the doctors/researchers who interact with patients are unaware of who is receive which treatment</li>
+<li><strong>Double-blind</strong> experiments: <em>both</em> the patients and the doctors/researchers who interact with patients are unaware of who receives which treatment</li>
 </ul></li>
 </ul>
 </section>
@@ -486,6 +491,19 @@ window.Quarto = {
 <li>There are too many confounding variables at play!</li>
 </ul></li>
 <li><p>But they are much cheaper, and can be used to identify associations or form hypotheses for future experiments!</p></li>
+</ul>
+</section>
+<section id="your-turn" class="level2">
+<h2 class="anchored" data-anchor-id="your-turn">Your turn!</h2>
+<p>In groups, design an experiment that seeks to examine the effect of coffee consumption on heart disease.</p>
+<ul>
+<li><p>Define your response variable as exactly as possible</p></li>
+<li><p>Decide what your treatment(s) will be</p></li>
+<li><p>Make sure your experiment meets the three principles</p>
+<ul>
+<li>How will you avoid the potential confounding of smoke status?</li>
+</ul></li>
+<li><p>Can you also (double) blind your experiment?</p></li>
 </ul>
 
 

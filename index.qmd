@@ -21,15 +21,15 @@ Welcome to the website for Middlebury College’s Fall 2025 STAT 201A. On this w
 
 **Meeting times and location:**
 
--   MW 8:15am-9:30am in Warner 011
--   R 8:15am-9:30am in Warner 105
+-   MW 8:15am-9:30am in Munroe 311
+-   R 8:15am-9:30am in Warner 104
 
-**Office hours**: TBA
+**Office hours**: Monday 2-3pm, Friday 11am-12pm in common room outside Warner 214
 
-**TA hours** in Quantitative Center (MBH 202):
+**TA hours** in Q-Center (MBH 202):
 
 -   TBA
 
-The syllabus (most recent update: TBD) outlines our course policies and a rough schedule. Once classes begin, you should follow the schedule and due dates found on this website.
+The syllabus (most recent update: 9/01/25) outlines our course policies and a rough schedule. Once classes begin, you should follow the schedule and due dates found on this website.
 
 -   Note the textbooks are optional in this class. However, several practice and homework problems are pulled from the OpenIntro textbook.

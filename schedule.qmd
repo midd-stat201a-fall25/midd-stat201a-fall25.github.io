@@ -1,7 +1,84 @@
 ---
 title: "Schedule"
 page-layout: full
+editor: 
+  mode: source
 format: 
   html:
     css: styles.css
 ---
+
+<table>
+  <thead>
+    <tr>
+      <th>Week</th>
+      <th>Date</th>
+      <th>In-class material</th>
+      <th>Coding practice</th>
+      <th>Assignments</th>
+    </tr>
+  </thead>
+  <tbody>
+  <!-- week 1 -->
+    <tr>
+      <td id="week1"><strong>1</strong></td>
+      <td>M 9/08</td>
+      <td>
+        <ul>
+          <li>Topic: <a href="slides/slides-00-welcome.qmd">Welcome!</a></li>
+          <li>Directions for printing at bottom</li>
+        </ul>
+      </td>
+      <td></td>
+      <td>
+        <ul>
+          <li>Submit <a href="homework/hw0.qmd">Problem Set 0</a> <strong>before 9/10</strong> class</li>
+          <li>Try to install R and RStudio <strong>before Thursday's 9/11 class</strong> using <a href="slides/installation_instructions.qmd">these instructions</a></li>
+        </ul>
+      </td>
+    </tr>
+    <tr>
+      <td></td>
+      <td>W 9/10</td>
+      <td>
+        <ul>
+          <li>Topic: <a href="slides/slides-01-study-design.qmd">Study design</a> (pdf <a href="slides/pdf/slides-01.pdf">here</a>)</li>
+          <li><a href="practice_probs/practice-01-study-design.qmd">Practice problems</a></li>
+        </ul>
+      </td>
+      <td></td>
+      <td>
+        <ul>
+          <li>Install R and RStudio <strong>before Thursday class</strong> using <a href="slides/installation_instructions.qmd">these instructions</a></li>
+          <li>Wednesday problems on <a href="homework/hw1.pdf">Problem Set 1</a></li>
+        </ul>
+      </td>
+    </tr>
+    <tr>
+      <td></td>
+      <td>R 9/11</td>
+      <td>
+        <ul>
+          <li>Topic: <a href="slides/slides-02-toolkit.qmd">Programming toolkit</a> (no need to print slides!)</li>
+          <ul>
+            <li><a href="slides/02-rstudio_help_sheet.qmd">RStudio help sheet</a></li>
+          </ul>
+          <li><code>R</code> and <code>.qmd</code> <a href="live_code/intro_R.qmd">basics</a></li>
+          <ul>
+            <li>Download the following `.qmd` template and drag to your new STAT 201 folder {{< downloadthis live_code/template_intro_R.qmd dname="intro_R" label="Intro to R template" id=mtcars-btn >}}</li>
+          </ul>
+        </ul>
+      </td>
+      <td>
+      <ul>
+        <li>Intro to R and Quarto Markdown         {{< downloadthis coding_practice/coding-practice-02-intro-r.qmd dname="coding-practice-intro-R" label="Coding practice" id=mtcars-btn >}}</li>
+      </ul>
+      </td>
+      <td>
+        <ul>
+          <li>Thursday problems on <a href="homework/hw1.pdf">Problem Set 1</a></li>
+        </ul>
+      </td>
+    </tr>
+  </tbody>
+</table>

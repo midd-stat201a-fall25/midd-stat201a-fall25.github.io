@@ -1,0 +1,46 @@
+---
+title: "Intro to R coding practice"
+author: "Your name here"
+date: "2/13/2025"
+format: pdf
+---
+
+1.  Change your name in the YAML. Be sure to keep the quotation marks!
+
+2.  Execute the following the code in the code chunk. In the space below the code chunk that reads **Answer**: describe in words (as specifically as possible) what the code is doing. What type of object is this?
+
+```{r}
+1:10
+```
+
+**Answer**:
+
+3.  We will learn how to use the important function `sample()`, which *allows us to obtain a random sample in R*. Look at the Help file by typing `?sample` into your Console. After some experimenting, write code that randomly samples five numbers from the set of integers 6-10, *without* replacement. Note: it's okay if you get something different from those around you! We are *random*ly sampling after all!
+
+```{r}
+
+```
+
+4.  In following code chunk, write code that randomly samples five numbers from the set of integers 6-10, *with* replacement.
+
+```{r}
+
+```
+
+5.  In the following code chunk, write code to load in the `openintro` package. Then run the code in the code chunk. We will need this package to access the `cherry` data set in the next question.
+
+```{r}
+
+```
+
+6.  In the Console, type in `?cherry` to open up the Help file for the `cherry` data set. What are the units for each of the variables?
+
+**Answer**:
+
+7.  Remember that rows in data frames represent observations. How many observations are there in the `cherry` data frame? Answer this *via code* by using the `nrow()` function and passing in the name of data frame of interest.
+
+```{r}
+
+```
+
+Once you're finished, be sure to render one last time and submit the outputted PDF to the corresponding Gradescope assignment!

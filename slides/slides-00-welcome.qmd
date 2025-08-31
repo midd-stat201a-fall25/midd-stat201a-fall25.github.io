@@ -1,6 +1,6 @@
 ---
 title: "Welcome!"
-date: "February 10, 2025"
+date: "September 8, 2025"
 title-slide-attributes:
     data-background-image: "figs/bikeshare-plots.png"
     data-background-size: contain
@@ -34,15 +34,29 @@ plot_theme <- theme(text = element_text(size = 16))
 
     -   Office: Warner 214
     -   Email: btang\@middlebury.edu
-    -   Office hours: Mondays 2-3pm, Fridays 10-11am
+    -   Office hours: Mondays 2-3pm, Fridays 11-12pm
 
--   Course website: [https://midd-stat201-spring2025.github.io/](https://midd-stat201-fall2024.github.io/){.uri}
+-   Course website: <https://midd-stat201a-fall2025.github.io/>
 
     -   Please bookmark this page and visit frequently!
 
+## Who is Professor Tang?
+
+-   Undergraduate at Swarthmore College, majors in Mathematics and Computer Science
+
+-   PhD in Statistical Science from Duke University
+
+-   Joined Middlebury in Fall 2022
+
+-   Hobbies: mushroom foraging, cooking for friends, running
+
+-   Disclaimer: I talk EXTREMELY fast so please don't hesitate to tell me to slow down/repeat myself
+
 ## What is this course about?
 
--   What is statistics? What is data science?
+-   ::: discuss
+    What is statistics? What is data science?
+    :::
 
 -   By the end of this course, you will:
 
@@ -63,6 +77,8 @@ plot_theme <- theme(text = element_text(size = 16))
 -   MATH 121 (Calculus 1) pre-req
 
 ## Recommendations
+
+-   Come to class as awake as possible!
 
 -   Takes notes! Each day's slides will be made available on the course website by 10pm the night before. I recommend either:
 
@@ -163,17 +179,23 @@ What's going on? Let's do some digging...
 
 -   Often times, answering a research question simplifies to understanding a numerical summary.
 
-    -   **(Population) parameter**: a numerical summary calculated from (or considered for calculation from) the entire population
+    -   **(Population) parameter**: a single numerical summary calculated from (or considered for calculation from) the entire population
 
-    -   **(Sample) statistic**: a numerical summary calculated from a sample
+    -   **(Sample) statistic**: a single numerical summary calculated from a sample
 
 -   Why do we differentiate? It's always good to remember that we are trying to answer questions about the population!
 
--   In kidney cancer data, we might want to know a county's *true* kidney cancer rate (for white males, 1980-1989)
+-   For every population parameter, there is an associated sample statistic
 
-    -   This would be an example of a population parameter
+-   In kidney cancer data, we might want to know a particular county's true kidney cancer rate (for white males, 1980-1989)
 
-    -   Unless all white males in the county responded, the reported rate is an example of a sample statistic
+    -   ::: discuss
+        Is the quantity of interest a population parameter or a sample statistic?
+        :::
+
+    -   ::: discuss
+        Suppose the reported rate is 10%. Is 10% the value of a population parameter or a sample statistic?
+        :::
 
 ````{=html}
 <!--

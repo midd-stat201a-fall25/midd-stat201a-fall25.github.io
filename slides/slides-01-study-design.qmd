@@ -1,6 +1,6 @@
 ---
 title: "Study design"
-date: "February 12, 2025"
+date: "September 10, 2025"
 title-slide-attributes:
     data-background-image: "figs/bikeshare-plots.png"
     data-background-size: contain
@@ -80,7 +80,7 @@ Ask class: do you like statistics? Expect: response, non-response, and selection
 
     -   **Response bias**: systematic favoring of certain response variable values that occurs when people don't answer truthfully (e.g. lying)
 
--   Any type of bias could lead to our sample being non representative or not generalizable
+-   Any type of bias could lead to our sample being non representative or not generalizeable
 
 ## Example: *Literary Digest* poll
 
@@ -132,7 +132,7 @@ The worst kind of sampling (but often the easiest)!
 
     -   No one has full discretion about who is included in the sample
 
--   **Random sampling usually yields a representative and generalizable sample**
+-   **Random sampling *usually* yields a representative and generalizable sample**
 
 -   Examples include: simple random, stratified, cluster, systematic
 
@@ -230,7 +230,7 @@ We now know *how* to collect data, but now we turn to examining what *kind* of s
     Are treatments in experiments considered explanatory or response variables?
     :::
 
-## Treatment vs control
+## Experiments: Treatment vs control
 
 -   Treatments are typically divided into two categories:
 
@@ -252,9 +252,7 @@ We now know *how* to collect data, but now we turn to examining what *kind* of s
 
 ## Randomized experiments
 
--   When the researcher *randomly* assigns the treatments, we have a **randomized experiment**
-
-    -   Randomized experiments are critical when trying to assess the causal effect of the explanatory variable on the response variable
+-   When the researcher *randomly* *assigns the treatments*, we have a **randomized experiment**
 
 -   **Note**: random assignment in experiments $\ne$ random sampling for participation in the sample
 
@@ -266,7 +264,9 @@ We now know *how* to collect data, but now we turn to examining what *kind* of s
 
 ## Confounding variables
 
--   Understanding a *causal* relationship is made difficult by **confounding** **variables**: variables that are associated with both the explanatory and response variable of interest
+-   Oftentimes, we design an experiment to identify a *causal* relationship: does changing $x$ cause a change in $y$?
+
+-   Assessing causality is made difficult by **confounding** **variables**: variables that are associated with both the explanatory and response variable of interest
 
     -   ::: {style="color: maroon"}
         Confounders are bad!! Why?
@@ -288,11 +288,15 @@ Confounders prevent us from attributing the cause to the (desired) explanatory v
 
 ## Principles of experimental design
 
-1.  **Randomization**: randomly assign patients to treatments
+1.  **Randomization/randomized experiment**: randomly assign patients to treatments
 
-    -   Helps account possible confounding variables
+    -   Helps account for possible confounders!!
 
-2.  **Controlling** **for differences** in the treatment: ensure that everyone follows the same protocol exactly
+    -   ::: discuss
+        How would randomization help reduce confounding in the heart disease example?
+        :::
+
+2.  **Controlling** **for differences**: ensure that everyone follows the same protocol exactly
 
 3.  **Replication**: the more cases we observe, the more confidence we have in the effect of the explanatory on the response
 
@@ -302,15 +306,15 @@ Confounders prevent us from attributing the cause to the (desired) explanatory v
 
 -   Biases can still unintentionally arise in experiments, even if we follow these three principles.
 
--   We should make the experiment a **blind experiment** by not allowing participants to know which group they've been assigned to
+-   **Blind experiment** by not allowing participants to know which treatment they are receiving
 
-    -   Give a fake treatment known as a **placebo** to those in the control group (e.g. a sugar pill that looks exactly like the actual treatment pill)
+    -   Give a fake treatment known as a **placebo** to those in the control group (e.g. a sugar pill)
 
     -   **Placebo effect:** a placebo results in a slight but real improvement in control patients
 
--   Doctors and researchers involved in the study should also be blinded so they do not give preferential treatment or care to patients in certain groups.
+-   Best practice: Doctors and researchers involved in the study should *also* be blinded so they do not give preferential treatment or care to patients in certain groups.
 
-    -   **Double-blind** experiments: *both* the patients and the doctors/researchers who interact with patients are unaware of who is receive which treatment
+    -   **Double-blind** experiments: *both* the patients and the doctors/researchers who interact with patients are unaware of who receives which treatment
 
 ## Reducing bias in human experiments (cont.)
 
@@ -327,3 +331,17 @@ Caveats:
     -   There are too many confounding variables at play!
 
 -   But they are much cheaper, and can be used to identify associations or form hypotheses for future experiments!
+
+## Your turn!
+
+In groups, design an experiment that seeks to examine the effect of coffee consumption on heart disease.
+
+-   Define your response variable as exactly as possible
+
+-   Decide what your treatment(s) will be
+
+-   Make sure your experiment meets the three principles
+
+    -   How will you avoid the potential confounding of smoke status?
+
+-   Can you also (double) blind your experiment?
