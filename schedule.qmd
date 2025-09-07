@@ -32,7 +32,7 @@ format:
       <td></td>
       <td>
         <ul>
-          <li>Submit <a href="homework/hw0.qmd">Problem Set 0</a> <strong>before 9/10</strong> class</li>
+          <li>Submit <a href="homework/hw0.qmd">Problem Set 0</a> <strong>by tomorrow 9/09 11:59pm</strong> class</li>
           <li>Try to install R and RStudio <strong>before Thursday's 9/11 class</strong> using <a href="slides/installation_instructions.qmd">these instructions</a></li>
         </ul>
       </td>
@@ -42,15 +42,23 @@ format:
       <td>W 9/10</td>
       <td>
         <ul>
-          <li>Topic: <a href="slides/slides-01-study-design.qmd">Study design</a> (pdf <a href="slides/pdf/slides-01.pdf">here</a>)</li>
+          <li>Topic: Study design  
+          <!--
+          <a href="slides/slides-01-study-design.qmd">Study design</a>
+          (pdf <a href="slides/pdf/slides-01.pdf">here</a>)
+          -->
+          </li>
+          <!--
           <li><a href="practice_probs/practice-01-study-design.qmd">Practice problems</a></li>
+          -->
         </ul>
       </td>
       <td></td>
       <td>
         <ul>
           <li>Install R and RStudio <strong>before Thursday class</strong> using <a href="slides/installation_instructions.qmd">these instructions</a></li>
-          <li>Wednesday problems on <a href="homework/hw1.pdf">Problem Set 1</a></li>
+          <li>Wednesday problems on Problem Set 1</li>
+          <!-- <li>Wednesday problems on <a href="homework/hw1.pdf">Problem Set 1</a></li> -->
         </ul>
       </td>
     </tr>
@@ -76,7 +84,8 @@ format:
       </td>
       <td>
         <ul>
-          <li>Thursday problems on <a href="homework/hw1.pdf">Problem Set 1</a></li>
+          <li>Thursday problems on Problem Set 1</li>
+          <!-- <li>Thursday problems on <a href="homework/hw1.pdf">Problem Set 1</a></li> -->
         </ul>
       </td>
     </tr>

@@ -2,7 +2,7 @@
 title: "Problem Set 0"
 ---
 
-**Due**: 9/10/25 before class
+**Due**: 9/09/25 at 11:59pm
 
 *This assignment will count towards Participation.*
 
@@ -15,6 +15,6 @@ Either typed or written + scanned, submit a **PDF** to the corresponding Canvas 
 5.  Why are you interested in taking this course?
 6.  When and where did you take a Calculus class?
 7.  Do you have any programming experience? If so, in what capacity?
-8.  Please identify which of my office hours times work for you, if any. (Monday 2-3pm, Friday 10-11am)
+8.  Please identify which of my office hours times work for you (Monday 2-3pm, Friday 10-11am). If neither time slot works, please let me know as well!
 9.  Is there anything that might be important for me to know about demands on your time this semester? (e.g. clubs, sports, five-course semester)
 10. Optional: any questions for Prof. Tang?

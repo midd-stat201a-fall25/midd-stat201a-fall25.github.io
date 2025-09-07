@@ -1,7 +1,7 @@
 ---
 title: "Intro to R coding practice"
 author: "Your name here"
-date: "2/13/2025"
+date: "9/11/2025"
 format: pdf
 ---
 
@@ -15,7 +15,9 @@ format: pdf
 
 **Answer**:
 
-3.  We will learn how to use the important function `sample()`, which *allows us to obtain a random sample in R*. Look at the Help file by typing `?sample` into your Console. After some experimenting, write code that randomly samples five numbers from the set of integers 6-10, *without* replacement. Note: it's okay if you get something different from those around you! We are *random*ly sampling after all!
+3.  We will learn how to use the important function `sample()`, which *allows us to obtain a random sample in R*. Look at the Help file by typing `?sample` into your Console. Read the **Usage** and **Arguments** sections, then scroll down to look **Examples**. *Note in **Usage** that colored text (e.g. FALSE and NULL) indicate default behavior of the function.*
+
+    After some experimenting, write code that randomly samples five numbers from the set of integers 6-10, *without* replacement. Note: it's okay if you get something different from those around you! We are *random*ly sampling after all!
 
 ```{r}
 
