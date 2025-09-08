@@ -36,7 +36,7 @@ plot_theme <- theme(text = element_text(size = 16))
     -   Email: btang\@middlebury.edu
     -   Office hours: Mondays 2-3pm, Fridays 11-12pm
 
--   Course website: <https://midd-stat201a-fall2025.github.io/>
+-   Course website: <https://midd-stat201a-fall25.github.io/>
 
     -   Please bookmark this page and visit frequently!
 
