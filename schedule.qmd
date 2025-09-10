@@ -54,8 +54,7 @@ format:
       <td>
         <ul>
           <li>Install R and RStudio <strong>before Thursday class</strong> using <a href="slides/installation_instructions.qmd">these instructions</a></li>
-          <li>Wednesday problems on Problem Set 1</li>
-          <!-- <li>Wednesday problems on <a href="homework/hw1.pdf">Problem Set 1</a></li> -->
+          <li>Wednesday problems on <a href="homework/hw1.pdf">Problem Set 1</a></li>
         </ul>
       </td>
     </tr>
