@@ -203,7 +203,7 @@ Requires us to list all of the units in the target/survey population --\> May be
 
 -   Divide total population into $M$ distinct groups or **clusters** of roughly equal size
 
--   Perform a (simple) random sample on the $M$ clusters, than sample all individuals within each of the randomly selected clusters
+-   Perform a (simple) random sample on the $M$ clusters, then sample all individuals within each of the randomly selected clusters
 
 -   ::: discuss
     Discuss the following:
