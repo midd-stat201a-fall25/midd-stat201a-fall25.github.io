@@ -25,7 +25,7 @@
     "href": "schedule.html",
     "title": "Schedule",
     "section": "",
-    "text": "Week\n\n\nDate\n\n\nIn-class material\n\n\nCoding practice\n\n\nAssignments\n\n\n\n\n\n\n\n1\n\n\nM 9/08\n\n\n\n\nTopic: Welcome!\n\n\nDirections for printing at bottom\n\n\n\n\n\n\n\n\nSubmit Problem Set 0 by tomorrow 9/09 11:59pm class\n\n\nTry to install R and RStudio before Thursday’s 9/11 class using these instructions\n\n\n\n\n\n\n\n\nW 9/10\n\n\n\n\nTopic: Study design\n\n\n\n\n\n\n\n\n\n\nInstall R and RStudio before Thursday class using these instructions\n\n\nWednesday problems on Problem Set 1\n\n\n\n\n\n\n\n\n\nR 9/11\n\n\n\n\nTopic: Programming toolkit (no need to print slides!)\n\n\n\nRStudio help sheet\n\n\n\nR and .qmd basics\n\n\n\nDownload the following .qmd template and drag to your new STAT 201 folder  Intro to R template \n\n\n\n\n\n\n\nIntro to R and Quarto Markdown  Coding practice \n\n\n\n\n\n\nThursday problems on Problem Set 1"
+    "text": "Week\n\n\nDate\n\n\nIn-class material\n\n\nCoding practice\n\n\nAssignments\n\n\n\n\n\n\n\n1\n\n\nM 9/08\n\n\n\n\nTopic: Welcome!\n\n\nDirections for printing at bottom\n\n\n\n\n\n\n\n\nSubmit Problem Set 0 by tomorrow 9/09 11:59pm class\n\n\nTry to install R and RStudio before Thursday’s 9/11 class using these instructions\n\n\n\n\n\n\n\n\nW 9/10\n\n\n\n\nTopic: Study design Study design (pdf here)\n\n\n\n\n\n\n\n\n\nInstall R and RStudio before Thursday class using these instructions\n\n\nWednesday problems on Problem Set 1\n\n\n\n\n\n\n\n\n\nR 9/11\n\n\n\n\nTopic: Programming toolkit (no need to print slides!)\n\n\n\nRStudio help sheet\n\n\n\nR and .qmd basics\n\n\n\nDownload the following .qmd template and drag to your new STAT 201 folder  Intro to R template \n\n\n\n\n\n\n\nIntro to R and Quarto Markdown  Coding practice \n\n\n\n\n\n\nThursday problems on Problem Set 1"
   },
   {
     "objectID": "slides/slides-01-study-design.html#population-and-samples",
@@ -60,14 +60,14 @@
     "href": "slides/slides-01-study-design.html#a-good-sample",
     "title": "Study design",
     "section": "A “good” sample",
-    "text": "A “good” sample\n\nAsk class: do you like statistics? Expect: response, non-response, and selection bias due to convenience sampling\n\n\nThe way we sample data from a population can directly influence the quality of that sample.\n\nWhat are desirable characteristics of a sample?\n\n\nRepresentative: the sample roughly “looks like” the population\n\ni.e. the characteristics of participants in the sample are similar to those of the population\n\nGeneralizable: any results based on the sample can generalize to the population\n\ni.e. we can use results from a sample to draw conclusions about a specific population"
+    "text": "A “good” sample\n\nAsk class: do you like statistics? Expect: response, non-response, and selection bias due to convenience sampling\n\n\nThe way we sample data from a population can directly influence the quality of that sample.\n\nWhat are desirable characteristics of a sample?\n\nRepresentative: the sample roughly “looks like” the target population\n\ni.e. the characteristics of participants in the sample are similar to those of the population\n\nIf we have a representative sample and if our analysis is sound, then our results should be generalizable to the target population\n\ni.e. we can use results from a sample to draw conclusions about a specific population"
   },
   {
     "objectID": "slides/slides-01-study-design.html#bias-in-a-sample",
     "href": "slides/slides-01-study-design.html#bias-in-a-sample",
     "title": "Study design",
     "section": "Bias in a sample",
-    "text": "Bias in a sample\n\nBiased samples occur when the methods used to obtain data result in inaccurate/skewed depictions of the population. This is bad!!\n\nCan occur if a sample is not representative\n\nBias in a sample can arise due to many causes. Here are just a few:\n\nSelection bias: systematic tendency in procedure that causes some members of population to be more likely to be included than others\nNon-response bias: the values of the response variable of non-respondents differ systematically from those that do respond\nResponse bias: systematic favoring of certain response variable values that occurs when people don’t answer truthfully (e.g. lying)\n\nAny type of bias could lead to our sample being non representative or not generalizeable"
+    "text": "Bias in a sample\n\nBiased samples occur when the methods used to obtain data result in inaccurate depictions of the population. This is bad!!\n\nCan occur if a sample is not representative\n\nBias in a sample can arise due to many causes. Here are just a few:\n\nSelection bias: systematic tendency in procedure that causes some members of population to be more likely to be included than others\nNon-response bias: the values of the response variable of non-respondents differ systematically from those that do respond\nResponse bias: systematic favoring of certain response variable values that occurs when people don’t answer truthfully (e.g. lying)\n\nAny type of bias could lead to our sample being non-representative (and therefore, non-generalizable findings)"
   },
   {
     "objectID": "slides/slides-01-study-design.html#simple-random-sampling",
@@ -109,14 +109,14 @@
     "href": "slides/slides-01-study-design.html#confounding-variables",
     "title": "Study design",
     "section": "Confounding variables",
-    "text": "Confounding variables\n\nOftentimes, we design an experiment to identify a causal relationship: does changing \\(x\\) cause a change in \\(y\\)?\nAssessing causality is made difficult by confounding variables: variables that are associated with both the explanatory and response variable of interest\n\n\nConfounders are bad!! Why?\n\n\nExample: consider a study that seeks to examine the effect of coffee consumption on heart disease.\n\nFrom each person, we only collect information on the average amount of coffee they consume per day and whether or not they have heart disease.\nWe find a positive association: more coffee \\(\\rightarrow\\) higher risk of heart disease\nPossible confounder: smoker status. Smokers tend to drink more coffee and tend to have higher rates of heart disease than non-smokers.\nSo the increase in heart disease may be due to smoker status rather than caffeine intake\n\n\n\nConfounders prevent us from attributing the cause to the (desired) explanatory variable!"
+    "text": "Confounding variables\n\nOftentimes, we design an experiment to identify a causal relationship: does changing \\(x\\) cause a change in \\(y\\)?\nAssessing causality is made difficult by confounding variables: other variables that are associated with both \\(x\\) and \\(y\\)\n\n\nConfounders are bad!! Why?\n\n\nExample: consider a study that seeks to examine the effect of coffee consumption on heart disease.\n\nFrom each person, we only collect information on the average amount of coffee they consume per day and whether or not they have heart disease.\nWe find a positive association: more coffee \\(\\rightarrow\\) higher risk of heart disease\nPossible confounder: smoker status. Smokers tend to drink more coffee and tend to have higher rates of heart disease than non-smokers.\nSo the increase in heart disease may be due to smoker status rather than caffeine intake\n\n\n\nConfounders prevent us from attributing the cause to the (desired) explanatory variable!"
   },
   {
     "objectID": "slides/slides-01-study-design.html#principles-of-experimental-design",
     "href": "slides/slides-01-study-design.html#principles-of-experimental-design",
     "title": "Study design",
     "section": "Principles of experimental design",
-    "text": "Principles of experimental design\n\nRandomization/randomized experiment: randomly assign patients to treatments\n\nHelps account for possible confounders!!\n\nHow would randomization help reduce confounding in the heart disease example?\n\n\nControlling for differences: ensure that everyone follows the same protocol exactly\nReplication: the more cases we observe, the more confidence we have in the effect of the explanatory on the response\n\nAchieved by collecting a sufficiently large sample in a single study, or repeating the entire study more than once"
+    "text": "Principles of experimental design\nThe following principles help design a generalizable experiment:\n\nRandomized experiment\n\nHelps account for possible confounders! Why?\n\nControl for differences: ensure that everyone follows the same protocol exactly\nReplication: collect a sufficiently large sample\n\nThe more cases we observe, the more confidence we have in our findings"
   },
   {
     "objectID": "slides/slides-01-study-design.html#principles-of-experimental-design-cont.",
@@ -1635,7 +1635,7 @@
     "href": "slides/slides-01-study-design.html#example-literary-digest-poll",
     "title": "Study design",
     "section": "Example: Literary Digest poll",
-    "text": "Example: Literary Digest poll\n\n1936 was an election year in the United States. Franklin D. Roosevelt (a Democrat) was completing his first term in office as president.\nRepublican candidate Alfred Landon of Kansas was his competitor\nLiterary Digest magazine conducted a polling survey, which received 2.4 million respondents (largest number of people every replying to a poll at that time)\n\nPrediction: overwhelming victory for Landon (predicted FDR would only get 43% of popular vote)\n\nActual result: FDR won by a landslide! (62% to 38%)\nWhat happened? Selection and non-response bias\n\n\n\nSelection bias: Digest mailed questionnaires to 10 million people. Where did they get the address form? Telephone books and club membership lists –&gt; screened out the poor (only about 25% of households had phones)\n\nThis wouldn’t necessarily be bias, EXCEPT for the fact that poor people overwhelmingly favored FDR and the rich favored Landon\n\nNon-response bias: lots of people didn’t respond to survey (~75%)\n\nOnce again, wouldn’t matter if there wasn’t a difference in the opinions of respondents vs non-respondents. But among the 25% who responded, over half favored Landon\nNon-respondents can be very different from respondents. When there is high non-response rate, look for non-response bias\n\nLesson: not all samples that were done poorly are necessarily biased, but we should always ask how the sample was conducted! Also, when a selection procedure is biased, a large sample does not help; this just replicates the mistake on a larger scale!"
+    "text": "Example: Literary Digest poll\n\nIn 1936, Franklin D. Roosevelt (Democrat) was running for re-election as president again Alfred Landon (Republican)\nLiterary Digest magazine conducted a survey which received 2.4 million respondents (largest number of people every replying to a poll at that time)\n\nPrediction: overwhelming victory for Landon (predicted FDR would only get 43% of popular vote)\n\nSampling methods: Literary Digest mailed questionnaires to 10 million people. Addresses were obtained from telephone books and club membership lists. Note: only ~25% of households had telephones.\n\nDo you think the sample was representative? If not, what sorts of biases might have occurred and why? Based on your answer, do you believe the results from the survey were generalizable to whole population?"
   },
   {
     "objectID": "slides/slides-01-study-design.html#simple-random-sampling-srs",
@@ -1656,7 +1656,7 @@
     "href": "slides/slides-01-study-design.html#probability-sampling",
     "title": "Study design",
     "section": "Probability sampling",
-    "text": "Probability sampling\n\nIn general, sampling methods that include a bit of randomness can help reduce the chance of bias\nProbability/random sampling: any sampling method where the selection from the population is based on random selection/chance\n\nNo one has full discretion about who is included in the sample\n\nRandom sampling usually yields a representative and generalizable sample\nExamples include: simple random, stratified, cluster, systematic"
+    "text": "Probability sampling\n\nSampling methods that include a bit of randomness can help reduce the chance of bias\nProbability/random sampling: any sampling method where the selection from the population is based on random selection/chance\n\nNo one has full discretion about who is included in the sample\n\nRandom sampling usually (but not always) yields a representative sample\nExamples included here: simple random, stratified, cluster"
   },
   {
     "objectID": "live_code/intro_R.html#yaml",
@@ -5898,14 +5898,14 @@
     "href": "slides/slides-01-study-design.html#convenience-sampling",
     "title": "Study design",
     "section": "Convenience sampling",
-    "text": "Convenience sampling\nThe worst kind of sampling (but often the easiest)!\n\nConvenience sampling takes place when cases that are easily accessible are more likely to be included in the sample\nExample:\n\nPopulation: students enrolled in statistics courses at Middlebury\nSample: students in STAT 201 AZ"
+    "text": "Convenience sampling\nThe worst kind of sampling (but often the easiest)!\n\nConvenience sampling takes place when cases that are easily accessible are more likely to be included in the sample\nExample:\n\nPopulation: students enrolled in statistics courses at Middlebury\nSample: students in STAT 201 AZ\n\nIssue: typically does not yield a representative sample"
   },
   {
     "objectID": "slides/slides-01-study-design.html#variables-in-statistics",
     "href": "slides/slides-01-study-design.html#variables-in-statistics",
     "title": "Study design",
     "section": "Variables in statistics",
-    "text": "Variables in statistics\n\nWhat is a variable?\n\n\nVariables in math represent a quantity that can change; not fixed. For us, it’s the same idea! A variable is a characteristic/number/quantity that can be measured or counted and can take different values\n\n\nLots of research questions revolve around asking how variable \\(x\\) affects variable \\(y\\)\nIf \\(y\\) is the primary variable of interest, i.e. the variable whose behavior we want to understand, it is called the response variable\nIf we try to understand how changing \\(x\\) affects \\(y\\), then \\(x\\) is called the explanatory variable\n\nIn scientific studies, explanatory variables can often be manipulated/controlled/observed by the researcher ahead of time"
+    "text": "Variables in statistics\n\nWhat is a variable?\n\n\nVariables in math represent a quantity that can change; not fixed. For us, it’s the same idea! A variable is a characteristic/number/quantity that can be measured or counted and can take different values\n\n\nLots of research questions revolve around asking how variable \\(x\\) affects variable \\(y\\)\nResponse variable \\(y\\): the primary variable of interest, i.e. the variable whose behavior we want to understand\nExplanatory variable \\(x\\): the variable(s) that (might) affect the response variable\n\nIn scientific studies, explanatory variables can often be controlled/observed by the researcher ahead of time"
   },
   {
     "objectID": "slides/slides-01-study-design.html#experiments-vs-observainal-studies",
@@ -5919,14 +5919,14 @@
     "href": "slides/slides-01-study-design.html#randomized-experiments",
     "title": "Study design",
     "section": "Randomized experiments",
-    "text": "Randomized experiments\n\nWhen the researcher randomly assigns the treatments, we have a randomized experiment\nNote: random assignment in experiments \\(\\ne\\) random sampling for participation in the sample\nContinuing example:\n\nRandomized experiment is achieved if I use SRS to determine who received which treatment\nBut the students who “participate” in the experiment were not obtained via SRS"
+    "text": "Randomized experiments\n\nRandomized experiment: researcher randomly assigns the treatments\nNote: randomized experiment \\(\\ne\\) random sampling\nContinuing example:\n\nRandomized experiment is achieved if I use SRS to determine who received which treatment\nBut the students in the experiment were not obtained via SRS\n\nWhy care randomized experiments important? Because of confounders!"
   },
   {
     "objectID": "slides/slides-01-study-design.html#experiments-vs-observational-studies",
     "href": "slides/slides-01-study-design.html#experiments-vs-observational-studies",
     "title": "Study design",
     "section": "Experiments vs Observational studies",
-    "text": "Experiments vs Observational studies\n\nObservational studies occur when a research observes cases without manipulating any variables\nExperiments are studies where the researcher assigns specific treatments to cases\n\nNote: experiments are often conducted in medical settings, hence the word “treatment”\n\nExample: I want to design a study to learn if students who take quizzes throughout the semester end up performing better on the final exam.\n\nObservational study: students optionally take quizzes\nExperiment: I choose half of the students to take quizzes and the other half to not take quizzes.\n\n\nAre treatments in experiments considered explanatory or response variables?"
+    "text": "Experiments vs Observational studies\n\nObservational studies occur when a research observes cases without manipulating any variables\nExperiments are studies where the researcher assigns specific treatments to cases\n\nExperiments are often conducted in medical settings, hence the word “treatment”\n\nExample: I want to design a study to learn if students who take quizzes throughout the semester end up performing better on the final exam.\n\nObservational study: students optionally take quizzes\nExperiment: I choose half of the students to take quizzes and the other half to not take quizzes.\n\n\nAre treatments in experiments considered explanatory or response variables?"
   },
   {
     "objectID": "slides/slides-01-study-design.html#treatment-vs-control",
@@ -10609,14 +10609,14 @@
     "href": "slides/slides-01-study-design.html#experiments-treatment-vs-control",
     "title": "Study design",
     "section": "Experiments: Treatment vs control",
-    "text": "Experiments: Treatment vs control\n\nTreatments are typically divided into two categories:\n\nControl group: establishes a baseline, and typically receives “zero amount” of the explanatory variable\nTreatment group(s): receive some “non-zero amount” of the explanatory variable\n\nQuiz example continued:\n\nControl group: no quizzes\nTreatment group 1: takes one quiz\nTreatment group 2: takes two quizzes\n\nHow to decide which case gets which treatment?"
+    "text": "Experiments: Treatment vs control\n\nTreatments are typically divided into two categories:\n\nControl group: establishes a baseline, and typically receives “zero amount” of the explanatory variable\nTreatment group(s): receive some “non-zero amount” of the explanatory variable\n\nQuiz example continued:\n\nControl group (i.e. treatment group 0): no quizzes\nTreatment group 1: takes one quiz\nTreatment group 2: takes two quizzes\n\nHow to decide which case gets which treatment?\n\n\nQuestion of ethics!"
   },
   {
     "objectID": "slides/slides-01-study-design.html#your-turn",
     "href": "slides/slides-01-study-design.html#your-turn",
     "title": "Study design",
     "section": "Your turn!",
-    "text": "Your turn!\nIn groups, design an experiment that seeks to examine the effect of coffee consumption on heart disease.\n\nDefine your response variable as exactly as possible\nDecide what your treatment(s) will be\nMake sure your experiment meets the three principles\n\nHow will you avoid the potential confounding of smoke status?\n\nCan you also (double) blind your experiment?"
+    "text": "Your turn!\nIn groups, design an experiment that seeks to examine the effect of coffee consumption on heart disease.\n\nDefine your target population and response variable as exactly as possible\nDecide what your treatment(s) will be\nMake sure your experiment meets the three principles of experimental design and is generalizable\n\nHow will you avoid the confounding variable of smoking?\n\nCan you also (double) blind your experiment?"
   },
   {
     "objectID": "slides/slides-00-welcome.html#who-is-professor-tang",
@@ -10652,5 +10652,19 @@
     "title": "Statistics and Data Science Experience",
     "section": "Reflect",
     "text": "Reflect\nAfter having your experience, please create a brief set of slides (e.g. PowerPoint or Google Presentations) that contain the following content:\n\nTitle slide that includes the name of the experience and your name\nDescription of the experience\nSomething(s) you learned from the experience (3-5 sentences/bullet points)\nConnection to STAT 201 (3-5 sentences/bullet points)\nA photo of the experience with a descriptive caption. Please obtain consent from all people in the photo to share the photo with Prof. Tang and if possible, a public-facing website or bulletin board. If someone does not agree to share the photo with the public, please note that in the slide!\n\nThe slides should be well-designed and have large enough font for presenting to an audience."
+  },
+  {
+    "objectID": "slides/slides-01-study-design.html#reducing-bias-in-experiments",
+    "href": "slides/slides-01-study-design.html#reducing-bias-in-experiments",
+    "title": "Study design",
+    "section": "Reducing bias in experiments",
+    "text": "Reducing bias in experiments\n\nBiases can still unintentionally arise in experiments, even if we follow these three principles.\nBlind experiment by not allowing participants to know which treatment they are receiving\n\nGive a placebo (a fake treatment) to those in the control group (e.g. a sugar pill)\n\nBest practice is to double-blind experiments: both the patients and the doctors/researchers who interact with patients are unaware of who receives which treatment\nBlinding is not always possible!"
+  },
+  {
+    "objectID": "slides/slides-01-study-design.html#example-literary-digest-poll-cont.",
+    "href": "slides/slides-01-study-design.html#example-literary-digest-poll-cont.",
+    "title": "Study design",
+    "section": "Example: Literary Digest poll (cont.)",
+    "text": "Example: Literary Digest poll (cont.)\n\nSelection bias?\n\nOnly wealthy households were included in the survey.\nThis wouldn’t necessarily be bias, EXCEPT for the fact that poor people overwhelmingly favored FDR and the rich favored Landon –&gt; yes selection bias\n\nNon-response bias?\n\nNote that ~75% of those who received a survey did not respond! Wouldn’t matter if there wasn’t a difference in the opinions of respondents vs non-respondents. But among those who responded, over half favored Landon\nIf the majority of non-respondents also favored Landon, then no non-response bias. Otherwise, yes non-response bias.\n\nResponse bias?\n\nNo good reason to lie -&gt; no response bias\n\nActual result: FDR won by a landslide! (62% to 38%)\n\n\nLesson: not all samples that were done poorly are necessarily biased, but we should always ask how the sample was conducted! Also, when a selection procedure is biased, a large sample does not help; this just replicates the mistake on a larger scale!"
   }
 ]
