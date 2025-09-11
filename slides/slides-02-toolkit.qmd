@@ -131,11 +131,3 @@ Create a new folder on your Desktop that is named **STAT 201**.
 -   ::: {style="color: maroon"}
     All of your files for this course should go into this folder!!!!
     :::
-
-## `tinytex`
-
-In your **Console**, let's run the following code:
-
-```{r eval = F, echo = T}
-tinytex::install_tinytex()
-```

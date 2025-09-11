@@ -122,7 +122,7 @@ There are thousands of available packages to work with. Two of the most common p
 
 ### Package installation
 
-There are two ways to install a package:
+There are two ways to install a package. 
 
 1.  Option 1:
     i.  Click on the "Packages" tab in the Files pane of RStudio
@@ -135,7 +135,11 @@ There are two ways to install a package:
 
 We will install the `openintro` package together.
 
-Then, try installing the `tidyverse` package on your own!
+Then, try installing the `tidyverse` and then the `tinytex` packages on your own! (You may see some red text; totally fine!) Once you've done that, run the following in your Console:
+
+```{r eval = F}
+tinytex::install_tinytex()
+```
 
 ### Package loading
 
