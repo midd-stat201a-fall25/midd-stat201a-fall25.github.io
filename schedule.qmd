@@ -80,8 +80,7 @@ format:
       </td>
       <td>
         <ul>
-          <li>Thursday problems on Problem Set 1.</li>
-          <!-- <li>Thursday problems on <a href="homework/hw1.pdf">Problem Set 1</a></li> -->
+          <li>Thursday problems on <a href="homework/hw1.pdf">Problem Set 1</a></li> 
         </ul>
       </td>
     </tr>
