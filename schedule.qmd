@@ -75,12 +75,12 @@ format:
       </td>
       <td>
       <ul>
-        <li>Intro to R and Quarto Markdown         {{< downloadthis coding_practice/coding-practice-02-intro-r.qmd dname="coding-practice-intro-R" label="Coding practice" id=mtcars-btn >}}</li>
+        <li>Intro to R and Quarto Markdown. <b>Due Friday 9/12 at 11:59pm!</b>         {{< downloadthis coding_practice/coding-practice-02-intro-r.qmd dname="coding-practice-intro-R" label="Coding practice" id=mtcars-btn >}}</li>
       </ul>
       </td>
       <td>
         <ul>
-          <li>Thursday problems on Problem Set 1</li>
+          <li>Thursday problems on Problem Set 1.</li>
           <!-- <li>Thursday problems on <a href="homework/hw1.pdf">Problem Set 1</a></li> -->
         </ul>
       </td>

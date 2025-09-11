@@ -8,10 +8,7 @@ Welcome to the website for Middlebury College’s Fall 2025 STAT 201A. On this w
 
 ## Announcements
 
--   Welcome!
--   R installation help hours:
-    -   Monday 9/8 from 2-3pm (Prof. Tang's office hours)
-    -   Wednesday 9/10 from 7-9pm in the Q-Center
+-   First coding practice extended to Friday!
 
 ------------------------------------------------------------------------
 
