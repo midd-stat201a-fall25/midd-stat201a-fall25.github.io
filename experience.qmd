@@ -14,7 +14,10 @@ The assignment is due on **Monday, 12/01 at 11:59pm to Canvas**.
 Below lists opportunities that count toward having a Statistics or Data Science experience. Note that the list is dynamic and new opportunities may arise as the semester progresses.
 
 1.  Have a minimum 20-minute conversation with a statistician or data scientist and learn about their work.
-    -   Middlebury has several professors who consider themselves a statistician and/or data scientist. You might reach out to one and invite them to eat lunch with you in the dining hall or chat over coffee.
+    -   Middlebury has several professors who consider themselves a statistician and/or data scientist. You might reach out to one and invite them to eat lunch with you in the dining hall!
+    -   Professors who are aware of this assignment and who you could contact include (but are not limited to):
+        -   Math/Stats: Professors Becky Tang, Meaghan Winder, Emily Malcolm-White, Alex Lyford, and Christian Stratton
+        -   Computer Science: Professor Phil Chodrow
     -   For this opportunity, a maximum of two students may attend the same conversation.
 2.  Attend one of the events below (for at least 30 minutes)
     -   11/08: Women in Data Science Conference at Middlebury

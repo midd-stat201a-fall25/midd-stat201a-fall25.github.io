@@ -25,7 +25,7 @@
     "href": "schedule.html",
     "title": "Schedule",
     "section": "",
-    "text": "Week\n\n\nDate\n\n\nIn-class material\n\n\nCoding practice\n\n\nAssignments\n\n\n\n\n\n\n\n1\n\n\nM 9/08\n\n\n\n\nTopic: Welcome!\n\n\nDirections for printing at bottom\n\n\n\n\n\n\n\n\nSubmit Problem Set 0 by tomorrow 9/09 11:59pm class\n\n\nTry to install R and RStudio before Thursday’s 9/11 class using these instructions\n\n\n\n\n\n\n\n\nW 9/10\n\n\n\n\nTopic: Study design Study design (pdf here)\n\n\n\n\n\n\n\n\n\nInstall R and RStudio before Thursday class using these instructions\n\n\nWednesday problems on Problem Set 1\n\n\n\n\n\n\n\n\nR 9/11\n\n\n\n\nTopic: Programming toolkit (no need to print slides!)\n\n\n\nRStudio help sheet\n\n\n\nR and .qmd basics\n\n\n\nDownload the following .qmd template and drag to your new STAT 201 folder  Intro to R template \n\n\n\n\n\n\n\nIntro to R and Quarto Markdown  Coding practice \n\n\n\n\n\n\nThursday problems on Problem Set 1"
+    "text": "Week\n\n\nDate\n\n\nIn-class material\n\n\nCoding practice\n\n\nAssignments\n\n\n\n\n\n\n\n1\n\n\nM 9/08\n\n\n\n\nTopic: Welcome!\n\n\nDirections for printing at bottom\n\n\n\n\n\n\n\n\nSubmit Problem Set 0 by tomorrow 9/09 11:59pm class\n\n\nTry to install R and RStudio before Thursday’s 9/11 class using these instructions\n\n\n\n\n\n\n\n\nW 9/10\n\n\n\n\nTopic: Study design Study design (pdf here)\n\n\n\n\n\n\n\n\n\nInstall R and RStudio before Thursday class using these instructions\n\n\nWednesday problems on Problem Set 1\n\n\n\n\n\n\n\n\nR 9/11\n\n\n\n\nTopic: Programming toolkit (no need to take notes!)\n\n\n\nRStudio help sheet\n\n\n\nR and .qmd basics\n\n\n\nDownload the following .qmd template and drag to your new STAT 201 folder  Intro to R template \n\n\n\n\n\n\n\nIntro to R and Quarto Markdown  Coding practice \n\n\n\n\n\n\nThursday problems on Problem Set 1"
   },
   {
     "objectID": "slides/slides-01-study-design.html#population-and-samples",
@@ -10666,5 +10666,12 @@
     "title": "Study design",
     "section": "Example: Literary Digest poll (cont.)",
     "text": "Example: Literary Digest poll (cont.)\n\nSelection bias?\n\nOnly wealthy households were included in the survey.\nThis wouldn’t necessarily be bias, EXCEPT for the fact that poor people overwhelmingly favored FDR and the rich favored Landon –&gt; yes selection bias\n\nNon-response bias?\n\nNote that ~75% of those who received a survey did not respond! Wouldn’t matter if there wasn’t a difference in the opinions of respondents vs non-respondents. But among those who responded, over half favored Landon\nIf the majority of non-respondents also favored Landon, then no non-response bias. Otherwise, yes non-response bias.\n\nResponse bias?\n\nNo good reason to lie -&gt; no response bias\n\nActual result: FDR won by a landslide! (62% to 38%)\n\n\nLesson: not all samples that were done poorly are necessarily biased, but we should always ask how the sample was conducted! Also, when a selection procedure is biased, a large sample does not help; this just replicates the mistake on a larger scale!"
+  },
+  {
+    "objectID": "slides/slides-02-toolkit.html#tinytex",
+    "href": "slides/slides-02-toolkit.html#tinytex",
+    "title": "Toolkit",
+    "section": "tinytex",
+    "text": "tinytex\nIn your Console, let’s run the following code:\n\ntinytex::install_tinytex()"
   }
 ]

@@ -63,7 +63,7 @@ format:
       <td>R 9/11</td>
       <td>
         <ul>
-          <li>Topic: <a href="slides/slides-02-toolkit.qmd">Programming toolkit</a> (no need to print slides!)</li>
+          <li>Topic: <a href="slides/slides-02-toolkit.qmd">Programming toolkit</a> (no need to take notes!)</li>
           <ul>
             <li><a href="slides/02-rstudio_help_sheet.qmd">RStudio help sheet</a></li>
           </ul>

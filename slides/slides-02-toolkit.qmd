@@ -21,7 +21,7 @@ draft: false
 
 -   A few more homework problems released today. Yesterday and today's problems are due to Gradescope by Monday 11:59pm
 
--   Office hours reminder!
+-   Office hours + Q-Center TA hours reminder!
 
 # Agenda
 
@@ -131,3 +131,11 @@ Create a new folder on your Desktop that is named **STAT 201**.
 -   ::: {style="color: maroon"}
     All of your files for this course should go into this folder!!!!
     :::
+
+## `tinytex`
+
+In your **Console**, let's run the following code:
+
+```{r eval = F, echo = T}
+tinytex::install_tinytex()
+```

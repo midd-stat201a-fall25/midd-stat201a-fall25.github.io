@@ -33,6 +33,6 @@ Welcome to the website for Middlebury College’s Fall 2025 STAT 201A. On this w
 
 -   Sunday, Monday, and Thursday 7-9pm
 
-The [syllabus](stat201_syllabus.pdf) (most recent update: 9/01/25) outlines our course policies and a rough schedule. Once classes begin, you should follow the schedule and due dates found on this website.
+The [syllabus](stat201syllabus.pdf) (most recent update: 9/01/25) outlines our course policies and a rough schedule. Once classes begin, you should follow the schedule and due dates found on this website.
 
 -   Note the textbooks are optional in this class. However, several practice and homework problems are pulled from the OpenIntro textbook.

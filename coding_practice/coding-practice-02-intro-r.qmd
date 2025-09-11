@@ -7,7 +7,7 @@ format: pdf
 
 1.  Change your name in the YAML. Be sure to keep the quotation marks!
 
-2.  Execute the following the code in the code chunk. In the space below the code chunk that reads **Answer**: describe in words (as specifically as possible) what the code is doing. What type of object is this?
+2.  Execute the following the code in the code chunk. In the space below the code chunk that reads "**Answer**:", describe in words (as specifically as possible) what the code is doing. What type of object is this?
 
 ```{r}
 1:10
@@ -15,31 +15,25 @@ format: pdf
 
 **Answer**:
 
-3.  We will learn how to use the important function `sample()`, which *allows us to obtain a random sample in R*. Look at the Help file by typing `?sample` into your Console. Read the **Usage** and **Arguments** sections, then scroll down to look **Examples**. *Note in **Usage** that colored text (e.g. FALSE and NULL) indicate default behavior of the function.*
+3.  We will learn how to use the important function `sample()`, which *allows us to obtain a random sample in R*. Look at the Help file by typing `?sample` into your Console. Read the **Usage** and **Arguments** sections, then scroll down to look **Examples**. *Note in **Usage** that colored text (e.g. FALSE and NULL) indicate default behavior of the function (i.e. you don't need to specify these arguments to get the function to run).*
 
-    After some experimenting, write code that randomly samples five numbers from the set of integers 6-10, *without* replacement. Note: it's okay if you get something different from those around you! We are *random*ly sampling after all!
-
-```{r}
-
-```
-
-4.  In following code chunk, write code that randomly samples five numbers from the set of integers 6-10, *with* replacement.
+    After some experimenting, write code that randomly samples six numbers from the set of integers 6-10, *with* replacement. Note: it's okay if you get something different from those around you! We are *random*ly sampling after all!
 
 ```{r}
 
 ```
 
-5.  In the following code chunk, write code to load in the `openintro` package. Then run the code in the code chunk. We will need this package to access the `cherry` data set in the next question.
+4.  In the following code chunk, write code to load in the `openintro` package. Then run the code in the code chunk. We will need this package to access the `cherry` data set in the next question. *You might get some red or black text in the Console, but only panic if it's an Error!*
 
 ```{r}
 
 ```
 
-6.  In the Console, type in `?cherry` to open up the Help file for the `cherry` data set. What are the units for each of the variables?
+5.  In the Console, type in `?cherry` to open up the Help file for the `cherry` data set. What are the units for each of the variables?
 
 **Answer**:
 
-7.  Remember that rows in data frames represent observations. How many observations are there in the `cherry` data frame? Answer this *via code* by using the `nrow()` function and passing in the name of data frame of interest.
+6.  In our course, rows in data frames represent observations/cases and columns represent variables describing each case. How many observations are there in the `cherry` data frame? Answer this *via code* by using the `nrow()` function and passing in the name of data frame of interest.
 
 ```{r}
 
