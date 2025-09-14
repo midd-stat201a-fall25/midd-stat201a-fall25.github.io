@@ -25,7 +25,7 @@
     "href": "schedule.html",
     "title": "Schedule",
     "section": "",
-    "text": "Week\n\n\nDate\n\n\nIn-class material\n\n\nCoding practice\n\n\nAssignments\n\n\n\n\n\n\n\n1\n\n\nM 9/08\n\n\n\n\nTopic: Welcome!\n\n\nDirections for printing at bottom\n\n\n\n\n\n\n\n\nSubmit Problem Set 0 by tomorrow 9/09 11:59pm class\n\n\nTry to install R and RStudio before Thursday’s 9/11 class using these instructions\n\n\n\n\n\n\n\n\nW 9/10\n\n\n\n\nTopic: Study design Study design (pdf here)\n\n\n\n\n\n\n\n\n\nInstall R and RStudio before Thursday class using these instructions\n\n\nWednesday problems on Problem Set 1\n\n\n\n\n\n\n\n\nR 9/11\n\n\n\n\nTopic: Programming toolkit (no need to take notes!)\n\n\n\nRStudio help sheet\n\n\n\nR and .qmd basics\n\n\n\nDownload the following .qmd template and drag to your new STAT 201 folder  Intro to R template \n\n\n\n\n\n\n\nIntro to R and Quarto Markdown. Due Friday 9/12 at 11:59pm!  Coding practice \n\n\n\n\n\n\nThursday problems on Problem Set 1"
+    "text": "Week\n\n\nDate\n\n\nIn-class material\n\n\nCoding practice\n\n\nAssignments\n\n\n\n\n\n\n\n1\n\n\nM 9/08\n\n\n\n\nTopic: Welcome!\n\n\nDirections for printing at bottom\n\n\n\n\n\n\n\n\nSubmit Problem Set 0 by tomorrow 9/09 11:59pm class\n\n\nTry to install R and RStudio before Thursday’s 9/11 class using these instructions\n\n\n\n\n\n\n\n\nW 9/10\n\n\n\n\nTopic: Study design Study design (pdf here)\n\n\n\n\n\n\n\n\n\nInstall R and RStudio before Thursday class using these instructions\n\n\nWednesday problems on Problem Set 1\n\n\n\n\n\n\n\n\nR 9/11\n\n\n\n\nTopic: Programming toolkit (no need to take notes!)\n\n\n\nRStudio help sheet\n\n\n\nR and .qmd basics\n\n\n\nDownload the following .qmd template and drag to your new STAT 201 folder  Intro to R template \n\n\n\n\n\n\n\nIntro to R and Quarto Markdown. Due Friday 9/12 at 11:59pm!  Coding practice \n\n\n\n\n\n\nThursday problems on Problem Set 1\n\n\n\n\n\n\n\n2\n\n\nM 9/15\n\n\n\n\nTopic: Numerical data (part 1) (pdf here)\n\n\n\n\n\n\n\n\nMonday problems on Problem Set 2\n\n\n\n\n\n\n\n\nW 9/17\n\n\n\n\nTopic: Numerical data (part 2)\n\n\n\n\n\n\nNumerical data\n\n\n\n\n\n\nWednesday problems on Problem Set 2\n\n\n\n\n\n\n\n\nR 9/18\n\n\n\n\nTopic: Visualizations with ggplot\n\n\n\n\n\n\nIntroduction to ggplot\n\n\n\n\n\n\nThursday problems on Problem Set 2"
   },
   {
     "objectID": "slides/slides-01-study-design.html#population-and-samples",
@@ -648,14 +648,14 @@
     "href": "slides/slides-03-numerical-pt1.html#live-code",
     "title": "Numerical data",
     "section": "Live code",
-    "text": "Live code\nFunctions to calculate sample mean, variance, and standard deviation in R. Each expects a vector of numerical values as input:\n\n\nmean()\nvar()\nsd()"
+    "text": "Live code\nFunctions to calculate sample mean, variance, and standard deviation in R. Each expects a vector of numerical values as input:\n\nmean()\nvar()\nsd()"
   },
   {
     "objectID": "slides/slides-03-numerical-pt1.html#scatterplots-cont.",
     "href": "slides/slides-03-numerical-pt1.html#scatterplots-cont.",
     "title": "Numerical data",
     "section": "Scatterplots (cont.)",
-    "text": "Scatterplots (cont.)\n\nHow do we determine which variable to put on each axis?\nWhat do scatterplots reveal about the data, and how are they useful?\n\n\nAssociations/patterns (linear, exponential, etc) between two variables. They might not tell the complete story, however!\nPositive vs negative associations"
+    "text": "Scatterplots (cont.)\nUse scatterplots to reveal:\n\nAssociation (positive, negative, none), and if there is an association:\n\nThe strength (very weak to very strong)\nThe type of association (e.g. linear, quadratic)\n\n\n\n\n\n\n\n\n\n\n\n\n\n\nIf there is a notion of explanatory and response, the explanatory goes on \\(x\\)-axis!"
   },
   {
     "objectID": "slides/slides-03-numerical-pt1.html#dot-plots",
@@ -1719,7 +1719,7 @@
     "href": "slides/slides-03-numerical-pt1.html#creating-visualizations",
     "title": "Numerical data",
     "section": "Creating visualizations",
-    "text": "Creating visualizations\nWorking in your groups:\n\n\nUsing a histogram, visualize the distribution of the sample mean weights from our activity\nConvince yourselves as a group: what is does a case represent in this data?\nDescribe the shape of your distribution (i.e. skewness and modality)\nObtain the sample mean and standard deviation of the sample means"
+    "text": "Creating visualizations\nWorking in your groups:\n\nUsing a histogram, visualize the distribution of the sample mean weights from our activity\nConvince yourselves as a group: what does a case represent in this data?\nDescribe the shape of your distribution (i.e. skewness and modality)\nObtain the sample mean and standard deviation of the sample means"
   },
   {
     "objectID": "slides/slides-03-numerical-pt1.html#live-code-1",
@@ -2314,7 +2314,7 @@
     "href": "index.html#announcements",
     "title": "Introduction to Statistical and Data Sciences",
     "section": "Announcements",
-    "text": "Announcements\n\nFirst coding practice extended to Friday!"
+    "text": "Announcements\n\nHappy Week 2!"
   },
   {
     "objectID": "slides/slides-09-conditional-probability.html#recap",
@@ -6010,14 +6010,14 @@
     "href": "slides/slides-03-numerical-pt1.html#visualizing-univariate-numerical-data",
     "title": "Numerical data",
     "section": "Visualizing univariate numerical data",
-    "text": "Visualizing univariate numerical data\n\nTo visualize the distribution (i.e. behavior) of a single variable, we could create a dot plot where:\n\nEach case is plotted on a horizontal axis as a dot\nValues that appear multiple times in the dataset would have stacked dots\n\n\nPros and cons?\n\nIn the following, we have a dot plot of BMI rounded to the nearest integer."
+    "text": "Visualizing univariate numerical data\n\nTo visualize the distribution (i.e. behavior) of a single variable, we could create a dot plot where:\n\nEach case is plotted on a horizontal axis as a dot\nValues that appear multiple times in the dataset would have stacked dots\n\nWe can make a dot plot from our activity\n\nPros and cons?"
   },
   {
     "objectID": "slides/slides-03-numerical-pt1.html#examples",
     "href": "slides/slides-03-numerical-pt1.html#examples",
     "title": "Numerical data",
     "section": "Examples",
-    "text": "Examples\n\nLet’s calculate the sample mean weight of a piece of candy in our bag. Let \\(x\\) be the weight of a candy.\n\n\nCalculate your \\(\\bar{x}\\)\n\nNote: we did not need individual values \\(x_{1}, x_{2},\\ldots\\) to calculate \\(\\bar{x}\\)!\n\nCan we obtain the population mean?\n\n\\(\\mu=\\)\n\n\n\n\n\nWhat is the average of the following values? \\(\\qquad 1, 4, 4\\)\nIf instead there were ten 1’s and twenty 4’s, would the average be the same?\nThus, we see that means depend on proportions!"
+    "text": "Examples\n\nLet’s calculate the sample mean weight of a piece of candy in our bag. Let \\(x\\) be the weight of a candy.\n\n\nCalculate your \\(\\bar{x}\\)\n\n\nHow would we obtain the population mean \\(\\mu\\)?\n\n\n\n\nWhat is the average of the following values? \\(\\qquad 1, 4, 4\\)\nIf instead there were ten 1’s and twenty 4’s, would the average be the same?\nThus, we see that means depend on proportions!"
   },
   {
     "objectID": "slides/slides-03-numerical-pt1.html#condensing-information",

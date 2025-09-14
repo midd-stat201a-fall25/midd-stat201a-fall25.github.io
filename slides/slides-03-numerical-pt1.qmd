@@ -1,7 +1,7 @@
 ---
 title: "Numerical data"
 subtitle: "Visualization and summary statistics (part 1)"
-date: "February 17, 2025"
+date: "September 15, 2025"
 title-slide-attributes:
     data-background-image: "figs/bikeshare-plots.png"
     data-background-size: contain
@@ -107,11 +107,7 @@ $$\bar{x} = \frac{x_{1} + x_{2} + \ldots x_{n}}{n} = \frac{1}{n} \sum_{i=1}^{n} 
         Calculate your $\bar{x}$
         :::
 
-    -   **Note**: we did not need individual values $x_{1}, x_{2},\ldots$ to calculate $\bar{x}$!
-
--   Can we obtain the population mean?
-
-    -   $\mu=$
+-   How would we obtain the population mean $\mu$?
 
 :::: fragment
 ::: discuss
@@ -200,7 +196,7 @@ Functions to calculate sample mean, variance, and standard deviation in `R`. Eac
 
 ## Scatterplots
 
-**Scatterplots** are *bivariate* (two-variable) visualizations that provide a case-by-case view of the data for two numerical variables
+**Scatterplots** are *bivariate* (two-variable) visualizations that provide a case-by-case view of the data for **two numerical variables**
 
 -   Each point represents the observed pair of values of variables 1 and 2 for a case in the dataset
 
@@ -217,29 +213,84 @@ insurance |>
 
 ## Scatterplots (cont.)
 
--   How do we determine which variable to put on each axis?
+Use scatterplots to reveal:
 
--   What do scatterplots reveal about the data, and how are they useful?
+-   **Association** (positive, negative, none), and if there is an association:
 
-::: notes
-Associations/patterns (linear, exponential, etc) between two variables. They might not tell the complete story, however!
+    -   The **strength** (very weak to very strong)
 
-Positive vs negative associations
+    -   The **type** of association (e.g. linear, quadratic)
+
+::: {.fragment}
+```{r fig.width=10, fig.height=3, fig.align='center'}
+# Load necessary library
+library(gridExtra)  # For arranging multiple plots
+
+# Set seed for reproducibility
+set.seed(123)
+
+# Create data for positive association
+df_positive <- data.frame(
+  x = 1:100,
+  y = 1:100 + rnorm(100, mean = 0, sd = 25)  # y increases with x
+)
+
+# Negative association
+x_vals <- seq(50, 100, length.out = 100)
+df_negative <- data.frame(
+  x = x_vals,
+  y = -0.05 * x_vals^2 + 5 * x_vals + rnorm(100, mean = 0, sd = 5)
+)
+
+# Create data for no association
+df_none <- data.frame(
+  x = 1:100,
+  y = rnorm(100, mean = 50, sd = 15)  # y is random
+)
+
+# Plot 1: Positive Association
+p1 <- ggplot(df_positive, aes(x = x, y = y)) +
+  geom_point(color = "blue") +
+  # ggtitle("Positive Association") +
+  theme_minimal()+
+  theme(axis.text = element_blank())
+
+# Plot 2: Negative Association
+p2 <- ggplot(df_negative, aes(x = x, y = y)) +
+  geom_point(color = "red") +
+  # ggtitle("Negative Association") +
+  theme_minimal()+
+  theme(axis.text = element_blank())
+
+# Plot 3: No Association
+p3 <- ggplot(df_none, aes(x = x, y = y)) +
+  geom_point(color = "gray40") +
+  # ggtitle("No Association") +
+  ylim(c(20, 100)) +
+  theme_minimal()+
+  theme(axis.text = element_blank())
+
+# Arrange all three plots in one row
+grid.arrange(p1, p2, p3, ncol = 3)
+
+```
 :::
+
+- If there is a notion of explanatory and response, the explanatory goes on $x$-axis!
 
 ## Visualizing univariate numerical data
 
--   To visualize the distribution (i.e. behavior) of a single variable, we could create a dot plot where:
+-   To visualize the distribution (i.e. behavior) of a *single* variable, we could create a dot plot where:
 
     -   Each case is plotted on a horizontal axis as a dot
 
     -   Values that appear multiple times in the dataset would have stacked dots
 
+-   We can make a dot plot from our activity
+
 -   ::: discuss
     Pros and cons?
     :::
-
--   In the following, we have a dot plot of `BMI` rounded to the nearest integer.
 
 ## Binning
 
@@ -340,7 +391,7 @@ Working in your groups:
 
 ::: nonincremental
 1.  Using a histogram, visualize the distribution of the sample mean weights from our activity
-2.  Convince yourselves as a group: what is does a case represent in this data?
+2.  Convince yourselves as a group: what does a case represent in this data?
 3.  Describe the shape of your distribution (i.e. skewness and modality)
 4.  Obtain the sample mean and standard deviation of the sample means
 :::

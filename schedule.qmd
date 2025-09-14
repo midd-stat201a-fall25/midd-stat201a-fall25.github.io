@@ -84,5 +84,64 @@ format:
         </ul>
       </td>
     </tr>
+    <!-- week 2 -->
+    <tr>
+      <td id="week2"><strong>2</strong></td>
+      <td>M 9/15</td>
+      <td>
+        <ul>
+          <li>Topic: <a href="slides/slides-03-numerical-pt1.qmd">Numerical data (part 1)</a>
+          (pdf <a href="slides/pdf/slides-03.pdf">here</a>)
+          </li>
+        </ul>
+      </td>
+      <td></td>
+      <td>
+        <ul>
+          <li>Monday problems on Problem Set 2</li>
+        </ul>
+      </td>
+      </tr>
+    <tr>
+      <td></td>
+      <td>W 9/17</td>
+      <td>
+        <ul>
+          <li>Topic: Numerical data (part 2)
+          </li>
+        </ul>
+      </td>
+      <td>
+      <ul>
+        <li>Numerical data</li>
+      </ul>
+      </td>
+      <td>
+        <ul>
+          <li>Wednesday problems on Problem Set 2</li>
+        </ul>
+      </td>
+    </tr>
+    <tr>
+      <td></td>
+      <td>R 9/18</td>
+      <td>
+        <ul>
+          <li>Topic: Visualizations with ggplot
+          </li>
+        </ul>
+      </td>
+      <td>
+      <ul>
+        <li>Introduction to ggplot</li>
+      </ul>
+      </td>
+      <td>
+        <ul>
+          <li>Thursday problems on Problem Set 2</li>
+        </ul>
+      </td>
+    </tr>
   </tbody>
 </table>
+
