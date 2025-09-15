@@ -93,6 +93,10 @@ format:
           <li>Topic: <a href="slides/slides-03-numerical-pt1.qmd">Numerical data (part 1)</a>
           (pdf <a href="slides/pdf/slides-03.pdf">here</a>)
           </li>
+            <ul>
+              <li>Code: <a href="live_code/numerical_pt1.qmd">here</a>
+              </li>
+            </ul>
         </ul>
       </td>
       <td></td>

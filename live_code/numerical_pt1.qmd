@@ -1,0 +1,21 @@
+---
+title: "R functions for numerical data"
+date: "September 15, 2025"
+---
+
+`R` provides functions to calculate common summary statistics. Each of the following functions requires a *vector* of numeric elements as input.
+
+```{r}
+# take the mean of the integer values 1-10
+mean(1:10)
+
+# take mean of the values 1, 2.2, and 0
+mean(c(1, 2.2, 0))
+
+# take the variance and standard deviation of the integer values 1-10
+var(1:10)
+sd(1:10)
+
+# confirm relationship between std. deviation and variance
+sqrt(var(1:10))
+```

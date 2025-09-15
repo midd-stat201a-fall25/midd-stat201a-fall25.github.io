@@ -25,7 +25,7 @@
     "href": "schedule.html",
     "title": "Schedule",
     "section": "",
-    "text": "Week\n\n\nDate\n\n\nIn-class material\n\n\nCoding practice\n\n\nAssignments\n\n\n\n\n\n\n\n1\n\n\nM 9/08\n\n\n\n\nTopic: Welcome!\n\n\nDirections for printing at bottom\n\n\n\n\n\n\n\n\nSubmit Problem Set 0 by tomorrow 9/09 11:59pm class\n\n\nTry to install R and RStudio before Thursday’s 9/11 class using these instructions\n\n\n\n\n\n\n\n\nW 9/10\n\n\n\n\nTopic: Study design Study design (pdf here)\n\n\n\n\n\n\n\n\n\nInstall R and RStudio before Thursday class using these instructions\n\n\nWednesday problems on Problem Set 1\n\n\n\n\n\n\n\n\nR 9/11\n\n\n\n\nTopic: Programming toolkit (no need to take notes!)\n\n\n\nRStudio help sheet\n\n\n\nR and .qmd basics\n\n\n\nDownload the following .qmd template and drag to your new STAT 201 folder  Intro to R template \n\n\n\n\n\n\n\nIntro to R and Quarto Markdown. Due Friday 9/12 at 11:59pm!  Coding practice \n\n\n\n\n\n\nThursday problems on Problem Set 1\n\n\n\n\n\n\n\n2\n\n\nM 9/15\n\n\n\n\nTopic: Numerical data (part 1) (pdf here)\n\n\n\n\n\n\n\n\nMonday problems on Problem Set 2\n\n\n\n\n\n\n\n\nW 9/17\n\n\n\n\nTopic: Numerical data (part 2)\n\n\n\n\n\n\nNumerical data\n\n\n\n\n\n\nWednesday problems on Problem Set 2\n\n\n\n\n\n\n\n\nR 9/18\n\n\n\n\nTopic: Visualizations with ggplot\n\n\n\n\n\n\nIntroduction to ggplot\n\n\n\n\n\n\nThursday problems on Problem Set 2"
+    "text": "Week\n\n\nDate\n\n\nIn-class material\n\n\nCoding practice\n\n\nAssignments\n\n\n\n\n\n\n\n1\n\n\nM 9/08\n\n\n\n\nTopic: Welcome!\n\n\nDirections for printing at bottom\n\n\n\n\n\n\n\n\nSubmit Problem Set 0 by tomorrow 9/09 11:59pm class\n\n\nTry to install R and RStudio before Thursday’s 9/11 class using these instructions\n\n\n\n\n\n\n\n\nW 9/10\n\n\n\n\nTopic: Study design Study design (pdf here)\n\n\n\n\n\n\n\n\n\nInstall R and RStudio before Thursday class using these instructions\n\n\nWednesday problems on Problem Set 1\n\n\n\n\n\n\n\n\nR 9/11\n\n\n\n\nTopic: Programming toolkit (no need to take notes!)\n\n\n\nRStudio help sheet\n\n\n\nR and .qmd basics\n\n\n\nDownload the following .qmd template and drag to your new STAT 201 folder  Intro to R template \n\n\n\n\n\n\n\nIntro to R and Quarto Markdown. Due Friday 9/12 at 11:59pm!  Coding practice \n\n\n\n\n\n\nThursday problems on Problem Set 1\n\n\n\n\n\n\n\n2\n\n\nM 9/15\n\n\n\n\nTopic: Numerical data (part 1) (pdf here)\n\n\n\nCode: here\n\n\n\n\n\n\n\n\n\nMonday problems on Problem Set 2\n\n\n\n\n\n\n\n\nW 9/17\n\n\n\n\nTopic: Numerical data (part 2)\n\n\n\n\n\n\nNumerical data\n\n\n\n\n\n\nWednesday problems on Problem Set 2\n\n\n\n\n\n\n\n\nR 9/18\n\n\n\n\nTopic: Visualizations with ggplot\n\n\n\n\n\n\nIntroduction to ggplot\n\n\n\n\n\n\nThursday problems on Problem Set 2"
   },
   {
     "objectID": "slides/slides-01-study-design.html#population-and-samples",
@@ -10673,5 +10673,12 @@
     "title": "Toolkit",
     "section": "tinytex",
     "text": "tinytex\nIn your Console, let’s run the following code:\n\ntinytex::install_tinytex()"
+  },
+  {
+    "objectID": "live_code/numerical_pt1.html",
+    "href": "live_code/numerical_pt1.html",
+    "title": "R functions for numerical data",
+    "section": "",
+    "text": "R provides functions to calculate common summary statistics. Each of the following functions requires a vector of numeric elements as input.\n\n# take the mean of the integer values 1-10\nmean(1:10)\n\n[1] 5.5\n\n# take mean of the values 1, 2.2, and 0\nmean(c(1, 2.2, 0))\n\n[1] 1.066667\n\n# take the variance and standard deviation of the integer values 1-10\nvar(1:10)\n\n[1] 9.166667\n\nsd(1:10)\n\n[1] 3.02765\n\n# confirm relationship between std. deviation and variance\nsqrt(var(1:10))\n\n[1] 3.02765"
   }
 ]
