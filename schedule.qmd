@@ -111,13 +111,14 @@ format:
       <td>W 9/17</td>
       <td>
         <ul>
-          <li>Topic: Numerical data (part 2)
+          <li>Topic: <a href="slides/slides-04-numerical-pt2.qmd">Numerical data (part 2)</a>
+          (pdf <a href="slides/pdf/slides-04.pdf">here</a>)
           </li>
         </ul>
       </td>
       <td>
       <ul>
-        <li>Numerical data</li>
+        <li>Numerical data. <b>Due tonight at 11:59pm!</b>         {{< downloadthis coding_practice/coding-practice-04-numerical-pt2.qmd dname="coding-practice-numerical" label="Coding practice" id=mtcars-btn >}}</li>
       </ul>
       </td>
       <td>

@@ -1,7 +1,7 @@
 ---
 title: "Numerical data"
 subtitle: "Visualization and summary statistics (part 2)"
-date: "February 19, 2025"
+date: "September 17, 2025"
 title-slide-attributes:
     data-background-image: "figs/bikeshare-plots.png"
     data-background-size: contain
@@ -20,9 +20,7 @@ draft: false
 
 ## Announcements
 
-- Office hours change next week
-
-- Homework 2 due date changed
+-   None!
 
 ## Interpreting SD
 
@@ -112,7 +110,7 @@ ggplot(insurance, aes(x = charges)) +
 
 -   The median is also known the 50th ***percentile*** because 50% of the data fall below $m$
 
-- Code in R: `median(x)` where $x$ is a vector
+-   Code in R: `median(x)` where $x$ is a vector
 
 ## Quartiles
 
@@ -303,4 +301,3 @@ Median is more stable; not affected by one single data point. But mean is easier
 
 Median = what is typical, mean = what you expect. The typical charge amount is around \$9000. But if you're looking at insurance charges, you shouldn't expect to pay that low amount.
 :::
-
