@@ -7,7 +7,7 @@
 <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
 
 <meta name="author" content="Your name">
-<meta name="dcterms.date" content="2025-02-25">
+<meta name="dcterms.date" content="2025-09-24">
 
 <title>STAT 201: Problem Set 2 (R) – STAT 201: Intro. to Statistics and Data Science</title>
 <style>
@@ -187,7 +187,7 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
     <div>
     <div class="quarto-title-meta-heading">Published</div>
     <div class="quarto-title-meta-contents">
-      <p class="date">February 25, 2025</p>
+      <p class="date">September 24, 2025</p>
     </div>
   </div>
   
@@ -207,7 +207,7 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 </div>
 <p>Get a feel for the data by looking at its Help file and View()-ing it.</p>
 <ol type="1">
-<li>Write code that creates two variables: one for the average number of calories in a Starbucks food item and another for the standard deviation.</li>
+<li>Write code that creates/assigns two variables in <code>R</code>: one for the average number of calories in a Starbucks food item and another for the standard deviation. Please give them useful variable names.</li>
 </ol>
 <ol start="2" type="1">
 <li>Using ggplot, create a histogram of the calories in Starbucks food items. Change the binwidth or number of bins to make a more “pleasing” plot. Add an informative title.</li>
@@ -216,9 +216,9 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 <li>Modify your code chunk above so your plot includes:</li>
 </ol>
 <ul>
-<li><p>A vertical line that displays the mean number of calories. Do this by adding a layer to your plot and using the <code>geom_vline()</code> (which stands for <em>v</em>ertical line). You can look at the Help file to figure out exactly how to use this function. You should use one of the variables you created in number 1.</p></li>
-<li><p>Make your line a color of your choice by specifying the <code>col</code> argument within the <code>geom_vline()</code> function.</p></li>
-<li><p>A caption that provides a brief description of what the line represents.</p></li>
+<li><p><strong>A vertical line that displays the mean number of calories.</strong> Do this by adding a layer to your plot and using the <code>geom_vline()</code> (which stands for <em>v</em>ertical line). You can look at its Help file to figure out exactly how to use this function. To be reproducible, you should use one of the variables you created in number 1.</p></li>
+<li><p><strong>Make your line a color of your choice</strong> by specifying the <code>col</code> argument within the <code>geom_vline()</code> function.</p></li>
+<li><p><strong>A caption that provides a brief description of what the line represents.</strong> Maybe consider the <code>labs()</code> function Help file.</p></li>
 </ul>
 <ol start="4" type="1">
 <li>Using the plots you created, along with some summary statistics, describe the distribution of calories in Starbucks food items. Make sure you discuss shape, center, spread, and potential outliers.</li>
@@ -228,14 +228,11 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 <li>Now, create a scatterplot in ggplot with calories on the y-axis. For the x-axis variable, choose a variable that displays a strong association/pattern with calories. You may have to play around a bit! Add an informative title.</li>
 </ol>
 <ol start="6" type="1">
-<li>In the code chunk above, color the points by another variable in the data set. Then, add a layer of code using the function <code>scale_color_viridis_c()</code>. When you run this code, you’ll notice that this function changes the color palette to something called the Viridis color palette. Play around with different palettes by looking to the Help file for this function and looking at the <em>option</em> parameter. Choose one of the eight options!</li>
-</ol>
-<!-- -->
-<ol start="7" type="1">
-<li>Briefly interpret this last plot you created. Your interpretation may include discussing associations/trends/patterns (or lack thereof)!</li>
+<li><p>In the code chunk above, color the points by another variable in the data set. Then, add a layer of code using the function <code>scale_color_viridis_c()</code>. When you run this code, you’ll notice that this function changes the color palette to something called the Viridis color palette. Play around with different palettes by looking to the Help file for this function and looking at the <em>option</em> argument. Choose one of the eight options!</p></li>
+<li><p>Briefly interpret this last plot you created. Your interpretation may include discussing associations/trends/patterns (or lack thereof)!</p></li>
 </ol>
 <p><strong>Answer</strong>:</p>
-<p>Once you’re done, render this file one more time, and submit this file to Gradescope alongside the other homework problems.</p>
+<p>Once you’re done, render this file one more time, and submit this file to Gradescope alongside the other homework problems. You will have to combine your PDFs into one single document prior to submission!</p>
 
 
 

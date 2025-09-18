@@ -1,7 +1,7 @@
 ---
 title: "STAT 201: Problem Set 2 (R)"
 author: "Your name"
-date: "2/25/2025"
+date: "9/24/2025"
 format: pdf
 ---
 
@@ -14,7 +14,7 @@ format: pdf
 
 Get a feel for the data by looking at its Help file and View()-ing it.
 
-1.  Write code that creates two variables: one for the average number of calories in a Starbucks food item and another for the standard deviation.
+1.  Write code that creates/assigns two variables in `R`: one for the average number of calories in a Starbucks food item and another for the standard deviation. Please give them useful variable names.
 
 ```{r}
 
@@ -28,11 +28,11 @@ Get a feel for the data by looking at its Help file and View()-ing it.
 
 3.  Modify your code chunk above so your plot includes:
 
--   A vertical line that displays the mean number of calories. Do this by adding a layer to your plot and using the `geom_vline()` (which stands for *v*ertical line). You can look at the Help file to figure out exactly how to use this function. You should use one of the variables you created in number 1.
+-   **A vertical line that displays the mean number of calories.** Do this by adding a layer to your plot and using the `geom_vline()` (which stands for *v*ertical line). You can look at its Help file to figure out exactly how to use this function. To be reproducible, you should use one of the variables you created in number 1.
 
--   Make your line a color of your choice by specifying the `col` argument within the `geom_vline()` function.
+-   **Make your line a color of your choice** by specifying the `col` argument within the `geom_vline()` function.
 
--   A caption that provides a brief description of what the line represents.
+-   **A caption that provides a brief description of what the line represents.** Maybe consider the `labs()` function Help file.
 
 4.  Using the plots you created, along with some summary statistics, describe the distribution of calories in Starbucks food items. Make sure you discuss shape, center, spread, and potential outliers.
 
@@ -44,12 +44,10 @@ Get a feel for the data by looking at its Help file and View()-ing it.
 
 ```
 
-6.  In the code chunk above, color the points by another variable in the data set. Then, add a layer of code using the function `scale_color_viridis_c()`. When you run this code, you'll notice that this function changes the color palette to something called the Viridis color palette. Play around with different palettes by looking to the Help file for this function and looking at the *option* parameter. Choose one of the eight options!
+6.  In the code chunk above, color the points by another variable in the data set. Then, add a layer of code using the function `scale_color_viridis_c()`. When you run this code, you'll notice that this function changes the color palette to something called the Viridis color palette. Play around with different palettes by looking to the Help file for this function and looking at the *option* argument. Choose one of the eight options!
 
-<!-- -->
-
-7.  Briefly interpret this last plot you created. Your interpretation may include discussing associations/trends/patterns (or lack thereof)!
+7.  Briefly interpret this last plot you created. Your interpretation should include discussing associations/trends/patterns (or lack thereof) among the multiple variables!
 
 **Answer**:
 
-Once you're done, render this file one more time, and submit this file to Gradescope alongside the other homework problems.
+Once you're done, render this file one more time, and submit this file to Gradescope alongside the other homework problems. You will have to combine your PDFs into one single document prior to submission!

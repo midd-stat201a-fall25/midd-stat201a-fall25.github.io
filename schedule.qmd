@@ -148,7 +148,10 @@ format:
       </td>
       <td>
         <ul>
-          <li>Thursday problems on Problem Set 2</li>
+          <li>Thursday problems on <a href="homework/hw2.pdf">Problem Set 2</a>, i.e. the problems in the following `.qmd` {{< downloadthis homework/hw2_r.qmd dname="homework2_R" label="hw2_R" id=mtcars-btn >}}</li>
+          <ul>
+            <li> For easier reading: the <a href="homework/hw2_r.qmd">rendered `R` problems<a/></li>
+          </ul>
         </ul>
       </td>
     </tr>
