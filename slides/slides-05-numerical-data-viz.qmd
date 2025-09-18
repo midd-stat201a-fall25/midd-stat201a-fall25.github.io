@@ -1,6 +1,6 @@
 ---
 title: "Visualizations with ggplot"
-date: "Febraury 20, 2025"
+date: "September 18, 2025"
 title-slide-attributes:
     data-background-image: "figs/bikeshare-plots.png"
     data-background-size: contain
@@ -42,7 +42,7 @@ insurance <- read_csv("data/insurance.csv")
 
     -   Each row represents an observation, each column represents a variable describing the observations
 
--   `anscombe` data frame: four datasets each with 11 observations each and the same two variables
+-   `anscombe` data frame: four datasets each with 11 observations each and the same two variables x and y
 
 :::::: fragment
 ::::: columns
@@ -69,7 +69,7 @@ quartet[1:15,]
 
 -   **Data visualization** is the creation and study of the visual representation of data
 
--   We have learned how to use base `R` code to make simple histograms and scatterplots. We will now use `ggplot2` which makes customization easier
+-   We have learned how to use base `R` code to make simple histograms. We will now use `ggplot2` which makes customization easier
 
 ## Why do we visualize?
 
@@ -87,7 +87,7 @@ quartet %>%
 ```
 :::
 
--   Let's visualize the four data sets. What would be an appropriate type of plot to examine the relationship between the two variables `x` and `y`?
+-   Let's visualize the four data sets. What would be an appropriate type of plot to examine the relationship between the two quantitative variables `x` and `y`?
 
 ::: fragment
 ```{r echo = F, fig.height=3}
@@ -100,7 +100,7 @@ ggplot(quartet, aes(x = x, y = y)) +
 
 ## Introduction to ggplot
 
--   We will learn how to create histograms, box plots, and scatterplots using the `ggplot()` function from the `ggplot2` library
+-   We will learn how to create histograms, box plots, and scatterplots using the `ggplot()` function from the `ggplot2` library (included in `tidyverse`)
 
     -   Plots are constructed in layers
 

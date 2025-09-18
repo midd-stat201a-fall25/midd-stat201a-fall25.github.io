@@ -4,7 +4,13 @@ author: "Your name"
 format: pdf
 ---
 
-## 2/21/2025
+This document is NOT for submission. Please use it to take notes during live code sessions!
+
+## 9/17/2025
+
+The use of hashtags in the space in regular text (e.g. in line 9 above) makes the text a header. You should see that when rendering the document, the text "9/17/2025" is in special font.
+
+When we use a hashtag in code chunks, that turns the line into a "comment" (e.g. in lines 16, 19, and 22 below). That code does not execute as code. Comments can be particularly useful to write yourself notes in the code chunk directly, or if you need to test code on a line-by-line basis.
 
 ```{r}
 # url to read data from
@@ -15,4 +21,8 @@ library(readr)
 
 # read data, and assign to variable called insurance
 insurance <- read_csv(url_file)
+```
+
+```{r}
+
 ```

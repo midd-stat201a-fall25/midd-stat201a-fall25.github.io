@@ -364,14 +364,35 @@ R 9/18
 <td>
 <ul>
 <li>
-Topic: Visualizations with ggplot
+Topic: <a href="./slides/slides-05-numerical-data-viz.html">Introduction to ggplot</a> (pdf <a href="slides/pdf/slides-05.pdf">here</a>)
 </li>
+<ul>
+<li>
+<code>.qmd</code> template to follow live code <a href="#mtcars-btn" onclick="fetch('data:text/plain;base64,LS0tCnRpdGxlOiAiU1RBVCAyMDEgTGl2ZSBjb2RlIG5vdGVzIgphdXRob3I6ICJZb3VyIG5hbWUiCmZvcm1hdDogcGRmCi0tLQoKVGhpcyBkb2N1bWVudCBpcyBOT1QgZm9yIHN1Ym1pc3Npb24uIFBsZWFzZSB1c2UgaXQgdG8gdGFrZSBub3RlcyBkdXJpbmcgbGl2ZSBjb2RlIHNlc3Npb25zIQoKIyMgOS8xNy8yMDI1CgpUaGUgdXNlIG9mIGhhc2h0YWdzIGluIHRoZSBzcGFjZSBpbiByZWd1bGFyIHRleHQgKGUuZy4gaW4gbGluZSA5IGFib3ZlKSBtYWtlcyB0aGUgdGV4dCBhIGhlYWRlci4gWW91IHNob3VsZCBzZWUgdGhhdCB3aGVuIHJlbmRlcmluZyB0aGUgZG9jdW1lbnQsIHRoZSB0ZXh0ICI5LzE3LzIwMjUiIGlzIGluIHNwZWNpYWwgZm9udC4KCldoZW4gd2UgdXNlIGEgaGFzaHRhZyBpbiBjb2RlIGNodW5rcywgdGhhdCB0dXJucyB0aGUgbGluZSBpbnRvIGEgImNvbW1lbnQiIChlLmcuIGluIGxpbmVzIDE2LCAxOSwgYW5kIDIyIGJlbG93KS4gVGhhdCBjb2RlIGRvZXMgbm90IGV4ZWN1dGUgYXMgY29kZS4gQ29tbWVudHMgY2FuIGJlIHBhcnRpY3VsYXJseSB1c2VmdWwgdG8gd3JpdGUgeW91cnNlbGYgbm90ZXMgaW4gdGhlIGNvZGUgY2h1bmsgZGlyZWN0bHksIG9yIGlmIHlvdSBuZWVkIHRvIHRlc3QgY29kZSBvbiBhIGxpbmUtYnktbGluZSBiYXNpcy4KCmBgYHtyfQojIHVybCB0byByZWFkIGRhdGEgZnJvbQp1cmxfZmlsZSA8LSAiaHR0cHM6Ly9yYXcuZ2l0aHVidXNlcmNvbnRlbnQuY29tL21pZGQtc3RhdDIwMS1mYWxsMjAyNC9taWRkLXN0YXQyMDEtZmFsbDIwMjQuZ2l0aHViLmlvL21haW4vbGl2ZV9jb2RlL2RhdGEvaW5zdXJhbmNlLmNzdiIKCiMgaWYgeW91IGRvbid0IGhhdmUgdGhlIHJlYWRyIHBhY2thZ2UsIHBsZWFzZSBpbnN0YWxsIGl0IQpsaWJyYXJ5KHJlYWRyKQoKIyByZWFkIGRhdGEsIGFuZCBhc3NpZ24gdG8gdmFyaWFibGUgY2FsbGVkIGluc3VyYW5jZQppbnN1cmFuY2UgPC0gcmVhZF9jc3YodXJsX2ZpbGUpCmBgYAoKYGBge3J9CgpgYGAK').then(res => res.blob()).then(blob => {
+      const downloadURL = window.URL.createObjectURL(blob);
+      const a = document.createElement('a');
+      document.body.appendChild(a);
+      a.href = downloadURL;
+      a.download = 'live_code_notes.qmd'; a.click();
+      window.URL.revokeObjectURL(downloadURL);
+      document.body.removeChild(a);
+        });"><button class="btn btn-default downloadthis  " id="mtcars-btn"><i class="bi bi-download"></i> Live code </button></a>
+</li>
+</ul>
 </ul>
 </td>
 <td>
 <ul>
 <li>
-Introduction to ggplot
+Introduction to ggplot <a href="#mtcars-btn" onclick="fetch('data:text/plain;base64,LS0tCnRpdGxlOiAiZ2dwbG90IGNvZGluZyBwcmFjdGljZSIKYXV0aG9yOiAiWW91ciBuYW1lIgpkYXRlOiAiOS8xOC8yMDI1Igpmb3JtYXQ6IHBkZgotLS0KCjEuICBMb2FkIHRoZSB0aWR5dmVyc2UgYW5kIG9wZW5pbnRybyBwYWNrYWdlcyBpbiB0aGUgY29kZSBjaHVuayBiZWxvdywgdGhlbiBiZSBzdXJlIHRvIHJ1biB0aGUgY29kZSBjaHVuay4gV2Ugd2lsbCB3b3JrIHdpdGggdGhlIGBtYW1tYWxzYCBkYXRhIGZyb20gdGhlIGBvcGVuaW50cm9gIHBhY2thZ2UuCgpgYGB7cn0KIyBwYWNrYWdlcwoKCmBgYAoKSWYgeW91IHdhbnQgdG8gc2VlIHRoZSBkYXRhIGZyYW1lLCB0eXBlIGBWaWV3KG1hbW1hbHMpYCBpbiB0aGUgKipDb25zb2xlKiouIFRoYXQgd2lsbCBvcGVuIHVwIGEgbmV3IHRhYiBkaXNwbGF5aW5nIHRoZSBkYXRhIGZyYW1lIGluIHRoZSBTb3VyY2UgcGFuZS4KCjIuICBVc2luZyBnZ3Bsb3QsIG1ha2UgYSBib3hwbG90IG9mIHRoZSBib2R5IHdlaWdodHMgb2YgdGhlc2UgbWFtbWFscy4KCmBgYHtyfQoKYGBgCgozLiAgVGhpcyBwbG90IGRvZXNuJ3Qgc2VlbSB1c2VmdWwgYXQgYWxsISBNb2RpZnkgeW91ciBjb2RlIGFib3ZlIHRvIGdldCByaWQgb2YvaGlkZSB0aGUgcG90ZW50aWFsIG91dGxpZXJzLiBDaGVjayBvdXQgdGhlIGhlbHAgZmlsZSBmb3IgdGhlIGFwcHJvcHJpYXRlIGZ1bmN0aW9uIHRvIGZpZ3VyZSBvdXQgaG93IHRvIGRvIHRoaXMhCgo0LiAgVXNpbmcgZ2dwbG90LCBtYWtlIGEgc2NhdHRlcnBsb3Qgb2YgdGhlIGdlc3RhdGlvbiB0aW1lIGFuZCBsaWZlIHNwYW4uIChHZXN0YXRpb24gdGltZSBpcyBob3cgbG9uZyBhIGJhYnkgaXMgaW4gdGhlIHV0ZXJ1cy4pIFlvdSBzaG91bGQgbm90aWNlIHRoYXQgYSBXYXJuaW5nIG1lc3NhZ2UgYXBwZWFycy4gRGVzY3JpYmUgaW4gY29tbW9uIGxhbmd1YWdlIHdoYXQgdGhlIHdhcm5pbmcgaXMgdHJ5aW5nIHRvIHRlbGwgeW91LgoKYGBge3J9CgpgYGAKCioqQW5zd2VyOioqCgo1LiAgTm93LCBsZXQncyBtYWtlIHlvdXIgcGxvdCBmcm9tIGFib3ZlIG1vcmUgcHJlc2VudGFibGUuIFVzaW5nIHRoZSBgbGFicygpYCBmdW5jdGlvbiwgY2hhbmdlIHRoZSBheGVzIG9uIHlvdXIgcGxvdHMgdG8gaGF2ZSBiZXR0ZXIgdGl0bGVzIHRoYXQgaW5jbHVkZSB0aGUgdW5pdHMuIEFsc28gYWRkIGEgdGl0bGUuIFlvdSBtYXkgY29weSBhbmQgcGFzdGUgeW91ciBmcm9tIGFib3ZlIHRvIGdldCBzdGFydGVkLiBTdGFydCBwcmFjdGljaW5nIGdvb2QgY29kaW5nIHN0eWxlIGJ5IGhhdmluZyBsaW5lIGJyZWFrcyBiZXR3ZWVuIGxheWVycyBvZiB0aGUgY29kZSEKCmBgYHtyfQoKYGBgCgo2LiAgTGV0J3MgYWRkIGNvbG9yIHRvIHlvdXIgcGxvdCEgTW9kaWZ5IHlvdXIgY29kZSBhYm92ZSB0byBtYXAgdGhlIGNvbG9yIG9mIHRoZSBwb2ludHMgdG8gdGhlIHRvdGFsIGFtb3VudCBvZiBzbGVlcCBlYWNoIG1hbW1hbCBnZXRzLiBZb3UgbWlnaHQgbm90aWNlIHRoYXQgc29tZSBwb2ludHMgYXJlIGNvbG9yZWQgZ3JheSwgaW5zdGVhZCBvZiBibHVlLiBXaHkgZG8geW91IHRoaW5rIHRoYXQgaXM/CgoqKkFuc3dlcioqOgoKT25jZSB5b3UncmUgZmluaXNoZWQsIGJlIHN1cmUgdG8gcmVuZGVyIGFuZCBzdWJtaXQgdGhlIG91dHB1dHRlZCBQREYgZmlsZSB0byB0aGUgY29ycmVzcG9uZGluZyBHcmFkZXNjb3BlIGFzc2lnbm1lbnQhCg==').then(res => res.blob()).then(blob => {
+      const downloadURL = window.URL.createObjectURL(blob);
+      const a = document.createElement('a');
+      document.body.appendChild(a);
+      a.href = downloadURL;
+      a.download = 'coding-practice-ggplot.qmd'; a.click();
+      window.URL.revokeObjectURL(downloadURL);
+      document.body.removeChild(a);
+        });"><button class="btn btn-default downloadthis  " id="mtcars-btn"><i class="bi bi-download"></i> Coding practice </button></a>
 </li>
 </ul>
 </td>

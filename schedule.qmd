@@ -132,13 +132,18 @@ format:
       <td>R 9/18</td>
       <td>
         <ul>
-          <li>Topic: Visualizations with ggplot
+          <li>Topic: <a href="slides/slides-05-numerical-data-viz.qmd">Introduction to ggplot</a>
+          (pdf <a href="slides/pdf/slides-05.pdf">here</a>)
           </li>
+          <ul>
+            <li> `.qmd` template to follow live code {{< downloadthis live_code/live_code_notes.qmd dname="live_code_notes" label="Live code" id=mtcars-btn >}}</li>
+          </ul>
         </ul>
       </td>
       <td>
       <ul>
-        <li>Introduction to ggplot</li>
+          <li>Introduction to ggplot {{< downloadthis coding_practice/coding-practice-05-ggplot.qmd dname="coding-practice-ggplot" label="Coding practice" id=mtcars-btn >}}
+          </li>
       </ul>
       </td>
       <td>

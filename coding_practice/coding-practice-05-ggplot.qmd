@@ -1,7 +1,7 @@
 ---
 title: "ggplot coding practice"
 author: "Your name"
-date: "2/20/2025"
+date: "9/18/2025"
 format: pdf
 ---
 
@@ -21,7 +21,7 @@ If you want to see the data frame, type `View(mammals)` in the **Console**. That
 
 ```
 
-3. This plot doesn't seem useful at all! Modify your code above to get rid of/hide the potential outliers. Check out the help file for the appropriate function to figure out how to do this!
+3.  This plot doesn't seem useful at all! Modify your code above to get rid of/hide the potential outliers. Check out the help file for the appropriate function to figure out how to do this!
 
 4.  Using ggplot, make a scatterplot of the gestation time and life span. (Gestation time is how long a baby is in the uterus.) You should notice that a Warning message appears. Describe in common language what the warning is trying to tell you.
 
