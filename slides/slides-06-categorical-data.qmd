@@ -1,7 +1,7 @@
 ---
 title: "Categorical data"
 subtitle: "Visualizations and contingency tables"
-date: "February 24, 2024"
+date: "September 22, 2025"
 title-slide-attributes:
     data-background-image: "figs/bikeshare-plots.png"
     data-background-size: contain
@@ -29,9 +29,10 @@ plot_theme <- theme(text = element_text(size = 24))
 insurance <- read_csv("data/insurance.csv")
 ```
 
--   Problem set 2 due tomorrow! Please be sure to submit both written and rendered parts by combining into a single PDF
--   Office hours canceled today, moved to tomorrow 2-3pm
+-   Problem set 2 due tonight! Please be sure to submit both written and rendered parts by combining into a single PDF
 -   Problem set 1 graded
+
+## Activity!
 
 ## Categorical data
 
@@ -337,7 +338,7 @@ ggplot(data = insurance, mapping = aes(x = bmi, y = charges,
 ```
 
 ::: {style="color: maroon"}
-What do you notice about the legend for color?
+What do you notice about the legend for color compared to the legend for color from last week?
 :::
 
 ## Aesthetic: shape
@@ -424,7 +425,7 @@ ggplot(data = insurance,
   theme(text = element_text(size = 25))
 ```
 
-Like faceting, but only for box plots.
+Like faceting, but only for box plots. Really good for comparing a numerical variable across across a categorical!
 
 ## Changing plot theme
 

@@ -1,18 +1,18 @@
 ---
 title: "Categorical data coding practice"
 author: "Your name"
-date: "2/24/2025"
+date: "9/22/2025"
 format: pdf
 ---
 
 ```{r}
-# load additional packages here
+# load packages here
 
 ```
 
-0. In the code chunk above, add a line of code to load in the package necessary for ggplot-ing. Also change your name in the YAML.
+0.  In the code chunk above, add a line of code to load in the package necessary for ggplot-ing. Also change your name in the YAML.
 
-1.  We will be using the `diamonds` dataset that is included in the package you loaded above. Please take a look at the Help file. Create vertical side-by-side boxplots that display the distribution of diamond prices for each color of diamond.  
+1.  We will be using the `diamonds` dataset that is included in the package you loaded above. Please take a look at its Help file and the data frame itself. Create vertical, side-by-side boxplots that display the distribution of diamond prices for each color of diamond.
 
 Then answer the following question: which diamonds seem to be the most expensive? Is this result surprising to you given the description of the data? If so, what might be a possible explanation?
 
@@ -22,7 +22,7 @@ Then answer the following question: which diamonds seem to be the most expensive
 
 **Answer**:
 
-2. Now visualize the distribution of diamonds prices using histograms, where we have one histogram for each color. You should be able to do this in just three lines/layers of code!
+2.  Now visualize the distribution of diamonds prices using histograms, where we have one histogram for each color. You should be able to do this in just three lines/layers of code!
 
 Then answer the following: which visualization (the boxplots or the histograms) do you think is more effective for answering the research question of "which diamonds seem to be the most expensive"? Briefly explain why.
 
@@ -31,7 +31,6 @@ Then answer the following: which visualization (the boxplots or the histograms) 
 ```
 
 **Answer**:
-
 
 3.  Using an *appropriate* type of bar plot, compare the distribution of how clear a diamond is across the distribution of the quality of th cut. Do the frequencies of occurrences of the levels of one variable depend on/change with the levels of the second variable? That is, do you think there is an association between the two variables?
 

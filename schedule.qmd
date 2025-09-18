@@ -176,6 +176,60 @@ format:
         </ul>
       </td>
     </tr>
+    <tr>
+      <td id="week3"><strong>3</strong></td>
+      <td> M 9/22 </td>
+      <td>
+        <ul>
+          <li> Topic: Categorical data </li>
+        </ul>
+      </td>
+      <td>
+        <ul>
+          <li>Visualizing categorical data in ggplot</li>
+        </ul>
+      </td>
+      <td>
+        <ul>
+          <li>Monday problems in Problem Set 3</li>
+        </ul>
+      </td>
+    </tr>
+    <tr>
+      <td></td>
+      <td> W 9/24 </td>
+      <td>
+        <ul>
+          <li> Topic: Data wrangling with dplyr </li>
+        </ul>
+      </td>
+      <td>
+        <ul>
+          <li>Data wrangling practice</li>
+        </ul>
+      </td>
+      <td>
+        <ul>
+          <li>Wednesday problems in Problem Set 3</li>
+        </ul>
+      </td>
+    </tr>
+    <tr>
+      <td></td>
+      <td> R 9/25 </td>
+      <td>
+        <ul>
+          <li> Topic: Joining data </li>
+        </ul>
+      </td>
+      <td>
+      </td>
+      <td>
+        <ul>
+          <li>Thursday problems in Problem Set 3</li>
+        </ul>
+      </td>
+    </tr>
   </tbody>
 </table>
 

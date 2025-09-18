@@ -25,7 +25,7 @@
     "href": "schedule.html",
     "title": "Schedule",
     "section": "",
-    "text": "Jump to:\n\n\n\n\nWeek 1\n\n\nWeek 2\n\n\nWeek 3\n\n\nWeek 4\n\n\nWeek 5\n\n\nWeek 6\n\n\nWeek 7\n\n\nWeek 8\n\n\nWeek 9\n\n\nWeek 10\n\n\nWeek 11\n\n\nWeek 12\n\n\n\n\n\n\n\n\nWeek\n\n\nDate\n\n\nIn-class material\n\n\nCoding practice\n\n\nAssignments\n\n\n\n\n\n\n\n1\n\n\nM 9/08\n\n\n\n\nTopic: Welcome!\n\n\nDirections for printing at bottom\n\n\n\n\n\n\n\n\nSubmit Problem Set 0 by tomorrow 9/09 11:59pm class\n\n\nTry to install R and RStudio before Thursday’s 9/11 class using these instructions\n\n\n\n\n\n\n\n\nW 9/10\n\n\n\n\nTopic: Study design Study design (pdf here)\n\n\n\n\n\n\n\n\n\nInstall R and RStudio before Thursday class using these instructions\n\n\nWednesday problems on Problem Set 1\n\n\n\n\n\n\n\n\nR 9/11\n\n\n\n\nTopic: Programming toolkit (no need to take notes!)\n\n\n\nRStudio help sheet\n\n\n\nR and .qmd basics\n\n\n\nDownload the following .qmd template and drag to your new STAT 201 folder  Intro to R template \n\n\n\n\n\n\n\nIntro to R and Quarto Markdown. Due Friday 9/12 at 11:59pm!  Coding practice \n\n\n\n\n\n\nThursday problems on Problem Set 1\n\n\n\n\n\n\n\n2\n\n\nM 9/15\n\n\n\n\nTopic: Numerical data (part 1) (pdf here)\n\n\n\nCode: here\n\n\n\n\n\n\n\n\n\nMonday problems on Problem Set 2\n\n\n\n\n\n\n\n\nW 9/17\n\n\n\n\nTopic: Numerical data (part 2) (pdf here)\n\n\n\n\n\n\nNumerical data. Due tonight at 11:59pm!  Coding practice \n\n\n\n\n\n\nWednesday problems on Problem Set 2\n\n\n\n\n\n\n\n\nR 9/18\n\n\n\n\nTopic: Introduction to ggplot (pdf here)\n\n\n\n.qmd template to follow live code  Live code \n\n\n\n\n\n\n\nIntroduction to ggplot  Coding practice \n\n\n\n\n\n\nThursday problems on Problem Set 2, i.e. the problems in the following .qmd  hw2_R \n\n\n\nFor easier reading: the rendered R problems"
+    "text": "Jump to:\n\n\n\n\nWeek 1\n\n\nWeek 2\n\n\nWeek 3\n\n\nWeek 4\n\n\nWeek 5\n\n\nWeek 6\n\n\nWeek 7\n\n\nWeek 8\n\n\nWeek 9\n\n\nWeek 10\n\n\nWeek 11\n\n\nWeek 12\n\n\n\n\n\n\n\n\nWeek\n\n\nDate\n\n\nIn-class material\n\n\nCoding practice\n\n\nAssignments\n\n\n\n\n\n\n\n1\n\n\nM 9/08\n\n\n\n\nTopic: Welcome!\n\n\nDirections for printing at bottom\n\n\n\n\n\n\n\n\nSubmit Problem Set 0 by tomorrow 9/09 11:59pm class\n\n\nTry to install R and RStudio before Thursday’s 9/11 class using these instructions\n\n\n\n\n\n\n\n\nW 9/10\n\n\n\n\nTopic: Study design Study design (pdf here)\n\n\n\n\n\n\n\n\n\nInstall R and RStudio before Thursday class using these instructions\n\n\nWednesday problems on Problem Set 1\n\n\n\n\n\n\n\n\nR 9/11\n\n\n\n\nTopic: Programming toolkit (no need to take notes!)\n\n\n\nRStudio help sheet\n\n\n\nR and .qmd basics\n\n\n\nDownload the following .qmd template and drag to your new STAT 201 folder  Intro to R template \n\n\n\n\n\n\n\nIntro to R and Quarto Markdown. Due Friday 9/12 at 11:59pm!  Coding practice \n\n\n\n\n\n\nThursday problems on Problem Set 1\n\n\n\n\n\n\n\n2\n\n\nM 9/15\n\n\n\n\nTopic: Numerical data (part 1) (pdf here)\n\n\n\nCode: here\n\n\n\n\n\n\n\n\n\nMonday problems on Problem Set 2\n\n\n\n\n\n\n\n\nW 9/17\n\n\n\n\nTopic: Numerical data (part 2) (pdf here)\n\n\n\n\n\n\nNumerical data. Due tonight at 11:59pm!  Coding practice \n\n\n\n\n\n\nWednesday problems on Problem Set 2\n\n\n\n\n\n\n\n\nR 9/18\n\n\n\n\nTopic: Introduction to ggplot (pdf here)\n\n\n\n.qmd template to follow live code  Live code \n\n\n\n\n\n\n\nIntroduction to ggplot  Coding practice \n\n\n\n\n\n\nThursday problems on Problem Set 2, i.e. the problems in the following .qmd  hw2_R \n\n\n\nFor easier reading: the rendered R problems\n\n\n\n\n\n\n\n3\n\n\nM 9/22\n\n\n\n\nTopic: Categorical data\n\n\n\n\n\n\nVisualizing categorical data in ggplot\n\n\n\n\n\n\nMonday problems in Problem Set 3\n\n\n\n\n\n\n\n\nW 9/24\n\n\n\n\nTopic: Data wrangling with dplyr\n\n\n\n\n\n\nData wrangling practice\n\n\n\n\n\n\nWednesday problems in Problem Set 3\n\n\n\n\n\n\n\n\nR 9/25\n\n\n\n\nTopic: Joining data\n\n\n\n\n\n\n\n\nThursday problems in Problem Set 3"
   },
   {
     "objectID": "slides/slides-01-study-design.html#population-and-samples",
@@ -564,28 +564,28 @@
     "href": "slides/slides-06-categorical-data.html#dodged-bar-plot",
     "title": "Categorical data",
     "section": "Dodged bar plot",
-    "text": "Dodged bar plot\nThe dodged bar plot directly converts the contingency table to a visualization.\n\n\n\n\n\n\n\n\n\nContingency table\n \n  \n    smoker \n    female \n    male \n  \n \n\n  \n    no \n    87 \n    68 \n  \n  \n    yes \n    17 \n    28"
+    "text": "Dodged bar plot\nThe dodged bar plot directly converts the contingency table to a visualization.\n\n\n\n\n\nContingency table\n\n\nsmoker\nfemale\nmale\n\n\n\n\nno\n87\n68\n\n\nyes\n17\n28"
   },
   {
     "objectID": "slides/slides-06-categorical-data.html#stacked-bar-plot",
     "href": "slides/slides-06-categorical-data.html#stacked-bar-plot",
     "title": "Categorical data",
     "section": "Stacked bar plot",
-    "text": "Stacked bar plot\n\n\nThe stacked bar plot looks at the counts either row-wise or column-wise.\n\n\n\n\n\nContingency table\n \n  \n    smoker \n    female \n    male \n  \n \n\n  \n    no \n    87 \n    68 \n  \n  \n    yes \n    17 \n    28"
+    "text": "Stacked bar plot\n\n\nThe stacked bar plot looks at the counts either row-wise or column-wise.\n\n\n\n\nContingency table\n\n\nsmoker\nfemale\nmale\n\n\n\n\nno\n87\n68\n\n\nyes\n17\n28"
   },
   {
     "objectID": "slides/slides-06-categorical-data.html#proportions",
     "href": "slides/slides-06-categorical-data.html#proportions",
     "title": "Categorical data",
     "section": "Proportions",
-    "text": "Proportions\nCan convert the contingency table to proportions row-wise or column-wise to obtain the fractional breakdown of one variable in another.\n\n\n\n\n\n\nContingency table\n \n  \n    smoker \n    female \n    male \n  \n \n\n  \n    no \n    87 \n    68 \n  \n  \n    yes \n    17 \n    28 \n  \n\n\n\n\n\n\n\n\n\n\n\nRow-wise proportions\n \n  \n    smoker \n    female \n    male \n  \n \n\n  \n    no \n    0.561 \n    0.439 \n  \n  \n    yes \n    0.378 \n    0.622 \n  \n\n\n\n\n\n\n\n\n\n\n\nWhat does the quantity 0.378 represent?\nIf we take the proportions row-wise, does each row need to sum to 1?\nIf we take the proportions row-wise, does each column need to sum to 1?"
+    "text": "Proportions\nCan convert the contingency table to proportions row-wise or column-wise to obtain the fractional breakdown of one variable in another.\n\n\n\n\n\nContingency table\n\n\nsmoker\nfemale\nmale\n\n\n\n\nno\n87\n68\n\n\nyes\n17\n28\n\n\n\n\n\n\n\n\n\n\nRow-wise proportions\n\n\nsmoker\nfemale\nmale\n\n\n\n\nno\n0.561\n0.439\n\n\nyes\n0.378\n0.622\n\n\n\n\n\n\n\n\n\n\nWhat does the quantity 0.378 represent?\nIf we take the proportions row-wise, does each row need to sum to 1?\nIf we take the proportions row-wise, does each column need to sum to 1?"
   },
   {
     "objectID": "slides/slides-06-categorical-data.html#proportions-cont.",
     "href": "slides/slides-06-categorical-data.html#proportions-cont.",
     "title": "Categorical data",
     "section": "Proportions (cont.)",
-    "text": "Proportions (cont.)\n\nSet up how to find the column-wise proportions using our contingency table\n\n\n\n\n\nContingency table\n \n  \n    smoker \n    female \n    male \n  \n \n\n  \n    no \n    87 \n    68 \n  \n  \n    yes \n    17 \n    28"
+    "text": "Proportions (cont.)\n\nSet up how to find the column-wise proportions using our contingency table\n\n\n\n\nContingency table\n\n\nsmoker\nfemale\nmale\n\n\n\n\nno\n87\n68\n\n\nyes\n17\n28"
   },
   {
     "objectID": "slides/slides-06-categorical-data.html#standardized-bar-plot",
@@ -1873,7 +1873,7 @@
     "href": "slides/slides-06-categorical-data.html#facet_wrap",
     "title": "Categorical data",
     "section": "facet_wrap()",
-    "text": "facet_wrap()\nFaceting is used when we want to split a particular visualization by the values of another (categorical) variable\n\n\n\nggplot(data = insurance, \n       mapping = aes(x = bmi)) +\n  geom_histogram() +\n  facet_wrap(~ smoker) \n\n\n\n\n\n\n\n\n\nggplot(data = insurance, \n       mapping = aes(x = bmi)) +\n  geom_histogram() +\n  facet_wrap(~ smoker, scales = \"free_y\")"
+    "text": "facet_wrap()\nFaceting is used when we want to split a particular visualization by the values of another (categorical) variable\n\n\n\nggplot(data = insurance, \n       mapping = aes(x = bmi)) +\n  geom_histogram() +\n  facet_wrap(~ smoker) \n\n\n\n\n\n\n\n\n\n\n\n\n\nggplot(data = insurance, \n       mapping = aes(x = bmi)) +\n  geom_histogram() +\n  facet_wrap(~ smoker, scales = \"free_y\")"
   },
   {
     "objectID": "slides/slides-06-categorical-data.html#facet_grid",
@@ -1985,21 +1985,21 @@
     "href": "slides/slides-06-categorical-data.html#univariate-eda",
     "title": "Categorical data",
     "section": "Univariate EDA",
-    "text": "Univariate EDA\nIf we are interested in understanding the distribution of a single categorical variable, it is common to:\n\n\n\nDisplay a frequency table, which is a table of counts of each level\n\n\n# A tibble: 2 × 2\n  smoker     n\n  <chr>  <int>\n1 no       155\n2 yes       45\n\n\n\n\n\nCreate a bar plot, where different levels are displayed on one axis and the counts are portrayed on the other\n\n\n\n\n\n\n\n\n\nHow do bar plots differ from histograms?"
+    "text": "Univariate EDA\nIf we are interested in understanding the distribution of a single categorical variable, it is common to:\n\n\n\nDisplay a frequency table, which is a table of counts of each level\n\n\n# A tibble: 2 × 2\n  smoker     n\n  &lt;chr&gt;  &lt;int&gt;\n1 no       155\n2 yes       45\n\n\n\n\n\nCreate a bar plot, where different levels are displayed on one axis and the counts are portrayed on the other\n\n\n\n\n\n\n\n\n\n\n\n\nHow do bar plots differ from histograms?"
   },
   {
     "objectID": "slides/slides-06-categorical-data.html#bivariate-eda",
     "href": "slides/slides-06-categorical-data.html#bivariate-eda",
     "title": "Categorical data",
     "section": "Bivariate EDA",
-    "text": "Bivariate EDA\n\nPerhaps we are interested in examining the distribution of two categorical variables at the same time\nSummarize the distribution using a two-way table known as a contingency table:\n\nEach value in the table counts the number of times a particular combination of variable 1 and variable 2 levels occurred in data\n\n\n\n\n\nContingency table\n \n  \n    smoker \n    female \n    male \n  \n \n\n  \n    no \n    87 \n    68 \n  \n  \n    yes \n    17 \n    28 \n  \n\n\n\n\n\n\n\n\nHow can we use contingency table to obtain the distribution of just one of the variables?"
+    "text": "Bivariate EDA\n\nPerhaps we are interested in examining the distribution of two categorical variables at the same time\nSummarize the distribution using a two-way table known as a contingency table:\n\nEach value in the table counts the number of times a particular combination of variable 1 and variable 2 levels occurred in data\n\n\n\n\nContingency table\n\n\nsmoker\nfemale\nmale\n\n\n\n\nno\n87\n68\n\n\nyes\n17\n28\n\n\n\n\n\n\n\n\nHow can we use contingency table to obtain the distribution of just one of the variables?"
   },
   {
     "objectID": "slides/slides-06-categorical-data.html#visualizing-numerical-and-categorical",
     "href": "slides/slides-06-categorical-data.html#visualizing-numerical-and-categorical",
     "title": "Categorical data",
     "section": "Visualizing numerical and categorical",
-    "text": "Visualizing numerical and categorical\n\nggplot(data = insurance, mapping = aes(x = bmi, y = charges, col = smoker)) +\n  geom_point() \n\n\n\nWhat do you notice about the legend for color?"
+    "text": "Visualizing numerical and categorical\n\nggplot(data = insurance, mapping = aes(x = bmi, y = charges, col = smoker)) +\n  geom_point() \n\n\n\nWhat do you notice about the legend for color compared to the legend for color from last week?"
   },
   {
     "objectID": "slides/slides-06-categorical-data.html#bar-plot-univariate",
@@ -2013,7 +2013,7 @@
     "href": "slides/slides-06-categorical-data.html#bivariate-bar-plots",
     "title": "Categorical data",
     "section": "Bivariate bar plots",
-    "text": "Bivariate bar plots\n\n\n\nggplot(insurance, aes(x = smoker, fill = sex)) +\n  geom_bar(position = \"dodge\")  \n\n\n\n\n\n\n\n\nggplot(insurance, aes(x = smoker, fill = sex)) +\n  geom_bar(position = \"stack\") # this is default"
+    "text": "Bivariate bar plots\n\n\n\nggplot(insurance, aes(x = smoker, fill = sex)) +\n  geom_bar(position = \"dodge\")  \n\n\n\n\n\n\n\n\n\n\n\n\nggplot(insurance, aes(x = smoker, fill = sex)) +\n  geom_bar(position = \"stack\") # this is default"
   },
   {
     "objectID": "slides/slides-06-categorical-data.html#bivariate-bar-plots-cont.",
@@ -2027,14 +2027,14 @@
     "href": "slides/slides-06-categorical-data.html#side-by-side-box-plots",
     "title": "Categorical data",
     "section": "Side-by-side box plots",
-    "text": "Side-by-side box plots\n\nggplot(data = insurance, \n       mapping = aes(x = smoker, y = bmi)) +\n  geom_boxplot()\n\n\nLike faceting, but only for box plots."
+    "text": "Side-by-side box plots\n\nggplot(data = insurance, \n       mapping = aes(x = smoker, y = bmi)) +\n  geom_boxplot()\n\n\nLike faceting, but only for box plots. Really good for comparing a numerical variable across across a categorical!"
   },
   {
     "objectID": "coding_practice/coding-practice-06-categorical.html",
     "href": "coding_practice/coding-practice-06-categorical.html",
     "title": "Categorical data coding practice",
     "section": "",
-    "text": "# load additional packages here\n\n\nIn the code chunk above, add a line of code to load in the package necessary for ggplot-ing. Also change your name in the YAML.\nWe will be using the diamonds dataset that is included in the package you loaded above. Please take a look at the Help file. Create vertical side-by-side boxplots that display the distribution of diamond prices for each color of diamond.\n\nThen answer the following question: which diamonds seem to be the most expensive? Is this result surprising to you given the description of the data? If so, what might be a possible explanation?\nAnswer:\n\nNow visualize the distribution of diamonds prices using histograms, where we have one histogram for each color. You should be able to do this in just three lines/layers of code!\n\nThen answer the following: which visualization (the boxplots or the histograms) do you think is more effective for answering the research question of “which diamonds seem to be the most expensive”? Briefly explain why.\nAnswer:\n\nUsing an appropriate type of bar plot, compare the distribution of how clear a diamond is across the distribution of the quality of th cut. Do the frequencies of occurrences of the levels of one variable depend on/change with the levels of the second variable? That is, do you think there is an association between the two variables?\n\nAnswer:\n\nWe will change the colors in our bar plot! Look at the Help file for the function scale_fill_brewer(). You should see many options of different palettes. Add this function to your code above (use good coding style!), and set the palette argument to one of the palette names. Play around until you’ve settled on one!\nYou used the function scale_fill_brewer() above, but there is a similar function called scale_color_brewer(). Why do you think we used the first function and not the second? (You can explore this by changing your code above to scale_color_brewer and seeing what happens. Be sure to revert back to scale_fill_brewer before submitting!)\n\nAnswer:\nOnce you’re finished, be sure to knit and submit the rendered PDF to the corresponding Gradescope assignment!"
+    "text": "# load packages here\n\n\nIn the code chunk above, add a line of code to load in the package necessary for ggplot-ing. Also change your name in the YAML.\nWe will be using the diamonds dataset that is included in the package you loaded above. Please take a look at its Help file and the data frame itself. Create vertical, side-by-side boxplots that display the distribution of diamond prices for each color of diamond.\n\nThen answer the following question: which diamonds seem to be the most expensive? Is this result surprising to you given the description of the data? If so, what might be a possible explanation?\nAnswer:\n\nNow visualize the distribution of diamonds prices using histograms, where we have one histogram for each color. You should be able to do this in just three lines/layers of code!\n\nThen answer the following: which visualization (the boxplots or the histograms) do you think is more effective for answering the research question of “which diamonds seem to be the most expensive”? Briefly explain why.\nAnswer:\n\nUsing an appropriate type of bar plot, compare the distribution of how clear a diamond is across the distribution of the quality of th cut. Do the frequencies of occurrences of the levels of one variable depend on/change with the levels of the second variable? That is, do you think there is an association between the two variables?\n\nAnswer:\n\nWe will change the colors in our bar plot! Look at the Help file for the function scale_fill_brewer(). You should see many options of different palettes. Add this function to your code above (use good coding style!), and set the palette argument to one of the palette names. Play around until you’ve settled on one!\nYou used the function scale_fill_brewer() above, but there is a similar function called scale_color_brewer(). Why do you think we used the first function and not the second? (You can explore this by changing your code above to scale_color_brewer and seeing what happens. Be sure to revert back to scale_fill_brewer before submitting!)\n\nAnswer:\nOnce you’re finished, be sure to knit and submit the rendered PDF to the corresponding Gradescope assignment!"
   },
   {
     "objectID": "homework/hw3_r.html",
@@ -10680,5 +10680,12 @@
     "title": "R functions for numerical data",
     "section": "",
     "text": "R provides functions to calculate common summary statistics. Each of the following functions requires a vector of numeric elements as input.\n\n# take the mean of the integer values 1-10\nmean(1:10)\n\n[1] 5.5\n\n# take mean of the values 1, 2.2, and 0\nmean(c(1, 2.2, 0))\n\n[1] 1.066667\n\n# take the variance and standard deviation of the integer values 1-10\nvar(1:10)\n\n[1] 9.166667\n\nsd(1:10)\n\n[1] 3.02765\n\n# confirm relationship between std. deviation and variance\nsqrt(var(1:10))\n\n[1] 3.02765"
+  },
+  {
+    "objectID": "slides/slides-06-categorical-data.html#activity",
+    "href": "slides/slides-06-categorical-data.html#activity",
+    "title": "Categorical data",
+    "section": "Activity!",
+    "text": "Activity!"
   }
 ]
