@@ -19,23 +19,14 @@ datascience <- read_csv(url_file)
 
 **By default, all `dplyr` functions expect the first argument to be a data frame.**
 
-## Selecting columns
 
-Sometimes, there are a lot of columns in a data frame and we might not want all of them. The `select()` function gives us an easy way to choose which columns/variables we'd like to work with.
+## Arranging rows
 
-The `select()` function requires by default two arguments: the data frame and the variable names to choose from that data frame.
-
-The following code works...
-
-```{r}
-select(datascience, Age)
-```
-
-...but it's preferable to take advantage of piping in order to make code more readable:
+We might want to re-arrange rows in ascending or descending order according to a certain variable. The `arrange()` function does this, and requires specifying at least one variable to arrange by:
 
 ```{r}
 datascience |>
-  select(Age)
+  arrange(Age)
 ```
 
 ::: column-margin
@@ -51,47 +42,6 @@ What's going on here?
 
 Why do we type `Age` and not `age`?
 :::
-
-### Multiple variables and excluding
-
-:::: {.callout-note collapse="true" appearance="minimal"}
-## Expand
-
-```{r}
-datascience |>
-  select(Age, Major)
-```
-
-::: callout-tip
-## Check
-
-What happens if we swap the order of the variable names?
-:::
-
-### A range of variables
-
-```{r}
-datascience |>
-  select(Gender:Major)
-```
-
-### Excluding variables
-
-```{r}
-datascience |>
-  select(-Country)
-```
-::::
-
-## Arranging rows
-
-We might want to re-arrange rows in ascending or descending order according to a certain variable. The `arrange()` function does this, and requires specifying at least one variable to arrange by:
-
-```{r}
-datascience |>
-  select(Age, Major) |>
-  arrange(Age)
-```
 
 ::: column-margin
 By default, `arrange()` will reorder in ascending order. If we'd like to go in descending order, we can code `arrange(desc(Age))`.
@@ -271,3 +221,42 @@ The `summarise()` function changes the data frame entirely. It collapses rows do
 
 What happens if you type `summarise(mean(Age))` instead? You'll note that the calculation becomes the column title.
 :::
+
+## Selecting columns
+
+Sometimes, there are a lot of columns in a data frame and we might not want all of them. The `select()` function gives us an easy way to choose which columns/variables we'd like to work with.
+
+The `select()` function requires by default two arguments: the data frame and the variable names to choose from that data frame.
+
+
+### Multiple variables and excluding
+
+:::: {.callout-note collapse="true" appearance="minimal"}
+## Expand
+
+```{r}
+datascience |>
+  select(Age, Major)
+```
+
+::: callout-tip
+## Check
+
+What happens if we swap the order of the variable names?
+:::
+
+### A range of variables
+
+```{r}
+datascience |>
+  select(Gender:Major)
+```
+
+### Excluding variables
+
+```{r}
+datascience |>
+  select(-Country)
+```
+::::
+
