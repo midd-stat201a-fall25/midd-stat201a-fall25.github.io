@@ -1,0 +1,5 @@
+/* Move Table of Contents to the left */
+#toc {
+    position: fixed;       /* Fix the TOC on the page */
+}
+

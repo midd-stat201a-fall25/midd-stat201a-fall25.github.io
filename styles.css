@@ -63,3 +63,16 @@ th {
   /* Optional: subtle border-bottom */
   border-bottom: 2px solid #bbb;
 }
+
+#toc {
+    position: fixed;  /* Fix the TOC on the page */
+    top: 0;           /* Align with the top of the page */
+    left: 0;          /* Align to the left */
+    width: 250px;     /* Adjust the width of the TOC */
+    padding: 10px;    /* Optional padding inside TOC */
+    background-color: white; /* Optional: background color */
+    border-right: 1px solid #ddd; /* Optional: border to separate from content */
+    z-index: 1000;    /* Ensure the TOC is above other content */
+    height: 100vh;    /* Make it full height of the viewport */
+    overflow-y: auto; /* Allow vertical scrolling if TOC is too long */
+}
