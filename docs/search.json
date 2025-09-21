@@ -25,7 +25,7 @@
     "href": "schedule.html",
     "title": "Schedule",
     "section": "",
-    "text": "Jump to:\n\n\n\n\nWeek 1\n\n\nWeek 2\n\n\nWeek 3\n\n\nWeek 4\n\n\nWeek 5\n\n\nWeek 6\n\n\nWeek 7\n\n\nWeek 8\n\n\nWeek 9\n\n\nWeek 10\n\n\nWeek 11\n\n\nWeek 12\n\n\n\n\n\n\n\n\nWeek\n\n\nDate\n\n\nIn-class material\n\n\nCoding practice\n\n\nAssignments\n\n\n\n\n\n\n\n1\n\n\nM 9/08\n\n\n\n\nTopic: Welcome!\n\n\nDirections for printing at bottom\n\n\n\n\n\n\n\n\nSubmit Problem Set 0 by tomorrow 9/09 11:59pm class\n\n\nTry to install R and RStudio before Thursday’s 9/11 class using these instructions\n\n\n\n\n\n\n\n\nW 9/10\n\n\n\n\nTopic: Study design Study design (pdf here)\n\n\n\n\n\n\n\n\n\nInstall R and RStudio before Thursday class using these instructions\n\n\nWednesday problems on Problem Set 1\n\n\n\n\n\n\n\n\nR 9/11\n\n\n\n\nTopic: Programming toolkit (no need to take notes!)\n\n\n\nRStudio help sheet\n\n\n\nR and .qmd basics\n\n\n\nDownload the following .qmd template and drag to your new STAT 201 folder  Intro to R template \n\n\n\n\n\n\n\nIntro to R and Quarto Markdown. Due Friday 9/12 at 11:59pm!  Coding practice \n\n\n\n\n\n\nThursday problems on Problem Set 1\n\n\n\n\n\n\n\n2\n\n\nM 9/15\n\n\n\n\nTopic: Numerical data (part 1) (pdf here)\n\n\n\nCode: here\n\n\n\n\n\n\n\n\n\nMonday problems on Problem Set 2\n\n\n\n\n\n\n\n\nW 9/17\n\n\n\n\nTopic: Numerical data (part 2) (pdf here)\n\n\n\n\n\n\nNumerical data. Due tonight at 11:59pm!  Coding practice \n\n\n\n\n\n\nWednesday problems on Problem Set 2\n\n\n\n\n\n\n\n\nR 9/18\n\n\n\n\nTopic: Introduction to ggplot (pdf here)\n\n\n\n.qmd template to follow live code  Live code \n\n\n\n\n\n\n\nIntroduction to ggplot  Coding practice \n\n\n\n\n\n\nThursday problems on Problem Set 2, i.e. the problems in the following .qmd  hw2_R \n\n\n\nFor easier reading: the rendered R problems\n\n\n\n\n\n\n\n3\n\n\nM 9/22\n\n\n\n\nTopic: Categorical data\n\n\n\n\n\n\nVisualizing categorical data in ggplot\n\n\n\n\n\n\nMonday problems in Problem Set 3\n\n\n\n\n\n\n\n\nW 9/24\n\n\n\n\nTopic: Data wrangling with dplyr\n\n\n\n\n\n\nData wrangling practice\n\n\n\n\n\n\nWednesday problems in Problem Set 3\n\n\n\n\n\n\n\n\nR 9/25\n\n\n\n\nTopic: Joining data\n\n\n\n\n\n\n\n\nThursday problems in Problem Set 3"
+    "text": "Jump to:\n\n\n\n\nWeek 1\n\n\nWeek 2\n\n\nWeek 3\n\n\nWeek 4\n\n\nWeek 5\n\n\nWeek 6\n\n\nWeek 7\n\n\nWeek 8\n\n\nWeek 9\n\n\nWeek 10\n\n\nWeek 11\n\n\nWeek 12\n\n\n\n\n\n\n\n\nWeek\n\n\nDate\n\n\nIn-class material\n\n\nCoding practice\n\n\nAssignments\n\n\n\n\n\n\n\n1\n\n\nM 9/08\n\n\n\n\nTopic: Welcome!\n\n\nDirections for printing at bottom\n\n\n\n\n\n\n\n\nSubmit Problem Set 0 by tomorrow 9/09 11:59pm class\n\n\nTry to install R and RStudio before Thursday’s 9/11 class using these instructions\n\n\n\n\n\n\n\n\nW 9/10\n\n\n\n\nTopic: Study design Study design (pdf here)\n\n\n\n\n\n\n\n\n\nInstall R and RStudio before Thursday class using these instructions\n\n\nWednesday problems on Problem Set 1\n\n\n\n\n\n\n\n\nR 9/11\n\n\n\n\nTopic: Programming toolkit (no need to take notes!)\n\n\n\nRStudio help sheet\n\n\n\nR and .qmd basics\n\n\n\nDownload the following .qmd template and drag to your new STAT 201 folder  Intro to R template \n\n\n\n\n\n\n\nIntro to R and Quarto Markdown. Due Friday 9/12 at 11:59pm!  Coding practice \n\n\n\n\n\n\nThursday problems on Problem Set 1\n\n\n\n\n\n\n\n2\n\n\nM 9/15\n\n\n\n\nTopic: Numerical data (part 1) (pdf here)\n\n\n\nCode: here\n\n\n\n\n\n\n\n\n\nMonday problems on Problem Set 2\n\n\n\n\n\n\n\n\nW 9/17\n\n\n\n\nTopic: Numerical data (part 2) (pdf here)\n\n\n\n\n\n\nNumerical data. Due tonight at 11:59pm!  Coding practice \n\n\n\n\n\n\nWednesday problems on Problem Set 2\n\n\n\n\n\n\n\n\nR 9/18\n\n\n\n\nTopic: Introduction to ggplot (pdf here)\n\n\n\n.qmd template to follow live code  Live code \n\n\n\n\n\n\n\nIntroduction to ggplot  Coding practice \n\n\n\n\n\n\nThursday problems on Problem Set 2, i.e. the problems in the following .qmd  hw2_R \n\n\n\nFor easier reading: the rendered R problems\n\n\n\n\n\n\n\n3\n\n\nM 9/22\n\n\n\n\nTopic: Categorical data (pdf here)\n\n\n\n\n\n\nVisualizing categorical data in ggplot  Coding practice \n\n\n\n\n\n\nMonday problems in Problem Set 3\n\n\n\n\n\n\n\n\nW 9/24\n\n\n\n\nTopic: Data wrangling with dplyr\n\n\n\n\n\n\nData wrangling practice\n\n\n\n\n\n\nWednesday problems in Problem Set 3\n\n\n\n\n\n\n\n\nR 9/25\n\n\n\n\nTopic: Joining data\n\n\n\n\n\n\n\n\nThursday problems in Problem Set 3"
   },
   {
     "objectID": "slides/slides-01-study-design.html#population-and-samples",
@@ -1033,7 +1033,7 @@
     "href": "slides/slides-07-wrangling.html#live-code",
     "title": "Data wrangling with dplyr",
     "section": "Live code",
-    "text": "Live code\nData from Amazon: In 2017, Kaggle conducted an industry-wide survey to establish a comprehensive view of the state of data science and machine learning. We will be looking at just a subset of the data.\nCopy and paste the following code into a code chunk in your live code! We will load in the data together and take a quick look at it before diving into data wrangling\n\nlibrary(readr)\nurl_file &lt;- \"https://raw.githubusercontent.com/midd-stat201-fall2024/midd-stat201-fall2024.github.io/refs/heads/main/data/datascience_survey_subset.csv\""
+    "text": "Live code\nData from Amazon: we have data about several books available for purchase from Amazon. I took a random sample from the original sample of 325 cases from the original dataset.\nCopy and paste the following code into a code chunk in your live code! We will load in the data together and take a quick look at it before diving into data wrangling\n\nlibrary(readr)\nurl_file &lt;- \"https://raw.githubusercontent.com/midd-stat201a-fall25/midd-stat201a-fall25.github.io/refs/heads/main/data/amazon_books.csv\""
   },
   {
     "objectID": "slides/slides-07-wrangling.html#piping-to-ggplot",
@@ -1964,7 +1964,7 @@
     "href": "slides/slides-06-categorical-data.html#categorical-data",
     "title": "Categorical data",
     "section": "Categorical data",
-    "text": "Categorical data\n\nRecall that a variable is either numerical or categorical\nCategorical variables are variables that can take one of a limited (usually fixed) number of possible values, known as levels\n\nRepresent data that can be divided into groups\n\nTwo types:\n\nOrdinal: the levels have a special ordering\nNominal: the levels don’t have an ordering\n\nWe will almost exclusively treat our categorical variables as nominal in this class\n\n\nExamples and non-examples?"
+    "text": "Categorical data\n\nRecall that a variable is either numerical or categorical\nCategorical variables are variables that can take one of a limited (usually fixed) number of possible values, known as levels\n\nRepresent data that can be divided into groups\n\nTwo types:\n\nOrdinal: the levels have a special ordering\nNominal: the levels don’t have an ordering\n\nWe almost exclusively treat categorical variables as nominal in this class\n\n\nExample:\n\nBlood type (A, B, AB, O)\nEducation level (high school, college, graduate degree, other)"
   },
   {
     "objectID": "slides/slides-06-categorical-data.html#insurance-data",
@@ -2034,7 +2034,7 @@
     "href": "coding_practice/coding-practice-06-categorical.html",
     "title": "Categorical data coding practice",
     "section": "",
-    "text": "# load packages here\n\n\nIn the code chunk above, add a line of code to load in the package necessary for ggplot-ing. Also change your name in the YAML.\nWe will be using the diamonds dataset that is included in the package you loaded above. Please take a look at its Help file and the data frame itself. Create vertical, side-by-side boxplots that display the distribution of diamond prices for each color of diamond.\n\nThen answer the following question: which diamonds seem to be the most expensive? Is this result surprising to you given the description of the data? If so, what might be a possible explanation?\nAnswer:\n\nNow visualize the distribution of diamonds prices using histograms, where we have one histogram for each color. You should be able to do this in just three lines/layers of code!\n\nThen answer the following: which visualization (the boxplots or the histograms) do you think is more effective for answering the research question of “which diamonds seem to be the most expensive”? Briefly explain why.\nAnswer:\n\nUsing an appropriate type of bar plot, compare the distribution of how clear a diamond is across the distribution of the quality of th cut. Do the frequencies of occurrences of the levels of one variable depend on/change with the levels of the second variable? That is, do you think there is an association between the two variables?\n\nAnswer:\n\nWe will change the colors in our bar plot! Look at the Help file for the function scale_fill_brewer(). You should see many options of different palettes. Add this function to your code above (use good coding style!), and set the palette argument to one of the palette names. Play around until you’ve settled on one!\nYou used the function scale_fill_brewer() above, but there is a similar function called scale_color_brewer(). Why do you think we used the first function and not the second? (You can explore this by changing your code above to scale_color_brewer and seeing what happens. Be sure to revert back to scale_fill_brewer before submitting!)\n\nAnswer:\nOnce you’re finished, be sure to knit and submit the rendered PDF to the corresponding Gradescope assignment!"
+    "text": "# load packages here\n\n\nIn the code chunk above, add a line of code to load in the package necessary for ggplot-ing. Also change your name in the YAML.\nWe will be using the diamonds dataset that is included in the package you loaded above. Please take a look at its Help file and the data frame itself. Create vertical, side-by-side boxplots that display the distribution of diamond prices for each color of diamond.\n\nThen answer the following question: which diamonds seem to be the most expensive? Is this result surprising to you given the description of the data? If so, what might be a possible explanation?\nAnswer:\n\nNow use histograms to visualize the distributions of diamonds prices, where we have one histogram for each diamond color. You should be able to do this in just three lines/layers of code!\n\nThen answer the following: which visualization (the boxplots or the histograms) do you think is more effective for answering the research question of “which diamonds seem to be the most expensive”? Briefly explain why.\nAnswer:\n\nUsing an appropriate type of bar plot, compare the distribution of how clear a diamond is across the distribution of the quality of th cut. Do the frequencies of occurrences of the levels of one variable depend on/change with the levels of the second variable? That is, do you think there is an association between the two variables?\n\nAnswer:\n\nWe will change the colors in our bar plot! Look at the Help file for the function scale_fill_brewer(). You should see many options of choosing a different color palette. Add this function to your code above (use good coding style!), and set the palette argument to one of the palette names (in quotation marks). Play around until you’ve settled on one!\nYou used the function scale_fill_brewer() above, but there is a similar function called scale_color_brewer(). Why do you think we used the first function and not the second? (You can explore this by changing your code above to scale_color_brewer and seeing what happens. Be sure to revert back to scale_fill_brewer before submitting!)\n\nAnswer:\nOnce you’re finished, be sure to knit and submit the rendered PDF to the corresponding Gradescope assignment!"
   },
   {
     "objectID": "homework/hw3_r.html",
@@ -2314,7 +2314,7 @@
     "href": "index.html#announcements",
     "title": "Introduction to Statistical and Data Sciences",
     "section": "Announcements",
-    "text": "Announcements\n\nHappy Week 2!"
+    "text": "Announcements\n\nNone!"
   },
   {
     "objectID": "slides/slides-09-conditional-probability.html#recap",
@@ -6199,91 +6199,91 @@
     "href": "slides/slides-08-joins.html#setup",
     "title": "Joining data frames",
     "section": "Setup",
-    "text": "Setup\nFor the next few slides…\n\n\n\n\n\n\nx\n\n\n\n\n\n\nID\nx_val\n\n\n\n\n1\nx1\n\n\n2\nx2\n\n\n3\nx3\n\n\n\n\n\n\n\n\n\n\ny\n\n\n\n\n\n\nID\ny_val\n\n\n\n\n1\ny1\n\n\n2\ny2\n\n\n4\ny4"
+    "text": "Setup\nFor the next few slides…\n\n\n\nx\n\n\n\n\n\n\nID\nx_val\n\n\n\n\n1\nx1\n\n\n2\nx2\n\n\n3\nx3\n\n\n\n\n\n\n\ny\n\n\n\n\n\n\nID\ny_val\n\n\n\n\n1\ny1\n\n\n2\ny2\n\n\n4\ny4"
   },
   {
     "objectID": "slides/slides-08-joins.html#left_join",
     "href": "slides/slides-08-joins.html#left_join",
     "title": "Joining data frames",
     "section": "left_join()",
-    "text": "left_join()\nAdds columns to x from y, matching all rows in x\n\n\n\n\n\nx\n\n\n\n\n\n \n  \n    ID \n    x_val \n  \n \n\n  \n    1 \n    x1 \n  \n  \n    2 \n    x2 \n  \n  \n    3 \n    x3 \n  \n\n\n\n\n\n\n\ny\n\n\n\n\n\n \n  \n    ID \n    y_val \n  \n \n\n  \n    1 \n    y1 \n  \n  \n    2 \n    y2 \n  \n  \n    4 \n    y4 \n  \n\n\n\n\n\n\n\n\nleft_join(x, y, by = \"ID\")\n\n\n\n\n\n \n  \n    ID \n    x_val \n    y_val \n  \n \n\n  \n    1 \n    x1 \n    y1 \n  \n  \n    2 \n    x2 \n    y2 \n  \n  \n    3 \n    x3 \n    NA"
+    "text": "left_join()\nAdds columns to x from y, matching all rows in x\n\n\n\n\n\nx\n\n\n\n\n\n\nID\nx_val\n\n\n\n\n1\nx1\n\n\n2\nx2\n\n\n3\nx3\n\n\n\n\n\n\n\ny\n\n\n\n\n\n\nID\ny_val\n\n\n\n\n1\ny1\n\n\n2\ny2\n\n\n4\ny4\n\n\n\n\n\n\n\n\nleft_join(x, y, by = \"ID\")\n\n\n\n\n\n\nID\nx_val\ny_val\n\n\n\n\n1\nx1\ny1\n\n\n2\nx2\ny2\n\n\n3\nx3\nNA"
   },
   {
     "objectID": "slides/slides-08-joins.html#right_join",
     "href": "slides/slides-08-joins.html#right_join",
     "title": "Joining data frames",
     "section": "right_join()",
-    "text": "right_join()\nAdds columns to x from y, matching all rows in y\n\n\n\n\n\nx\n\n\n\n\n\n \n  \n    ID \n    x_val \n  \n \n\n  \n    1 \n    x1 \n  \n  \n    2 \n    x2 \n  \n  \n    3 \n    x3 \n  \n\n\n\n\n\n\n\ny\n\n\n\n\n\n \n  \n    ID \n    y_val \n  \n \n\n  \n    1 \n    y1 \n  \n  \n    2 \n    y2 \n  \n  \n    4 \n    y4 \n  \n\n\n\n\n\n\n\n\nright_join(x, y, by = \"ID\")\n\n\n\n\n\n \n  \n    ID \n    x_val \n    y_val \n  \n \n\n  \n    1 \n    x1 \n    y1 \n  \n  \n    2 \n    x2 \n    y2 \n  \n  \n    4 \n    NA \n    y4"
+    "text": "right_join()\nAdds columns to x from y, matching all rows in y\n\n\n\n\n\nx\n\n\n\n\n\n\nID\nx_val\n\n\n\n\n1\nx1\n\n\n2\nx2\n\n\n3\nx3\n\n\n\n\n\n\n\ny\n\n\n\n\n\n\nID\ny_val\n\n\n\n\n1\ny1\n\n\n2\ny2\n\n\n4\ny4\n\n\n\n\n\n\n\n\nright_join(x, y, by = \"ID\")\n\n\n\n\n\n\nID\nx_val\ny_val\n\n\n\n\n1\nx1\ny1\n\n\n2\nx2\ny2\n\n\n4\nNA\ny4"
   },
   {
     "objectID": "slides/slides-08-joins.html#full_join",
     "href": "slides/slides-08-joins.html#full_join",
     "title": "Joining data frames",
     "section": "full_join()",
-    "text": "full_join()\nAdds columns to x from y, matching all rows in x OR y\n\n\n\n\n\nx\n\n\n\n\n\n \n  \n    ID \n    x_val \n  \n \n\n  \n    1 \n    x1 \n  \n  \n    2 \n    x2 \n  \n  \n    3 \n    x3 \n  \n\n\n\n\n\n\n\ny\n\n\n\n\n\n \n  \n    ID \n    y_val \n  \n \n\n  \n    1 \n    y1 \n  \n  \n    2 \n    y2 \n  \n  \n    4 \n    y4 \n  \n\n\n\n\n\n\n\n\nfull_join(x, y, by = \"ID\")\n\n\n\n\n\n \n  \n    ID \n    x_val \n    y_val \n  \n \n\n  \n    1 \n    x1 \n    y1 \n  \n  \n    2 \n    x2 \n    y2 \n  \n  \n    3 \n    x3 \n    NA \n  \n  \n    4 \n    NA \n    y4"
+    "text": "full_join()\nAdds columns to x from y, matching all rows in x OR y\n\n\n\n\n\nx\n\n\n\n\n\n\nID\nx_val\n\n\n\n\n1\nx1\n\n\n2\nx2\n\n\n3\nx3\n\n\n\n\n\n\n\ny\n\n\n\n\n\n\nID\ny_val\n\n\n\n\n1\ny1\n\n\n2\ny2\n\n\n4\ny4\n\n\n\n\n\n\n\n\nfull_join(x, y, by = \"ID\")\n\n\n\n\n\n\nID\nx_val\ny_val\n\n\n\n\n1\nx1\ny1\n\n\n2\nx2\ny2\n\n\n3\nx3\nNA\n\n\n4\nNA\ny4"
   },
   {
     "objectID": "slides/slides-08-joins.html#inner_join",
     "href": "slides/slides-08-joins.html#inner_join",
     "title": "Joining data frames",
     "section": "inner_join()",
-    "text": "inner_join()\nAll rows from x where there are matching values in y, return all combination of multiple matches in the case of multiple matches\n\n\n\n\n\nx\n\n\n\n\n\n \n  \n    ID \n    x_val \n  \n \n\n  \n    1 \n    x1 \n  \n  \n    2 \n    x2 \n  \n  \n    3 \n    x3 \n  \n\n\n\n\n\n\n\ny\n\n\n\n\n\n \n  \n    ID \n    y_val \n  \n \n\n  \n    1 \n    y1 \n  \n  \n    2 \n    y2 \n  \n  \n    4 \n    y4 \n  \n\n\n\n\n\n\n\n\ninner_join(x, y, by = \"ID\")\n\n\n\n\n\n \n  \n    ID \n    x_val \n    y_val \n  \n \n\n  \n    1 \n    x1 \n    y1 \n  \n  \n    2 \n    x2 \n    y2"
+    "text": "inner_join()\nAll rows from x where there are matching values in y, return all combination of multiple matches in the case of multiple matches\n\n\n\n\n\nx\n\n\n\n\n\n\nID\nx_val\n\n\n\n\n1\nx1\n\n\n2\nx2\n\n\n3\nx3\n\n\n\n\n\n\n\ny\n\n\n\n\n\n\nID\ny_val\n\n\n\n\n1\ny1\n\n\n2\ny2\n\n\n4\ny4\n\n\n\n\n\n\n\n\ninner_join(x, y, by = \"ID\")\n\n\n\n\n\n\nID\nx_val\ny_val\n\n\n\n\n1\nx1\ny1\n\n\n2\nx2\ny2"
   },
   {
     "objectID": "slides/slides-08-joins.html#inner_join-cont.",
     "href": "slides/slides-08-joins.html#inner_join-cont.",
     "title": "Joining data frames",
     "section": "inner_join() (cont.)",
-    "text": "inner_join() (cont.)\nExample with multiple matches:\n\n\n\nx2\n\n\n\n\n\n \n  \n    ID \n    x_val \n  \n \n\n  \n    1 \n    x1 \n  \n  \n    2 \n    x2 \n  \n  \n    3 \n    x3 \n  \n  \n    1 \n    new_x \n  \n\n\n\n\n\n\n\ny2\n\n\n\n\n\n \n  \n    ID \n    y_val \n  \n \n\n  \n    1 \n    y1 \n  \n  \n    2 \n    y2 \n  \n  \n    4 \n    y4 \n  \n  \n    1 \n    new_y \n  \n\n\n\n\n\n\n\n\ninner_join(x2, y2, by = \"ID\")\n\n\n\nWarning in inner_join(x2, y2, by = \"ID\"): Detected an unexpected many-to-many relationship between `x` and `y`.\nℹ Row 1 of `x` matches multiple rows in `y`.\nℹ Row 1 of `y` matches multiple rows in `x`.\nℹ If a many-to-many relationship is expected, set `relationship =\n  \"many-to-many\"` to silence this warning.\n\n\n\n\n \n  \n    ID \n    x_val \n    y_val \n  \n \n\n  \n    1 \n    x1 \n    y1 \n  \n  \n    1 \n    x1 \n    new_y \n  \n  \n    2 \n    x2 \n    y2 \n  \n  \n    1 \n    new_x \n    y1 \n  \n  \n    1 \n    new_x \n    new_y"
+    "text": "inner_join() (cont.)\nExample with multiple matches:\n\n\n\nx2\n\n\n\n\n\n\nID\nx_val\n\n\n\n\n1\nx1\n\n\n2\nx2\n\n\n3\nx3\n\n\n1\nnew_x\n\n\n\n\n\n\n\ny2\n\n\n\n\n\n\nID\ny_val\n\n\n\n\n1\ny1\n\n\n2\ny2\n\n\n4\ny4\n\n\n1\nnew_y\n\n\n\n\n\n\n\n\ninner_join(x2, y2, by = \"ID\")\n\n\n\nWarning in inner_join(x2, y2, by = \"ID\"): Detected an unexpected many-to-many relationship between `x` and `y`.\nℹ Row 1 of `x` matches multiple rows in `y`.\nℹ Row 1 of `y` matches multiple rows in `x`.\nℹ If a many-to-many relationship is expected, set `relationship =\n  \"many-to-many\"` to silence this warning.\n\n\n\n\n\nID\nx_val\ny_val\n\n\n\n\n1\nx1\ny1\n\n\n1\nx1\nnew_y\n\n\n2\nx2\ny2\n\n\n1\nnew_x\ny1\n\n\n1\nnew_x\nnew_y"
   },
   {
     "objectID": "slides/slides-08-joins.html#semi_join",
     "href": "slides/slides-08-joins.html#semi_join",
     "title": "Joining data frames",
     "section": "semi_join()",
-    "text": "semi_join()\nReturns all rows from x with a match in y, but does not add columns from y\n\n\n\n\n\nx\n\n\n\n\n\n \n  \n    ID \n    x_val \n  \n \n\n  \n    1 \n    x1 \n  \n  \n    2 \n    x2 \n  \n  \n    3 \n    x3 \n  \n\n\n\n\n\n\n\ny\n\n\n\n\n\n \n  \n    ID \n    y_val \n  \n \n\n  \n    1 \n    y1 \n  \n  \n    2 \n    y2 \n  \n  \n    4 \n    y4 \n  \n\n\n\n\n\n\n\n\nsemi_join(x, y, by = \"ID\")\n\n\n\n\n\n \n  \n    ID \n    x_val \n  \n \n\n  \n    1 \n    x1 \n  \n  \n    2 \n    x2"
+    "text": "semi_join()\nReturns all rows from x with a match in y, but does not add columns from y\n\n\n\n\n\nx\n\n\n\n\n\n\nID\nx_val\n\n\n\n\n1\nx1\n\n\n2\nx2\n\n\n3\nx3\n\n\n\n\n\n\n\ny\n\n\n\n\n\n\nID\ny_val\n\n\n\n\n1\ny1\n\n\n2\ny2\n\n\n4\ny4\n\n\n\n\n\n\n\n\nsemi_join(x, y, by = \"ID\")\n\n\n\n\n\n\nID\nx_val\n\n\n\n\n1\nx1\n\n\n2\nx2"
   },
   {
     "objectID": "slides/slides-08-joins.html#anti_join",
     "href": "slides/slides-08-joins.html#anti_join",
     "title": "Joining data frames",
     "section": "anti_join()",
-    "text": "anti_join()\nReturns all rows from x without any match in y, and not add columns from y\n\n\n\n\n\nx\n\n\n\n\n\n \n  \n    ID \n    x_val \n  \n \n\n  \n    1 \n    x1 \n  \n  \n    2 \n    x2 \n  \n  \n    3 \n    x3 \n  \n\n\n\n\n\n\n\ny\n\n\n\n\n\n \n  \n    ID \n    y_val \n  \n \n\n  \n    1 \n    y1 \n  \n  \n    2 \n    y2 \n  \n  \n    4 \n    y4 \n  \n\n\n\n\n\n\n\n\nanti_join(x, y, by = \"ID\")\n\n\n\n\n\n \n  \n    ID \n    x_val \n  \n \n\n  \n    3 \n    x3"
+    "text": "anti_join()\nReturns all rows from x without any match in y, and not add columns from y\n\n\n\n\n\nx\n\n\n\n\n\n\nID\nx_val\n\n\n\n\n1\nx1\n\n\n2\nx2\n\n\n3\nx3\n\n\n\n\n\n\n\ny\n\n\n\n\n\n\nID\ny_val\n\n\n\n\n1\ny1\n\n\n2\ny2\n\n\n4\ny4\n\n\n\n\n\n\n\n\nanti_join(x, y, by = \"ID\")\n\n\n\n\n\n\nID\nx_val\n\n\n\n\n3\nx3"
   },
   {
     "objectID": "slides/slides-08-joins.html#joining-with-different-variable-names",
     "href": "slides/slides-08-joins.html#joining-with-different-variable-names",
     "title": "Joining data frames",
     "section": "Joining with different variable names",
-    "text": "Joining with different variable names\nIf the variables in x and y have different names but we know they represent the same variable:\n\n\n\nx\n\n\n\n\n\n \n  \n    ID \n    x_val \n  \n \n\n  \n    1 \n    x1 \n  \n  \n    2 \n    x2 \n  \n  \n    3 \n    x3 \n  \n\n\n\n\n\n\n\ny3\n\n\n\n\n\n \n  \n    ID_y \n    y_val \n  \n \n\n  \n    1 \n    y1 \n  \n  \n    2 \n    y2 \n  \n  \n    4 \n    y4 \n  \n\n\n\n\n\n\n\n\n\nleft_join(x, y3, by =  c(\"ID\" = \"ID_y\"))\n\n\n\n\n\n \n  \n    ID \n    x_val \n    y_val \n  \n \n\n  \n    1 \n    x1 \n    y1 \n  \n  \n    2 \n    x2 \n    y2 \n  \n  \n    3 \n    x3 \n    NA"
+    "text": "Joining with different variable names\nIf the variables in x and y have different names but we know they represent the same variable:\n\n\n\nx\n\n\n\n\n\n\nID\nx_val\n\n\n\n\n1\nx1\n\n\n2\nx2\n\n\n3\nx3\n\n\n\n\n\n\n\ny3\n\n\n\n\n\n\nID_y\ny_val\n\n\n\n\n1\ny1\n\n\n2\ny2\n\n\n4\ny4\n\n\n\n\n\n\n\n\n\nleft_join(x, y3, by =  c(\"ID\" = \"ID_y\"))\n\n\n\n\n\n\nID\nx_val\ny_val\n\n\n\n\n1\nx1\ny1\n\n\n2\nx2\ny2\n\n\n3\nx3\nNA"
   },
   {
     "objectID": "slides/slides-08-joins.html#joining-on-multiple-variables",
     "href": "slides/slides-08-joins.html#joining-on-multiple-variables",
     "title": "Joining data frames",
     "section": "Joining on multiple variables",
-    "text": "Joining on multiple variables\nCan specify more than one variable in the by argument. Will need to a vector of character objects.\n\n\n\nenrollment\n\n\n\n\n\n \n  \n    student_id \n    course \n    start_year \n  \n \n\n  \n    1 \n    STAT 310 \n    F22 \n  \n  \n    1 \n    MATH 223 \n    F22 \n  \n  \n    2 \n    STAT 310 \n    F23 \n  \n  \n    3 \n    STAT 201 \n    W24 \n  \n\n\n\n\n\n\n\npayment\n\n\n\n\n\n \n  \n    student_id \n    Course \n    status \n  \n \n\n  \n    1 \n    STAT 310 \n    paid \n  \n  \n    1 \n    MATH 223 \n    paid \n  \n  \n    2 \n    STAT 310 \n    unpaid \n  \n  \n    3 \n    STAT 201 \n    paid \n  \n\n\n\n\n\n\n\n\n\n# note, multiple join functions would work in this example!\ninner_join(enrollment, payment, by = c(\"student_id\", \"course\" = \"Course\"))\n\n\n\n\n\n \n  \n    student_id \n    course \n    start_year \n    status \n  \n \n\n  \n    1 \n    STAT 310 \n    F22 \n    paid \n  \n  \n    1 \n    MATH 223 \n    F22 \n    paid \n  \n  \n    2 \n    STAT 310 \n    F23 \n    unpaid \n  \n  \n    3 \n    STAT 201 \n    W24 \n    paid"
+    "text": "Joining on multiple variables\nCan specify more than one variable in the by argument. Will need to a vector of character objects.\n\n\n\nenrollment\n\n\n\n\n\n\nstudent_id\ncourse\nstart_year\n\n\n\n\n1\nSTAT 310\nF22\n\n\n1\nMATH 223\nF22\n\n\n2\nSTAT 310\nF23\n\n\n3\nSTAT 201\nW24\n\n\n\n\n\n\n\npayment\n\n\n\n\n\n\nstudent_id\nCourse\nstatus\n\n\n\n\n1\nSTAT 310\npaid\n\n\n1\nMATH 223\npaid\n\n\n2\nSTAT 310\nunpaid\n\n\n3\nSTAT 201\npaid\n\n\n\n\n\n\n\n\n\n# note, multiple join functions would work in this example!\ninner_join(enrollment, payment, by = c(\"student_id\", \"course\" = \"Course\"))\n\n\n\n\n\n\nstudent_id\ncourse\nstart_year\nstatus\n\n\n\n\n1\nSTAT 310\nF22\npaid\n\n\n1\nMATH 223\nF22\npaid\n\n\n2\nSTAT 310\nF23\nunpaid\n\n\n3\nSTAT 201\nW24\npaid"
   },
   {
     "objectID": "slides/slides-08-joins.html#example",
     "href": "slides/slides-08-joins.html#example",
     "title": "Joining data frames",
     "section": "Example",
-    "text": "Example\nWe have data on fishery harvests (in tons) by countries from 2016:\n\n\n\n\nfish |>\n    slice(1:9)\n\n\n\n\n\n \n  \n    country \n    capture \n    aquaculture \n  \n \n\n  \n    Afghanistan \n    1000 \n    1200 \n  \n  \n    Albania \n    7886 \n    950 \n  \n  \n    Algeria \n    95000 \n    1361 \n  \n  \n    American Samoa \n    3047 \n    20 \n  \n  \n    Andorra \n    0 \n    0 \n  \n  \n    Angola \n    486490 \n    655 \n  \n  \n    Antigua and Barbuda \n    3000 \n    10 \n  \n  \n    Argentina \n    755226 \n    3673 \n  \n  \n    Armenia \n    3758 \n    16381"
+    "text": "Example\nWe have data on fishery harvests (in tons) by countries from 2016:\n\n\nRows: 216 Columns: 3\n── Column specification ────────────────────────────────────────────────────────\nDelimiter: \",\"\nchr (1): country\ndbl (2): capture, aquaculture\n\nℹ Use `spec()` to retrieve the full column specification for this data.\nℹ Specify the column types or set `show_col_types = FALSE` to quiet this message.\nRows: 245 Columns: 2\n── Column specification ────────────────────────────────────────────────────────\nDelimiter: \",\"\nchr (2): country, continent\n\nℹ Use `spec()` to retrieve the full column specification for this data.\nℹ Specify the column types or set `show_col_types = FALSE` to quiet this message.\n\n\n\nfish |&gt;\n    slice(1:9)\n\n\n\n\n\n\ncountry\ncapture\naquaculture\n\n\n\n\nAfghanistan\n1000\n1200\n\n\nAlbania\n7886\n950\n\n\nAlgeria\n95000\n1361\n\n\nAmerican Samoa\n3047\n20\n\n\nAndorra\n0\n0\n\n\nAngola\n486490\n655\n\n\nAntigua and Barbuda\n3000\n10\n\n\nArgentina\n755226\n3673\n\n\nArmenia\n3758\n16381"
   },
   {
     "objectID": "slides/slides-08-joins.html#bringing-in-continent",
     "href": "slides/slides-08-joins.html#bringing-in-continent",
     "title": "Joining data frames",
     "section": "Bringing in continent",
-    "text": "Bringing in continent\nSuppose I would like to explore the data on a continent level. We don’t have continent in the current data frame, but we could join in the following data:\n\ncontinents |>\n  slice(1:5)\n\n\n\n\n\n \n  \n    country \n    continent \n  \n \n\n  \n    Afghanistan \n    Asia \n  \n  \n    Åland Islands \n    Europe \n  \n  \n    Albania \n    Europe \n  \n  \n    Algeria \n    Africa \n  \n  \n    American Samoa \n    Oceania \n  \n\n\n\n\n\n\n\nWe want to keep all rows and columns from fish and add a column for corresponding continents. Which join function should we use?\nWe want to keep all rows from fish for which we have a corresponding continent and add a column for corresponding continents. Which join function should we use?"
+    "text": "Bringing in continent\nSuppose I would like to explore the data on a continent level. We don’t have continent in the current data frame, but we could join in the following data:\n\ncontinents |&gt;\n  slice(1:5)\n\n\n\n\n\n\ncountry\ncontinent\n\n\n\n\nAfghanistan\nAsia\n\n\nÅland Islands\nEurope\n\n\nAlbania\nEurope\n\n\nAlgeria\nAfrica\n\n\nAmerican Samoa\nOceania\n\n\n\n\n\n\n\nWe want to keep all rows and columns from fish and add a column for corresponding continents. Which join function should we use?\nWe want to keep all rows from fish for which we have a corresponding continent and add a column for corresponding continents. Which join function should we use?"
   },
   {
     "objectID": "slides/slides-08-joins.html#example-cont.",
     "href": "slides/slides-08-joins.html#example-cont.",
     "title": "Joining data frames",
     "section": "Example (cont.)",
-    "text": "Example (cont.)\n\n\n\nleft_join(fish, continents, by = \"country\") |>\n  slice(1:9)\n\n\n\n\n\n \n  \n    country \n    capture \n    aquaculture \n    continent \n  \n \n\n  \n    Afghanistan \n    1000 \n    1200 \n    Asia \n  \n  \n    Albania \n    7886 \n    950 \n    Europe \n  \n  \n    Algeria \n    95000 \n    1361 \n    Africa \n  \n  \n    American Samoa \n    3047 \n    20 \n    Oceania \n  \n  \n    Andorra \n    0 \n    0 \n    Europe \n  \n  \n    Angola \n    486490 \n    655 \n    Africa \n  \n  \n    Antigua and Barbuda \n    3000 \n    10 \n    NA \n  \n  \n    Argentina \n    755226 \n    3673 \n    Americas \n  \n  \n    Armenia \n    3758 \n    16381 \n    Asia \n  \n\n\n\n\n\n\nNotice the NA\n\n\n\n\ninner_join(fish, continents, by = \"country\") |>\n  slice(1:9)\n\n\n\n\n\n \n  \n    country \n    capture \n    aquaculture \n    continent \n  \n \n\n  \n    Afghanistan \n    1000 \n    1200 \n    Asia \n  \n  \n    Albania \n    7886 \n    950 \n    Europe \n  \n  \n    Algeria \n    95000 \n    1361 \n    Africa \n  \n  \n    American Samoa \n    3047 \n    20 \n    Oceania \n  \n  \n    Andorra \n    0 \n    0 \n    Europe \n  \n  \n    Angola \n    486490 \n    655 \n    Africa \n  \n  \n    Argentina \n    755226 \n    3673 \n    Americas \n  \n  \n    Armenia \n    3758 \n    16381 \n    Asia \n  \n  \n    Aruba \n    142 \n    0 \n    Americas \n  \n\n\n\n\n\n\n\n\n\nCould also use the following piping code:\n\n\n\nfish |>\n  left_join(continents, by = \"country\")"
+    "text": "Example (cont.)\n\n\n\nleft_join(fish, continents, by = \"country\") |&gt;\n  slice(1:9)\n\n\n\n\n\n\ncountry\ncapture\naquaculture\ncontinent\n\n\n\n\nAfghanistan\n1000\n1200\nAsia\n\n\nAlbania\n7886\n950\nEurope\n\n\nAlgeria\n95000\n1361\nAfrica\n\n\nAmerican Samoa\n3047\n20\nOceania\n\n\nAndorra\n0\n0\nEurope\n\n\nAngola\n486490\n655\nAfrica\n\n\nAntigua and Barbuda\n3000\n10\nNA\n\n\nArgentina\n755226\n3673\nAmericas\n\n\nArmenia\n3758\n16381\nAsia\n\n\n\n\n\n\nNotice the NA\n\n\n\n\ninner_join(fish, continents, by = \"country\") |&gt;\n  slice(1:9)\n\n\n\n\n\n\ncountry\ncapture\naquaculture\ncontinent\n\n\n\n\nAfghanistan\n1000\n1200\nAsia\n\n\nAlbania\n7886\n950\nEurope\n\n\nAlgeria\n95000\n1361\nAfrica\n\n\nAmerican Samoa\n3047\n20\nOceania\n\n\nAndorra\n0\n0\nEurope\n\n\nAngola\n486490\n655\nAfrica\n\n\nArgentina\n755226\n3673\nAmericas\n\n\nArmenia\n3758\n16381\nAsia\n\n\nAruba\n142\n0\nAmericas\n\n\n\n\n\n\n\n\n\nCould also use the following piping code:\n\n\n\nfish |&gt;\n  left_join(continents, by = \"country\")"
   },
   {
     "objectID": "slides/slides-08-joins.html#live-code",
@@ -6394,8 +6394,8 @@
     "objectID": "slides/slides-08-joins.html#housekeeping",
     "href": "slides/slides-08-joins.html#housekeeping",
     "title": "Joining data frames",
-    "section": "Housekeeping",
-    "text": "Housekeeping\n\n\n\n\nWrangling coding practice due tonight!\nOffice hours tomorrow 10am-12pm\nProblem Set 3 has large R component"
+    "section": "",
+    "text": "Wrangling coding practice due tonight!\nOffice hours tomorrow 10am-12pm\nProblem Set 3 has large R component"
   },
   {
     "objectID": "slides/slides-08-joins.html#wrangle",
@@ -6409,14 +6409,14 @@
     "href": "slides/slides-08-joins.html#visualize",
     "title": "Joining data frames",
     "section": "Visualize",
-    "text": "Visualize\n\nfish |>\n  na.omit() |> #remove any observations with any NAs\n  left_join(continents, by = \"country\") |>\n  ggplot(aes(x = continent, y = capture)) +\n  geom_boxplot(outliers = F) +\n  theme_bw() +\n  labs(caption = \"Excluding outliers\")"
+    "text": "Visualize\n\nfish |&gt;\n  na.omit() |&gt; #remove any observations with any NAs\n  left_join(continents, by = \"country\") |&gt;\n  ggplot(aes(x = continent, y = capture)) +\n  geom_boxplot(outliers = F) +\n  theme_bw() +\n  labs(caption = \"Excluding outliers\")"
   },
   {
     "objectID": "slides/slides-08-joins.html#visualize-cont.",
     "href": "slides/slides-08-joins.html#visualize-cont.",
     "title": "Joining data frames",
     "section": "Visualize (cont.)",
-    "text": "Visualize (cont.)\n\nfish |>\n  mutate(log_capture = log(capture)) |>\n  left_join(continents, by = \"country\") |>\n  na.omit() |> #remove observations with any NAs\n  ggplot(aes(x = continent, y = capture)) +\n  geom_boxplot(outliers = F) +\n  theme_bw() +\n  labs(caption = \"Excluding outliers\", y = \"Log capture\")\n\n\n\nWarning: Removed 4 rows containing non-finite outside the scale range\n(`stat_boxplot()`)."
+    "text": "Visualize (cont.)\n\nfish |&gt;\n  mutate(log_capture = log(capture)) |&gt;\n  left_join(continents, by = \"country\") |&gt;\n  na.omit() |&gt; #remove observations with any NAs\n  ggplot(aes(x = continent, y = capture)) +\n  geom_boxplot(outliers = F) +\n  theme_bw() +\n  labs(caption = \"Excluding outliers\", y = \"Log capture\")\n\n\n\nWarning: Removed 4 rows containing non-finite outside the scale range\n(`stat_boxplot()`)."
   },
   {
     "objectID": "live_code/data_wrangling_pt2.html#joins",
@@ -6437,7 +6437,7 @@
     "href": "slides/slides-08-joins.html#group_by",
     "title": "Joining data frames",
     "section": "group_by()",
-    "text": "group_by()\n\nfish |>\n  left_join(continents, by = \"country\") |>\n  group_by(continent) |> # get continent-level summary stats\n  summarise(mean_capture = mean(capture), sd_capture = sd(capture))\n\n# A tibble: 6 × 3\n  continent mean_capture sd_capture\n  <chr>            <dbl>      <dbl>\n1 Africa         180705.    266107.\n2 Americas       433235.   1038899.\n3 Asia          1036018.   2869652.\n4 Europe         317874.    797072.\n5 Oceania         74660.    121027.\n6 <NA>           134722.    448079."
+    "text": "group_by()\n\nfish |&gt;\n  left_join(continents, by = \"country\") |&gt;\n  group_by(continent) |&gt; # get continent-level summary stats\n  summarise(mean_capture = mean(capture), sd_capture = sd(capture))\n\n# A tibble: 6 × 3\n  continent mean_capture sd_capture\n  &lt;chr&gt;            &lt;dbl&gt;      &lt;dbl&gt;\n1 Africa         180705.    266107.\n2 Americas       433235.   1038899.\n3 Asia          1036018.   2869652.\n4 Europe         317874.    797072.\n5 Oceania         74660.    121027.\n6 &lt;NA&gt;           134722.    448079."
   },
   {
     "objectID": "live_code/data_wrangling_pt2.html#a-note-on-nas",
@@ -6759,7 +6759,7 @@
     "href": "slides/slides-08-joins.html#removing-nas",
     "title": "Joining data frames",
     "section": "Removing NAs",
-    "text": "Removing NAs\n\nna.omit() will remove all observations with any NA, regardless of where the NA appears\nIf you want a more delicate touch and would like to remove observations with an NA for a given variable, we can use is.na()\n\nThis function takes in a variable as input, and outputs TRUE for each observation with an NA value in that variable, and FALSE otherwise\nUseful with the filter() function!\n\n\n\n\n\n\nfish |>\n  full_join(continents, by = \"country\") |>\n  mutate(prop_capture = capture / (capture + aquaculture)) |>\n  na.omit() |>\n  summarise(avg_prop = mean(prop_capture))\n\n# A tibble: 1 × 1\n  avg_prop\n     <dbl>\n1    0.780\n\n\n\n\nfish |>\n  full_join(continents, by = \"country\") |>\n  mutate(prop_capture = capture / (capture + aquaculture)) |>\n  filter(!is.na(prop_capture)) |>\n  summarise(avg_prop = mean(prop_capture))\n\n# A tibble: 1 × 1\n  avg_prop\n     <dbl>\n1    0.782\n\n\n\n\n\n\nNotice the difference!"
+    "text": "Removing NAs\n\nna.omit() will remove all observations with any NA, regardless of where the NA appears\nIf you want a more delicate touch and would like to remove observations with an NA for a given variable, we can use is.na()\n\nThis function takes in a variable as input, and outputs TRUE for each observation with an NA value in that variable, and FALSE otherwise\nUseful with the filter() function!\n\n\n\n\n\n\nfish |&gt;\n  full_join(continents, by = \"country\") |&gt;\n  mutate(prop_capture = capture / (capture + aquaculture)) |&gt;\n  na.omit() |&gt;\n  summarise(avg_prop = mean(prop_capture))\n\n# A tibble: 1 × 1\n  avg_prop\n     &lt;dbl&gt;\n1    0.780\n\n\n\n\nfish |&gt;\n  full_join(continents, by = \"country\") |&gt;\n  mutate(prop_capture = capture / (capture + aquaculture)) |&gt;\n  filter(!is.na(prop_capture)) |&gt;\n  summarise(avg_prop = mean(prop_capture))\n\n# A tibble: 1 × 1\n  avg_prop\n     &lt;dbl&gt;\n1    0.782\n\n\n\n\n\n\nNotice the difference!"
   },
   {
     "objectID": "slides/slides-10-conditional-probability.html",

@@ -650,14 +650,12 @@ fish |>
 -   If you want a more delicate touch and would like to remove observations with an `NA` for a given variable, we can use `is.na()`
 
     -   This function takes in a variable as input, and outputs `TRUE` for each observation with an `NA` value in that variable, and `FALSE` otherwise
-    
-    - Useful with the `filter()` function!
-    
-::: {.fragment}
-:::: {.columns}
 
+    -   Useful with the `filter()` function!
+
+:::::: fragment
+::::: columns
 ::: {.column width="50%"}
-    
 ```{r}
 fish |>
   full_join(continents, by = "country") |>
@@ -665,7 +663,6 @@ fish |>
   na.omit() |>
   summarise(avg_prop = mean(prop_capture))
 ```
-
 :::
 
 ::: {.column width="50%"}
@@ -677,8 +674,7 @@ fish |>
   summarise(avg_prop = mean(prop_capture))
 ```
 :::
+:::::
+::::::
 
-::::
-:::
-
-- Notice the difference!
+-   Notice the difference!

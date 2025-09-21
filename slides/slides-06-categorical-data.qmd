@@ -25,14 +25,12 @@ knitr::opts_chunk$set(echo = F)
 library(tidyverse)
 library(readr)
 library(knitr)
-plot_theme <- theme(text = element_text(size = 24))
+plot_theme <- theme(text = element_text(size = 28))
 insurance <- read_csv("data/insurance.csv")
 ```
 
 -   Problem set 2 due tonight! Please be sure to submit both written and rendered parts by combining into a single PDF
 -   Problem set 1 graded
-
-## Activity!
 
 ## Categorical data
 
@@ -48,9 +46,13 @@ insurance <- read_csv("data/insurance.csv")
 
     -   **Nominal**: the levels don't have an ordering
 
-        -   We will almost exclusively treat our categorical variables as nominal in this class
+        -   We almost exclusively treat categorical variables as nominal in this class
 
--   Examples and non-examples?
+-   Example:
+
+    -   Blood type (A, B, AB, O)
+
+    -   Education level (high school, college, graduate degree, other)
 
 ## Insurance data
 

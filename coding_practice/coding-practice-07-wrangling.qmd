@@ -18,7 +18,7 @@ format: pdf
 
 ```
 
-2.  Wrangle the data to display the five Starbucks items with the highest amount of calories. Only display the name of the items and their calorie content.
+2.  Wrangle the data to display the five Starbucks items with the highest amount of calories. Only display these two variables.
 
 ```{r}
 
@@ -32,10 +32,24 @@ Wrangle the data to add a new variable called `theoretical_cals` which represent
 
 ```
 
-4.  Using your `starbucks_new` data frame from the previous step, display a summary table/data frame that shows the standard deviation of the differences between the reported calories and theoretical calories. Make sure to specify an informative/nicer name in your summary table.
+4.  Using your new data frame, display a summary table/data frame that shows the standard deviation of the differences between the reported calories and theoretical calories (reported - theoretical). Make sure to specify an informative/nicer name in your summary table.
 
 ```{r}
 
 ```
+
+5.  Lastly, make on more summary data frame that shows the same statistics as in number 4, but for each `type` of item.
+
+```{r}
+
+```
+
+You should see an interesting standard deviation. Why did that occur? (Hint: look back at your table from Question 1)
+
+**Answer:**
+
+6.  Lastly, interpret *in context* one of the means that you obtained from this summary table in the previous question.
+
+**Answer:**
 
 Once you're finished, be sure to render and submit the PDF file to the corresponding Gradescope assignment!

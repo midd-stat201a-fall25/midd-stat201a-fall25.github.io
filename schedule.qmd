@@ -181,12 +181,15 @@ format:
       <td> M 9/22 </td>
       <td>
         <ul>
-          <li> Topic: Categorical data </li>
+          <li> Topic: <a href="slides/slides-06-categorical-data.qmd">Categorical data</a>
+          (pdf <a href="slides/pdf/slides-06.pdf">here</a>) 
+          </li>
         </ul>
       </td>
       <td>
         <ul>
-          <li>Visualizing categorical data in ggplot</li>
+          <li>Visualizing categorical data in ggplot {{< downloadthis coding_practice/coding-practice-06-categorical.qmd dname="coding-practice-categorical" label="Coding practice" id=mtcars-btn >}}
+          </li>
         </ul>
       </td>
       <td>

@@ -174,23 +174,26 @@ If executed code output in **Console**
 -   ::: {style="color: purple"}
     Tibble (i.e. data frame) with 12 observations and 13 variables
     :::
+
 -   ::: {style="color: green"}
     For variables shown, their names and types
     :::
+
     -   ::: {style="color: skyblue"}
         Variables not displayed. In Source, you can click to see other variables.
         :::
+
 -   ::: {style="color: orange"}
     Source will display at most 10 observations, but you can click to see more.
     :::
 
 ## Live code
 
-Data from Amazon: In 2017, Kaggle conducted an [industry-wide survey](https://www.kaggle.com/datasets/kaggle/kaggle-survey-2017/) to establish a comprehensive view of the state of data science and machine learning. We will be looking at just a subset of the data.
+Data from Amazon: we have data about several books available for purchase from Amazon. I took a random sample from the original sample of 325 cases from the [original dataset](https://dasl.datadescription.com/datafile/amazon-books).
 
 Copy and paste the following code into a code chunk in your live code! We will load in the data together and take a quick look at it before diving into data wrangling
 
 ```{r eval = F, echo = T}
 library(readr)
-url_file <- "https://raw.githubusercontent.com/midd-stat201-fall2024/midd-stat201-fall2024.github.io/refs/heads/main/data/datascience_survey_subset.csv"
+url_file <- "https://raw.githubusercontent.com/midd-stat201a-fall25/midd-stat201a-fall25.github.io/refs/heads/main/data/amazon_books.csv"
 ```
