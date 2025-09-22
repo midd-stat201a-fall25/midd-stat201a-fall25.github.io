@@ -194,7 +194,7 @@ format:
       </td>
       <td>
         <ul>
-          <li>Monday problems in Problem Set 3</li>
+          <li>Monday problems on <a href="homework/hw3.pdf">Problem Set 3</a></li>
         </ul>
       </td>
     </tr>
