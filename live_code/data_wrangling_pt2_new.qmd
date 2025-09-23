@@ -1,0 +1,88 @@
+---
+title: "Data wrangling with dplyr (part 2)"
+format:
+  html:
+    toc: true
+    toc-location: left
+---
+
+```{r message = FALSE}
+library(tidyverse)
+```
+
+```{r eval = F}
+books <- read_csv("data/amazon_books.csv", show_col_types = F)
+```
+
+```{r echo = F}
+books <- read_csv("../data/amazon_books.csv",
+                  show_col_types = F)
+
+```
+
+## Distinct
+
+Sometimes, we'd like to identify unique rows/cases based on specific columns. That is, we're looking for *distinct* values of a variable. If we wanted to know: what are the levels of `cover`, we could code:
+
+```{r}
+books |>
+  distinct(cover)
+```
+
+Even though we had `r nrow(books)` cases in `books`, the code above is asking: How many unique values of `cover` are there? Just two: `H` and `P`.
+
+Maybe I'd like to know how many authors are represented in my data frame, without caring about the authors themselves. We can use `distinct()`, and pipe to the function `nrow()` that we've seen before.
+
+```{r eval = T}
+books |>
+  distinct(author) |>
+  nrow()
+```
+
+::: column-margin
+**Note**: The function `nrow()` is not a `dplyr` function. We can see that the output from `nrow()` is a numeric object, not a data frame! However, it can accept a data frame as input.
+:::
+
+Just like `summarise()` and `count()`, the function `distinct()` completely changes the data frame. It will drop all the other variables.
+
+We can also use `distinct()` on several variables at once to yield instances of all unique combinations of levels observed in the data frame:
+
+```{r}
+books |>
+  distinct(pub_year, cover) |>
+  arrange(pub_year)
+```
+
+::: column-margin
+So we see, for example, that we have cases with both `cover` types in the `pub_year` 1995, 2009, and 2011!
+:::
+
+## Select
+
+Sometimes, we don't want/need to have all the variables in the data frame. This can especially be true when we `mutate()` new variables along the way. If we want to present a "cleaner" data frame with only *select* few variables, we can do that by using the function `select()` and specifying which variables I want to keep:
+
+```{r}
+books |>
+  select(isbn_10, amazon_price)
+```
+
+::: column-margin
+Notice that the variable names don't go in quotes here! We don't treat them as character objects!
+:::
+
+
+## Joins
+
+We saw joins in the slides! Let's practice them here. We have some data on the year a book was *originally* published. Paste in the url from today's class here, and let's store the data as `books_year_orig`:
+
+```{r eval = F}
+url_file <- "https://raw.githubusercontent.com/midd-stat201a-fall25/midd-stat201a-fall25.github.io/refs/heads/main/data/amazon_books_year_orig.csv"
+books_year_orig <- read_csv(url_file)
+```
+
+```{r echo = F}
+url_file <- "https://raw.githubusercontent.com/midd-stat201a-fall25/midd-stat201a-fall25.github.io/refs/heads/main/data/amazon_books_year_orig.csv"
+books_year_orig <- read_csv(url_file, show_col_types = F)
+```
+
+Try it yourself: using the correct join, find the books in our original dataset whose published year in the Amazon version is different from the year the book was originally published. In your final table, only display the variables for the title of the book and the year it was published.

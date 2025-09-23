@@ -7,7 +7,7 @@
 <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
 
 
-<title>Introduction to Hypothesis Testing – STAT 201: Intro. to Statistics and Data Science</title>
+<title>Data wrangling with dplyr (part 2) – STAT 201: Intro. to Statistics and Data Science</title>
 <style>
 code{white-space: pre-wrap;}
 span.smallcaps{font-variant: small-caps;}
@@ -103,41 +103,11 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
     "search-label": "Search"
   }
 }</script>
-</head><body class="nav-fixed quarto-light">\pagenumbering{gobble}
-
-  <script src="https://cdnjs.cloudflare.com/polyfill/v3/polyfill.min.js?features=es6"></script>
-  <script src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-chtml-full.js" type="text/javascript"></script>
-
-<script type="text/javascript">
-const typesetMath = (el) => {
-  if (window.MathJax) {
-    // MathJax Typeset
-    window.MathJax.typeset([el]);
-  } else if (window.katex) {
-    // KaTeX Render
-    var mathElements = el.getElementsByClassName("math");
-    var macros = [];
-    for (var i = 0; i < mathElements.length; i++) {
-      var texText = mathElements[i].firstChild;
-      if (mathElements[i].tagName == "SPAN" && texText && texText.data) {
-        window.katex.render(texText.data, mathElements[i], {
-          displayMode: mathElements[i].classList.contains('display'),
-          throwOnError: false,
-          macros: macros,
-          fleqn: false
-        });
-      }
-    }
-  }
-}
-window.Quarto = {
-  typesetMath
-};
-</script>
 
 
+</head>
 
-
+<body class="floating nav-fixed slimcontent quarto-light">
 
 <div id="quarto-search-results"></div>
   <header id="quarto-header" class="headroom fixed-top">
@@ -194,15 +164,27 @@ window.Quarto = {
 <!-- content -->
 <div id="quarto-content" class="quarto-container page-columns page-rows-contents page-layout-article page-navbar">
 <!-- sidebar -->
+  <nav id="quarto-sidebar" class="sidebar collapse collapse-horizontal quarto-sidebar-collapse-item sidebar-navigation floating overflow-auto">
+    <nav id="TOC" role="doc-toc" class="toc-active">
+    <h2 id="toc-title">On this page</h2>
+   
+  <ul>
+  <li><a href="#distinct" id="toc-distinct" class="nav-link active" data-scroll-target="#distinct">Distinct</a></li>
+  <li><a href="#select" id="toc-select" class="nav-link" data-scroll-target="#select">Select</a></li>
+  <li><a href="#joins" id="toc-joins" class="nav-link" data-scroll-target="#joins">Joins</a></li>
+  </ul>
+</nav>
+</nav>
+<div id="quarto-sidebar-glass" class="quarto-sidebar-collapse-item" data-bs-toggle="collapse" data-bs-target=".quarto-sidebar-collapse-item"></div>
 <!-- margin-sidebar -->
-    <div id="quarto-margin-sidebar" class="sidebar margin-sidebar">
-    <div class="quarto-alternate-formats"><h2>Other Formats</h2><ul><li><a href="handout-15-intro-testing.pdf"><i class="bi bi-file-pdf"></i>PDF</a></li></ul></div></div>
+    <div id="quarto-margin-sidebar" class="sidebar margin-sidebar zindex-bottom">
+    </div>
 <!-- main -->
-<main class="content" id="quarto-document-content">
+<main class="content page-columns page-full" id="quarto-document-content">
 
 <header id="title-block-header" class="quarto-title-block default">
 <div class="quarto-title">
-<h1 class="title">Introduction to Hypothesis Testing</h1>
+<h1 class="title">Data wrangling with dplyr (part 2)</h1>
 </div>
 
 
@@ -219,85 +201,115 @@ window.Quarto = {
 </header>
 
 
-<section id="practice-in-defining-hypotheses" class="level3">
-<h3 class="anchored" data-anchor-id="practice-in-defining-hypotheses">Practice in defining hypotheses</h3>
-<p>For each of the following, determine whether it represents a null hypothesis claim or an alternative hypothesis claim:</p>
-<ol type="1">
-<li>King cheetahs on average run the same speed as standard spotted cheetahs.</li>
-</ol>
-<ol start="2" type="1">
-<li>For a particular student, the probability of correctly answer a 5-option multiple choice test is larger than 0.2 (i.e.&nbsp;better than guessing)</li>
-</ol>
-<ol start="3" type="1">
-<li>The probability of getting in a car accident is the same if using a cell phone then if not using a cell phone.</li>
-</ol>
-<ol start="4" type="1">
-<li>The number of hours that grade-school children spend doing homework predicts their future success on standardized tests.</li>
-</ol>
-<p>Write out the null and alternative hypotheses in words and also in statistical notation for each of the following situations:</p>
-<ol type="1">
-<li>New York is known as “the city that never sleeps’’. A random sample of 25 New Yorkers were asked how much they sleep they get per night. Does these data providing convincing evidence that New Yorkers on average sleep less than 8 hours per night?</li>
-</ol>
-<ol start="2" type="1">
-<li>A study suggests that 25% of 25 year-olds have gotten married. You believe that this is incorrect and decide to conduct your own analysis.</li>
-</ol>
-</section>
-<section id="do-a-minority-of-middlebury-students-drink-coffee-regularly" class="level2">
-<h2 class="anchored" data-anchor-id="do-a-minority-of-middlebury-students-drink-coffee-regularly">Do a minority of Middlebury students drink coffee regularly?</h2>
-<section id="hypotheses-significance-level-and-data-steps-1-and-2" class="level4">
-<h4 class="anchored" data-anchor-id="hypotheses-significance-level-and-data-steps-1-and-2">Hypotheses, significance level, and data (steps 1 and 2)</h4>
-<p><span class="math inline">\(H_{0}:\)</span></p>
-<p><span class="math inline">\(H_{A}:\)</span></p>
-<p><span class="math inline">\(\alpha=\)</span></p>
-<p>The following is our data:</p>
 <div class="cell">
-<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb1"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb1-1"><a href="#cb1-1" aria-hidden="true" tabindex="-1"></a>x <span class="ot">&lt;-</span> <span class="fu">c</span>(<span class="fu">rep</span>(<span class="dv">1</span>, <span class="dv">7</span>), <span class="fu">rep</span>(<span class="dv">0</span>, <span class="dv">13</span>)) </span>
-<span id="cb1-2"><a href="#cb1-2" aria-hidden="true" tabindex="-1"></a>p_hat <span class="ot">&lt;-</span> <span class="fu">mean</span>(x)</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb1"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb1-1"><a href="#cb1-1" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(tidyverse)</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
 </div>
-</section>
-<section id="simulating-under-the-null-step-3" class="level4">
-<h4 class="anchored" data-anchor-id="simulating-under-the-null-step-3">Simulating under the null (step 3)</h4>
 <div class="cell">
-<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb2"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb2-1"><a href="#cb2-1"></a><span class="fu">set.seed</span>(<span class="dv">2</span>) </span>
-<span id="cb2-2"><a href="#cb2-2"></a>B <span class="ot">&lt;-</span> <span class="dv">5000</span> </span>
-<span id="cb2-3"><a href="#cb2-3"></a>n <span class="ot">&lt;-</span> <span class="fu">length</span>(x) </span>
-<span id="cb2-4"><a href="#cb2-4"></a>null_props <span class="ot">&lt;-</span> <span class="fu">rep</span>(<span class="cn">NA</span>, B) </span>
-<span id="cb2-5"><a href="#cb2-5"></a><span class="cf">for</span>(b <span class="cf">in</span> <span class="dv">1</span><span class="sc">:</span>B){</span>
-<span id="cb2-6"><a href="#cb2-6"></a>  null_samp <span class="ot">&lt;-</span> <span class="fu">sample</span>(<span class="at">x =</span> <span class="fu">c</span>(<span class="st">"pink"</span>, <span class="st">"purple"</span>), </span>
-<span id="cb2-7"><a href="#cb2-7"></a>                      <span class="at">size =</span> n,</span>
-<span id="cb2-8"><a href="#cb2-8"></a>                      <span class="at">replace =</span> T, </span>
-<span id="cb2-9"><a href="#cb2-9"></a>                      <span class="at">prob =</span> <span class="fu">c</span>(<span class="fl">0.5</span>, <span class="fl">0.5</span>))</span>
-<span id="cb2-10"><a href="#cb2-10"></a>  null_props[b] <span class="ot">&lt;-</span> <span class="fu">sum</span>(null_samp <span class="sc">==</span> <span class="st">"pink"</span>)<span class="sc">/</span>n</span>
-<span id="cb2-11"><a href="#cb2-11"></a>}</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb2"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb2-1"><a href="#cb2-1" aria-hidden="true" tabindex="-1"></a>books <span class="ot">&lt;-</span> <span class="fu">read_csv</span>(<span class="st">"data/amazon_books.csv"</span>, <span class="at">show_col_types =</span> F)</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
 </div>
-<p>Visualize the null distribution of <span class="math inline">\(\hat{p}\)</span>:</p>
+<section id="distinct" class="level2 page-columns page-full">
+<h2 class="anchored" data-anchor-id="distinct">Distinct</h2>
+<p>Sometimes, we’d like to identify unique rows/cases based on specific columns. That is, we’re looking for <em>distinct</em> values of a variable. If we wanted to know: what are the levels of <code>cover</code>, we could code:</p>
 <div class="cell">
-<div class="cell-output-display">
-<div>
-<figure class="figure">
-<p><img src="handout-15-intro-testing_files/figure-html/unnamed-chunk-4-1.png" class="img-fluid figure-img" width="672"></p>
-</figure>
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb3"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb3-1"><a href="#cb3-1" aria-hidden="true" tabindex="-1"></a>books <span class="sc">|&gt;</span></span>
+<span id="cb3-2"><a href="#cb3-2" aria-hidden="true" tabindex="-1"></a>  <span class="fu">distinct</span>(cover)</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+<div class="cell-output cell-output-stdout">
+<pre><code># A tibble: 2 × 1
+  cover
+  &lt;chr&gt;
+1 H    
+2 P    </code></pre>
 </div>
 </div>
+<p>Even though we had 20 cases in <code>books</code>, the code above is asking: How many unique values of <code>cover</code> are there? Just two: <code>H</code> and <code>P</code>.</p>
+<p>Maybe I’d like to know how many authors are represented in my data frame, without caring about the authors themselves. We can use <code>distinct()</code>, and pipe to the function <code>nrow()</code> that we’ve seen before.</p>
+<div class="cell">
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb5"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb5-1"><a href="#cb5-1" aria-hidden="true" tabindex="-1"></a>books <span class="sc">|&gt;</span></span>
+<span id="cb5-2"><a href="#cb5-2" aria-hidden="true" tabindex="-1"></a>  <span class="fu">distinct</span>(author) <span class="sc">|&gt;</span></span>
+<span id="cb5-3"><a href="#cb5-3" aria-hidden="true" tabindex="-1"></a>  <span class="fu">nrow</span>()</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+<div class="cell-output cell-output-stdout">
+<pre><code>[1] 19</code></pre>
 </div>
-<p>What does “as or more extreme” mean in this problem?</p>
-<p>p-value:</p>
-</section>
-<section id="conclusion-in-context-step-4" class="level4">
-<h4 class="anchored" data-anchor-id="conclusion-in-context-step-4">Conclusion in context (step 4)</h4>
-<p>Decision and rationale:</p>
-<p>Conclusion in context:</p>
-</section>
-<section id="possible-scenarios" class="level3">
-<h3 class="anchored" data-anchor-id="possible-scenarios">Possible scenarios</h3>
-<div class="quarto-figure quarto-figure-center">
-<figure class="figure">
-<p><img src="figs/13-error_table_empty.png" class="img-fluid quarto-figure quarto-figure-center figure-img" width="419"></p>
-</figure>
 </div>
 
+<div class="no-row-height column-margin column-container"><div class="">
+<p><strong>Note</strong>: The function <code>nrow()</code> is not a <code>dplyr</code> function. We can see that the output from <code>nrow()</code> is a numeric object, not a data frame! However, it can accept a data frame as input.</p>
+</div></div><p>Just like <code>summarise()</code> and <code>count()</code>, the function <code>distinct()</code> completely changes the data frame. It will drop all the other variables.</p>
+<p>We can also use <code>distinct()</code> on several variables at once to yield instances of all unique combinations of levels observed in the data frame:</p>
+<div class="cell">
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb7"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb7-1"><a href="#cb7-1" aria-hidden="true" tabindex="-1"></a>books <span class="sc">|&gt;</span></span>
+<span id="cb7-2"><a href="#cb7-2" aria-hidden="true" tabindex="-1"></a>  <span class="fu">distinct</span>(pub_year, cover) <span class="sc">|&gt;</span></span>
+<span id="cb7-3"><a href="#cb7-3" aria-hidden="true" tabindex="-1"></a>  <span class="fu">arrange</span>(pub_year)</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+<div class="cell-output cell-output-stdout">
+<pre><code># A tibble: 14 × 2
+   pub_year cover
+      &lt;dbl&gt; &lt;chr&gt;
+ 1     1964 P    
+ 2     1986 H    
+ 3     1995 P    
+ 4     1995 H    
+ 5     2000 P    
+ 6     2004 P    
+ 7     2005 P    
+ 8     2007 P    
+ 9     2008 P    
+10     2009 H    
+11     2009 P    
+12     2010 P    
+13     2011 H    
+14     2011 P    </code></pre>
+</div>
+</div>
 
-</section>
+<div class="no-row-height column-margin column-container"><div class="">
+<p>So we see, for example, that we have cases with both <code>cover</code> types in the <code>pub_year</code> 1995, 2009, and 2011!</p>
+</div></div></section>
+<section id="select" class="level2 page-columns page-full">
+<h2 class="anchored" data-anchor-id="select">Select</h2>
+<p>Sometimes, we don’t want/need to have all the variables in the data frame. This can especially be true when we <code>mutate()</code> new variables along the way. If we want to present a “cleaner” data frame with only <em>select</em> few variables, we can do that by using the function <code>select()</code> and specifying which variables I want to keep:</p>
+<div class="cell">
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb9"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb9-1"><a href="#cb9-1" aria-hidden="true" tabindex="-1"></a>books <span class="sc">|&gt;</span></span>
+<span id="cb9-2"><a href="#cb9-2" aria-hidden="true" tabindex="-1"></a>  <span class="fu">select</span>(isbn_10, amazon_price)</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+<div class="cell-output cell-output-stdout">
+<pre><code># A tibble: 20 × 2
+      isbn_10 amazon_price
+        &lt;dbl&gt;        &lt;dbl&gt;
+ 1  375856110        14.0 
+ 2  684801221         9.09
+ 3  679437223        16.3 
+ 4   88730995        12.5 
+ 5 1596435704        10.8 
+ 6  385737955         9.99
+ 7  307408841        13   
+ 8  618918248         9.16
+ 9  385337930        10.2 
+10 1929133472        20.0 
+11  345521307        14.5 
+12  780707508        16.5 
+13  385341008         8.05
+14  743454537        10.8 
+15  146352719        15.0 
+16  520246980        22.8 
+17   15676248         9.64
+18 1565125606         8.14
+19   60731338         9.95
+20 1591843790        15.0 </code></pre>
+</div>
+</div>
+
+<div class="no-row-height column-margin column-container"><div class="">
+<p>Notice that the variable names don’t go in quotes here! We don’t treat them as character objects!</p>
+</div></div></section>
+<section id="joins" class="level2">
+<h2 class="anchored" data-anchor-id="joins">Joins</h2>
+<p>We saw joins in the slides! Let’s practice them here. We have some data on the year a book was <em>originally</em> published. Paste in the url from today’s class here, and let’s store the data as <code>books_year_orig</code>:</p>
+<div class="cell">
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb11"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb11-1"><a href="#cb11-1" aria-hidden="true" tabindex="-1"></a>url_file <span class="ot">&lt;-</span> <span class="st">"https://raw.githubusercontent.com/midd-stat201a-fall25/midd-stat201a-fall25.github.io/refs/heads/main/data/amazon_books_year_orig.csv"</span></span>
+<span id="cb11-2"><a href="#cb11-2" aria-hidden="true" tabindex="-1"></a>books_year_orig <span class="ot">&lt;-</span> <span class="fu">read_csv</span>(url_file)</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+</div>
+<p>Try it yourself: using the correct join, find the books in our original dataset whose published year in the Amazon version is different from the year the book was originally published. In your final table, only display the variables for the title of the book and the year it was published.</p>
+
+
 </section>
 
 </main> <!-- /main -->

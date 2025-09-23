@@ -191,9 +191,8 @@ If executed code output in **Console**
 
 Data from Amazon: we have data about several books available for purchase from Amazon. I took a random sample from the original sample of 325 cases from the [original dataset](https://dasl.datadescription.com/datafile/amazon-books).
 
-Copy and paste the following code into a code chunk in your live code! We will load in the data together and take a quick look at it before diving into data wrangling
+Copy and paste the following line of code into a new code chunk in your live code! We will load in the data together and take a quick look at it before diving into data wrangling
 
 ```{r eval = F, echo = T}
-library(readr)
 url_file <- "https://raw.githubusercontent.com/midd-stat201a-fall25/midd-stat201a-fall25.github.io/refs/heads/main/data/amazon_books.csv"
 ```

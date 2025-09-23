@@ -102,6 +102,10 @@ ul.task-list li input[type="checkbox"] {
 <span class="menu-text">Schedule</span></a>
   </li>  
   <li class="nav-item">
+    <a class="nav-link" href="./partner.html"> 
+<span class="menu-text">Partner programming</span></a>
+  </li>  
+  <li class="nav-item">
     <a class="nav-link" href="./experience.html"> 
 <span class="menu-text">SDS Experience</span></a>
   </li>  
@@ -506,16 +510,18 @@ W 9/24
 <td>
 <ul>
 <li>
-Topic: Data wrangling with dplyr
+<a href="./partner.html">Partner programming</a>: Activity 1
+</li>
+<li>
+Topic: <a href="./slides/slides-07-wrangling.html">Data wrangling</a> (pdf <a href="slides/pdf/slides-07.pdf">here</a>)
+<div class="code-copy-container">
+<pre class="code-box"><code id="code1">url_file &lt;- "https://raw.githubusercontent.com/midd-stat201a-fall25/midd-stat201a-fall25.github.io/refs/heads/main/data/amazon_books.csv"</code></pre>
+<p><button class="copy-button" onclick="copyToClipboard('code1')">Copy</button></p>
+</div>
 </li>
 </ul>
 </td>
 <td>
-<ul>
-<li>
-Data wrangling practice
-</li>
-</ul>
 </td>
 <td>
 <ul>
@@ -534,11 +540,16 @@ R 9/25
 <td>
 <ul>
 <li>
-Topic: Joining data
+Topic: More wrangling
 </li>
 </ul>
 </td>
 <td>
+<ul>
+<li>
+Data wrangling practice
+</li>
+</ul>
 </td>
 <td>
 <ul>
@@ -550,6 +561,16 @@ Thursday problems in Problem Set 3
 </tr>
 </tbody>
 </table>
+<script>
+function copyToClipboard(elementId) {
+  const code = document.getElementById(elementId).innerText;
+  navigator.clipboard.writeText(code).then(function() {
+    alert("Code copied to clipboard!");
+  }, function(err) {
+    alert("Failed to copy: ", err);
+  });
+}
+</script>
 
 
 

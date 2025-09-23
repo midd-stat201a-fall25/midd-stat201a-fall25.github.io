@@ -8,7 +8,7 @@ Welcome to the website for Middlebury College’s Fall 2025 STAT 201A. On this w
 
 ## Announcements
 
--   None!
+-   Suggestion: go through the live code notes again and make sure you understand all the functions being used!
 
 ------------------------------------------------------------------------
 

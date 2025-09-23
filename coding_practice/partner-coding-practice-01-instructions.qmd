@@ -1,0 +1,59 @@
+---
+title: "Partner coding practice 1"
+author: "Your names"
+format: pdf
+---
+
+## Step 1: Install new package
+
+We will visualize the `penguins` data from the `palmerpenguins` package. Please install the package now.
+
+## Step 2: Load packages
+
+In the code chunk below, write code to load in only the packages you will need to visualize the `penguins` data.
+
+```{r}
+
+```
+
+## Step 3: Get to know the data
+
+Answer the following: how many numerical and how many categorical variables are included in `penguins`? 
+
+**Answer**: 
+
+## Step 4: Visualize species
+
+Create a visualization that visualizes the distribution of penguin species.
+
+```{r}
+
+```
+
+## Step 5: Understanding bills
+
+Create a new visualization that examines the relationship between bill length and bill depth of the penguins, colored by penguin species. 
+
+```{r}
+
+```
+
+## Step 6: Understanding the effect of islands
+
+Directly modifying the code in the above code chunk, add the location of the penguins ( island) to your visualization. There may be more than one method to address this, however, one method will more easily allow you to address the questions below!
+
+## Step 7: Interpreting your plots
+
+Working together as a team, use the plots you both created to address the following questions:
+
+1.  Which species of penguin is represented the least in the `penguins` data set?
+
+**Answer**:
+
+2. Which species of penguin is only found on Biscoe Island?
+
+**Answer**:
+
+3. Suppose I make the statement: "Bill length and bill depth of these three species of penguins are strongly linearly associated.". What might you add to improve this statement?
+
+**Answer**:

@@ -53,12 +53,12 @@ We can use the following to create logical conditions: `==`, `>`, `<`, `>=`, `<=
 To check for the lack of equality we use either `!=` or `!is.__()`. In general, the `!` reverses the boolean (so `!TRUE == FALSE`).
 :::
 
-::: {.callout-note collapse="true" appearance="minimal"}
-## Expand
+::: {.callout-tip collapse="false" appearance="minimal"}
+## Note
 
-What is the difference between using `is.na()` within `filter()` and the following functions `na.omit()`?
+What is the difference between using `is.na()` within `filter()` and the following function `na.omit()`? Try running it!
 
-```{r}
+```{r eval = F}
 books |>
   na.omit()
 ```
@@ -82,6 +82,31 @@ books |>
 While not necessary, the extra `( )` for the first logical condition makes the code easier to read!
 :::
 
+We can also `filter()` based on categorical variables. If I only wanted hardcover books, I can write the following code:
+
+```{r}
+books |>
+  filter(cover == "H")
+```
+
+If there are many levels of a categorical variable that I'd like to filter for, we can use `%in%` logical operator:
+
+```{r}
+books |>
+  filter(publisher %in% c("Mariner Books", "Scribner"))
+```
+
+::: column-margin
+I read this as: is this books's value of `publisher` *in* the vector `("Mariner Books", "Scribner")`?
+:::
+
+You could also use the "or" operator `|` but that can get a bit tedious!
+
+```{r}
+books |>
+  filter( (publisher == "Mariner Books") | (publisher ==  "Scribner"))
+```
+
 ## Mutate to add a new variable
 
 It is typical for us to add new variables to a given data frame. We do this with the `mutate()` function. We must specify:
@@ -91,17 +116,44 @@ It is typical for us to add new variables to a given data frame. We do this with
 
 We link the two with ONE equals sign `=`.
 
-In the following, we create a new variable called `body_wt_lbs` based off the rule `weight_oz / 16`. Thus, each case gets its own new value of `weight_lbs` based on its original value of `weight`.
+In the following, we create a new variable called `body_wt_lbs` based off the rule `weight_oz / 16`. Thus, each case gets its own new value of `weight_lbs` based on its original value of `weight`. You can see the first three cases here:
+
+```{r eval = F}
+books |>
+  mutate(weight_lbs = weight_oz / 16) 
+```
+
+```{r echo = F}
+books |>
+  mutate(weight_lbs = weight_oz / 16)  |>
+  mutate(across(everything(), ~replace_na(as.character(.), "NA"))) |>
+  slice(1:3) |>
+  DT::datatable(options = list(pageLength = 3))
+```
+
+
+
+::: callout-tip
+## Note
+
+New variables from `mutate()` always get added to the last column of the data frame!
+:::
+
+### Storing our work from mutate
+
+We're doing all this good data wrangling, but we're not "saving our work on the data frame". That is, even though we're using `dplyr` functions, all of the work is going into the ether unless we *deliberatively store our wrangled data frame*.
+
+For example, what's the purpose of creating a new variable if we don't use it later on? Let's create a new data frame called `books2` that includes the new `weight_lbs` variable:
 
 ```{r}
-books |>
+books2 <- books |>
   mutate(weight_lbs = weight_oz / 16) 
 ```
 
 ::: callout-tip
 ## Note
 
-New variables from `mutate()` always get added to the last column of the data frame!
+Remember, when we store values in `R`, we never see the executed output. So when you run the above code, you don't see a snapshot of the data frame. If you wanted to see your new `books2` data frame, use `View()`!
 :::
 
 ## Summarise
@@ -112,19 +164,25 @@ Remember that the output is a data frame. Convention is to use the function like
 
 Think about `summarise()` as operating column-wise: it will use ALL the cases for the specified variable.
 
+Let's find the average weight (in pounds) of all our books:
+
 ```{r}
-books |>
-  summarise(mean_amazon_price = mean(amazon_price))
+books2 |>
+  summarise(mean_weight_lbs = mean(weight_lbs))
 ```
 
 ::: column-margin
-You may need to remove `NA`s before using a function. Here, you could use it in the function `mean()`, or you could first `filter()` to remove observations with `NA`s.
+Why did we use the data frame `books2` and not `books`?
 :::
 
+Oh no! We get an `NA` mean? That happens when some of the variables values themselves are `NA`. You can remove `NA`s using within `mean()` or `sd()` as shown below, OR you can `filter()` them out before getting to `summarise()`:
+
 ```{r}
-books |>
-  summarise(mean_pages = mean(num_pages, na.rm = T), mean_amazon_price = mean(amazon_price))
+books2 |>
+  summarise(mean_weight_lbs = mean(weight_lbs, na.rm = T), 
+            mean_amazon_price = mean(amazon_price))
 ```
+
 
 ::: column-margin
 You can obtain multiple summary statistics at once by separating the desired summary statistics with commas.
@@ -145,7 +203,7 @@ Suppose we'd like to get the mean price of books, split by `cover` type (paperba
 We specify `group_by(<categorical variable to group on>)`:
 
 ```{r}
-books |>
+books2 |>
   group_by(cover) |>
   summarise(mean_price_amazon = mean(amazon_price))
 ```
@@ -158,7 +216,7 @@ To be useful, `group_by()` is always followed by other dplyr functions.
 Immediately after using `group_by()`, the data frame remains unchanged to our view, but you can see that `R` now knows to treat the cases in differently based off of the variable `cover` (see the white box at the top that says "Groups: cover\[2\]").
 
 ```{r}
-books |>
+books2 |>
   group_by(cover)
 ```
 :::
@@ -170,9 +228,13 @@ books |>
 Let's count the number of times we see a particular value of a variable. For example, I want to know how many paperback and how many hardback books there are in the data set. That's saying: count up the number of cases in each level! To code this, we pipe to `count(<variable we'd like to count the different levels of>)`.
 
 ```{r}
-books |>
+books2 |>
   count(cover)
 ```
+
+::: column-margin
+We use `count()` to create frequency tables!
+:::
 
 ::: callout-tip
 ## Note
@@ -180,15 +242,22 @@ books |>
 The `count()` function, like `summarise()`, changes the data frame entirely. It retains only the variable(s) you used in `count()`, and adds a new variable `n` which is represents the counts for that particular level.
 :::
 
+
 ## Arrange
 
 Another very common data wrangling tasks is to sort a data frame's rows in the alphanumeric order of one of the variables. We can do this with `arrange()`, where we sort the rows according the values of a variable that you specify.
 
 In the code below, we can re-order the rows based on the listing price:
 
-```{r}
-books |>
+```{r eval = F}
+books2 |>
   arrange(list_price)
+```
+
+```{r echo = F}
+books2 |>
+  arrange(list_price) |>
+  slice(1:10)
 ```
 
 ::: {.callout-note collapse="true" appearance="minimal"}
@@ -196,47 +265,15 @@ books |>
 
 Notice that the default is increasing order. If you'd like the go in decreasing order, we can use the following:
 
-```{r}
-books |>
+```{r eval = F}
+books2 |>
   arrange(desc(list_price))
 ```
+
+```{r echo = F}
+books2 |>
+  arrange(desc(list_price)) |>
+  slice(1:10)
+```
 :::
 
-## Distinct
-
-Sometimes, we'd like to identify unique rows/cases based on specific columns. That is, we're looking for *distinct* values of a variable:
-
-```{r}
-books |>
-  distinct(cover)
-```
-
-Even though we had `r nrow(books)` cases in `books`, the code above is asking: How many unique values of `cover` are there? Just two: `H` and `P`.
-
-Maybe I'd like to know how many authors are represented in my data frame. We can use `distinct()`, and pipe to the function `nrow()` that we've seen before.
-
-```{r eval = F}
-books |>
-  distinct(author) |>
-  nrow()
-```
-
-::: column-margin
-## Note
-
-The function `nrow()` is not a `dplyr` function. We can see that the output from `nrow()` is a numeric object, not a data frame! However, it can accept a data frame as input.
-:::
-
-Just like `summarise()` and `count()`, the function `distinct()` completely changes the data frame. It will drop all the other variables.
-
-We can also use `distinct()` on several variables at once to yield instances of all unique combinations of levels observed in the data frame:
-
-```{r}
-books |>
-  distinct(pub_year, cover) |>
-  arrange(pub_year)
-```
-
-::: column-margin
-So we see, for example, that we have cases with both `cover` types in the `pub_year` 1995, 2009, and 2011!
-:::

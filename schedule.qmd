@@ -203,13 +203,18 @@ format:
       <td> W 9/24 </td>
       <td>
         <ul>
-          <li> Topic: Data wrangling with dplyr </li>
+          <li> <a href="partner.qmd">Partner programming</a>: Activity 1
+          </li>
+          <li>  
+            Topic: <a href="slides/slides-07-wrangling.qmd">Data wrangling</a> (pdf <a href="slides/pdf/slides-07.pdf">here</a>)
+<div class="code-copy-container">
+  <pre class="code-box"><code id="code1">url_file <- "https://raw.githubusercontent.com/midd-stat201a-fall25/midd-stat201a-fall25.github.io/refs/heads/main/data/amazon_books.csv"</code></pre>
+  <button class="copy-button" onclick="copyToClipboard('code1')">Copy</button>
+</div>
+          </li>
         </ul>
       </td>
       <td>
-        <ul>
-          <li>Data wrangling practice</li>
-        </ul>
       </td>
       <td>
         <ul>
@@ -222,10 +227,13 @@ format:
       <td> R 9/25 </td>
       <td>
         <ul>
-          <li> Topic: Joining data </li>
+          <li> Topic: More wrangling </li>
         </ul>
       </td>
       <td>
+        <ul>
+          <li>Data wrangling practice</li>
+        </ul>
       </td>
       <td>
         <ul>
@@ -236,3 +244,14 @@ format:
   </tbody>
 </table>
 
+
+<script>
+function copyToClipboard(elementId) {
+  const code = document.getElementById(elementId).innerText;
+  navigator.clipboard.writeText(code).then(function() {
+    alert("Code copied to clipboard!");
+  }, function(err) {
+    alert("Failed to copy: ", err);
+  });
+}
+</script>

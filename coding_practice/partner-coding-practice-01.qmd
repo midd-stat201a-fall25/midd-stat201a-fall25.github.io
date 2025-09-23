@@ -1,0 +1,49 @@
+---
+title: "Partner coding practice 1"
+author: "Your names"
+format: pdf
+---
+
+## Step 1: Install new package
+
+We will visualize the `penguins` data from the `palmerpenguins` package. Please install the package now.
+
+## Step 2: Load packages
+
+
+```{r}
+
+```
+
+## Step 3: Get to know the data
+
+**Answer**: 
+
+## Step 4: Visualize species
+
+
+```{r}
+
+```
+
+## Step 5: Understanding bills
+
+
+```{r}
+
+```
+
+## Step 6: Understanding the effect of islands
+
+
+## Step 7: Interpreting your plots
+
+Working together as a team, use the plots you both created to address the following questions:
+
+1.  
+
+2. 
+
+3. 
+
+Render your quarto document!

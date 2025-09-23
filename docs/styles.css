@@ -64,6 +64,7 @@ th {
   border-bottom: 2px solid #bbb;
 }
 
+
 #toc {
     position: fixed;  /* Fix the TOC on the page */
     top: 0;           /* Align with the top of the page */
@@ -75,4 +76,39 @@ th {
     z-index: 1000;    /* Ensure the TOC is above other content */
     height: 100vh;    /* Make it full height of the viewport */
     overflow-y: auto; /* Allow vertical scrolling if TOC is too long */
+}
+
+
+.code-copy-container {
+  position: relative;
+  margin-bottom: 1em;
+}
+
+.code-box {
+  display: block;
+  overflow-x: auto;
+  white-space: pre; /* or 'pre-wrap' for wrapping */
+  padding: 0.5em;
+  background-color: #f5f5f5;
+  border: 1px solid #ddd;
+  border-radius: 3px;
+  font-family: monospace;
+  font-size: 0.6em;
+  max-width: 250px;
+}
+
+.copy-button {
+  position: absolute;
+  top: 5px;
+  right: 5px;
+  font-size: 10px;
+  padding: 4px 8px;
+  cursor: pointer;
+  border-radius: 4px;
+  border: 1px solid #ccc;
+  background-color: #eee;
+}
+
+.copy-button:hover {
+  background-color: #ddd;
 }

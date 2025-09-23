@@ -1,0 +1,55 @@
+---
+title: "Partner programming activities"
+format: 
+  html:
+    css: styles.css
+    toc: true
+---
+
+## Partner programming roles
+
+During these in-class activities, you will be paired with another student. When completing the activity, you will rotate between the following roles as directed:
+
+**Coder - proposes solution strategy**
+
+-   Reads out instructions or prompts
+-   Directs the Developer what to type in the Quarto document in RStudio
+-   Talks with Developer about ideas related to ways they could solve the problem.
+-   **Does not** ask the Developer how they would solve the problem.
+-   **Does not** ask the developer what functions / tools they should use.
+-   Revises solution strategy based on evaluation / debugging conversations with the Developer.
+-   **Does not** ask the Developer to debug the code.
+-   Talks with the Developer about what comments to make in the Quarto document to help the group understand the code later.
+
+**Developer – evaluates solution strategy**
+
+-   Reads prompt and ensures Coder understands what the problem is asking.
+-   Types the code specified by the Coder into the Quarto document in RStudio
+-   Listens carefully, asks the Coder to repeat statements if needed, or to slow down.
+-   Encourages the Coder to vocalize their thinking.
+-   Asks the Coder clarifying questions.
+-   Checks for accuracy by asking the solution to be restated for clarity.
+-   **Does not** give hints to the Coder for how to solve the problem.
+-   **Does not** solve the problem themselves.
+-   Runs the code provided by the Coder.
+-   If code does not run or has errors, talks with Coder about how to debug the proposed solution strategy.
+    -   **Does not** tell the Coder how to correct an error.
+-   Once code runs, evaluates the output relative to the prompt to ensure the output addresses the question.
+
+### Group norms
+
+1.  Think and work together. Do not divide the work.
+2.  Be open minded.
+3.  No cross-talk with other groups.
+4.  Communicate with each other!
+
+*Note*: *This activity is inspired by and draws largely upon Allison Theobold and Judith Canner's workshop at USCOTS 2025.*
+
+------------------------------------------------------------------------
+
+::: {#partner-01}
+## Activity 1 (9/24/2025)
+:::
+
+-   Coder: [coding task](coding_practice/partner-coding-practice-01-instructions.qmd)
+-   Developer `.qmd`: {{< downloadthis coding_practice/partner-coding-practice-01.qmd dname="partner-programming-01" label="Partner activity 1" id=mtcars-btn >}}

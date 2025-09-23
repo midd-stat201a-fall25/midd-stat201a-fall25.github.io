@@ -5,6 +5,8 @@ date: "3/3/2025"
 format: pdf
 ---
 
+**Unless explicitly stated, you do not need to store the result of data wrangling as new variables in `R`.**
+
 In January 2017, Buzzfeed published an article titled [“These Nobel Prize Winners Show Why Immigration Is So Important For American Science”](https://www.buzzfeednews.com/article/peteraldhous/immigration-and-science). In the article they explore where many Nobel laureates in the sciences were born and where they lived when they won their prize.
 
 In this homework we will work with the data about Nobel laureates to recreate/update some of their visualizations with new data as well as explore new questions.
@@ -60,7 +62,7 @@ Be sure to explicitly set/define the column titles of your summary table. Then i
 
 ```
 
-Use code to confirm that you have 21 female and 222 male laureates in your new data frame:
+Create a frequency table to confirm that you have 21 female and 222 male laureates in your new data frame:
 
 ```{r}
 
@@ -98,7 +100,7 @@ Interpret your visualization, and say a few words about whether the Buzzfeed Cla
 
 **Answer:**
 
-*Now would be a good time to rebder your work to save the progress and make sure everything is working!*
+*Now would be a good time to render your work to save the progress and make sure everything is working!*
 
 6.  **Buzzfeed's Claim #2: "But of those US-based Nobel laureates, many were born in other countries."** Let's investigate this second claim!
 

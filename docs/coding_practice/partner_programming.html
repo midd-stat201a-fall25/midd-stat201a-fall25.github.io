@@ -7,7 +7,7 @@
 <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
 
 
-<title>Introduction to Hypothesis Testing – STAT 201: Intro. to Statistics and Data Science</title>
+<title>Partner programming protocol – STAT 201: Intro. to Statistics and Data Science</title>
 <style>
 code{white-space: pre-wrap;}
 span.smallcaps{font-variant: small-caps;}
@@ -19,41 +19,6 @@ ul.task-list li input[type="checkbox"] {
   width: 0.8em;
   margin: 0 0.8em 0.2em -1em; /* quarto-specific, see https://github.com/quarto-dev/quarto-cli/issues/4556 */ 
   vertical-align: middle;
-}
-/* CSS for syntax highlighting */
-html { -webkit-text-size-adjust: 100%; }
-pre > code.sourceCode { white-space: pre; position: relative; }
-pre > code.sourceCode > span { display: inline-block; line-height: 1.25; }
-pre > code.sourceCode > span:empty { height: 1.2em; }
-.sourceCode { overflow: visible; }
-code.sourceCode > span { color: inherit; text-decoration: inherit; }
-div.sourceCode { margin: 1em 0; }
-pre.sourceCode { margin: 0; }
-@media screen {
-div.sourceCode { overflow: auto; }
-}
-@media print {
-pre > code.sourceCode { white-space: pre-wrap; }
-pre > code.sourceCode > span { text-indent: -5em; padding-left: 5em; }
-}
-pre.numberSource code
-  { counter-reset: source-line 0; }
-pre.numberSource code > span
-  { position: relative; left: -4em; counter-increment: source-line; }
-pre.numberSource code > span > a:first-child::before
-  { content: counter(source-line);
-    position: relative; left: -1em; text-align: right; vertical-align: baseline;
-    border: none; display: inline-block;
-    -webkit-touch-callout: none; -webkit-user-select: none;
-    -khtml-user-select: none; -moz-user-select: none;
-    -ms-user-select: none; user-select: none;
-    padding: 0 4px; width: 4em;
-  }
-pre.numberSource { margin-left: 3em;  padding-left: 4px; }
-div.sourceCode
-  {   }
-@media screen {
-pre > code.sourceCode > span > a:first-child::before { text-decoration: underline; }
 }
 </style>
 
@@ -103,41 +68,11 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
     "search-label": "Search"
   }
 }</script>
-</head><body class="nav-fixed quarto-light">\pagenumbering{gobble}
-
-  <script src="https://cdnjs.cloudflare.com/polyfill/v3/polyfill.min.js?features=es6"></script>
-  <script src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-chtml-full.js" type="text/javascript"></script>
-
-<script type="text/javascript">
-const typesetMath = (el) => {
-  if (window.MathJax) {
-    // MathJax Typeset
-    window.MathJax.typeset([el]);
-  } else if (window.katex) {
-    // KaTeX Render
-    var mathElements = el.getElementsByClassName("math");
-    var macros = [];
-    for (var i = 0; i < mathElements.length; i++) {
-      var texText = mathElements[i].firstChild;
-      if (mathElements[i].tagName == "SPAN" && texText && texText.data) {
-        window.katex.render(texText.data, mathElements[i], {
-          displayMode: mathElements[i].classList.contains('display'),
-          throwOnError: false,
-          macros: macros,
-          fleqn: false
-        });
-      }
-    }
-  }
-}
-window.Quarto = {
-  typesetMath
-};
-</script>
 
 
+</head>
 
-
+<body class="nav-fixed fullcontent quarto-light">
 
 <div id="quarto-search-results"></div>
   <header id="quarto-header" class="headroom fixed-top">
@@ -163,10 +98,6 @@ window.Quarto = {
   <li class="nav-item">
     <a class="nav-link" href="../schedule.html"> 
 <span class="menu-text">Schedule</span></a>
-  </li>  
-  <li class="nav-item">
-    <a class="nav-link" href="../partner.html"> 
-<span class="menu-text">Partner programming</span></a>
   </li>  
   <li class="nav-item">
     <a class="nav-link" href="../experience.html"> 
@@ -195,14 +126,13 @@ window.Quarto = {
 <div id="quarto-content" class="quarto-container page-columns page-rows-contents page-layout-article page-navbar">
 <!-- sidebar -->
 <!-- margin-sidebar -->
-    <div id="quarto-margin-sidebar" class="sidebar margin-sidebar">
-    <div class="quarto-alternate-formats"><h2>Other Formats</h2><ul><li><a href="handout-15-intro-testing.pdf"><i class="bi bi-file-pdf"></i>PDF</a></li></ul></div></div>
+    
 <!-- main -->
 <main class="content" id="quarto-document-content">
 
 <header id="title-block-header" class="quarto-title-block default">
 <div class="quarto-title">
-<h1 class="title">Introduction to Hypothesis Testing</h1>
+<h1 class="title">Partner programming protocol</h1>
 </div>
 
 
@@ -219,85 +149,48 @@ window.Quarto = {
 </header>
 
 
-<section id="practice-in-defining-hypotheses" class="level3">
-<h3 class="anchored" data-anchor-id="practice-in-defining-hypotheses">Practice in defining hypotheses</h3>
-<p>For each of the following, determine whether it represents a null hypothesis claim or an alternative hypothesis claim:</p>
+<section id="partner-programming-roles" class="level2">
+<h2 class="anchored" data-anchor-id="partner-programming-roles">Partner programming roles</h2>
+<p>During our in-class activities, you will be paired with another student. When completing the activity, you will rotate between the following roles as directed:</p>
+<p><strong>Coder - proposes solution strategy</strong></p>
+<ul>
+<li>Reads out instructions or prompts</li>
+<li>Directs the Developer what to type in the Quarto document in RStudio</li>
+<li>Talks with Developer about ideas related to ways they could solve the problem.</li>
+<li><strong>Does not</strong> ask the Developer how they would solve the problem.</li>
+<li><strong>Does not</strong> ask the developer what functions / tools they should use.</li>
+<li>Revises solution strategy based on evaluation / debugging conversations with the Developer.</li>
+<li><strong>Does not</strong> ask the Developer to debug the code.</li>
+<li>Talks with the Developer about what comments to make in the Quarto document to help the group understand the code later.</li>
+</ul>
+<p><strong>Developer – evaluates solution strategy</strong></p>
+<ul>
+<li>Reads prompt and ensures Coder understands what the problem is asking.</li>
+<li>Types the code specified by the Coder into the Quarto document in RStudio</li>
+<li>Listens carefully, asks the Coder to repeat statements if needed, or to slow down.</li>
+<li>Encourages the Coder to vocalize their thinking.</li>
+<li>Asks the Coder clarifying questions.</li>
+<li>Checks for accuracy by asking the solution to be restated for clarity.</li>
+<li><strong>Does not</strong> give hints to the Coder for how to solve the problem.</li>
+<li><strong>Does not</strong> solve the problem themselves.</li>
+<li>Runs the code provided by the Coder.</li>
+<li>If code does not run or has errors, talks with Coder about how to debug the proposed solution strategy.
+<ul>
+<li><strong>Does not</strong> tell the Coder how to correct an error.</li>
+</ul></li>
+<li>Once code runs, evaluates the output relative to the prompt to ensure the output addresses the question.</li>
+</ul>
+</section>
+<section id="group-norms" class="level2">
+<h2 class="anchored" data-anchor-id="group-norms">Group norms</h2>
 <ol type="1">
-<li>King cheetahs on average run the same speed as standard spotted cheetahs.</li>
+<li>Think and work together. Do not divide the work.</li>
+<li>Be open minded.</li>
+<li>No cross-talk with other groups.</li>
+<li>Communicate with each other!</li>
 </ol>
-<ol start="2" type="1">
-<li>For a particular student, the probability of correctly answer a 5-option multiple choice test is larger than 0.2 (i.e.&nbsp;better than guessing)</li>
-</ol>
-<ol start="3" type="1">
-<li>The probability of getting in a car accident is the same if using a cell phone then if not using a cell phone.</li>
-</ol>
-<ol start="4" type="1">
-<li>The number of hours that grade-school children spend doing homework predicts their future success on standardized tests.</li>
-</ol>
-<p>Write out the null and alternative hypotheses in words and also in statistical notation for each of the following situations:</p>
-<ol type="1">
-<li>New York is known as “the city that never sleeps’’. A random sample of 25 New Yorkers were asked how much they sleep they get per night. Does these data providing convincing evidence that New Yorkers on average sleep less than 8 hours per night?</li>
-</ol>
-<ol start="2" type="1">
-<li>A study suggests that 25% of 25 year-olds have gotten married. You believe that this is incorrect and decide to conduct your own analysis.</li>
-</ol>
-</section>
-<section id="do-a-minority-of-middlebury-students-drink-coffee-regularly" class="level2">
-<h2 class="anchored" data-anchor-id="do-a-minority-of-middlebury-students-drink-coffee-regularly">Do a minority of Middlebury students drink coffee regularly?</h2>
-<section id="hypotheses-significance-level-and-data-steps-1-and-2" class="level4">
-<h4 class="anchored" data-anchor-id="hypotheses-significance-level-and-data-steps-1-and-2">Hypotheses, significance level, and data (steps 1 and 2)</h4>
-<p><span class="math inline">\(H_{0}:\)</span></p>
-<p><span class="math inline">\(H_{A}:\)</span></p>
-<p><span class="math inline">\(\alpha=\)</span></p>
-<p>The following is our data:</p>
-<div class="cell">
-<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb1"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb1-1"><a href="#cb1-1" aria-hidden="true" tabindex="-1"></a>x <span class="ot">&lt;-</span> <span class="fu">c</span>(<span class="fu">rep</span>(<span class="dv">1</span>, <span class="dv">7</span>), <span class="fu">rep</span>(<span class="dv">0</span>, <span class="dv">13</span>)) </span>
-<span id="cb1-2"><a href="#cb1-2" aria-hidden="true" tabindex="-1"></a>p_hat <span class="ot">&lt;-</span> <span class="fu">mean</span>(x)</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
-</div>
-</section>
-<section id="simulating-under-the-null-step-3" class="level4">
-<h4 class="anchored" data-anchor-id="simulating-under-the-null-step-3">Simulating under the null (step 3)</h4>
-<div class="cell">
-<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb2"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb2-1"><a href="#cb2-1"></a><span class="fu">set.seed</span>(<span class="dv">2</span>) </span>
-<span id="cb2-2"><a href="#cb2-2"></a>B <span class="ot">&lt;-</span> <span class="dv">5000</span> </span>
-<span id="cb2-3"><a href="#cb2-3"></a>n <span class="ot">&lt;-</span> <span class="fu">length</span>(x) </span>
-<span id="cb2-4"><a href="#cb2-4"></a>null_props <span class="ot">&lt;-</span> <span class="fu">rep</span>(<span class="cn">NA</span>, B) </span>
-<span id="cb2-5"><a href="#cb2-5"></a><span class="cf">for</span>(b <span class="cf">in</span> <span class="dv">1</span><span class="sc">:</span>B){</span>
-<span id="cb2-6"><a href="#cb2-6"></a>  null_samp <span class="ot">&lt;-</span> <span class="fu">sample</span>(<span class="at">x =</span> <span class="fu">c</span>(<span class="st">"pink"</span>, <span class="st">"purple"</span>), </span>
-<span id="cb2-7"><a href="#cb2-7"></a>                      <span class="at">size =</span> n,</span>
-<span id="cb2-8"><a href="#cb2-8"></a>                      <span class="at">replace =</span> T, </span>
-<span id="cb2-9"><a href="#cb2-9"></a>                      <span class="at">prob =</span> <span class="fu">c</span>(<span class="fl">0.5</span>, <span class="fl">0.5</span>))</span>
-<span id="cb2-10"><a href="#cb2-10"></a>  null_props[b] <span class="ot">&lt;-</span> <span class="fu">sum</span>(null_samp <span class="sc">==</span> <span class="st">"pink"</span>)<span class="sc">/</span>n</span>
-<span id="cb2-11"><a href="#cb2-11"></a>}</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
-</div>
-<p>Visualize the null distribution of <span class="math inline">\(\hat{p}\)</span>:</p>
-<div class="cell">
-<div class="cell-output-display">
-<div>
-<figure class="figure">
-<p><img src="handout-15-intro-testing_files/figure-html/unnamed-chunk-4-1.png" class="img-fluid figure-img" width="672"></p>
-</figure>
-</div>
-</div>
-</div>
-<p>What does “as or more extreme” mean in this problem?</p>
-<p>p-value:</p>
-</section>
-<section id="conclusion-in-context-step-4" class="level4">
-<h4 class="anchored" data-anchor-id="conclusion-in-context-step-4">Conclusion in context (step 4)</h4>
-<p>Decision and rationale:</p>
-<p>Conclusion in context:</p>
-</section>
-<section id="possible-scenarios" class="level3">
-<h3 class="anchored" data-anchor-id="possible-scenarios">Possible scenarios</h3>
-<div class="quarto-figure quarto-figure-center">
-<figure class="figure">
-<p><img src="figs/13-error_table_empty.png" class="img-fluid quarto-figure quarto-figure-center figure-img" width="419"></p>
-</figure>
-</div>
 
 
-</section>
 </section>
 
 </main> <!-- /main -->
