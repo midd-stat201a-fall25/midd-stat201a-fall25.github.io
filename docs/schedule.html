@@ -522,6 +522,19 @@ Topic: <a href="./slides/slides-07-wrangling.html">Data wrangling</a> (pdf <a hr
 </ul>
 </td>
 <td>
+<ul>
+<li>
+Data wrangling practice <b>(due tomorrow night!)</b> <a href="#mtcars-btn" onclick="fetch('data:text/plain;base64,LS0tCnRpdGxlOiAiRGF0YSB3cmFuZ2xpbmcgY29kaW5nIHByYWN0aWNlIgphdXRob3I6ICJZb3VyIG5hbWUiCmRhdGU6ICIyLzI0LzIwMjUiCmZvcm1hdDogcGRmCi0tLQoKMC4gIExvYWQgaW4gdGhlIGB0aWR5dmVyc2VgIGFuZCBgb3BlbmludHJvYCBwYWNrYWdlcyBpbiB0aGUgY29kZSBjaHVuayBiZWxvdy4gV2Ugd2lsbCBvbmNlIGFnYWluIHdvcmsgd2l0aCB0aGUgYHN0YXJidWNrc2AgZGF0YSBmcm9tIHRoZSBgb3BlbmludHJvYCBwYWNrYWdlLgoKYGBge3J9CiMgbG9hZCBwYWNrYWdlcyBoZXJlCgpgYGAKCjEuICBXcmFuZ2xlIHRoZSBgc3RhcmJ1Y2tzYCBkYXRhIHRvIHNob3cgYSBkYXRhIGZyYW1lIHRoYXQgY29udGFpbnMgdGhlIG51bWJlciBvZiBlYWNoIHR5cGUgb2YgU3RhcmJ1Y2tzIGl0ZW0uIERpc3BsYXkgdGhlIHJlc3VsdGluZyBkYXRhIGZyYW1lIGluIGRlc2NlbmRpbmcgb3JkZXIuCgpgYGB7cn0KCmBgYAoKMi4gIFdyYW5nbGUgdGhlIGRhdGEgdG8gZGlzcGxheSB0aGUgZml2ZSBTdGFyYnVja3MgaXRlbXMgd2l0aCB0aGUgaGlnaGVzdCBhbW91bnQgb2YgY2Fsb3JpZXMuIE9ubHkgZGlzcGxheSB0aGVzZSB0d28gdmFyaWFibGVzLgoKYGBge3J9CgpgYGAKCjMuICBUaHJlZSBtYWNyb251dHJpZW50cyBzZXJ2ZSBhcyBzb3VyY2VzIG9mIGNhbG9yaWVzIChpLmUuIGVuZXJneSkgaW4gZm9vZDogY2FyYm9oeWRyYXRlcywgcHJvdGVpbnMsIGFuZCBmYXQuIENhcmJvaHlkcmF0ZXMgY29udGFpbiA0IGNhbG9yaWVzIHBlciBncmFtLCBwcm90ZWlucyBjb250YWluIDQgY2Fsb3JpZXMgcGVyIGdyYW0sIGFuZCBmYXRzIGNvbnRhaW4gOSBjYWxvcmllcyBwZXIgZ3JhbS4KCldyYW5nbGUgdGhlIGRhdGEgdG8gYWRkIGEgbmV3IHZhcmlhYmxlIGNhbGxlZCBgdGhlb3JldGljYWxfY2Fsc2Agd2hpY2ggcmVwcmVzZW50cyB0aGUgbnVtYmVyIG9mIGNhbG9yaWVzIGVhY2ggaXRlbSBpbiB0aGUgYHN0YXJidWNrc2AgZGF0YSB0aGVvcmV0aWNhbGx5IHNob3VsZCBoYXZlIGJhc2VkIG9uIGl0cyBsZXZlbHMgb2YgY2FyYm9oeWRyYXRlcywgcHJvdGVpbiwgYW5kIGZhdC4gU3RvcmUgdGhlIHJlc3VsdGluZyBkYXRhIGZyYW1lIGFzIGEgbmV3IGRhdGEgZnJhbWUgY2FsbGVkIGBzdGFyYnVja3NfbmV3YC4KCmBgYHtyfQoKYGBgCgo0LiAgVXNpbmcgeW91ciBuZXcgZGF0YSBmcmFtZSwgZGlzcGxheSBhIHN1bW1hcnkgdGFibGUvZGF0YSBmcmFtZSB0aGF0IHNob3dzIHRoZSBzdGFuZGFyZCBkZXZpYXRpb24gb2YgdGhlIGRpZmZlcmVuY2VzIGJldHdlZW4gdGhlIHJlcG9ydGVkIGNhbG9yaWVzIGFuZCB0aGVvcmV0aWNhbCBjYWxvcmllcyAocmVwb3J0ZWQgLSB0aGVvcmV0aWNhbCkuIE1ha2Ugc3VyZSB0byBzcGVjaWZ5IGFuIGluZm9ybWF0aXZlL25pY2VyIG5hbWUgaW4geW91ciBzdW1tYXJ5IHRhYmxlLgoKYGBge3J9CgpgYGAKCjUuICBMYXN0bHksIG1ha2Ugb25lIG1vcmUgc3VtbWFyeSBkYXRhIGZyYW1lIHRoYXQgc2hvd3MgdGhlIHNhbWUgc3RhdGlzdGljcyBhcyBpbiBudW1iZXIgNCwgYnV0IGZvciBlYWNoIGB0eXBlYCBvZiBpdGVtLgoKYGBge3J9CgpgYGAKCllvdSBzaG91bGQgc2VlIGFuIGludGVyZXN0aW5nIHN0YW5kYXJkIGRldmlhdGlvbi4gV2h5IGRpZCB0aGF0IG9jY3VyPyAoSGludDogbG9vayBiYWNrIGF0IHlvdXIgdGFibGUgZnJvbSBRdWVzdGlvbiAxKQoKKipBbnN3ZXI6KioKCk9uY2UgeW91J3JlIGZpbmlzaGVkLCBiZSBzdXJlIHRvIHJlbmRlciBhbmQgc3VibWl0IHRoZSBQREYgZmlsZSB0byB0aGUgY29ycmVzcG9uZGluZyBHcmFkZXNjb3BlIGFzc2lnbm1lbnQhCg==').then(res => res.blob()).then(blob => {
+      const downloadURL = window.URL.createObjectURL(blob);
+      const a = document.createElement('a');
+      document.body.appendChild(a);
+      a.href = downloadURL;
+      a.download = 'coding-practice-wrangling.qmd'; a.click();
+      window.URL.revokeObjectURL(downloadURL);
+      document.body.removeChild(a);
+        });"><button class="btn btn-default downloadthis  " id="mtcars-btn"><i class="bi bi-download"></i> Coding practice </button></a>
+</li>
+</ul>
 </td>
 <td>
 <ul>
@@ -547,7 +560,7 @@ Topic: More wrangling
 <td>
 <ul>
 <li>
-Data wrangling practice
+Finish data wrangling coding practice
 </li>
 </ul>
 </td>

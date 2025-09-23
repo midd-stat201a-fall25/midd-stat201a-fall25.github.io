@@ -215,6 +215,9 @@ format:
         </ul>
       </td>
       <td>
+        <ul>
+          <li>Data wrangling practice <b>(due tomorrow night!)</b> {{< downloadthis coding_practice/coding-practice-07-wrangling.qmd dname="coding-practice-wrangling" label="Coding practice" id=mtcars-btn >}}</li>
+        </ul>
       </td>
       <td>
         <ul>
@@ -232,7 +235,7 @@ format:
       </td>
       <td>
         <ul>
-          <li>Data wrangling practice</li>
+          <li>Finish data wrangling coding practice</li>
         </ul>
       </td>
       <td>

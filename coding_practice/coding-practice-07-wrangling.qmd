@@ -1,7 +1,7 @@
 ---
 title: "Data wrangling coding practice"
 author: "Your name"
-date: "2/26/2025"
+date: "2/24/2025"
 format: pdf
 ---
 
@@ -38,17 +38,13 @@ Wrangle the data to add a new variable called `theoretical_cals` which represent
 
 ```
 
-5.  Lastly, make on more summary data frame that shows the same statistics as in number 4, but for each `type` of item.
+5.  Lastly, make one more summary data frame that shows the same statistics as in number 4, but for each `type` of item.
 
 ```{r}
 
 ```
 
 You should see an interesting standard deviation. Why did that occur? (Hint: look back at your table from Question 1)
-
-**Answer:**
-
-6.  Lastly, interpret *in context* one of the means that you obtained from this summary table in the previous question.
 
 **Answer:**
 
