@@ -185,9 +185,6 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
   <li><a href="#storing-our-work-from-mutate" id="toc-storing-our-work-from-mutate" class="nav-link" data-scroll-target="#storing-our-work-from-mutate">Storing our work from mutate</a></li>
   </ul></li>
   <li><a href="#summarise" id="toc-summarise" class="nav-link" data-scroll-target="#summarise">Summarise</a></li>
-  <li><a href="#group-by" id="toc-group-by" class="nav-link" data-scroll-target="#group-by">Group by</a></li>
-  <li><a href="#count" id="toc-count" class="nav-link" data-scroll-target="#count">Count</a></li>
-  <li><a href="#arrange" id="toc-arrange" class="nav-link" data-scroll-target="#arrange">Arrange</a></li>
   </ul>
 </nav>
 </nav>
@@ -281,9 +278,24 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 </ol>
 </div><div class="">
 <p>We can use the following to create logical conditions: <code>==</code>, <code>&gt;</code>, <code>&lt;</code>, <code>&gt;=</code>, <code>&lt;=</code>, <code>is.na()</code>, <code>is.numeric()</code>, and many more!</p>
-<p>To check for the lack of equality we use either <code>!=</code> or <code>!is.__()</code>. In general, the <code>!</code> reverses the boolean (so <code>!TRUE == FALSE</code>).</p>
 </div></div>
-<div class="callout callout-style-simple callout-tip no-icon callout-titled">
+<div class="cell">
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb9"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb9-1"><a href="#cb9-1" aria-hidden="true" tabindex="-1"></a>books <span class="sc">|&gt;</span></span>
+<span id="cb9-2"><a href="#cb9-2" aria-hidden="true" tabindex="-1"></a>  <span class="fu">filter</span>(<span class="fu">is.na</span>(height))</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+<div class="cell-output cell-output-stdout">
+<pre><code># A tibble: 2 × 13
+    isbn_10 author list_price amazon_price num_pages cover pub_year height width
+      &lt;dbl&gt; &lt;chr&gt;       &lt;dbl&gt;        &lt;dbl&gt;     &lt;dbl&gt; &lt;chr&gt;    &lt;dbl&gt;  &lt;dbl&gt; &lt;dbl&gt;
+1    3.76e8 Paoli…       28.0         14.0       704 H         2011     NA    NA
+2    1.60e9 O'Bri…       17.0         10.8       368 H         2011     NA    NA
+# ℹ 4 more variables: thick &lt;dbl&gt;, weight_oz &lt;dbl&gt;, title &lt;chr&gt;,
+#   publisher &lt;chr&gt;</code></pre>
+</div>
+</div>
+
+<div class="no-row-height column-margin column-container"><div class="">
+<p>To check for the lack of equality we use either <code>!=</code> or <code>!is.__()</code>. In general, the <code>!</code> reverses the boolean (so <code>!TRUE == FALSE</code>).</p>
+</div></div><div class="callout callout-style-simple callout-tip no-icon callout-titled">
 <div class="callout-header d-flex align-content-center" data-bs-toggle="collapse" data-bs-target=".callout-1-contents" aria-controls="callout-1" aria-expanded="true" aria-label="Toggle callout">
 <div class="callout-icon-container">
 <i class="callout-icon no-icon"></i>
@@ -297,16 +309,16 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 <div class="callout-body-container callout-body">
 <p>What is the difference between using <code>is.na()</code> within <code>filter()</code> and the following function <code>na.omit()</code>? Try running it!</p>
 <div class="cell">
-<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb9"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb9-1"><a href="#cb9-1" aria-hidden="true" tabindex="-1"></a>books <span class="sc">|&gt;</span></span>
-<span id="cb9-2"><a href="#cb9-2" aria-hidden="true" tabindex="-1"></a>  <span class="fu">na.omit</span>()</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb11"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb11-1"><a href="#cb11-1" aria-hidden="true" tabindex="-1"></a>books <span class="sc">|&gt;</span></span>
+<span id="cb11-2"><a href="#cb11-2" aria-hidden="true" tabindex="-1"></a>  <span class="fu">na.omit</span>()</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
 </div>
 </div>
 </div>
 </div>
 <p>We can also filter for more than one condition at once. Within <code>filter()</code>, the comma <code>,</code> specifies that all conditions must be true. It can be read as “and”. In the following code, we retain cases where a book’s price on Amazon is that same as its list price, and has a list price under $20.</p>
 <div class="cell">
-<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb10"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb10-1"><a href="#cb10-1" aria-hidden="true" tabindex="-1"></a>books <span class="sc">|&gt;</span></span>
-<span id="cb10-2"><a href="#cb10-2" aria-hidden="true" tabindex="-1"></a>  <span class="fu">filter</span>(list_price <span class="sc">==</span> amazon_price, list_price <span class="sc">&lt;</span> <span class="dv">20</span>)</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb12"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb12-1"><a href="#cb12-1" aria-hidden="true" tabindex="-1"></a>books <span class="sc">|&gt;</span></span>
+<span id="cb12-2"><a href="#cb12-2" aria-hidden="true" tabindex="-1"></a>  <span class="fu">filter</span>(list_price <span class="sc">==</span> amazon_price, list_price <span class="sc">&lt;</span> <span class="dv">20</span>)</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
 <div class="cell-output cell-output-stdout">
 <pre><code># A tibble: 2 × 13
     isbn_10 author list_price amazon_price num_pages cover pub_year height width
@@ -319,8 +331,8 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 </div>
 <p>If we just need just one of multiple conditions to be true, we can use the <code>|</code> operator which stands for “or”:</p>
 <div class="cell">
-<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb12"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb12-1"><a href="#cb12-1" aria-hidden="true" tabindex="-1"></a>books <span class="sc">|&gt;</span></span>
-<span id="cb12-2"><a href="#cb12-2" aria-hidden="true" tabindex="-1"></a>  <span class="fu">filter</span>( (list_price <span class="sc">==</span> amazon_price) <span class="sc">|</span> list_price <span class="sc">&lt;</span> <span class="dv">20</span>)</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb14"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb14-1"><a href="#cb14-1" aria-hidden="true" tabindex="-1"></a>books <span class="sc">|&gt;</span></span>
+<span id="cb14-2"><a href="#cb14-2" aria-hidden="true" tabindex="-1"></a>  <span class="fu">filter</span>( (list_price <span class="sc">==</span> amazon_price) <span class="sc">|</span> list_price <span class="sc">&lt;</span> <span class="dv">20</span>)</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
 <div class="cell-output cell-output-stdout">
 <pre><code># A tibble: 12 × 13
     isbn_10 author list_price amazon_price num_pages cover pub_year height width
@@ -346,8 +358,8 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 <p>While not necessary, the extra <code>( )</code> for the first logical condition makes the code easier to read!</p>
 </div></div><p>We can also <code>filter()</code> based on categorical variables. If I only wanted hardcover books, I can write the following code:</p>
 <div class="cell">
-<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb14"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb14-1"><a href="#cb14-1" aria-hidden="true" tabindex="-1"></a>books <span class="sc">|&gt;</span></span>
-<span id="cb14-2"><a href="#cb14-2" aria-hidden="true" tabindex="-1"></a>  <span class="fu">filter</span>(cover <span class="sc">==</span> <span class="st">"H"</span>)</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb16"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb16-1"><a href="#cb16-1" aria-hidden="true" tabindex="-1"></a>books <span class="sc">|&gt;</span></span>
+<span id="cb16-2"><a href="#cb16-2" aria-hidden="true" tabindex="-1"></a>  <span class="fu">filter</span>(cover <span class="sc">==</span> <span class="st">"H"</span>)</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
 <div class="cell-output cell-output-stdout">
 <pre><code># A tibble: 8 × 13
     isbn_10 author list_price amazon_price num_pages cover pub_year height width
@@ -366,8 +378,8 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 </div>
 <p>If there are many levels of a categorical variable that I’d like to filter for, we can use <code>%in%</code> logical operator:</p>
 <div class="cell">
-<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb16"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb16-1"><a href="#cb16-1" aria-hidden="true" tabindex="-1"></a>books <span class="sc">|&gt;</span></span>
-<span id="cb16-2"><a href="#cb16-2" aria-hidden="true" tabindex="-1"></a>  <span class="fu">filter</span>(publisher <span class="sc">%in%</span> <span class="fu">c</span>(<span class="st">"Mariner Books"</span>, <span class="st">"Scribner"</span>))</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb18"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb18-1"><a href="#cb18-1" aria-hidden="true" tabindex="-1"></a>books <span class="sc">|&gt;</span></span>
+<span id="cb18-2"><a href="#cb18-2" aria-hidden="true" tabindex="-1"></a>  <span class="fu">filter</span>(publisher <span class="sc">%in%</span> <span class="fu">c</span>(<span class="st">"Mariner Books"</span>, <span class="st">"Scribner"</span>))</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
 <div class="cell-output cell-output-stdout">
 <pre><code># A tibble: 3 × 13
     isbn_10 author list_price amazon_price num_pages cover pub_year height width
@@ -384,8 +396,8 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 <p>I read this as: is this books’s value of <code>publisher</code> <em>in</em> the vector <code>("Mariner Books", "Scribner")</code>?</p>
 </div></div><p>You could also use the “or” operator <code>|</code> but that can get a bit tedious!</p>
 <div class="cell">
-<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb18"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb18-1"><a href="#cb18-1" aria-hidden="true" tabindex="-1"></a>books <span class="sc">|&gt;</span></span>
-<span id="cb18-2"><a href="#cb18-2" aria-hidden="true" tabindex="-1"></a>  <span class="fu">filter</span>( (publisher <span class="sc">==</span> <span class="st">"Mariner Books"</span>) <span class="sc">|</span> (publisher <span class="sc">==</span>  <span class="st">"Scribner"</span>))</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb20"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb20-1"><a href="#cb20-1" aria-hidden="true" tabindex="-1"></a>books <span class="sc">|&gt;</span></span>
+<span id="cb20-2"><a href="#cb20-2" aria-hidden="true" tabindex="-1"></a>  <span class="fu">filter</span>( (publisher <span class="sc">==</span> <span class="st">"Mariner Books"</span>) <span class="sc">|</span> (publisher <span class="sc">==</span>  <span class="st">"Scribner"</span>))</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
 <div class="cell-output cell-output-stdout">
 <pre><code># A tibble: 3 × 13
     isbn_10 author list_price amazon_price num_pages cover pub_year height width
@@ -408,13 +420,13 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 <p>We link the two with ONE equals sign <code>=</code>.</p>
 <p>In the following, we create a new variable called <code>body_wt_lbs</code> based off the rule <code>weight_oz / 16</code>. Thus, each case gets its own new value of <code>weight_lbs</code> based on its original value of <code>weight</code>. You can see the first three cases here:</p>
 <div class="cell">
-<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb20"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb20-1"><a href="#cb20-1" aria-hidden="true" tabindex="-1"></a>books <span class="sc">|&gt;</span></span>
-<span id="cb20-2"><a href="#cb20-2" aria-hidden="true" tabindex="-1"></a>  <span class="fu">mutate</span>(<span class="at">weight_lbs =</span> weight_oz <span class="sc">/</span> <span class="dv">16</span>) </span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb22"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb22-1"><a href="#cb22-1" aria-hidden="true" tabindex="-1"></a>books <span class="sc">|&gt;</span></span>
+<span id="cb22-2"><a href="#cb22-2" aria-hidden="true" tabindex="-1"></a>  <span class="fu">mutate</span>(<span class="at">weight_lbs =</span> weight_oz <span class="sc">/</span> <span class="dv">16</span>) </span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
 </div>
 <div class="cell">
 <div class="cell-output-display">
-<div class="datatables html-widget html-fill-item" id="htmlwidget-e5b506c867ef6192c619" style="width:100%;height:auto;"></div>
-<script type="application/json" data-for="htmlwidget-e5b506c867ef6192c619">{"x":{"filter":"none","vertical":false,"data":[["1","2","3"],["375856110","684801221","679437223"],["Paolini, Christopher","Earnest Hemingway","Jospeh Heller"],["27.99","12","24"],["13.98","9.09","16.32"],["704","128","624"],["H","P","H"],["2011","1995","1995"],["NA","5.2","8.4"],["NA","NA","5.3"],["2.1","0.8","1.4"],["NA","4","22.4"],["Inheritance","The Old Man and The Sea","Catch-22"],["Knopf Books for Young Readers","Scribner","Everyman's Library"],["NA","0.25","1.4"]],"container":"<table class=\"display\">\n  <thead>\n    <tr>\n      <th> <\/th>\n      <th>isbn_10<\/th>\n      <th>author<\/th>\n      <th>list_price<\/th>\n      <th>amazon_price<\/th>\n      <th>num_pages<\/th>\n      <th>cover<\/th>\n      <th>pub_year<\/th>\n      <th>height<\/th>\n      <th>width<\/th>\n      <th>thick<\/th>\n      <th>weight_oz<\/th>\n      <th>title<\/th>\n      <th>publisher<\/th>\n      <th>weight_lbs<\/th>\n    <\/tr>\n  <\/thead>\n<\/table>","options":{"pageLength":3,"columnDefs":[{"orderable":false,"targets":0},{"name":" ","targets":0},{"name":"isbn_10","targets":1},{"name":"author","targets":2},{"name":"list_price","targets":3},{"name":"amazon_price","targets":4},{"name":"num_pages","targets":5},{"name":"cover","targets":6},{"name":"pub_year","targets":7},{"name":"height","targets":8},{"name":"width","targets":9},{"name":"thick","targets":10},{"name":"weight_oz","targets":11},{"name":"title","targets":12},{"name":"publisher","targets":13},{"name":"weight_lbs","targets":14}],"order":[],"autoWidth":false,"orderClasses":false,"lengthMenu":[3,10,25,50,100]}},"evals":[],"jsHooks":[]}</script>
+<div class="datatables html-widget html-fill-item" id="htmlwidget-4a855395c121054cfd54" style="width:100%;height:auto;"></div>
+<script type="application/json" data-for="htmlwidget-4a855395c121054cfd54">{"x":{"filter":"none","vertical":false,"data":[["1","2","3"],["375856110","684801221","679437223"],["Paolini, Christopher","Earnest Hemingway","Jospeh Heller"],["27.99","12","24"],["13.98","9.09","16.32"],["704","128","624"],["H","P","H"],["2011","1995","1995"],["NA","5.2","8.4"],["NA","NA","5.3"],["2.1","0.8","1.4"],["NA","4","22.4"],["Inheritance","The Old Man and The Sea","Catch-22"],["Knopf Books for Young Readers","Scribner","Everyman's Library"],["NA","0.25","1.4"]],"container":"<table class=\"display\">\n  <thead>\n    <tr>\n      <th> <\/th>\n      <th>isbn_10<\/th>\n      <th>author<\/th>\n      <th>list_price<\/th>\n      <th>amazon_price<\/th>\n      <th>num_pages<\/th>\n      <th>cover<\/th>\n      <th>pub_year<\/th>\n      <th>height<\/th>\n      <th>width<\/th>\n      <th>thick<\/th>\n      <th>weight_oz<\/th>\n      <th>title<\/th>\n      <th>publisher<\/th>\n      <th>weight_lbs<\/th>\n    <\/tr>\n  <\/thead>\n<\/table>","options":{"pageLength":3,"columnDefs":[{"orderable":false,"targets":0},{"name":" ","targets":0},{"name":"isbn_10","targets":1},{"name":"author","targets":2},{"name":"list_price","targets":3},{"name":"amazon_price","targets":4},{"name":"num_pages","targets":5},{"name":"cover","targets":6},{"name":"pub_year","targets":7},{"name":"height","targets":8},{"name":"width","targets":9},{"name":"thick","targets":10},{"name":"weight_oz","targets":11},{"name":"title","targets":12},{"name":"publisher","targets":13},{"name":"weight_lbs","targets":14}],"order":[],"autoWidth":false,"orderClasses":false,"lengthMenu":[3,10,25,50,100]}},"evals":[],"jsHooks":[]}</script>
 </div>
 </div>
 <div class="callout callout-style-default callout-tip callout-titled">
@@ -435,8 +447,8 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 <p>We’re doing all this good data wrangling, but we’re not “saving our work on the data frame”. That is, even though we’re using <code>dplyr</code> functions, all of the work is going into the ether unless we <em>deliberatively store our wrangled data frame</em>.</p>
 <p>For example, what’s the purpose of creating a new variable if we don’t use it later on? Let’s create a new data frame called <code>books2</code> that includes the new <code>weight_lbs</code> variable:</p>
 <div class="cell">
-<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb21"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb21-1"><a href="#cb21-1" aria-hidden="true" tabindex="-1"></a>books2 <span class="ot">&lt;-</span> books <span class="sc">|&gt;</span></span>
-<span id="cb21-2"><a href="#cb21-2" aria-hidden="true" tabindex="-1"></a>  <span class="fu">mutate</span>(<span class="at">weight_lbs =</span> weight_oz <span class="sc">/</span> <span class="dv">16</span>) </span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb23"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb23-1"><a href="#cb23-1" aria-hidden="true" tabindex="-1"></a>books2 <span class="ot">&lt;-</span> books <span class="sc">|&gt;</span></span>
+<span id="cb23-2"><a href="#cb23-2" aria-hidden="true" tabindex="-1"></a>  <span class="fu">mutate</span>(<span class="at">weight_lbs =</span> weight_oz <span class="sc">/</span> <span class="dv">16</span>) </span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
 </div>
 <div class="callout callout-style-default callout-tip callout-titled">
 <div class="callout-header d-flex align-content-center">
@@ -460,8 +472,8 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 <p>Think about <code>summarise()</code> as operating column-wise: it will use ALL the cases for the specified variable.</p>
 <p>Let’s find the average weight (in pounds) of all our books:</p>
 <div class="cell">
-<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb22"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb22-1"><a href="#cb22-1" aria-hidden="true" tabindex="-1"></a>books2 <span class="sc">|&gt;</span></span>
-<span id="cb22-2"><a href="#cb22-2" aria-hidden="true" tabindex="-1"></a>  <span class="fu">summarise</span>(<span class="at">mean_weight_lbs =</span> <span class="fu">mean</span>(weight_lbs))</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb24"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb24-1"><a href="#cb24-1" aria-hidden="true" tabindex="-1"></a>books2 <span class="sc">|&gt;</span></span>
+<span id="cb24-2"><a href="#cb24-2" aria-hidden="true" tabindex="-1"></a>  <span class="fu">summarise</span>(<span class="at">mean_weight_lbs =</span> <span class="fu">mean</span>(weight_lbs))</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
 <div class="cell-output cell-output-stdout">
 <pre><code># A tibble: 1 × 1
   mean_weight_lbs
@@ -474,9 +486,9 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 <p>Why did we use the data frame <code>books2</code> and not <code>books</code>?</p>
 </div></div><p>Oh no! We get an <code>NA</code> mean? That happens when some of the variables values themselves are <code>NA</code>. You can remove <code>NA</code>s using within <code>mean()</code> or <code>sd()</code> as shown below, OR you can <code>filter()</code> them out before getting to <code>summarise()</code>:</p>
 <div class="cell">
-<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb24"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb24-1"><a href="#cb24-1" aria-hidden="true" tabindex="-1"></a>books2 <span class="sc">|&gt;</span></span>
-<span id="cb24-2"><a href="#cb24-2" aria-hidden="true" tabindex="-1"></a>  <span class="fu">summarise</span>(<span class="at">mean_weight_lbs =</span> <span class="fu">mean</span>(weight_lbs, <span class="at">na.rm =</span> T), </span>
-<span id="cb24-3"><a href="#cb24-3" aria-hidden="true" tabindex="-1"></a>            <span class="at">mean_amazon_price =</span> <span class="fu">mean</span>(amazon_price))</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb26"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb26-1"><a href="#cb26-1" aria-hidden="true" tabindex="-1"></a>books2 <span class="sc">|&gt;</span></span>
+<span id="cb26-2"><a href="#cb26-2" aria-hidden="true" tabindex="-1"></a>  <span class="fu">summarise</span>(<span class="at">mean_weight_lbs =</span> <span class="fu">mean</span>(weight_lbs, <span class="at">na.rm =</span> T), </span>
+<span id="cb26-3"><a href="#cb26-3" aria-hidden="true" tabindex="-1"></a>            <span class="at">mean_amazon_price =</span> <span class="fu">mean</span>(amazon_price))</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
 <div class="cell-output cell-output-stdout">
 <pre><code># A tibble: 1 × 2
   mean_weight_lbs mean_amazon_price
@@ -498,172 +510,6 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 </div>
 <div class="callout-body-container callout-body">
 <p>The <code>summarise()</code> function changes the data frame entirely. It collapses rows down to a summary statistic, and removes all columns that are irrelevant to the calculation.</p>
-</div>
-</div>
-</section>
-<section id="group-by" class="level2">
-<h2 class="anchored" data-anchor-id="group-by">Group by</h2>
-<p><em>This is by far one of the most powerful <code>dplyr</code> functions! But it’s also a bit confusing.</em></p>
-<p>Suppose we’d like to get the mean price of books, split by <code>cover</code> type (paperback or hardback). We’d still need to <code>summarise()</code>, but we need a way to encode our desire to treat the cases in the Paperback category separately from the case in the Hardback category. This is easily done using the <code>group_by()</code> function, which groups cases together based on a particular level of a categorical variable. This grouping is done behind the scenes.</p>
-<p>We specify <code>group_by(&lt;categorical variable to group on&gt;)</code>:</p>
-<div class="cell">
-<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb26"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb26-1"><a href="#cb26-1" aria-hidden="true" tabindex="-1"></a>books2 <span class="sc">|&gt;</span></span>
-<span id="cb26-2"><a href="#cb26-2" aria-hidden="true" tabindex="-1"></a>  <span class="fu">group_by</span>(cover) <span class="sc">|&gt;</span></span>
-<span id="cb26-3"><a href="#cb26-3" aria-hidden="true" tabindex="-1"></a>  <span class="fu">summarise</span>(<span class="at">mean_price_amazon =</span> <span class="fu">mean</span>(amazon_price))</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
-<div class="cell-output cell-output-stdout">
-<pre><code># A tibble: 2 × 2
-  cover mean_price_amazon
-  &lt;chr&gt;             &lt;dbl&gt;
-1 H                  13.5
-2 P                  12.3</code></pre>
-</div>
-</div>
-<div class="callout callout-style-simple callout-note no-icon callout-titled">
-<div class="callout-header d-flex align-content-center collapsed" data-bs-toggle="collapse" data-bs-target=".callout-5-contents" aria-controls="callout-5" aria-expanded="false" aria-label="Toggle callout">
-<div class="callout-icon-container">
-<i class="callout-icon no-icon"></i>
-</div>
-<div class="callout-title-container flex-fill">
-<span class="screen-reader-only">Note</span>Expand
-</div>
-<div class="callout-btn-toggle d-inline-block border-0 py-1 ps-1 pe-0 float-end"><i class="callout-toggle"></i></div>
-</div>
-<div id="callout-5" class="callout-5-contents callout-collapse collapse">
-<div class="callout-body-container callout-body">
-<p>To be useful, <code>group_by()</code> is always followed by other dplyr functions.</p>
-<p>Immediately after using <code>group_by()</code>, the data frame remains unchanged to our view, but you can see that <code>R</code> now knows to treat the cases in differently based off of the variable <code>cover</code> (see the white box at the top that says “Groups: cover[2]”).</p>
-<div class="cell">
-<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb28"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb28-1"><a href="#cb28-1" aria-hidden="true" tabindex="-1"></a>books2 <span class="sc">|&gt;</span></span>
-<span id="cb28-2"><a href="#cb28-2" aria-hidden="true" tabindex="-1"></a>  <span class="fu">group_by</span>(cover)</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
-<div class="cell-output cell-output-stdout">
-<pre><code># A tibble: 20 × 14
-# Groups:   cover [2]
-    isbn_10 author list_price amazon_price num_pages cover pub_year height width
-      &lt;dbl&gt; &lt;chr&gt;       &lt;dbl&gt;        &lt;dbl&gt;     &lt;dbl&gt; &lt;chr&gt;    &lt;dbl&gt;  &lt;dbl&gt; &lt;dbl&gt;
- 1   3.76e8 Paoli…      28.0         14.0        704 H         2011   NA    NA  
- 2   6.85e8 Earne…      12            9.09       128 P         1995    5.2  NA  
- 3   6.79e8 Jospe…      24           16.3        624 H         1995    8.4   5.3
- 4   8.87e7 Kawas…      16           12.5        224 P         2000    8.2   5.3
- 5   1.60e9 O'Bri…      17.0         10.8        368 H         2011   NA    NA  
- 6   3.86e8 Dashn…       9.99         9.99       400 P         2010    8.2   5.5
- 7   3.07e8 Erik …      26           13          464 H         2011    9.5   6  
- 8   6.19e8 Richa…      17.0          9.16       464 P         2008    8.1   5.6
- 9   3.85e8 Grish…      15           10.2        384 P         2004    8     5.4
-10   1.93e9 Timot…      28.0         20.0        144 P         2008   10.8   8.4
-11   3.46e8 Paula…      25           14.5        336 H         2011    9.3   6.4
-12   7.81e8 Augus…      21.1         16.5         NA H         1986    9     6  
-13   3.85e8 Shaff…      15            8.05       290 H         2009    7.8   5.4
-14   7.43e8 Jodi …      16           10.8        448 P         2005    8.2   5.4
-15   1.46e8 Mark …      15.0         15.0        276 P         2011    7.8   5.1
-16   5.20e8 R.W. …      25.0         22.8        349 P         2005    9     6.1
-17   1.57e7 Lewis       13            9.64       168 P         1964    8     5.3
-18   1.57e9 Gruen       15.0          8.14       350 P         2007    8.2   5.4
-19   6.07e7 Steve…      16.0          9.95       315 P         2009    7.9   5.3
-20   1.59e9 Kawas…      27.0         15.0        211 H         2011    8.3   5.5
-# ℹ 5 more variables: thick &lt;dbl&gt;, weight_oz &lt;dbl&gt;, title &lt;chr&gt;,
-#   publisher &lt;chr&gt;, weight_lbs &lt;dbl&gt;</code></pre>
-</div>
-</div>
-</div>
-</div>
-</div>
-<p><strong>Remember</strong>: we group on a categorical variable. Then all cases with a particular level of that categorical variable are treated as a mini new data frame, separate from cases with a different level of that variable.</p>
-</section>
-<section id="count" class="level2 page-columns page-full">
-<h2 class="anchored" data-anchor-id="count">Count</h2>
-<p>Let’s count the number of times we see a particular value of a variable. For example, I want to know how many paperback and how many hardback books there are in the data set. That’s saying: count up the number of cases in each level! To code this, we pipe to <code>count(&lt;variable we'd like to count the different levels of&gt;)</code>.</p>
-<div class="cell">
-<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb30"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb30-1"><a href="#cb30-1" aria-hidden="true" tabindex="-1"></a>books2 <span class="sc">|&gt;</span></span>
-<span id="cb30-2"><a href="#cb30-2" aria-hidden="true" tabindex="-1"></a>  <span class="fu">count</span>(cover)</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
-<div class="cell-output cell-output-stdout">
-<pre><code># A tibble: 2 × 2
-  cover     n
-  &lt;chr&gt; &lt;int&gt;
-1 H         8
-2 P        12</code></pre>
-</div>
-</div>
-
-<div class="no-row-height column-margin column-container"><div class="">
-<p>We use <code>count()</code> to create frequency tables!</p>
-</div></div><div class="callout callout-style-default callout-tip callout-titled">
-<div class="callout-header d-flex align-content-center">
-<div class="callout-icon-container">
-<i class="callout-icon"></i>
-</div>
-<div class="callout-title-container flex-fill">
-<span class="screen-reader-only">Tip</span>Note
-</div>
-</div>
-<div class="callout-body-container callout-body">
-<p>The <code>count()</code> function, like <code>summarise()</code>, changes the data frame entirely. It retains only the variable(s) you used in <code>count()</code>, and adds a new variable <code>n</code> which is represents the counts for that particular level.</p>
-</div>
-</div>
-</section>
-<section id="arrange" class="level2">
-<h2 class="anchored" data-anchor-id="arrange">Arrange</h2>
-<p>Another very common data wrangling tasks is to sort a data frame’s rows in the alphanumeric order of one of the variables. We can do this with <code>arrange()</code>, where we sort the rows according the values of a variable that you specify.</p>
-<p>In the code below, we can re-order the rows based on the listing price:</p>
-<div class="cell">
-<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb32"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb32-1"><a href="#cb32-1" aria-hidden="true" tabindex="-1"></a>books2 <span class="sc">|&gt;</span></span>
-<span id="cb32-2"><a href="#cb32-2" aria-hidden="true" tabindex="-1"></a>  <span class="fu">arrange</span>(list_price)</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
-</div>
-<div class="cell">
-<div class="cell-output cell-output-stdout">
-<pre><code># A tibble: 10 × 14
-    isbn_10 author list_price amazon_price num_pages cover pub_year height width
-      &lt;dbl&gt; &lt;chr&gt;       &lt;dbl&gt;        &lt;dbl&gt;     &lt;dbl&gt; &lt;chr&gt;    &lt;dbl&gt;  &lt;dbl&gt; &lt;dbl&gt;
- 1   3.86e8 Dashn…       9.99         9.99       400 P         2010    8.2   5.5
- 2   6.85e8 Earne…      12            9.09       128 P         1995    5.2  NA  
- 3   1.57e7 Lewis       13            9.64       168 P         1964    8     5.3
- 4   1.46e8 Mark …      15.0         15.0        276 P         2011    7.8   5.1
- 5   1.57e9 Gruen       15.0          8.14       350 P         2007    8.2   5.4
- 6   3.85e8 Grish…      15           10.2        384 P         2004    8     5.4
- 7   3.85e8 Shaff…      15            8.05       290 H         2009    7.8   5.4
- 8   6.07e7 Steve…      16.0          9.95       315 P         2009    7.9   5.3
- 9   8.87e7 Kawas…      16           12.5        224 P         2000    8.2   5.3
-10   7.43e8 Jodi …      16           10.8        448 P         2005    8.2   5.4
-# ℹ 5 more variables: thick &lt;dbl&gt;, weight_oz &lt;dbl&gt;, title &lt;chr&gt;,
-#   publisher &lt;chr&gt;, weight_lbs &lt;dbl&gt;</code></pre>
-</div>
-</div>
-<div class="callout callout-style-simple callout-note no-icon callout-titled">
-<div class="callout-header d-flex align-content-center collapsed" data-bs-toggle="collapse" data-bs-target=".callout-7-contents" aria-controls="callout-7" aria-expanded="false" aria-label="Toggle callout">
-<div class="callout-icon-container">
-<i class="callout-icon no-icon"></i>
-</div>
-<div class="callout-title-container flex-fill">
-<span class="screen-reader-only">Note</span>Expand
-</div>
-<div class="callout-btn-toggle d-inline-block border-0 py-1 ps-1 pe-0 float-end"><i class="callout-toggle"></i></div>
-</div>
-<div id="callout-7" class="callout-7-contents callout-collapse collapse">
-<div class="callout-body-container callout-body">
-<p>Notice that the default is increasing order. If you’d like the go in decreasing order, we can use the following:</p>
-<div class="cell">
-<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb34"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb34-1"><a href="#cb34-1" aria-hidden="true" tabindex="-1"></a>books2 <span class="sc">|&gt;</span></span>
-<span id="cb34-2"><a href="#cb34-2" aria-hidden="true" tabindex="-1"></a>  <span class="fu">arrange</span>(<span class="fu">desc</span>(list_price))</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
-</div>
-<div class="cell">
-<div class="cell-output cell-output-stdout">
-<pre><code># A tibble: 10 × 14
-    isbn_10 author list_price amazon_price num_pages cover pub_year height width
-      &lt;dbl&gt; &lt;chr&gt;       &lt;dbl&gt;        &lt;dbl&gt;     &lt;dbl&gt; &lt;chr&gt;    &lt;dbl&gt;  &lt;dbl&gt; &lt;dbl&gt;
- 1   3.76e8 Paoli…       28.0        14.0        704 H         2011   NA    NA  
- 2   1.93e9 Timot…       28.0        20.0        144 P         2008   10.8   8.4
- 3   1.59e9 Kawas…       27.0        15.0        211 H         2011    8.3   5.5
- 4   3.07e8 Erik …       26          13          464 H         2011    9.5   6  
- 5   5.20e8 R.W. …       25.0        22.8        349 P         2005    9     6.1
- 6   3.46e8 Paula…       25          14.5        336 H         2011    9.3   6.4
- 7   6.79e8 Jospe…       24          16.3        624 H         1995    8.4   5.3
- 8   7.81e8 Augus…       21.1        16.5         NA H         1986    9     6  
- 9   1.60e9 O'Bri…       17.0        10.8        368 H         2011   NA    NA  
-10   6.19e8 Richa…       17.0         9.16       464 P         2008    8.1   5.6
-# ℹ 5 more variables: thick &lt;dbl&gt;, weight_oz &lt;dbl&gt;, title &lt;chr&gt;,
-#   publisher &lt;chr&gt;, weight_lbs &lt;dbl&gt;</code></pre>
-</div>
-</div>
-</div>
 </div>
 </div>
 

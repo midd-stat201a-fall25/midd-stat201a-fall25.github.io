@@ -1,0 +1,49 @@
+---
+title: "Partner coding practice 2"
+author: "Your names"
+format: pdf
+---
+
+## Step 1: Load packages
+
+```{r}
+
+```
+
+## Step 2: Focusing on particular groups
+
+
+```{r}
+
+```
+
+**Answer**:
+
+## Step 3: Visualizing body mass
+
+
+```{r}
+
+```
+
+## Step 4: Adding more detail
+
+
+## Step 5: Numerical quantities
+
+
+```{r}
+
+```
+
+## Step 6: Interpreting your EDA
+
+Working together as a team, use the summary table and plot you both created to address the following questions:
+
+1.  Which island has the biggest penguins? Does this depend on sex?
+
+**Answer**:
+
+2.  Do you think it is the best idea to report a single summary statistic for body mass? If not, what would you like to do to have a more informative summary table/data frame?
+
+**Answer**:

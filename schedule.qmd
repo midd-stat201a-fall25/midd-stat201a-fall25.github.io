@@ -212,11 +212,13 @@ format:
   <button class="copy-button" onclick="copyToClipboard('code1')">Copy</button>
 </div>
           </li>
+          <li> Live code <a href="live_code/data_wrangling_pt1_class.qmd">from today</a>
+          </li>
         </ul>
       </td>
       <td>
         <ul>
-          <li>Data wrangling practice <b>(due tomorrow night!)</b> {{< downloadthis coding_practice/coding-practice-07-wrangling.qmd dname="coding-practice-wrangling" label="Coding practice" id=mtcars-btn >}}</li>
+          <li>Data wrangling practice <b>(due tomorrow night!)</b> {{< downloadthis coding_practice/coding-practice-07-wrangling.qmd dname="coding-practice-wrangling" label="Coding practice" id=mtcars-btn >}} Note: 0, 3 and 4 are doable after today! </li>
         </ul>
       </td>
       <td>
@@ -230,6 +232,7 @@ format:
       <td> R 9/25 </td>
       <td>
         <ul>
+          <li> <a href="partner.qmd">Partner programming</a>: Activity 2 </li>
           <li> Topic: More wrangling </li>
         </ul>
       </td>

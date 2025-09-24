@@ -6,19 +6,99 @@ format:
     toc-location: left
 ---
 
+Remember, we've learned up to this point:
+
+- `filter()` (with many logical conditions)
+- `mutate()`
+- `summarise()`
+- How to "save our wrangling work" by storing into a new data frame
+
+Let's re-load in our `books` data frame here along with the `tidyverse` package:
+
 ```{r message = FALSE}
 library(tidyverse)
+
+url_file <- "https://raw.githubusercontent.com/midd-stat201a-fall25/midd-stat201a-fall25.github.io/refs/heads/main/data/amazon_books.csv"
+books <- read_csv(url_file)
 ```
 
+
+## Group by
+
+*This is by far one of the most powerful `dplyr` functions! But it's also a bit confusing.*
+
+Suppose we'd like to get the mean price of books, split by `cover` type (paperback or hardback). We'd still need to `summarise()`, but we need a way to encode our desire to treat the cases in the Paperback category separately from the case in the Hardback category. This is easily done using the `group_by()` function, which groups cases together based on a particular level of a categorical variable. This grouping is done behind the scenes.
+
+We specify `group_by(<categorical variable to group on>)`:
+
+```{r}
+books |>
+  group_by(cover) |>
+  summarise(mean_price_amazon = mean(amazon_price))
+```
+
+::: {.callout-tip}
+## Note!
+
+To be useful, `group_by()` is always followed by other dplyr functions. 
+:::
+
+**Remember**: we group on a categorical variable. Then all cases with a particular level of that categorical variable are treated as a mini new data frame, separate from cases with a different level of that variable.
+
+## Count
+
+Let's count the number of times we see a particular value of a variable. For example, I want to know how many paperback and how many hardback books there are in the data set. That's saying: count up the number of cases in each level! To code this, we pipe to `count(<variable we'd like to count the different levels of>)`.
+
+```{r}
+books |>
+  count(cover)
+```
+
+::: column-margin
+We use `count()` to create frequency tables!
+:::
+
+::: callout-tip
+## Note
+
+The `count()` function, like `summarise()`, changes the data frame entirely. It retains only the variable(s) you used in `count()`, and adds a new variable `n` which is represents the counts for that particular level.
+:::
+
+
+## Arrange
+
+Another very common data wrangling tasks is to sort a data frame's rows in the alphanumeric order of one of the variables. We can do this with `arrange()`, where we sort the rows according the values of a variable that you specify.
+
+In the code below, we can re-order the rows based on the listing price:
+
 ```{r eval = F}
-books <- read_csv("data/amazon_books.csv", show_col_types = F)
+books |>
+  arrange(list_price)
 ```
 
 ```{r echo = F}
-books <- read_csv("../data/amazon_books.csv",
-                  show_col_types = F)
-
+books |>
+  arrange(list_price) |>
+  slice(1:10)
 ```
+
+::: {.callout-note collapse="true" appearance="minimal"}
+## Expand
+
+Notice that the default is increasing order. If you'd like the go in decreasing order, we can use the following:
+
+```{r eval = F}
+books |>
+  arrange(desc(list_price))
+```
+
+```{r echo = F}
+books |>
+  arrange(desc(list_price)) |>
+  slice(1:10)
+```
+:::
+
 
 ## Distinct
 
@@ -30,6 +110,8 @@ books |>
 ```
 
 Even though we had `r nrow(books)` cases in `books`, the code above is asking: How many unique values of `cover` are there? Just two: `H` and `P`.
+
+Just like `summarise()` and `count()`, the function `distinct()` completely changes the data frame. It will drop all the other variables.
 
 Maybe I'd like to know how many authors are represented in my data frame, without caring about the authors themselves. We can use `distinct()`, and pipe to the function `nrow()` that we've seen before.
 
@@ -43,9 +125,8 @@ books |>
 **Note**: The function `nrow()` is not a `dplyr` function. We can see that the output from `nrow()` is a numeric object, not a data frame! However, it can accept a data frame as input.
 :::
 
-Just like `summarise()` and `count()`, the function `distinct()` completely changes the data frame. It will drop all the other variables.
 
-We can also use `distinct()` on several variables at once to yield instances of all unique combinations of levels observed in the data frame:
+We can also use `distinct()` on several variables at once to yield instances of all unique combinations of levels observed in the data frame. In the following, we're looking for all combinations of book cover types and publish years that appear in `books`, arranged by year:
 
 ```{r}
 books |>
@@ -70,19 +151,3 @@ books |>
 Notice that the variable names don't go in quotes here! We don't treat them as character objects!
 :::
 
-
-## Joins
-
-We saw joins in the slides! Let's practice them here. We have some data on the year a book was *originally* published. Paste in the url from today's class here, and let's store the data as `books_year_orig`:
-
-```{r eval = F}
-url_file <- "https://raw.githubusercontent.com/midd-stat201a-fall25/midd-stat201a-fall25.github.io/refs/heads/main/data/amazon_books_year_orig.csv"
-books_year_orig <- read_csv(url_file)
-```
-
-```{r echo = F}
-url_file <- "https://raw.githubusercontent.com/midd-stat201a-fall25/midd-stat201a-fall25.github.io/refs/heads/main/data/amazon_books_year_orig.csv"
-books_year_orig <- read_csv(url_file, show_col_types = F)
-```
-
-Try it yourself: using the correct join, find the books in our original dataset whose published year in the Amazon version is different from the year the book was originally published. In your final table, only display the variables for the title of the book and the year it was published.

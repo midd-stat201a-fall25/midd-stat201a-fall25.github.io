@@ -1,5 +1,6 @@
 ---
 title: "Data wrangling with dplyr (part 1)"
+date: "9/24/2025"
 format:
   html:
     toc: true
@@ -13,11 +14,12 @@ library(tidyverse)
 ```
 
 ```{r eval = F}
-books <- read_csv("data/amazon_books.csv", show_col_types = F)
+url_file <- https://raw.githubusercontent.com/midd-stat201a-fall25/midd-stat201a-fall25.github.io/refs/heads/main/data/amazon_books.csv
+books <- read_csv(url_file)
 ```
 
 ```{r echo = F}
-books <- read_csv("../data/amazon_books.csv",
+books <- read_csv("https://raw.githubusercontent.com/midd-stat201a-fall25/midd-stat201a-fall25.github.io/refs/heads/main/data/amazon_books.csv",
                   show_col_types = F)
 
 ```
@@ -37,6 +39,9 @@ books |>
 
 books |>
   filter(is.na(height))
+
+books |>
+  filter(!is.na(height))
 ```
 
 ::: column-margin
@@ -49,14 +54,7 @@ What's going on here?
 
 ::: column-margin
 We can use the following to create logical conditions: `==`, `>`, `<`, `>=`, `<=`, `is.na()`, `is.numeric()`, and many more!
-:::
 
-```{r}
-books |>
-  filter(is.na(height))
-```
-
-::: column-margin
 To check for the lack of equality we use either `!=` or `!is.__()`. In general, the `!` reverses the boolean (so `!TRUE == FALSE`).
 :::
 
@@ -100,18 +98,18 @@ If there are many levels of a categorical variable that I'd like to filter for, 
 
 ```{r}
 books |>
-  filter(publisher %in% c("Mariner Books", "Scribner"))
+  filter(publisher %in% c("Crown", "Delta"))
 ```
 
 ::: column-margin
-I read this as: is this books's value of `publisher` *in* the vector `("Mariner Books", "Scribner")`?
+I read this as: is this books's value of `publisher` *in* the vector `("Crown", "Delta")`?
 :::
 
 You could also use the "or" operator `|` but that can get a bit tedious!
 
 ```{r}
 books |>
-  filter( (publisher == "Mariner Books") | (publisher ==  "Scribner"))
+  filter( (publisher == "Crown") | (publisher ==  "Delta"))
 ```
 
 ## Mutate to add a new variable
@@ -160,7 +158,7 @@ books2 <- books |>
 ::: callout-tip
 ## Note
 
-Remember, when we store values in `R`, we never see the executed output. So when you run the above code, you don't see a snapshot of the data frame. If you wanted to see your new `books2` data frame, use `View()`!
+Remember, when we store values in `R`, we never see the executed output. So when you run the above code, you don't see a snapshot of the data frame. If you wanted to see your new `books2` data frame, use `View()`! Just remember to remove `View()` before rendering!
 :::
 
 ## Summarise
@@ -175,19 +173,13 @@ Let's find the average weight (in pounds) of all our books:
 
 ```{r}
 books2 |>
-  summarise(mean_weight_lbs = mean(weight_lbs))
+  summarise(mean_list_price = mean(list_price))
 ```
 
-::: column-margin
-Why did we use the data frame `books2` and not `books`?
-:::
-
-Oh no! We get an `NA` mean? That happens when some of the variables values themselves are `NA`. You can remove `NA`s using within `mean()` or `sd()` as shown below, OR you can `filter()` them out before getting to `summarise()`:
 
 ```{r}
 books2 |>
-  summarise(mean_weight_lbs = mean(weight_lbs, na.rm = T), 
-            mean_amazon_price = mean(amazon_price))
+  summarise(mean_list_price = mean(list_price), sd_list_price = sd(list_price))
 ```
 
 
@@ -200,6 +192,4 @@ You can obtain multiple summary statistics at once by separating the desired sum
 
 The `summarise()` function changes the data frame entirely. It collapses rows down to a summary statistic, and removes all columns that are irrelevant to the calculation.
 :::
-
-
 
