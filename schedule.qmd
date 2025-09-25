@@ -223,7 +223,8 @@ format:
       </td>
       <td>
         <ul>
-          <li>Wednesday problems in Problem Set 3</li>
+          <li>Wednesday problems in <a href="homework/hw3.pdf">Problem Set 3</a> {{< downloadthis homework/hw3_r.qmd dname="homework3_R" label="hw3_R" id=mtcars-btn >}}</li>
+          <li><a href="homework/hw3_r.qmd">Rendered version</a> of `.qmd` template for easier reading!</li>
         </ul>
       </td>
     </tr>
@@ -243,7 +244,7 @@ format:
       </td>
       <td>
         <ul>
-          <li>Thursday problems in Problem Set 3</li>
+          <li>Thursday problems in <a href="homework/hw3.pdf">Problem Set 3</a></li>
         </ul>
       </td>
     </tr>

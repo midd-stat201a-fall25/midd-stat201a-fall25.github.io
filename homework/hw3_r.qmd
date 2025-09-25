@@ -1,15 +1,13 @@
 ---
 title: "STAT 201: Problem Set 3 (R)"
 author: "Your name"
-date: "3/3/2025"
+date: "9/29/2025"
 format: pdf
 ---
 
 **Unless explicitly stated, you do not need to store the result of data wrangling as new variables in `R`.**
 
-In January 2017, Buzzfeed published an article titled [“These Nobel Prize Winners Show Why Immigration Is So Important For American Science”](https://www.buzzfeednews.com/article/peteraldhous/immigration-and-science). In the article they explore where many Nobel laureates in the sciences were born and where they lived when they won their prize.
-
-In this homework we will work with the data about Nobel laureates to recreate/update some of their visualizations with new data as well as explore new questions.
+In this homework we will work with the data about Nobel laureates to learn about how the prizes are distributed across different variables.
 
 ```{r message = F}
 library(readr)
@@ -20,7 +18,7 @@ url_file <- "https://raw.githubusercontent.com/midd-stat201-spring2025/midd-stat
 nobel <- read_csv(url_file, name_repair = "unique_quiet")
 ```
 
-0.  Change your name in the YAML and add the package(s) necessary for creating ggplots and wrangling data in the code chunk above. Then run the code chunk to load in the data.
+0.  Change your name in the YAML and add *only* the package(s) necessary for creating ggplots and wrangling data in the code chunk above. Then run the code chunk to load in the data.
 
 A description of the variables in the `nobel` data are as follows:
 
@@ -40,7 +38,7 @@ A description of the variables in the `nobel` data are as follows:
 
 1.  Display a summary table of the sample average and standard deviation of the ages of Nobel laureates at the time of receiving the prize. Do this in a single pipeline by:
 
--   Creating a new variable that represents the age of the laureate when they one their prize, calculated as the year they received the award minus the year they were born
+-   Creating a new variable that represents the age of the laureate when they won their prize, calculated as the year they received the award minus the year they were born
 -   Filtering to only retain observations for which your newly calculated age variable is available
 -   Writing code to actually create the summary statistics
 
@@ -68,9 +66,9 @@ Create a frequency table to confirm that you have 21 female and 222 male laureat
 
 ```
 
-3.  **Buzzfeed's Claim #1: "Most living Nobel laureates were based in the US when they won their prizes”.** Let’s see if that’s true.
+3.  **Buzzfeed published an article in 2017 claiming: "Most living Nobel laureates were based in the US when they won their prizes”.** Let’s see if that’s true.
 
-Modify (i.e. store/assign over) your `nobel_living` data frame by with a new version that as an additional variable called `country_base`. The variable should equal:
+Modify (i.e. store/assign over) your `nobel_living` data frame with a new version that has an additional variable called `country_base`. The variable should equal:
 
 -   "USA" if the laureate was based in the USA when they won
 -   "Other" if the laureate's was based in the USA when they won
@@ -89,9 +87,9 @@ You will have to use the `if_else()` function. Take a look at its Help file (and
 
 ```
 
-5.  Using the data frame `nobel_living_science`, create a faceted bar plot with horizontal bars that visualizes the relationship between 1) the category of prize and 2) whether the laureate was in the US when they won the Nobel prize. Note: Your visualization should be faceted by category. For each facet you should have two bars, one for winners based in the US and one for Other.
+5.  Using the data frame `nobel_living_science`, create a bar plot with horizontal bars that visualizes the relationship between 1) the category of prize and 2) whether the laureate was in the US when they won the Nobel prize. 
 
-Interpret your visualization, and say a few words about whether the Buzzfeed Claim #1 is supported by the data.
+Interpret your visualization, and say a few words about whether Buzzfeed's claim is supported by the data.
 
 ```{r}
 
@@ -102,39 +100,7 @@ Interpret your visualization, and say a few words about whether the Buzzfeed Cla
 
 *Now would be a good time to render your work to save the progress and make sure everything is working!*
 
-6.  **Buzzfeed's Claim #2: "But of those US-based Nobel laureates, many were born in other countries."** Let's investigate this second claim!
-
-The following code reads in another dataset that has information about the birthplaces of these Nobel laureates. We store the resulting data frame as `born_info`. Run the following code chunk (no need to do anything here). The variables in the data frame are:
-
--   `ID`: unique identifier of laureate
--   `born_city`: city where laureate was born
--   `born_country`: country where laureate was born
--   `born_country_code`: two-letter country code of `born_country`
-
-```{r message = F}
-url2 <- "https://raw.githubusercontent.com/midd-stat201-spring2025/midd-stat201-spring2025.github.io/refs/heads/main/data/nobel_born_info.csv"
-born_info <- read_csv(url2)
-```
-
-Now, add the information from `born_info` into the `nobel_living_science` data frame, retaining only observations from `nobel_living_science`. Store the resulting data frame as a new one called `nobel_living_science2`.
-
-```{r}
-
-```
-
-Then create a new variable called `born_country_us` that has the value "USA" if the laureate is born in the US, and "Other" if not. Be sure to save the variable to the data frame by storing the output back into `nobel_living_science2`.
-
-```{r}
-
-```
-
-7.  Let's improve on our previous visualization here. Visualize the relationship between where the laureate was based when they won the Nobel Prize and where they were born, split by category. Your final visualization should:
-
--   contain a facet for each category
--   within each facet, bars for whether the laureate won the award in the US or not
--   within each bar, display whether the laureate was born in the US or not
-
-Based on your visualization, do the data appear to support Buzzfeed’s Claim #2? Explain your reasoning in a few sentences.
+6.  Let's return to the general data set `nobel` again. Display a data frame that shows the five institutions that have produced the most Nobel laureates, along with the number of winners. What do you notice about these institutions?
 
 ```{r}
 
@@ -142,10 +108,24 @@ Based on your visualization, do the data appear to support Buzzfeed’s Claim #2
 
 **Answer:**
 
-8.  We will explore where the non-US laureates were born. In a single pipeline starting with `nobel_living_science2`, filter for laureates who were living in the US when they won their prize but where born outside of the US. Then create a frequency table for their birth country, only displaying the countries with at least three laureates. Display your order in descending order of number of laureates.
+7.  Finally, let's do some EDA about the distribution of female Nobel Laureates. 
+
+**In the first chunk below**: Using the original data set and focusing on female Nobel Laureates, display a summary table that shows: for each prize category, 1) the total number and 2) the average age at winning (for whom we have information about age). *Hint: the function n() might be helpful. Take a look at its Help file!* Order your summary table from most to least winners. 
+
+**In the second chunk below**: find/display the number of unique female Nobel Laureates. 
+
+Comment briefly on some findings.
+
 
 ```{r}
 
 ```
 
-Once you're finished, render once more.
+```{r}
+
+```
+
+**Answer:**
+
+
+*Render one last time, and then submit the rendered PDF alongside the written portion to Gradescope!*

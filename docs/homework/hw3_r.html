@@ -7,7 +7,7 @@
 <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
 
 <meta name="author" content="Your name">
-<meta name="dcterms.date" content="2025-03-03">
+<meta name="dcterms.date" content="2025-09-29">
 
 <title>STAT 201: Problem Set 3 (R) – STAT 201: Intro. to Statistics and Data Science</title>
 <style>
@@ -191,7 +191,7 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
     <div>
     <div class="quarto-title-meta-heading">Published</div>
     <div class="quarto-title-meta-contents">
-      <p class="date">March 3, 2025</p>
+      <p class="date">September 29, 2025</p>
     </div>
   </div>
   
@@ -204,8 +204,7 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 
 
 <p><strong>Unless explicitly stated, you do not need to store the result of data wrangling as new variables in <code>R</code>.</strong></p>
-<p>In January 2017, Buzzfeed published an article titled <a href="https://www.buzzfeednews.com/article/peteraldhous/immigration-and-science">“These Nobel Prize Winners Show Why Immigration Is So Important For American Science”</a>. In the article they explore where many Nobel laureates in the sciences were born and where they lived when they won their prize.</p>
-<p>In this homework we will work with the data about Nobel laureates to recreate/update some of their visualizations with new data as well as explore new questions.</p>
+<p>In this homework we will work with the data about Nobel laureates to learn about how the prizes are distributed across different variables.</p>
 <div class="cell">
 <div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb1"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb1-1"><a href="#cb1-1" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(readr)</span>
 <span id="cb1-2"><a href="#cb1-2" aria-hidden="true" tabindex="-1"></a><span class="co"># add more packages here as necessary</span></span>
@@ -215,7 +214,7 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 <span id="cb1-6"><a href="#cb1-6" aria-hidden="true" tabindex="-1"></a>nobel <span class="ot">&lt;-</span> <span class="fu">read_csv</span>(url_file, <span class="at">name_repair =</span> <span class="st">"unique_quiet"</span>)</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
 </div>
 <ol start="0" type="1">
-<li>Change your name in the YAML and add the package(s) necessary for creating ggplots and wrangling data in the code chunk above. Then run the code chunk to load in the data.</li>
+<li>Change your name in the YAML and add <em>only</em> the package(s) necessary for creating ggplots and wrangling data in the code chunk above. Then run the code chunk to load in the data.</li>
 </ol>
 <p>A description of the variables in the <code>nobel</code> data are as follows:</p>
 <ul>
@@ -237,7 +236,7 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 <li>Display a summary table of the sample average and standard deviation of the ages of Nobel laureates at the time of receiving the prize. Do this in a single pipeline by:</li>
 </ol>
 <ul>
-<li>Creating a new variable that represents the age of the laureate when they one their prize, calculated as the year they received the award minus the year they were born</li>
+<li>Creating a new variable that represents the age of the laureate when they won their prize, calculated as the year they received the award minus the year they were born</li>
 <li>Filtering to only retain observations for which your newly calculated age variable is available</li>
 <li>Writing code to actually create the summary statistics</li>
 </ul>
@@ -253,9 +252,9 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 </ul>
 <p>Create a frequency table to confirm that you have 21 female and 222 male laureates in your new data frame:</p>
 <ol start="3" type="1">
-<li><strong>Buzzfeed’s Claim #1: “Most living Nobel laureates were based in the US when they won their prizes”.</strong> Let’s see if that’s true.</li>
+<li><strong>Buzzfeed published an article in 2017 claiming: “Most living Nobel laureates were based in the US when they won their prizes”.</strong> Let’s see if that’s true.</li>
 </ol>
-<p>Modify (i.e.&nbsp;store/assign over) your <code>nobel_living</code> data frame by with a new version that as an additional variable called <code>country_base</code>. The variable should equal:</p>
+<p>Modify (i.e.&nbsp;store/assign over) your <code>nobel_living</code> data frame with a new version that has an additional variable called <code>country_base</code>. The variable should equal:</p>
 <ul>
 <li>“USA” if the laureate was based in the USA when they won</li>
 <li>“Other” if the laureate’s was based in the USA when they won</li>
@@ -266,41 +265,23 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 <li>Create a new data frame called <code>nobel_living_science</code> that only retains observations with laureates from the Physics, Chemistry, Medicine, and Economics categories from the <code>nobel_living</code> data frame.</li>
 </ol>
 <ol start="5" type="1">
-<li>Using the data frame <code>nobel_living_science</code>, create a faceted bar plot with horizontal bars that visualizes the relationship between 1) the category of prize and 2) whether the laureate was in the US when they won the Nobel prize. Note: Your visualization should be faceted by category. For each facet you should have two bars, one for winners based in the US and one for Other.</li>
+<li>Using the data frame <code>nobel_living_science</code>, create a bar plot with horizontal bars that visualizes the relationship between 1) the category of prize and 2) whether the laureate was in the US when they won the Nobel prize.</li>
 </ol>
-<p>Interpret your visualization, and say a few words about whether the Buzzfeed Claim #1 is supported by the data.</p>
+<p>Interpret your visualization, and say a few words about whether Buzzfeed’s claim is supported by the data.</p>
 <p><strong>Answer:</strong></p>
 <p><em>Now would be a good time to render your work to save the progress and make sure everything is working!</em></p>
 <ol start="6" type="1">
-<li><strong>Buzzfeed’s Claim #2: “But of those US-based Nobel laureates, many were born in other countries.”</strong> Let’s investigate this second claim!</li>
+<li>Let’s return to the general data set <code>nobel</code> again. Display a data frame that shows the five institutions that have produced the most Nobel laureates, along with the number of winners. What do you notice about these institutions?</li>
 </ol>
-<p>The following code reads in another dataset that has information about the birthplaces of these Nobel laureates. We store the resulting data frame as <code>born_info</code>. Run the following code chunk (no need to do anything here). The variables in the data frame are:</p>
-<ul>
-<li><code>ID</code>: unique identifier of laureate</li>
-<li><code>born_city</code>: city where laureate was born</li>
-<li><code>born_country</code>: country where laureate was born</li>
-<li><code>born_country_code</code>: two-letter country code of <code>born_country</code></li>
-</ul>
-<div class="cell">
-<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb2"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb2-1"><a href="#cb2-1" aria-hidden="true" tabindex="-1"></a>url2 <span class="ot">&lt;-</span> <span class="st">"https://raw.githubusercontent.com/midd-stat201-spring2025/midd-stat201-spring2025.github.io/refs/heads/main/data/nobel_born_info.csv"</span></span>
-<span id="cb2-2"><a href="#cb2-2" aria-hidden="true" tabindex="-1"></a>born_info <span class="ot">&lt;-</span> <span class="fu">read_csv</span>(url2)</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
-</div>
-<p>Now, add the information from <code>born_info</code> into the <code>nobel_living_science</code> data frame, retaining only observations from <code>nobel_living_science</code>. Store the resulting data frame as a new one called <code>nobel_living_science2</code>.</p>
-<p>Then create a new variable called <code>born_country_us</code> that has the value “USA” if the laureate is born in the US, and “Other” if not. Be sure to save the variable to the data frame by storing the output back into <code>nobel_living_science2</code>.</p>
-<ol start="7" type="1">
-<li>Let’s improve on our previous visualization here. Visualize the relationship between where the laureate was based when they won the Nobel Prize and where they were born, split by category. Your final visualization should:</li>
-</ol>
-<ul>
-<li>contain a facet for each category</li>
-<li>within each facet, bars for whether the laureate won the award in the US or not</li>
-<li>within each bar, display whether the laureate was born in the US or not</li>
-</ul>
-<p>Based on your visualization, do the data appear to support Buzzfeed’s Claim #2? Explain your reasoning in a few sentences.</p>
 <p><strong>Answer:</strong></p>
-<ol start="8" type="1">
-<li>We will explore where the non-US laureates were born. In a single pipeline starting with <code>nobel_living_science2</code>, filter for laureates who were living in the US when they won their prize but where born outside of the US. Then create a frequency table for their birth country, only displaying the countries with at least three laureates. Display your order in descending order of number of laureates.</li>
+<ol start="7" type="1">
+<li>Finally, let’s do some EDA about the distribution of female Nobel Laureates.</li>
 </ol>
-<p>Once you’re finished, render once more.</p>
+<p><strong>In the first chunk below</strong>: Using the original data set and focusing on female Nobel Laureates, display a summary table that shows: for each prize category, 1) the total number and 2) the average age at winning (for whom we have information about age). <em>Hint: the function n() might be helpful. Take a look at its Help file!</em> Order your summary table from most to least winners.</p>
+<p><strong>In the second chunk below</strong>: find/display the number of unique female Nobel Laureates.</p>
+<p>Comment briefly on some findings.</p>
+<p><strong>Answer:</strong></p>
+<p><em>Render one last time, and then submit the rendered PDF alongside the written portion to Gradescope!</em></p>
 
 
 
