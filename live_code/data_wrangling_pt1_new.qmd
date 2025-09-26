@@ -138,8 +138,6 @@ books |>
   DT::datatable(options = list(pageLength = 3))
 ```
 
-
-
 ::: callout-tip
 ## Note
 
@@ -190,7 +188,6 @@ books2 |>
             mean_amazon_price = mean(amazon_price))
 ```
 
-
 ::: column-margin
 You can obtain multiple summary statistics at once by separating the desired summary statistics with commas.
 :::
@@ -200,6 +197,3 @@ You can obtain multiple summary statistics at once by separating the desired sum
 
 The `summarise()` function changes the data frame entirely. It collapses rows down to a summary statistic, and removes all columns that are irrelevant to the calculation.
 :::
-
-
-

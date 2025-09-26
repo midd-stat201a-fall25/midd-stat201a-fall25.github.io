@@ -14,7 +14,7 @@ library(tidyverse)
 ```
 
 ```{r eval = F}
-url_file <- https://raw.githubusercontent.com/midd-stat201a-fall25/midd-stat201a-fall25.github.io/refs/heads/main/data/amazon_books.csv
+url_file <- "https://raw.githubusercontent.com/midd-stat201a-fall25/midd-stat201a-fall25.github.io/refs/heads/main/data/amazon_books.csv"
 books <- read_csv(url_file)
 ```
 
@@ -136,8 +136,6 @@ books |>
   DT::datatable(options = list(pageLength = 3))
 ```
 
-
-
 ::: callout-tip
 ## Note
 
@@ -176,12 +174,10 @@ books2 |>
   summarise(mean_list_price = mean(list_price))
 ```
 
-
 ```{r}
 books2 |>
   summarise(mean_list_price = mean(list_price), sd_list_price = sd(list_price))
 ```
-
 
 ::: column-margin
 You can obtain multiple summary statistics at once by separating the desired summary statistics with commas.
@@ -192,4 +188,3 @@ You can obtain multiple summary statistics at once by separating the desired sum
 
 The `summarise()` function changes the data frame entirely. It collapses rows down to a summary statistic, and removes all columns that are irrelevant to the calculation.
 :::
-

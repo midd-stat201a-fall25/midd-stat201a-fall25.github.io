@@ -235,6 +235,10 @@ format:
         <ul>
           <li> <a href="partner.qmd">Partner programming</a>: Activity 2 </li>
           <li> Topic: More wrangling </li>
+          <ul>
+            <li>Live code <a href="live_code/data_wrangling_pt2_alex.qmd">from today</a></li>
+            <li><a href="live_code/data_wrangling_pt2_new.qmd">Extra code with descriptions!</a></li>
+          </ul>
         </ul>
       </td>
       <td>

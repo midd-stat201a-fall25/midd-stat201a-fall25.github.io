@@ -1,0 +1,88 @@
+---
+title: "Class Notes"
+subtitle: "With Prof. Lyford"
+date: "9/25/2025"
+format: html
+---
+
+These are the live code notes from Professor Lyford. Note that there's another set of notes on the schedule that gives more detailed descriptions of these functions using the `books` dataset from Wednesday!
+
+```{r message = F}
+# install the package if necessary!
+library(nycflights23)
+library(tidyverse)
+```
+
+```{r}
+#What is the average departure delay for each carrier's flights?
+# (By carrier, what is the avg flight delay?)
+
+#The long way:
+flights |>
+  filter(carrier == "DL") |>
+  summarize(mean_delay = mean(dep_delay, na.rm = TRUE))
+flights |>
+  filter(carrier == "AA") |>
+  summarize(mean_delay = mean(dep_delay, na.rm = TRUE))
+```
+
+# `group_by()` for grouped operations
+
+```{r}
+#Introducing "group_by()"
+flights |>
+  group_by(carrier) |>
+  summarize(mean_delay = mean(dep_delay, na.rm = TRUE))
+
+flights |>
+  filter(!is.na(dep_delay)) |>
+  group_by(carrier) |>
+  summarize(mean_delay = mean(dep_delay, na.rm = TRUE))
+```
+
+
+## `arrange()` to sort rows
+
+
+```{r}
+flights |>
+  group_by(carrier) |>
+  summarize(mean_delay = mean(dep_delay, na.rm = TRUE)) |>
+  arrange(-mean_delay)
+
+flights |>
+  filter(dep_delay > 0) |>
+  group_by(carrier) |>
+  summarize(mean_delay = mean(dep_delay, na.rm = TRUE)) |>
+  arrange(-mean_delay)
+
+#Let's find the average departure delay by origin
+flights |>
+  filter(dep_delay > 0) |>
+  group_by(origin) |>
+  summarize(mean_delay = mean(dep_delay, na.rm = TRUE)) |>
+  arrange(-mean_delay)
+
+```
+
+
+## `select()` to choose certain columns
+
+```{r}
+flights |>
+  select(carrier, dep_delay)
+
+flights |>
+  select(carrier, dep_delay, arr_delay, air_time) |>
+  group_by(carrier) |>
+  summarize_all(mean, na.rm=T) # this can be a helpful function!
+
+```
+
+## piping directly into `ggplot()`
+```{r}
+#Let's make a graph of all departure delays
+flights |>
+  ggplot() +
+  geom_boxplot(aes(x = dep_delay))
+```
