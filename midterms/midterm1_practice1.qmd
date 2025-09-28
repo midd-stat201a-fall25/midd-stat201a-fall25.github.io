@@ -31,7 +31,7 @@ wine_ratings <- read_csv("https://raw.githubusercontent.com/midd-stat201-spring2
 
 First, modify the `wine_ratings` data to remove observations for which we don't have information about price.
 
-First, find the three countries that are most represented in the dataset. Once you have identified those countries, create a new data frame called `wine_ratings_top` that only retains observations from those three countries.
+Then find the three countries that are most represented in the dataset. Once you have identified those countries, create a new data frame called `wine_ratings_top` that only retains observations from those three countries.
 
 ```{r}
 
@@ -59,7 +59,12 @@ For each of the three countries identified earlier, what proportion of their win
 
 Find the rendered version of this document on the course website. Re-create the plot you see there and interpret it.
 
-```{r}
+```{r message = F, echo = F}
+library(tidyverse)
+wine_ratings <- read_csv("https://raw.githubusercontent.com/midd-stat201-spring2025/midd-stat201-spring2025.github.io/refs/heads/main/data/wine_ratings.csv", show_col_types = FALSE, col_types = "ccnncccn")
+
+wine_ratings <- wine_ratings |>
+  filter(!is.na(price))
 
 ```
 

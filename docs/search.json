@@ -25,7 +25,7 @@
     "href": "schedule.html",
     "title": "Schedule",
     "section": "",
-    "text": "Jump to:\n\n\n\n\nWeek 1\n\n\nWeek 2\n\n\nWeek 3\n\n\nWeek 4\n\n\nWeek 5\n\n\nWeek 6\n\n\nWeek 7\n\n\nWeek 8\n\n\nWeek 9\n\n\nWeek 10\n\n\nWeek 11\n\n\nWeek 12\n\n\n\n\n\n\n\n\nWeek\n\n\nDate\n\n\nIn-class material\n\n\nCoding practice\n\n\nAssignments\n\n\n\n\n\n\n\n1\n\n\nM 9/08\n\n\n\n\nTopic: Welcome!\n\n\nDirections for printing at bottom\n\n\n\n\n\n\n\n\nSubmit Problem Set 0 by tomorrow 9/09 11:59pm class\n\n\nTry to install R and RStudio before Thursday’s 9/11 class using these instructions\n\n\n\n\n\n\n\n\nW 9/10\n\n\n\n\nTopic: Study design Study design (pdf here)\n\n\n\n\n\n\n\n\n\nInstall R and RStudio before Thursday class using these instructions\n\n\nWednesday problems on Problem Set 1\n\n\n\n\n\n\n\n\nR 9/11\n\n\n\n\nTopic: Programming toolkit (no need to take notes!)\n\n\n\nRStudio help sheet\n\n\n\nR and .qmd basics\n\n\n\nDownload the following .qmd template and drag to your new STAT 201 folder  Intro to R template \n\n\n\n\n\n\n\nIntro to R and Quarto Markdown. Due Friday 9/12 at 11:59pm!  Coding practice \n\n\n\n\n\n\nThursday problems on Problem Set 1\n\n\n\n\n\n\n\n2\n\n\nM 9/15\n\n\n\n\nTopic: Numerical data (part 1) (pdf here)\n\n\n\nCode: here\n\n\n\n\n\n\n\n\n\nMonday problems on Problem Set 2\n\n\n\n\n\n\n\n\nW 9/17\n\n\n\n\nTopic: Numerical data (part 2) (pdf here)\n\n\n\n\n\n\nNumerical data. Due tonight at 11:59pm!  Coding practice \n\n\n\n\n\n\nWednesday problems on Problem Set 2\n\n\n\n\n\n\n\n\nR 9/18\n\n\n\n\nTopic: Introduction to ggplot (pdf here)\n\n\n\n.qmd template to follow live code  Live code \n\n\n\n\n\n\n\nIntroduction to ggplot  Coding practice \n\n\n\n\n\n\nThursday problems on Problem Set 2, i.e. the problems in the following .qmd  hw2_R \n\n\n\nFor easier reading: the rendered R problems\n\n\n\n\n\n\n\n3\n\n\nM 9/22\n\n\n\n\nTopic: Categorical data (pdf here)\n\n\n\n\n\n\nVisualizing categorical data in ggplot  Coding practice \n\n\n\n\n\n\nMonday problems on Problem Set 3\n\n\n\n\n\n\n\n\nW 9/24\n\n\n\n\nPartner programming: Activity 1\n\n\nTopic: Data wrangling (pdf here)\n\nurl_file &lt;- \"https://raw.githubusercontent.com/midd-stat201a-fall25/midd-stat201a-fall25.github.io/refs/heads/main/data/amazon_books.csv\"\nCopy\n\n\n\nLive code from today\n\n\n\n\n\n\nData wrangling practice (due tomorrow night!)  Coding practice  Note: 0, 3 and 4 are doable after today!\n\n\n\n\n\n\nWednesday problems in Problem Set 3  hw3_R \n\n\nRendered version of .qmd template for easier reading!\n\n\n\n\n\n\n\n\nR 9/25\n\n\n\n\nPartner programming: Activity 2\n\n\nTopic: More wrangling\n\n\n\nLive code from today\n\n\nExtra code with descriptions!\n\n\n\n\n\n\n\nFinish data wrangling coding practice\n\n\n\n\n\n\nThursday problems in Problem Set 3"
+    "text": "Jump to:\n\n\n\n\nWeek 1\n\n\nWeek 2\n\n\nWeek 3\n\n\nWeek 4\n\n\nWeek 5\n\n\nWeek 6\n\n\nWeek 7\n\n\nWeek 8\n\n\nWeek 9\n\n\nWeek 10\n\n\nWeek 11\n\n\nWeek 12\n\n\n\n\n\n\n\n\nWeek\n\n\nDate\n\n\nIn-class material\n\n\nCoding practice\n\n\nAssignments\n\n\n\n\n\n\n\n1\n\n\nM 9/08\n\n\n\n\nTopic: Welcome!\n\n\nDirections for printing at bottom\n\n\n\n\n\n\n\n\nSubmit Problem Set 0 by tomorrow 9/09 11:59pm class\n\n\nTry to install R and RStudio before Thursday’s 9/11 class using these instructions\n\n\n\n\n\n\n\n\nW 9/10\n\n\n\n\nTopic: Study design Study design (pdf here)\n\n\n\n\n\n\n\n\n\nInstall R and RStudio before Thursday class using these instructions\n\n\nWednesday problems on Problem Set 1\n\n\n\n\n\n\n\n\nR 9/11\n\n\n\n\nTopic: Programming toolkit (no need to take notes!)\n\n\n\nRStudio help sheet\n\n\n\nR and .qmd basics\n\n\n\nDownload the following .qmd template and drag to your new STAT 201 folder  Intro to R template \n\n\n\n\n\n\n\nIntro to R and Quarto Markdown. Due Friday 9/12 at 11:59pm!  Coding practice \n\n\n\n\n\n\nThursday problems on Problem Set 1\n\n\n\n\n\n\n\n2\n\n\nM 9/15\n\n\n\n\nTopic: Numerical data (part 1) (pdf here)\n\n\n\nCode: here\n\n\n\n\n\n\n\n\n\nMonday problems on Problem Set 2\n\n\n\n\n\n\n\n\nW 9/17\n\n\n\n\nTopic: Numerical data (part 2) (pdf here)\n\n\n\n\n\n\nNumerical data. Due tonight at 11:59pm!  Coding practice \n\n\n\n\n\n\nWednesday problems on Problem Set 2\n\n\n\n\n\n\n\n\nR 9/18\n\n\n\n\nTopic: Introduction to ggplot (pdf here)\n\n\n\n.qmd template to follow live code  Live code \n\n\n\n\n\n\n\nIntroduction to ggplot  Coding practice \n\n\n\n\n\n\nThursday problems on Problem Set 2, i.e. the problems in the following .qmd  hw2_R \n\n\n\nFor easier reading: the rendered R problems\n\n\n\n\n\n\n\n\n3\n\n\nM 9/22\n\n\n\n\nTopic: Categorical data (pdf here)\n\n\n\n\n\n\nVisualizing categorical data in ggplot  Coding practice \n\n\n\n\n\n\nMonday problems on Problem Set 3\n\n\n\n\n\n\n\n\nW 9/24\n\n\n\n\nPartner programming: Activity 1\n\n\nTopic: Data wrangling (pdf here)\n\nurl_file &lt;- \"https://raw.githubusercontent.com/midd-stat201a-fall25/midd-stat201a-fall25.github.io/refs/heads/main/data/amazon_books.csv\"\nCopy\n\n\n\nLive code from today\n\n\n\n\n\n\nData wrangling practice (due tomorrow night!)  Coding practice  Note: 0, 3 and 4 are doable after today!\n\n\n\n\n\n\nWednesday problems in Problem Set 3  hw3_R \n\n\nRendered version of .qmd template for easier reading!\n\n\n\n\n\n\n\n\nR 9/25\n\n\n\n\nPartner programming: Activity 2\n\n\nTopic: More wrangling\n\n\n\nLive code from today\n\n\nExtra code with descriptions!\n\n\n\n\n\n\n\nFinish data wrangling coding practice\n\n\n\n\n\n\nThursday problems in Problem Set 3\n\n\n\n\n\n\n\n4\n\n\nM 9/29\n\n\n\n\nPartner programming: Activity 3\n\n\nTopic: Intro to Probability (pdf here)\n\n\n\n\n\n\n\n\nMonday problems on Problem Set 4\n\n\n\n\n\n\n\n\nW 10/01\n\n\n\n\nIntroduce Midterm 1\n\n\nTopic: Conditional probability\n\n\n\n\n\n\n\n\nWednesday problems in Problem Set 4\n\n\n\n\n\n\n\n\nR 10/02\n\n\n\n\nPartner programming: Activity 4\n\n\nTopic: Joins, case_when, Simpson’s paradox\n\n\n\n\n\n\nJoins and case_when coding practice\n\n\n\n\n\n\nThursday problems in Problem Set 4\n\n\nStudy for Midterm 1"
   },
   {
     "objectID": "slides/slides-01-study-design.html#population-and-samples",
@@ -6192,7 +6192,7 @@
     "href": "slides/slides-08-joins.html#joining-data-frames",
     "title": "Joining data frames",
     "section": "Joining data frames",
-    "text": "Joining data frames\nAssume we have two data frames, df1 and df2. There are some shared variable(s) across the two.\nWe want to combine df1 and df2 into one single data frame. The dplyr code will look something like:\n\n\nxxx_join(df1, df2)\n\n\n\nHow do we combine df1 and df2 them? The following mutating joins give us rules:\n\nleft_join(): keep all cases from df1\nright_join(): keep all cases from df2\nfull_join(): keep all cases from both df1 and df2\ninner_join(): keep all cases from df1 where there are matching values in df2 (more complicated in the scenario of multiple matches)\n\n\n\nI know this is confusing! Examples will help clarify! ::: {.discuss} Based off what we learned yesterday, why do you think these are called “mutating” joins?\n\n:::"
+    "text": "Joining data frames\nAssume we have two data frames, df1 and df2. There are some shared variable(s) across the two.\nWe want to combine df1 and df2 into one single data frame. The dplyr code will look something like:\n\n\nxxx_join(df1, df2)\n\n\n\nHow do we combine df1 and df2 them? The following mutating joins give us rules:\n\nleft_join(): keep all cases from df1\nright_join(): keep all cases from df2\nfull_join(): keep all cases from both df1 and df2\ninner_join(): keep all cases from df1 where there are matching values in df2 (more complicated in the scenario of multiple matches)\n\n\n\nI know this is confusing! Examples will help clarify!"
   },
   {
     "objectID": "slides/slides-08-joins.html#setup",
@@ -6269,7 +6269,7 @@
     "href": "slides/slides-08-joins.html#example",
     "title": "Joining data frames",
     "section": "Example",
-    "text": "Example\n\n\nWe have data on fishery harvests (in tons) by countries from 2016, stored in data frame fish:\n\nWhat does this code do?\n\n\nfish |&gt;\n    slice(1:8)\n\n\n\n\n\n\n\ncountry\ncapture\naquaculture\n\n\n\n\nAfghanistan\n1000\n1200\n\n\nAlbania\n7886\n950\n\n\nAlgeria\n95000\n1361\n\n\nAmerican Samoa\n3047\n20\n\n\nAndorra\n0\n0\n\n\nAngola\n486490\n655\n\n\nAntigua and Barbuda\n3000\n10\n\n\nArgentina\n755226\n3673\n\n\n\n\n\n\n\n\nSuppose I would like to explore the data on a continent level. We have another data frame called continent that looks like this:\n\ncontinents |&gt;\n  slice(1:8)\n\n\n\n\n\n\ncountry\ncontinent\n\n\n\n\nAfghanistan\nAsia\n\n\nÅland Islands\nEurope\n\n\nAlbania\nEurope\n\n\nAlgeria\nAfrica\n\n\nAmerican Samoa\nOceania\n\n\nAndorra\nEurope\n\n\nAngola\nAfrica\n\n\nAnguilla\nAmericas"
+    "text": "Example\n\n\nWe have data on fishery harvests (in tons) by countries from 2016, stored in data frame fish:\n\nWhat does this code do?\n\n\nfish |&gt;\n    slice(1:8)\n\n\n\n\n\n\n\ncountry\ncapture\naquaculture\n\n\n\n\nAfghanistan\n1000\n1200\n\n\nAlbania\n7886\n950\n\n\nAlgeria\n95000\n1361\n\n\nAmerican Samoa\n3047\n20\n\n\nAndorra\n0\n0\n\n\nAngola\n486490\n655\n\n\nAntigua and Barbuda\n3000\n10\n\n\nArgentina\n755226\n3673\n\n\n\n\n\n\n\n\nSuppose I would like to explore the data on a continent level. We have another data frame called continent that looks like this:\n\ncontinents |&gt;\n  slice(1:8)\n\n\n\n\n\n\nCountry\ncontinent\n\n\n\n\nAfghanistan\nAsia\n\n\nÅland Islands\nEurope\n\n\nAlbania\nEurope\n\n\nAlgeria\nAfrica\n\n\nAmerican Samoa\nOceania\n\n\nAndorra\nEurope\n\n\nAngola\nAfrica\n\n\nAnguilla\nAmericas"
   },
   {
     "objectID": "slides/slides-08-joins.html#bringing-in-continent",
@@ -6283,7 +6283,7 @@
     "href": "slides/slides-08-joins.html#example-cont.",
     "title": "Joining data frames",
     "section": "Example (cont.)",
-    "text": "Example (cont.)\n\n\nQuestion 1:\n\nleft_join(fish, continents, by = \"country\") |&gt;\n  slice(1:9)\n\n\n\n\n\n\ncountry\ncapture\naquaculture\ncontinent\n\n\n\n\nAfghanistan\n1000\n1200\nAsia\n\n\nAlbania\n7886\n950\nEurope\n\n\nAlgeria\n95000\n1361\nAfrica\n\n\nAmerican Samoa\n3047\n20\nOceania\n\n\nAndorra\n0\n0\nEurope\n\n\nAngola\n486490\n655\nAfrica\n\n\nAntigua and Barbuda\n3000\n10\nNA\n\n\nArgentina\n755226\n3673\nAmericas\n\n\nArmenia\n3758\n16381\nAsia\n\n\n\n\n\n\nNotice the NA\n\n\n\nQuestion 2:\n\ninner_join(fish, continents, by = \"country\") |&gt;\n  slice(1:9)\n\n\n\n\n\n\ncountry\ncapture\naquaculture\ncontinent\n\n\n\n\nAfghanistan\n1000\n1200\nAsia\n\n\nAlbania\n7886\n950\nEurope\n\n\nAlgeria\n95000\n1361\nAfrica\n\n\nAmerican Samoa\n3047\n20\nOceania\n\n\nAndorra\n0\n0\nEurope\n\n\nAngola\n486490\n655\nAfrica\n\n\nArgentina\n755226\n3673\nAmericas\n\n\nArmenia\n3758\n16381\nAsia\n\n\nAruba\n142\n0\nAmericas"
+    "text": "Example (cont.)\n\n\nQuestion 1:\n\nleft_join(fish, continents, \n          by = c(\"country\" = \"Country\")) |&gt;\n  slice(1:8)\n\n\n\n\n\n\ncountry\ncapture\naquaculture\ncontinent\n\n\n\n\nAfghanistan\n1000\n1200\nAsia\n\n\nAlbania\n7886\n950\nEurope\n\n\nAlgeria\n95000\n1361\nAfrica\n\n\nAmerican Samoa\n3047\n20\nOceania\n\n\nAndorra\n0\n0\nEurope\n\n\nAngola\n486490\n655\nAfrica\n\n\nAntigua and Barbuda\n3000\n10\nNA\n\n\nArgentina\n755226\n3673\nAmericas\n\n\n\n\n\n\nNotice the NA\n\n\n\nQuestion 2:\n\ninner_join(fish, continents, \n           by = c(\"country\" = \"Country\")) |&gt;\n  slice(1:8)\n\n\n\n\n\n\ncountry\ncapture\naquaculture\ncontinent\n\n\n\n\nAfghanistan\n1000\n1200\nAsia\n\n\nAlbania\n7886\n950\nEurope\n\n\nAlgeria\n95000\n1361\nAfrica\n\n\nAmerican Samoa\n3047\n20\nOceania\n\n\nAndorra\n0\n0\nEurope\n\n\nAngola\n486490\n655\nAfrica\n\n\nArgentina\n755226\n3673\nAmericas\n\n\nArmenia\n3758\n16381\nAsia\n\n\n\n\n\n\n\n\nNotice we don’t have two copies of same country/Country variable!"
   },
   {
     "objectID": "slides/slides-08-joins.html#live-code",
@@ -6395,7 +6395,7 @@
     "href": "slides/slides-08-joins.html#housekeeping",
     "title": "Joining data frames",
     "section": "Housekeeping",
-    "text": "Housekeeping\n\nCoding practice due tonight!\nProblem Set 3 has large R component!! Be sure to get a head start on it!"
+    "text": "Housekeeping\n\nProblem Set 2 graded! Please look at feedback on Gradescope.\nProblem Set 3 due tonight!"
   },
   {
     "objectID": "slides/slides-08-joins.html#wrangle",
@@ -6472,28 +6472,28 @@
     "href": "slides/slides-09-probability.html#probability",
     "title": "Probability basics",
     "section": "Probability",
-    "text": "Probability\n\nFor us, the probability of an outcome is the proportion of times the outcome would occur if we observed the random process an infinite number of times\n\nProbability is used to express the likelihood that some outcome or event will or will not occur\nThink of as a proportion\n\nLet \\(A\\) denote some outcome or event. We denote the probability of \\(A\\) occurring as \\(\\text{P}(A)\\) or \\(\\text{Pr}(A)\\).\nWhen the sample space \\(S\\) is discrete with a finite size, and all outcomes equally likely, then \\(\\text{Pr}(A) = \\frac{\\text{ number of outcomes favorable to } A}{\\text{ number of total outcomes possible} }\\)"
+    "text": "Probability\n\nFor us, the probability of an outcome is the proportion of times the outcome would occur if we observed the random process an infinite number of times\n\nProbability is used to express the likelihood that some outcome or event will or will not occur\nThink of as a proportion\n\nLet \\(A\\) denote some outcome or event. We denote the probability of \\(A\\) occurring as \\(\\text{P}(A)\\) or \\(\\text{Pr}(A)\\).\nSpecial case: if sample space \\(S\\) is finite, and all outcomes are equally likely, then \\[\\text{Pr}(A) =  \\frac{\\text{ number of outcomes favorable to } A}{\\text{ number of total outcomes possible} }\\]"
   },
   {
     "objectID": "slides/slides-09-probability.html#example",
     "href": "slides/slides-09-probability.html#example",
     "title": "Probability basics",
     "section": "Example",
-    "text": "Example\nLet the random process rolling a fair, six-sided die one time. Let \\(X\\) be a random variable representing the value of the die.\n\nFor each of the following, determine the outcome(s) under consideration, along with the value of the probability itself:\n\n\\(\\text{Pr}(X = 1)\\)\n\\(\\text{Pr}(X = 1 \\text{ and } X = 2)\\)\n\\(\\text{Pr}(X \\text{ is even})\\)\n\n\n\nConvince ourselves that \\(X\\) is a RV. Recall: sample space is 1,..,6.\nPossible outcome is 1, and an event would be \\(X=1\\); the RV being 1.\nPossible event is 1 or 2."
+    "text": "Example\nSuppose we roll a fair, six-sided die one time. Let \\(X\\) be a random variable representing the value of the die.\n\n\n\nWhat is the sample space \\(S\\) of this random process?\nWhat is an example of an outcome from this process? Of an event?\n\n\n\n\nFor each of the following, determine the outcome(s) under consideration, along with the value of the probability of the event:\n\n\n\n\\(\\text{Pr}(X = 1)\\)\n\\(\\text{Pr}(X \\text{ is even})\\)\n\\(\\text{Pr}(X = 1 \\text{ and } X = 2)\\)\n\n\n\nConvince ourselves that \\(X\\) is a RV. Recall: sample space is 1,..,6.\nPossible outcome is 1, and an event would be \\(X=1\\); the RV being 1.\nPossible event is 1 or 2."
   },
   {
     "objectID": "slides/slides-09-probability.html#operations-with-events",
     "href": "slides/slides-09-probability.html#operations-with-events",
     "title": "Probability basics",
     "section": "Operations with events",
-    "text": "Operations with events\nLet \\(A\\) and \\(B\\) be two possible events.\n\nThe intersection of \\(A\\) and \\(B\\) is denoted as \\(A \\cap B\\), and is the set of outcomes that belong to both events \\(A\\) and \\(B\\)\nThe union of \\(A\\) and \\(B\\) is denoted as \\(A \\cup B\\), and is the set of outcomes that belong to \\(A\\) and/or \\(B\\)\n\n\nWhen we have only two or three events, Venn diagrams can be very useful for visualizing probabilities!"
+    "text": "Operations with events\nLet \\(A\\) and \\(B\\) be two possible events.\n\nThe intersection of \\(A\\) and \\(B\\) is the set of outcomes that belong to both events \\(A\\) and \\(B\\)\n\nDenoted as \\(A \\cap B\\), read as “\\(A\\) and \\(B\\)”\n\nThe union of \\(A\\) and \\(B\\) is the set of outcomes that belong to \\(A\\) and/or \\(B\\)\n\nDenoted as \\(A \\cup B\\), read as “\\(A\\) or \\(B\\)”\n\n\n\nWhen we have only two or three events, Venn diagrams can be very useful for visualizing probabilities!"
   },
   {
     "objectID": "slides/slides-09-probability.html#disjoint-events",
     "href": "slides/slides-09-probability.html#disjoint-events",
     "title": "Probability basics",
     "section": "Disjoint events",
-    "text": "Disjoint events\nTwo events are disjoint or mutually exclusive if they cannot simultaneously happen.\n\nThat is, if \\(A\\) and \\(B\\) are disjoint, then \\(\\text{Pr}(A \\cap B) = ?\\)\n\nIf our random process is rolling a six-sided die one time, what are some examples of disjoint events?"
+    "text": "Disjoint events\nTwo events are disjoint or mutually exclusive if they cannot simultaneously happen.\n\nThat is, if \\(A\\) and \\(B\\) are disjoint, then \\(\\text{Pr}(A \\cap B) = \\emptyset\\)\n\nIf our random process is rolling a six-sided die one time, what are some examples of disjoint events?\n\nIf we observe any random process just one time, the outcomes are disjoint events!"
   },
   {
     "objectID": "slides/slides-09-probability.html#rules-of-probability",
@@ -6507,42 +6507,42 @@
     "href": "slides/slides-09-probability.html#addition-rule",
     "title": "Probability basics",
     "section": "Addition rule",
-    "text": "Addition rule\nLet \\(A\\) and \\(B\\) be two possible events. Then the addition rule states that the probability that at least one will occur is:\n\\[\nP(A \\cup B) = P(A) + P(B) - P(A \\cap B)\n\\]\n\nVenn diagram\nExample: in a standard deck of 52 cards, we have four suits (diamond, heart, club, spade) with 13 cards within each suit (1-10, Jack, Queen, King).\n\nSuppose we randomly draw one card from the shuffled deck.\nLet \\(A\\) be the event that the card is a spade.\nLet \\(B\\) be the event that the card is a face card (Jack, Queen or King).\nFind \\(P(A \\cup B)\\)."
+    "text": "Addition rule\nLet \\(A\\) and \\(B\\) be two possible events. Then the addition rule states that the probability that at least one will occur is:\n\\[\n\\text{Pr}(A \\cup B) = \\text{Pr}(A) + \\text{Pr}(B) - \\text{Pr}(A \\cap B)\n\\]\n\nVenn diagram\nExample: in a standard deck of 52 cards, we have four suits (diamond, heart, club, spade) with 13 cards within each suit (1-10, Jack, Queen, King).\n\nSuppose we randomly draw one card from the shuffled deck.\nLet \\(A\\) be the event that the card is a spade.\nLet \\(B\\) be the event that the card is a face card (Jack, Queen or King).\nFind \\(\\text{Pr}(A \\cup B)\\)."
   },
   {
     "objectID": "slides/slides-09-probability.html#complement",
     "href": "slides/slides-09-probability.html#complement",
     "title": "Probability basics",
     "section": "Complement",
-    "text": "Complement\n\nThe complement of an event \\(A\\) is the set of all outcomes in \\(S\\) that are not in \\(A\\)\n\nDenoted as \\(A^c\\)\n\nContinuing the dice example, if \\(A\\) is the event that a 1 or 2 is rolled, what is \\(A^c\\)?\nComplement rule: \\(\\text{Pr}(A^c) = 1 - \\text{Pr}(A)\\)\n\nLet our random process be the sum of two dice. What is the probability that…\n\nthe sum of the dice is \\(not\\) 6?\nthe sum is at least 4?"
+    "text": "Complement\n\nThe complement of an event \\(A\\) is the set of all outcomes in \\(S\\) that are not in \\(A\\)\n\nDenoted as \\(A^c\\)\n\nContinuing the dice example, if \\(A\\) is the event that a 1 or 2 is rolled, what is \\(A^c\\)?\nComplement rule: \\(\\text{Pr}(A^c) = 1 - \\text{Pr}(A)\\)\n\nLet our random process be rolling two fair dice, and \\(X\\) represents the sum of the two dice. What is the probability that…\n\nthe sum of the dice is \\(not\\) 6?\nthe sum is at least 4?"
   },
   {
     "objectID": "slides/slides-09-probability.html#independence",
     "href": "slides/slides-09-probability.html#independence",
     "title": "Probability basics",
     "section": "Independence",
-    "text": "Independence\n\nQualitatively, two processes are independent if knowing the outcome of one does not provide any information about the outcome of the other process\n\nExamples and non-examples?\n\nFormally: \\(A\\) and \\(B\\) are independent events if\\(\\text{Pr}(A \\cap B) = \\text{Pr}(A) \\times \\text{Pr}(B)\\)"
+    "text": "Independence\n\nQualitatively, two processes are independent if knowing the outcome of one does not provide any information about the outcome of the other process\n\nExamples and non-examples?\n\nFormally: \\(A\\) and \\(B\\) are independent events if \\(\\text{Pr}(A \\cap B) = \\text{Pr}(A) \\times \\text{Pr}(B)\\)"
   },
   {
     "objectID": "slides/slides-09-probability.html#probability-distributions",
     "href": "slides/slides-09-probability.html#probability-distributions",
     "title": "Probability basics",
     "section": "Probability distributions",
-    "text": "Probability distributions\nWhen a random variable is discrete, it can be useful to discuss its probability distribution, which is a table of all (disjoint) outcomes and their associated probabilities.\n\n\nLet \\(X\\) be the sum of two fair, six-sided dice. What is the sample space associated with \\(S\\)?\nFill out the table below to display the probability distribution of \\(X\\):\n\n\n\n\n\n\n\\(X\\)\n2\n3\n4\n5\n6\n7\n\n\nProbability\n\n\n\n\n\n\n\n\n\\(X\\)\n8\n9\n10\n11\n12\n\n\n\nProbability\n\n\n\n\n\n\n\n\n\n\n\nWhy not include 1 or 13?"
+    "text": "Probability distributions\nWhen a random variable is discrete, it can be useful to discuss its probability distribution, which is a table of all outcomes and their associated probabilities.\n\n\nLet \\(X\\) be the sum of two fair, six-sided dice. What is the sample space associated with \\(S\\)?\nFill out the table below to display the probability distribution of \\(X\\):\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\\(x\\)\n2\n3\n4\n5\n6\n7\n8\n9\n10\n11\n12\n\n\n\\(\\text{Pr}(X=x)\\)\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\nWhy not include 1 or 13?"
   },
   {
     "objectID": "slides/slides-09-probability.html#probability-distributions-cont.",
     "href": "slides/slides-09-probability.html#probability-distributions-cont.",
     "title": "Probability basics",
     "section": "Probability distributions (cont.)",
-    "text": "Probability distributions (cont.)\nThe probability distribution of a discrete random variable \\(X\\) must satisfy the following three rules:\n\nThe values \\(x\\) listed must be disjoint\nEach probability must be between 0 and 1 (inclusive)\nThe probabilities must sum to 1\n\n\nLet’s confirm that the distribution we found on the previous slide satisfies these rules!"
+    "text": "Probability distributions (cont.)\nThe probability distribution of a discrete random variable \\(X\\) must satisfy the following three rules:\n\nDefines \\(\\text{Pr}(X=x)\\) for each outcome \\(x\\)\nEach probability must be between 0 and 1 (inclusive)\nThe probabilities must sum to 1\n\n\nLet’s confirm that the distribution we found on the previous slide satisfies these rules!"
   },
   {
     "objectID": "slides/slides-09-probability.html#practice",
     "href": "slides/slides-09-probability.html#practice",
     "title": "Probability basics",
     "section": "Practice",
-    "text": "Practice\n\nA Pew Research survey asked 2,373 randomly sampled registered voters their political affiliation (Republican, Democrat, or Independent) and whether or not they identify as swing voters. 35% of respondents identified as Independent, 23% identified as swing voters, and 11% identified as both.\n\nWhat percent of voters are Independent but not swing voters?\nWhat percent of voters are Independent or swing voters?\nWhat percent of voters are neither Independent nor swing voters?\nIs the event that someone is a swing voter independent of the event that someone is a political Independent?"
+    "text": "Practice\n\nA Pew Research survey asked 2,373 randomly sampled registered voters their political affiliation (Republican, Democrat, or Independent) and whether or not they identify as swing voters. 35% of respondents identified as Independent, 23% identified as swing voters, and 11% identified as both.\n\n\n\nIf I randomly sample one of the voters, what is the probability that they are…\n\nIndependent but not a swing voter?\nIndependent or a swing voter?\nNeither Independent nor swing voters?\n\nIs the event that someone is a swing voter independent of the event that someone is a political Independent?"
   },
   {
     "objectID": "slides/slides-10-conditional-probability.html#recap",
@@ -11071,14 +11071,14 @@
     "href": "slides/slides-08-joins.html#discuss",
     "title": "Joining data frames",
     "section": "Discuss",
-    "text": "Discuss\n\n\nfish data frame snapshot:\n\n\n\n\n\ncountry\ncapture\naquaculture\n\n\n\n\nAfghanistan\n1000\n1200\n\n\nAlbania\n7886\n950\n\n\nAlgeria\n95000\n1361\n\n\nAmerican Samoa\n3047\n20\n\n\nAndorra\n0\n0\n\n\n\n\n\n\ncontinents data frame snapshot:\n\n\n\n\n\ncountry\ncontinent\n\n\n\n\nAfghanistan\nAsia\n\n\nÅland Islands\nEurope\n\n\nAlbania\nEurope\n\n\nAlgeria\nAfrica\n\n\nAmerican Samoa\nOceania\n\n\n\n\n\n\n\n\nWe want to keep all rows and columns from fish and add a column for corresponding continents. Which join function should we use?\nWe want to keep only the rows from fish for which we have a corresponding continent and add a column for corresponding continents. Which join function should we use?\nWhich variable are we joining on?"
+    "text": "Discuss\n\n\nfish data frame snapshot:\n\n\n\n\n\ncountry\ncapture\naquaculture\n\n\n\n\nAfghanistan\n1000\n1200\n\n\nAlbania\n7886\n950\n\n\nAlgeria\n95000\n1361\n\n\nAmerican Samoa\n3047\n20\n\n\nAndorra\n0\n0\n\n\n\n\n\n\ncontinents data frame snapshot:\n\n\n\n\n\nCountry\ncontinent\n\n\n\n\nAfghanistan\nAsia\n\n\nÅland Islands\nEurope\n\n\nAlbania\nEurope\n\n\nAlgeria\nAfrica\n\n\nAmerican Samoa\nOceania\n\n\n\n\n\n\n\n\nWe want to keep all rows and columns from fish and add a column for corresponding continents. Which join function should we use?\nWe want to keep only the rows from fish for which we have a corresponding continent and add a column for corresponding continents. Which join function should we use?\nWhich variable(s) are we joining on?"
   },
   {
     "objectID": "slides/slides-08-joins.html#piping-into-xxx_join",
     "href": "slides/slides-08-joins.html#piping-into-xxx_join",
     "title": "Joining data frames",
     "section": "Piping into xxx_join()",
-    "text": "Piping into xxx_join()\n\nIn the following line of code, when would an NA be introduced? (Answer forthcoming.)\n\n\nright_join(fish, continents, by = \"country\")\n\n\nRemember in data wrangling, we pipe from a previous line of code directly into another\nWe can pipe into the join functions as well! The following achieves the same as above:\n\n\n\nfish |&gt;\n  right_join(continents, by = \"country\")"
+    "text": "Piping into xxx_join()\n\nIn the following line of code, when would an NA be introduced? (Answer forthcoming.)\n\n\nright_join(fish, continents, by = c(\"country\" = \"Country\"))\n\n\nRemember in data wrangling, we pipe from a previous line of code directly into another\nWe can pipe directly into the join functions! The following achieves the same as above:\n\n\n\nfish |&gt;\n  right_join(continents, by = c(\"country\" = \"Country\"))"
   },
   {
     "objectID": "slides/slides-08-joins.html#answer-to-previous-question",
@@ -11233,5 +11233,19 @@
     "title": "Class Notes",
     "section": "piping directly into ggplot()",
     "text": "piping directly into ggplot()\n\n#Let's make a graph of all departure delays\nflights |&gt;\n  ggplot() +\n  geom_boxplot(aes(x = dep_delay))\n\nWarning: Removed 10738 rows containing non-finite outside the scale range\n(`stat_boxplot()`)."
+  },
+  {
+    "objectID": "partner.html#activity-3-9292025",
+    "href": "partner.html#activity-3-9292025",
+    "title": "Partner programming activities",
+    "section": "Activity 3 (9/29/2025)",
+    "text": "Activity 3 (9/29/2025)\n\nCoder: coding task\nDeveloper .qmd:  Partner activity 3"
+  },
+  {
+    "objectID": "slides/slides-09-probability.html#example-cont.",
+    "href": "slides/slides-09-probability.html#example-cont.",
+    "title": "Probability basics",
+    "section": "Example (cont.)",
+    "text": "Example (cont.)\nNote: \\(S\\) is finite, and all outcomes equally likely! So \\(\\text{Pr}(A) = \\frac{\\text{ number of outcomes favorable to } A}{\\text{ number of total outcomes possible} }\\)\n\n\\(\\text{Pr}(X = 1) = \\frac{1}{6}\\)\n\nFavorable outomes: \\(\\{1\\}\\)\n\n\\(\\text{Pr}(X \\text{ is even}) = \\frac{3}{6}\\)\n\nFavorable outcomes: \\(\\{2,4,6\\}\\)\n\n\\(\\text{Pr}(X = 1 \\text{ and } X = 2) = 0\\)\n\nFavorable outcomes: \\(\\emptyset\\)"
   }
 ]

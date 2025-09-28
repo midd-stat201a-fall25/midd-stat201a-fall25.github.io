@@ -18,3 +18,7 @@ $presentation-font-size-root: 30px;
   color: maroon;
   font-weight: bold;
 }
+
+.reveal .r-stretch pre code .line.highlighted {
+  background-color: yellow;
+}

@@ -1,6 +1,6 @@
 ---
 title: "Joining data frames"
-date: "September 25, 2025"
+date: "September 29, 2025"
 title-slide-attributes:
     data-background-image: "figs/bikeshare-plots.png"
     data-background-size: contain
@@ -25,9 +25,9 @@ knitr::opts_chunk$set(echo = T, warning = F, messabundance = F)
 library(kableExtra)
 ```
 
--   Coding practice due tonight!
+-   Problem Set 2 graded! Please look at feedback on Gradescope.
 
--   Problem Set 3 has large `R` component!! Be sure to get a head start on it!
+-   Problem Set 3 due tonight!
 
 ## Joining data frames
 
@@ -49,9 +49,7 @@ xxx_join(df1, df2)
     -   `inner_join()`: keep all cases from `df1` where there are matching values in `df2` (more complicated in the scenario of multiple matches)
 
 ::: fragment
-I know this is confusing! Examples will help clarify! ::: {.discuss} Based off what we learned yesterday, why do you think these are called "mutating" joins?
-:::
-
+I know this is confusing! Examples will help clarify!
 :::
 
 <!-- -   Filtering joins (we won't use, but they can be helpful): -->
@@ -301,7 +299,8 @@ library(readr)
 fish_url <- "https://raw.githubusercontent.com/midd-stat201-spring2025/midd-stat201-spring2025.github.io/refs/heads/main/data/fisheries.csv"
 countries_url <- "https://raw.githubusercontent.com/math118-fall2022/website/refs/heads/master/docs/slides/lec-slides/data/continents.csv"
 fish <- read_csv(fish_url)
-continents <- read_csv(countries_url)
+continents <- read_csv(countries_url) |>
+  rename("Country" = "country")
 ```
 
 :::::::: columns
@@ -377,7 +376,7 @@ continents |>
 
 -   We want to keep only the rows from `fish` for which we have a corresponding continent and add a column for corresponding continents. Which join function should we use?
 
--   Which variable are we joining on?
+-   Which variable(s) are we joining on?
 :::
 
 ## Example (cont.)
@@ -387,13 +386,15 @@ continents |>
 Question 1:
 
 ```{r eval = F}
-left_join(fish, continents, by = "country") |>
-  slice(1:9)
+#| code-line-numbers: "1|2"
+left_join(fish, continents, 
+          by = c("country" = "Country")) |>
+  slice(1:8)
 ```
 
 ```{r echo = F}
-left_join(fish, continents, by = "country") |>
-  slice(1:9) |>
+left_join(fish, continents, by = c("country" = "Country")) |>
+  slice(1:8) |>
   kable() |>
   kable_styling(font_size = 20)
 ```
@@ -406,19 +407,22 @@ left_join(fish, continents, by = "country") |>
 Question 2:
 
 ```{r eval = F}
-inner_join(fish, continents, by = "country") |>
-  slice(1:9)
+inner_join(fish, continents, 
+           by = c("country" = "Country")) |>
+  slice(1:8)
 ```
 
 ```{r echo = F}
-inner_join(fish, continents, by = "country") |>
-  slice(1:9) |>
+inner_join(fish, continents, by = c("country" = "Country")) |>
+  slice(1:8) |>
   kable() |>
   kable_styling(font_size = 20)
 ```
 :::
 ::::
 ::::::
+
+-   Notice we don't have two copies of same `country`/`Country` variable!
 
 ## Piping into `xxx_join()`
 
@@ -427,17 +431,17 @@ In the following line of code, when would an `NA` be introduced? (Answer forthco
 :::
 
 ```{r eval = F}
-right_join(fish, continents, by = "country")
+right_join(fish, continents, by = c("country" = "Country"))
 ```
 
 -   Remember in data wrangling, we pipe from a previous line of code directly into another
 
--   We can pipe into the join functions as well! The following achieves the same as above:
+-   We can pipe directly into the join functions! The following achieves the same as above:
 
 ::: fragment
 ```{r eval = F}
 fish |>
-  right_join(continents, by = "country")
+  right_join(continents, by = c("country" = "Country"))
 ```
 :::
 
@@ -453,6 +457,6 @@ shrink_DT <- function(tbl, scale = 0.6) {
   )
 }
 shrink_DT(fish |>
-  right_join(continents, by = "country") |>
+  right_join(continents, by = c("country" = "Country")) |>
   DT::datatable())
 ```

@@ -1,0 +1,70 @@
+---
+title: "Partner Coding Practice 3"
+author: "Your names"
+format: pdf
+---
+
+We will use the `nyc_marathon` data set from `openintro`. In the first code chunk, load in `openintro` as well as the package(s) necessary for visualization and wrangling. Then take a look at the data.
+
+```{r message = F, echo = F}
+library(openintro)
+library(tidyverse)
+knitr::opts_chunk$set(echo = FALSE, eval = F)
+```
+
+## Exercise 1
+
+Make a **line** graph that shows visualizes the winning marathon times (in hours) by year. Differentiate between male and female winning times using color. *This is your first time making a line graph in this class, but use your intuition to find the correct function!*
+
+As a group, describe the trend in winning marathon times, for both men and women. Note any interesting features of the plot.  
+
+```{r}
+nyc_marathon |>
+  ggplot(aes(x = year, y = time_hrs, col = division)) +
+  geom_line()
+```
+
+
+## Exercise 2
+
+For NYC marathons beginning in 1980 and onward, obtain an informative summary table that displays the mean and standard deviation of the winning times for each gender. Your summary statistics should be calculated using as many cases as possible. 
+
+As a group, briefly interpret what you find.
+
+```{r}
+nyc_marathon |>
+  filter(year >= 1980) |>
+  group_by(division) |>
+  filter(!is.na(time_hrs)) |>
+  summarise(mean_time = mean(time_hrs), sd_time = sd(time_hrs))
+```
+
+## Exercise 3
+
+Use code to identify the person who has won the NYC marathon the most times.
+
+```{r}
+nyc_marathon |>
+  count(name) |>
+  arrange(desc(n)) |>
+  slice(1)
+```
+
+## Exercise 4
+
+*For this exercise, both coder the developer may discuss solution strategies. But be sure to communicate with each other!!*
+
+Re-create the following plot to the best of your abilities. Briefly interpret what you see.
+
+```{r eval = T}
+nyc_marathon |>
+  filter(year != 2020) |>
+  mutate(Country = if_else(country %in% c("United States", "Kenya", "Norway"), country,
+                       "Other")) |>
+  ggplot(aes(x = division, fill = Country)) +
+  geom_bar() +
+  labs(x = "Division", 
+       title = "Countries of NYC marathon winners since 1970",
+       caption = "Excluding the 2020 virtual marathon") 
+```
+

@@ -1,0 +1,38 @@
+---
+title: "Partner Coding Practice 3"
+author: "Your names"
+format: pdf
+---
+
+```{r message = F}
+
+```
+
+## Exercise 1
+
+```{r}
+
+
+```
+
+## Exercise 2
+
+```{r}
+
+
+```
+
+## Exercise 3
+
+```{r}
+
+
+```
+
+## Exercise 4
+
+```{r}
+
+
+```
+

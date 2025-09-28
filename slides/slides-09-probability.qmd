@@ -1,7 +1,7 @@
 ---
 title: "Probability basics"
 subtitle: "Part 1"
-date: "March 3, 2025"
+date: "September 29, 2025"
 title-slide-attributes:
     data-background-image: "figs/bikeshare-plots.png"
     data-background-size: contain
@@ -25,9 +25,6 @@ draft: false
 # Probability basics
 
 -   We spend a whole semester on this in MATH/STAT 310!
-
-<!-- -->
-
 -   We will need be comfortable talking about and develop some intuition for understanding how probabilities behave
 
 ## Key terms
@@ -68,17 +65,26 @@ draft: false
 
 -   Let $A$ denote some outcome or event. We denote the probability of $A$ occurring as $\text{P}(A)$ or $\text{Pr}(A)$.
 
--   When the sample space $S$ is discrete with a finite size, and all outcomes equally likely, then $\text{Pr}(A) =  \frac{\text{ number of outcomes favorable to } A}{\text{ number of total outcomes possible} }$
+-   Special case: if sample space $S$ is finite, and all outcomes are equally likely, then $$\text{Pr}(A) =  \frac{\text{ number of outcomes favorable to } A}{\text{ number of total outcomes possible} }$$
 
 ## Example
 
-Let the random process rolling a fair, six-sided die one time. Let $X$ be a random variable representing the value of the die.
+Suppose we roll a fair, six-sided die one time. Let $X$ be a random variable representing the value of the die.
 
--   For each of the following, determine the outcome(s) under consideration, along with the value of the probability itself:
+:::: fragment
+::: discuss
+-   What is the sample space $S$ of this random process?
+-   What is an example of an outcome from this process? Of an event?
+:::
+::::
 
-    -   $\text{Pr}(X = 1)$
-    -   $\text{Pr}(X = 1 \text{ and } X = 2)$
-    -   $\text{Pr}(X \text{ is even})$
+-   For each of the following, determine the outcome(s) under consideration, along with the value of the probability of the event:
+
+::: discuss
+-   $\text{Pr}(X = 1)$
+-   $\text{Pr}(X \text{ is even})$
+-   $\text{Pr}(X = 1 \text{ and } X = 2)$
+:::
 
 ::: notes
 Convince ourselves that $X$ is a RV. Recall: sample space is 1,..,6.
@@ -88,13 +94,28 @@ Possible outcome is 1, and an event would be $X=1$; the RV being 1.
 Possible event is 1 or 2.
 :::
 
+## Example (cont.)
+
+Note: $S$ is finite, and all outcomes equally likely! So $\text{Pr}(A) = \frac{\text{ number of outcomes favorable to } A}{\text{ number of total outcomes possible} }$
+
+-   $\text{Pr}(X = 1) = \frac{1}{6}$
+    -   Favorable outomes: $\{1\}$
+-   $\text{Pr}(X \text{ is even}) = \frac{3}{6}$
+    -   Favorable outcomes: $\{2,4,6\}$
+-   $\text{Pr}(X = 1 \text{ and } X = 2) = 0$
+    -   Favorable outcomes: $\emptyset$
+
 ## Operations with events
 
 Let $A$ and $B$ be two possible events.
 
--   The **intersection** of $A$ and $B$ is denoted as $A \cap B$, and is the set of outcomes that belong to *both* events $A$ **and** $B$
+-   The **intersection** of $A$ and $B$ is the set of outcomes that belong to *both* events $A$ **and** $B$
 
--   The **union** of $A$ and $B$ is denoted as $A \cup B$, and is the set of outcomes that belong to $A$ **and/or** $B$
+    -   Denoted as $A \cap B$, read as "$A$ and $B$"
+
+-   The **union** of $A$ and $B$ is the set of outcomes that belong to $A$ **and/or** $B$
+
+    -   Denoted as $A \cup B$, read as "$A$ or $B$"
 
 ::: fragment
 When we have only two or three events, Venn diagrams can be very useful for visualizing probabilities!
@@ -104,11 +125,13 @@ When we have only two or three events, Venn diagrams can be very useful for visu
 
 Two events are **disjoint** or **mutually exclusive** if they cannot simultaneously happen.
 
--   That is, if $A$ and $B$ are disjoint, then $\text{Pr}(A \cap B) = ?$
+-   That is, if $A$ and $B$ are disjoint, then $\text{Pr}(A \cap B) = \emptyset$
 
 -   ::: discuss
     If our random process is rolling a six-sided die one time, what are some examples of disjoint events?
     :::
+
+-   If we observe any random process just one time, the *outcomes* are disjoint events!
 
 ## Rules of probability
 
@@ -124,12 +147,45 @@ Kolmogorov axioms
 These axioms imply that all probabilities are between 0 and 1 inclusive, and lead to some important rules!
 :::
 
+## Probability distributions
+
+When a random variable is discrete, it can be useful to discuss its **probability distribution**, which is a table of all outcomes and their associated probabilities.
+
+::: discuss
+-   Let $X$ be the sum of two fair, six-sided dice. What is the sample space associated with $S$?
+
+-   Fill out the table below to display the probability distribution of $X$:
+:::
+
+::: fragment
+|                  |     |     |     |     |     |     |     |     |     |     |     |
+|------------------|-----|-----|-----|-----|-----|-----|-----|-----|-----|-----|-----|
+| $x$              | 2   | 3   | 4   | 5   | 6   | 7   | 8   | 9   | 10  | 11  | 12  |
+| $\text{Pr}(X=x)$ |     |     |     |     |     |     |     |     |     |     |     |
+:::
+
+::: notes
+Why not include 1 or 13?
+:::
+
+## Probability distributions (cont.)
+
+The probability distribution of a discrete random variable $X$ must satisfy the following three rules:
+
+1.  Defines $\text{Pr}(X=x)$ for each outcome $x$
+2.  Each probability must be between 0 and 1 (inclusive)
+3.  The probabilities must sum to 1
+
+::: fragment
+Let's confirm that the distribution we found on the previous slide satisfies these rules!
+:::
+
 ## Addition rule
 
 Let $A$ and $B$ be two possible events. Then the **addition rule** states that the probability that at least one will occur is:
 
 $$
-P(A \cup B) = P(A) + P(B) - P(A \cap B)
+\text{Pr}(A \cup B) = \text{Pr}(A) + \text{Pr}(B) - \text{Pr}(A \cap B)
 $$
 
 -   Venn diagram
@@ -142,7 +198,7 @@ $$
 
     -   Let $B$ be the event that the card is a face card (Jack, Queen or King).
 
-    -   Find $P(A \cup B)$.
+    -   Find $\text{Pr}(A \cup B)$.
 
 ## Complement
 
@@ -155,7 +211,7 @@ $$
 -   **Complement rule**: $\text{Pr}(A^c) = 1 - \text{Pr}(A)$
 
 -   ::: discuss
-    Let our random process be the sum of two dice. What is the probability that...
+    Let our random process be rolling two fair dice, and $X$ represents the sum of the two dice. What is the probability that...
 
     -   the sum of the dice is $not$ 6?
 
@@ -168,50 +224,18 @@ $$
 
     -   Examples and non-examples?
 
--   Formally: $A$ and $B$ are independent events if$\text{Pr}(A \cap B) = \text{Pr}(A) \times \text{Pr}(B)$
-
-## Probability distributions
-
-When a random variable is discrete, it can be useful to discuss its **probability distribution**, which is a table of all (disjoint) outcomes and their associated probabilities.
-
-::: discuss
--   Let $X$ be the sum of two fair, six-sided dice. What is the sample space associated with $S$?
-
--   Fill out the table below to display the probability distribution of $X$:
-:::
-
-::: fragment
-|             |     |     |     |     |     |     |
-|-------------|-----|-----|-----|-----|-----|-----|
-| $X$         | 2   | 3   | 4   | 5   | 6   | 7   |
-| Probability |     |     |     |     |     |     |
-| $X$         | 8   | 9   | 10  | 11  | 12  |     |
-| Probability |     |     |     |     |     |     |
-:::
-
-::: notes
-Why not include 1 or 13?
-:::
-
-## Probability distributions (cont.)
-
-The probability distribution of a discrete random variable $X$ must satisfy the following three rules:
-
-1.  The values $x$ listed must be disjoint
-2.  Each probability must be between 0 and 1 (inclusive)
-3.  The probabilities must sum to 1
-
-::: fragment
-Let's confirm that the distribution we found on the previous slide satisfies these rules!
-:::
+-   Formally: $A$ and $B$ are independent events if $\text{Pr}(A \cap B) = \text{Pr}(A) \times \text{Pr}(B)$
 
 ## Practice
 
 ::: discuss
 A Pew Research survey asked 2,373 randomly sampled registered voters their political affiliation (Republican, Democrat, or Independent) and whether or not they identify as swing voters. 35% of respondents identified as Independent, 23% identified as swing voters, and 11% identified as both.
+:::
 
-a.  What percent of voters are Independent but not swing voters?
-b.  What percent of voters are Independent or swing voters?
-c.  What percent of voters are neither Independent nor swing voters?
-d.  Is the event that someone is a swing voter independent of the event that someone is a political Independent?
+::: discuss
+1.  If I randomly sample one of the voters, what is the probability that they are...
+    i.  Independent but not a swing voter?
+    ii. Independent or a swing voter?
+    iii. Neither Independent nor swing voters?
+2.  Is the event that someone is a swing voter independent of the event that someone is a political Independent?
 :::
