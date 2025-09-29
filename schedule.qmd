@@ -268,7 +268,7 @@ format:
       </td>
       <td>
         <ul>
-          <li>Monday problems on Problem Set 4</li>
+          <li>None for today; bigger set for Wednesday.</li>
         </ul>
       </td>
     </tr>
@@ -278,6 +278,7 @@ format:
       <td>
         <ul>
           <li> Introduce Midterm 1 </li>
+          <li> Topic: Finish <a href="slides/slides-09-probability.qmd">Intro to Probability</a>  </li>
           <li> Topic: Conditional probability  </li>
         </ul>
       </td>
