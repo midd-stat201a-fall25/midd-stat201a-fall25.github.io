@@ -18,6 +18,8 @@ website:
         text: "Partner programming"
       - file: experience.qmd
         text: "SDS Experience"
+      - file: midterms.qmd
+        text: "Midterms"
     right:
       - icon: book-half
         text: "Textbook"

@@ -1,6 +1,6 @@
 ---
 title: "Conditional probability"
-date: "March 5, 2025"
+date: "October 1, 2025"
 title-slide-attributes:
     data-background-image: "figs/bikeshare-plots.png"
     data-background-size: contain
@@ -31,9 +31,9 @@ draft: false
 
 -   But oftentimes we have to use data to try and estimate probabilities
 
-    -   Why? Some probabilities are not known, and we use proportions from data as a proxy
+    -   Use proportions from randomly sampled data as a proxy
 
--   When we have two (or more) variables, we often want to understand the relationships between them (e.g. $A \cap B$)
+-   When we have two (or more) variables in our data, we often want to understand the relationships between them
 
 ## Practice
 
@@ -184,9 +184,9 @@ $$
 
 -   Blob picture
 
-- We already did this in the coffee example! We said $\text{P}(\text{no coffee}) = \text{P}(\text{no coffee} \ \cap \text{ did not die}) + \text{P}(\text{no coffee} \ \cap \text{ died})$
+-   We already did this in the coffee example! We said $\text{P}(\text{no coffee}) = \text{P}(\text{no coffee} \ \cap \text{ did not die}) + \text{P}(\text{no coffee} \ \cap \text{ died})$
 
-    - Here, the outcomes of "did not die" and "died" are the mutually exclusive events that comprise $S$
+    -   Here, the outcomes of "did not die" and "died" are the mutually exclusive events that comprise $S$
 
 ## Tree diagram
 
@@ -253,4 +253,3 @@ Why is this important? We want P(B_i \| A), but sometimes we only have probabili
 -   In about 7% of patients who do not have breast cancer, the test gives a *false positive*: it indicates these patients have breast cancer when they actually do not.
 
 -   If we tested a random Canadian woman over 40 for breast cancer using a mammogram and the test came back positive, what is the probability that the patient actually has breast cancer?
-
