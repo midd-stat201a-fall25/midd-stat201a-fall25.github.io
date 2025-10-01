@@ -125,7 +125,7 @@ When we have only two or three events, Venn diagrams can be very useful for visu
 
 Two events are **disjoint** or **mutually exclusive** if they cannot simultaneously happen.
 
--   That is, if $A$ and $B$ are disjoint, then $\text{Pr}(A \cap B) = \emptyset$
+-   That is, if $A$ and $B$ are disjoint, then $\text{Pr}(A \cap B) = 0$
 
 -   ::: discuss
     If our random process is rolling a six-sided die one time, what are some examples of disjoint events?

@@ -70,7 +70,7 @@ Define events $A$ = died and $B$ = non-coffee drinker. Calculate/set-up the calc
 
     -   From the contingency table, we use row totals or column totals and the overall total to obtain marginal probabilities
 
-2.  $\text{P}(A \cap B)$ is an example of a **joint probability**, which is a probability involving two or more events that have yet to occur
+2.  $\text{P}(A \cap B)$ is an example of a **joint probability**, which is a probability involving two or more events that occur simultaneosly
 
     -   From the contingency table, we use specific cells and the overall total to obtain joint probabilities
 
