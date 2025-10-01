@@ -1,6 +1,6 @@
 ---
 title: "Simpson's paradox"
-date: "March 6, 2025"
+date: "October 2, 2025"
 title-slide-attributes:
     data-background-image: "figs/bikeshare-plots.png"
     data-background-size: contain
@@ -17,10 +17,6 @@ editor_options:
 draft: false
 ---
 
-# Housekeeping
-
--   Content through today is fair game for Midterm 1
-
 ```{r echo = F}
 knitr::opts_chunk$set(echo = F, warning = F, messabundance = F)
 library(tidyverse)
@@ -32,9 +28,7 @@ admissions <- read_csv("data/ucb_admissions.csv") |>
   sample_frac()
 ```
 
-# Brief recap
-
-## Study design
+## Study design recap
 
 -   What are the differences between observational studies and experimental studies?
 
@@ -51,7 +45,7 @@ Observational study on sex bias based on Fall 1973 admissions data to the gradua
 | **Total** | 5232  | 7531 | 12763 |
 
 ::: discuss
-1.  What is the probability* of admission for a randomly selected applicant?
+1.  What is the probability\* of admission for a randomly selected applicant?
 
 2.  What is the probability of admission among men? Among women?
 
@@ -79,6 +73,8 @@ admissions |>
 
 # Case study
 
+An application of probability!
+
 ## Dive into data
 
 We have more nuanced data about the graduate admissions: we know the department that each person was applied to.
@@ -102,7 +98,7 @@ head(admissions)
 
 Number of applicants by department:
 
-::::: columns
+:::::: columns
 ::: {.column width="30%"}
 Female applicants:
 
@@ -158,7 +154,7 @@ admissions |>
 
 ```
 :::
-:::::
+::::::
 
 ## More-detailed frequency tables
 
@@ -279,7 +275,6 @@ What do you notice?
 The UC Berkeley admissions observational study is an example of **Simpson's paradox**: when omitting one explanatory variable causes the measure/degree of association between another explanatory variable and a response variable to reverse or disappear
 
 -   In other words, the inclusion/exclusion of a third variable in the analysis can change the apparent relationship between the other two variables
--   What was the confounding variable in UC Berkeley study?
 
 ::::::: columns
 :::: {.column width="50%"}
@@ -321,181 +316,4 @@ ggplot() +
 ::::
 :::::::
 
-# Live code
-
--   More robust filtering
-
--   Using wrangling to obtain probabilities
-
--   `case_when()` to create more complex categorical variables
-
-## Filtering for multiple levels
-
-Suppose I want to retain observations in the first three departments. We could do the following:
-
-```{r eval = F, echo = T}
-admissions |>
-  filter(Dept == "A" | Dept == "B" | Dept == "C")
-```
-
-Or I could streamline using the `%in%` operator:
-
-```{r eval = F, echo = T}
-admissions |>
-  filter(Dept %in% c("A", "B", "C"))
-```
-
--   This reads: filter for observations where the `Dept` value is in the vector of options (A, B, C)
-
-## Wrangling for probabilities
-
-:::::: columns
-::: {.column width="50%"}
-What is the probability that someone was admitted?
-
-```{r eval = T, echo = T}
-admissions |>
-  count(Decision) |>
-  mutate(prob = n/sum(n)) |>
-  select(-n)
-```
-:::
-
-:::: {.column width="50%"}
-::: fragment
-What is the probability that someone was admitted, conditioned on gender?
-
-```{r eval = T, echo = T}
-admissions |>
-  count(Gender, Decision) |>
-  group_by(Gender) |>
-  mutate(cond_prob = n/sum(n)) |>
-  select(-n)
-```
-:::
-::::
-
-- How might I extend to also condition on Department?
-::::::
-
-## More complex categorical variables
-
-Suppose I want to create a new variable called `Dept2` that takes the values:
-
--   "Group 1" if someone applied to Department A or B
--   "Group 2" if someone applied to Department C or D
--   "Group 3" if someone applied to Department E or F
-
-::: fragment
-```{r eval = F, echo = T}
-# option 1 (awful): nested if_else()
-admissions |>
-  mutate(Dept2 = if_else(Dept %in% c("A", "B"), "Group 1",
-                           if_else(Dept %in% c("C", "D"), "Group 2",
-                                   "Group 3")))
-```
-```{r eval = T, echo = F}
-# option 1 (awful): nested if_else()
-set.seed(2)
-admissions |>
-  mutate(Dept2 = if_else(Dept %in% c("A", "B"), "Group 1",
-                           if_else(Dept %in% c("C", "D"), "Group 2",
-                                   "Group 3"))) |>
-  sample_frac() |>
-  slice(1:5)
-```
-:::
-
-## case_when()
-
-We will use the `case_when()` function which generalizes `if_else()`. We use the following notation: `<logical condition> ~ <value of variable>`. Different "ifs" are separated by commas, and the logical conditions are checked sequentially.
-
-::::: columns
-::: {.column width="50%"}
-```{r echo = T, eval = F}
-admissions |>
-  mutate(Dept2 = case_when(
-    Dept %in% c("A", "B") ~ "Group 1",
-    Dept %in% c("C", "D") ~ "Group 2",
-    Dept %in% c("E", "F") ~ "Group 3",
-  )) 
-```
-
-```{r echo = F, eval = T}
-set.seed(2)
-admissions |>
-  mutate(Dept2 = case_when(
-    Dept %in% c("A", "B") ~ "Group 1",
-    Dept %in% c("C", "D") ~ "Group 2",
-    Dept %in% c("E", "F") ~ "Group 3",
-  )) |>
-  sample_frac() |>
-  slice(1:5)
-```
-:::
-
-::: {.column width="50%"}
-```{r echo =T, eval = F}
-#| code-line-numbers: "1,2,7"
-# The following is also acceptable, but 
-# relies on sequential ordering:
-admissions |>
-  mutate(Dept2 = case_when(
-    Dept %in% c("A", "B") ~ "Group 1",
-    Dept %in% c("C", "D") ~ "Group 2",
-    T ~ "Group 3",
-  )) |>
-  sample_frac() 
-```
-
-```{r echo = F, eval = T}
-set.seed(2)
-admissions |>
-  mutate(Dept2 = case_when(
-    Dept %in% c("A", "B") ~ "Group 1",
-    Dept %in% c("C", "D") ~ "Group 2",
-    T ~ "Group 3",
-  )) |>
-  sample_frac() |>
-  slice(1:5)
-```
-:::
-:::::
-
-## Prettier tables using `kable()`
-
-- When we finish wrangling, the output is always a data frame
-
-    - While this is so useful for coding, it's not the most beautiful when rendering!
-    
-    - How can we make turn the data frame into a beautiful table?
-
-- We will need to first install the `kableExtra` library.
-
-:::: {.columns}
-::: {.column width="50%"}
-::: {.fragment}
-```{r echo = T, eval = T}
-library(kableExtra)
-
-admissions |>
-  count(Decision) |>
-  mutate(prob = n/sum(n)) |>
-  kable()
-```
-:::
-:::
-
-::: {.column width="50%"}
-- Can specify number of digits:
-
-::: {.fragment}
-```{r echo = T, eval = T}
-admissions |>
-  count(Decision) |>
-  mutate(prob = n/sum(n)) |>
-  kable(digits = 3)
-```
-:::
-:::
-::::
+-   What was the confounding variable in UC Berkeley study?

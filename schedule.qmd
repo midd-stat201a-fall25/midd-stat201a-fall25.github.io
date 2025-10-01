@@ -286,7 +286,7 @@ format:
       </td>
       <td>
         <ul>
-          <li>Wednesday problems in Problem Set 4</li>
+          <li>Wednesday problems in <a href="homework/hw4.pdf">Problem Set 4</a></li>
         </ul>
       </td>
     </tr>
@@ -295,7 +295,9 @@ format:
       <td> R 10/02 </td>
       <td>
         <ul>
-          <li> Topic: Joins, case_when, Simpson's paradox </li>
+          <li> Topic: Finish <a href="slides/slides-10-conditional-probability.qmd">Conditional Probability</a> </li>
+          <li> Topic: Simpson's paradox </li>
+          <li> Topic: Joins, case_when(), and kable() </li>
         </ul>
       </td>
       <td>
