@@ -1,5 +1,5 @@
 ---
-title: "Coding practice: joins, case_when, tables"
+title: "Coding practice: case_when, tables"
 author: "Your name"
 format: pdf
 ---
@@ -11,19 +11,9 @@ format: pdf
 library(tidyverse)
 
 diamonds2 <- read_csv("https://raw.githubusercontent.com/midd-stat201a-fall25/midd-stat201a-fall25.github.io/refs/heads/main/data/diamonds2.csv")
-diamonds_lab <- read_csv("https://raw.githubusercontent.com/midd-stat201a-fall25/midd-stat201a-fall25.github.io/refs/heads/main/data/diamonds_lab.csv")
 ```
 
-We will work with a modified version of the `diamonds` dataset that I have loaded for you above, called `diamonds2`. This is just like the `diamonds` data set, but now includes a variable called `id` that uniquely identifies the diamond.
-
-You also loaded in another dataset called `diamonds_lab` that includes, for certain diamonds as identified by `diamond_id`, the laboratory (GIA, IGI, AGS) that certified the diamond's characteristics and authenticity.
-
-1.  Modify (i.e. store over) your `diamonds2` dataframe to:
-
--   include the certifying lab for the diamond, only retaining cases that have been certified, and
--   include an additional variable called `price_ct` which is the price of the diamond per carat
-
-You can do this in one big pipeline, or two separate pipelines!
+We will work with a modified version of the `diamonds` dataset that I have loaded for you above, called `diamonds2`. This is just like the `diamonds` data set, but now includes a variable called `id` that uniquely identifies the diamond. Modify your `diamonds2` data frame to include an additional variable called `price_ct` which is the price of the diamond per carat
 
 ```{r}
 
@@ -37,9 +27,9 @@ You can do this in one big pipeline, or two separate pipelines!
 
 3.  To your `diamonds2` data frame, use `case_when()` to add a variable called `carat_cat` that takes the value:
 
--   "< 1" if the diamond is less than 1 carat
+-   "\< 1" if the diamond is less than 1 carat
 -   "1-3" if the diamond is between 1 and 3 carats, inclusive
--   "> 3" if the diamond is more than 3 carats
+-   "\> 3" if the diamond is more than 3 carats
 
 Then using an appropriate plot type, visualize the distribution of price per carat for each of the categories you created. Make sure your plot has informative axis labels. What do you notice?
 
