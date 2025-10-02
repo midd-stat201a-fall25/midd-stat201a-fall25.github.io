@@ -6548,8 +6548,8 @@
     "objectID": "slides/slides-10-conditional-probability.html#recap",
     "href": "slides/slides-10-conditional-probability.html#recap",
     "title": "Conditional probability",
-    "section": "",
-    "text": "Two events are disjoint/mutually exclusive if they do not have any overlapping outcomes\nAddition rule: \\(\\text{Pr}(A \\cup B) =\\)\nComplement rule: \\(\\text{Pr}(A^c) =\\)"
+    "section": "Recap",
+    "text": "Recap\n\nTwo events are disjoint/mutually exclusive if they do not have any overlapping outcomes\nAddition rule: \\(\\text{Pr}(A \\cup B) =\\)\nComplement rule: \\(\\text{Pr}(A^c) =\\)"
   },
   {
     "objectID": "slides/slides-10-conditional-probability.html#probabilities-with-contingency-tables",
@@ -6563,7 +6563,7 @@
     "href": "slides/slides-10-conditional-probability.html#practice",
     "title": "Conditional probability",
     "section": "Practice",
-    "text": "Practice\n\n\n\n\n\nSource: https://www.ncbi.nlm.nih.gov/pmc/articles/PMC5788283/\n\n\n\n\n\nDid not die\nDied\nTotal\n\n\n\n\nDoes not drink coffee\n5438\n1039\n6477\n\n\nDrinks coffee occasionally\n29712\n4440\n34152\n\n\nDrinks coffee regularly\n24934\n3601\n28535\n\n\nTotal\n60084\n9080\n69164\n\n\n\n\n\n\nDefine events \\(A\\) = died and \\(B\\) = non-coffee drinker. Calculate/set-up the calculations for the following for a randomly selected person in the cohort:\n\n\\(\\text{P}(A)\\)\n\\(\\text{P}(A \\cap B)\\)\n\\(\\text{P}(A \\cup B^c)\\)"
+    "text": "Practice\n\nSource: https://www.ncbi.nlm.nih.gov/pmc/articles/PMC5788283/\n\n\n\n\n\nDid not die\nDied\nTotal\n\n\n\n\nDoes not drink coffee\n5438\n1039\n6477\n\n\nDrinks coffee occasionally\n29712\n4440\n34152\n\n\nDrinks coffee regularly\n24934\n3601\n28535\n\n\nTotal\n60084\n9080\n69164\n\n\n\n\n\n\nDefine events \\(A\\) = died and \\(B\\) = non-coffee drinker. Calculate/set-up the calculations for the following for a randomly selected person in the cohort:\n\n\\(\\text{P}(A)\\)\n\\(\\text{P}(A \\cap B)\\)\n\\(\\text{P}(A \\cup B^c)\\)"
   },
   {
     "objectID": "slides/slides-10-conditional-probability.html#marginal-and-joint-probabilities",
