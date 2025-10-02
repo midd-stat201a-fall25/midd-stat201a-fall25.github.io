@@ -296,13 +296,17 @@ format:
       <td>
         <ul>
           <li> Topic: Finish <a href="slides/slides-10-conditional-probability.qmd">Conditional Probability</a> </li>
-          <li> Topic: Simpson's paradox </li>
-          <li> Topic: Joins, case_when(), and kable() </li>
+          <li> Topic: <a href="slides/slides-11-simpsons.qmd">Simpson's Paradox</a> (pdf <a href="slides/pdf/slides-11.pdf">here</a>) </li>
+          <li> Topic: <a href="slides/slides-08-joins.qmd">Joins, case_when, and kable</a> (pdf <a href="slides/pdf/slides-08.pdf">here</a>) </li>
+<div class="code-copy-container">
+  <pre class="code-box"><code id="code2">url_file <- "https://raw.githubusercontent.com/midd-stat201a-fall25/midd-stat201a-fall25.github.io/refs/heads/main/slides/data/ucb_admissions.csv"</code></pre>
+  <button class="copy-button" onclick="copyToClipboard('code2')">Copy</button>
+</div>
         </ul>
       </td>
       <td>
         <ul>
-          <li> Joins and case_when coding practice </li>
+          <li> Joins, case_when, tables {{< downloadthis coding_practice/coding-practice-11-join-case_when.qmd dname="coding-practice-join-case-when" label="Coding practice" id=mtcars-btn >}} </li>
         </ul>
       </td>
       <td>

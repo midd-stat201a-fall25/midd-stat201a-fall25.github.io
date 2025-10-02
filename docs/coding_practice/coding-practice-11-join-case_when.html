@@ -6,9 +6,9 @@
 
 <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
 
-<meta name="dcterms.date" content="2025-09-29">
+<meta name="author" content="Your name">
 
-<title>Probability basics – STAT 201: Intro. to Statistics and Data Science</title>
+<title>Coding practice: joins, case_when, tables – STAT 201: Intro. to Statistics and Data Science</title>
 <style>
 code{white-space: pre-wrap;}
 span.smallcaps{font-variant: small-caps;}
@@ -20,6 +20,41 @@ ul.task-list li input[type="checkbox"] {
   width: 0.8em;
   margin: 0 0.8em 0.2em -1em; /* quarto-specific, see https://github.com/quarto-dev/quarto-cli/issues/4556 */ 
   vertical-align: middle;
+}
+/* CSS for syntax highlighting */
+html { -webkit-text-size-adjust: 100%; }
+pre > code.sourceCode { white-space: pre; position: relative; }
+pre > code.sourceCode > span { display: inline-block; line-height: 1.25; }
+pre > code.sourceCode > span:empty { height: 1.2em; }
+.sourceCode { overflow: visible; }
+code.sourceCode > span { color: inherit; text-decoration: inherit; }
+div.sourceCode { margin: 1em 0; }
+pre.sourceCode { margin: 0; }
+@media screen {
+div.sourceCode { overflow: auto; }
+}
+@media print {
+pre > code.sourceCode { white-space: pre-wrap; }
+pre > code.sourceCode > span { text-indent: -5em; padding-left: 5em; }
+}
+pre.numberSource code
+  { counter-reset: source-line 0; }
+pre.numberSource code > span
+  { position: relative; left: -4em; counter-increment: source-line; }
+pre.numberSource code > span > a:first-child::before
+  { content: counter(source-line);
+    position: relative; left: -1em; text-align: right; vertical-align: baseline;
+    border: none; display: inline-block;
+    -webkit-touch-callout: none; -webkit-user-select: none;
+    -khtml-user-select: none; -moz-user-select: none;
+    -ms-user-select: none; user-select: none;
+    padding: 0 4px; width: 4em;
+  }
+pre.numberSource { margin-left: 3em;  padding-left: 4px; }
+div.sourceCode
+  {   }
+@media screen {
+pre > code.sourceCode > span > a:first-child::before { text-decoration: underline; }
 }
 </style>
 
@@ -70,35 +105,6 @@ ul.task-list li input[type="checkbox"] {
   }
 }</script>
 
-  <script src="https://cdnjs.cloudflare.com/polyfill/v3/polyfill.min.js?features=es6"></script>
-  <script src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-chtml-full.js" type="text/javascript"></script>
-
-<script type="text/javascript">
-const typesetMath = (el) => {
-  if (window.MathJax) {
-    // MathJax Typeset
-    window.MathJax.typeset([el]);
-  } else if (window.katex) {
-    // KaTeX Render
-    var mathElements = el.getElementsByClassName("math");
-    var macros = [];
-    for (var i = 0; i < mathElements.length; i++) {
-      var texText = mathElements[i].firstChild;
-      if (mathElements[i].tagName == "SPAN" && texText && texText.data) {
-        window.katex.render(texText.data, mathElements[i], {
-          displayMode: mathElements[i].classList.contains('display'),
-          throwOnError: false,
-          macros: macros,
-          fleqn: false
-        });
-      }
-    }
-  }
-}
-window.Quarto = {
-  typesetMath
-};
-</script>
 
 </head>
 
@@ -165,27 +171,26 @@ window.Quarto = {
 <!-- sidebar -->
 <!-- margin-sidebar -->
     <div id="quarto-margin-sidebar" class="sidebar margin-sidebar">
-    <div class="quarto-alternate-formats"><h2>Other Formats</h2><ul><li><a href="slides-09-probability.html"><i class="bi bi-file-slides"></i>RevealJS</a></li></ul></div></div>
+    <div class="quarto-alternate-formats"><h2>Other Formats</h2><ul><li><a href="coding-practice-11-join-case_when.pdf"><i class="bi bi-file-pdf"></i>PDF</a></li></ul></div></div>
 <!-- main -->
 <main class="content" id="quarto-document-content">
 
 <header id="title-block-header" class="quarto-title-block default">
 <div class="quarto-title">
-<h1 class="title">Probability basics</h1>
-<p class="subtitle lead">Part 1</p>
+<h1 class="title">Coding practice: joins, case_when, tables</h1>
 </div>
 
 
 
 <div class="quarto-title-meta">
 
-    
     <div>
-    <div class="quarto-title-meta-heading">Published</div>
+    <div class="quarto-title-meta-heading">Author</div>
     <div class="quarto-title-meta-contents">
-      <p class="date">September 29, 2025</p>
-    </div>
+             <p>Your name </p>
+          </div>
   </div>
+    
   
     
   </div>
@@ -195,284 +200,42 @@ window.Quarto = {
 </header>
 
 
-<section id="housekeeping" class="level1">
-<h1>Housekeeping</h1>
-<ul>
-<li>Problem Set 3 due tonight</li>
-</ul>
-</section>
-<section id="probability-basics" class="level1">
-<h1>Probability basics</h1>
-<ul>
-<li>We spend a whole semester on this in MATH/STAT 310!</li>
-<li>We will need be comfortable talking about and develop some intuition for understanding how probabilities behave</li>
-</ul>
-<section id="key-terms" class="level2">
-<h2 class="anchored" data-anchor-id="key-terms">Key terms</h2>
-<ul>
-<li><p><strong>Random process</strong>: a situation in which a particular result, called an <strong>outcome</strong>, is random/not known ahead of time</p>
-<ul>
-<li>Examples: flipping a coin, rolling six-sided die, sports game, if a treatment is effective</li>
-</ul></li>
-<li><p>A <strong>sample space</strong> <span class="math inline">\(S\)</span> is the set of all possible outcomes of the random process</p>
-<ul>
-<li><div class="discuss">
-<p>What are possible sample spaces for the above examples?</p>
-</div></li>
-</ul></li>
-<li><p>An <strong>event</strong> is a set of outcomes from a random process</p></li>
-</ul>
-</section>
-<section id="random-variable" class="level2">
-<h2 class="anchored" data-anchor-id="random-variable">Random variable</h2>
-<ul>
-<li><p>A <strong>random variable</strong> is a variable whose value is unknown and depends on random events</p>
-<ul>
-<li>Often denoted with a capital letter like <span class="math inline">\(X\)</span> or <span class="math inline">\(Y\)</span></li>
-</ul></li>
-<li><p>There are two types: discrete and continuous (just like in numeric variables)</p>
-<ul>
-<li><p><strong>Discrete</strong>: represents random process where sample space is “countable” (i.e.&nbsp;{1,2} or {1,2,3,4,…})</p></li>
-<li><p><strong>Continuous</strong>: sample space is “uncountable” (i.e.&nbsp;can take on any value within a specified interval with infinite number of possible values)</p></li>
-</ul></li>
-<li><p><strong>NOTE</strong>: we will focus on <em>discrete</em> random variables for now</p></li>
-</ul>
-</section>
-<section id="probability" class="level2">
-<h2 class="anchored" data-anchor-id="probability">Probability</h2>
-<ul>
-<li><p>For us, the <strong>probability</strong> of an outcome is the proportion of times the outcome would occur if we observed the random process an infinite number of times</p>
-<ul>
-<li><p>Probability is used to express the likelihood that some outcome or event will or will not occur</p></li>
-<li><p>Think of as a proportion</p></li>
-</ul></li>
-<li><p>Let <span class="math inline">\(A\)</span> denote some outcome or event. We denote the probability of <span class="math inline">\(A\)</span> occurring as <span class="math inline">\(\text{P}(A)\)</span> or <span class="math inline">\(\text{Pr}(A)\)</span>.</p></li>
-<li><p>Special case: if sample space <span class="math inline">\(S\)</span> is finite, and all outcomes are equally likely, then <span class="math display">\[\text{Pr}(A) =  \frac{\text{ number of outcomes favorable to } A}{\text{ number of total outcomes possible} }\]</span></p></li>
-</ul>
-</section>
-<section id="example" class="level2">
-<h2 class="anchored" data-anchor-id="example">Example</h2>
-<p>Suppose we roll a fair, six-sided die one time. Let <span class="math inline">\(X\)</span> be a random variable representing the value of the die.</p>
-<div class="fragment">
-<div class="discuss">
-<ul>
-<li>What is the sample space <span class="math inline">\(S\)</span> of this random process?</li>
-<li>What is an example of an outcome from this process? Of an event?</li>
-</ul>
-</div>
-</div>
-<ul>
-<li>For each of the following, determine the outcome(s) under consideration, along with the value of the probability of the event:</li>
-</ul>
-<div class="discuss">
-<ul>
-<li><span class="math inline">\(\text{Pr}(X = 1)\)</span></li>
-<li><span class="math inline">\(\text{Pr}(X \text{ is even})\)</span></li>
-<li><span class="math inline">\(\text{Pr}(X = 1 \text{ and } X = 2)\)</span></li>
-</ul>
-</div>
-<div class="notes">
-<p>Convince ourselves that <span class="math inline">\(X\)</span> is a RV. Recall: sample space is 1,..,6.</p>
-<p>Possible outcome is 1, and an event would be <span class="math inline">\(X=1\)</span>; the RV being 1.</p>
-<p>Possible event is 1 or 2.</p>
-</div>
-</section>
-<section id="example-cont." class="level2">
-<h2 class="anchored" data-anchor-id="example-cont.">Example (cont.)</h2>
-<p>Note: <span class="math inline">\(S\)</span> is finite, and all outcomes equally likely! So <span class="math inline">\(\text{Pr}(A) = \frac{\text{ number of outcomes favorable to } A}{\text{ number of total outcomes possible} }\)</span></p>
-<ul>
-<li><span class="math inline">\(\text{Pr}(X = 1) = \frac{1}{6}\)</span>
-<ul>
-<li>Favorable outomes: <span class="math inline">\(\{1\}\)</span></li>
-</ul></li>
-<li><span class="math inline">\(\text{Pr}(X \text{ is even}) = \frac{3}{6}\)</span>
-<ul>
-<li>Favorable outcomes: <span class="math inline">\(\{2,4,6\}\)</span></li>
-</ul></li>
-<li><span class="math inline">\(\text{Pr}(X = 1 \text{ and } X = 2) = 0\)</span>
-<ul>
-<li>Favorable outcomes: <span class="math inline">\(\emptyset\)</span></li>
-</ul></li>
-</ul>
-</section>
-<section id="operations-with-events" class="level2">
-<h2 class="anchored" data-anchor-id="operations-with-events">Operations with events</h2>
-<p>Let <span class="math inline">\(A\)</span> and <span class="math inline">\(B\)</span> be two possible events.</p>
-<ul>
-<li><p>The <strong>intersection</strong> of <span class="math inline">\(A\)</span> and <span class="math inline">\(B\)</span> is the set of outcomes that belong to <em>both</em> events <span class="math inline">\(A\)</span> <strong>and</strong> <span class="math inline">\(B\)</span></p>
-<ul>
-<li>Denoted as <span class="math inline">\(A \cap B\)</span>, read as “<span class="math inline">\(A\)</span> and <span class="math inline">\(B\)</span>”</li>
-</ul></li>
-<li><p>The <strong>union</strong> of <span class="math inline">\(A\)</span> and <span class="math inline">\(B\)</span> is the set of outcomes that belong to <span class="math inline">\(A\)</span> <strong>and/or</strong> <span class="math inline">\(B\)</span></p>
-<ul>
-<li>Denoted as <span class="math inline">\(A \cup B\)</span>, read as “<span class="math inline">\(A\)</span> or <span class="math inline">\(B\)</span>”</li>
-</ul></li>
-</ul>
-<div class="fragment">
-<p>When we have only two or three events, Venn diagrams can be very useful for visualizing probabilities!</p>
-</div>
-</section>
-<section id="disjoint-events" class="level2">
-<h2 class="anchored" data-anchor-id="disjoint-events">Disjoint events</h2>
-<p>Two events are <strong>disjoint</strong> or <strong>mutually exclusive</strong> if they cannot simultaneously happen.</p>
-<ul>
-<li><p>That is, if <span class="math inline">\(A\)</span> and <span class="math inline">\(B\)</span> are disjoint, then <span class="math inline">\(\text{Pr}(A \cap B) = 0\)</span></p></li>
-<li><div class="discuss">
-<p>If our random process is rolling a six-sided die one time, what are some examples of disjoint events?</p>
-</div></li>
-<li><p>If we observe any random process just one time, the <em>outcomes</em> are disjoint events!</p></li>
-</ul>
-</section>
-<section id="rules-of-probability" class="level2">
-<h2 class="anchored" data-anchor-id="rules-of-probability">Rules of probability</h2>
-<p>Kolmogorov axioms</p>
-<ol type="1">
-<li><p>The probability of any event is non-negative real number</p></li>
-<li><p>The probability of the entire sample space 1</p></li>
-<li><p>If <span class="math inline">\(A\)</span> and <span class="math inline">\(B\)</span> are disjoint, then <span class="math inline">\(\text{Pr}(A \cup B) = \text{Pr}(A) + \text{Pr}(B)\)</span></p></li>
+<ol start="0" type="1">
+<li>Change your name in the YAML and load in the packages necessary for making beautiful tables. Then run the following chunk.</li>
 </ol>
-<div class="fragment">
-<p>These axioms imply that all probabilities are between 0 and 1 inclusive, and lead to some important rules!</p>
+<div class="cell">
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb1"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb1-1"><a href="#cb1-1" aria-hidden="true" tabindex="-1"></a><span class="co"># add packages here</span></span>
+<span id="cb1-2"><a href="#cb1-2" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(tidyverse)</span>
+<span id="cb1-3"><a href="#cb1-3" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb1-4"><a href="#cb1-4" aria-hidden="true" tabindex="-1"></a>diamonds2 <span class="ot">&lt;-</span> <span class="fu">read_csv</span>(<span class="st">"https://raw.githubusercontent.com/midd-stat201a-fall25/midd-stat201a-fall25.github.io/refs/heads/main/data/diamonds2.csv"</span>)</span>
+<span id="cb1-5"><a href="#cb1-5" aria-hidden="true" tabindex="-1"></a>diamonds_lab <span class="ot">&lt;-</span> <span class="fu">read_csv</span>(<span class="st">"https://raw.githubusercontent.com/midd-stat201a-fall25/midd-stat201a-fall25.github.io/refs/heads/main/data/diamonds_lab.csv"</span>)</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
 </div>
-</section>
-<section id="probability-distributions" class="level2">
-<h2 class="anchored" data-anchor-id="probability-distributions">Probability distributions</h2>
-<p>When a random variable is discrete, it can be useful to discuss its <strong>probability distribution</strong>, which is a table of all outcomes and their associated probabilities.</p>
-<div class="discuss">
-<ul>
-<li><p>Let <span class="math inline">\(X\)</span> be the sum of two fair, six-sided dice. What is the sample space associated with <span class="math inline">\(S\)</span>?</p></li>
-<li><p>Fill out the table below to display the probability distribution of <span class="math inline">\(X\)</span>:</p></li>
-</ul>
-</div>
-<div class="fragment">
-<table class="caption-top table">
-<colgroup>
-<col style="width: 24%">
-<col style="width: 6%">
-<col style="width: 6%">
-<col style="width: 6%">
-<col style="width: 6%">
-<col style="width: 6%">
-<col style="width: 6%">
-<col style="width: 6%">
-<col style="width: 6%">
-<col style="width: 6%">
-<col style="width: 6%">
-<col style="width: 6%">
-</colgroup>
-<tbody>
-<tr class="odd">
-<td><span class="math inline">\(x\)</span></td>
-<td>2</td>
-<td>3</td>
-<td>4</td>
-<td>5</td>
-<td>6</td>
-<td>7</td>
-<td>8</td>
-<td>9</td>
-<td>10</td>
-<td>11</td>
-<td>12</td>
-</tr>
-<tr class="even">
-<td><span class="math inline">\(\text{Pr}(X=x)\)</span></td>
-<td></td>
-<td></td>
-<td></td>
-<td></td>
-<td></td>
-<td></td>
-<td></td>
-<td></td>
-<td></td>
-<td></td>
-<td></td>
-</tr>
-</tbody>
-</table>
-</div>
-<div class="notes">
-<p>Why not include 1 or 13?</p>
-</div>
-</section>
-<section id="probability-distributions-cont." class="level2">
-<h2 class="anchored" data-anchor-id="probability-distributions-cont.">Probability distributions (cont.)</h2>
-<p>The probability distribution of a discrete random variable <span class="math inline">\(X\)</span> must satisfy the following three rules:</p>
+<p>We will work with a modified version of the <code>diamonds</code> dataset that I have loaded for you above, called <code>diamonds2</code>. This is just like the <code>diamonds</code> data set, but now includes a variable called <code>id</code> that uniquely identifies the diamond.</p>
+<p>You also loaded in another dataset called <code>diamonds_lab</code> that includes, for certain diamonds as identified by <code>diamond_id</code>, the laboratory (GIA, IGI, AGS) that certified the diamond’s characteristics and authenticity.</p>
 <ol type="1">
-<li>Defines <span class="math inline">\(\text{Pr}(X=x)\)</span> for each outcome <span class="math inline">\(x\)</span></li>
-<li>Each probability must be between 0 and 1 (inclusive)</li>
-<li>The probabilities must sum to 1</li>
+<li>Modify (i.e.&nbsp;store over) your <code>diamonds2</code> dataframe to:</li>
 </ol>
-<div class="fragment">
-<p>Let’s confirm that the distribution we found on the previous slide satisfies these rules!</p>
-</div>
-</section>
-<section id="addition-rule" class="level2">
-<h2 class="anchored" data-anchor-id="addition-rule">Addition rule</h2>
-<p>Let <span class="math inline">\(A\)</span> and <span class="math inline">\(B\)</span> be two possible events. Then the <strong>addition rule</strong> states that the probability that at least one will occur is:</p>
-<p><span class="math display">\[
-\text{Pr}(A \cup B) = \text{Pr}(A) + \text{Pr}(B) - \text{Pr}(A \cap B)
-\]</span></p>
 <ul>
-<li><p>Venn diagram</p></li>
-<li><p>Example: in a standard deck of 52 cards, we have four suits (diamond, heart, club, spade) with 13 cards within each suit (1-10, Jack, Queen, King).</p>
-<ul>
-<li><p>Suppose we randomly draw one card from the shuffled deck.</p></li>
-<li><p>Let <span class="math inline">\(A\)</span> be the event that the card is a spade.</p></li>
-<li><p>Let <span class="math inline">\(B\)</span> be the event that the card is a face card (Jack, Queen or King).</p></li>
-<li><p>Find <span class="math inline">\(\text{Pr}(A \cup B)\)</span>.</p></li>
-</ul></li>
+<li>include the certifying lab for the diamond, only retaining cases that have been certified, and</li>
+<li>include an additional variable called <code>price_ct</code> which is the price of the diamond per carat</li>
 </ul>
-</section>
-<section id="complement" class="level2">
-<h2 class="anchored" data-anchor-id="complement">Complement</h2>
-<ul>
-<li><p>The <strong>complement</strong> of an event <span class="math inline">\(A\)</span> is the set of all outcomes in <span class="math inline">\(S\)</span> that are not in <span class="math inline">\(A\)</span></p>
-<ul>
-<li>Denoted as <span class="math inline">\(A^c\)</span></li>
-</ul></li>
-<li><p>Continuing the dice example, if <span class="math inline">\(A\)</span> is the event that a 1 or 2 is rolled, what is <span class="math inline">\(A^c\)</span>?</p></li>
-<li><p><strong>Complement rule</strong>: <span class="math inline">\(\text{Pr}(A^c) = 1 - \text{Pr}(A)\)</span></p></li>
-<li><div class="discuss">
-<p>Let our random process be rolling two fair dice, and <span class="math inline">\(X\)</span> represents the sum of the two dice. What is the probability that…</p>
-<ul>
-<li><p>the sum of the dice is <span class="math inline">\(not\)</span> 6?</p></li>
-<li><p>the sum is <em>at least</em> 4?</p></li>
-</ul>
-</div></li>
-</ul>
-</section>
-<section id="independence" class="level2">
-<h2 class="anchored" data-anchor-id="independence">Independence</h2>
-<ul>
-<li><p>Qualitatively, two processes are <strong>independent</strong> if knowing the outcome of one does not provide any information about the outcome of the other process</p>
-<ul>
-<li>Examples and non-examples?</li>
-</ul></li>
-<li><p>Formally: <span class="math inline">\(A\)</span> and <span class="math inline">\(B\)</span> are independent events if <span class="math inline">\(\text{Pr}(A \cap B) = \text{Pr}(A) \times \text{Pr}(B)\)</span></p></li>
-</ul>
-</section>
-<section id="practice" class="level2">
-<h2 class="anchored" data-anchor-id="practice">Practice</h2>
-<div class="discuss">
-<p>A Pew Research survey asked 2,373 randomly sampled registered voters their political affiliation (Republican, Democrat, or Independent) and whether or not they identify as swing voters. 35% of respondents identified as Independent, 23% identified as swing voters, and 11% identified as both.</p>
-</div>
-<div class="discuss">
-<ol type="1">
-<li>If I randomly sample one of the voters, what is the probability that they are…
-<ol type="i">
-<li>Independent but not a swing voter?</li>
-<li>Independent or a swing voter?</li>
-<li>Neither Independent nor swing voters?</li>
-</ol></li>
-<li>Is the event that someone is a swing voter independent of the event that someone is a political Independent?</li>
+<p>You can do this in one big pipeline, or two separate pipelines!</p>
+<ol start="2" type="1">
+<li>Create a beautiful table (i.e.&nbsp;not data frame) that displays the proportion of diamonds whose price per carat of exceeds 8000 USD for each color of diamond. Your table should only display the color of the diamonds and the proportion that are greater than 8000 USD.</li>
 </ol>
-</div>
+<ol start="3" type="1">
+<li>To your <code>diamonds2</code> data frame, use <code>case_when()</code> to add a variable called <code>carat_cat</code> that takes the value:</li>
+</ol>
+<ul>
+<li>“&lt; 1” if the diamond is less than 1 carat</li>
+<li>“1-3” if the diamond is between 1 and 3 carats, inclusive</li>
+<li>“&gt; 3” if the diamond is more than 3 carats</li>
+</ul>
+<p>Then using an appropriate plot type, visualize the distribution of price per carat for each of the categories you created. Make sure your plot has informative axis labels. What do you notice?</p>
+<p><strong>Answer:</strong></p>
+<p>Once you’re finished, render one last time and submit the rendered PDF to Gradescope!</p>
 
 
-</section>
-</section>
 
 </main> <!-- /main -->
 <script id="quarto-html-after-body" type="application/javascript">

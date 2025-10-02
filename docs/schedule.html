@@ -671,17 +671,29 @@ R 10/02
 Topic: Finish <a href="./slides/slides-10-conditional-probability.html">Conditional Probability</a>
 </li>
 <li>
-Topic: Simpson’s paradox
+Topic: <a href="./slides/slides-11-simpsons.html">Simpson’s Paradox</a> (pdf <a href="slides/pdf/slides-11.pdf">here</a>)
 </li>
 <li>
-Topic: Joins, case_when(), and kable()
+Topic: <a href="./slides/slides-08-joins.html">Joins, case_when, and kable</a> (pdf <a href="slides/pdf/slides-08.pdf">here</a>)
 </li>
+<div class="code-copy-container">
+<pre class="code-box"><code id="code2">url_file &lt;- "https://raw.githubusercontent.com/midd-stat201a-fall25/midd-stat201a-fall25.github.io/refs/heads/main/slides/data/ucb_admissions.csv"</code></pre>
+<p><button class="copy-button" onclick="copyToClipboard('code2')">Copy</button></p>
+</div>
 </ul>
 </td>
 <td>
 <ul>
 <li>
-Joins and case_when coding practice
+Joins, case_when, tables <a href="#mtcars-btn" onclick="fetch('data:text/plain;base64,LS0tCnRpdGxlOiAiQ29kaW5nIHByYWN0aWNlOiBqb2lucywgY2FzZV93aGVuLCB0YWJsZXMiCmF1dGhvcjogIllvdXIgbmFtZSIKZm9ybWF0OiBwZGYKLS0tCgowLiAgQ2hhbmdlIHlvdXIgbmFtZSBpbiB0aGUgWUFNTCBhbmQgbG9hZCBpbiB0aGUgcGFja2FnZXMgbmVjZXNzYXJ5IGZvciBtYWtpbmcgYmVhdXRpZnVsIHRhYmxlcy4gVGhlbiBydW4gdGhlIGZvbGxvd2luZyBjaHVuay4KCmBgYHtyIG1lc3NhZ2UgPSBGfQojIGFkZCBwYWNrYWdlcyBoZXJlCmxpYnJhcnkodGlkeXZlcnNlKQoKZGlhbW9uZHMyIDwtIHJlYWRfY3N2KCJodHRwczovL3Jhdy5naXRodWJ1c2VyY29udGVudC5jb20vbWlkZC1zdGF0MjAxYS1mYWxsMjUvbWlkZC1zdGF0MjAxYS1mYWxsMjUuZ2l0aHViLmlvL3JlZnMvaGVhZHMvbWFpbi9kYXRhL2RpYW1vbmRzMi5jc3YiKQpkaWFtb25kc19sYWIgPC0gcmVhZF9jc3YoImh0dHBzOi8vcmF3LmdpdGh1YnVzZXJjb250ZW50LmNvbS9taWRkLXN0YXQyMDFhLWZhbGwyNS9taWRkLXN0YXQyMDFhLWZhbGwyNS5naXRodWIuaW8vcmVmcy9oZWFkcy9tYWluL2RhdGEvZGlhbW9uZHNfbGFiLmNzdiIpCmBgYAoKV2Ugd2lsbCB3b3JrIHdpdGggYSBtb2RpZmllZCB2ZXJzaW9uIG9mIHRoZSBgZGlhbW9uZHNgIGRhdGFzZXQgdGhhdCBJIGhhdmUgbG9hZGVkIGZvciB5b3UgYWJvdmUsIGNhbGxlZCBgZGlhbW9uZHMyYC4gVGhpcyBpcyBqdXN0IGxpa2UgdGhlIGBkaWFtb25kc2AgZGF0YSBzZXQsIGJ1dCBub3cgaW5jbHVkZXMgYSB2YXJpYWJsZSBjYWxsZWQgYGlkYCB0aGF0IHVuaXF1ZWx5IGlkZW50aWZpZXMgdGhlIGRpYW1vbmQuCgpZb3UgYWxzbyBsb2FkZWQgaW4gYW5vdGhlciBkYXRhc2V0IGNhbGxlZCBgZGlhbW9uZHNfbGFiYCB0aGF0IGluY2x1ZGVzLCBmb3IgY2VydGFpbiBkaWFtb25kcyBhcyBpZGVudGlmaWVkIGJ5IGBkaWFtb25kX2lkYCwgdGhlIGxhYm9yYXRvcnkgKEdJQSwgSUdJLCBBR1MpIHRoYXQgY2VydGlmaWVkIHRoZSBkaWFtb25kJ3MgY2hhcmFjdGVyaXN0aWNzIGFuZCBhdXRoZW50aWNpdHkuCgoxLiAgTW9kaWZ5IChpLmUuIHN0b3JlIG92ZXIpIHlvdXIgYGRpYW1vbmRzMmAgZGF0YWZyYW1lIHRvOgoKLSAgIGluY2x1ZGUgdGhlIGNlcnRpZnlpbmcgbGFiIGZvciB0aGUgZGlhbW9uZCwgb25seSByZXRhaW5pbmcgY2FzZXMgdGhhdCBoYXZlIGJlZW4gY2VydGlmaWVkLCBhbmQKLSAgIGluY2x1ZGUgYW4gYWRkaXRpb25hbCB2YXJpYWJsZSBjYWxsZWQgYHByaWNlX2N0YCB3aGljaCBpcyB0aGUgcHJpY2Ugb2YgdGhlIGRpYW1vbmQgcGVyIGNhcmF0CgpZb3UgY2FuIGRvIHRoaXMgaW4gb25lIGJpZyBwaXBlbGluZSwgb3IgdHdvIHNlcGFyYXRlIHBpcGVsaW5lcyEKCmBgYHtyfQoKYGBgCgoyLiAgQ3JlYXRlIGEgYmVhdXRpZnVsIHRhYmxlIChpLmUuIG5vdCBkYXRhIGZyYW1lKSB0aGF0IGRpc3BsYXlzIHRoZSBwcm9wb3J0aW9uIG9mIGRpYW1vbmRzIHdob3NlIHByaWNlIHBlciBjYXJhdCBvZiBleGNlZWRzIDgwMDAgVVNEIGZvciBlYWNoIGNvbG9yIG9mIGRpYW1vbmQuIFlvdXIgdGFibGUgc2hvdWxkIG9ubHkgZGlzcGxheSB0aGUgY29sb3Igb2YgdGhlIGRpYW1vbmRzIGFuZCB0aGUgcHJvcG9ydGlvbiB0aGF0IGFyZSBncmVhdGVyIHRoYW4gODAwMCBVU0QuCgpgYGB7cn0KCmBgYAoKMy4gIFRvIHlvdXIgYGRpYW1vbmRzMmAgZGF0YSBmcmFtZSwgdXNlIGBjYXNlX3doZW4oKWAgdG8gYWRkIGEgdmFyaWFibGUgY2FsbGVkIGBjYXJhdF9jYXRgIHRoYXQgdGFrZXMgdGhlIHZhbHVlOgoKLSAgICI8IDEiIGlmIHRoZSBkaWFtb25kIGlzIGxlc3MgdGhhbiAxIGNhcmF0Ci0gICAiMS0zIiBpZiB0aGUgZGlhbW9uZCBpcyBiZXR3ZWVuIDEgYW5kIDMgY2FyYXRzLCBpbmNsdXNpdmUKLSAgICI+IDMiIGlmIHRoZSBkaWFtb25kIGlzIG1vcmUgdGhhbiAzIGNhcmF0cwoKVGhlbiB1c2luZyBhbiBhcHByb3ByaWF0ZSBwbG90IHR5cGUsIHZpc3VhbGl6ZSB0aGUgZGlzdHJpYnV0aW9uIG9mIHByaWNlIHBlciBjYXJhdCBmb3IgZWFjaCBvZiB0aGUgY2F0ZWdvcmllcyB5b3UgY3JlYXRlZC4gTWFrZSBzdXJlIHlvdXIgcGxvdCBoYXMgaW5mb3JtYXRpdmUgYXhpcyBsYWJlbHMuIFdoYXQgZG8geW91IG5vdGljZT8KCmBgYHtyfQoKYGBgCgoqKkFuc3dlcjoqKgoKT25jZSB5b3UncmUgZmluaXNoZWQsIHJlbmRlciBvbmUgbGFzdCB0aW1lIGFuZCBzdWJtaXQgdGhlIHJlbmRlcmVkIFBERiB0byBHcmFkZXNjb3BlIQo=').then(res => res.blob()).then(blob => {
+      const downloadURL = window.URL.createObjectURL(blob);
+      const a = document.createElement('a');
+      document.body.appendChild(a);
+      a.href = downloadURL;
+      a.download = 'coding-practice-join-case-when.qmd'; a.click();
+      window.URL.revokeObjectURL(downloadURL);
+      document.body.removeChild(a);
+        });"><button class="btn btn-default downloadthis  " id="mtcars-btn"><i class="bi bi-download"></i> Coding practice </button></a>
 </li>
 </ul>
 </td>

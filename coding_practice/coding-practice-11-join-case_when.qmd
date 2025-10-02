@@ -1,5 +1,5 @@
 ---
-title: "Coding practice: case_when, tables"
+title: "Coding practice: joins, case_when, tables"
 author: "Your name"
 format: pdf
 ---
@@ -7,10 +7,11 @@ format: pdf
 0.  Change your name in the YAML and load in the packages necessary for making beautiful tables. Then run the following chunk.
 
 ```{r message = F}
+# add packages here
 library(tidyverse)
-# add additional packages here
 
-diamonds2 <- read_csv("")
+diamonds2 <- read_csv("https://raw.githubusercontent.com/midd-stat201a-fall25/midd-stat201a-fall25.github.io/refs/heads/main/data/diamonds2.csv")
+diamonds_lab <- read_csv("https://raw.githubusercontent.com/midd-stat201a-fall25/midd-stat201a-fall25.github.io/refs/heads/main/data/diamonds_lab.csv")
 ```
 
 We will work with a modified version of the `diamonds` dataset that I have loaded for you above, called `diamonds2`. This is just like the `diamonds` data set, but now includes a variable called `id` that uniquely identifies the diamond.
@@ -47,3 +48,5 @@ Then using an appropriate plot type, visualize the distribution of price per car
 ```
 
 **Answer:**
+
+Once you're finished, render one last time and submit the rendered PDF to Gradescope!
