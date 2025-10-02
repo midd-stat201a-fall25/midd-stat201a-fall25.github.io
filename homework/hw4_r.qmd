@@ -5,9 +5,11 @@ date: "10/06/2025"
 format: pdf
 ---
 
+0. *Install the following packages: 1) mosaicData and 2) kableExtra.*
+
 Today’s data comes from a study of conducted in Whickham, England. In this study, the researchers recorded each participant’s age, smoking status at the start of the study, and their health outcome 20 years later.
 
-The data is in the mosaicData package. *You may have to install the package first!* Then run the following code:
+Run the following code chunk:
 
 ```{r message=FALSE}
 library(tidyverse)
@@ -29,7 +31,7 @@ We will work with the `Whickham` data from the `mosaicData` package. You should 
 
 -   Only retain the variables for smoke status and the conditional probabilities in a meaningful order
 
--   Render as a beautiful table, not a data frame
+-   Render as a beautiful table, not a data frame. To do this, look at the last slide of the Simpson's paradox slide deck.
 
 ```{r}
 

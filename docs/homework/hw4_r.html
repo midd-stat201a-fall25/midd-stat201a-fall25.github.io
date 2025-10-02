@@ -207,8 +207,11 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 </header>
 
 
+<ol start="0" type="1">
+<li><em>Install the following packages: 1) mosaicData and 2) kableExtra.</em></li>
+</ol>
 <p>Today’s data comes from a study of conducted in Whickham, England. In this study, the researchers recorded each participant’s age, smoking status at the start of the study, and their health outcome 20 years later.</p>
-<p>The data is in the mosaicData package. <em>You may have to install the package first!</em> Then run the following code:</p>
+<p>Run the following code chunk:</p>
 <div class="cell">
 <div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb1"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb1-1"><a href="#cb1-1" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(tidyverse)</span>
 <span id="cb1-2"><a href="#cb1-2" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(kableExtra)</span>
@@ -224,7 +227,7 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 <ul>
 <li><p>Only report only the probabilities for when outcome is Dead</p></li>
 <li><p>Only retain the variables for smoke status and the conditional probabilities in a meaningful order</p></li>
-<li><p>Render as a beautiful table, not a data frame</p></li>
+<li><p>Render as a beautiful table, not a data frame. To do this, look at the last slide of the Simpson’s paradox slide deck.</p></li>
 </ul>
 <ol start="3" type="1">
 <li>Do your calculations and visualization from Exercises 1 and 2 align with you expected the relationship to be between smoking and health status? Briefly explain why or why not.</li>

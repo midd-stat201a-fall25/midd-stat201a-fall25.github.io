@@ -998,6 +998,71 @@
 </div>
 </div>
 </div></div>
+</section>
+<section id="prettier-tables-using-kable" class="slide level2">
+<h2>Prettier tables using <code>kable()</code></h2>
+<ul>
+<li class="fragment"><p>When we finish wrangling, the output is always a data frame</p>
+<ul>
+<li class="fragment"><p>While this is so useful for coding, it’s not the most beautiful when rendering!</p></li>
+<li class="fragment"><p>How can we make turn the data frame into a beautiful table?</p></li>
+</ul></li>
+<li class="fragment"><p>We will need to first install the <code>kableExtra</code> library.</p></li>
+</ul>
+<div class="columns">
+<div class="column" style="width:50%;">
+<div class="fragment">
+<p>Currently:</p>
+<div class="cell">
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb16"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb16-1"><a></a>admissions <span class="sc">|&gt;</span></span>
+<span id="cb16-2"><a></a>  <span class="fu">count</span>(Decision) <span class="sc">|&gt;</span></span>
+<span id="cb16-3"><a></a>  <span class="fu">mutate</span>(<span class="at">prob =</span> n<span class="sc">/</span><span class="fu">sum</span>(n))</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+<div class="cell-output cell-output-stdout">
+<pre><code># A tibble: 2 × 3
+  Decision     n  prob
+  &lt;chr&gt;    &lt;int&gt; &lt;dbl&gt;
+1 Admit     1755 0.388
+2 Reject    2771 0.612</code></pre>
+</div>
+</div>
+</div>
+</div><div class="column" style="width:50%;">
+<ul>
+<li class="fragment">Using <code>kable()</code> (note we can specify number of digits)</li>
+</ul>
+<div class="fragment">
+<div class="cell">
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb18"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb18-1"><a></a><span class="fu">library</span>(kableExtra)</span>
+<span id="cb18-2"><a></a>admissions <span class="sc">|&gt;</span></span>
+<span id="cb18-3"><a></a>  <span class="fu">count</span>(Decision) <span class="sc">|&gt;</span></span>
+<span id="cb18-4"><a></a>  <span class="fu">mutate</span>(<span class="at">prob =</span> n<span class="sc">/</span><span class="fu">sum</span>(n)) <span class="sc">|&gt;</span></span>
+<span id="cb18-5"><a></a>  <span class="fu">kable</span>(<span class="at">digits =</span> <span class="dv">3</span>) </span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+<div class="cell-output-display">
+<table class="caption-top">
+<thead>
+<tr class="header">
+<th style="text-align: left;">Decision</th>
+<th style="text-align: right;">n</th>
+<th style="text-align: right;">prob</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td style="text-align: left;">Admit</td>
+<td style="text-align: right;">1755</td>
+<td style="text-align: right;">0.388</td>
+</tr>
+<tr class="even">
+<td style="text-align: left;">Reject</td>
+<td style="text-align: right;">2771</td>
+<td style="text-align: right;">0.612</td>
+</tr>
+</tbody>
+</table>
+</div>
+</div>
+</div>
+</div></div>
 
 
 </section></section>

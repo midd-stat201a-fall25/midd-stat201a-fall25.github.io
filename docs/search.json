@@ -6199,7 +6199,7 @@
     "href": "slides/slides-08-joins.html#setup",
     "title": "Joins data frames, case_when, and prettier tables",
     "section": "Setup",
-    "text": "Setup\nFor the next few slides…\n\n\n\ndf1\n\n\n\n\n\n\nID\nname\n\n\n\n\n1\nx1\n\n\n2\nx2\n\n\n3\nx3\n\n\n\n\n\n\n\ndf2\n\n\n\n\n\n\nID\ngrade\n\n\n\n\n1\ny1\n\n\n2\ny2\n\n\n4\ny4\n\n\n\n\n\n\nI recommend writing these two down, as we will work with them in the next few slides.\n\nNote! The variable ID is shared between these two data frames. We will “join on” ID."
+    "text": "Setup\nFor the next few slides…\n\n\n\ndf1\n\n\n\n\n\n\nID\nname\n\n\n\n\n1\nx1\n\n\n2\nx2\n\n\n3\nx3\n\n\n\n\n\n\n\ndf2\n\n\n\n\n\n\nID\ngrade\n\n\n\n\n1\ny1\n\n\n2\ny2\n\n\n4\ny4\n\n\n\n\n\n\n\nI recommend writing these two down, as we will work with them in the next few slides.\n\nNote! The variable ID is shared between these two data frames. We will “join on” ID."
   },
   {
     "objectID": "slides/slides-08-joins.html#left_join",
@@ -6269,7 +6269,7 @@
     "href": "slides/slides-08-joins.html#example",
     "title": "Joins data frames, case_when, and prettier tables",
     "section": "Example",
-    "text": "Example\n\n\nWe have data on fishery harvests (in tons) by countries from 2016, stored in data frame fish:\n\nWhat does this code do?\n\n\nfish |&gt;\n    slice(1:8)\n\n\n\n\n\n\n\ncountry\ncapture\naquaculture\n\n\n\n\nAfghanistan\n1000\n1200\n\n\nAlbania\n7886\n950\n\n\nAlgeria\n95000\n1361\n\n\nAmerican Samoa\n3047\n20\n\n\nAndorra\n0\n0\n\n\nAngola\n486490\n655\n\n\nAntigua and Barbuda\n3000\n10\n\n\nArgentina\n755226\n3673\n\n\n\n\n\n\n\n\nSuppose I would like to explore the data on a continent level. We have another data frame called continent that looks like this:\n\ncontinents |&gt;\n  slice(1:8)\n\n\n\n\n\n\nCountry\ncontinent\n\n\n\n\nAfghanistan\nAsia\n\n\nÅland Islands\nEurope\n\n\nAlbania\nEurope\n\n\nAlgeria\nAfrica\n\n\nAmerican Samoa\nOceania\n\n\nAndorra\nEurope\n\n\nAngola\nAfrica\n\n\nAnguilla\nAmericas"
+    "text": "Example\n\n\nRows: 216 Columns: 3\n── Column specification ────────────────────────────────────────────────────────\nDelimiter: \",\"\nchr (1): country\ndbl (2): capture, aquaculture\n\nℹ Use `spec()` to retrieve the full column specification for this data.\nℹ Specify the column types or set `show_col_types = FALSE` to quiet this message.\nRows: 245 Columns: 2\n── Column specification ────────────────────────────────────────────────────────\nDelimiter: \",\"\nchr (2): country, continent\n\nℹ Use `spec()` to retrieve the full column specification for this data.\nℹ Specify the column types or set `show_col_types = FALSE` to quiet this message.\n\n\n\n\nWe have data on fishery harvests (in tons) by countries from 2016, stored in data frame fish:\n\nWhat does this code do?\n\n\nfish |&gt;\n    slice(1:8)\n\n\n\n\n\n\n\ncountry\ncapture\naquaculture\n\n\n\n\nAfghanistan\n1000\n1200\n\n\nAlbania\n7886\n950\n\n\nAlgeria\n95000\n1361\n\n\nAmerican Samoa\n3047\n20\n\n\nAndorra\n0\n0\n\n\nAngola\n486490\n655\n\n\nAntigua and Barbuda\n3000\n10\n\n\nArgentina\n755226\n3673\n\n\n\n\n\n\n\n\nSuppose I would like to explore the data on a continent level. We have another data frame called continent that looks like this:\n\ncontinents |&gt;\n  slice(1:8)\n\n\n\n\n\n\nCountry\ncontinent\n\n\n\n\nAfghanistan\nAsia\n\n\nÅland Islands\nEurope\n\n\nAlbania\nEurope\n\n\nAlgeria\nAfrica\n\n\nAmerican Samoa\nOceania\n\n\nAndorra\nEurope\n\n\nAngola\nAfrica\n\n\nAnguilla\nAmericas"
   },
   {
     "objectID": "slides/slides-08-joins.html#bringing-in-continent",
@@ -6283,7 +6283,7 @@
     "href": "slides/slides-08-joins.html#example-cont.",
     "title": "Joins data frames, case_when, and prettier tables",
     "section": "Example (cont.)",
-    "text": "Example (cont.)\n\n\nQuestion 1:\n\nleft_join(fish, continents, \n          by = c(\"country\" = \"Country\")) |&gt;\n  slice(1:8)\n\n\n\n\n\n\ncountry\ncapture\naquaculture\ncontinent\n\n\n\n\nAfghanistan\n1000\n1200\nAsia\n\n\nAlbania\n7886\n950\nEurope\n\n\nAlgeria\n95000\n1361\nAfrica\n\n\nAmerican Samoa\n3047\n20\nOceania\n\n\nAndorra\n0\n0\nEurope\n\n\nAngola\n486490\n655\nAfrica\n\n\nAntigua and Barbuda\n3000\n10\nNA\n\n\nArgentina\n755226\n3673\nAmericas\n\n\n\n\n\n\nNotice the NA\n\n\n\nQuestion 2:\n\ninner_join(fish, continents, \n           by = c(\"country\" = \"Country\")) |&gt;\n  slice(1:8)\n\n\n\n\n\n\ncountry\ncapture\naquaculture\ncontinent\n\n\n\n\nAfghanistan\n1000\n1200\nAsia\n\n\nAlbania\n7886\n950\nEurope\n\n\nAlgeria\n95000\n1361\nAfrica\n\n\nAmerican Samoa\n3047\n20\nOceania\n\n\nAndorra\n0\n0\nEurope\n\n\nAngola\n486490\n655\nAfrica\n\n\nArgentina\n755226\n3673\nAmericas\n\n\nArmenia\n3758\n16381\nAsia\n\n\n\n\n\n\n\n\nNotice we don’t have two copies of same country/Country variable!"
+    "text": "Example (cont.)\n\n\nQuestion 1:\n\nleft_join(fish, continents, \n          by = c(\"country\" = \"Country\")) |&gt;\n  slice(1:8)\n\n\n\n\n\n\ncountry\ncapture\naquaculture\ncontinent\n\n\n\n\nAfghanistan\n1000\n1200\nAsia\n\n\nAlbania\n7886\n950\nEurope\n\n\nAlgeria\n95000\n1361\nAfrica\n\n\nAmerican Samoa\n3047\n20\nOceania\n\n\nAndorra\n0\n0\nEurope\n\n\nAngola\n486490\n655\nAfrica\n\n\nAntigua and Barbuda\n3000\n10\nNA\n\n\nArgentina\n755226\n3673\nAmericas\n\n\n\n\n\n\nNotice the NA\n\n\n\nQuestion 2:\n\ninner_join(fish, continents, \n           by = c(\"country\" = \"Country\")) |&gt;\n  slice(1:8)\n\n\n\n\n\n\ncountry\ncapture\naquaculture\ncontinent\n\n\n\n\nAfghanistan\n1000\n1200\nAsia\n\n\nAlbania\n7886\n950\nEurope\n\n\nAlgeria\n95000\n1361\nAfrica\n\n\nAmerican Samoa\n3047\n20\nOceania\n\n\nAndorra\n0\n0\nEurope\n\n\nAngola\n486490\n655\nAfrica\n\n\nArgentina\n755226\n3673\nAmericas\n\n\nArmenia\n3758\n16381\nAsia\n\n\n\n\n\n\n\n\n\nNotice we don’t have two copies of same country/Country variable!"
   },
   {
     "objectID": "slides/slides-08-joins.html#live-code",
@@ -6394,8 +6394,8 @@
     "objectID": "slides/slides-08-joins.html#housekeeping",
     "href": "slides/slides-08-joins.html#housekeeping",
     "title": "Joins data frames, case_when, and prettier tables",
-    "section": "Housekeeping",
-    "text": "Housekeeping\nContent through today is fair game for midterm!"
+    "section": "",
+    "text": "Content through today is fair game for midterm!"
   },
   {
     "objectID": "slides/slides-08-joins.html#wrangle",
@@ -6428,9 +6428,9 @@
   {
     "objectID": "slides/slides-08-joins.html",
     "href": "slides/slides-08-joins.html",
-    "title": "Joining data frames",
+    "title": "Joins data frames, case_when, and prettier tables",
     "section": "",
-    "text": "Wrangling coding practice due tonight!\nOffice hours tomorrow 10am-12pm\nProblem Set 3 has large R component"
+    "text": "Content through today is fair game for midterm!"
   },
   {
     "objectID": "slides/slides-08-joins.html#group_by",
@@ -6752,7 +6752,7 @@
     "href": "slides/slides-11-simpsons.html#prettier-tables-using-kable",
     "title": "Simpson’s paradox",
     "section": "Prettier tables using kable()",
-    "text": "Prettier tables using kable()\n\nWhen we finish wrangling, the output is always a data frame\n\nWhile this is so useful for coding, it’s not the most beautiful when rendering!\nHow can we make turn the data frame into a beautiful table?\n\nWe will need to first install the kableExtra library.\n\n\n\n\n\nlibrary(kableExtra)\n\nadmissions |>\n  count(Decision) |>\n  mutate(prob = n/sum(n)) |>\n  kable()\n\n\n\n\nDecision\nn\nprob\n\n\n\n\nAdmit\n1755\n0.3877596\n\n\nReject\n2771\n0.6122404\n\n\n\n\n\n\n\n\nCan specify number of digits:\n\n\n\nadmissions |>\n  count(Decision) |>\n  mutate(prob = n/sum(n)) |>\n  kable(digits = 3)\n\n\n\n\nDecision\nn\nprob\n\n\n\n\nAdmit\n1755\n0.388\n\n\nReject\n2771\n0.612"
+    "text": "Prettier tables using kable()\n\nWhen we finish wrangling, the output is always a data frame\n\nWhile this is so useful for coding, it’s not the most beautiful when rendering!\nHow can we make turn the data frame into a beautiful table?\n\nWe will need to first install the kableExtra library.\n\n\n\n\nCurrently:\n\nadmissions |&gt;\n  count(Decision) |&gt;\n  mutate(prob = n/sum(n))\n\n# A tibble: 2 × 3\n  Decision     n  prob\n  &lt;chr&gt;    &lt;int&gt; &lt;dbl&gt;\n1 Admit     1755 0.388\n2 Reject    2771 0.612\n\n\n\n\n\nUsing kable() (note we can specify number of digits)\n\n\n\nlibrary(kableExtra)\nadmissions |&gt;\n  count(Decision) |&gt;\n  mutate(prob = n/sum(n)) |&gt;\n  kable(digits = 3) \n\n\n\n\nDecision\nn\nprob\n\n\n\n\nAdmit\n1755\n0.388\n\n\nReject\n2771\n0.612"
   },
   {
     "objectID": "slides/slides-08-joins.html#removing-nas",
@@ -6780,7 +6780,7 @@
     "href": "homework/hw4_r.html",
     "title": "STAT 201: Problem Set 4 (R)",
     "section": "",
-    "text": "Today’s data comes from a study of conducted in Whickham, England. In this study, the researchers recorded each participant’s age, smoking status at the start of the study, and their health outcome 20 years later.\nThe data is in the mosaicData package. You may have to install the package first! Then run the following code:\n\nlibrary(tidyverse)\nlibrary(kableExtra)\nlibrary(mosaicData)\n\nWe will work with the Whickham data from the mosaicData package. You should open its Help file and take a view of the data before proceeding. Note that the type “factor” can be though of as a categorical variable. Make sure you understand the data before proceeding!\n\nCreate a standardized bar plot that depicts the relationship between smoking status and health outcome. This about what the explanatory and response variables should be and how that affects your plot. Make sure you have informative labels and titles. Change the colors of the bars to be something besides the default (using e.g. scale_fill_viridis_d() or scale_fill_brewer()).\n\n\nUsing wrangling code, calculate the conditional probabilities of death for each smoking status. Your resulting table should:\n\n\nOnly report only the probabilities for when outcome is Dead\nOnly retain the variables for smoke status and the conditional probabilities in a meaningful order\nRender as a beautiful table, not a data frame\n\n\nDo your calculations and visualization from Exercises 1 and 2 align with you expected the relationship to be between smoking and health status? Briefly explain why or why not.\n\nAnswer:\n\nUsing case_when(), create a new variable for future use called age_cat that takes the values as follows:\n\n\n“18-44”: if someone is less than or equal to 44 years old\n“45-64”: if someone is between 45 and 64 years old, inclusive\n“65+”: if someone is older than 64\n\nStore the resulting data frame into a new data frame called Whickham2.\n\nRe-create your first visualization from Exercise 2, this time bringing in your new age_cat variable in an appropriate way. Make sure you have informative labels and titles, and use the same color choice as you did in Exercise 1.\n\n\nRe-create your table from Exercise 2, but now breaking it down by age category. Your resulting table should:\n\n\nOnly report the probabilities for when outcome is Dead\nOnly retain the variables for smoke status, the conditional probabilities, and age category in a meaningful order\nPresent the results such that multiple rows with the same age categories appear in consecutive order in the table\nRender as a beautiful table, not a data frame\n\n\nCompare the two visualizations and the two summary tables. What changed, and what might explain the change?\n\nAnswer:\nWhen finished, render one more time and submit the PDF to Gradescope alongside your other problems!"
+    "text": "Install the following packages: 1) mosaicData and 2) kableExtra.\n\nToday’s data comes from a study of conducted in Whickham, England. In this study, the researchers recorded each participant’s age, smoking status at the start of the study, and their health outcome 20 years later.\nRun the following code chunk:\n\nlibrary(tidyverse)\nlibrary(kableExtra)\nlibrary(mosaicData)\n\nWe will work with the Whickham data from the mosaicData package. You should open its Help file and take a view of the data before proceeding. Note that the type “factor” can be though of as a categorical variable. Make sure you understand the data before proceeding!\n\nCreate a standardized bar plot that depicts the relationship between smoking status and health outcome. This about what the explanatory and response variables should be and how that affects your plot. Make sure you have informative labels and titles. Change the colors of the bars to be something besides the default (using e.g. scale_fill_viridis_d() or scale_fill_brewer()).\n\n\nUsing wrangling code, calculate the conditional probabilities of death for each smoking status. Your resulting table should:\n\n\nOnly report only the probabilities for when outcome is Dead\nOnly retain the variables for smoke status and the conditional probabilities in a meaningful order\nRender as a beautiful table, not a data frame. To do this, look at the last slide of the Simpson’s paradox slide deck.\n\n\nDo your calculations and visualization from Exercises 1 and 2 align with you expected the relationship to be between smoking and health status? Briefly explain why or why not.\n\nAnswer:\n\nUsing case_when(), create a new variable for future use called age_cat that takes the values as follows:\n\n\n“18-44”: if someone is less than or equal to 44 years old\n“45-64”: if someone is between 45 and 64 years old, inclusive\n“65+”: if someone is older than 64\n\nStore the resulting data frame into a new data frame called Whickham2.\n\nRe-create your first visualization from Exercise 2, this time bringing in your new age_cat variable in an appropriate way. Make sure you have informative labels and titles, and use the same color choice as you did in Exercise 1.\n\n\nRe-create your table from Exercise 2, but now breaking it down by age category. Your resulting table should:\n\n\nOnly report the probabilities for when outcome is Dead\nOnly retain the variables for smoke status, the conditional probabilities, and age category in a meaningful order\nPresent the results such that multiple rows with the same age categories appear in consecutive order in the table\nRender as a beautiful table, not a data frame\n\n\nCompare the two visualizations and the two summary tables. What changed, and what might explain the change?\n\nAnswer:\nWhen finished, render one more time and submit the PDF to Gradescope alongside your other problems!"
   },
   {
     "objectID": "midterms/midterm1_practice.html",
@@ -11036,28 +11036,28 @@
     "href": "slides/slides-08-joins.html#left_joindf1-df2",
     "title": "Joins data frames, case_when, and prettier tables",
     "section": "left_join(df1, df2)",
-    "text": "left_join(df1, df2)\nAdds columns to df1 from df2, matching the cases in df1. Retains ALL cases from left data frame df1, and adds NA for variables from df2 that have no match.\n\n\n\n\n\ndf1\n\n\n\n\n\n\nID\nname\n\n\n\n\n1\nx1\n\n\n2\nx2\n\n\n3\nx3\n\n\n\n\n\n\n\ndf2\n\n\n\n\n\n\nID\ngrade\n\n\n\n\n1\ny1\n\n\n2\ny2\n\n\n4\ny4\n\n\n\n\n\n\n\nleft_join(df1, df2, by = \"ID\")\n\n\n\n\n\n\nID\nname\ngrade\n\n\n\n\n1\nx1\ny1\n\n\n2\nx2\ny2\n\n\n3\nx3\nNA\n\n\n\n\n\n\n\n\n\nThink of left data frame as fixed."
+    "text": "left_join(df1, df2)\nAdds columns to df1 from df2, matching the cases in df1. Retains ALL cases from left data frame df1, and adds NA for variables from df2 that have no match.\n\n\n\n\n\ndf1\n\n\n\n\n\n\nID\nname\n\n\n\n\n1\nx1\n\n\n2\nx2\n\n\n3\nx3\n\n\n\n\n\n\n\ndf2\n\n\n\n\n\n\nID\ngrade\n\n\n\n\n1\ny1\n\n\n2\ny2\n\n\n4\ny4\n\n\n\n\n\n\n\n\nleft_join(df1, df2, by = \"ID\")\n\n\n\n\n\n\nID\nname\ngrade\n\n\n\n\n1\nx1\ny1\n\n\n2\nx2\ny2\n\n\n3\nx3\nNA\n\n\n\n\n\n\n\n\n\nThink of left data frame as fixed."
   },
   {
     "objectID": "slides/slides-08-joins.html#right_joindf1-df2",
     "href": "slides/slides-08-joins.html#right_joindf1-df2",
     "title": "Joins data frames, case_when, and prettier tables",
     "section": "right_join(df1, df2)",
-    "text": "right_join(df1, df2)\nAdds columns to df1 from df2, matching the cases in df2. Retains ALL cases from right data frame df2, and adds NA for variables from df1 that have no match.\n\n\n\n\n\ndf1\n\n\n\n\n\n\nID\nname\n\n\n\n\n1\nx1\n\n\n2\nx2\n\n\n3\nx3\n\n\n\n\n\n\n\ndf2\n\n\n\n\n\n\nID\ngrade\n\n\n\n\n1\ny1\n\n\n2\ny2\n\n\n4\ny4\n\n\n\n\n\n\n\nright_join(df1, df2, by = \"ID\")\n\n\n\n\n\n\nID\nname\ngrade\n\n\n\n\n1\nx1\ny1\n\n\n2\nx2\ny2\n\n\n4\nNA\ny4\n\n\n\n\n\n\n\n\n\nThink of right data frame as fixed"
+    "text": "right_join(df1, df2)\nAdds columns to df1 from df2, matching the cases in df2. Retains ALL cases from right data frame df2, and adds NA for variables from df1 that have no match.\n\n\n\n\n\ndf1\n\n\n\n\n\n\nID\nname\n\n\n\n\n1\nx1\n\n\n2\nx2\n\n\n3\nx3\n\n\n\n\n\n\n\ndf2\n\n\n\n\n\n\nID\ngrade\n\n\n\n\n1\ny1\n\n\n2\ny2\n\n\n4\ny4\n\n\n\n\n\n\n\n\nright_join(df1, df2, by = \"ID\")\n\n\n\n\n\n\nID\nname\ngrade\n\n\n\n\n1\nx1\ny1\n\n\n2\nx2\ny2\n\n\n4\nNA\ny4\n\n\n\n\n\n\n\n\n\nThink of right data frame as fixed"
   },
   {
     "objectID": "slides/slides-08-joins.html#full_joindf1-df2",
     "href": "slides/slides-08-joins.html#full_joindf1-df2",
     "title": "Joins data frames, case_when, and prettier tables",
     "section": "full_join(df1, df2)",
-    "text": "full_join(df1, df2)\nAdds columns to df1 from df2, fully combining the two data frames, matching when possible. Retains ALL cases from df1 AND df2, and adds NAs as necesary.\n\n\n\n\n\ndf1\n\n\n\n\n\n\nID\nname\n\n\n\n\n1\nx1\n\n\n2\nx2\n\n\n3\nx3\n\n\n\n\n\n\n\ndf2\n\n\n\n\n\n\nID\ngrade\n\n\n\n\n1\ny1\n\n\n2\ny2\n\n\n4\ny4\n\n\n\n\n\n\n\nfull_join(df1, df2, by = \"ID\")\n\n\n\n\n\n\nID\nname\ngrade\n\n\n\n\n1\nx1\ny1\n\n\n2\nx2\ny2\n\n\n3\nx3\nNA\n\n\n4\nNA\ny4\n\n\n\n\n\n\n\n\n\nNo chance for losing information."
+    "text": "full_join(df1, df2)\nAdds columns to df1 from df2, fully combining the two data frames, matching when possible. Retains ALL cases from df1 AND df2, and adds NAs as necesary.\n\n\n\n\n\ndf1\n\n\n\n\n\n\nID\nname\n\n\n\n\n1\nx1\n\n\n2\nx2\n\n\n3\nx3\n\n\n\n\n\n\n\ndf2\n\n\n\n\n\n\nID\ngrade\n\n\n\n\n1\ny1\n\n\n2\ny2\n\n\n4\ny4\n\n\n\n\n\n\n\n\nfull_join(df1, df2, by = \"ID\")\n\n\n\n\n\n\nID\nname\ngrade\n\n\n\n\n1\nx1\ny1\n\n\n2\nx2\ny2\n\n\n3\nx3\nNA\n\n\n4\nNA\ny4\n\n\n\n\n\n\n\n\n\nNo chance for losing information."
   },
   {
     "objectID": "slides/slides-08-joins.html#inner_joindf1-df2",
     "href": "slides/slides-08-joins.html#inner_joindf1-df2",
     "title": "Joins data frames, case_when, and prettier tables",
     "section": "inner_join(df1, df2)",
-    "text": "inner_join(df1, df2)\nAdds columns to df1 from df2, retaining only cases that exist in both df1 AND df2.\n\n\n\n\n\ndf1\n\n\n\n\n\n\nID\nname\n\n\n\n\n1\nx1\n\n\n2\nx2\n\n\n3\nx3\n\n\n\n\n\n\n\ndf2\n\n\n\n\n\n\nID\ngrade\n\n\n\n\n1\ny1\n\n\n2\ny2\n\n\n4\ny4\n\n\n\n\n\n\n\ninner_join(df1, df2, by = \"ID\")\n\n\n\n\n\n\nID\nname\ngrade\n\n\n\n\n1\nx1\ny1\n\n\n2\nx2\ny2"
+    "text": "inner_join(df1, df2)\nAdds columns to df1 from df2, retaining only cases that exist in both df1 AND df2.\n\n\n\n\n\ndf1\n\n\n\n\n\n\nID\nname\n\n\n\n\n1\nx1\n\n\n2\nx2\n\n\n3\nx3\n\n\n\n\n\n\n\ndf2\n\n\n\n\n\n\nID\ngrade\n\n\n\n\n1\ny1\n\n\n2\ny2\n\n\n4\ny4\n\n\n\n\n\n\n\n\ninner_join(df1, df2, by = \"ID\")\n\n\n\n\n\n\nID\nname\ngrade\n\n\n\n\n1\nx1\ny1\n\n\n2\nx2\ny2"
   },
   {
     "objectID": "slides/slides-08-joins.html#comprehension-check",
@@ -11071,7 +11071,7 @@
     "href": "slides/slides-08-joins.html#discuss",
     "title": "Joins data frames, case_when, and prettier tables",
     "section": "Discuss",
-    "text": "Discuss\n\n\nfish data frame snapshot:\n\n\n\n\n\ncountry\ncapture\naquaculture\n\n\n\n\nAfghanistan\n1000\n1200\n\n\nAlbania\n7886\n950\n\n\nAlgeria\n95000\n1361\n\n\nAmerican Samoa\n3047\n20\n\n\nAndorra\n0\n0\n\n\n\n\n\n\ncontinents data frame snapshot:\n\n\n\n\n\nCountry\ncontinent\n\n\n\n\nAfghanistan\nAsia\n\n\nÅland Islands\nEurope\n\n\nAlbania\nEurope\n\n\nAlgeria\nAfrica\n\n\nAmerican Samoa\nOceania\n\n\n\n\n\n\n\n\nWe want to keep all rows and columns from fish and add a column for corresponding continents. Which join function should we use?\nWe want to keep only the rows from fish for which we have a corresponding continent and add a column for corresponding continents. Which join function should we use?\nWhich variable(s) are we joining on?"
+    "text": "Discuss\n\n\nfish data frame snapshot:\n\n\n\n\n\ncountry\ncapture\naquaculture\n\n\n\n\nAfghanistan\n1000\n1200\n\n\nAlbania\n7886\n950\n\n\nAlgeria\n95000\n1361\n\n\nAmerican Samoa\n3047\n20\n\n\nAndorra\n0\n0\n\n\n\n\n\n\ncontinents data frame snapshot:\n\n\n\n\n\nCountry\ncontinent\n\n\n\n\nAfghanistan\nAsia\n\n\nÅland Islands\nEurope\n\n\nAlbania\nEurope\n\n\nAlgeria\nAfrica\n\n\nAmerican Samoa\nOceania\n\n\n\n\n\n\n\n\n\nWe want to keep all rows and columns from fish and add a column for corresponding continents. Which join function should we use?\nWe want to keep only the rows from fish for which we have a corresponding continent and add a column for corresponding continents. Which join function should we use?\nWhich variable(s) are we joining on?"
   },
   {
     "objectID": "slides/slides-08-joins.html#piping-into-xxx_join",

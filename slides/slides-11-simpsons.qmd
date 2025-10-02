@@ -445,3 +445,42 @@ admissions |>
 ```
 :::
 :::::
+
+## Prettier tables using `kable()`
+
+-   When we finish wrangling, the output is always a data frame
+
+    -   While this is so useful for coding, it's not the most beautiful when rendering!
+
+    -   How can we make turn the data frame into a beautiful table?
+
+-   We will need to first install the `kableExtra` library.
+
+::::::: columns
+:::: {.column width="50%"}
+::: fragment
+Currently:
+
+```{r echo = T, eval = T}
+admissions |>
+  count(Decision) |>
+  mutate(prob = n/sum(n))
+```
+:::
+::::
+
+:::: {.column width="50%"}
+-   Using `kable()` (note we can specify number of digits)
+
+::: fragment
+```{r echo = T, eval = T}
+library(kableExtra)
+admissions |>
+  count(Decision) |>
+  mutate(prob = n/sum(n)) |>
+  kable(digits = 3) 
+```
+:::
+::::
+:::::::
+
