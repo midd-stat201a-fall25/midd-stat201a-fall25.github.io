@@ -31,7 +31,7 @@ We will work with the `Whickham` data from the `mosaicData` package. You should 
 
 -   Only retain the variables for smoke status and the conditional probabilities in a meaningful order
 
--   Render as a beautiful table, not a data frame. To do this, look at the last slide of the Simpson's paradox slide deck.
+-   Render as a beautiful table, not a data frame. The probabilities should be up to 3 decimal points. To do this, look at the last slide of the Simpson's paradox slide deck on the course website.
 
 ```{r}
 
@@ -67,7 +67,7 @@ Store the resulting data frame into a new data frame called `Whickham2`.
 
 -   Present the results such that multiple rows with the same age categories appear in consecutive order in the table
 
--   Render as a beautiful table, not a data frame
+-   Render as a beautiful table, not a data frame, with probabilities up to three decimal points.
 
 ```{r}
 

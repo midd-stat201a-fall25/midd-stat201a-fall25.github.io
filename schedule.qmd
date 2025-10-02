@@ -310,7 +310,7 @@ format:
       </td>
       <td>
         <ul>
-          <li>Thursday problems in Problem Set 4</li>
+          <li>Thursday problems in <a href="homework/hw4.pdf">Problem Set 4</a> {{< downloadthis homework/hw4_r.qmd dname="homework4_R" label="hw4_R" id=mtcars-btn >}}</li>
           <li>Study for Midterm 1</li>
         </ul>
       </td>
