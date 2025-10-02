@@ -459,133 +459,6 @@ shrink_DT(fish |>
   DT::datatable())
 ```
 
-# Live code
-
--   Using wrangling to obtain probabilities
-
--   `case_when()` to create more complex categorical variables
-
-```{r echo = F}
-set.seed(1)
-admissions <- read_csv("data/ucb_admissions.csv") |>
-  sample_frac()
-```
-
-## Wrangling for probabilities
-
-:::::: columns
-::: {.column width="50%"}
-What is the probability that someone was admitted?
-
-```{r eval = T, echo = T}
-admissions |>
-  count(Decision) |>
-  mutate(prob = n/sum(n)) |>
-  select(-n)
-```
-:::
-
-:::: {.column width="50%"}
-::: fragment
-What is the probability that someone was admitted, conditioned on gender?
-
-```{r eval = T, echo = T}
-admissions |>
-  count(Gender, Decision) |>
-  group_by(Gender) |>
-  mutate(cond_prob = n/sum(n)) |>
-  select(-n)
-```
-:::
-::::
-
--   How might I extend to also condition on Department?
-::::::
-
-## More complex categorical variables
-
-Suppose I want to create a new variable called `Dept2` that takes the values:
-
--   "Group 1" if someone applied to Department A or B
--   "Group 2" if someone applied to Department C or D
--   "Group 3" if someone applied to Department E or F
-
-::: fragment
-```{r eval = F, echo = T}
-# option 1 (awful): nested if_else()
-admissions |>
-  mutate(Dept2 = if_else(Dept %in% c("A", "B"), "Group 1",
-                           if_else(Dept %in% c("C", "D"), "Group 2",
-                                   "Group 3")))
-```
-
-```{r eval = T, echo = F}
-# option 1 (awful): nested if_else()
-set.seed(2)
-admissions |>
-  mutate(Dept2 = if_else(Dept %in% c("A", "B"), "Group 1",
-                           if_else(Dept %in% c("C", "D"), "Group 2",
-                                   "Group 3"))) |>
-  sample_frac() |>
-  slice(1:5)
-```
-:::
-
-## case_when()
-
-We will use the `case_when()` function which generalizes `if_else()`. We use the following notation: `<logical condition> ~ <value of variable>`. Different "ifs" are separated by commas, and the logical conditions are checked sequentially.
-
-::::: columns
-::: {.column width="50%"}
-```{r echo = T, eval = F}
-admissions |>
-  mutate(Dept2 = case_when(
-    Dept %in% c("A", "B") ~ "Group 1",
-    Dept %in% c("C", "D") ~ "Group 2",
-    Dept %in% c("E", "F") ~ "Group 3",
-  )) 
-```
-
-```{r echo = F, eval = T}
-set.seed(2)
-admissions |>
-  mutate(Dept2 = case_when(
-    Dept %in% c("A", "B") ~ "Group 1",
-    Dept %in% c("C", "D") ~ "Group 2",
-    Dept %in% c("E", "F") ~ "Group 3",
-  )) |>
-  sample_frac() |>
-  slice(1:5)
-```
-:::
-
-::: {.column width="50%"}
-```{r echo =T, eval = F}
-#| code-line-numbers: "1,2,7"
-# The following is also acceptable, but 
-# relies on sequential ordering:
-admissions |>
-  mutate(Dept2 = case_when(
-    Dept %in% c("A", "B") ~ "Group 1",
-    Dept %in% c("C", "D") ~ "Group 2",
-    T ~ "Group 3",
-  )) |>
-  sample_frac() 
-```
-
-```{r echo = F, eval = T}
-set.seed(2)
-admissions |>
-  mutate(Dept2 = case_when(
-    Dept %in% c("A", "B") ~ "Group 1",
-    Dept %in% c("C", "D") ~ "Group 2",
-    T ~ "Group 3",
-  )) |>
-  sample_frac() |>
-  slice(1:5)
-```
-:::
-:::::
 
 ## Prettier tables using `kable()`
 
@@ -602,7 +475,7 @@ admissions |>
 ::: fragment
 Currently:
 
-```{r echo = T, eval = T}
+```{r echo = T, eval = F}
 admissions |>
   count(Decision) |>
   mutate(prob = n/sum(n))
@@ -614,7 +487,7 @@ admissions |>
 -   Using `kable()` (note we can specify number of digits)
 
 ::: fragment
-```{r echo = T, eval = T}
+```{r echo = T, eval = F}
 library(kableExtra)
 admissions |>
   count(Decision) |>

@@ -865,6 +865,139 @@
 <ul>
 <li class="fragment">What was the confounding variable in UC Berkeley study?</li>
 </ul>
+</section></section>
+<section>
+<section id="live-code" class="title-slide slide level1 center">
+<h1>Live code</h1>
+<ul>
+<li class="fragment"><p>Using wrangling to obtain probabilities</p></li>
+<li class="fragment"><p><code>case_when()</code> to create more complex categorical variables</p></li>
+</ul>
+</section>
+<section id="wrangling-for-probabilities" class="slide level2">
+<h2>Wrangling for probabilities</h2>
+<div class="columns">
+<div class="column" style="width:50%;">
+<p>What is the probability that someone was admitted?</p>
+<div class="cell">
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb6"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb6-1"><a></a>admissions <span class="sc">|&gt;</span></span>
+<span id="cb6-2"><a></a>  <span class="fu">count</span>(Decision) <span class="sc">|&gt;</span></span>
+<span id="cb6-3"><a></a>  <span class="fu">mutate</span>(<span class="at">prob =</span> n<span class="sc">/</span><span class="fu">sum</span>(n)) <span class="sc">|&gt;</span></span>
+<span id="cb6-4"><a></a>  <span class="fu">select</span>(<span class="sc">-</span>n)</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+<div class="cell-output cell-output-stdout">
+<pre><code># A tibble: 2 × 2
+  Decision  prob
+  &lt;chr&gt;    &lt;dbl&gt;
+1 Admit    0.388
+2 Reject   0.612</code></pre>
+</div>
+</div>
+</div><div class="column" style="width:50%;">
+<div class="fragment">
+<p>What is the probability that someone was admitted, conditioned on gender?</p>
+<div class="cell">
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb8"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb8-1"><a></a>admissions <span class="sc">|&gt;</span></span>
+<span id="cb8-2"><a></a>  <span class="fu">count</span>(Gender, Decision) <span class="sc">|&gt;</span></span>
+<span id="cb8-3"><a></a>  <span class="fu">group_by</span>(Gender) <span class="sc">|&gt;</span></span>
+<span id="cb8-4"><a></a>  <span class="fu">mutate</span>(<span class="at">cond_prob =</span> n<span class="sc">/</span><span class="fu">sum</span>(n)) <span class="sc">|&gt;</span></span>
+<span id="cb8-5"><a></a>  <span class="fu">select</span>(<span class="sc">-</span>n)</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+<div class="cell-output cell-output-stdout">
+<pre><code># A tibble: 4 × 3
+# Groups:   Gender [2]
+  Gender Decision cond_prob
+  &lt;chr&gt;  &lt;chr&gt;        &lt;dbl&gt;
+1 Female Admit        0.304
+2 Female Reject       0.696
+3 Male   Admit        0.445
+4 Male   Reject       0.555</code></pre>
+</div>
+</div>
+</div>
+</div><ul>
+<li class="fragment">How might I extend to also condition on Department?</li>
+</ul>
+</div>
+</section>
+<section id="more-complex-categorical-variables" class="slide level2">
+<h2>More complex categorical variables</h2>
+<p>Suppose I want to create a new variable called <code>Dept2</code> that takes the values:</p>
+<ul>
+<li class="fragment">“Group 1” if someone applied to Department A or B</li>
+<li class="fragment">“Group 2” if someone applied to Department C or D</li>
+<li class="fragment">“Group 3” if someone applied to Department E or F</li>
+</ul>
+<div class="fragment">
+<div class="cell">
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb10"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb10-1"><a></a><span class="co"># option 1 (awful): nested if_else()</span></span>
+<span id="cb10-2"><a></a>admissions <span class="sc">|&gt;</span></span>
+<span id="cb10-3"><a></a>  <span class="fu">mutate</span>(<span class="at">Dept2 =</span> <span class="fu">if_else</span>(Dept <span class="sc">%in%</span> <span class="fu">c</span>(<span class="st">"A"</span>, <span class="st">"B"</span>), <span class="st">"Group 1"</span>,</span>
+<span id="cb10-4"><a></a>                           <span class="fu">if_else</span>(Dept <span class="sc">%in%</span> <span class="fu">c</span>(<span class="st">"C"</span>, <span class="st">"D"</span>), <span class="st">"Group 2"</span>,</span>
+<span id="cb10-5"><a></a>                                   <span class="st">"Group 3"</span>)))</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+</div>
+<div class="cell">
+<div class="cell-output cell-output-stdout">
+<pre><code># A tibble: 5 × 4
+  Decision Gender Dept  Dept2  
+  &lt;chr&gt;    &lt;chr&gt;  &lt;chr&gt; &lt;chr&gt;  
+1 Reject   Female C     Group 2
+2 Admit    Male   A     Group 1
+3 Reject   Female E     Group 3
+4 Reject   Male   B     Group 1
+5 Reject   Female C     Group 2</code></pre>
+</div>
+</div>
+</div>
+</section>
+<section id="case_when" class="slide level2">
+<h2>case_when()</h2>
+<p>We will use the <code>case_when()</code> function which generalizes <code>if_else()</code>. We use the following notation: <code>&lt;logical condition&gt; ~ &lt;value of variable&gt;</code>. Different “ifs” are separated by commas, and the logical conditions are checked sequentially.</p>
+<div class="columns">
+<div class="column" style="width:50%;">
+<div class="cell">
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb12"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb12-1"><a></a>admissions <span class="sc">|&gt;</span></span>
+<span id="cb12-2"><a></a>  <span class="fu">mutate</span>(<span class="at">Dept2 =</span> <span class="fu">case_when</span>(</span>
+<span id="cb12-3"><a></a>    Dept <span class="sc">%in%</span> <span class="fu">c</span>(<span class="st">"A"</span>, <span class="st">"B"</span>) <span class="sc">~</span> <span class="st">"Group 1"</span>,</span>
+<span id="cb12-4"><a></a>    Dept <span class="sc">%in%</span> <span class="fu">c</span>(<span class="st">"C"</span>, <span class="st">"D"</span>) <span class="sc">~</span> <span class="st">"Group 2"</span>,</span>
+<span id="cb12-5"><a></a>    Dept <span class="sc">%in%</span> <span class="fu">c</span>(<span class="st">"E"</span>, <span class="st">"F"</span>) <span class="sc">~</span> <span class="st">"Group 3"</span>,</span>
+<span id="cb12-6"><a></a>  )) </span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+</div>
+<div class="cell">
+<div class="cell-output cell-output-stdout">
+<pre><code># A tibble: 5 × 4
+  Decision Gender Dept  Dept2  
+  &lt;chr&gt;    &lt;chr&gt;  &lt;chr&gt; &lt;chr&gt;  
+1 Reject   Female C     Group 2
+2 Admit    Male   A     Group 1
+3 Reject   Female E     Group 3
+4 Reject   Male   B     Group 1
+5 Reject   Female C     Group 2</code></pre>
+</div>
+</div>
+</div><div class="column" style="width:50%;">
+<div class="cell">
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb14" data-code-line-numbers="1,2,7"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb14-1"><a></a><span class="co"># The following is also acceptable, but </span></span>
+<span id="cb14-2"><a></a><span class="co"># relies on sequential ordering:</span></span>
+<span id="cb14-3"><a></a>admissions <span class="sc">|&gt;</span></span>
+<span id="cb14-4"><a></a>  <span class="fu">mutate</span>(<span class="at">Dept2 =</span> <span class="fu">case_when</span>(</span>
+<span id="cb14-5"><a></a>    Dept <span class="sc">%in%</span> <span class="fu">c</span>(<span class="st">"A"</span>, <span class="st">"B"</span>) <span class="sc">~</span> <span class="st">"Group 1"</span>,</span>
+<span id="cb14-6"><a></a>    Dept <span class="sc">%in%</span> <span class="fu">c</span>(<span class="st">"C"</span>, <span class="st">"D"</span>) <span class="sc">~</span> <span class="st">"Group 2"</span>,</span>
+<span id="cb14-7"><a></a>    T <span class="sc">~</span> <span class="st">"Group 3"</span>,</span>
+<span id="cb14-8"><a></a>  )) <span class="sc">|&gt;</span></span>
+<span id="cb14-9"><a></a>  <span class="fu">sample_frac</span>() </span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+</div>
+<div class="cell">
+<div class="cell-output cell-output-stdout">
+<pre><code># A tibble: 5 × 4
+  Decision Gender Dept  Dept2  
+  &lt;chr&gt;    &lt;chr&gt;  &lt;chr&gt; &lt;chr&gt;  
+1 Reject   Female C     Group 2
+2 Admit    Male   A     Group 1
+3 Reject   Female E     Group 3
+4 Reject   Male   B     Group 1
+5 Reject   Female C     Group 2</code></pre>
+</div>
+</div>
+</div></div>
 
 
 </section></section>
