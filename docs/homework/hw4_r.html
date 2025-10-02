@@ -7,7 +7,7 @@
 <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
 
 <meta name="author" content="Your name">
-<meta name="dcterms.date" content="2025-03-10">
+<meta name="dcterms.date" content="2025-10-06">
 
 <title>STAT 201: Problem Set 4 (R) – STAT 201: Intro. to Statistics and Data Science</title>
 <style>
@@ -195,7 +195,7 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
     <div>
     <div class="quarto-title-meta-heading">Published</div>
     <div class="quarto-title-meta-contents">
-      <p class="date">March 10, 2025</p>
+      <p class="date">October 6, 2025</p>
     </div>
   </div>
   
@@ -214,27 +214,23 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 <span id="cb1-2"><a href="#cb1-2" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(kableExtra)</span>
 <span id="cb1-3"><a href="#cb1-3" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(mosaicData)</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
 </div>
-<p>We will work with the <code>Whickham</code> data from the package. You should open its Help file and take a view of the data before proceeding. Note that the type “factor” can be though of as a categorical variable. <strong>Make sure you understand the data before proceeding!</strong></p>
+<p>We will work with the <code>Whickham</code> data from the <code>mosaicData</code> package. You should open its Help file and take a view of the data before proceeding. Note that the type “factor” can be though of as a categorical variable. <strong>Make sure you understand the data before proceeding!</strong></p>
 <ol type="1">
-<li>Before looking at the data and using your intuition: What would you expect the relationship between smoking status and health outcome to be?</li>
+<li>Create a standardized bar plot that depicts the relationship between smoking status and health outcome. This about what the explanatory and response variables should be and how that affects your plot. Make sure you have informative labels and titles. Change the colors of the bars to be something besides the default (using e.g.&nbsp;<code>scale_fill_viridis_d()</code> or <code>scale_fill_brewer()</code>).</li>
 </ol>
-<p><strong>Answer:</strong></p>
 <ol start="2" type="1">
-<li>Create an standardized bar plot that depicts the relationship between smoking status and health outcome. This about what the explanatory and response variables should be and how that affects your plot. Make sure you have informative labels and titles. Change the background of the plot to something besides the default, and also change the colors of the bars to be something besides the default (e.g.&nbsp;<code>scale_fill_viridis_d()</code> or <code>scale_fill_brewer()</code>).</li>
-</ol>
-<ol start="3" type="1">
 <li>Using wrangling code, calculate the conditional probabilities of death for each smoking status. Your resulting table should:</li>
 </ol>
 <ul>
 <li><p>Only report only the probabilities for when outcome is Dead</p></li>
-<li><p>Only retain the variables for smoke statu and the conditional probabilities in a meaningful order</p></li>
+<li><p>Only retain the variables for smoke status and the conditional probabilities in a meaningful order</p></li>
 <li><p>Render as a beautiful table, not a data frame</p></li>
 </ul>
-<ol start="4" type="1">
-<li>Do your calculations and visualization from Exercises 2 and 3 align with your hypothesis from Exercise 1? Briefly explain why or why not.</li>
+<ol start="3" type="1">
+<li>Do your calculations and visualization from Exercises 1 and 2 align with you expected the relationship to be between smoking and health status? Briefly explain why or why not.</li>
 </ol>
 <p><strong>Answer:</strong></p>
-<ol start="5" type="1">
+<ol start="4" type="1">
 <li>Using <code>case_when()</code>, create a new variable for future use called <code>age_cat</code> that takes the values as follows:</li>
 </ol>
 <ul>
@@ -242,24 +238,24 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 <li>“45-64”: if someone is between 45 and 64 years old, inclusive</li>
 <li>“65+”: if someone is older than 64</li>
 </ul>
-<p>Store the resulting data frame into a new data frame called <code>Whickham2</code></p>
-<ol start="6" type="1">
-<li>Re-create your first visualization from Exercise 2, this time bringing in your new <code>age_cat</code> variable in an appropriate way. Make sure you have informative labels and titles, and use the same color choice you as in Exercise 2.</li>
+<p>Store the resulting data frame into a new data frame called <code>Whickham2</code>.</p>
+<ol start="5" type="1">
+<li>Re-create your first visualization from Exercise 2, this time bringing in your new <code>age_cat</code> variable in an appropriate way. Make sure you have informative labels and titles, and use the same color choice as you did in Exercise 1.</li>
 </ol>
-<ol start="7" type="1">
-<li>Elaborate on your table from Exercise 3 above by breaking it down by age category. Your resulting table should:</li>
+<ol start="6" type="1">
+<li>Re-create your table from Exercise 2, but now breaking it down by age category. Your resulting table should:</li>
 </ol>
 <ul>
-<li><p>Only report only the probabilities for when outcome is Dead</p></li>
+<li><p>Only report the probabilities for when outcome is Dead</p></li>
 <li><p>Only retain the variables for smoke status, the conditional probabilities, and age category in a meaningful order</p></li>
 <li><p>Present the results such that multiple rows with the same age categories appear in consecutive order in the table</p></li>
 <li><p>Render as a beautiful table, not a data frame</p></li>
 </ul>
-<ol start="8" type="1">
+<ol start="7" type="1">
 <li>Compare the two visualizations and the two summary tables. What changed, and what might explain the change?</li>
 </ol>
 <p><strong>Answer</strong>:</p>
-<p>When finished, render one more time and submit the PDF to Gradescope!</p>
+<p>When finished, render one more time and submit the PDF to Gradescope alongside your other problems!</p>
 
 
 

@@ -1,25 +1,22 @@
 ---
-title: "Coding practice: case_when, tables"
+title: "Coding practice: case_when"
 author: "Your name"
 format: pdf
 ---
 
-0.  Change your name in the YAML and load in the packages necessary for making beautiful tables. Then run the following chunk.
+0.  Change your name in the YAML and load in the packages necessary for wrangling. Then run the following chunk.
 
 ```{r message = F}
 # add packages here
-library(tidyverse)
-
-diamonds2 <- read_csv("https://raw.githubusercontent.com/midd-stat201a-fall25/midd-stat201a-fall25.github.io/refs/heads/main/data/diamonds2.csv")
 ```
 
-We will work with a modified version of the `diamonds` dataset that I have loaded for you above, called `diamonds2`. This is just like the `diamonds` data set, but now includes a variable called `id` that uniquely identifies the diamond. Modify your `diamonds2` data frame to include an additional variable called `price_ct` which is the price of the diamond per carat
+We will work with the `diamonds` data set again. Take a look at its Help file. When you're ready, create a new data frame called `diamonds2` that modifies `diamonds` to include an additional variable called `price_ct` which is the price of the diamond per carat
 
 ```{r}
 
 ```
 
-2.  Create a beautiful table (i.e. not data frame) that displays the proportion of diamonds whose price per carat of exceeds 8000 USD for each color of diamond. Your table should only display the color of the diamonds and the proportion that are greater than 8000 USD.
+2.  Create a new data frame that displays the proportion of diamonds whose price per carat of exceeds 8000 USD for each color of diamond. Your wrangled output should only display the color of the diamonds and the proportion that are greater than 8000 USD.
 
 ```{r}
 

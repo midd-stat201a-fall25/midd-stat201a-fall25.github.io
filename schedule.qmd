@@ -306,7 +306,7 @@ format:
       </td>
       <td>
         <ul>
-          <li> Joins, case_when, tables {{< downloadthis coding_practice/coding-practice-11-join-case_when.qmd dname="coding-practice-join-case-when" label="Coding practice" id=mtcars-btn >}} </li>
+          <li> Joins, case_when, tables {{< downloadthis coding_practice/coding-practice-11-join-case_when.qmd dname="coding-practice-join-case-when" label="Coding practice" id=mtcars-btn >}} due tomorrow (10/03 at 11:59pm) </li>
         </ul>
       </td>
       <td>
