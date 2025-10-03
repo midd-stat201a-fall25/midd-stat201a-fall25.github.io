@@ -5,7 +5,7 @@ date: "10/06/2025"
 format: pdf
 ---
 
-0. *Install the following packages: 1) mosaicData and 2) kableExtra.*
+0.  *Install the following packages: 1) mosaicData and 2) kableExtra.*
 
 Today’s data comes from a study of conducted in Whickham, England. In this study, the researchers recorded each participant’s age, smoking status at the start of the study, and their health outcome 20 years later.
 
@@ -53,7 +53,7 @@ Store the resulting data frame into a new data frame called `Whickham2`.
 
 ```
 
-5.  Re-create your first visualization from Exercise 2, this time bringing in your new `age_cat` variable in an appropriate way. Make sure you have informative labels and titles, and use the same color choice as you did in Exercise 1.
+5.  Re-create your first visualization from Exercise 1, this time bringing in your new `age_cat` variable in an appropriate way. Make sure you have informative labels and titles, and use the same color choice as you did in Exercise 1.
 
 ```{r}
 

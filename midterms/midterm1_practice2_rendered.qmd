@@ -1,5 +1,5 @@
 ---
-title: "Midterm 1 Practice 2"
+title: "STAT 201: Midterm 1 Extra Coding Practice 2"
 format: pdf
 ---
 
@@ -61,7 +61,7 @@ bikes |>
   kable()
 ```
 
-4.  Create a summary table that displays the mean and standard deviation of daily number of bike rentals in June 2012.
+4.  Create a beautiful summary table that displays the mean and standard deviation of daily number of bike rentals in June 2012.
 
 ```{r}
 bikes |>

@@ -17,7 +17,7 @@ format:
     <td> <a href="#week2">Week 2</a> </td>
     <td> <a href="#week3">Week 3</a> </td>
     <td> <a href="#week4">Week 4</a> </td>
-    <td> Week 5 </td>
+    <td> <a href="#week5">Week 5</a> </td>
     <td> Week 6 </td>
     <td> Week 7 </td>
     <td> Week 8 </td>
@@ -310,8 +310,58 @@ format:
       </td>
       <td>
         <ul>
-          <li>Thursday problems in <a href="homework/hw4.pdf">Problem Set 4</a> {{< downloadthis homework/hw4_r.qmd dname="homework4_R" label="hw4_R" id=mtcars-btn >}}</li>
+          <li>Thursday problems in <a href="homework/hw4.pdf">Problem Set 4</a> {{< downloadthis homework/hw4_r.qmd dname="homework4_R" label="hw4_R" id=mtcars-btn >}} Note there was a typo in the .qmd; R Exercise 5 should read "Re-create your first visualization from Exercise 1"! </li>
           <li>Study for Midterm 1</li>
+        </ul>
+      </td>
+    </tr>
+    <!-- week 5 -->
+    <tr>
+      <td id="week5"><strong>5</strong></td>
+      <td> M 10/06 </td>
+      <td>
+        <ul>
+          <li><a href="partner.qmd">Partner programming</a>: Activity 4</li>
+          <li> Topic: TBD </li>
+        </ul>
+      </td>
+      <td>
+      </td>
+      <td>
+        <ul>
+          <li>None! Ensure you sign up for oral midterm time slot.</li>
+        </ul>
+      </td>
+    </tr>
+    <tr>
+      <td></td>
+      <td> W 10/08 </td>
+      <td>
+        <ul>
+          <li> No class! </li>
+        </ul>
+      </td>
+      <td>
+      </td>
+      <td>
+        <ul>
+          <li>Study for midterm.</li>
+        </ul>
+      </td>
+    </tr>
+    <tr>
+      <td></td>
+      <td> R 10/02 </td>
+      <td>
+        <ul>
+          <li> Midterm 1: written component </li>
+        </ul>
+      </td>
+      <td>
+      </td>
+      <td>
+        <ul>
+          <li> None! Enjoy Fall break!</li>
         </ul>
       </td>
     </tr>

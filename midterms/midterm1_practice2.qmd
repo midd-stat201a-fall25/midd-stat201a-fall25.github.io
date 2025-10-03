@@ -1,5 +1,5 @@
 ---
-title: "Midterm 1 Practice 2"
+title: "STAT 201: Midterm 1 Extra Coding Practice 2"
 author: "Your name"
 format: pdf
 ---
@@ -15,9 +15,9 @@ In many cities, there is a bike-share system where people can rent bicycles by t
 0.  To the code chunk below, add libraries necessary for data wrangling, plotting, and making pretty tables.
 
 ```{r message = F, echo = F}
-library(readr)
+# add packages here
 
-bikes <- read_csv("https://raw.githubusercontent.com/midd-stat201-spring2025/midd-stat201-spring2025.github.io/refs/heads/main/data/bikes_summer.csv", show_col_types = F)
+bikes <- readr::read_csv("https://raw.githubusercontent.com/midd-stat201-spring2025/midd-stat201-spring2025.github.io/refs/heads/main/data/bikes_summer.csv", show_col_types = F)
 ```
 
 1.  Modify the `bikes` data frame to include a variable that represents the time of day where:
@@ -54,10 +54,8 @@ bikes <- read_csv("https://raw.githubusercontent.com/midd-stat201-spring2025/mid
 
 ```
 
-5.  Re-create the graph seen on the rendered version. 
+5.  Re-create the graph seen on the rendered version.
 
 ```{r}
 
 ```
-
-
