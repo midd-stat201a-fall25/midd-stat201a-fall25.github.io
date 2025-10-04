@@ -71,9 +71,10 @@ ul.task-list li input[type="checkbox"] {
 }</script>
 
 
+<link rel="stylesheet" href="styles.css">
 </head>
 
-<body class="nav-fixed fullcontent quarto-light">
+<body class="nav-fixed quarto-light">
 
 <div id="quarto-search-results"></div>
   <header id="quarto-header" class="headroom fixed-top">
@@ -135,7 +136,19 @@ ul.task-list li input[type="checkbox"] {
 <div id="quarto-content" class="quarto-container page-columns page-rows-contents page-layout-article page-navbar">
 <!-- sidebar -->
 <!-- margin-sidebar -->
-    
+    <div id="quarto-margin-sidebar" class="sidebar margin-sidebar">
+        <nav id="TOC" role="doc-toc" class="toc-active">
+    <h2 id="toc-title">On this page</h2>
+   
+  <ul>
+  <li><a href="#midterm-1" id="toc-midterm-1" class="nav-link active" data-scroll-target="#midterm-1">Midterm 1</a>
+  <ul class="collapse">
+  <li><a href="#logistics" id="toc-logistics" class="nav-link" data-scroll-target="#logistics">Logistics</a></li>
+  <li><a href="#preparation" id="toc-preparation" class="nav-link" data-scroll-target="#preparation">Preparation</a></li>
+  </ul></li>
+  </ul>
+</nav>
+    </div>
 <!-- main -->
 <main class="content" id="quarto-document-content">
 
@@ -173,7 +186,10 @@ ul.task-list li input[type="checkbox"] {
 <li><p><strong>What</strong>: content through end of Week 4 (i.e.&nbsp;through Simpson’s Paradox)</p>
 <ul>
 <li>This includes homework and coding practices</li>
-<li>Written component: Focus on non-programming content. You will not have to produce your own code, but you may have to read code/discuss coding concepts.</li>
+<li>Written component: Focus on non-programming content. You will not have to produce your own code, but you may have to read code/discuss coding concepts.
+<ul>
+<li><strong>Plan to bring a calculator to the written component. I will also have some extra calculators in case you don’t have one or forget to bring one!</strong></li>
+</ul></li>
 <li>Oral component: Focus on programming content. You will be given a prompt and have to discuss solution strategies and tell Prof.&nbsp;Tang what to type. You may be also be asked to interpret our findings.
 <ul>
 <li>Prof.&nbsp;Tang is there to assist (to make sure we can make progress on the prompt), but part of your grade depends on how much you can independently produce!</li>
@@ -181,7 +197,7 @@ ul.task-list li input[type="checkbox"] {
 </ul></li>
 </ul></li>
 <li><p>You will not have a problem set assigned the week of the midterm!</p></li>
-<li><p>Extra office hours: Tuesday 10/07 at some time TBD</p></li>
+<li><p><strong>Extra office hours</strong>: Tuesday 10/07 from 1-2pm</p></li>
 </ul>
 </section>
 <section id="preparation" class="level3">
@@ -189,15 +205,23 @@ ul.task-list li input[type="checkbox"] {
 <ul>
 <li><p>The best preparation you can do for the midterm is to go through your homework and coding practices and be honest with yourself about what you do/don’t understand. This means going through the painful process of looking at feedback on Gradescope. For the concepts that you need to practice more, try more problems (see below)!</p></li>
 <li><p>I suggest going through each of the <code>ggplot</code> and <code>dplyr</code> functions that we’ve seen in the course and ensuring you know how they work and when to use them!</p></li>
-<li><p>For extra practice for the oral component, additional coding problems are made available below. These questions are not necessarily representative of the typical scope and difficulty of individual exam questions (some are easier, some are harder). This review is not comprehensive.</p>
+<li><p><strong>For extra practice for the written component</strong>, I have made some extra review problems provided below. These are by no means exhaustive; there may be topics on the midterm that aren’t covered in these problems.</p>
 <ul>
-<li><p>Practice with a friend!</p>
-<!-- -   In-class practice: [rendered version](midterms/midterm1_practice_inclass_rendered.qmd) -->
-<!--     -   [Solutions](midterms/midterm1_practice_inclass_solns.pdf) (note that many problems have many different solutions) -->
-<!-- -   Practice 1: [rendered version](midterms/midterm1_practice1_render.qmd) ([solutions](midterms/midterm1_practice1_solns.pdf)) -->
-<!--     -   `.qmd` template  -->
-<!-- -   Practice 2: [rendered version](midterms/midterm1_practice2_rendered.qmd) ([solutions](midterms/midterm1_practice2_solns.pdf)) -->
-<!--     -   `.qmd` template  --></li>
+<li><a href="midterms/midterm1_review.pdf">Review problems</a></li>
+</ul></li>
+<li><p><strong>For extra practice for the oral component</strong>, additional coding problems are made available below. These questions are not necessarily representative of the typical scope and difficulty of individual exam questions (some are easier, some are harder). This review is not comprehensive.</p>
+<ul>
+<li><p>Practice 1: <a href="midterms/midterm1_practice1_rendered.pdf">Instructions</a> and <a href="#mtcars-btn" onclick="fetch('data:text/plain;base64,LS0tCnRpdGxlOiAiU1RBVCAyMDE6IE1pZHRlcm0gMSBFeHRyYSBDb2RpbmcgUHJhY3RpY2UgMSIKYXV0aG9yOiAiWW91ciBuYW1lIgpmb3JtYXQ6IHBkZgotLS0KCldyaXRlIHlvdXIgbmFtZSBpbiB0aGUgWUFNTCBhbmQgbG9hZCB5b3VyIHBhY2thZ2VzIG5lY2Vzc2FyeSBmb3Igd3JhbmdsaW5nIGNvZGUsIHBsb3R0aW5nLCBhbmQgY3JlYXRpbmcgYmVhdXRpZnVsIHRhYmxlczoKCmBgYHtyIG1lc3NhZ2UgPSBGLCBlY2hvID0gVH0KCmBgYAoKUnVuIHRoZSBmb2xsb3dpbmcgY29kZSBjaHVuayB0byBsb2FkIGluIHRoZSBkYXRhOgoKYGBge3IgZWNobyA9IEZ9Cmd1bl92aW9sZW5jZSA8LSByZWFkcjo6cmVhZF9jc3YoImh0dHBzOi8vcmF3LmdpdGh1YnVzZXJjb250ZW50LmNvbS9taWRkLXN0YXQyMDEtc3ByaW5nMjAyNS9taWRkLXN0YXQyMDEtc3ByaW5nMjAyNS5naXRodWIuaW8vcmVmcy9oZWFkcy9tYWluL2RhdGEvZ3VuX3Zpb2xlbmNlLmNzdiIsIHNob3dfY29sX3R5cGVzID0gRkFMU0UsIGNvbF90eXBlcyA9ICJuY2NjY25ubmNjYyIpIApgYGAKCiMjIFF1ZXN0aW9uIDEKCmBgYHtyfQoKYGBgCgojIyBRdWVzdGlvbiAyCgpgYGB7cn0KCgpgYGAKCiMjIFF1ZXN0aW9uIDMKCmBgYHtyfQoKCmBgYAoKIyMgUXVlc3Rpb24gNAoKYGBge3J9CgoKYGBgCg==').then(res => res.blob()).then(blob => {
+      const downloadURL = window.URL.createObjectURL(blob);
+      const a = document.createElement('a');
+      document.body.appendChild(a);
+      a.href = downloadURL;
+      a.download = 'midterm1-practice1.qmd'; a.click();
+      window.URL.revokeObjectURL(downloadURL);
+      document.body.removeChild(a);
+        });"><button class="btn btn-default downloadthis  " id="mtcars-btn"><i class="bi bi-download"></i> .qmd </button></a></p></li>
+<li><p>Practice 2:</p></li>
+<li><p>Practice 3</p></li>
 </ul></li>
 </ul>
 

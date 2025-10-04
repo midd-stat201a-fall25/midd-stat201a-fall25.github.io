@@ -8,10 +8,11 @@ Welcome to the website for Middlebury College’s Fall 2025 STAT 201A. On this w
 
 ## Announcements
 
+-   [Midterm 1](midterms.qmd) details announced!
+    -   Some practice problems have been released!
+    -   Tuesday 10/07 office hours: 1-2pm
 -   Suggestion: go through the live code notes again and make sure you understand all the functions being used!
     -   The [Modern Dive textbook](https://moderndive.com/3-wrangling.html#filter) has some nice descriptions and visuals of some of the wrangling functions we're learning!
--   Upcoming [SDS Experience](experience.qmd): talks by our Stats faculty at Fall Faculty Forum this Friday, 10/03!
--   Midterm 1 details announced!
 
 ------------------------------------------------------------------------
 

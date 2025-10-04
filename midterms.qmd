@@ -1,5 +1,9 @@
 ---
 title: "Midterms"
+format: 
+  html:
+    css: styles.css
+    toc: true
 ---
 
 ## Midterm 1
@@ -20,13 +24,14 @@ title: "Midterms"
 
     -   This includes homework and coding practices
     -   Written component: Focus on non-programming content. You will not have to produce your own code, but you may have to read code/discuss coding concepts.
+        -   **Plan to bring a calculator to the written component. I will also have some extra calculators in case you don't have one or forget to bring one!**
     -   Oral component: Focus on programming content. You will be given a prompt and have to discuss solution strategies and tell Prof. Tang what to type. You may be also be asked to interpret our findings.
         -   Prof. Tang is there to assist (to make sure we can make progress on the prompt), but part of your grade depends on how much you can independently produce!
         -   A general rubric will be shared on Monday 10/06 class
 
 -   You will not have a problem set assigned the week of the midterm!
 
--   Extra office hours: Tuesday 10/07 at some time TBD
+-   **Extra office hours**: Tuesday 10/07 from 1-2pm
 
 ### Preparation
 
@@ -34,18 +39,14 @@ title: "Midterms"
 
 -   I suggest going through each of the `ggplot` and `dplyr` functions that we've seen in the course and ensuring you know how they work and when to use them!
 
--   For extra practice for the oral component, additional coding problems are made available below. These questions are not necessarily representative of the typical scope and difficulty of individual exam questions (some are easier, some are harder). This review is not comprehensive.
+-   **For extra practice for the written component**, I have made some extra review problems provided below. These are by no means exhaustive; there may be topics on the midterm that aren't covered in these problems.
 
-    -   Practice with a friend!
+    -   [Review problems](midterms/midterm1_review.pdf)
 
-        <!-- -   In-class practice: [rendered version](midterms/midterm1_practice_inclass_rendered.qmd) -->
+-   **For extra practice for the oral component**, additional coding problems are made available below. These questions are not necessarily representative of the typical scope and difficulty of individual exam questions (some are easier, some are harder). This review is not comprehensive.
 
-        <!--     -   [Solutions](midterms/midterm1_practice_inclass_solns.pdf) (note that many problems have many different solutions) -->
+    -   Practice 1: [Instructions](midterms/midterm1_practice1_rendered.pdf) and {{< downloadthis midterms/midterm1_practice1.qmd dname="midterm1-practice1" label=".qmd" id=mtcars-btn >}}
 
-        <!-- -   Practice 1: [rendered version](midterms/midterm1_practice1_render.qmd) ([solutions](midterms/midterm1_practice1_solns.pdf)) -->
+    -   Practice 2:
 
-        <!--     -   `.qmd` template {{< downloadthis midterms/midterm1_practice1.qmd dname="midterm1_practice1" label=".qmd" id=mtcars-btn >}} -->
-
-        <!-- -   Practice 2: [rendered version](midterms/midterm1_practice2_rendered.qmd) ([solutions](midterms/midterm1_practice2_solns.pdf)) -->
-
-        <!--     -   `.qmd` template {{< downloadthis midterms/midterm1_practice2.qmd dname="midterm1_practice2" label=".qmd" id=mtcars-btn >}} -->
+    -   Practice 3
