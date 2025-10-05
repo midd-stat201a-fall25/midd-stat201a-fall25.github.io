@@ -6,9 +6,9 @@
 
 <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
 
-<meta name="author" content="Your name">
+<meta name="dcterms.date" content="2025-03-12">
 
-<title>Coding practice: case_when – STAT 201: Intro. to Statistics and Data Science</title>
+<title>Data ethics – STAT 201: Intro. to Statistics and Data Science</title>
 <style>
 code{white-space: pre-wrap;}
 span.smallcaps{font-variant: small-caps;}
@@ -171,26 +171,26 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 <!-- sidebar -->
 <!-- margin-sidebar -->
     <div id="quarto-margin-sidebar" class="sidebar margin-sidebar">
-    <div class="quarto-alternate-formats"><h2>Other Formats</h2><ul><li><a href="coding-practice-11-case_when.pdf"><i class="bi bi-file-pdf"></i>PDF</a></li></ul></div></div>
+    <div class="quarto-alternate-formats"><h2>Other Formats</h2><ul><li><a href="slides-12-old-ethics.html"><i class="bi bi-file-slides"></i>RevealJS</a></li></ul></div></div>
 <!-- main -->
 <main class="content" id="quarto-document-content">
 
 <header id="title-block-header" class="quarto-title-block default">
 <div class="quarto-title">
-<h1 class="title">Coding practice: case_when</h1>
+<h1 class="title">Data ethics</h1>
 </div>
 
 
 
 <div class="quarto-title-meta">
 
-    <div>
-    <div class="quarto-title-meta-heading">Author</div>
-    <div class="quarto-title-meta-contents">
-             <p>Your name </p>
-          </div>
-  </div>
     
+    <div>
+    <div class="quarto-title-meta-heading">Published</div>
+    <div class="quarto-title-meta-contents">
+      <p class="date">March 12, 2025</p>
+    </div>
+  </div>
   
     
   </div>
@@ -200,31 +200,393 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 </header>
 
 
-<ol start="0" type="1">
-<li>Change your name in the YAML and load in the packages necessary for wrangling. Then run the following chunk.</li>
-</ol>
-<div class="cell">
-<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb1"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb1-1"><a href="#cb1-1" aria-hidden="true" tabindex="-1"></a><span class="co"># add packages here</span></span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
-</div>
-<p>We will work with the <code>diamonds</code> data set again. Take a look at its Help file. When you’re ready, create a new data frame called <code>diamonds2</code> that modifies <code>diamonds</code> to include an additional variable called <code>price_ct</code> which is the price of the diamond per carat</p>
-<ol start="2" type="1">
-<li>Display a summary table/new data frame that shows the proportion of diamonds whose price per carat of exceeds 8000 USD for each color of diamond. Your wrangled output should only display the color of the diamonds and the proportion that are greater than 8000 USD.</li>
-</ol>
-<ol start="3" type="1">
-<li>To your <code>diamonds2</code> data frame, use <code>case_when()</code> to add a variable called <code>carat_cat</code> that takes the value:</li>
-</ol>
+<section id="housekeeping" class="level1">
+<h1>Housekeeping</h1>
 <ul>
-<li>“&lt; 1” if the diamond is less than 1 carat</li>
-<li>“1-3” if the diamond is between 1 and 3 carats, inclusive</li>
-<li>“&gt; 3” if the diamond is more than 3 carats</li>
+<li>Midterm 1 tomorrow! Bring a fully charged laptop!</li>
+<li>Extra office hours today 3:15-4:15pm</li>
+<li>Lots of material comes from Modern Dive and Dr.&nbsp;Shannon Vallor’s module “An Introduction to Data Ethics”</li>
 </ul>
-<p>Then using an appropriate plot type, visualize the distribution of price per carat for each of the categories you created. Make sure your plot has informative axis labels. What do you notice?</p>
-<p><strong>Answer:</strong></p>
-<p>Once you’re finished, render one last time and submit the rendered PDF to Gradescope!</p>
+<div class="cell">
+<div class="cell-output cell-output-stderr">
+<pre><code>── Attaching core tidyverse packages ──────────────────────── tidyverse 2.0.0 ──
+✔ dplyr     1.1.4     ✔ readr     2.1.5
+✔ forcats   1.0.0     ✔ stringr   1.5.1
+✔ ggplot2   3.5.2     ✔ tibble    3.2.1
+✔ lubridate 1.9.4     ✔ tidyr     1.3.1
+✔ purrr     1.0.4     
+── Conflicts ────────────────────────────────────────── tidyverse_conflicts() ──
+✖ dplyr::filter() masks stats::filter()
+✖ dplyr::lag()    masks stats::lag()
+ℹ Use the conflicted package (&lt;http://conflicted.r-lib.org/&gt;) to force all conflicts to become errors
+
+Attaching package: 'kableExtra'
 
 
+The following object is masked from 'package:dplyr':
 
-</main> <!-- /main -->
+    group_rows</code></pre>
+</div>
+</div>
+<section id="what-is-ethics-why-discuss" class="level2">
+<h2 class="anchored" data-anchor-id="what-is-ethics-why-discuss">What is ethics? Why discuss?</h2>
+<ul>
+<li>Philosopher Socrates is quoted as saying that “the most important thing is not life, but the good life”<a href="#fn1" class="footnote-ref" id="fnref1" role="doc-noteref"><sup>1</sup></a>
+<ul>
+<li>Questions of ethics attempt to answer the question: What is a life worth living?</li>
+</ul></li>
+<li>Ethics involves human choice, and goes beyond “intent”</li>
+<li>Ethics enters politically, personally, and professionally
+<ul>
+<li>Professional ethics describes the standard of behavior expected of workplace professional (depends on the field)</li>
+</ul></li>
+<li>Questions of technological and data ethics are emerging due to speed at which these fields are growing
+<ul>
+<li>Technology increasingly affects <em>how</em> and how <em>successfully</em> humans are seeking the “good life”</li>
+</ul></li>
+</ul>
+</section>
+<section id="ethical-benefits-and-harms-of-data" class="level2">
+<h2 class="anchored" data-anchor-id="ethical-benefits-and-harms-of-data">Ethical benefits and harms of data?</h2>
+<div class="columns">
+<div class="column" style="width:50%;">
+<div class="discuss">
+<p>Data does have benefits for society! What are some?</p>
+</div>
+<ul>
+<li><p>Increasing human understanding of our world</p></li>
+<li><p>Can lead to more efficient use of resources</p></li>
+<li><p>Predictive accuracy and personalization</p></li>
+</ul>
+</div><div class="column" style="width:50%;">
+<div class="discuss">
+<p>Data does have harms for society! What are some?</p>
+</div>
+<ul>
+<li><p>Harms to privacy and security, lack of consent</p></li>
+<li><p>Harms to fairness and justice</p>
+<ul>
+<li>Biases arise from falsehood, sampling errors, and discriminatory practices</li>
+</ul></li>
+<li><p>Harms to transparency and autonomy</p>
+<ul>
+<li>“Black box”/“deep learning” algorithms, proprietary software</li>
+</ul></li>
+<li><p>Many harms are implicit (which makes them hard to mitigate!)</p></li>
+</ul>
+</div>
+</div>
+</section>
+<section id="ethics-in-technology-and-data" class="level2">
+<h2 class="anchored" data-anchor-id="ethics-in-technology-and-data">Ethics in technology and data</h2>
+<ul>
+<li><p>Technologies are not ethically “neutral”–they are built and informed by humans, and so they naturally reflect the values and biases that humans have</p></li>
+<li><div class="discuss">
+<p>Have you heard of the term “big data”? If so, what does it mean to you?</p>
+</div></li>
+<li><p>“Big data” is more than just the explosive growth of large datasets!</p>
+<ul>
+<li>It involves the ways/techniques that these large datasets are <strong>stored, processed, and analyzed</strong></li>
+<li>Humans enter at these steps!</li>
+</ul></li>
+</ul>
+</section>
+<section id="what-can-you-do" class="level2">
+<h2 class="anchored" data-anchor-id="what-can-you-do">What can <em>you</em> do?</h2>
+<ul>
+<li><p>With this class, you should learn to make visualizations and tables that are factual and not intended to deceive your audience</p>
+<ul>
+<li>You can and should tell stories with your visualizations, but you <strong>should not purposefully hide or distort</strong> important aspects of the data (e.g.&nbsp;outliers, omit confounders, only display results that confirm your hypothesis)</li>
+</ul></li>
+<li><p>Don’t lie with statistics!</p></li>
+<li><p>Make all your work reproducible, and open-source (i.e.&nbsp;public)</p></li>
+</ul>
+</section>
+<section id="example-1-stand-your-ground" class="level2">
+<h2 class="anchored" data-anchor-id="example-1-stand-your-ground">Example 1: stand your ground</h2>
+<ul>
+<li><p>In 2005, the Florida legislature passed a controversial “Stand Your Ground” law</p>
+<ul>
+<li><p>The law allowed for a broader class of scenarios where the use of deadly force by citizens could be justified</p></li>
+<li><p>Proponents of the law thought it would reduce crime</p></li>
+<li><p>Opponents worried it would increase the amount of lethal force</p></li>
+</ul></li>
+</ul>
+</section>
+<section id="example-1-stand-your-ground-cont." class="level2">
+<h2 class="anchored" data-anchor-id="example-1-stand-your-ground-cont.">Example 1: stand your ground (cont.)</h2>
+<p>Nine years later, in 2014, Reuters published a graphic similar to the one below<a href="#fn2" class="footnote-ref" id="fnref2" role="doc-noteref"><sup>2</sup></a>:</p>
+<div class="columns">
+<div class="column" style="width:80%;">
+<p><img src="figs/12-florida-1.png" class="img-fluid" width="806"></p>
+</div><div class="column" style="width:20%;">
+<div class="discuss">
+<p>What is the story the figure is trying to tell?</p>
+<p>Is it factually correct?</p>
+<p>Is it deceptive?</p>
+</div>
+</div>
+</div>
+</section>
+<section id="example-2-covid-19-reporting" class="level2">
+<h2 class="anchored" data-anchor-id="example-2-covid-19-reporting">Example 2: COVID-19 reporting</h2>
+<p>In May 2020, the state of Georgia published the following graphical display of COVID-19 cases:</p>
+<div class="columns">
+<div class="column" style="width:80%;">
+<p><img src="figs/12-covid-ga-recreation.jpg" class="img-fluid" width="803"></p>
+</div><div class="column" style="width:20%;">
+<div class="discuss">
+<p>What is the story the figure is trying to tell?</p>
+<p>Is it factually correct?</p>
+<p>Is it deceptive?</p>
+</div>
+</div>
+</div>
+</section>
+<section id="data-viz-worst-practices" class="level2">
+<h2 class="anchored" data-anchor-id="data-viz-worst-practices">Data viz worst practices</h2>
+<p>Don’t do the following:</p>
+<ol type="1">
+<li>Use misleading scales</li>
+<li>Cherry-pick the data/only visualize specific data points</li>
+<li>Have ambiguous legends/labels</li>
+<li>Use colors that convey a bias</li>
+<li>Fail to explain your methods</li>
+</ol>
+</section>
+</section>
+<section id="algorithmic-bias" class="level1">
+<h1>Algorithmic bias</h1>
+<p><em>Less a feature of this course, but important to keep in mind if/when you progress further in statistics, data science, and computer science!</em></p>
+<ul>
+<li>Often related to lack of transparency</li>
+<li>Algorithms have to be “trained” on data.
+<ul>
+<li>Garbage in, garbage out</li>
+</ul></li>
+</ul>
+<section id="example-3-health-care-recommendation" class="level2">
+<h2 class="anchored" data-anchor-id="example-3-health-care-recommendation">Example 3: health care recommendation</h2>
+<ul>
+<li>Goal: identify patients for “high-risk care management” programs that seek to improve the care of patients with complex health needs by providing additional resources
+<ul>
+<li>Such programs are considered effective at improving outcomes and satisfaction while reducing costs</li>
+<li>But these programs are themselves costly -&gt; want to identify patients who have the highest “medical need”</li>
+</ul></li>
+<li><strong>Algorithm’s designers used previous patients’ health care spending as a proxy for medical need</strong></li>
+<li>Assigned patients a “risk score”, where higher risk meant more complex needs and therefore priority
+<ul>
+<li>Patients with highest risk scores automatically qualified for program</li>
+<li>Patients with lower (but still high) risk scores were interviewed for potential candidacy</li>
+</ul></li>
+</ul>
+</section>
+<section id="example-3-health-care-cont." class="level2">
+<h2 class="anchored" data-anchor-id="example-3-health-care-cont.">Example 3: health care (cont.)</h2>
+<div class="columns">
+<div class="column" style="width:30%;">
+<div class="discuss">
+<p>Interpret the plot<a href="#fn3" class="footnote-ref" id="fnref3" role="doc-noteref"><sup>3</sup></a>.</p>
+<p>What do you notice happened?</p>
+</div>
+</div><div class="column" style="width:70%;">
+<div class="quarto-figure quarto-figure-right">
+<figure class="figure">
+<p><img src="figs/12-risk_expenditure.png" class="img-fluid quarto-figure quarto-figure-right figure-img" width="550"></p>
+</figure>
+</div>
+</div>
+</div>
+</section>
+<section id="example-3-health-care-cont.-1" class="level2">
+<h2 class="anchored" data-anchor-id="example-3-health-care-cont.-1">Example 3: health care (cont.)</h2>
+<div class="discuss">
+<p>Discuss what’s going on in these two new plots. Then use them to explain the results of the algorithm.</p>
+</div>
+<div class="columns">
+<div class="column" style="width:50%;">
+<p><img src="figs/12-illness_expenditure.png" class="img-fluid" width="477"></p>
+</div><div class="column" style="width:50%;">
+<p><img src="figs/12-risk_illness.png" class="img-fluid" width="463"></p>
+</div>
+</div>
+<div class="notes">
+<p>Even though black patients tend to have more severe medical conditions, algorithm is built to predict health care costs rather than illness</p>
+</div>
+</section>
+<section id="example-4-compas-and-propublica-analysis4" class="level2">
+<h2 class="anchored" data-anchor-id="example-4-compas-and-propublica-analysis4">Example 4: COMPAS and ProPublica analysis<a href="#fn4" class="footnote-ref" id="fnref4" role="doc-noteref"><sup>4</sup></a></h2>
+<p>Famous case study of algorithmic bias!</p>
+<ul>
+<li><p>For more than 7,000 people arrested in Broward County, Florida in 2013 and 2014, “<strong>risk scores</strong>” were assigned via an algorithm that were used to <em>predict the likelihood of the person committing a future crime</em></p>
+<ul>
+<li>Intention of algorithm’s designers: higher risk scores should accurately predict if someone will be charged with a future crime</li>
+</ul></li>
+<li><p>To determine accuracy of the risk scores, these people were tracked over the next two years to see if they were charged with new crimes</p></li>
+<li><div class="discuss">
+<p>Who might want such risk scores? How might they be used?</p>
+</div></li>
+</ul>
+</section>
+<section id="example-4-propublica-cont." class="level2">
+<h2 class="anchored" data-anchor-id="example-4-propublica-cont.">Example 4: ProPublica (cont.)</h2>
+<p>Distribution of risk scores:</p>
+<div class="columns">
+<div class="column" style="width:50%;">
+<p><img src="figs/12-white-scores.png" class="img-fluid"></p>
+</div><div class="column" style="width:50%;">
+<p><img src="figs/12-black_scores.png" class="img-fluid"></p>
+</div>
+</div>
+<ul>
+<li>Lets’s now see how the algorithms performed</li>
+</ul>
+</section>
+<section id="example-4-propublica-cont.-1" class="level2">
+<h2 class="anchored" data-anchor-id="example-4-propublica-cont.-1">Example 4: ProPublica (cont.)</h2>
+<ul>
+<li><p>Only 20% of those predicted to commit violent crimes actually did</p></li>
+<li><p>Algorithm had higher accuracy (61%) when full range of crimes taken into account (e.g.&nbsp;misdemeanors)</p></li>
+</ul>
+<div class="fragment">
+<p><img src="figs/12-propublica-results.png" class="img-fluid"></p>
+</div>
+<ul>
+<li><p>Black defendants were more likely to be <strong>falsely</strong> flagged as “higher”/future criminals, and at <em>almost twice the rate</em> as White defendants</p></li>
+<li><p>White defendants <strong>mislabeled</strong> as “low risk” more often than black defendants</p></li>
+<li><div class="discuss">
+<p>Are risk scores inherently bad?</p>
+</div></li>
+</ul>
+</section>
+<section id="example-5-facial-criminal-prediction" class="level2">
+<h2 class="anchored" data-anchor-id="example-5-facial-criminal-prediction">Example 5: facial criminal prediction</h2>
+<p><em>Activity borrowed from Prof.&nbsp;Chodrow in CS department.</em></p>
+<ul>
+<li><p>In 2016, researchers Xiaolin Wu and Xi Zhang <a href="https://confilegal.com/wp-content/uploads/2016/11/ESTUDIO-UNIVERSIDAD-DE-JIAO-TONG-SHANGHAI.pdf">published a paper</a> detailing an algorithm that predicted whether an individual is likely to commit a crime in the future, based only on a picture of their face</p>
+<ul>
+<li>According to the paper, their algorithm was “very accurate” (details beyond this course)</li>
+</ul></li>
+<li><div class="discuss">
+<p>Read Section 2 of the paper and answer the following questions:</p>
+<ol type="1">
+<li>How were the data obtained?</li>
+<li>What would be the “explanatory” and “response variables”? Are the values of the response variables directly observed, or inferred?</li>
+</ol>
+</div></li>
+</ul>
+</section>
+<section id="example-5-facial-criminal-prediction-cont." class="level2">
+<h2 class="anchored" data-anchor-id="example-5-facial-criminal-prediction-cont.">Example 5: facial criminal prediction (cont.)</h2>
+<ul>
+<li><div class="discuss">
+<p>Now look to Figure 1 from the paper. What do you notice? What questions might you have?</p>
+</div></li>
+<li><p>The authors’ algorithm identified certain features of the face that were highly predictive of criminality, including</p>
+<ul>
+<li><p>the curvature of upper lip</p></li>
+<li><p>the distance between two eye inner corners</p></li>
+<li><p>the angle enclosed by rays from the nose tip to the two corners of the mouth</p></li>
+</ul></li>
+<li><div class="discuss">
+<p>One possible explanation is that these features are expressions of genetic markers that are also associated with criminality. Can you suggest another possible explanation?</p>
+</div></li>
+</ul>
+</section>
+<section id="example-6-race-prediction" class="level2">
+<h2 class="anchored" data-anchor-id="example-6-race-prediction">Example 6: race prediction</h2>
+<p>Imai and Khanna (2016) built a racial prediction algorithm using a Bayes classifier trained on voter registration records from Florida and the U.S. Census Bureau’s name list.</p>
+<ul>
+<li><p>Their algorithm takes in a list of last names (and optionally their home address) and returns predicted probabilities for a person’s race.</p></li>
+<li><p>In addition to the publishing the paper detailing the methodology, the authors published the software for the classifier on GitHub under an open-source license.</p></li>
+</ul>
+</section>
+<section id="example-6-race-prediction-cont." class="level2">
+<h2 class="anchored" data-anchor-id="example-6-race-prediction-cont.">Example 6: race prediction (cont.)</h2>
+<div class="cell">
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb2"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb2-1"><a href="#cb2-1" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(tidyverse)</span>
+<span id="cb2-2"><a href="#cb2-2" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(wru) <span class="co"># uses 2020 census data by default</span></span>
+<span id="cb2-3"><a href="#cb2-3" aria-hidden="true" tabindex="-1"></a>names <span class="ot">&lt;-</span> <span class="fu">data.frame</span>(<span class="at">surname =</span>  <span class="fu">c</span>(<span class="st">"Tang"</span>, <span class="st">"Lyford"</span>, <span class="st">"Peterson"</span>, <span class="st">"Flores"</span>, <span class="st">"Malcolm"</span>))</span>
+<span id="cb2-4"><a href="#cb2-4" aria-hidden="true" tabindex="-1"></a><span class="fu">predict_race</span>(<span class="at">voter.file =</span> names, <span class="at">surname.only =</span> <span class="cn">TRUE</span>) <span class="sc">%&gt;%</span> </span>
+<span id="cb2-5"><a href="#cb2-5" aria-hidden="true" tabindex="-1"></a>  <span class="fu">select</span>(surname, pred.whi, pred.bla, pred.his, pred.asi, pred.oth) <span class="sc">|&gt;</span></span>
+<span id="cb2-6"><a href="#cb2-6" aria-hidden="true" tabindex="-1"></a>  <span class="fu">kable</span>(<span class="at">digits =</span> <span class="dv">3</span>)</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+<div class="cell-output-display">
+<table class="caption-top table table-sm table-striped small">
+<thead>
+<tr class="header">
+<th style="text-align: left;">surname</th>
+<th style="text-align: right;">pred.whi</th>
+<th style="text-align: right;">pred.bla</th>
+<th style="text-align: right;">pred.his</th>
+<th style="text-align: right;">pred.asi</th>
+<th style="text-align: right;">pred.oth</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td style="text-align: left;">Tang</td>
+<td style="text-align: right;">0.018</td>
+<td style="text-align: right;">0.004</td>
+<td style="text-align: right;">0.011</td>
+<td style="text-align: right;">0.932</td>
+<td style="text-align: right;">0.035</td>
+</tr>
+<tr class="even">
+<td style="text-align: left;">Lyford</td>
+<td style="text-align: right;">0.927</td>
+<td style="text-align: right;">0.001</td>
+<td style="text-align: right;">0.025</td>
+<td style="text-align: right;">0.013</td>
+<td style="text-align: right;">0.034</td>
+</tr>
+<tr class="odd">
+<td style="text-align: left;">Peterson</td>
+<td style="text-align: right;">0.803</td>
+<td style="text-align: right;">0.103</td>
+<td style="text-align: right;">0.029</td>
+<td style="text-align: right;">0.009</td>
+<td style="text-align: right;">0.056</td>
+</tr>
+<tr class="even">
+<td style="text-align: left;">Flores</td>
+<td style="text-align: right;">0.039</td>
+<td style="text-align: right;">0.004</td>
+<td style="text-align: right;">0.919</td>
+<td style="text-align: right;">0.025</td>
+<td style="text-align: right;">0.013</td>
+</tr>
+<tr class="odd">
+<td style="text-align: left;">Malcolm</td>
+<td style="text-align: right;">0.613</td>
+<td style="text-align: right;">0.302</td>
+<td style="text-align: right;">0.026</td>
+<td style="text-align: right;">0.006</td>
+<td style="text-align: right;">0.054</td>
+</tr>
+</tbody>
+</table>
+</div>
+</div>
+<ul>
+<li><div class="discuss">
+<p>What might this algorithm be useful for? What are some questions you have about it? Is it ethical to use this software? Does your answer change depending on the intended use? Does it matter that the software is open-source?</p>
+</div></li>
+</ul>
+
+
+</section>
+</section>
+
+
+<div id="quarto-appendix" class="default"><section id="footnotes" class="footnotes footnotes-end-of-document" role="doc-endnotes"><h2 class="anchored quarto-appendix-heading">Footnotes</h2>
+
+<ol>
+<li id="fn1"><p>Plato, <em>Crito</em><a href="#fnref1" class="footnote-back" role="doc-backlink">↩︎</a></p></li>
+<li id="fn2"><p><a href="https://mdsr-book.github.io/mdsr2e/ch-ethics.html#ethics-intro" class="uri">https://mdsr-book.github.io/mdsr2e/ch-ethics.html#ethics-intro</a><a href="#fnref2" class="footnote-back" role="doc-backlink">↩︎</a></p></li>
+<li id="fn3"><p>Obermeyer, Z., Powers, B., Vogeli, C., &amp; Mullainathan, S. (2019).<a href="#fnref3" class="footnote-back" role="doc-backlink">↩︎</a></p></li>
+<li id="fn4"><p><a href="https://www.propublica.org/article/machine-bias-risk-assessments-in-criminal-sentencing" class="uri">https://www.propublica.org/article/machine-bias-risk-assessments-in-criminal-sentencing</a><a href="#fnref4" class="footnote-back" role="doc-backlink">↩︎</a></p></li>
+</ol>
+</section></div></main> <!-- /main -->
 <script id="quarto-html-after-body" type="application/javascript">
   window.document.addEventListener("DOMContentLoaded", function (event) {
     const icon = "";

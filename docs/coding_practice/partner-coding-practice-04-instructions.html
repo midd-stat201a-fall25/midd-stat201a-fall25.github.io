@@ -6,9 +6,9 @@
 
 <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
 
-<meta name="author" content="Your name">
+<meta name="author" content="Your names">
 
-<title>Coding practice: case_when – STAT 201: Intro. to Statistics and Data Science</title>
+<title>Partner Coding Practice 4 – STAT 201: Intro. to Statistics and Data Science</title>
 <style>
 code{white-space: pre-wrap;}
 span.smallcaps{font-variant: small-caps;}
@@ -20,41 +20,6 @@ ul.task-list li input[type="checkbox"] {
   width: 0.8em;
   margin: 0 0.8em 0.2em -1em; /* quarto-specific, see https://github.com/quarto-dev/quarto-cli/issues/4556 */ 
   vertical-align: middle;
-}
-/* CSS for syntax highlighting */
-html { -webkit-text-size-adjust: 100%; }
-pre > code.sourceCode { white-space: pre; position: relative; }
-pre > code.sourceCode > span { display: inline-block; line-height: 1.25; }
-pre > code.sourceCode > span:empty { height: 1.2em; }
-.sourceCode { overflow: visible; }
-code.sourceCode > span { color: inherit; text-decoration: inherit; }
-div.sourceCode { margin: 1em 0; }
-pre.sourceCode { margin: 0; }
-@media screen {
-div.sourceCode { overflow: auto; }
-}
-@media print {
-pre > code.sourceCode { white-space: pre-wrap; }
-pre > code.sourceCode > span { text-indent: -5em; padding-left: 5em; }
-}
-pre.numberSource code
-  { counter-reset: source-line 0; }
-pre.numberSource code > span
-  { position: relative; left: -4em; counter-increment: source-line; }
-pre.numberSource code > span > a:first-child::before
-  { content: counter(source-line);
-    position: relative; left: -1em; text-align: right; vertical-align: baseline;
-    border: none; display: inline-block;
-    -webkit-touch-callout: none; -webkit-user-select: none;
-    -khtml-user-select: none; -moz-user-select: none;
-    -ms-user-select: none; user-select: none;
-    padding: 0 4px; width: 4em;
-  }
-pre.numberSource { margin-left: 3em;  padding-left: 4px; }
-div.sourceCode
-  {   }
-@media screen {
-pre > code.sourceCode > span > a:first-child::before { text-decoration: underline; }
 }
 </style>
 
@@ -171,13 +136,13 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 <!-- sidebar -->
 <!-- margin-sidebar -->
     <div id="quarto-margin-sidebar" class="sidebar margin-sidebar">
-    <div class="quarto-alternate-formats"><h2>Other Formats</h2><ul><li><a href="coding-practice-11-case_when.pdf"><i class="bi bi-file-pdf"></i>PDF</a></li></ul></div></div>
+    <div class="quarto-alternate-formats"><h2>Other Formats</h2><ul><li><a href="partner-coding-practice-04-instructions.pdf"><i class="bi bi-file-pdf"></i>PDF</a></li></ul></div></div>
 <!-- main -->
 <main class="content" id="quarto-document-content">
 
 <header id="title-block-header" class="quarto-title-block default">
 <div class="quarto-title">
-<h1 class="title">Coding practice: case_when</h1>
+<h1 class="title">Partner Coding Practice 4</h1>
 </div>
 
 
@@ -187,7 +152,7 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
     <div>
     <div class="quarto-title-meta-heading">Author</div>
     <div class="quarto-title-meta-contents">
-             <p>Your name </p>
+             <p>Your names </p>
           </div>
   </div>
     
@@ -200,29 +165,25 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 </header>
 
 
-<ol start="0" type="1">
-<li>Change your name in the YAML and load in the packages necessary for wrangling. Then run the following chunk.</li>
-</ol>
-<div class="cell">
-<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb1"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb1-1"><a href="#cb1-1" aria-hidden="true" tabindex="-1"></a><span class="co"># add packages here</span></span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
-</div>
-<p>We will work with the <code>diamonds</code> data set again. Take a look at its Help file. When you’re ready, create a new data frame called <code>diamonds2</code> that modifies <code>diamonds</code> to include an additional variable called <code>price_ct</code> which is the price of the diamond per carat</p>
-<ol start="2" type="1">
-<li>Display a summary table/new data frame that shows the proportion of diamonds whose price per carat of exceeds 8000 USD for each color of diamond. Your wrangled output should only display the color of the diamonds and the proportion that are greater than 8000 USD.</li>
-</ol>
-<ol start="3" type="1">
-<li>To your <code>diamonds2</code> data frame, use <code>case_when()</code> to add a variable called <code>carat_cat</code> that takes the value:</li>
-</ol>
-<ul>
-<li>“&lt; 1” if the diamond is less than 1 carat</li>
-<li>“1-3” if the diamond is between 1 and 3 carats, inclusive</li>
-<li>“&gt; 3” if the diamond is more than 3 carats</li>
-</ul>
-<p>Then using an appropriate plot type, visualize the distribution of price per carat for each of the categories you created. Make sure your plot has informative axis labels. What do you notice?</p>
-<p><strong>Answer:</strong></p>
-<p>Once you’re finished, render one last time and submit the rendered PDF to Gradescope!</p>
+<p>We will work with the <code>satgpa</code> data from the <code>openintro</code> package. In the following code chunk, load in the <code>openintro</code> package and the package we use for wrangling. Then take a look at the Help file of the <code>satgpa</code> dataset.</p>
+<section id="question-1" class="level2">
+<h2 class="anchored" data-anchor-id="question-1">Question 1</h2>
+<p>We’d like to know if performance on the SAT and high school GPA are correlated with first year GPA. Create a visualization that effectively shows the relationship between a student’s 1) average SAT percentile (averaged across math and verbal), 2) their high school GPA, and 3) their first year GPA. Interpret what you find.</p>
+</section>
+<section id="question-2" class="level2">
+<h2 class="anchored" data-anchor-id="question-2">Question 2</h2>
+<p>Using wrangling code, find the proportion of students who had better first year GPAs than high school GPAs.</p>
+</section>
+<section id="question-3" class="level2">
+<h2 class="anchored" data-anchor-id="question-3">Question 3</h2>
+<p>Create a new data frame called <code>satgpa2</code> that contains two new variables: one called <code>hs_gpa_cat</code> and another called <code>fy_gpa_cat</code>. Each of these variables should take the value “under” if the respective GPA is less than or equal to 3.0, and “over” if the respective GPA is greater than 3.0.</p>
+</section>
+<section id="question-4" class="level2">
+<h2 class="anchored" data-anchor-id="question-4">Question 4</h2>
+<p>Using wrangling code, obtain the probability of having a first year GPA greater than 3.0, conditioning on the different levels of high school GPA category. Wrangle until your displayed output has only two rows and two variables. <em>In choosing how to reduce the number of rows and columns, think about what is the most important information you need to present.</em></p>
 
 
+</section>
 
 </main> <!-- /main -->
 <script id="quarto-html-after-body" type="application/javascript">

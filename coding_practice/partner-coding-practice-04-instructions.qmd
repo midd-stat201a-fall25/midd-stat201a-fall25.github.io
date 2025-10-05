@@ -32,9 +32,9 @@ satgpa |>
   summarise(prop = mean(fy_gpa > hs_gpa))
 ```
 
-## Question 3 
-Create a new data frame called `satgpa2` that contains two new variables: one called `hs_gpa_cat` and another called `fy_gpa_cat`. Each of these variables should take the value "under" if the respective GPA is less than or equal to 3.0, and "over" if the respective GPA is greater than 3.0.
+## Question 3
 
+Create a new data frame called `satgpa2` that contains two new variables: one called `hs_gpa_cat` and another called `fy_gpa_cat`. Each of these variables should take the value "under" if the respective GPA is less than or equal to 3.0, and "over" if the respective GPA is greater than 3.0.
 
 ```{r}
 satgpa2 <- satgpa |>

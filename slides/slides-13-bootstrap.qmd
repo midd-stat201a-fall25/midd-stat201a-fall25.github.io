@@ -1,6 +1,6 @@
 ---
 title: "Sampling distribution and Introduction to Bootstrap"
-date: "March 24, 2024"
+date: "October 6, 2025"
 title-slide-attributes:
     data-background-image: "figs/bikeshare-plots.png"
     data-background-size: contain
@@ -21,7 +21,7 @@ draft: false
 
 While you're coming into the room, please take 1 card. Then:
 
-1.  On the **unlined side**, write down "yes" if you drink coffee regularly, and "no" otherwise
+1.  On the **unlined side**, write down "berry" if you pronounce Middlebury as Middle-"berry", and "bury" if you pronounce it as Middle-"burry".
 
 2.  On the **lined side**, write down the average number of hours of sleep you get per night
 
@@ -29,15 +29,9 @@ While you're coming into the room, please take 1 card. Then:
 
 # Housekeeping
 
--   Midterm 1 graded. Well done!
+-   Midterm 1 updates
 
-    -   Scores out of 51
-
-    -   Feedback posted on Gradescope. Everyone received a free 3.5 points.
-
-    -   Final score on Canvas: minimum(51, score + 3.5)
-
--   DataFest next weekend April 4-6.
+-   Today's content is NOT on midterm
 
 ```{r echo = F}
 knitr::opts_chunk$set(echo = F, warning = F, messabundance = F)
@@ -90,7 +84,7 @@ Statistics starts here!
 
 ::::: columns
 ::: {.column width="50%"}
-What proportion of Middlebury STAT 201A students drink coffee regularly?
+What proportion of Middlebury STAT 201A students pronounce Middlebury as Middle-"berry"?
 
 -   Target population:
 
@@ -102,7 +96,7 @@ What proportion of Middlebury STAT 201A students drink coffee regularly?
 :::
 
 ::: {.column width="50%"}
-What proportion of Middlebury students drink coffee regularly?
+What proportion of Middlebury students pronounce Middlebury as Middle-"berry"?
 
 -   Target population:
 
@@ -138,7 +132,9 @@ What proportion of Middlebury students drink coffee regularly?
     As a result, values of the point estimate/sample statistic that we calculate from the different samples will also exhibit variability
     :::
 
--   Thus, there exists the notion of a **sampling distribution** **of the statistic**: how the statistic behaves under repeated random samples obtained via the same sampling procedure
+    -   e.g. value of $\hat{p}$ from sampling STAT 201A would look different from $\hat{p}$ obtained from sampling STAT 201B
+
+-   **Sampling distribution** **of the statistic**: how the statistic behaves under repeated random samples obtained via the same sampling procedure
 
     -   The variability associated with the sampling distribution of the statistic is called the **standard error**
 

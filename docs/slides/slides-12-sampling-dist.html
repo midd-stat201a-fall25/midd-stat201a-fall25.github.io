@@ -10,7 +10,7 @@
   <meta name="generator" content="quarto-1.8.21">
 
   <meta name="dcterms.date" content="2025-10-06">
-  <title>STAT 201: Intro. to Statistics and Data Science – Sampling distribution and Introduction to Bootstrap</title>
+  <title>STAT 201: Intro. to Statistics and Data Science – Sampling distribution</title>
   <meta name="apple-mobile-web-app-capable" content="yes">
   <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
   <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no, minimal-ui">
@@ -128,7 +128,7 @@
     <div class="slides">
 
 <section id="title-slide" data-background-image="figs/bikeshare-plots.png" data-background-opacity="0.2" data-background-size="contain" class="quarto-title-block center">
-  <h1 class="title">Sampling distribution and Introduction to Bootstrap</h1>
+  <h1 class="title">Sampling distribution</h1>
 
 <div class="quarto-title-authors">
 </div>
@@ -178,7 +178,7 @@
 <ul>
 <li class="fragment"><p>Examples:</p>
 <ul>
-<li class="fragment"><p>What proportion of Middlebury students drink coffee regularly?</p></li>
+<li class="fragment"><p>What proportion of Middlebury students pronounce the college’s name as Middle-“berry”?</p></li>
 <li class="fragment"><p>What is the average number of hours of sleep Middlebury students get a night?</p></li>
 </ul></li>
 <li class="fragment"><p>Questions here are about a population parameter</p>
@@ -209,11 +209,24 @@
 </ul>
 </div></div>
 </section>
+<section id="practice" class="slide level2 scrollable">
+<h2>Practice</h2>
+<p>We are often interested in estimating a population mean or proportion. Let’s make sure we feel comfortable telling the difference.</p>
+<div class="discuss">
+<p>For each of the following situations, state whether the parameter of interest is a mean or a proportion.</p>
+<ol type="1">
+<li class="fragment">In a survey, one hundred college students are asked how many hours per week they spend on the Internet.</li>
+<li class="fragment">In a survey, one hundred college students are asked whether or not they use ChatGPT for homework assignments.</li>
+<li class="fragment">In a survey, smart phone users are asked how many times they used a web-based taxi service over the last year.</li>
+<li class="fragment">In a sample of one hundred recent college graduates, it is found that 85 percent expect to get a job within one year of their graduation date.</li>
+</ol>
+</div>
+</section>
 <section id="point-estimate" class="slide level2">
 <h2>Point estimate</h2>
 <ul>
 <li class="fragment"><p>Sample proportion <span class="math inline">\(\hat{p}\)</span> is a very sensible estimate for true proportion <span class="math inline">\(p\)</span></p></li>
-<li class="fragment"><p><span class="math inline">\(\hat{p}\)</span> is an example of a <strong>point estimate</strong>: a single number used to estimate a true but unknown population parameter</p>
+<li class="fragment"><p><span class="math inline">\(\hat{p}\)</span> is an example of a <strong>point estimate</strong>: a single number used to <em>estimate</em> a true but unknown population parameter</p>
 <ul>
 <li class="fragment"><p>i.e.&nbsp;a point estimate is a statistic with a specific purpose</p></li>
 <li class="fragment"><p>Other examples include sample mean <span class="math inline">\(\bar{x}\)</span> for true mean <span class="math inline">\(\mu\)</span>, and <span class="math inline">\(s\)</span> for <span class="math inline">\(\sigma\)</span></p></li>
@@ -278,7 +291,7 @@
 <div class="cell-output-display">
 <div>
 <figure>
-<p><img data-src="slides-13-samp-dist_files/figure-revealjs/unnamed-chunk-2-1.png" width="960"></p>
+<p><img data-src="slides-12-sampling-dist_files/figure-revealjs/unnamed-chunk-2-1.png" width="960"></p>
 </figure>
 </div>
 </div>
@@ -296,7 +309,7 @@
 <section id="candy-activity-cont." class="slide level2">
 <h2>Candy activity (cont.)</h2>
 
-<img data-src="slides-13-samp-dist_files/figure-revealjs/unnamed-chunk-3-1.png" width="960" class="r-stretch"><ul>
+<img data-src="slides-12-sampling-dist_files/figure-revealjs/unnamed-chunk-3-1.png" width="960" class="r-stretch"><ul>
 <li class="fragment"><p>Each one of the values in the histogram is a sample mean <span class="math inline">\(\bar{x}\)</span> (i.e.&nbsp;a sample statistic)</p></li>
 <li class="fragment"><p>Thus, the histogram visualizes the <strong>sampling distribution</strong> of the sample mean</p>
 <ul>
@@ -328,77 +341,41 @@
 <li class="fragment"><p>If we don’t want to make assumptions, then we rely on sampling</p>
 <ul>
 <li class="fragment">Can we obtain multiple samples cheaply and quickly?</li>
+<li class="fragment">This motivates something called the bootstrap (next class)</li>
 </ul></li>
 </ul>
-</section></section>
-<section>
-<section id="bootstrap" class="title-slide slide level1 center">
-<h1>Bootstrap</h1>
-<p>Bootstrapping is a flexible method that allows us to move forward in an analysis without knowing exactly how the data were generated.</p>
 </section>
-<section id="procedure" class="slide level2 scrollable">
-<h2>Procedure</h2>
-<ol type="1">
-<li class="fragment">Assume we have a single sample <span class="math inline">\(\boldsymbol{x} = (x_{1}, x_{2}, \ldots, x_{n})\)</span> from the population. Note the sample size is <span class="math inline">\(n\)</span></li>
-<li class="fragment">Choose a large number <span class="math inline">\(B\)</span>. For <span class="math inline">\(b\)</span> in <span class="math inline">\(1,2, \ldots, B\)</span>:
-<ol type="i">
-<li class="fragment">Resample: take a sample of size <span class="math inline">\(n\)</span> with <em>replacement</em> from <span class="math inline">\(\boldsymbol{x}\)</span>. Call this set of <span class="math inline">\(b\)</span>-th re-sampled data <span class="math inline">\(\boldsymbol{x}^*_{b}\)</span></li>
-<li class="fragment">Calculate: calculate and record the statistic of interest from <span class="math inline">\(\boldsymbol{x}^{*}_{b}\)</span></li>
-</ol></li>
-</ol>
-<div class="fragment">
-<div style="color: maroon">
-<p>At the end of this procedure, we will have a <strong>bootstrap distribution</strong> of resample or bootstrap statistics.</p>
-<ul>
-<li class="fragment">This bootstrap distribution <strong>approximates</strong> the sampling distribution!</li>
-</ul>
-</div>
-</div>
-<div class="fragment">
+<section id="practice-1" class="slide level2 scrollable">
+<h2>Practice</h2>
+<p>As part of a quality control process for computer chips, an engineer at a factory randomly samples 212 chips during a week of production to test the current rate of chips with severe defects. She finds that 27 of the chips are defective.</p>
 <div class="discuss">
-<p>In the candy activity, I claim that we did not perform bootstrapping. Why not?</p>
-</div>
+<ol type="1">
+<li class="fragment">What is the target population?</li>
+<li class="fragment">What parameter is being estimated?</li>
+<li class="fragment">What is the point estimate for parameter?</li>
+<li class="fragment">Discussion: The historical rate of defects is 10%. Should the engineer be surprised by the observed rate of defects during the current week? Why or why not?</li>
+</ol>
 </div>
 </section>
-<section id="demonstration" class="slide level2">
-<h2>Demonstration</h2>
-<ul>
-<li class="fragment"><p>Activity cont.</p></li>
-<li class="fragment"><p>Live code demonstration</p></li>
-</ul>
-</section>
-<section id="why-resample-with-replacement" class="slide level2">
-<h2>Why resample with replacement?</h2>
-<ul>
-<li class="fragment"><p>We want to understand the sampling error of the sampling distribution!</p></li>
-<li class="fragment"><div class="discuss">
-<p>What would the bootstrap samples <span class="math inline">\(\boldsymbol{x}^*_b\)</span> look like if we sampled <em>without</em> replacement?</p>
+<section id="practice-2" class="slide level2 scrollable">
+<h2>Practice</h2>
+<p>A nonprofit wants to understand the fraction of households that have elevated levels of lead in their drinking water. They expect at least 5% of homes will have elevated levels of lead, but not more than about 30%. They randomly sample 800 homes and work with the owners to retrieve water samples, and they compute the fraction of these homes with elevated lead levels. They repeat this 1,000 times and build a distribution of sample proportions.</p>
+<div class="discuss">
+<ol type="1">
+<li class="fragment">What is this distribution called?</li>
+<li class="fragment">What is the variability of this distribution called?</li>
+<li class="fragment">Suppose the researchers’ budget is reduced, and they are only able to collect 250 observations per sample, but they can still collect 1,000 samples total. They build a new distribution of sample proportions. How do you think the variability of this new distribution compares to the variability of the original distribution in 1? Why?</li>
+</ol>
 </div>
-<ul>
-<li class="fragment">Sampling without replacement -&gt; zero variation in the resampled statistics</li>
-</ul></li>
-<li class="fragment"><p>Resampling with replacement will give us “new” datasets that are similar to original sample distribution but not exactly the same!</p>
-<ul>
-<li class="fragment">Ideally, the variation in the bootstrapped statistics is similar to the true standard error of the sample statistics</li>
-</ul></li>
-</ul>
 </section>
-<section id="remarks" class="slide level2">
-<h2>Remarks</h2>
+<section id="comprehension-questions" class="slide level2">
+<h2>Comprehension questions</h2>
 <ul>
-<li class="fragment"><div style="color: maroon">
-<p>Relies on having a representative original sample!</p>
-</div>
+<li class="fragment"><p>Do we typically get to observe the sampling distribution?</p>
 <ul>
-<li class="fragment">Resampling from initial sample should be roughly equivalent to sampling directly from the population</li>
+<li class="fragment">If not, why should we care about them?</li>
 </ul></li>
-<li class="fragment"><p>Requires computational tools!</p>
-<ul>
-<li class="fragment"><p>We need <span class="math inline">\(B\)</span> to be large enough to accurately capture variability. <span class="math inline">\(B=5000\)</span> or <span class="math inline">\(B=10000\)</span> sufficient in this class</p></li>
-<li class="fragment"><p>More complex problems will require larger <span class="math inline">\(B\)</span></p></li>
-</ul></li>
-<li class="fragment"><p>Bootstrapping can fail!</p></li>
-<li class="fragment"><p>Bootstrapping is <em>not</em> a solution to small sample sizes!!</p></li>
+<li class="fragment"><p>What are the differences between a population distribution, a sample distribution, and a sampling distribution? What are their associated variability?</p></li>
 </ul>
 
 

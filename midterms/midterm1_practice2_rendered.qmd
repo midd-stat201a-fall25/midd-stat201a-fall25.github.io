@@ -73,7 +73,7 @@ bikes |>
   kable()
 ```
 
-5.  Re-create the graph seen here. You will need to use the function `geom_line()`.
+5.  Re-create the graph seen here.
 
 ```{r eval = T}
 bikes |>

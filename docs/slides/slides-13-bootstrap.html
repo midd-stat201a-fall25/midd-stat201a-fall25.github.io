@@ -6,9 +6,9 @@
 
 <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
 
-<meta name="author" content="Your name">
+<meta name="dcterms.date" content="2025-10-06">
 
-<title>Coding practice: case_when – STAT 201: Intro. to Statistics and Data Science</title>
+<title>Sampling distribution and Introduction to Bootstrap – STAT 201: Intro. to Statistics and Data Science</title>
 <style>
 code{white-space: pre-wrap;}
 span.smallcaps{font-variant: small-caps;}
@@ -20,41 +20,6 @@ ul.task-list li input[type="checkbox"] {
   width: 0.8em;
   margin: 0 0.8em 0.2em -1em; /* quarto-specific, see https://github.com/quarto-dev/quarto-cli/issues/4556 */ 
   vertical-align: middle;
-}
-/* CSS for syntax highlighting */
-html { -webkit-text-size-adjust: 100%; }
-pre > code.sourceCode { white-space: pre; position: relative; }
-pre > code.sourceCode > span { display: inline-block; line-height: 1.25; }
-pre > code.sourceCode > span:empty { height: 1.2em; }
-.sourceCode { overflow: visible; }
-code.sourceCode > span { color: inherit; text-decoration: inherit; }
-div.sourceCode { margin: 1em 0; }
-pre.sourceCode { margin: 0; }
-@media screen {
-div.sourceCode { overflow: auto; }
-}
-@media print {
-pre > code.sourceCode { white-space: pre-wrap; }
-pre > code.sourceCode > span { text-indent: -5em; padding-left: 5em; }
-}
-pre.numberSource code
-  { counter-reset: source-line 0; }
-pre.numberSource code > span
-  { position: relative; left: -4em; counter-increment: source-line; }
-pre.numberSource code > span > a:first-child::before
-  { content: counter(source-line);
-    position: relative; left: -1em; text-align: right; vertical-align: baseline;
-    border: none; display: inline-block;
-    -webkit-touch-callout: none; -webkit-user-select: none;
-    -khtml-user-select: none; -moz-user-select: none;
-    -ms-user-select: none; user-select: none;
-    padding: 0 4px; width: 4em;
-  }
-pre.numberSource { margin-left: 3em;  padding-left: 4px; }
-div.sourceCode
-  {   }
-@media screen {
-pre > code.sourceCode > span > a:first-child::before { text-decoration: underline; }
 }
 </style>
 
@@ -105,6 +70,35 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
   }
 }</script>
 
+  <script src="https://cdnjs.cloudflare.com/polyfill/v3/polyfill.min.js?features=es6"></script>
+  <script src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-chtml-full.js" type="text/javascript"></script>
+
+<script type="text/javascript">
+const typesetMath = (el) => {
+  if (window.MathJax) {
+    // MathJax Typeset
+    window.MathJax.typeset([el]);
+  } else if (window.katex) {
+    // KaTeX Render
+    var mathElements = el.getElementsByClassName("math");
+    var macros = [];
+    for (var i = 0; i < mathElements.length; i++) {
+      var texText = mathElements[i].firstChild;
+      if (mathElements[i].tagName == "SPAN" && texText && texText.data) {
+        window.katex.render(texText.data, mathElements[i], {
+          displayMode: mathElements[i].classList.contains('display'),
+          throwOnError: false,
+          macros: macros,
+          fleqn: false
+        });
+      }
+    }
+  }
+}
+window.Quarto = {
+  typesetMath
+};
+</script>
 
 </head>
 
@@ -171,26 +165,26 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 <!-- sidebar -->
 <!-- margin-sidebar -->
     <div id="quarto-margin-sidebar" class="sidebar margin-sidebar">
-    <div class="quarto-alternate-formats"><h2>Other Formats</h2><ul><li><a href="coding-practice-11-case_when.pdf"><i class="bi bi-file-pdf"></i>PDF</a></li></ul></div></div>
+    <div class="quarto-alternate-formats"><h2>Other Formats</h2><ul><li><a href="slides-13-bootstrap.html"><i class="bi bi-file-slides"></i>RevealJS</a></li></ul></div></div>
 <!-- main -->
 <main class="content" id="quarto-document-content">
 
 <header id="title-block-header" class="quarto-title-block default">
 <div class="quarto-title">
-<h1 class="title">Coding practice: case_when</h1>
+<h1 class="title">Sampling distribution and Introduction to Bootstrap</h1>
 </div>
 
 
 
 <div class="quarto-title-meta">
 
-    <div>
-    <div class="quarto-title-meta-heading">Author</div>
-    <div class="quarto-title-meta-contents">
-             <p>Your name </p>
-          </div>
-  </div>
     
+    <div>
+    <div class="quarto-title-meta-heading">Published</div>
+    <div class="quarto-title-meta-contents">
+      <p class="date">October 6, 2025</p>
+    </div>
+  </div>
   
     
   </div>
@@ -200,29 +194,312 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 </header>
 
 
-<ol start="0" type="1">
-<li>Change your name in the YAML and load in the packages necessary for wrangling. Then run the following chunk.</li>
+<section id="activity" class="level2">
+<h2 class="anchored" data-anchor-id="activity">Activity</h2>
+<p>While you’re coming into the room, please take 1 card. Then:</p>
+<ol type="1">
+<li><p>On the <strong>unlined side</strong>, write down “berry” if you pronounce Middlebury as Middle-“berry”, and “bury” if you pronounce it as Middle-“burry”.</p></li>
+<li><p>On the <strong>lined side</strong>, write down the average number of hours of sleep you get per night</p></li>
+<li><p>Then bring these to Prof.&nbsp;Tang</p></li>
 </ol>
-<div class="cell">
-<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb1"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb1-1"><a href="#cb1-1" aria-hidden="true" tabindex="-1"></a><span class="co"># add packages here</span></span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
-</div>
-<p>We will work with the <code>diamonds</code> data set again. Take a look at its Help file. When you’re ready, create a new data frame called <code>diamonds2</code> that modifies <code>diamonds</code> to include an additional variable called <code>price_ct</code> which is the price of the diamond per carat</p>
-<ol start="2" type="1">
-<li>Display a summary table/new data frame that shows the proportion of diamonds whose price per carat of exceeds 8000 USD for each color of diamond. Your wrangled output should only display the color of the diamonds and the proportion that are greater than 8000 USD.</li>
-</ol>
-<ol start="3" type="1">
-<li>To your <code>diamonds2</code> data frame, use <code>case_when()</code> to add a variable called <code>carat_cat</code> that takes the value:</li>
-</ol>
+</section>
+<section id="housekeeping" class="level1">
+<h1>Housekeeping</h1>
 <ul>
-<li>“&lt; 1” if the diamond is less than 1 carat</li>
-<li>“1-3” if the diamond is between 1 and 3 carats, inclusive</li>
-<li>“&gt; 3” if the diamond is more than 3 carats</li>
+<li><p>Midterm 1 updates</p></li>
+<li><p>Today’s content is NOT on midterm</p></li>
 </ul>
-<p>Then using an appropriate plot type, visualize the distribution of price per carat for each of the categories you created. Make sure your plot has informative axis labels. What do you notice?</p>
-<p><strong>Answer:</strong></p>
-<p>Once you’re finished, render one last time and submit the rendered PDF to Gradescope!</p>
+<div class="cell">
+<div class="cell-output cell-output-stderr">
+<pre><code>── Attaching core tidyverse packages ──────────────────────── tidyverse 2.0.0 ──
+✔ dplyr     1.1.4     ✔ readr     2.1.5
+✔ forcats   1.0.0     ✔ stringr   1.5.1
+✔ ggplot2   3.5.2     ✔ tibble    3.2.1
+✔ lubridate 1.9.4     ✔ tidyr     1.3.1
+✔ purrr     1.0.4     
+── Conflicts ────────────────────────────────────────── tidyverse_conflicts() ──
+✖ dplyr::filter() masks stats::filter()
+✖ dplyr::lag()    masks stats::lag()
+ℹ Use the conflicted package (&lt;http://conflicted.r-lib.org/&gt;) to force all conflicts to become errors
+Rows: 4526 Columns: 3
+── Column specification ────────────────────────────────────────────────────────
+Delimiter: ","
+chr (3): Decision, Gender, Dept
+
+ℹ Use `spec()` to retrieve the full column specification for this data.
+ℹ Specify the column types or set `show_col_types = FALSE` to quiet this message.</code></pre>
+</div>
+</div>
+<section id="where-we-are-going" class="level2">
+<h2 class="anchored" data-anchor-id="where-we-are-going">Where we are going</h2>
+<p>We are shifting focus from EDA and beginning to enter the world of statistical inference and modeling!</p>
+<ul>
+<li><p>Want to answer questions about a population, but must rely on a sample</p></li>
+<li><p>Collect data from sample –&gt; calculate statistics</p></li>
+<li><p>What can we say about the statistics?</p></li>
+<li><p>Data are random! So how sure are we about our conclusions?</p></li>
+</ul>
+<div class="fragment" style="color: maroon">
+<p>Statistics starts here!</p>
+</div>
+</section>
+<section id="inference" class="level2">
+<h2 class="anchored" data-anchor-id="inference">Inference</h2>
+<p><strong>Statistical inference</strong> is the process of using sample data to make conclusions about the underlying population the sample came from</p>
+<ul>
+<li><p><strong>Estimation</strong>: using the sample to estimate a plausible values for the unknown parameter</p></li>
+<li><p><strong>Testing</strong>: evaluating whether our observed sample provides evidence for or against some claim about the population</p></li>
+</ul>
+</section>
+<section id="research-questions-involving-estimation" class="level2">
+<h2 class="anchored" data-anchor-id="research-questions-involving-estimation">Research questions involving estimation</h2>
+<ul>
+<li><p>Examples:</p>
+<ul>
+<li><p>What proportion of Middlebury students drink coffee regularly?</p></li>
+<li><p>What is the average number of hours of sleep Middlebury students get a night?</p></li>
+</ul></li>
+<li><p>Questions here are about a population parameter</p>
+<ul>
+<li>If we have a census, we can answer the question immediately.</li>
+<li>If we only have a sample, we have to do our best to answer the question using our data <span class="math inline">\(x_{1}, x_{2},\ldots, x_{n}\)</span></li>
+</ul></li>
+</ul>
+</section>
+<section id="activity-1" class="level2">
+<h2 class="anchored" data-anchor-id="activity-1">Activity</h2>
+<div class="columns">
+<div class="column" style="width:50%;">
+<p>What proportion of Middlebury STAT 201A students pronounce Middlebury as Middle-“berry”?</p>
+<ul>
+<li><p>Target population:</p></li>
+<li><p>Sampling method:</p></li>
+<li><p>Population parameter:</p></li>
+<li><p>Are we able to compute the value of the parameter, or do we need to calculate a statistic?</p></li>
+</ul>
+</div><div class="column" style="width:50%;">
+<p>What proportion of Middlebury students pronounce Middlebury as Middle-“berry”?</p>
+<ul>
+<li><p>Target population:</p></li>
+<li><p>Sampling method:</p></li>
+<li><p>Population parameter:</p></li>
+<li><p>Are we able to compute the value of the parameter, or do we need to calculate a statistic?</p></li>
+</ul>
+</div>
+</div>
+</section>
+<section id="point-estimate" class="level2">
+<h2 class="anchored" data-anchor-id="point-estimate">Point estimate</h2>
+<ul>
+<li><p>Sample proportion <span class="math inline">\(\hat{p}\)</span> is a very sensible estimate for true proportion <span class="math inline">\(p\)</span></p></li>
+<li><p><span class="math inline">\(\hat{p}\)</span> is an example of a <strong>point estimate</strong>: a single number used to estimate a true but unknown population parameter</p>
+<ul>
+<li><p>i.e.&nbsp;a point estimate is a statistic with a specific purpose</p></li>
+<li><p>Other examples include sample mean <span class="math inline">\(\bar{x}\)</span> for true mean <span class="math inline">\(\mu\)</span>, and <span class="math inline">\(s\)</span> for <span class="math inline">\(\sigma\)</span></p></li>
+</ul></li>
+<li><div class="discuss">
+<p>What might be a desirable characteristic of a “good” point estimate?</p>
+</div>
+<ul>
+<li>Do we expect that the sample statistic will equal the population parameter? (e.g.&nbsp;how likely is it that <span class="math inline">\(\bar{x} = \mu\)</span> or <span class="math inline">\(\hat{p} = p\)</span> exactly?) Why or why not?</li>
+</ul></li>
+</ul>
+</section>
+<section id="variability-of-statistic" class="level2">
+<h2 class="anchored" data-anchor-id="variability-of-statistic">Variability of statistic</h2>
+<ul>
+<li><p>Two datasets collected under identical sampling procedures will almost always differ due to <strong>variability in the sample</strong>.</p></li>
+<li><div style="color: maroon">
+<p>As a result, values of the point estimate/sample statistic that we calculate from the different samples will also exhibit variability</p>
+</div>
+<ul>
+<li>e.g.&nbsp;value of <span class="math inline">\(\hat{p}\)</span> from sampling STAT 201A would look different from <span class="math inline">\(\hat{p}\)</span> obtained from sampling STAT 201B</li>
+</ul></li>
+<li><p><strong>Sampling distribution</strong> <strong>of the statistic</strong>: how the statistic behaves under repeated random samples obtained via the same sampling procedure</p>
+<ul>
+<li><p>The variability associated with the sampling distribution of the statistic is called the <strong>standard error</strong></p>
+<ul>
+<li>Note: “error” <span class="math inline">\(\neq\)</span> bad</li>
+</ul></li>
+<li><p>This is in contrast to the standard deviation, which describes variability in the individual data points and not the statistic</p></li>
+</ul></li>
+</ul>
+</section>
+<section id="different-distributions" class="level2">
+<h2 class="anchored" data-anchor-id="different-distributions">Different distributions</h2>
+<ul>
+<li><p><strong>Population distribution</strong>: distribution of the variable of interest for <em>everyone</em> in the population</p>
+<ul>
+<li>Has associated variability <span class="math inline">\(\sigma\)</span></li>
+</ul></li>
+<li><p><strong>Sample distribution</strong>: distribution of the data from a <em>single</em> sample</p>
+<ul>
+<li>Has associated variability <span class="math inline">\(s\)</span></li>
+</ul></li>
+<li><p><strong>Sampling distribution</strong>: distribution of sample statistics calculated from the data obtained from <em>multiple</em> samples</p>
+<ul>
+<li>Has associated variability standard error <span class="math inline">\((SE)\)</span></li>
+</ul></li>
+</ul>
+</section>
+<section id="recall-candy-activity" class="level2">
+<h2 class="anchored" data-anchor-id="recall-candy-activity">Recall candy activity</h2>
+<p>At the beginning of the semester, I passed around a bag of candy and everyone took out 5 pieces at random, and measured the average weight.</p>
+<ul>
+<li><div class="discuss">
+<p>What was the parameter of interest? What sample statistic did you calculate?</p>
+</div></li>
+</ul>
+<div class="columns">
+<div class="column" style="width:60%;">
+<div class="fragment">
+<div class="cell">
+<div class="cell-output cell-output-stderr">
+<pre><code>Rows: 19 Columns: 1
+── Column specification ────────────────────────────────────────────────────────
+Delimiter: ","
+dbl (1): mean_wts
+
+ℹ Use `spec()` to retrieve the full column specification for this data.
+ℹ Specify the column types or set `show_col_types = FALSE` to quiet this message.</code></pre>
+</div>
+<div class="cell-output-display">
+<div>
+<figure class="figure">
+<p><img src="slides-13-bootstrap_files/figure-html/unnamed-chunk-2-1.png" class="img-fluid figure-img" width="672"></p>
+</figure>
+</div>
+</div>
+</div>
+</div>
+</div><div class="column" style="width:40%;">
+<div class="fragment">
+<div class="discuss">
+<p>The histogram visualizes your sample mean weights.</p>
+<p>Does this histogram visualize the population distribution, the sample distribution, or the sampling distribution of a statistic?</p>
+</div>
+</div>
+</div>
+</div>
+</section>
+<section id="candy-activity-cont." class="level2">
+<h2 class="anchored" data-anchor-id="candy-activity-cont.">Candy activity (cont.)</h2>
+<div class="cell">
+<div class="cell-output-display">
+<div>
+<figure class="figure">
+<p><img src="slides-13-bootstrap_files/figure-html/unnamed-chunk-3-1.png" class="img-fluid figure-img" width="672"></p>
+</figure>
+</div>
+</div>
+</div>
+<ul>
+<li><p>Each one of the values in the histogram is a sample mean <span class="math inline">\(\bar{x}\)</span> (i.e.&nbsp;a sample statistic)</p></li>
+<li><p>Thus, the histogram visualizes the <strong>sampling distribution</strong> of the sample mean</p>
+<ul>
+<li>The mean of these sample means is 7.49 grams, with <span class="math inline">\(SE=\)</span> 1.34</li>
+</ul></li>
+</ul>
+</section>
+<section id="how-to-answer-the-research-question" class="level2">
+<h2 class="anchored" data-anchor-id="how-to-answer-the-research-question">How to answer the research question?</h2>
+<p>Remember, our questions of interest are about a population. The following options list ways to answer the question. For each, what are the pros/cons?</p>
+<div class="discuss">
+<ul>
+<li><p>Using the population</p></li>
+<li><p>Using a single sample (i.e.&nbsp;the sample distribution)</p></li>
+<li><p>Using several samples (i.e.&nbsp;the sampling distribution)</p></li>
+</ul>
+</div>
+<ul>
+<li>Thus, for answering estimation questions, we should aim to access a sampling distribution (we did this with the candy activity!)</li>
+</ul>
+</section>
+<section id="how-to-obtain-a-sampling-distribution" class="level2">
+<h2 class="anchored" data-anchor-id="how-to-obtain-a-sampling-distribution">How to obtain a sampling distribution?</h2>
+<ul>
+<li><p>Sometimes, we <strong><em>assume</em></strong> that the population/data have a very specific behavior, and this allows us to <em>exactly</em> define the sampling distribution</p>
+<ul>
+<li>Will see this in a couple of weeks</li>
+</ul></li>
+<li><p>If we don’t want to make assumptions, then we rely on sampling</p>
+<ul>
+<li>Can we obtain multiple samples cheaply and quickly?</li>
+</ul></li>
+</ul>
+</section>
+</section>
+<section id="bootstrap" class="level1">
+<h1>Bootstrap</h1>
+<p>Bootstrapping is a flexible method that allows us to move forward in an analysis without knowing exactly how the data were generated.</p>
+<section id="procedure" class="level2">
+<h2 class="anchored" data-anchor-id="procedure">Procedure</h2>
+<ol type="1">
+<li>Assume we have a single sample <span class="math inline">\(\boldsymbol{x} = (x_{1}, x_{2}, \ldots, x_{n})\)</span> from the population. Note the sample size is <span class="math inline">\(n\)</span></li>
+<li>Choose a large number <span class="math inline">\(B\)</span>. For <span class="math inline">\(b\)</span> in <span class="math inline">\(1,2, \ldots, B\)</span>:
+<ol type="i">
+<li>Resample: take a sample of size <span class="math inline">\(n\)</span> with <em>replacement</em> from <span class="math inline">\(\boldsymbol{x}\)</span>. Call this set of <span class="math inline">\(b\)</span>-th re-sampled data <span class="math inline">\(\boldsymbol{x}^*_{b}\)</span></li>
+<li>Calculate: calculate and record the statistic of interest from <span class="math inline">\(\boldsymbol{x}^{*}_{b}\)</span></li>
+</ol></li>
+</ol>
+<div class="fragment">
+<div style="color: maroon">
+<p>At the end of this procedure, we will have a <strong>bootstrap distribution</strong> of resample or bootstrap statistics.</p>
+<ul>
+<li>This bootstrap distribution <strong>approximates</strong> the sampling distribution!</li>
+</ul>
+</div>
+</div>
+<div class="fragment">
+<div class="discuss">
+<p>In the candy activity, I claim that we did not perform bootstrapping. Why not?</p>
+</div>
+</div>
+</section>
+<section id="demonstration" class="level2">
+<h2 class="anchored" data-anchor-id="demonstration">Demonstration</h2>
+<ul>
+<li><p>Activity cont.</p></li>
+<li><p>Live code demonstration</p></li>
+</ul>
+</section>
+<section id="why-resample-with-replacement" class="level2">
+<h2 class="anchored" data-anchor-id="why-resample-with-replacement">Why resample with replacement?</h2>
+<ul>
+<li><p>We want to understand the sampling error of the sampling distribution!</p></li>
+<li><div class="discuss">
+<p>What would the bootstrap samples <span class="math inline">\(\boldsymbol{x}^*_b\)</span> look like if we sampled <em>without</em> replacement?</p>
+</div>
+<ul>
+<li>Sampling without replacement -&gt; zero variation in the resampled statistics</li>
+</ul></li>
+<li><p>Resampling with replacement will give us “new” datasets that are similar to original sample distribution but not exactly the same!</p>
+<ul>
+<li>Ideally, the variation in the bootstrapped statistics is similar to the true standard error of the sample statistics</li>
+</ul></li>
+</ul>
+</section>
+<section id="remarks" class="level2">
+<h2 class="anchored" data-anchor-id="remarks">Remarks</h2>
+<ul>
+<li><div style="color: maroon">
+<p>Relies on having a representative original sample!</p>
+</div>
+<ul>
+<li>Resampling from initial sample should be roughly equivalent to sampling directly from the population</li>
+</ul></li>
+<li><p>Requires computational tools!</p>
+<ul>
+<li><p>We need <span class="math inline">\(B\)</span> to be large enough to accurately capture variability. <span class="math inline">\(B=5000\)</span> or <span class="math inline">\(B=10000\)</span> sufficient in this class</p></li>
+<li><p>More complex problems will require larger <span class="math inline">\(B\)</span></p></li>
+</ul></li>
+<li><p>Bootstrapping can fail!</p></li>
+<li><p>Bootstrapping is <em>not</em> a solution to small sample sizes!!</p></li>
+</ul>
 
 
+</section>
+</section>
 
 </main> <!-- /main -->
 <script id="quarto-html-after-body" type="application/javascript">
