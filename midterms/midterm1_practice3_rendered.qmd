@@ -1,15 +1,16 @@
 ---
-title: "STAT 201: Midterm 1 Practice 4"
+title: "STAT 201: Midterm 1 Practice 3"
 author: "Your name"
 format: pdf
 ---
 
-In the following code chunk, load your libraries for wrangling, plotting, and making pretty tables. Then run the code chunk:
+In the first code chunk, load your libraries for wrangling, plotting, and making pretty tables. Run the code chunk to also load in the data (described below) and take a look at it before continuing!
 
 ```{r message = F, echo = F}
 library(readr)
 library(tidyverse)
 library(kableExtra)
+wine_ratings <- read_csv("https://raw.githubusercontent.com/midd-stat201-spring2025/midd-stat201-spring2025.github.io/refs/heads/main/data/wine_ratings.csv", show_col_types = FALSE, col_types = "ccnncccn")
 ```
 
 We have data from over 1000 wines in the dataset `wine_ratings`. Each case in the dataset represents one bottle of wine. The wines included in the dataset are wines that were tasted and reviewed.
@@ -29,12 +30,6 @@ We have data from over 1000 wines in the dataset `wine_ratings`. Each case in th
 -   `description`: flavor and taste profile as written by the reviewer
 
 -   `year`: year/vintage of the wine, if available in the title of the review
-
-Run the following code to load in the data and take a look at it before continuing!
-
-```{r echo = F}
-wine_ratings <- read_csv("https://raw.githubusercontent.com/midd-stat201-spring2025/midd-stat201-spring2025.github.io/refs/heads/main/data/wine_ratings.csv", show_col_types = FALSE, col_types = "ccnncccn")
-```
 
 ### Exercise 1
 
@@ -64,8 +59,6 @@ wine_ratings_top |>
   summarise(mean_pts = mean(points), mean_price = mean(price), sd_points = sd(points), sd_price = sd(price)) |>
   kable()
 ```
-
-**Answer:**
 
 ### Exercise 3
 
@@ -99,12 +92,11 @@ wine_ratings |>
   ggplot(aes(x = price_cat, y = points)) +
   geom_boxplot(outlier.color = "orange") +
   labs(x = "Price category", y = "Points", title = "Ratings by price point") 
-
 ```
 
-**Answer:**
-
 ## Exercise 5
+
+**This one is a bit difficult!**
 
 Among all wines in the original dataset that have at least 25 reviews and information about prices, determine which type of wine grape seems to be the worst value. In your answer, briefly describe your methods/reasoning and identify the wine variety.
 
@@ -132,5 +124,3 @@ wine_ratings |>
   arrange(mean) |>
   slice(1)
 ```
-
-**Answer:**

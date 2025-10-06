@@ -12,7 +12,7 @@ format:
 
 -   **When\* and where**:
 
-    -   Oral component: Wednesday 10/08-Thursday 10/09, sign up for 15-minute block here. Meet *promptly* at your scheduled time at Prof. Tang's office (WNS 214)
+    -   Oral component: Wednesday 10/08-Thursday 10/09, sign up for 15-minute block here: <https://calendly.com/beckytang/1-1-with-prof-tang>. Meet *promptly* at your scheduled time at Prof. Tang's office (WNS 214)
 
     -   Written component: Thursday, 10/09 during class
 
@@ -49,4 +49,4 @@ format:
 
     -   Practice 2: [Instructions](midterms/midterm1_practice2_rendered.pdf) and {{< downloadthis midterms/midterm1_practice2.qmd dname="midterm1-practice2" label=".qmd" id=mtcars-btn >}}
 
-    -   Practice 3
+    -   Practice 3: [Instructions](midterms/midterm1_practice3_rendered.pdf) and {{< downloadthis midterms/midterm1_practice3.qmd dname="midterm1-practice3" label=".qmd" id=mtcars-btn >}}

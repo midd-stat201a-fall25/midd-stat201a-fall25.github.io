@@ -1,0 +1,42 @@
+---
+title: "STAT 201: Midterm 1 Practice 3"
+author: "Your name"
+format: pdf
+---
+
+```{r message = F}
+# package
+
+library(readr)
+wine_ratings <- read_csv("https://raw.githubusercontent.com/midd-stat201-spring2025/midd-stat201-spring2025.github.io/refs/heads/main/data/wine_ratings.csv", show_col_types = FALSE, col_types = "ccnncccn")
+```
+
+### Exercise 1
+
+```{r}
+
+```
+
+### Exercise 2
+
+```{r}
+
+```
+
+### Exercise 3
+
+```{r}
+
+```
+
+### Exercise 4
+
+```{r}
+
+```
+
+## Exercise 5
+
+```{r}
+
+```

@@ -178,7 +178,7 @@ ul.task-list li input[type="checkbox"] {
 <ul>
 <li><p><strong>When* and where</strong>:</p>
 <ul>
-<li><p>Oral component: Wednesday 10/08-Thursday 10/09, sign up for 15-minute block here. Meet <em>promptly</em> at your scheduled time at Prof.&nbsp;Tang’s office (WNS 214)</p></li>
+<li><p>Oral component: Wednesday 10/08-Thursday 10/09, sign up for 15-minute block here: <a href="https://calendly.com/beckytang/1-1-with-prof-tang" class="uri">https://calendly.com/beckytang/1-1-with-prof-tang</a>. Meet <em>promptly</em> at your scheduled time at Prof.&nbsp;Tang’s office (WNS 214)</p></li>
 <li><p>Written component: Thursday, 10/09 during class</p></li>
 <li><p><strong>NOTE:</strong> no class on Wednesday 10/08. This time will be used for oral component.</p></li>
 <li><p><strong>*NOTE:</strong> the syllabus originally had the written part of midterm on Wednesday, but I’ve moved the written part to the following day. I hope this is okay!</p></li>
@@ -229,7 +229,15 @@ ul.task-list li input[type="checkbox"] {
       window.URL.revokeObjectURL(downloadURL);
       document.body.removeChild(a);
         });"><button class="btn btn-default downloadthis  " id="mtcars-btn"><i class="bi bi-download"></i> .qmd </button></a></p></li>
-<li><p>Practice 3</p></li>
+<li><p>Practice 3: <a href="midterms/midterm1_practice3_rendered.pdf">Instructions</a> and <a href="#mtcars-btn" onclick="fetch('data:text/plain;base64,LS0tCnRpdGxlOiAiU1RBVCAyMDE6IE1pZHRlcm0gMSBQcmFjdGljZSAzIgphdXRob3I6ICJZb3VyIG5hbWUiCmZvcm1hdDogcGRmCi0tLQoKYGBge3IgbWVzc2FnZSA9IEZ9CiMgcGFja2FnZQoKbGlicmFyeShyZWFkcikKd2luZV9yYXRpbmdzIDwtIHJlYWRfY3N2KCJodHRwczovL3Jhdy5naXRodWJ1c2VyY29udGVudC5jb20vbWlkZC1zdGF0MjAxLXNwcmluZzIwMjUvbWlkZC1zdGF0MjAxLXNwcmluZzIwMjUuZ2l0aHViLmlvL3JlZnMvaGVhZHMvbWFpbi9kYXRhL3dpbmVfcmF0aW5ncy5jc3YiLCBzaG93X2NvbF90eXBlcyA9IEZBTFNFLCBjb2xfdHlwZXMgPSAiY2NubmNjY24iKQpgYGAKCiMjIyBFeGVyY2lzZSAxCgpgYGB7cn0KCmBgYAoKIyMjIEV4ZXJjaXNlIDIKCmBgYHtyfQoKYGBgCgojIyMgRXhlcmNpc2UgMwoKYGBge3J9CgpgYGAKCiMjIyBFeGVyY2lzZSA0CgpgYGB7cn0KCmBgYAoKIyMgRXhlcmNpc2UgNQoKYGBge3J9CgpgYGAK').then(res => res.blob()).then(blob => {
+      const downloadURL = window.URL.createObjectURL(blob);
+      const a = document.createElement('a');
+      document.body.appendChild(a);
+      a.href = downloadURL;
+      a.download = 'midterm1-practice3.qmd'; a.click();
+      window.URL.revokeObjectURL(downloadURL);
+      document.body.removeChild(a);
+        });"><button class="btn btn-default downloadthis  " id="mtcars-btn"><i class="bi bi-download"></i> .qmd </button></a></p></li>
 </ul></li>
 </ul>
 
