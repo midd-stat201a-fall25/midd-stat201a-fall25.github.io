@@ -63,3 +63,8 @@ During these in-class activities, you will be paired with another student. When 
 
 -   Coder: [coding task](coding_practice/partner-coding-practice-03-instructions.qmd)
 -   Developer `.qmd`: {{< downloadthis coding_practice/partner-coding-practice-03.qmd dname="partner-programming-03" label="Partner activity 3" id=mtcars-btn >}}
+
+## Activity 4 (10/06/2025)
+
+-   Coder: [coding task](coding_practice/partner-coding-practice-04-instructions.qmd)
+-   Developer `.qmd`: {{< downloadthis coding_practice/partner-coding-practice-04.qmd dname="partner-programming-04" label="Partner activity 4" id=mtcars-btn >}}

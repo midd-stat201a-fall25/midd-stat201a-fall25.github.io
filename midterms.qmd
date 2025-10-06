@@ -27,7 +27,7 @@ format:
         -   **Plan to bring a calculator to the written component. I will also have some extra calculators in case you don't have one or forget to bring one!**
     -   Oral component: Focus on programming content. You will be given a prompt and have to discuss solution strategies and tell Prof. Tang what to type. You may be also be asked to interpret our findings.
         -   Prof. Tang is there to assist (to make sure we can make progress on the prompt), but part of your grade depends on how much you can independently produce!
-        -   A general rubric will be shared on Monday 10/06 class
+        -   The rubric is provided [here](https://docs.google.com/document/d/1rf4G0R4Ty0m-9LmnwKEQjsp7opCi3-qXdmqcSxpvrvI/edit?usp=sharing)
 
 -   You will not have a problem set assigned the week of the midterm!
 

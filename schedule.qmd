@@ -322,7 +322,7 @@ format:
       <td>
         <ul>
           <li><a href="partner.qmd">Partner programming</a>: Activity 4</li>
-          <li> Topic: TBD </li>
+          <li> Topic: <a href="slides/slides-12-sampling-dist.qmd">Sampling distributions</a> (pdf <a href="slides/pdf/slides-12.pdf">here</a>) </li>
         </ul>
       </td>
       <td>
