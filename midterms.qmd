@@ -47,6 +47,12 @@ format:
 
     -   Practice 1: [Instructions](midterms/midterm1_practice1_rendered.pdf) and {{< downloadthis midterms/midterm1_practice1.qmd dname="midterm1-practice1" label=".qmd" id=mtcars-btn >}}
 
+        -   Possible [solution](midterms/midterm1_practice1_solns.pdf)
+
     -   Practice 2: [Instructions](midterms/midterm1_practice2_rendered.pdf) and {{< downloadthis midterms/midterm1_practice2.qmd dname="midterm1-practice2" label=".qmd" id=mtcars-btn >}}
 
+        -   Possible [solution](midterms/midterm1_practice2_solns.pdf)
+
     -   Practice 3: [Instructions](midterms/midterm1_practice3_rendered.pdf) and {{< downloadthis midterms/midterm1_practice3.qmd dname="midterm1-practice3" label=".qmd" id=mtcars-btn >}}
+
+        -   Possible [solution](midterms/midterm1_practice3_solns.pdf)
