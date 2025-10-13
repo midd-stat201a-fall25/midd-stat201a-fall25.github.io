@@ -25,7 +25,7 @@
     "href": "schedule.html",
     "title": "Schedule",
     "section": "",
-    "text": "Jump to:\n\n\n\n\nWeek 1\n\n\nWeek 2\n\n\nWeek 3\n\n\nWeek 4\n\n\nWeek 5\n\n\nWeek 6\n\n\nWeek 7\n\n\nWeek 8\n\n\nWeek 9\n\n\nWeek 10\n\n\nWeek 11\n\n\nWeek 12\n\n\n\n\n\n\n\n\nWeek\n\n\nDate\n\n\nIn-class material\n\n\nCoding practice\n\n\nAssignments\n\n\n\n\n\n\n\n1\n\n\nM 9/08\n\n\n\n\nTopic: Welcome!\n\n\nDirections for printing at bottom\n\n\n\n\n\n\n\n\nSubmit Problem Set 0 by tomorrow 9/09 11:59pm class\n\n\nTry to install R and RStudio before Thursday’s 9/11 class using these instructions\n\n\n\n\n\n\n\n\nW 9/10\n\n\n\n\nTopic: Study design Study design (pdf here)\n\n\n\n\n\n\n\n\n\nInstall R and RStudio before Thursday class using these instructions\n\n\nWednesday problems on Problem Set 1\n\n\n\n\n\n\n\n\nR 9/11\n\n\n\n\nTopic: Programming toolkit (no need to take notes!)\n\n\n\nRStudio help sheet\n\n\n\nR and .qmd basics\n\n\n\nDownload the following .qmd template and drag to your new STAT 201 folder  Intro to R template \n\n\n\n\n\n\n\nIntro to R and Quarto Markdown. Due Friday 9/12 at 11:59pm!  Coding practice \n\n\n\n\n\n\nThursday problems on Problem Set 1\n\n\n\n\n\n\n\n2\n\n\nM 9/15\n\n\n\n\nTopic: Numerical data (part 1) (pdf here)\n\n\n\nCode: here\n\n\n\n\n\n\n\n\n\nMonday problems on Problem Set 2\n\n\n\n\n\n\n\n\nW 9/17\n\n\n\n\nTopic: Numerical data (part 2) (pdf here)\n\n\n\n\n\n\nNumerical data. Due tonight at 11:59pm!  Coding practice \n\n\n\n\n\n\nWednesday problems on Problem Set 2\n\n\n\n\n\n\n\n\nR 9/18\n\n\n\n\nTopic: Introduction to ggplot (pdf here)\n\n\n\n.qmd template to follow live code  Live code \n\n\n\n\n\n\n\nIntroduction to ggplot  Coding practice \n\n\n\n\n\n\nThursday problems on Problem Set 2, i.e. the problems in the following .qmd  hw2_R \n\n\n\nFor easier reading: the rendered R problems\n\n\n\n\n\n\n\n\n3\n\n\nM 9/22\n\n\n\n\nTopic: Categorical data (pdf here)\n\n\n\n\n\n\nVisualizing categorical data in ggplot  Coding practice \n\n\n\n\n\n\nMonday problems on Problem Set 3\n\n\n\n\n\n\n\n\nW 9/24\n\n\n\n\nPartner programming: Activity 1\n\n\nTopic: Data wrangling (pdf here)\n\nurl_file &lt;- \"https://raw.githubusercontent.com/midd-stat201a-fall25/midd-stat201a-fall25.github.io/refs/heads/main/data/amazon_books.csv\"\nCopy\n\n\n\nLive code from today\n\n\n\n\n\n\nData wrangling practice (due tomorrow night!)  Coding practice  Note: 0, 3 and 4 are doable after today!\n\n\n\n\n\n\nWednesday problems in Problem Set 3  hw3_R \n\n\nRendered version of .qmd template for easier reading!\n\n\n\n\n\n\n\n\nR 9/25\n\n\n\n\nPartner programming: Activity 2\n\n\nTopic: More wrangling\n\n\n\nLive code from today\n\n\nExtra code with descriptions!\n\n\n\n\n\n\n\nFinish data wrangling coding practice\n\n\n\n\n\n\nThursday problems in Problem Set 3\n\n\n\n\n\n\n\n4\n\n\nM 9/29\n\n\n\n\nPartner programming: Activity 3\n\n\nTopic: Intro to Probability (pdf here)\n\n\n\n\n\n\n\n\nNone for today; bigger set for Wednesday.\n\n\n\n\n\n\n\n\nW 10/01\n\n\n\n\nIntroduce Midterm 1\n\n\nTopic: Finish Intro to Probability\n\n\nTopic: Conditional Probability (pdf here)\n\n\n\n\n\n\n\n\nWednesday problems in Problem Set 4\n\n\n\n\n\n\n\n\nR 10/02\n\n\n\n\nTopic: Finish Conditional Probability\n\n\nTopic: Simpson’s Paradox (pdf here)\n\n\nurl_file &lt;- \"https://raw.githubusercontent.com/midd-stat201a-fall25/midd-stat201a-fall25.github.io/refs/heads/main/slides/data/ucb_admissions.csv\"\nCopy\n\n\n\n\n\n\nJoins, case_when, tables  Coding practice  due tomorrow (10/03 at 11:59pm)\n\n\n\n\n\n\nThursday problems in Problem Set 4  hw4_R  Note there was a typo in the .qmd; R Exercise 5 should read “Re-create your first visualization from Exercise 1”!\n\n\nStudy for Midterm 1\n\n\n\n\n\n\n\n5\n\n\nM 10/06\n\n\n\n\nPartner programming: Activity 4\n\n\nTopic: Sampling distributions (pdf here)\n\n\n\n\n\n\n\n\nNone! Ensure you sign up for oral midterm time slot.\n\n\n\n\n\n\n\n\nW 10/08\n\n\n\n\nNo class!\n\n\n\n\n\n\n\n\nStudy for midterm.\n\n\n\n\n\n\n\n\nR 10/02\n\n\n\n\nMidterm 1: written component\n\n\n\n\n\n\n\n\nNone! Enjoy Fall break!"
+    "text": "Jump to:\n\n\n\n\nWeek 1\n\n\nWeek 2\n\n\nWeek 3\n\n\nWeek 4\n\n\nWeek 5\n\n\nWeek 6\n\n\nWeek 7\n\n\nWeek 8\n\n\nWeek 9\n\n\nWeek 10\n\n\nWeek 11\n\n\nWeek 12\n\n\n\n\n\n\n\n\nWeek\n\n\nDate\n\n\nIn-class material\n\n\nCoding practice\n\n\nAssignments\n\n\n\n\n\n\n\n1\n\n\nM 9/08\n\n\n\n\nTopic: Welcome!\n\n\nDirections for printing at bottom\n\n\n\n\n\n\n\n\nSubmit Problem Set 0 by tomorrow 9/09 11:59pm class\n\n\nTry to install R and RStudio before Thursday’s 9/11 class using these instructions\n\n\n\n\n\n\n\n\nW 9/10\n\n\n\n\nTopic: Study design Study design (pdf here)\n\n\n\n\n\n\n\n\n\nInstall R and RStudio before Thursday class using these instructions\n\n\nWednesday problems on Problem Set 1\n\n\n\n\n\n\n\n\nR 9/11\n\n\n\n\nTopic: Programming toolkit (no need to take notes!)\n\n\n\nRStudio help sheet\n\n\n\nR and .qmd basics\n\n\n\nDownload the following .qmd template and drag to your new STAT 201 folder  Intro to R template \n\n\n\n\n\n\n\nIntro to R and Quarto Markdown. Due Friday 9/12 at 11:59pm!  Coding practice \n\n\n\n\n\n\nThursday problems on Problem Set 1\n\n\n\n\n\n\n\n2\n\n\nM 9/15\n\n\n\n\nTopic: Numerical data (part 1) (pdf here)\n\n\n\nCode: here\n\n\n\n\n\n\n\n\n\nMonday problems on Problem Set 2\n\n\n\n\n\n\n\n\nW 9/17\n\n\n\n\nTopic: Numerical data (part 2) (pdf here)\n\n\n\n\n\n\nNumerical data. Due tonight at 11:59pm!  Coding practice \n\n\n\n\n\n\nWednesday problems on Problem Set 2\n\n\n\n\n\n\n\n\nR 9/18\n\n\n\n\nTopic: Introduction to ggplot (pdf here)\n\n\n\n.qmd template to follow live code  Live code \n\n\n\n\n\n\n\nIntroduction to ggplot  Coding practice \n\n\n\n\n\n\nThursday problems on Problem Set 2, i.e. the problems in the following .qmd  hw2_R \n\n\n\nFor easier reading: the rendered R problems\n\n\n\n\n\n\n\n\n3\n\n\nM 9/22\n\n\n\n\nTopic: Categorical data (pdf here)\n\n\n\n\n\n\nVisualizing categorical data in ggplot  Coding practice \n\n\n\n\n\n\nMonday problems on Problem Set 3\n\n\n\n\n\n\n\n\nW 9/24\n\n\n\n\nPartner programming: Activity 1\n\n\nTopic: Data wrangling (pdf here)\n\nurl_file &lt;- \"https://raw.githubusercontent.com/midd-stat201a-fall25/midd-stat201a-fall25.github.io/refs/heads/main/data/amazon_books.csv\"\nCopy\n\n\n\nLive code from today\n\n\n\n\n\n\nData wrangling practice (due tomorrow night!)  Coding practice  Note: 0, 3 and 4 are doable after today!\n\n\n\n\n\n\nWednesday problems in Problem Set 3  hw3_R \n\n\nRendered version of .qmd template for easier reading!\n\n\n\n\n\n\n\n\nR 9/25\n\n\n\n\nPartner programming: Activity 2\n\n\nTopic: More wrangling\n\n\n\nLive code from today\n\n\nExtra code with descriptions!\n\n\n\n\n\n\n\nFinish data wrangling coding practice\n\n\n\n\n\n\nThursday problems in Problem Set 3\n\n\n\n\n\n\n\n4\n\n\nM 9/29\n\n\n\n\nPartner programming: Activity 3\n\n\nTopic: Intro to Probability (pdf here)\n\n\n\n\n\n\n\n\nNone for today; bigger set for Wednesday.\n\n\n\n\n\n\n\n\nW 10/01\n\n\n\n\nIntroduce Midterm 1\n\n\nTopic: Finish Intro to Probability\n\n\nTopic: Conditional Probability (pdf here)\n\n\n\n\n\n\n\n\nWednesday problems in Problem Set 4\n\n\n\n\n\n\n\n\nR 10/02\n\n\n\n\nTopic: Finish Conditional Probability\n\n\nTopic: Simpson’s Paradox (pdf here)\n\n\nurl_file &lt;- \"https://raw.githubusercontent.com/midd-stat201a-fall25/midd-stat201a-fall25.github.io/refs/heads/main/slides/data/ucb_admissions.csv\"\nCopy\n\n\n\n\n\n\nJoins, case_when, tables  Coding practice  due tomorrow (10/03 at 11:59pm)\n\n\n\n\n\n\nThursday problems in Problem Set 4  hw4_R  Note there was a typo in the .qmd; R Exercise 5 should read “Re-create your first visualization from Exercise 1”!\n\n\nStudy for Midterm 1\n\n\n\n\n\n\n\n5\n\n\nM 10/06\n\n\n\n\nPartner programming: Activity 4\n\n\nTopic: Sampling distributions (pdf here)\n\n\n\n\n\n\n\n\nNone! Ensure you sign up for oral midterm time slot.\n\n\n\n\n\n\n\n\nW 10/08\n\n\n\n\nNo class!\n\n\n\n\n\n\n\n\nStudy for midterm.\n\n\n\n\n\n\n\n\nR 10/02\n\n\n\n\nMidterm 1: written component\n\n\n\n\n\n\n\n\nNone! Enjoy Fall break!\n\n\n\n\n\n\n\n6\n\n\nM 10/13\n\n\n\n\nTopic: Bootstrap (pdf here)\n\n\n\n\n\n\n\n\nMonday problems on Problem Set 5\n\n\n\n\n\n\n\n\nW 10/15\n\n\n\n\nTopic: Bootstrap Confidence Intervals\n\n\n\n\n\n\nBootstrap CIs\n\n\n\n\n\n\nWednesday problems on Problem Set 5\n\n\n\n\n\n\n\n\nR 10/16\n\n\n\n\nTopic: Introduction to Hypothesis Testing\n\n\n\n\n\n\n\n\nThursday problems on Problem Set 5"
   },
   {
     "objectID": "slides/slides-01-study-design.html#population-and-samples",
@@ -2314,7 +2314,7 @@
     "href": "index.html#announcements",
     "title": "Introduction to Statistical and Data Sciences",
     "section": "Announcements",
-    "text": "Announcements\n\nMidterm 1 details announced!\n\nSome practice problems have been released!\nTuesday 10/07 office hours: 1-2pm\n\nSuggestion: go through the live code notes again and make sure you understand all the functions being used!\n\nThe Modern Dive textbook has some nice descriptions and visuals of some of the wrangling functions we’re learning!"
+    "text": "Announcements\n\nNone"
   },
   {
     "objectID": "slides/slides-09-conditional-probability.html#recap",
@@ -2559,7 +2559,7 @@
     "href": "live_code/bootstrap_dist.html",
     "title": "Bootstrap distribution demo",
     "section": "",
-    "text": "library(tidyverse)\n\n# \"set seed\" for reproducibility\nset.seed(1)\n\n# our original sample\nx_orig <- c(\"yes\", \"no\", \"yes\", \"yes\", \"no\", \"yes\", \"yes\", \"yes\", \"yes\", \"no\")\n\n# sample size stored as variable for reproducibility\nn <- length(x_orig)\n\n# number of bootstrap samples to take\nB <- 5000\n\n# vector to store bootstrap statistics\n# starts off as vector full of NAs of length B\nbootstrap_props <- rep(NA, B)\n\n# for loop\nfor(b in 1:B){\n  # obtain bootstrap resample (will change every iteration)\n  x_b <- sample(x = x_orig, size = n, replace = TRUE)\n  \n  # calculate bootstrap statistic (will change every iteration)\n  boot_mean <- mean(x_b == \"yes\")\n  \n  # store into b-th position, replacing the NA\n  bootstrap_props[b] <- boot_mean\n}\n\n# visualize bootstrap dist.\n\n## first create data frame\nboot_df <- data.frame(props = bootstrap_props) \n\n## ggplot\nggplot(boot_df, aes(x = props))+\n  geom_histogram(bins = 10, col = \"white\") +\n  labs(title = \"Bootstrap distribution\",\n       subtitle = \"Population: STAT 201A students\",\n       x = \"Proportion who drink coffee\")"
+    "text": "library(tidyverse)\n\n# \"set seed\" for reproducibility\nset.seed(1)\n\n# our original sample\nx_orig &lt;- c(\"yes\", \"no\", \"yes\", \"yes\", \"no\", \"yes\", \"yes\", \"yes\", \"yes\", \"no\")\n\n# sample size stored as variable for reproducibility\nn &lt;- length(x_orig)\n\n# number of bootstrap samples to take\nB &lt;- 5000\n\n# vector to store bootstrap statistics\n# starts off as vector full of NAs of length B\nbootstrap_props &lt;- rep(NA, B)\n\n# for loop\nfor(b in 1:B){\n  # obtain bootstrap resample (will change every iteration)\n  x_b &lt;- sample(x = x_orig, size = n, replace = TRUE)\n  \n  # calculate bootstrap statistic (will change every iteration)\n  boot_mean &lt;- mean(x_b == \"yes\")\n  \n  # store into b-th position, replacing the NA\n  bootstrap_props[b] &lt;- boot_mean\n}\n\n# visualize bootstrap dist.\n\n## first create data frame\nboot_df &lt;- data.frame(props = bootstrap_props) \n\n## ggplot\nggplot(boot_df, aes(x = props))+\n  geom_histogram(bins = 10, col = \"white\") +\n  labs(title = \"Bootstrap distribution\",\n       subtitle = \"Population: STAT 201A students\",\n       x = \"Proportion who drink coffee\")"
   },
   {
     "objectID": "slides/slides-12-bootstrap_ci.html#why-bootstrap",
@@ -7186,7 +7186,7 @@
     "href": "live_code/bootstrap_dist_live.html",
     "title": "Bootstrap distribution",
     "section": "",
-    "text": "library(tidyverse)\nx <- c(\"no\",\"no\",\"no\",\"no\",\"no\",\"no\",\"no\",\"no\",\"yes\",\"yes\")\nn <- length(x)\nB <- 1000\nboot_props <- rep(NA, B)\nfor(b in 1:B){\n  x_b <- sample(x, size = n, replace = TRUE)\n  boot_props[b] <- sum(x_b == \"yes\")/n\n}\n\ndata.frame(props = boot_props) |>\n  ggplot(aes(x = props)) +\n  geom_histogram(bins = 10)"
+    "text": "x &lt;- c(\"berry\", \"burry\", \"berry\", \"berry\", \"berry\", \n       \"bury\", \"berry\", \"burry\", \"berry\", \"berry\")\n\nn &lt;- length(x)\nB &lt;- 1000\nboot_props &lt;- rep(NA, B)\nfor(b in 1:B){\n  x_b &lt;- sample(x, size = n, replace = TRUE)\n  boot_props[b] &lt;- sum(x_b == \"berry\")/n\n}\n\nlibrary(tidyverse)\ndata.frame(boot_props = boot_props) |&gt;\n  ggplot(aes(x = boot_props)) +\n  geom_histogram(bins = 10) +\n  labs(x = \"proportions\",\n       title = \"Bootstrap distribution of sample proportions\",\n       caption = paste0(\"B = \", B))"
   },
   {
     "objectID": "slides/slides-14-bootstrap_ci.html#housekeeping",
@@ -7326,21 +7326,21 @@
     "href": "slides/slides-14-bootstrap-ci.html#bootstrap-recap",
     "title": "Bootstrap Confidence Intervals",
     "section": "Bootstrap recap",
-    "text": "Bootstrap recap\nIf instead I could not repeatedly sample from population, we could obtain bootstrap distribution as an approximation of the sampling distribution of the statistic!\nProcedure:\n\nAssume we have a sample \\(x_{1}, x_{2}, \\ldots, x_{n}\\) from the population. Call this sample \\(\\boldsymbol{x}\\). Note the sample size is \\(n\\)\nChoose a large number \\(B\\). For \\(b\\) in \\(1,2, \\ldots, B\\):\n\nResample: take a sample of size \\(n\\) with replacement from \\(\\boldsymbol{x}\\). Call this set of resampled data \\(\\boldsymbol{x}^*_{b}\\)\nCalculate: calculate and record the statistic of interest from \\(\\boldsymbol{x}^{*}_{b}\\)\n\n\n\nAt the end of this procedure, we will have a distribution of resample or bootstrap statistics"
+    "text": "Bootstrap recap\n\nSampling distribution describes how statistic behaves under repeated sampling from population\nTypically cannot repeatedly sample from population, so we obtain bootstrap distribution as approximation of the sampling distribution of the statistic!\n\nAssume we have a sample \\(x_{1}, x_{2}, \\ldots, x_{n}\\) from the population. Call this sample \\(\\boldsymbol{x}\\). Note the sample size is \\(n\\)\nChoose a large number \\(B\\). For \\(b\\) in \\(1,2, \\ldots, B\\):\n\nResample: take a sample of size \\(n\\) with replacement from \\(\\boldsymbol{x}\\). Call this set of resampled data \\(\\boldsymbol{x}^*_{b}\\)\nCalculate: calculate and record the statistic of interest from \\(\\boldsymbol{x}^{*}_{b}\\)\n\n\n\n\nAt the end of this procedure, we will have a distribution of resample or bootstrap statistics"
   },
   {
     "objectID": "slides/slides-14-bootstrap-ci.html#bootstrap-distribution-from-activity",
     "href": "slides/slides-14-bootstrap-ci.html#bootstrap-distribution-from-activity",
     "title": "Bootstrap Confidence Intervals",
     "section": "Bootstrap distribution from activity",
-    "text": "Bootstrap distribution from activity\nIn our original sample of \\(n = 10\\), we had \\(\\hat{p} = 0.2\\). We have the following bootstrap distribution of sample proportions, obtained from \\(B=\\) 5000 iterations:\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\nNotice that our bootstrap distribution isn’t a great approximation (maybe \\(n = 10\\) did not yield a representative sample)"
+    "text": "Bootstrap distribution from activity\nIn our original sample of \\(n = 10\\), we had \\(\\widehat{p_{obs}} = 0.7\\).\n\n\nWe have the following bootstrap distribution of sample proportions, obtained from \\(B=\\) 5000 iterations:\n\n\n\n\n\n\n\n\n\n\nWe can compare to the true sampling distribution (because it’s easy for me to re-sample from the population here):\n\n\n\n\n\n\n\n\n\n\n\nNotice that our bootstrap distribution isn’t a great approximation (maybe \\(n = 10\\) did not yield a representative sample)"
   },
   {
     "objectID": "slides/slides-14-bootstrap-ci.html#answering-estimation-question",
     "href": "slides/slides-14-bootstrap-ci.html#answering-estimation-question",
     "title": "Bootstrap Confidence Intervals",
     "section": "Answering estimation question",
-    "text": "Answering estimation question\n\nGreat…but what do we do with the bootstrap distribution?\nRecall our research question: What proportion of STAT 201A drink coffee regularly?\n\nCould respond using our single point estimate: \\(\\hat{p} = 0.2\\)\nBut due to variability, we recognize that the point estimate will rarely (if ever) equal population parameter\n\nRather than report a single number, why not report a range of values?\n\n\nThis is possible only if we have a sampling distribution to work with!!"
+    "text": "Answering estimation question\n\nGreat…but what do we do with the bootstrap distribution?\nRecall our research question: What proportion of STAT 201A pronounced as Middle-“berry”?\n\nCould respond using our single point estimate: \\(\\hat{p_{obs}} = 0.7\\)\nBut due to variability, we recognize that the point estimate will rarely (if ever) equal population parameter\n\nRather than report a single number, why not report a range of values?\n\n\nThis is only possible if we have a sampling distribution to work with!!"
   },
   {
     "objectID": "slides/slides-14-bootstrap-ci.html#confidence-intervals",
@@ -7361,14 +7361,14 @@
     "href": "slides/slides-14-bootstrap-ci.html#visualizing-bootstrap-confidence-interval",
     "title": "Bootstrap Confidence Intervals",
     "section": "Visualizing bootstrap confidence interval",
-    "text": "Visualizing bootstrap confidence interval\n\n\n\n\n\n\n\n\n\n\nOur 90% bootstrap CI for \\(p\\): (0, 0.4)"
+    "text": "Visualizing bootstrap confidence interval\n\n\nOur 90% bootstrap CI for \\(p\\): (0.5, 0.9)"
   },
   {
     "objectID": "slides/slides-14-bootstrap-ci.html#interpreting-a-confidence-interval",
     "href": "slides/slides-14-bootstrap-ci.html#interpreting-a-confidence-interval",
     "title": "Bootstrap Confidence Intervals",
     "section": "Interpreting a confidence interval",
-    "text": "Interpreting a confidence interval\n\nOur 90% bootstrap CI for \\(p\\): (0, 0.4). Does this mean there is a 90% chance/probability that the true proportion lies in the interval?\n\n\nAnswer: NO\n\n\nRemember: bootstrap distribution is based on our original sample\n\nIf we started with a different original sample \\(\\boldsymbol{x}\\), then our estimated 90% confidence interval would also be different\n\n\nWhat a confidence interval (CI) represents: if we take many independent repeated samples from this population using the same method and calculate a \\(\\gamma \\times 100\\) % CI for the parameter in the exact same way, then in theory, \\(\\gamma \\times 100\\) % of these intervals should capture/contain the parameter\n\n\n\\(\\gamma\\) represents the long-run proportion of CIs that theoretically contain the true parameter\nHowever, we never know if any particular interval(s) actually do!"
+    "text": "Interpreting a confidence interval\n\nOur 90% bootstrap CI for \\(p\\): (0.5, 0.9). Does this mean there is a 90% chance/probability that the true proportion lies in the interval?\n\n\nAnswer: NO\n\n\nRemember: bootstrap distribution is based on our original sample\n\nIf we started with a different original sample \\(\\boldsymbol{x}\\), then our estimated 90% confidence interval would also be different\n\n\nWhat a confidence interval (CI) represents: if we take many independent repeated samples from this population using the same method and calculate a \\(\\gamma \\times 100\\) % CI for the parameter in the exact same way, then in theory, \\(\\gamma \\times 100\\) % of these intervals should capture/contain the parameter\n\n\n\\(\\gamma\\) represents the long-run proportion of CIs that theoretically contain the true parameter\nHowever, we never know if any particular interval(s) actually do!"
   },
   {
     "objectID": "slides/slides-14-bootstrap-ci.html#interpreting-a-confidence-interval-cont.",
@@ -7389,7 +7389,7 @@
     "href": "slides/slides-14-bootstrap-ci.html#comparing-confidence-intervals",
     "title": "Bootstrap Confidence Intervals",
     "section": "Comparing confidence intervals",
-    "text": "Comparing confidence intervals\nComparing changes in 90% bootstrap CI for sample sizes \\(n = 5, 10, \\text{ and } 17\\).\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\nn\ninterval\n\n\n\n\nn = 5\n(0, 0.8)\n\n\nn = 10\n(0, 0.4)\n\n\nn = 17\n(0.18, 0.53)\n\n\n\n\n\n\nWhat do you notice about the bootstrap distributions and CIs as \\(n\\) increases?"
+    "text": "Comparing confidence intervals\nComparing changes in 90% bootstrap CI for sample sizes \\(n = 5, 10, \\text{ and } 17\\).\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\nn\ninterval\n\n\n\n\nn = 5\n(0.4, 1)\n\n\nn = 10\n(0.5, 0.9)\n\n\nn = 17\n(0.59, 0.94)\n\n\n\n\n\n\nWhat do you notice about the bootstrap distributions and CIs as \\(n\\) increases?"
   },
   {
     "objectID": "slides/slides-14-bootstrap-ci.html#live-code-your-turn",
@@ -7402,8 +7402,8 @@
     "objectID": "slides/slides-14-bootstrap-ci.html#housekeeping",
     "href": "slides/slides-14-bootstrap-ci.html#housekeeping",
     "title": "Bootstrap Confidence Intervals",
-    "section": "",
-    "text": "DataFest groups!"
+    "section": "Housekeeping",
+    "text": "Housekeeping\n\nTBD!"
   },
   {
     "objectID": "slides/slides-14-bootstrap-ci.html#live-code-coding-practice",
@@ -11699,23 +11699,23 @@
   {
     "objectID": "slides/slides-13-bootstrap.html#how-to-answer-the-research-question",
     "href": "slides/slides-13-bootstrap.html#how-to-answer-the-research-question",
-    "title": "Sampling distribution and Introduction to Bootstrap",
+    "title": "Introduction to Bootstrap",
     "section": "How to answer the research question?",
     "text": "How to answer the research question?\nRemember, our questions of interest are about a population. The following options list ways to answer the question. For each, what are the pros/cons?\n\n\nUsing the population\nUsing a single sample (i.e. the sample distribution)\nUsing several samples (i.e. the sampling distribution)\n\n\n\nThus, for answering estimation questions, we should aim to access a sampling distribution (we did this with the candy activity!)"
   },
   {
     "objectID": "slides/slides-13-bootstrap.html#how-to-obtain-a-sampling-distribution",
     "href": "slides/slides-13-bootstrap.html#how-to-obtain-a-sampling-distribution",
-    "title": "Sampling distribution and Introduction to Bootstrap",
+    "title": "Introduction to Bootstrap",
     "section": "How to obtain a sampling distribution?",
-    "text": "How to obtain a sampling distribution?\n\nSometimes, we assume that the population/data have a very specific behavior, and this allows us to exactly define the sampling distribution\n\nWill see this in a couple of weeks\n\nIf we don’t want to make assumptions, then we rely on sampling\n\nCan we obtain multiple samples cheaply and quickly?"
+    "text": "How to obtain a sampling distribution?\n\nSometimes, we assume that the population/data have a very specific behavior, and this allows us to exactly define the sampling distribution without having to physically sample\n\nWill see this in a couple of weeks\n\nIf we don’t want to make assumptions, then we rely on sampling\n\nCan we obtain multiple samples cheaply and quickly?\nWe will use simulation-based techniques!"
   },
   {
     "objectID": "slides/slides-13-bootstrap.html#procedure",
     "href": "slides/slides-13-bootstrap.html#procedure",
-    "title": "Sampling distribution and Introduction to Bootstrap",
+    "title": "Introduction to Bootstrap",
     "section": "Procedure",
-    "text": "Procedure\n\nAssume we have a single sample \\(\\boldsymbol{x} = (x_{1}, x_{2}, \\ldots, x_{n})\\) from the population. Note the sample size is \\(n\\)\nChoose a large number \\(B\\). For \\(b\\) in \\(1,2, \\ldots, B\\):\n\nResample: take a sample of size \\(n\\) with replacement from \\(\\boldsymbol{x}\\). Call this set of \\(b\\)-th re-sampled data \\(\\boldsymbol{x}^*_{b}\\)\nCalculate: calculate and record the statistic of interest from \\(\\boldsymbol{x}^{*}_{b}\\)\n\n\n\n\nAt the end of this procedure, we will have a bootstrap distribution of resample or bootstrap statistics.\n\nThis bootstrap distribution approximates the sampling distribution!\n\n\n\n\n\nIn the candy activity, I claim that we did not perform bootstrapping. Why not?"
+    "text": "Procedure\n\nAssume we have a single sample \\(\\boldsymbol{x} = (x_{1}, x_{2}, \\ldots, x_{n})\\) from the population. Note the sample size is \\(n\\)\nChoose a large number \\(B\\). For \\(b\\) in \\(1,2, \\ldots, B\\):\n\nRe-sample: take a sample of size \\(n\\) with replacement from \\(\\boldsymbol{x}\\). Call this set of \\(b\\)-th re-sampled data \\(\\boldsymbol{x}^*_{b}\\)\nCalculate: calculate and record the statistic of interest from \\(\\boldsymbol{x}^{*}_{b}\\)\n\n\n\n\nAt the end of this procedure, we will have a bootstrap distribution of resampled or bootstrap statistics.\n\nThis bootstrap distribution approximates the sampling distribution!\n\n\n\n\n\nIn the candy activity, I claim that we did not perform bootstrapping. Why not?"
   },
   {
     "objectID": "slides/slides-13-bootstrap.html#demonstration",
@@ -11727,16 +11727,16 @@
   {
     "objectID": "slides/slides-13-bootstrap.html#why-resample-with-replacement",
     "href": "slides/slides-13-bootstrap.html#why-resample-with-replacement",
-    "title": "Sampling distribution and Introduction to Bootstrap",
+    "title": "Introduction to Bootstrap",
     "section": "Why resample with replacement?",
     "text": "Why resample with replacement?\n\nWe want to understand the sampling error of the sampling distribution!\n\nWhat would the bootstrap samples \\(\\boldsymbol{x}^*_b\\) look like if we sampled without replacement?\n\n\nSampling without replacement -&gt; zero variation in the resampled statistics\n\nResampling with replacement will give us “new” datasets that are similar to original sample distribution but not exactly the same!\n\nIdeally, the variation in the bootstrapped statistics is similar to the true standard error of the sample statistics"
   },
   {
     "objectID": "slides/slides-13-bootstrap.html#remarks",
     "href": "slides/slides-13-bootstrap.html#remarks",
-    "title": "Sampling distribution and Introduction to Bootstrap",
+    "title": "Introduction to Bootstrap",
     "section": "Remarks",
-    "text": "Remarks\n\n\nRelies on having a representative original sample!\n\n\nResampling from initial sample should be roughly equivalent to sampling directly from the population\n\nRequires computational tools!\n\nWe need \\(B\\) to be large enough to accurately capture variability. \\(B=5000\\) or \\(B=10000\\) sufficient in this class\nMore complex problems will require larger \\(B\\)\n\nBootstrapping can fail!\nBootstrapping is not a solution to small sample sizes!!"
+    "text": "Remarks\n\n\nHow good the bootstrap distribution is relies on having a representative original sample!\n\n\nResampling from initial sample should be roughly equivalent to sampling directly from the population\n\nRequires computational tools!\n\nWe need \\(B\\) to be large enough to accurately capture variability. \\(B=5000\\) or \\(B=10000\\) sufficient in this class\nMore complex problems will require larger \\(B\\)\n\nBootstrapping can fail!\nBootstrapping is not a solution to small sample sizes!!"
   },
   {
     "objectID": "partner.html#activity-4-10062025",
@@ -11744,5 +11744,96 @@
     "title": "Partner programming activities",
     "section": "Activity 4 (10/06/2025)",
     "text": "Activity 4 (10/06/2025)\n\nCoder: coding task\nDeveloper .qmd:  Partner activity 4"
+  },
+  {
+    "objectID": "slides/slides-13-bootstrap.html#recap",
+    "href": "slides/slides-13-bootstrap.html#recap",
+    "title": "Introduction to Bootstrap",
+    "section": "Recap",
+    "text": "Recap\n\nStatistical inference: using data from sample to say something about target population\n\nEstimation and testing\n\nResearch questions usually about population parameter, for which we obtain a point estimate as a “best guess” of that parameter\nHowever, the values of the point estimates will vary across samples –&gt; sampling distribution: the distribution of sample statistics across repeated sampling\n\nStandard error: the variability of the sample distribution"
+  },
+  {
+    "objectID": "slides/slides-13-bootstrap.html#practice",
+    "href": "slides/slides-13-bootstrap.html#practice",
+    "title": "Introduction to Bootstrap",
+    "section": "Practice",
+    "text": "Practice\nAs part of a quality control process for computer chips, an engineer at a factory randomly samples 212 chips during a week of production to test the current rate of chips with severe defects. She finds that 27 of the chips are defective.\n\n\nWhat is the target population?\nWhat parameter is being estimated?\nWhat is the point estimate for parameter?\nDiscussion: The historical rate of defects is 10%. Should the engineer be surprised by the observed rate of defects during the current week? Why or why not?"
+  },
+  {
+    "objectID": "slides/slides-13-bootstrap.html#practice-1",
+    "href": "slides/slides-13-bootstrap.html#practice-1",
+    "title": "Introduction to Bootstrap",
+    "section": "Practice",
+    "text": "Practice\nA nonprofit wants to understand the fraction of households that have elevated levels of lead in their drinking water. They expect at least 5% of homes will have elevated levels of lead, but not more than about 30%. They randomly sample 800 homes and work with the owners to retrieve water samples, and they compute the fraction of these homes with elevated lead levels. They repeat this 1,000 times and build a distribution of sample proportions.\n\n\nWhat is this distribution called?\nWhat is the variability of this distribution called?\nSuppose the researchers’ budget is reduced, and they are only able to collect 250 observations per sample, but they can still collect 1,000 samples total. They build a new distribution of sample proportions. How do you think the variability of this new distribution compares to the variability of the original distribution in 1? Why?"
+  },
+  {
+    "objectID": "slides/slides-13-bootstrap.html#example",
+    "href": "slides/slides-13-bootstrap.html#example",
+    "title": "Introduction to Bootstrap",
+    "section": "Example",
+    "text": "Example\nLet’s return to the Middle-“berry” vs Middle-“burry” example. Suppose my population of interest is STAT 201A students.\n\nI’ll work with a random sample of \\(n = 10\\) values as my sample (even though I conducted a census):\n\n\n\\[x = \\{\\color{blue}{\\text{berry}}, \\color{orange}{\\text{burry}}, \\color{blue}{\\text{berry}}, \\color{blue}{\\text{berry}}, \\color{blue}{\\text{berry}}, \\color{orange}{\\text{burry}}, \\color{blue}{\\text{berry}}, \\color{orange}{\\text{burry}}, \\color{blue}{\\text{berry}}, \\color{blue}{\\text{berry}}\\}\\]\n\n\n\\(p\\): the true population proportion who say “berry” (in theory unknown to us)\n\\(\\widehat{p_{obs}} = \\frac{7}{10}\\): the (observed) sample proportion from my sample\nLet’s obtain a bootstrap distribution of the sampling proportions!"
+  },
+  {
+    "objectID": "slides/slides-13-bootstrap.html#live-code-demonstration",
+    "href": "slides/slides-13-bootstrap.html#live-code-demonstration",
+    "title": "Introduction to Bootstrap",
+    "section": "Live code demonstration",
+    "text": "Live code demonstration"
+  },
+  {
+    "objectID": "slides/slides-13-bootstrap.html#visualize",
+    "href": "slides/slides-13-bootstrap.html#visualize",
+    "title": "Introduction to Bootstrap",
+    "section": "Visualize",
+    "text": "Visualize"
+  },
+  {
+    "objectID": "slides/slides-13-bootstrap.html#visualize-cont.",
+    "href": "slides/slides-13-bootstrap.html#visualize-cont.",
+    "title": "Introduction to Bootstrap",
+    "section": "Visualize (cont.)",
+    "text": "Visualize (cont.)"
+  },
+  {
+    "objectID": "slides/slides-13-bootstrap.html#visualize-cont.-1",
+    "href": "slides/slides-13-bootstrap.html#visualize-cont.-1",
+    "title": "Introduction to Bootstrap",
+    "section": "Visualize (cont.)",
+    "text": "Visualize (cont.)"
+  },
+  {
+    "objectID": "slides/slides-13-bootstrap.html#visualize-cont.-2",
+    "href": "slides/slides-13-bootstrap.html#visualize-cont.-2",
+    "title": "Introduction to Bootstrap",
+    "section": "Visualize (cont.)",
+    "text": "Visualize (cont.)"
+  },
+  {
+    "objectID": "slides/slides-13-bootstrap.html#visualize-cont.-3",
+    "href": "slides/slides-13-bootstrap.html#visualize-cont.-3",
+    "title": "Introduction to Bootstrap",
+    "section": "Visualize (cont.)",
+    "text": "Visualize (cont.)"
+  },
+  {
+    "objectID": "slides/slides-13-bootstrap.html#visualize-cont.-4",
+    "href": "slides/slides-13-bootstrap.html#visualize-cont.-4",
+    "title": "Introduction to Bootstrap",
+    "section": "Visualize (cont.)",
+    "text": "Visualize (cont.)"
+  },
+  {
+    "objectID": "slides/slides-13-bootstrap.html#visualize-cont.-5",
+    "href": "slides/slides-13-bootstrap.html#visualize-cont.-5",
+    "title": "Introduction to Bootstrap",
+    "section": "Visualize (cont.)",
+    "text": "Visualize (cont.)"
+  },
+  {
+    "objectID": "slides/slides-13-bootstrap.html#visualize-cont.-6",
+    "href": "slides/slides-13-bootstrap.html#visualize-cont.-6",
+    "title": "Introduction to Bootstrap",
+    "section": "Visualize (cont.)",
+    "text": "Visualize (cont.)"
   }
 ]

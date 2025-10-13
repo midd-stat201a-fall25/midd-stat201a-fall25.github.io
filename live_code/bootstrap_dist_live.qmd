@@ -1,29 +1,34 @@
 ---
 title: "Bootstrap distribution"
-date: "March 24, 2024"
+date: "October 13, 2025"
 editor_options: 
   chunk_output_type: console
 format:
     html:
       code-line-numbers: true
 ---
+
 ```{r echo =F}
 set.seed(1)
 ```
 
 ```{r message = F}
-library(tidyverse)
-x <- c("no","no","no","no","no","no","no","no","yes","yes")
+x <- c("berry", "burry", "berry", "berry", "berry", 
+       "bury", "berry", "burry", "berry", "berry")
+
 n <- length(x)
 B <- 1000
 boot_props <- rep(NA, B)
 for(b in 1:B){
   x_b <- sample(x, size = n, replace = TRUE)
-  boot_props[b] <- sum(x_b == "yes")/n
+  boot_props[b] <- sum(x_b == "berry")/n
 }
 
-data.frame(props = boot_props) |>
-  ggplot(aes(x = props)) +
-  geom_histogram(bins = 10)
+library(tidyverse)
+data.frame(boot_props = boot_props) |>
+  ggplot(aes(x = boot_props)) +
+  geom_histogram(bins = 10) +
+  labs(x = "proportions",
+       title = "Bootstrap distribution of sample proportions",
+       caption = paste0("B = ", B))
 ```
-

@@ -1,6 +1,6 @@
 ---
-title: "Sampling distribution and Introduction to Bootstrap"
-date: "October 6, 2025"
+title: "Introduction to Bootstrap"
+date: "October 13, 2025"
 title-slide-attributes:
     data-background-image: "figs/bikeshare-plots.png"
     data-background-size: contain
@@ -17,21 +17,7 @@ editor_options:
 draft: false
 ---
 
-## Activity
-
-While you're coming into the room, please take 1 card. Then:
-
-1.  On the **unlined side**, write down "berry" if you pronounce Middlebury as Middle-"berry", and "bury" if you pronounce it as Middle-"burry".
-
-2.  On the **lined side**, write down the average number of hours of sleep you get per night
-
-3.  Then bring these to Prof. Tang
-
 # Housekeeping
-
--   Midterm 1 updates
-
--   Today's content is NOT on midterm
 
 ```{r echo = F}
 knitr::opts_chunk$set(echo = F, warning = F, messabundance = F)
@@ -43,168 +29,38 @@ admissions <- read_csv("data/ucb_admissions.csv") |>
   sample_frac()
 ```
 
-## Where we are going
+## Recap
 
-We are shifting focus from EDA and beginning to enter the world of statistical inference and modeling!
+-   Statistical inference: using data from sample to say something about target population
 
--   Want to answer questions about a population, but must rely on a sample
+    -   Estimation and testing
 
--   Collect data from sample –\> calculate statistics
+-   Research questions usually about population parameter, for which we obtain a **point estimate** as a "best guess" of that parameter
 
--   What can we say about the statistics?
+-   However, the values of the point estimates will vary across samples –\> **sampling distribution**: the distribution of sample statistics across repeated sampling
 
--   Data are random! So how sure are we about our conclusions?
+    -   **Standard error**: the variability of the sample distribution
 
-::: {.fragment style="color: maroon"}
-Statistics starts here!
-:::
+## Practice
 
-## Inference
+As part of a quality control process for computer chips, an engineer at a factory randomly samples 212 chips during a week of production to test the current rate of chips with severe defects. She finds that 27 of the chips are defective.
 
-**Statistical inference** is the process of using sample data to make conclusions about the underlying population the sample came from
-
--   **Estimation**: using the sample to estimate a plausible values for the unknown parameter
-
--   **Testing**: evaluating whether our observed sample provides evidence for or against some claim about the population
-
-## Research questions involving estimation
-
--   Examples:
-
-    -   What proportion of Middlebury students drink coffee regularly?
-
-    -   What is the average number of hours of sleep Middlebury students get a night?
-
--   Questions here are about a population parameter
-
-    -   If we have a census, we can answer the question immediately.
-    -   If we only have a sample, we have to do our best to answer the question using our data $x_{1}, x_{2},\ldots, x_{n}$
-
-## Activity
-
-::::: columns
-::: {.column width="50%"}
-What proportion of Middlebury STAT 201A students pronounce Middlebury as Middle-"berry"?
-
--   Target population:
-
--   Sampling method:
-
--   Population parameter:
-
--   Are we able to compute the value of the parameter, or do we need to calculate a statistic?
-:::
-
-::: {.column width="50%"}
-What proportion of Middlebury students pronounce Middlebury as Middle-"berry"?
-
--   Target population:
-
--   Sampling method:
-
--   Population parameter:
-
--   Are we able to compute the value of the parameter, or do we need to calculate a statistic?
-:::
-:::::
-
-## Point estimate
-
--   Sample proportion $\hat{p}$ is a very sensible estimate for true proportion $p$
-
--   $\hat{p}$ is an example of a **point estimate**: a single number used to estimate a true but unknown population parameter
-
-    -   i.e. a point estimate is a statistic with a specific purpose
-
-    -   Other examples include sample mean $\bar{x}$ for true mean $\mu$, and $s$ for $\sigma$
-
--   ::: discuss
-    What might be a desirable characteristic of a "good" point estimate?
-    :::
-
-    -   Do we expect that the sample statistic will equal the population parameter? (e.g. how likely is it that $\bar{x} = \mu$ or $\hat{p} = p$ exactly?) Why or why not?
-
-## Variability of statistic
-
--   Two datasets collected under identical sampling procedures will almost always differ due to **variability in the sample**.
-
--   ::: {style="color: maroon"}
-    As a result, values of the point estimate/sample statistic that we calculate from the different samples will also exhibit variability
-    :::
-
-    -   e.g. value of $\hat{p}$ from sampling STAT 201A would look different from $\hat{p}$ obtained from sampling STAT 201B
-
--   **Sampling distribution** **of the statistic**: how the statistic behaves under repeated random samples obtained via the same sampling procedure
-
-    -   The variability associated with the sampling distribution of the statistic is called the **standard error**
-
-        -   Note: "error" $\neq$ bad
-
-    -   This is in contrast to the standard deviation, which describes variability in the individual data points and not the statistic
-
-## Different distributions
-
--   **Population distribution**: distribution of the variable of interest for *everyone* in the population
-
-    -   Has associated variability $\sigma$
-
--   **Sample distribution**: distribution of the data from a *single* sample
-
-    -   Has associated variability $s$
-
--   **Sampling distribution**: distribution of sample statistics calculated from the data obtained from *multiple* samples
-
-    -   Has associated variability standard error $(SE)$
-
-## Recall candy activity
-
-At the beginning of the semester, I passed around a bag of candy and everyone took out 5 pieces at random, and measured the average weight.
-
--   ::: discuss
-    What was the parameter of interest? What sample statistic did you calculate?
-    :::
-
-:::::::: columns
-:::: {.column width="60%"}
-::: fragment
-```{r}
-candy <- read_csv("data/candy_mean_wts.csv")
-ggplot(candy, aes(x = mean_wts)) +
-  geom_histogram(bins = 15) +
-  labs(x = "Sample mean weight (g)") +
-  theme(text = element_text(size = 25))
-```
-:::
-::::
-
-::::: {.column width="40%"}
-:::: fragment
 ::: discuss
-The histogram visualizes your sample mean weights.
-
-Does this histogram visualize the population distribution, the sample distribution, or the sampling distribution of a statistic?
+1.  What is the target population?
+2.  What parameter is being estimated?
+3.  What is the point estimate for parameter?
+4.  Discussion: The historical rate of defects is 10%. Should the engineer be surprised by the observed rate of defects during the current week? Why or why not?
 :::
-::::
-:::::
-::::::::
 
-## Candy activity (cont.)
+## Practice
 
-```{r}
-ggplot(candy, aes(x = mean_wts)) +
-  geom_histogram(bins = 15) +
-  labs(x = "Sample mean weight (g)",
-       title = "Sampling distribution") +
-  theme(text = element_text(size = 20))
-candy_xbar <- round(mean(candy$mean_wts), 2)
-candy_se <- round(sd(candy$mean_wts), 2)
-```
+A nonprofit wants to understand the fraction of households that have elevated levels of lead in their drinking water. They expect at least 5% of homes will have elevated levels of lead, but not more than about 30%. They randomly sample 800 homes and work with the owners to retrieve water samples, and they compute the fraction of these homes with elevated lead levels. They repeat this 1,000 times and build a distribution of sample proportions.
 
--   Each one of the values in the histogram is a sample mean $\bar{x}$ (i.e. a sample statistic)
-
--   Thus, the histogram visualizes the **sampling distribution** of the sample mean
-
-    -   The mean of these sample means is `r candy_xbar` grams, with $SE=$ `r candy_se`
+::: discuss
+1.  What is this distribution called?
+2.  What is the variability of this distribution called?
+3.  Suppose the researchers’ budget is reduced, and they are only able to collect 250 observations per sample, but they can still collect 1,000 samples total. They build a new distribution of sample proportions. How do you think the variability of this new distribution compares to the variability of the original distribution in 1? Why?
+:::
 
 ## How to answer the research question?
 
@@ -222,28 +78,29 @@ Remember, our questions of interest are about a population. The following option
 
 ## How to obtain a sampling distribution?
 
--   Sometimes, we ***assume*** that the population/data have a very specific behavior, and this allows us to *exactly* define the sampling distribution
+-   Sometimes, we ***assume*** that the population/data have a very specific behavior, and this allows us to *exactly* define the sampling distribution without having to physically sample
 
     -   Will see this in a couple of weeks
 
 -   If we don't want to make assumptions, then we rely on sampling
 
     -   Can we obtain multiple samples cheaply and quickly?
+    -   We will use **simulation-based** techniques!
 
 # Bootstrap
 
-Bootstrapping is a flexible method that allows us to move forward in an analysis without knowing exactly how the data were generated.
+Bootstrapping is a flexible, *simulation-based* method that allows us to move forward in an analysis without knowing exactly how the data were generated.
 
 ## Procedure
 
 1.  Assume we have a single sample $\boldsymbol{x} = (x_{1}, x_{2}, \ldots, x_{n})$ from the population. Note the sample size is $n$
 2.  Choose a large number $B$. For $b$ in $1,2, \ldots, B$:
-    i.  Resample: take a sample of size $n$ with *replacement* from $\boldsymbol{x}$. Call this set of $b$-th re-sampled data $\boldsymbol{x}^*_{b}$
+    i.  Re-sample: take a sample of size $n$ with *replacement* from $\boldsymbol{x}$. Call this set of $b$-th re-sampled data $\boldsymbol{x}^*_{b}$
     ii. Calculate: calculate and record the statistic of interest from $\boldsymbol{x}^{*}_{b}$
 
 :::: fragment
 ::: {style="color: maroon"}
-At the end of this procedure, we will have a **bootstrap distribution** of resample or bootstrap statistics.
+At the end of this procedure, we will have a **bootstrap distribution** of resampled or bootstrap statistics.
 
 -   This bootstrap distribution **approximates** the sampling distribution!
 :::
@@ -255,11 +112,55 @@ In the candy activity, I claim that we did not perform bootstrapping. Why not?
 :::
 ::::
 
-## Demonstration
+## Example
 
--   Activity cont.
+Let's return to the Middle-"berry" vs Middle-"burry" example. Suppose my population of interest is STAT 201A students.
 
--   Live code demonstration
+-   I'll work with a random sample of $n = 10$ values as my sample (even though I conducted a census):
+
+::: fragment
+$$x = \{\color{blue}{\text{berry}}, \color{orange}{\text{burry}}, \color{blue}{\text{berry}}, \color{blue}{\text{berry}}, \color{blue}{\text{berry}}, \color{orange}{\text{burry}}, \color{blue}{\text{berry}}, \color{orange}{\text{burry}}, \color{blue}{\text{berry}}, \color{blue}{\text{berry}}\}$$
+:::
+
+-   $p$: the true population proportion who say "berry" (in theory unknown to us)
+
+-   $\widehat{p_{obs}} = \frac{7}{10}$: the (observed) sample proportion from my sample
+
+-   Let's obtain a bootstrap distribution of the sampling proportions!
+
+## Visualize
+
+![](figs/boot1.png)
+
+## Visualize (cont.)
+
+![](figs/boot2.png)
+
+## Visualize (cont.)
+
+![](figs/boot3.png)
+
+## Visualize (cont.)
+
+![](figs/boot4.png)
+
+## Visualize (cont.)
+
+![](figs/boot5.png)
+
+## Visualize (cont.)
+
+![](figs/boot6.png)
+
+## Visualize (cont.)
+
+![](figs/boot7.png)
+
+## Visualize (cont.)
+
+![](figs/boot8.png)
+
+## Live code demonstration
 
 ## Why resample with replacement?
 
@@ -278,7 +179,7 @@ In the candy activity, I claim that we did not perform bootstrapping. Why not?
 ## Remarks
 
 -   ::: {style="color: maroon"}
-    Relies on having a representative original sample!
+    How good the bootstrap distribution is relies on having a representative original sample!
     :::
 
     -   Resampling from initial sample should be roughly equivalent to sampling directly from the population
