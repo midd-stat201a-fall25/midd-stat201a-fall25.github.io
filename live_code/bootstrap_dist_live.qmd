@@ -25,8 +25,8 @@ for(b in 1:B){
 }
 
 library(tidyverse)
-data.frame(boot_props = boot_props) |>
-  ggplot(aes(x = boot_props)) +
+boot_df <- data.frame(bootstrapped_props = boot_props) 
+ggplot(boot_df, aes(x = bootstrapped_props)) +
   geom_histogram(bins = 10) +
   labs(x = "proportions",
        title = "Bootstrap distribution of sample proportions",
