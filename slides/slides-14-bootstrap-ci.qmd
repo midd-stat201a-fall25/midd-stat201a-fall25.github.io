@@ -19,7 +19,8 @@ draft: false
 
 ## Housekeeping
 
--   TBD!
+-   Coding practice due tonight
+-   Midterms returned tomorrow!
 
 ```{r echo = F, message= F}
 knitr::opts_chunk$set(echo = F, warning = F, messabundance = F)
@@ -95,7 +96,10 @@ boot_df |>
 We can compare to the true sampling distribution (because it's easy for me to re-sample from the population here):
 
 ```{r fig.height = 8}
-pop <- c(rep(1, 21), rep(0, 6))
+class_dat <- read_csv("../data/stat201_data.csv")
+pop <- rep(0, nrow(class_dat))
+pop[class_dat$pronounciation == "berry"] <- 1
+p_true <- mean(pop)
 p_resamp <- rep(NA, B)
 for(b in 1:B){
   p_resamp[b] <- mean(sample(pop, n, replace = T))
@@ -195,7 +199,7 @@ boot_df |>
 
     -   $\gamma$ represents the long-run proportion of CIs that theoretically contain the true parameter
 
-    -   However, we never know if any particular interval(s) actually do!
+    -   However, in real life we never know if any particular interval(s) actually do!
 
 ## Interpreting a confidence interval (cont.)
 
@@ -206,6 +210,8 @@ boot_df |>
         :::
 
 -   Again: why is this interpretation **incorrect**? "There is a `r gamma*100`% chance/probability that the true parameter value lies in the interval."
+
+    -   True proportion from census is $p = `r round(p_true,3)`$
 
 ## Remarks
 
@@ -223,11 +229,11 @@ boot_df |>
 
 ## Comparing confidence intervals
 
-Comparing changes in `r gamma*100`% bootstrap CI for sample sizes $n = 5, 10, \text{ and } 17$.
+Comparing changes in `r gamma*100`% bootstrap CI for sample sizes $n = 5, 10, \text{ and } 20$.
 
 ```{r}
-set.seed(2)
-n2 <- 17
+set.seed(4)
+n2 <- 20
 n1 <- 5
 n_orig <- length(x)
 x1 <- sample(pop, n1)
@@ -318,4 +324,14 @@ Rendered PDF ![](figs/14-inline_rendered.png)
 ::::
 :::::::
 
-- Notice the syntax of inline code! Backticks, r, and the spacing matter!
+-   Notice the syntax of inline code! Backticks, r, and the spacing matter!
+
+## Setting a seed
+
+When we do random sampling, how can we reproduce our results? By setting a seed!
+
+-   "Random" sampling is achieved via a "random number generating function", which takes in a number as input. Kind of like initializing the randomness.
+
+<!-- -->
+
+-   `set.seed(<integer>)` before doing random sampling will initialize the generator at that specific `integer` input, so subsequent calls to random number generating functions will produce the exact same sequence of "random" numbers

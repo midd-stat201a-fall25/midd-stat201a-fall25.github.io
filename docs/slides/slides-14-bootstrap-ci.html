@@ -204,7 +204,8 @@
 <section id="housekeeping" class="slide level2">
 <h2>Housekeeping</h2>
 <ul>
-<li class="fragment">TBD!</li>
+<li class="fragment">Coding practice due tonight</li>
+<li class="fragment">Midterms returned tomorrow!</li>
 </ul>
 </section>
 <section id="bootstrap-recap" class="slide level2 scrollable">
@@ -328,7 +329,7 @@
 </div>
 <ul>
 <li class="fragment"><p><span class="math inline">\(\gamma\)</span> represents the long-run proportion of CIs that theoretically contain the true parameter</p></li>
-<li class="fragment"><p>However, we never know if any particular interval(s) actually do!</p></li>
+<li class="fragment"><p>However, in real life we never know if any particular interval(s) actually do!</p></li>
 </ul></li>
 </ul>
 </section>
@@ -341,7 +342,10 @@
 <p>Interpret our bootstrap CI in context</p>
 </div></li>
 </ul></li>
-<li class="fragment"><p>Again: why is this interpretation <strong>incorrect</strong>? “There is a 90% chance/probability that the true parameter value lies in the interval.”</p></li>
+<li class="fragment"><p>Again: why is this interpretation <strong>incorrect</strong>? “There is a 90% chance/probability that the true parameter value lies in the interval.”</p>
+<ul>
+<li class="fragment">True proportion from census is <span class="math inline">\(p = 0.593\)</span></li>
+</ul></li>
 </ul>
 </section>
 <section id="remarks" class="slide level2">
@@ -359,7 +363,7 @@
 </section>
 <section id="comparing-confidence-intervals" class="slide level2">
 <h2>Comparing confidence intervals</h2>
-<p>Comparing changes in 90% bootstrap CI for sample sizes <span class="math inline">\(n = 5, 10, \text{ and } 17\)</span>.</p>
+<p>Comparing changes in 90% bootstrap CI for sample sizes <span class="math inline">\(n = 5, 10, \text{ and } 20\)</span>.</p>
 <div class="columns">
 <div class="column" style="width:70%;">
 <div class="cell">
@@ -384,15 +388,15 @@
 <tbody>
 <tr class="odd">
 <td style="text-align: left;">n = 5</td>
-<td style="text-align: left;">(0.4, 1)</td>
+<td style="text-align: left;">(0, 0.8)</td>
 </tr>
 <tr class="even">
 <td style="text-align: left;">n = 10</td>
 <td style="text-align: left;">(0.5, 0.9)</td>
 </tr>
 <tr class="odd">
-<td style="text-align: left;">n = 17</td>
-<td style="text-align: left;">(0.59, 0.94)</td>
+<td style="text-align: left;">n = 20</td>
+<td style="text-align: left;">(0.35, 0.75)</td>
 </tr>
 </tbody>
 </table>
@@ -439,6 +443,17 @@
 </div></div>
 <ul>
 <li class="fragment">Notice the syntax of inline code! Backticks, r, and the spacing matter!</li>
+</ul>
+</section>
+<section id="setting-a-seed" class="slide level2">
+<h2>Setting a seed</h2>
+<p>When we do random sampling, how can we reproduce our results? By setting a seed!</p>
+<ul>
+<li class="fragment">“Random” sampling is achieved via a “random number generating function”, which takes in a number as input. Kind of like initializing the randomness.</li>
+</ul>
+<!-- -->
+<ul>
+<li class="fragment"><code>set.seed(&lt;integer&gt;)</code> before doing random sampling will initialize the generator at that specific <code>integer</code> input, so subsequent calls to random number generating functions will produce the exact same sequence of “random” numbers</li>
 </ul>
 
 

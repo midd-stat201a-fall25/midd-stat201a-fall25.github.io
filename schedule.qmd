@@ -390,12 +390,12 @@ format:
       <td> W 10/15 </td>
       <td>
         <ul>
-          <li> Topic: Bootstrap Confidence Intervals </li>
+          <li> Topic: <a href="slides/slides-14-bootstrap-ci.qmd">Bootstrap Confidence Intervals</a> (pdf <a href="slides/pdf/slides-14.pdf">here</a>) </li>
         </ul>
       </td>
       <td>
         <ul>
-          <li> Bootstrap CIs </li>
+          <li> Bootstrap CIs {{< downloadthis coding_practice/coding-practice-14-bootstrap.qmd dname="coding-practice-bootstrap-ci" label="Coding practice" id=mtcars-btn >}} </li>
         </ul>
       </td>
       <td>

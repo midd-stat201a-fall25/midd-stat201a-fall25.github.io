@@ -5,23 +5,26 @@ date: "10/15/25"
 format: pdf
 ---
 
-We will work with the average hours of sleep our class reported. Run the following code chunk to load the data:
+We will work with the average hours of sleep our class reported. Run the following code chunk to load the data. Note that our population data is stored in the vector called `sleep`.
 
 ```{r message=FALSE}
 library(tidyverse)
-library(readr)
-sleep <- read_csv("https://raw.githubusercontent.com/midd-stat201-spring2025/midd-stat201-spring2025.github.io/refs/heads/main/data/coffee_sleep.csv")
+class_dat <- read_csv("https://raw.githubusercontent.com/midd-stat201a-fall25/midd-stat201a-fall25.github.io/refs/heads/main/data/stat201_data.csv")
+
+# this is our population of sleep data
+sleep <- class_dat$avg_sleep
 ```
 
-We will initialize a pseudo-random-number-generator using the `set.seed()` function. You can choose any whole number to input as the parameter to this function. For example, I used the seed of 201. If I have the exact same seed and code as you, then we will produce the same random results.
+We will initialize a pseudo-random-number-generator using the `set.seed()` function. You can choose any whole number to input as the parameter to this function. For this exercise, set a seed of 201. Then run the code chunk. Remember, if I have the exact same seed and code as you and we run the code in the same order, then we will produce the same random results.
 
 ```{r}
-set.seed(201)
+# set a seed
+
 ```
 
-1.  We will first take an original sample of size 10.
+1.  You will take a random sample of size 10 from our population.
 
-    Create a variable that represents and stores the target sample size. Then, take a random sample of size 10 of average sleep hours from our population. Store your sample into a variable called `x`.
+    Create a variable called `n` that represents and stores the target sample size (i.e. 10). Then, take a random sample of that size from our population of average sleep hours. Store your sample into a variable called `x`.
 
 ```{r}
 # create a variable for sample size
@@ -32,17 +35,16 @@ set.seed(201)
 
 2.  Then, we will take 5000 bootstrap iterations. Store this value as a variable B for reproducibility.
 
-    Then obtain a bootstrap distribution of the sample means using your original sample. *Remember to store the bootstrap statistics somewhere! Please use a **meaningful** variable name.* It may be useful to look at and **modify** the live code from previous class (on website). Your code shouldn't print out/show us any output.
+    Then obtain a bootstrap distribution of the sample means using your original sample `x`. *Remember to store the bootstrap statistics somewhere! Please use a **meaningful** variable name.* It may be useful to look at and **modify** the live code from previous class (on website). Your code shouldn't print out/show us any output.
 
 ```{r}
 # store number of bootstrap iterations
-
 
 # obtain bootstrap distribution
 
 ```
 
-3.  Use the `quantile()` function to obtain the bounds for a 80%, 90%, and 99% bootstrap confidence interval, respectively. Store these bounds as variables with different (but meaningful) variable names (you should have 6 variables total).
+3.  Use the `quantile()` function to obtain the bounds for a 80%, 90%, and 99% bootstrap confidence interval, respectively. Store these bounds as variables with different (but meaningful) variable names. *Remember, variable names in R must begin with letters*. You should have either 3 or 6 variables total.
 
 Your code shouldn't print out/show us any output.
 
