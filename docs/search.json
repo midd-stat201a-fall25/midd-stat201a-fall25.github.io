@@ -7445,14 +7445,14 @@
     "href": "slides/slides-15-intro-testing.html#defining-hypotheses-in-context",
     "title": "Introduction to Hypothesis Testing",
     "section": "Defining hypotheses in context",
-    "text": "Defining hypotheses in context\nResearch question: do the minority of Middlebury students drink coffee regularly?\n\n\nTry to write down our null and alternative hypotheses in statistical notation! This includes defining parameters!\n\n\nDefine \\(p\\) as the true proportion of Middlebury students who drink coffee regularly\n\\(H_{0}:\\ p = 0.5\\) versus \\(H_{A}:\\ p &lt; 0.5\\)"
+    "text": "Defining hypotheses in context\nResearch question: do the minority of Middlebury students pronounce the college’s name as Middle-“burry”?\n\n\nTry to write down our null and alternative hypotheses in statistical notation! This includes defining parameters!\n\n\nDefine \\(p\\) as the true proportion of Middlebury students who pronounce as Middle-“burry”.\n\\(H_{0}:\\ p = 0.5\\) versus \\(H_{A}:\\ p &lt; 0.5\\)"
   },
   {
     "objectID": "slides/slides-15-intro-testing.html#step-2-collect-and-summarize-data",
     "href": "slides/slides-15-intro-testing.html#step-2-collect-and-summarize-data",
     "title": "Introduction to Hypothesis Testing",
     "section": "Step 2: Collect and summarize data",
-    "text": "Step 2: Collect and summarize data\nOur sample is the convenience sample I took of our class: 1, 1, 1, 1, 1, 1, 1, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, where 1 = “yes” and 0 = “no”.\n\nPoint estimate: \\(\\hat{p}_{obs} = 0.35\\)\n\nAre we prepared to answer our research question based on this evidence?\n\nNO! Due to variability, we should ask: do the data provide convincing evidence that the minority of Middlebury students drink coffee regularly?"
+    "text": "Step 2: Collect and summarize data\nOur sample is the convenience sample I took of our class: 1, 1, 1, 1, 1, 1, 1, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, where 1 = “burry” and 0 = “berry”.\n\nPoint estimate: \\(\\hat{p}_{obs} = 0.35\\)\n\nEven if this was SRS and not convenience, are we prepared to answer our research question based on this evidence?\n\nNO! Due to variability, we should ask: do the data provide convincing evidence that the minority of Middlebury pronounce as “burry”?"
   },
   {
     "objectID": "slides/slides-15-intro-testing.html#step-3-determine-if-we-have-convincing-evidence",
@@ -7473,21 +7473,21 @@
     "href": "slides/slides-15-intro-testing.html#simulating-under-h_0-step-3-cont.",
     "title": "Introduction to Hypothesis Testing",
     "section": "Simulating under \\(H_{0}\\) (step 3 cont.)",
-    "text": "Simulating under \\(H_{0}\\) (step 3 cont.)\n\nWe have to simulate our data under the assumption that \\(H_{0}\\) is true (recall \\(H_0\\): \\(p = 0.5\\))\nImagine a big bag filled with many slips of pink and purple slips of paper\n\nPink = coffee-drinkers\nPurple = non-coffee-drinkers\n\n\n\n\nTo simulate under \\(H_{0}\\), what proportion of the slips in the bag should be pink vs purple?\n\n\n\nTo simulate under \\(H_{0}: p = 0.50\\), half of the slips should be pink!"
+    "text": "Simulating under \\(H_{0}\\) (step 3 cont.)\n\nWe have to simulate our data under the assumption that \\(H_{0}\\) is true (recall \\(H_0\\): \\(p = 0.5\\))\nImagine a big bag filled with many slips of blue and orange slips of paper\n\nOrange = “burry”\nBlue = “berry”\n\n\n\n\nTo simulate under \\(H_{0}\\), what proportion of the slips in the bag should be orange vs blue?\n\n\n\nTo simulate under \\(H_{0}: p = 0.50\\), half of the slips should be orange!"
   },
   {
     "objectID": "slides/slides-15-intro-testing.html#simulating-under-h_0-step-3-cont.-1",
     "href": "slides/slides-15-intro-testing.html#simulating-under-h_0-step-3-cont.-1",
     "title": "Introduction to Hypothesis Testing",
     "section": "Simulating under \\(H_{0}\\) (step 3 cont.)",
-    "text": "Simulating under \\(H_{0}\\) (step 3 cont.)\n\nTo simulate under \\(H_{0}\\), we replicate our original sample, this time sampling from this “null world” bag of paper slips\n\nRepeatedly take samples from this null distribution using original sample size \\(n =\\) 20\nFor each sample, calculate the simulated proportion of pink slips\n\nLive code?\n\n\n\nset.seed(2)\nB &lt;- 5000 \nn &lt;- length(x)\nnull_props &lt;- rep(NA, B)\nfor(b in 1:B){\n  null_samp &lt;- sample(x = c(\"pink\", \"purple\"), \n                      size = n,\n                      replace = T,\n                      prob = c(0.5, 0.5)) \n  null_props[b] &lt;- sum(null_samp == \"pink\")/n\n}"
+    "text": "Simulating under \\(H_{0}\\) (step 3 cont.)\n\nTo simulate under \\(H_{0}\\), we replicate our original sample, this time sampling from this “null world” bag of paper slips\n\nRepeatedly take samples from this null distribution using original sample size \\(n =\\) 20\nFor each sample, calculate the simulated proportion of orange slips\n\nLive code?\n\n\n\nset.seed(2)\nB &lt;- 5000 \nn &lt;- length(x)\nnull_props &lt;- rep(NA, B)\nfor(b in 1:B){\n  null_samp &lt;- sample(x = c(\"orange\", \"blue\"), \n                      size = n,\n                      replace = T,\n                      prob = c(0.5, 0.5)) \n  null_props[b] &lt;- sum(null_samp == \"orange\")/n\n}\n\n\n\n\nWhat do you think line 9 prob = c(0.5, 0.5) is doing?"
   },
   {
     "objectID": "slides/slides-15-intro-testing.html#null-distribution-of-statistic",
     "href": "slides/slides-15-intro-testing.html#null-distribution-of-statistic",
     "title": "Introduction to Hypothesis Testing",
     "section": "Null distribution of statistic",
-    "text": "Null distribution of statistic\nWe can visualize the distribution of \\(\\hat{p}\\) assuming \\(H_{0}\\) true:\n\n\n\n\n\n\n\n\n\n\nThis is called the null distribution of the sample statistic, which is the distribution of the statistic \\(\\hat{p}\\) assuming \\(H_{0}\\) is true\n\nWhere is this null distribution of \\(\\hat{p}\\) centered? Why does that “make sense”?"
+    "text": "Null distribution of statistic\nWe can visualize the distribution of \\(\\hat{p}\\) assuming \\(H_{0}\\) true:\n\n\nThis is called the null distribution of the sample statistic, which is the distribution of the statistic \\(\\hat{p}\\) , assuming \\(H_{0}\\) is true\n\nWhere is this null distribution of \\(\\hat{p}\\) centered? Why does that “make sense”?"
   },
   {
     "objectID": "slides/slides-15-intro-testing.html#comparing-null-to-observed",
@@ -7501,14 +7501,14 @@
     "href": "slides/slides-15-intro-testing.html#obtain-p-value-step-3-cont.",
     "title": "Introduction to Hypothesis Testing",
     "section": "Obtain p-value (step 3 cont.)",
-    "text": "Obtain p-value (step 3 cont.)\nWe can directly estimate the p-value using our null distribution and our observed \\(\\hat{p}\\)!\n\n\n\n\n\n\n\n\n\n\nOut of 5000 replications, we saw 643 instances of \\(\\hat{p} \\leq \\hat{p}_{obs}\\)\np-value is \\(\\frac{ 643}{5000} \\approx\\) 0.13"
+    "text": "Obtain p-value (step 3 cont.)\nWe can directly estimate the p-value using our null distribution and our observed \\(\\hat{p}\\)!\n\n\nOut of 5000 replications, we saw 643 instances of \\(\\hat{p} \\leq \\hat{p}_{obs}\\)\np-value is \\(\\frac{ 643}{5000} \\approx\\) 0.13"
   },
   {
     "objectID": "slides/slides-15-intro-testing.html#step-4-interpret-p-value-and-make-decision",
     "href": "slides/slides-15-intro-testing.html#step-4-interpret-p-value-and-make-decision",
     "title": "Introduction to Hypothesis Testing",
     "section": "Step 4: Interpret p-value and make decision",
-    "text": "Step 4: Interpret p-value and make decision\n\nInterpret the p-value 0.1286 in context\n\n\nAssuming \\(H_{0}\\) true, the probability of observing a sample proportion as or more extreme as our 0.35 is approximately 0.13\n\n\nMake a decision about research claim/question by comparing p-value to significance level \\(\\alpha\\)\n\nIf p-value \\(&lt; \\alpha\\), we reject \\(H_{0}\\) (it was highly unlikely to observe our data given \\(H_{0}\\) and our selected threshold)\nIf p-value \\(\\geq \\alpha\\), we fail to reject \\(H_{0}\\) (not have enough evidence against the null)\n\n\nNote: we never “accept \\(H_{A}\\)”!\n\n\n\nSince our p value is greater than \\(\\alpha = 0.05\\), we fail to reject \\(H_{0}\\). The data do not provide sufficient evidence to suggest that the minority of Middlebury students drink coffee regularly."
+    "text": "Step 4: Interpret p-value and make decision\n\nInterpret the p-value 0.1286 in context\n\n\nAssuming \\(H_{0}\\) true, the probability of observing a sample proportion of students saying “burry” as or more extreme as 0.35 is approximately 0.129\n\n\nMake a decision about research claim/question by comparing p-value to significance level \\(\\alpha\\)\n\nIf p-value \\(&lt; \\alpha\\), we reject \\(H_{0}\\) (it was highly unlikely to observe our data given \\(H_{0}\\) and our selected threshold)\nIf p-value \\(\\geq \\alpha\\), we fail to reject \\(H_{0}\\) (not have enough evidence against the null)\n\n\nNote: we never “accept \\(H_{A}\\)”!\n\n\n\nSince our p-value is greater than \\(\\alpha = 0.05\\), we fail to reject \\(H_{0}\\). The data do not provide sufficient evidence to suggest that the minority of Middlebury pronounce as “burry”."
   },
   {
     "objectID": "slides/slides-15-intro-testing.html#summary-of-testing-framework",
@@ -7536,14 +7536,14 @@
     "href": "slides/slides-15-intro-testing.html#comprehension-questions",
     "title": "Introduction to Hypothesis Testing",
     "section": "Comprehension questions",
-    "text": "Comprehension questions\n\nWhat are the similarities/differences between the bootstrap distribution of a sample statistic and the simulated null distribution?\nDo you understand what a p-value represents, and how we obtain it from the null distribution?\nWhat role does \\(\\alpha\\) play? Why is it important to set \\(\\alpha\\) early on?"
+    "text": "Comprehension questions\n\nWhat are the similarities/differences between the bootstrap distribution of a sample statistic and the simulated null distribution?\nDo you understand what a p-value represents, and how we obtain it from the null distribution?\n\nIs the p-value a marginal, joint, or conditional probability?\n\nWhat role does \\(\\alpha\\) play? Why is it important to set \\(\\alpha\\) early on?"
   },
   {
     "objectID": "slides/slides-15-intro-testing.html#housekeeping",
     "href": "slides/slides-15-intro-testing.html#housekeeping",
     "title": "Introduction to Hypothesis Testing",
-    "section": "",
-    "text": "DataFest groups!"
+    "section": "Housekeeping",
+    "text": "Housekeeping\n\nMidterm 1 returned"
   },
   {
     "objectID": "slides/slides-15-intro-testing.html#hypothesis-testing-framework",
@@ -11835,5 +11835,12 @@
     "title": "Introduction to Bootstrap",
     "section": "Visualize (cont.)",
     "text": "Visualize (cont.)"
+  },
+  {
+    "objectID": "slides/slides-14-bootstrap-ci.html#in-line-code",
+    "href": "slides/slides-14-bootstrap-ci.html#in-line-code",
+    "title": "Bootstrap Confidence Intervals",
+    "section": "In-line code",
+    "text": "In-line code\nIn-line code allows us to be reproducible! Suppose I do all this analysis:\n\nx &lt;- c(\"berry\", \"burry\", \"berry\", \"berry\", \"berry\", \"bury\", \"berry\", \"burry\", \"berry\", \"berry\")\nn &lt;- length(x)\np_obs &lt;- sum(x == \"berry\") / n\np_obs\n\n[1] 0.7\n\n\nI might want to report this value! Rather than “hard-code” the value 0.7 in the white text of my .qmd, I want the .qmd to update the value dynamically upon rendering!\n\n\n\n.qmd file \n\n\n\nRendered PDF \n\n\n\nNotice the syntax of inline code! Backticks, r, and the spacing matter!"
   }
 ]

@@ -11,6 +11,7 @@ include-in-header:
   - text: |
       \pagenumbering{gobble}
 ---
+
 \vspace{-2.5cm}
 
 ```{r message = F, include = F}
@@ -29,30 +30,31 @@ For each of the following, determine whether it represents a null hypothesis cla
 
 \vspace{1cm}
 
-
 3.  The probability of getting in a car accident is the same if using a cell phone then if not using a cell phone.
 
 \vspace{1cm}
-
 
 4.  The number of hours that grade-school children spend doing homework predicts their future success on standardized tests.
 
 \vspace{1cm}
 
-
 Write out the null and alternative hypotheses in words and also in statistical notation for each of the following situations:
 
-1.  New York is known as "the city that never sleeps''. A random sample of 25 New Yorkers were asked how much they sleep they get per night. Does these data providing convincing evidence that New Yorkers on average sleep less than 8 hours per night? 
+1.  New York is known as "the city that never sleeps''. A random sample of 25 New Yorkers were asked how much they sleep they get per night. Does these data providing convincing evidence that New Yorkers on average sleep less than 8 hours per night?
 
 \vspace{2.5cm}
 
-2.  A study suggests that 25% of 25 year-olds have gotten married. You believe that this is incorrect and decide to conduct your own analysis. 
+2.  A study suggests that 25% of 25 year-olds have gotten married. You believe that this is incorrect and decide to conduct your own analysis.
 
 \vspace{2.5cm}
 
-## Do a minority of Middlebury students drink coffee regularly?
+## Do a minority of Middlebury students pronounce the college's name as Middle-"burry"?
 
-#### Hypotheses, significance level, and data (steps 1 and 2)
+#### Hypotheses (defining parameters as needed), significance level, and data (steps 1 and 2)
+
+\vspace{0.5cm}
+
+$p$:
 
 \vspace{0.5cm}
 
@@ -63,7 +65,6 @@ $H_{0}:$
 $H_{A}:$
 
 \vspace{0.5cm}
-
 
 $\alpha=$
 
@@ -83,11 +84,11 @@ B <- 5000
 n <- length(x) 
 null_props <- rep(NA, B) 
 for(b in 1:B){
-  null_samp <- sample(x = c("pink", "purple"), 
+  null_samp <- sample(x = c("orange", "blue"), 
                       size = n,
                       replace = T, 
                       prob = c(0.5, 0.5))
-  null_props[b] <- sum(null_samp == "pink")/n
+  null_props[b] <- sum(null_samp == "orange")/n
 }
 ```
 
@@ -100,13 +101,13 @@ null_dist <- data.frame(p_null = null_props) |>
   ggplot(aes(x = p_null)) +
   geom_histogram(binwidth = 0.05,col = "white")+
   scale_x_continuous(breaks = seq(0,1,0.1)) +
-  labs(x = "Sample proportion drink coffee", title = "Null distribution",
-       caption = "pink line = observed sample proportion") 
+  labs(x = "Sample proportion \`burry\'", title = "Null distribution",
+       caption = "orange line = observed sample proportion") 
 null_dist 
 
 ```
 
-\clearpage 
+\clearpage
 
 What does "as or more extreme" mean in this problem?
 
@@ -123,7 +124,6 @@ Decision and rationale:
 Conclusion in context:
 
 \vspace{2cm}
-
 
 ### Possible scenarios
 

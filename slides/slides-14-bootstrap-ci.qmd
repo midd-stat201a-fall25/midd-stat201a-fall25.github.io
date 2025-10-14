@@ -290,3 +290,32 @@ What do you notice about the bootstrap distributions and CIs as $n$ increases?
     -   setting a seed
 
 -   You will investigate what happens as we move $\gamma$ between $0$ to $1$!
+
+## In-line code
+
+In-line code allows us to be reproducible! Suppose I do all this analysis:
+
+```{r echo = T}
+x <- c("berry", "burry", "berry", "berry", "berry", "bury", "berry", "burry", "berry", "berry")
+n <- length(x)
+p_obs <- sum(x == "berry") / n
+p_obs
+```
+
+I might want to report this value! Rather than "hard-code" the value `r p_obs` in the white text of my `.qmd`, I want the `.qmd` to update the value dynamically upon rendering!
+
+::::::: columns
+:::: {.column width="50%"}
+::: fragment
+`.qmd` file ![](figs/14-inline_qmd.png)
+:::
+::::
+
+:::: {.column width="50%"}
+::: fragment
+Rendered PDF ![](figs/14-inline_rendered.png)
+:::
+::::
+:::::::
+
+- Notice the syntax of inline code! Backticks, r, and the spacing matter!

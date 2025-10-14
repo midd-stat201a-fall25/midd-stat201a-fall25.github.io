@@ -1,6 +1,6 @@
 ---
 title: "Introduction to Hypothesis Testing"
-date: "March 27, 2025"
+date: "October 16, 2025"
 title-slide-attributes:
     data-background-image: "figs/bikeshare-plots.png"
     data-background-size: contain
@@ -19,7 +19,7 @@ draft: false
 
 ## Housekeeping
 
--   DataFest groups!
+-   Midterm 1 returned
 
 ```{r echo = F, message= F}
 knitr::opts_chunk$set(echo = F, warning = F, messabundance = F)
@@ -44,7 +44,7 @@ get_bootstrap <- function(x, n, B, stat){
 
 ## Testing
 
-We are now entering into second branch of inference-related tasks: testing.
+We are now entering into second branch of inference-related tasks: **testing**.
 
 -   We have some "claim"/question about the target population, and we use sampled data to provide evidence for or against the claim
 
@@ -155,13 +155,13 @@ A study suggests that 25% of 25 year-olds in the US have gotten married. You bel
 
 ## Defining hypotheses in context
 
-**Research question**: do the minority of Middlebury students drink coffee regularly?
+**Research question**: do the minority of Middlebury students pronounce the college's name as Middle-"burry"?
 
 -   ::: discuss
     Try to write down our null and alternative hypotheses in statistical notation! This includes defining parameters!
     :::
 
-    -   Define $p$ as the true proportion of Middlebury students who drink coffee regularly
+    -   Define $p$ as the true proportion of Middlebury students who pronounce as Middle-"burry".
     -   $H_{0}:\ p = 0.5$ versus $H_{A}:\ p < 0.5$
 
 ## Step 2: Collect and summarize data
@@ -172,15 +172,15 @@ n <- length(x)
 p_hat <- mean(x)
 ```
 
-Our sample is the convenience sample I took of our class: `r x`, where 1 = "yes" and 0 = "no".
+Our sample is the convenience sample I took of our class: `r x`, where 1 = "burry" and 0 = "berry".
 
 -   Point estimate: $\hat{p}_{obs} = `r round(p_hat,2)`$
 
 -   ::: discuss
-    Are we prepared to answer our research question based on this evidence?
+    Even if this was SRS and not convenience, are we prepared to answer our research question based on this evidence?
     :::
 
--   NO! Due to variability, we should ask: do the data provide ***convincing evidence*** that the minority of Middlebury students drink coffee regularly?
+-   NO! Due to variability, we should ask: do the data provide ***convincing evidence*** that the minority of Middlebury pronounce as "burry"?
 
 ## Step 3: Determine if we have "convincing evidence"
 
@@ -220,17 +220,17 @@ Our sample is the convenience sample I took of our class: `r x`, where 1 = "yes"
 
 -   We have to simulate our data under the assumption that $H_{0}$ is true (recall $H_0$: $p = 0.5$)
 
--   Imagine a big bag filled with many slips of pink and purple slips of paper
+-   Imagine a big bag filled with many slips of blue and orange slips of paper
 
-    -   Pink = coffee-drinkers
+    -   Orange = "burry"
 
-    -   Purple = non-coffee-drinkers
+    -   Blue = "berry"
 
 ::: discuss
--   **To simulate under** $H_{0}$, what proportion of the slips in the bag should be pink vs purple?
+-   **To simulate under** $H_{0}$, what proportion of the slips in the bag should be orange vs blue?
 :::
 
--   To simulate under $H_{0}: p = 0.50$, half of the slips should be pink!
+-   To simulate under $H_{0}: p = 0.50$, half of the slips should be orange!
 
 ## Simulating under $H_{0}$ (step 3 cont.)
 
@@ -238,7 +238,7 @@ Our sample is the convenience sample I took of our class: `r x`, where 1 = "yes"
 
     -   Repeatedly take samples from this null distribution using original sample size $n =$ `r n`
 
-    -   For each sample, calculate the simulated proportion of pink slips
+    -   For each sample, calculate the simulated proportion of orange slips
 
 -   Live code?
 
@@ -249,14 +249,18 @@ B <- 5000
 n <- length(x)
 null_props <- rep(NA, B)
 for(b in 1:B){
-  null_samp <- sample(x = c("pink", "purple"), 
+  null_samp <- sample(x = c("orange", "blue"), 
                       size = n,
                       replace = T,
                       prob = c(0.5, 0.5)) 
-  null_props[b] <- sum(null_samp == "pink")/n
+  null_props[b] <- sum(null_samp == "orange")/n
 }
 ```
 :::
+
+-   ::: discuss
+    What do you think line 9 `prob = c(0.5, 0.5)` is doing?
+    :::
 
 ## Null distribution of statistic
 
@@ -267,12 +271,12 @@ null_dist <- data.frame(p_null = null_props) |>
   ggplot(aes(x = p_null)) +
   geom_histogram(binwidth = 0.05,col = "white")+
   scale_x_continuous(breaks = seq(0,1,0.1)) +
-  labs(x = "Sample proportion drink coffee", title = "Null distribution") +
+  labs(x = "Sample proportion \'burry\'", title = "Null distribution") +
   theme(text = element_text(size = 25))
 null_dist 
 ```
 
--   This is called the **null distribution** of the sample statistic, which is the distribution of the statistic $\hat{p}$ assuming $H_{0}$ is true
+-   This is called the **null distribution** of the sample statistic, which is the distribution of the statistic $\hat{p}$ , **assuming** $H_{0}$ **is true**
 
 -   ::: discuss
     Where is this null distribution of $\hat{p}$ centered? Why does that "make sense"?
@@ -299,8 +303,8 @@ Let's return to our original goal of Step 3! We need to find the **p-value**: th
 ::: fragment
 ```{r fig.height=8}
 null_dist +
-  labs(title = "Null distribution",caption = "pink line = observed sample proportion") +
-  geom_vline(xintercept = p_hat, col = "pink", linewidth = 2) +
+  labs(title = "Null distribution",caption = "orange line = observed sample proportion") +
+  geom_vline(xintercept = p_hat, col = "orange", linewidth = 2) +
   theme(text =element_text(size = 30))
 ```
 :::
@@ -317,11 +321,11 @@ data.frame(p_null = null_props) |>
   ggplot(aes(x = p_null, fill = greater)) +
   geom_histogram(binwidth = 0.05,col = "white", alpha = 0.5)+
   scale_x_continuous(breaks = seq(0,1,0.1)) +
-  labs(x = "Sample proportion drink coffee") +
+  labs(x = "Sample proportion \`burry\'") +
   theme(text = element_text(size = 25)) +
   labs(title = "Null distribution") +
-  geom_vline(xintercept = p_hat, col = "pink", size = 2) +
-  scale_fill_manual(values = c("grey30", "pink"))+
+  geom_vline(xintercept = p_hat, col = "orange", size = 2) +
+  scale_fill_manual(values = c("grey30", "orange"))+
   guides(fill = "none")
 
 p_val <- sum(null_props <= p_hat)/B
@@ -335,7 +339,7 @@ p_val <- sum(null_props <= p_hat)/B
 1.  Interpret the p-value `r p_val` in context
 
     -   ::: discuss
-        Assuming $H_{0}$ true, the probability of observing a sample proportion as or more extreme as our `r p_hat` is approximately `r round(p_val, 2)`
+        Assuming $H_{0}$ true, the probability of observing a sample proportion of students saying "burry" as or more extreme as `r p_hat` is approximately `r round(p_val, 3)`
         :::
 
 2.  Make a decision about research claim/question by comparing p-value to significance level $\alpha$
@@ -349,7 +353,7 @@ p_val <- sum(null_props <= p_hat)/B
             :::
 
     -   ::: discuss
-        Since our p value is greater than $\alpha = 0.05$, we fail to reject $H_{0}$. The data do not provide sufficient evidence to suggest that the minority of Middlebury students drink coffee regularly.
+        Since our p-value is greater than $\alpha = 0.05$, we fail to reject $H_{0}$. The data do not provide sufficient evidence to suggest that the minority of Middlebury pronounce as "burry".
         :::
 
 ## Summary of testing framework
@@ -393,5 +397,7 @@ Four steps for hypothesis test:
 -   What are the similarities/differences between the bootstrap distribution of a sample statistic and the simulated null distribution?
 
 -   Do you understand what a p-value represents, and how we obtain it from the null distribution?
+
+    -   Is the p-value a marginal, joint, or conditional probability?
 
 -   What role does $\alpha$ play? Why is it important to set $\alpha$ early on?
