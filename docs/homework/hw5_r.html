@@ -7,7 +7,7 @@
 <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
 
 <meta name="author" content="Your name here">
-<meta name="dcterms.date" content="2025-03-31">
+<meta name="dcterms.date" content="2025-10-20">
 
 <title>STAT 201: Homework 5 (R) – STAT 201: Intro. to Statistics and Data Science</title>
 <style>
@@ -160,7 +160,7 @@ ul.task-list li input[type="checkbox"] {
     <div>
     <div class="quarto-title-meta-heading">Published</div>
     <div class="quarto-title-meta-contents">
-      <p class="date">March 31, 2025</p>
+      <p class="date">October 20, 2025</p>
     </div>
   </div>
   
@@ -174,24 +174,26 @@ ul.task-list li input[type="checkbox"] {
 
 <p>We’d like to learn about the median and mean year on U.S. pennies in circulation in 2025. Rather than getting access to all of the pennies that currently exist, we have a sample of 50-ish pennies obtained from a local bank.</p>
 <p>Add code that loads in your package(s) for plotting/wrangling, and then run the following code chunk that also loads in the data frame as <code>pennies</code>.</p>
-<ol type="1">
-<li>In code that is <em>as reproducible as possible</em>, obtain two bootstrap distributions: one for the sample median year of pennies in circulation in 2025, and one for sample mean year. You should <em>not</em> need to run two separate <code>for</code> loops.</li>
+<ol start="0" type="1">
+<li>At the top of this code chunk, set a seed of 100.</li>
 </ol>
-<p>At the top of the code chunk, set a seed of 100. Run your bootstrap distribution for 5000 iterations.</p>
+<ol type="1">
+<li>In code that is <em>as reproducible as possible</em>, obtain two bootstrap distributions of 5000 iterations each: one for the sample median year of pennies in circulation in 2025, and one for sample mean year. You should <em>not</em> need to run two separate for() loops. <em>Remember: we can access a specific column of a data frame as a vector using the <code>$</code> notation (see the coding practice as an example).</em></li>
+</ol>
 <ol start="2" type="1">
-<li>Calculate and store the bounds of a 95% bootstrap confidence interval for each parameter of interest. Don’t display any output here.</li>
+<li>For each parameter of interest, calculate and store the bounds of a 95% bootstrap confidence interval. Don’t display any output here.</li>
 </ol>
 <ol start="3" type="1">
-<li>Now, let’s visualize your bootstrap distribution of sample <em>medians</em> along with the corresponding confidence interval. Write code that creates a histogram of the bootstrap distribution that includes:</li>
+<li>Now, let’s visualize your bootstrap distribution of sample <em>medians</em> along with the corresponding confidence interval. Write code that creates a histogram of the bootstrap distribution of sample medians that includes:</li>
 </ol>
 <ul>
-<li>Vertical dashed lines at the lower and upper interval bounds in a color of your choice (remember the <code>geom_vline()</code> function. To makes the lines dashed, specify the argument <code>linetype = "dashed"</code>)</li>
+<li>Vertical dashed lines at the lower and upper interval bounds in a color of your choice (remember the <code>geom_vline()</code> function. To makes the lines dashed, specify the argument linetype = “dashed”)</li>
 <li>Meaningful title and x-axis label</li>
 <li>A caption that briefly explains what the lines represent</li>
 <li>The bins should correspond to a single year</li>
 </ul>
 <ol start="4" type="1">
-<li>Using in-line code, interpret your two confidence intervals in context. You should include the notation of the population of interest in your interpretation.</li>
+<li>Using in-line code, interpret your two confidence intervals in context. You should include the notion of the population of interest in your interpretation.</li>
 </ol>
 <p><strong>Answer:</strong></p>
 <ol start="5" type="1">

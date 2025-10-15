@@ -381,7 +381,7 @@ format:
       </td>
       <td>
         <ul>
-          <li> Monday problems in <a href="homework/hw5.pdf">Problem Set 5</a> </li>
+          <li> Monday problems on <a href="homework/hw5.pdf">Problem Set 5</a> </li>
         </ul>
       </td>
     </tr>
@@ -400,7 +400,7 @@ format:
       </td>
       <td>
         <ul>
-          <li> Wednesday problems on Problem Set 5</li>
+          <li> Wednesday problems on <a href="homework/hw5.pdf">Problem Set 5</a> {{< downloadthis homework/hw5_r.qmd dname="homework5_R" label="hw5_R" id=mtcars-btn >}}</li>
         </ul>
       </td>
     </tr>
