@@ -91,7 +91,7 @@ For each of the following, determine whether it represents a null hypothesis cla
 
 2.  For a particular student, the probability of correctly answer a 5-option multiple choice test is larger than 0.2 (i.e. better than guessing)
 
-3.  The probability of getting in a car accident is the same if using a cell phone then if not using a cell phone.
+3.  The probability of getting in a car accident is the same if using a cell phone than if not using a cell phone.
 
 4.  The number of hours that grade-school children spend doing homework predicts their future success on standardized tests.
 
@@ -121,7 +121,7 @@ For each of the following, determine whether it represents a null hypothesis cla
 Write out the null and alternative hypotheses in words and also in statistical notation for the following situations:
 :::
 
-1.  New York is known as "the city that never sleeps''. A random sample of 25 New Yorkers were asked how much they sleep they get per night. Do these data providing convincing evidence that New Yorkers on average sleep less than 8 hours per night?
+1.  New York is known as "the city that never sleeps''. A random sample of 25 New Yorkers were asked how much they sleep per night. Do these data providing convincing evidence that New Yorkers on average sleep less than 8 hours per night?
 
 2.  A study suggests that 25% of 25 year-olds have gotten married. You believe that this is incorrect and decide to conduct your own analysis.
 
@@ -337,7 +337,7 @@ p_val <- sum(null_props <= p_hat)/B
 ```
 
 -   Out of `r B` replications, we saw `r sum(null_props <= p_hat)` instances of $\hat{p} \leq \hat{p}_{obs}$
--   p-value is $\frac{ `r sum(null_props <= p_hat)`}{`r B`} \approx$ `r round(p_val, 2)`
+-   p-value is $\frac{ `r sum(null_props <= p_hat)`}{`r B`} \approx$ `r round(p_val, 3)`
 
 ## Step 4: Interpret p-value and make decision
 

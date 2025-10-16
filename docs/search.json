@@ -7501,7 +7501,7 @@
     "href": "slides/slides-15-intro-testing.html#obtain-p-value-step-3-cont.",
     "title": "Introduction to Hypothesis Testing",
     "section": "Obtain p-value (step 3 cont.)",
-    "text": "Obtain p-value (step 3 cont.)\nWe can directly estimate the p-value using our null distribution and our observed \\(\\hat{p}\\)!\n\n\nOut of 5000 replications, we saw 1075 instances of \\(\\hat{p} \\leq \\hat{p}_{obs}\\)\np-value is \\(\\frac{ 1075}{5000} \\approx\\) 0.22"
+    "text": "Obtain p-value (step 3 cont.)\nWe can directly estimate the p-value using our null distribution and our observed \\(\\hat{p}\\)!\n\n\nOut of 5000 replications, we saw 1075 instances of \\(\\hat{p} \\leq \\hat{p}_{obs}\\)\np-value is \\(\\frac{ 1075}{5000} \\approx\\) 0.215"
   },
   {
     "objectID": "slides/slides-15-intro-testing.html#step-4-interpret-p-value-and-make-decision",
@@ -7557,7 +7557,7 @@
     "href": "slides/slides-15-intro-testing.html#practice-in-defining-hypotheses",
     "title": "Introduction to Hypothesis Testing",
     "section": "Practice in defining hypotheses",
-    "text": "Practice in defining hypotheses\n\nFor each of the following, determine whether it represents a null hypothesis claim or an alternative hypothesis claim:\n\n\nKing cheetahs on average run the same speed as standard spotted cheetahs.\nFor a particular student, the probability of correctly answer a 5-option multiple choice test is larger than 0.2 (i.e. better than guessing)\nThe probability of getting in a car accident is the same if using a cell phone then if not using a cell phone.\nThe number of hours that grade-school children spend doing homework predicts their future success on standardized tests."
+    "text": "Practice in defining hypotheses\n\nFor each of the following, determine whether it represents a null hypothesis claim or an alternative hypothesis claim:\n\n\nKing cheetahs on average run the same speed as standard spotted cheetahs.\nFor a particular student, the probability of correctly answer a 5-option multiple choice test is larger than 0.2 (i.e. better than guessing)\nThe probability of getting in a car accident is the same if using a cell phone than if not using a cell phone.\nThe number of hours that grade-school children spend doing homework predicts their future success on standardized tests."
   },
   {
     "objectID": "slides/slides-15-intro-testing.html#practice-in-defining-hypotheses-1",
@@ -7571,7 +7571,7 @@
     "href": "slides/slides-15-intro-testing.html#practice-in-defining-hypotheses-2",
     "title": "Introduction to Hypothesis Testing",
     "section": "Practice in defining hypotheses",
-    "text": "Practice in defining hypotheses\n\nWrite out the null and alternative hypotheses in words and also in statistical notation for the following situations:\n\n\nNew York is known as “the city that never sleeps’’. A random sample of 25 New Yorkers were asked how much they sleep they get per night. Do these data providing convincing evidence that New Yorkers on average sleep less than 8 hours per night?\nA study suggests that 25% of 25 year-olds have gotten married. You believe that this is incorrect and decide to conduct your own analysis."
+    "text": "Practice in defining hypotheses\n\nWrite out the null and alternative hypotheses in words and also in statistical notation for the following situations:\n\n\nNew York is known as “the city that never sleeps’’. A random sample of 25 New Yorkers were asked how much they sleep per night. Do these data providing convincing evidence that New Yorkers on average sleep less than 8 hours per night?\nA study suggests that 25% of 25 year-olds have gotten married. You believe that this is incorrect and decide to conduct your own analysis."
   },
   {
     "objectID": "slides/slides-15-intro-testing.html#practice-in-defining-hypotheses-3",

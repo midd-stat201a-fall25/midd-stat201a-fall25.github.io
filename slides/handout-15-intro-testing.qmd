@@ -30,7 +30,7 @@ For each of the following, determine whether it represents a null hypothesis cla
 
 \vspace{1cm}
 
-3.  The probability of getting in a car accident is the same if using a cell phone then if not using a cell phone.
+3.  The probability of getting in a car accident is the same if using a cell phone than if not using a cell phone.
 
 \vspace{1cm}
 
@@ -40,7 +40,7 @@ For each of the following, determine whether it represents a null hypothesis cla
 
 Write out the null and alternative hypotheses in words and also in statistical notation for each of the following situations:
 
-1.  New York is known as "the city that never sleeps''. A random sample of 25 New Yorkers were asked how much they sleep they get per night. Does these data providing convincing evidence that New Yorkers on average sleep less than 8 hours per night?
+1.  New York is known as "the city that never sleeps''. A random sample of 25 New Yorkers were asked how much they sleep per night. Do these data providing convincing evidence that New Yorkers on average sleep less than 8 hours per night?
 
 \vspace{2.5cm}
 
