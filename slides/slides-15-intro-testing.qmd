@@ -163,18 +163,21 @@ A study suggests that 25% of 25 year-olds in the US have gotten married. You bel
 
     -   Define $p$ as the true proportion of Middlebury students who pronounce as Middle-"burry".
     -   $H_{0}:\ p = 0.5$ versus $H_{A}:\ p < 0.5$
+    -   **Note**: how you define $p$ is important!
 
 ## Step 2: Collect and summarize data
 
 ```{r echo = F}
-x <- c(rep(1, 7), rep(0, 13))
+class_dat <- read_csv("../data/stat201_data.csv")
+x <- rep(1, nrow(class_dat))
+x[class_dat$pronounciation == "berry"] <- 0
 n <- length(x)
 p_hat <- mean(x)
 ```
 
 Our sample is the convenience sample I took of our class: `r x`, where 1 = "burry" and 0 = "berry".
 
--   Point estimate: $\hat{p}_{obs} = `r round(p_hat,2)`$
+-   Point estimate: $\hat{p}_{obs} = `r round(p_hat,3)`$
 
 -   ::: discuss
     Even if this was SRS and not convenience, are we prepared to answer our research question based on this evidence?
@@ -184,15 +187,17 @@ Our sample is the convenience sample I took of our class: `r x`, where 1 = "burr
 
 ## Step 3: Determine if we have "convincing evidence"
 
-"Convincing evidence" for us means that it would be [highly unlikely]{.underline} to observe the data we did (or data even more extreme) ***if*** $H_{0}$ were true!
+"Convincing evidence" for us means that it would be "highly unlikely" to observe the data we did (or data even more extreme) ***if*** $H_{0}$ were true!
 
--   We will calculate a **p-value**: the probability of observing data as or more extreme than we did, *assuming* $H_{0}$ true
+-   ::: important
+    We calculate a [**p-value**]{.underline}: the probability of observing data as or more extreme than we did, *assuming* $H_{0}$ true
+    :::
 
     -   Note: p in "p-value" is not the same as parameter $p$!
 
     -   This is a conditional probability: we condition on $H_{0}$ true
 
--   [Highly unlikely]{.underline} is vague and needs to defined by the researcher, ideally before seeing data.
+-   "Highly unlikely" is vague and needs to be defined by the researcher, ideally before seeing data.
 
     -   If we want to provide a yes/no answer to the research question, we need some threshold to compare the p-value to. This is called a **significance level** $\alpha$
 
@@ -286,7 +291,7 @@ null_dist
 
 Let's return to our original goal of Step 3! We need to find the **p-value**: the probability of observing data as or more extreme as ours, assuming $H_{0}$ were true.
 
--   Our observed point estimate was $\hat{p}_{obs} =$ `r p_hat`
+-   Our observed point estimate was $\hat{p}_{obs} =$ `r round(p_hat, 3)`
 
 -   $H_{0}$: $p = 0.5$ and $H_{A}$: $p < 0.5$
 

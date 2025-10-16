@@ -68,12 +68,22 @@ $H_{A}:$
 
 $\alpha=$
 
+\vspace{0.5cm}
+
 The following is our data:
 
-```{r}
-x <- c(rep(1, 7), rep(0, 13)) 
-p_hat <- mean(x)
+```{r echo = F, message = F}
+class_dat <- read_csv("../data/stat201_data.csv")
+x <- rep(1, nrow(class_dat))
+x[class_dat$pronounciation == "berry"] <- 0
 ```
+
+```{r}
+x <- c(1, 0, 0, 0, 1, 1, 1, 0, 0, 0, 1, 1, 0, 1, 0, 0, 1, 0, 1, 0, 0, 1, 1, 0, 0, 0, 0)
+p_hat_obs <- mean(x)
+```
+
+Point estimate:
 
 #### Simulating under the null (step 3)
 
@@ -98,11 +108,11 @@ Visualize the null distribution of $\hat{p}$:
 
 ```{r echo = F, fig.height=2.75}
 null_dist <- data.frame(p_null = null_props) |>
-  ggplot(aes(x = p_null)) +
+  ggplot(aes(x = p_null), alpha = 0.8) +
   geom_histogram(binwidth = 0.05,col = "white")+
   scale_x_continuous(breaks = seq(0,1,0.1)) +
-  labs(x = "Sample proportion \`burry\'", title = "Null distribution",
-       caption = "orange line = observed sample proportion") 
+  labs(x = "Sample proportion \`burry\'", title = "Null distribution") 
+  # geom_vline(xintercept = p_hat_obs, col = "orange")
 null_dist 
 
 ```

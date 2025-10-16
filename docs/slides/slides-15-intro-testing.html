@@ -331,14 +331,15 @@
 <ul>
 <li class="fragment">Define <span class="math inline">\(p\)</span> as the true proportion of Middlebury students who pronounce as Middle-“burry”.</li>
 <li class="fragment"><span class="math inline">\(H_{0}:\ p = 0.5\)</span> versus <span class="math inline">\(H_{A}:\ p &lt; 0.5\)</span></li>
+<li class="fragment"><strong>Note</strong>: how you define <span class="math inline">\(p\)</span> is important!</li>
 </ul></li>
 </ul>
 </section>
 <section id="step-2-collect-and-summarize-data" class="slide level2">
 <h2>Step 2: Collect and summarize data</h2>
-<p>Our sample is the convenience sample I took of our class: 1, 1, 1, 1, 1, 1, 1, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, where 1 = “burry” and 0 = “berry”.</p>
+<p>Our sample is the convenience sample I took of our class: 1, 0, 0, 0, 1, 1, 1, 0, 0, 0, 1, 1, 0, 1, 0, 0, 1, 0, 1, 0, 0, 1, 1, 0, 0, 0, 0, where 1 = “burry” and 0 = “berry”.</p>
 <ul>
-<li class="fragment"><p>Point estimate: <span class="math inline">\(\hat{p}_{obs} = 0.35\)</span></p></li>
+<li class="fragment"><p>Point estimate: <span class="math inline">\(\hat{p}_{obs} = 0.407\)</span></p></li>
 <li class="fragment"><div class="discuss">
 <p>Even if this was SRS and not convenience, are we prepared to answer our research question based on this evidence?</p>
 </div></li>
@@ -347,14 +348,16 @@
 </section>
 <section id="step-3-determine-if-we-have-convincing-evidence" class="slide level2">
 <h2>Step 3: Determine if we have “convincing evidence”</h2>
-<p>“Convincing evidence” for us means that it would be <u>highly unlikely</u> to observe the data we did (or data even more extreme) <strong><em>if</em></strong> <span class="math inline">\(H_{0}\)</span> were true!</p>
+<p>“Convincing evidence” for us means that it would be “highly unlikely” to observe the data we did (or data even more extreme) <strong><em>if</em></strong> <span class="math inline">\(H_{0}\)</span> were true!</p>
 <ul>
-<li class="fragment"><p>We will calculate a <strong>p-value</strong>: the probability of observing data as or more extreme than we did, <em>assuming</em> <span class="math inline">\(H_{0}\)</span> true</p>
+<li class="fragment"><div class="important">
+<p>We calculate a <u><strong>p-value</strong></u>: the probability of observing data as or more extreme than we did, <em>assuming</em> <span class="math inline">\(H_{0}\)</span> true</p>
+</div>
 <ul>
 <li class="fragment"><p>Note: p in “p-value” is not the same as parameter <span class="math inline">\(p\)</span>!</p></li>
 <li class="fragment"><p>This is a conditional probability: we condition on <span class="math inline">\(H_{0}\)</span> true</p></li>
 </ul></li>
-<li class="fragment"><p><u>Highly unlikely</u> is vague and needs to defined by the researcher, ideally before seeing data.</p>
+<li class="fragment"><p>“Highly unlikely” is vague and needs to be defined by the researcher, ideally before seeing data.</p>
 <ul>
 <li class="fragment"><p>If we want to provide a yes/no answer to the research question, we need some threshold to compare the p-value to. This is called a <strong>significance level</strong> <span class="math inline">\(\alpha\)</span></p></li>
 <li class="fragment"><p>Common choices are <span class="math inline">\(\alpha = 0.05\)</span>, <span class="math inline">\(\alpha = 0.01\)</span> (more on this later)!</p></li>
@@ -403,7 +406,7 @@
 <ul>
 <li class="fragment"><p>To simulate under <span class="math inline">\(H_{0}\)</span>, we replicate our original sample, this time sampling from this “null world” bag of paper slips</p>
 <ul>
-<li class="fragment"><p>Repeatedly take samples from this null distribution using original sample size <span class="math inline">\(n =\)</span> 20</p></li>
+<li class="fragment"><p>Repeatedly take samples from this null distribution using original sample size <span class="math inline">\(n =\)</span> 27</p></li>
 <li class="fragment"><p>For each sample, calculate the simulated proportion of orange slips</p></li>
 </ul></li>
 <li class="fragment"><p>Live code?</p></li>
@@ -444,7 +447,7 @@
 <h2>Comparing null to observed</h2>
 <p>Let’s return to our original goal of Step 3! We need to find the <strong>p-value</strong>: the probability of observing data as or more extreme as ours, assuming <span class="math inline">\(H_{0}\)</span> were true.</p>
 <ul>
-<li class="fragment"><p>Our observed point estimate was <span class="math inline">\(\hat{p}_{obs} =\)</span> 0.35</p></li>
+<li class="fragment"><p>Our observed point estimate was <span class="math inline">\(\hat{p}_{obs} =\)</span> 0.407</p></li>
 <li class="fragment"><p><span class="math inline">\(H_{0}\)</span>: <span class="math inline">\(p = 0.5\)</span> and <span class="math inline">\(H_{A}\)</span>: <span class="math inline">\(p &lt; 0.5\)</span></p></li>
 </ul>
 <div class="columns">
@@ -474,17 +477,17 @@
 <p>We can directly estimate the p-value using our null distribution and our observed <span class="math inline">\(\hat{p}\)</span>!</p>
 
 <img data-src="slides-15-intro-testing_files/figure-revealjs/unnamed-chunk-6-1.png" width="960" class="r-stretch"><ul>
-<li class="fragment">Out of 5000 replications, we saw 643 instances of <span class="math inline">\(\hat{p} \leq \hat{p}_{obs}\)</span></li>
-<li class="fragment">p-value is <span class="math inline">\(\frac{ 643}{5000} \approx\)</span> 0.13</li>
+<li class="fragment">Out of 5000 replications, we saw 1075 instances of <span class="math inline">\(\hat{p} \leq \hat{p}_{obs}\)</span></li>
+<li class="fragment">p-value is <span class="math inline">\(\frac{ 1075}{5000} \approx\)</span> 0.22</li>
 </ul>
 </section>
 <section id="step-4-interpret-p-value-and-make-decision" class="slide level2 scrollable">
 <h2>Step 4: Interpret p-value and make decision</h2>
 <ol type="1">
-<li class="fragment"><p>Interpret the p-value 0.1286 in context</p>
+<li class="fragment"><p>Interpret the p-value 0.215 in context</p>
 <ul>
 <li class="fragment"><div class="discuss">
-<p>Assuming <span class="math inline">\(H_{0}\)</span> true, the probability of observing a sample proportion of students saying “burry” as or more extreme as 0.35 is approximately 0.129</p>
+<p>Assuming <span class="math inline">\(H_{0}\)</span> true, the probability of observing a sample proportion of students saying “burry” as or more extreme as 0.4074074 is approximately 0.215</p>
 </div></li>
 </ul></li>
 <li class="fragment"><p>Make a decision about research claim/question by comparing p-value to significance level <span class="math inline">\(\alpha\)</span></p>
