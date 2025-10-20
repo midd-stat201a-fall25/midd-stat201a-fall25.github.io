@@ -1,15 +1,15 @@
 ---
 title: 'STAT 201: Problem Set 6 (R)'
 author: "Your name"
-date: "April 7, 2025"
+date: "October 27, 2025"
 format: pdf
 ---
 
 **In every code chunk where you perform random sampling, set a seed at the top of the chunk. I don't care what seed you choose so long as you set a seed!**
 
-**Make your code as reproducible as possible. You should avoid "hard-coding" values. Instead, store values as variables for future use.**
+**Make your code as reproducible as possible. You should avoid "hard-coding" values. Instead, store values as variables for future use. Additionally, try using in-line code when reporting p-values!**
 
-**Note**: you will practice typing in mathematical notation in the narrative using Latex. This is done using two dollar signs, and then typing Latex code between the dollar signs. To write the Greek letter mu, type $\mu$ in the narrative. You can add subscripts like this: $\mu_{H}$. To write a "does not equal" sign, type $\neq$ into the narrative.
+**Note**: you will practice typing in mathematical notation in the narrative using Latex. This is done using two dollar signs, and then typing Latex code between the dollar signs. To write the Greek letter mu, type $\mu$ in the narrative. You can add subscripts with the underscore like this: $\mu_{H}$ or $H_{0}$. To write "does not equal" sign, type $\neq$ into the narrative. As an example: $H_{0}: \mu = 0$ or $H_{A}: p_{1} \neq 0.5$.
 
 The dataset is adapted from Little et al. (2007), and contains voice measurements from individuals both with and without Parkinson’s Disease (PD), a progressive neurological disorder that affects the motor system. The aim of Little et al.’s study was to examine whether they could diagnose PD by examining the spectral (sound-wave) properties of patients’ voices.
 
@@ -24,7 +24,7 @@ The variables in the dataset are as follows:
 -   `status`: PD vs. Healthy
 -   `avg.f.q`: 1, 2, or 3, corresponding to average vocal fundamental frequency (1 = low, 2 = mid, 3 = high)
 
-The data are stored in a variable called `parksinsons`. Run the following code chunk and take a look at the data before getting started.
+The data are stored in a variable called `parkinsons`. Run the following code chunk and take a look at the data before getting started.
 
 ```{r message= F}
 library(tidyverse)
@@ -39,15 +39,15 @@ parkinsons <- read_csv("https://raw.githubusercontent.com/midd-stat201-fall2024/
 
 Researchers suspect that patients with PD are less able to control their vocal muscles, and thus may have a greater voice jitter compared to healthy volunteers. Thus, they are interested in whether the mean jitter in voice recordings among patients with PD is greater than the mean jitter in voice recordings among healthy patients. The researchers select the 0.01 significance level.
 
-1.  Write out the null hypothesis and alternative hypotheses for the question in statistical notation, defining quantities when necessary.
+1.  Write out the null hypothesis and alternative hypotheses for the question in statistical notation, defining quantities when necessary. (See the note at the top about how to type in math mode!)
 
 **Answer:**
 
-2.  Describe in words how you would obtain 5000 simulations from the null distribution. (*Hint: this should be very similar to the sex discrimination or CPR examples from class.*) Then, describe how you would estimate the p-value using this null distribution. Be as specific as possible!
+2.  Describe in words how you would obtain 5000 simulations from the null distribution. (*Hint: this should be very similar to the sex discrimination or CPR examples from class.*) Then, describe how you would estimate the p-value using this null distribution. Be as specific as possible  (this might include referencing specific values from your data)!
 
 **Answer**:
 
-3.  It will be helpful to define some variables here. To make your life easier, create the following objects/variables in R to represent the following quantities:
+3.  It will be helpful to define some variables here. To make your life easier, create the following objects/variables in R that store the following quantities:
 
 -   `n`: The number of total patients
 -   `n_h`: The number of healthy patients
@@ -80,7 +80,7 @@ We will now answer the following question: is there enough evidence to suggest t
 
 **Answer:**
 
-7.  Describe in words how you would obtain 5000 simulations from the null distribution. Then, describe how you would estimate the p-value using this null distribution. Be as specific as possible!
+7.  Describe in words how you would obtain 5000 simulations from the null distribution. Then, describe how you would estimate the p-value using this null distribution. Be as specific as possible (this might include referencing specific values from your data)!
 
 **Answer:**
 

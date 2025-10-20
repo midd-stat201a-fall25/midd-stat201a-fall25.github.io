@@ -7,7 +7,7 @@
 <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
 
 <meta name="author" content="Your name">
-<meta name="dcterms.date" content="2025-04-07">
+<meta name="dcterms.date" content="2025-10-27">
 
 <title>STAT 201: Problem Set 6 (R) – STAT 201: Intro. to Statistics and Data Science</title>
 <style>
@@ -224,7 +224,7 @@ window.Quarto = {
     <div>
     <div class="quarto-title-meta-heading">Published</div>
     <div class="quarto-title-meta-contents">
-      <p class="date">April 7, 2025</p>
+      <p class="date">October 27, 2025</p>
     </div>
   </div>
   
@@ -237,8 +237,8 @@ window.Quarto = {
 
 
 <p><strong>In every code chunk where you perform random sampling, set a seed at the top of the chunk. I don’t care what seed you choose so long as you set a seed!</strong></p>
-<p><strong>Make your code as reproducible as possible. You should avoid “hard-coding” values. Instead, store values as variables for future use.</strong></p>
-<p><strong>Note</strong>: you will practice typing in mathematical notation in the narrative using Latex. This is done using two dollar signs, and then typing Latex code between the dollar signs. To write the Greek letter mu, type <span class="math inline">\(\mu\)</span> in the narrative. You can add subscripts like this: <span class="math inline">\(\mu_{H}\)</span>. To write a “does not equal” sign, type <span class="math inline">\(\neq\)</span> into the narrative.</p>
+<p><strong>Make your code as reproducible as possible. You should avoid “hard-coding” values. Instead, store values as variables for future use. Additionally, try using in-line code when reporting p-values!</strong></p>
+<p><strong>Note</strong>: you will practice typing in mathematical notation in the narrative using Latex. This is done using two dollar signs, and then typing Latex code between the dollar signs. To write the Greek letter mu, type <span class="math inline">\(\mu\)</span> in the narrative. You can add subscripts with the underscore like this: <span class="math inline">\(\mu_{H}\)</span> or <span class="math inline">\(H_{0}\)</span>. To write “does not equal” sign, type <span class="math inline">\(\neq\)</span> into the narrative. As an example: <span class="math inline">\(H_{0}: \mu = 0\)</span> or <span class="math inline">\(H_{A}: p_{1} \neq 0.5\)</span>.</p>
 <p>The dataset is adapted from Little et al.&nbsp;(2007), and contains voice measurements from individuals both with and without Parkinson’s Disease (PD), a progressive neurological disorder that affects the motor system. The aim of Little et al.’s study was to examine whether they could diagnose PD by examining the spectral (sound-wave) properties of patients’ voices.</p>
 <p>147 measurements were taken from patients with PD, and 48 measurements were taken from healthy controls. For the purposes of this lab, you may assume that measurements are representative of the underlying populations (PD vs.&nbsp;healthy).</p>
 <p>The variables in the dataset are as follows:</p>
@@ -250,7 +250,7 @@ window.Quarto = {
 <li><code>status</code>: PD vs.&nbsp;Healthy</li>
 <li><code>avg.f.q</code>: 1, 2, or 3, corresponding to average vocal fundamental frequency (1 = low, 2 = mid, 3 = high)</li>
 </ul>
-<p>The data are stored in a variable called <code>parksinsons</code>. Run the following code chunk and take a look at the data before getting started.</p>
+<p>The data are stored in a variable called <code>parkinsons</code>. Run the following code chunk and take a look at the data before getting started.</p>
 <div class="cell">
 <div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb1"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb1-1"><a href="#cb1-1" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(tidyverse)</span>
 <span id="cb1-2"><a href="#cb1-2" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(readr)</span>
@@ -263,15 +263,15 @@ window.Quarto = {
 <h2 class="anchored" data-anchor-id="part-1">Part 1</h2>
 <p>Researchers suspect that patients with PD are less able to control their vocal muscles, and thus may have a greater voice jitter compared to healthy volunteers. Thus, they are interested in whether the mean jitter in voice recordings among patients with PD is greater than the mean jitter in voice recordings among healthy patients. The researchers select the 0.01 significance level.</p>
 <ol type="1">
-<li>Write out the null hypothesis and alternative hypotheses for the question in statistical notation, defining quantities when necessary.</li>
+<li>Write out the null hypothesis and alternative hypotheses for the question in statistical notation, defining quantities when necessary. (See the note at the top about how to type in math mode!)</li>
 </ol>
 <p><strong>Answer:</strong></p>
 <ol start="2" type="1">
-<li>Describe in words how you would obtain 5000 simulations from the null distribution. (<em>Hint: this should be very similar to the sex discrimination or CPR examples from class.</em>) Then, describe how you would estimate the p-value using this null distribution. Be as specific as possible!</li>
+<li>Describe in words how you would obtain 5000 simulations from the null distribution. (<em>Hint: this should be very similar to the sex discrimination or CPR examples from class.</em>) Then, describe how you would estimate the p-value using this null distribution. Be as specific as possible (this might include referencing specific values from your data)!</li>
 </ol>
 <p><strong>Answer</strong>:</p>
 <ol start="3" type="1">
-<li>It will be helpful to define some variables here. To make your life easier, create the following objects/variables in R to represent the following quantities:</li>
+<li>It will be helpful to define some variables here. To make your life easier, create the following objects/variables in R that store the following quantities:</li>
 </ol>
 <ul>
 <li><code>n</code>: The number of total patients</li>
@@ -295,7 +295,7 @@ window.Quarto = {
 </ol>
 <p><strong>Answer:</strong></p>
 <ol start="7" type="1">
-<li>Describe in words how you would obtain 5000 simulations from the null distribution. Then, describe how you would estimate the p-value using this null distribution. Be as specific as possible!</li>
+<li>Describe in words how you would obtain 5000 simulations from the null distribution. Then, describe how you would estimate the p-value using this null distribution. Be as specific as possible (this might include referencing specific values from your data)!</li>
 </ol>
 <p><strong>Answer:</strong></p>
 <ol start="8" type="1">
