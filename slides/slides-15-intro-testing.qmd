@@ -395,7 +395,9 @@ Four steps for hypothesis test:
 
 -   It is important to weight the consequences of making each type of error!
 
-    -   We have some control in this - how? Through $\alpha$!
+-   We have some control in this - how? Through $\alpha$!
+
+    -   Lower $\alpha$ means lower chance of Type I error, but comes at cost of increased chance of Type II error
 
 ## Comprehension questions
 

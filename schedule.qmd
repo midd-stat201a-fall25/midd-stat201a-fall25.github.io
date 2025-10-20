@@ -19,7 +19,7 @@ format:
     <td> <a href="#week4">Week 4</a> </td>
     <td> <a href="#week5">Week 5</a> </td>
     <td> <a href="#week6">Week 6</a> </td>
-    <td> Week 7 </td>
+    <td> <a href="#week7">Week 7</a> </td>
     <td> Week 8 </td>
     <td> Week 9 </td>
     <td> Week 10 </td>
@@ -419,6 +419,60 @@ format:
       <td>
         <ul>
           <li> Thursday problems on <a href="homework/hw5.pdf">Problem Set 5</a> </li>
+        </ul>
+      </td>
+    </tr>
+    <!-- week 7 -->
+    <tr>
+      <td id="week7"><strong>7</strong></td>
+      <td> M 10/20 </td>
+      <td>
+        <ul>
+          <li> Wrap-up previous slides </li>
+          <li> Topic: <a href="slides/slides-16-randomization.qmd">Randomization tests</a> (pdf <a href="slides/pdf/slides-16.pdf">here</a>) </li>
+          <ul>
+            <li>  Handout <a href="slides/handout-16-randomization.qmd">here</a> </li>
+          </ul>
+        </ul>
+      </td>
+      <td>
+      </td>
+      <td>
+        <ul>
+          <li> Monday problems on Problem Set 6 </li>
+        </ul>
+      </td>
+    </tr>
+    <tr>
+      <td></td>
+      <td> W 10/22 </td>
+      <td>
+        <ul>
+          <li> Topic: Finish up randomization tests </li>
+        </ul>
+      </td>
+      <td>
+      </td>
+      <td>
+        <ul>
+          <li> Wednesday problems Problem Set 6 </li>
+        </ul>
+      </td>
+    </tr>
+    <tr>
+      <td></td>
+      <td> R 10/23 </td>
+      <td>
+        <ul>
+          <li> Topic: Simulation-based test for mean
+          </li>
+        </ul>
+      </td>
+      <td>
+      </td>
+      <td>
+        <ul>
+          <li> Thursday problems on Problem Set 6 </li>
         </ul>
       </td>
     </tr>

@@ -1,6 +1,6 @@
 ---
 title: "Hypothesis Testing via Randomization"
-date: "March 31, 2025"
+date: "October 20, 2025"
 title-slide-attributes:
     data-background-image: "figs/bikeshare-plots.png"
     data-background-size: contain
@@ -75,7 +75,7 @@ Research question: Are individuals who identify their sex as female discriminate
 
     -   i.e. any observed difference in promotion rates is due to variability
 
--   $H_{A}$: the variables `sex` and `decision` are *not* independent, and equally-qualified female personnel are less likely to be promoted than male personnel
+-   $H_{A}$: the variables `sex` and `decision` are *not* independent; equally-qualified female personnel are less likely to be promoted than male personnel
 
 ## Data
 
@@ -296,7 +296,7 @@ Our research question: Are individuals who identify their sex as female discrimi
 
 # Difference in two proportions
 
-## Running example: CPR (openintro)
+## Running example: CPR
 
 -   An experiment was conducted, consisting of two treatments on 90 patients who underwent CPR for a heart attack and subsequently went to the hospital. Each patient was randomly assigned to either:
 
@@ -311,11 +311,11 @@ Our research question: Are individuals who identify their sex as female discrimi
 
 ## Defining hypotheses
 
-The researchers are interested in learning if the blood thinner treatment was effective for patients who undergo CPR after a heart attack?
+Research question: For patients who undergo CPR after a heart attack, does the blood thinner treatment have an effect on survival?
 
--   $H_{0}:$ the blood thinner treatment was not effective
+-   $H_{0}:$ the blood thinner treatment has no effect on survival after heart attack (blood thinner and survival are independent)
 
--   $H_{A}:$ the blood thinner treatment was effective
+-   $H_{A}:$ the blood thinner treatment has an effect on survival after heart attack (blood thinner and survival are dependent)
 
 :::: fragment
 ::: discuss
@@ -332,7 +332,7 @@ Option 1
 
 -   $H_{0}$: $p_{T} = p_{C}$
 
--   $H_{A}$: $p_{T} > p_{C}$
+-   $H_{A}$: $p_{T} \neq p_{C}$
 :::
 ::::
 
@@ -342,7 +342,7 @@ Option 2 (preferred)
 
 -   $H_{0}$: $p_{T} - p_{C} = 0$
 
--   $H_{A}$: $p_{T} - p_{C}> 0$
+-   $H_{A}$: $p_{T} - p_{C} \neq 0$
 :::
 ::::
 :::::::
@@ -485,7 +485,7 @@ Where should our null distribution be centered at?
 
 ```{r fig.height=8}
 diff_prop_null <- data.frame(diffs = diff_props_null) |>
-  mutate(extreme = diffs >= obs_diff) 
+  mutate(extreme = (diffs >= obs_diff | diffs <= -obs_diff)) 
 diff_prop_null |>
   ggplot(aes(x = diffs))+
   geom_histogram(binwidth = 0.025, col = "white")+
@@ -497,7 +497,7 @@ diff_prop_null |>
 ```
 
 ::: discuss
-How would we obtain the p-value in this problem?
+How would we obtain the p-value in this problem? What does it mean to be "as or more extreme" in the direction of $H_{A}$?
 :::
 
 ## Calculate p-value
@@ -507,7 +507,7 @@ How would we obtain the p-value in this problem?
 ```{r fig.height=8}
 diff_prop_null |>
   ggplot(aes(x = diffs, fill = extreme))+
-  geom_histogram(binwidth = 0.025, col = "white")+
+  geom_histogram(binwidth = 0.025, col = "white", alpha = 0.7)+
   labs(x = "Difference in survival rates (treat - control)",
        title = "Null distribution") +
   theme(text = element_text(size= 28)) +
@@ -515,6 +515,7 @@ diff_prop_null |>
   scale_fill_manual(values = c("grey30", "magenta"))+
   labs(caption = "line denotes observed difference") +
   geom_vline(xintercept = p_hat_t - p_hat_c , linetype = "dashed", linewidth = 2, col = "magenta")+
+  geom_vline(xintercept = p_hat_c - p_hat_t , linetype = "dashed", linewidth = 2, col = "magenta")+
     guides(fill = "none") 
 
 n_extreme <- sum(diff_prop_null$extreme)
@@ -531,7 +532,7 @@ p_val <- round(mean(diff_prop_null$extreme), 3)
 
 ## Interpret and make conclusion
 
-The researchers are interested in learning if the blood thinner treatment was effective.
+The researchers are interested in learning if the blood thinner treatment has an effect on survival after heart attack.
 
 Our p-value is `r p_val`.
 
@@ -541,7 +542,7 @@ Our p-value is `r p_val`.
 
 -   **Decision**: because our p-value of `r p_val` is greater than $\alpha = 0.05$, we fail to reject $H_{0}$
 
--   **Conclusion**: the data do not provide convincing evidence that the blood thinner treatment improves survival rates among patients who undergo CPR.
+-   **Conclusion**: the data do not provide convincing evidence that the blood thinner treatment affects survival rates among patients who undergo CPR.
 
 -   **Possible error**: Type 2
 
