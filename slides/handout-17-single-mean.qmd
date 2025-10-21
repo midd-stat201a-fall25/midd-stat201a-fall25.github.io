@@ -13,80 +13,106 @@ include-in-header:
 editor_options: 
   chunk_output_type: console
 ---
+
 \vspace{-2cm}
+## Research Question 1
 
-I am interested in learning if the average price of houses in Duke Forest in 2020 was $500,000 or not. \vspace{1cm}
+Suppose I am interested in learning if Middlebury students who have an 8:15am class get at least 7.5 hours of sleep (on average). \vspace{1cm}
 
+$H_{0}:$ \vspace{1cm}
 
-$H_{0}:$
-\vspace{1cm}
-
-$H_{A}:$
-\vspace{1cm}
+$H_{A}:$ \vspace{1cm}
 
 ```{r echo = F, message= F}
 library(tidyverse)
-library(openintro)
-prices <- duke_forest$price/100000
-n <- length(prices)
-xbar <- round(mean(prices), 3)
+dat <- read_csv("../data/stat201_data.csv")
+sleep <- dat$avg_sleep
+n <- length(sleep)
+xbar <- round(mean(sleep), 3)
+set.seed(1230)
 ```
 
-Summary information:
-\vspace{1cm}
+Summary information: \vspace{0.75cm}
 
-$\alpha:$
-\vspace{1cm}
+$\alpha:$ \vspace{0.5cm}
 
-```{r echo = F, fig.height=3}
+Start by obtaining a bootstrap distribution of sample means:
+
+```{r echo = T, fig.height=3}
 B <- 5000
-set.seed(2)
 boot_means <- rep(NA, B)
 for(b in 1:B){
-  boot_means[b] <- mean(sample(prices, length(prices), replace = T))
+  x_boot <- sample(sleep, n, replace = T)
+  boot_means[b] <- mean(x_boot)
 }
+```
+
+```{r echo = F, fig.height=2}
 p1 <- data.frame(means = boot_means) |>
   ggplot(aes(x = means)) +
-  geom_histogram(col = "white", bins = 24) +
-  labs(x = "Mean housing prices ($100k)", title = "Bootstrap distribution")  +
+  geom_histogram(col = "white", bins = 40) +
+  labs(x = "Sample mean of average sleep per night (hours)", title = "Bootstrap distribution") +
   theme_minimal()+
-  theme(text = element_text(size = 16))+
+  theme(text = element_text(size = 14))+
   scale_x_continuous(n.breaks = 8) 
 p1
 ```
+
+Why isn't this useful for obtaining p-value?
+
 
 \clearpage
 
 **How do we obtain the null distribution?**
 
-
 ```{r echo = T}
 #| code-line-numbers: true
-mu0 <- 5
+mu0 <- 7.5
 
-# xbar holds observed sample mean
+# xbar stores observed sample mean
 shift <- xbar - mu0
 
 # boot_means is a vector holding B bootstrapped sample means
 null_dist <- boot_means - shift
 ```
 
-```{r echo = F, fig.height=3}
+```{r echo = F, fig.height=2.5}
 null_dist_df <- data.frame(means = null_dist) |>
-  mutate(extreme = (means >= mu0 + shift) | (means <= mu0 - shift)  )
+  mutate(extreme = (means <= mu0 + shift) | (means >= mu0 - shift)  )
 p2 <-  null_dist_df |>
   ggplot(aes(x = means)) +
-  geom_histogram(col = "white", bins = 24) +
-  labs(x = "Mean housing prices ($100k)", title = "Null distribution")  +
+  geom_histogram(col = "white", bins = 40) +
+  labs(x = "Sample mean of average sleep per night (hours)", title = "Null distribution")  +
   theme_minimal()+
-  theme(text = element_text(size = 16))+
+  theme(text = element_text(size = 14))+
   scale_x_continuous(n.breaks = 8) 
 p2
 ```
+
+p-value: \vspace{1cm}
+
+Decision: \vspace{1cm}
+
+Conclusion: \vspace{1cm}
+
+\clearpage
+
+## Research Question 2
+
+Instead, I am interested in learning if Middlebury students who have an 8:15am class get 7.5 hours of sleep or not (on average). Then our hypotheses are:
+
+\vspace{4cm}
+
+How to find p-value now?
+
+```{r echo = F, fig.height=2.5}
+p2
+```
+
+\vspace{4cm}
 
 p-value: \vspace{2cm}
 
 Decision: \vspace{1cm}
 
 Conclusion: \vspace{1cm}
-
