@@ -313,9 +313,9 @@ Our research question: Are individuals who identify their sex as female discrimi
 
 Research question: For patients who undergo CPR after a heart attack, does the blood thinner treatment have an effect on survival?
 
--   $H_{0}:$ the blood thinner treatment has no effect on survival after heart attack (blood thinner and survival are independent)
+-   $H_{0}:$ the blood thinner treatment has no effect on survival after heart attack 
 
--   $H_{A}:$ the blood thinner treatment has an effect on survival after heart attack (blood thinner and survival are dependent)
+-   $H_{A}:$ the blood thinner treatment has an effect on survival after heart attack 
 
 :::: fragment
 ::: discuss
@@ -428,7 +428,7 @@ obs_diff <- p_hat_t - p_hat_c
 :::
 ::::::
 
--   Is this "convincing evidence" that blood thinner usage after CPR is effective?
+-   Is this "convincing evidence" that blood thinner usage after CPR has an effect on survival?
 
 -   Set $\alpha = 0.05$
 
