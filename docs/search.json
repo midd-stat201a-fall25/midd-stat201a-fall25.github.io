@@ -2314,7 +2314,7 @@
     "href": "index.html#announcements",
     "title": "Introduction to Statistical and Data Sciences",
     "section": "Announcements",
-    "text": "Announcements\n\nLook at this article from the NY Times that references the peanut allergy study you analyzed on the midterm!\nNote: Friday 10/31 is last day to drop or declare credit/no credit!\nVideo recording for 10/13 content:\n\nZoom recording link (see password below)\nPasscode: @ujH9e18"
+    "text": "Announcements\n\nWednesday 10/29 from 7-9 pm: Math & Stat Summer Work Poster Session\nLook at this article from the NY Times that references the peanut allergy study you analyzed on the midterm!\nNote: Friday 10/31 is last day to drop or declare credit/no credit!\nVideo recording for 10/13 content:\n\nZoom recording link (see password below)\nPasscode: @ujH9e18"
   },
   {
     "objectID": "slides/slides-09-conditional-probability.html#recap",
@@ -10476,7 +10476,7 @@
     "href": "slides/handout-17-single-mean.html",
     "title": "Simulation test for single mean",
     "section": "",
-    "text": "I am interested in learning if the average price of houses in Duke Forest in 2020 was $500,000 or not. \n\\(H_{0}:\\) \n\\(H_{A}:\\) \nSummary information: \n\\(\\alpha:\\) \n\n\n\n\n\n\n\n\n\nHow do we obtain the null distribution?\n\nmu0 &lt;- 5\n\n# xbar holds observed sample mean\nshift &lt;- xbar - mu0\n\n# boot_means is a vector holding B bootstrapped sample means\nnull_dist &lt;- boot_means - shift\n\n\n\n\n\n\n\n\n\n\np-value: \nDecision: \nConclusion:"
+    "text": "Suppose I am interested in learning if Middlebury students who have an 8:15am class get at most 7.5 hours of sleep (on average). \n\\(H_{0}:\\) \n\\(H_{A}:\\) \nSummary information: \n\\(\\alpha:\\) \nStart by obtaining a bootstrap distribution of sample means:\n\nB &lt;- 5000\nboot_means &lt;- rep(NA, B)\nfor(b in 1:B){\n  x_boot &lt;- sample(sleep, n, replace = T)\n  boot_means[b] &lt;- mean(x_boot)\n}\n\n\n\n\n\n\n\n\n\n\nWhy isn’t this useful for obtaining p-value?\nHow do we obtain the null distribution?\n\nmu0 &lt;- 7.5\n\n# xbar stores observed sample mean\nshift &lt;- xbar - mu0\n\n# boot_means is a vector holding B bootstrapped sample means\nnull_dist &lt;- boot_means - shift\n\n\n\n\n\n\n\n\n\n\np-value: \nDecision: \nConclusion:"
   },
   {
     "objectID": "slides/handout-19-clt.html",
@@ -11968,5 +11968,19 @@
     "title": "Hypothesis testing for a mean",
     "section": "Two-sided alternative hypothesis",
     "text": "Two-sided alternative hypothesis\nWe can be extreme in both the positive and negative direction of \\(\\mu_{0}\\)!\n\n\n\n\n\n\n\n\n\n\n\n\nNote that there are now 2 simulations that are “as or more extreme”, so p-value is approximately 0.0004."
+  },
+  {
+    "objectID": "slides/handout-17-single-mean.html#research-question-1",
+    "href": "slides/handout-17-single-mean.html#research-question-1",
+    "title": "Simulation test for single mean",
+    "section": "",
+    "text": "Suppose I am interested in learning if Middlebury students who have an 8:15am class get at most 7.5 hours of sleep (on average). \n\\(H_{0}:\\) \n\\(H_{A}:\\) \nSummary information: \n\\(\\alpha:\\) \nStart by obtaining a bootstrap distribution of sample means:\n\nB &lt;- 5000\nboot_means &lt;- rep(NA, B)\nfor(b in 1:B){\n  x_boot &lt;- sample(sleep, n, replace = T)\n  boot_means[b] &lt;- mean(x_boot)\n}\n\n\n\n\n\n\n\n\n\n\nWhy isn’t this useful for obtaining p-value?\nHow do we obtain the null distribution?\n\nmu0 &lt;- 7.5\n\n# xbar stores observed sample mean\nshift &lt;- xbar - mu0\n\n# boot_means is a vector holding B bootstrapped sample means\nnull_dist &lt;- boot_means - shift\n\n\n\n\n\n\n\n\n\n\np-value: \nDecision: \nConclusion:"
+  },
+  {
+    "objectID": "slides/handout-17-single-mean.html#research-question-2",
+    "href": "slides/handout-17-single-mean.html#research-question-2",
+    "title": "Simulation test for single mean",
+    "section": "Research Question 2",
+    "text": "Research Question 2\nInstead, I am interested in learning if Middlebury students who have an 8:15am class get 7.5 hours of sleep or not (on average). Then our hypotheses are:\nHow to find p-value now?\n\n\n\n\n\n\n\n\n\np-value: \nDecision: \nConclusion:"
   }
 ]

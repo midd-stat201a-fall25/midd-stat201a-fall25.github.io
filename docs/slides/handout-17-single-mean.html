@@ -223,35 +223,64 @@ window.Quarto = {
 </header>
 
 
-<p>I am interested in learning if the average price of houses in Duke Forest in 2020 was $500,000 or not. </p>
+<section id="research-question-1" class="level2">
+<h2 class="anchored" data-anchor-id="research-question-1">Research Question 1</h2>
+<p>Suppose I am interested in learning if Middlebury students who have an 8:15am class get at most 7.5 hours of sleep (on average). </p>
 <p><span class="math inline">\(H_{0}:\)</span> </p>
 <p><span class="math inline">\(H_{A}:\)</span> </p>
 <p>Summary information: </p>
 <p><span class="math inline">\(\alpha:\)</span> </p>
+<p>Start by obtaining a bootstrap distribution of sample means:</p>
+<div class="cell">
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb1"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb1-1"><a href="#cb1-1" aria-hidden="true" tabindex="-1"></a>B <span class="ot">&lt;-</span> <span class="dv">5000</span></span>
+<span id="cb1-2"><a href="#cb1-2" aria-hidden="true" tabindex="-1"></a>boot_means <span class="ot">&lt;-</span> <span class="fu">rep</span>(<span class="cn">NA</span>, B)</span>
+<span id="cb1-3"><a href="#cb1-3" aria-hidden="true" tabindex="-1"></a><span class="cf">for</span>(b <span class="cf">in</span> <span class="dv">1</span><span class="sc">:</span>B){</span>
+<span id="cb1-4"><a href="#cb1-4" aria-hidden="true" tabindex="-1"></a>  x_boot <span class="ot">&lt;-</span> <span class="fu">sample</span>(sleep, n, <span class="at">replace =</span> T)</span>
+<span id="cb1-5"><a href="#cb1-5" aria-hidden="true" tabindex="-1"></a>  boot_means[b] <span class="ot">&lt;-</span> <span class="fu">mean</span>(x_boot)</span>
+<span id="cb1-6"><a href="#cb1-6" aria-hidden="true" tabindex="-1"></a>}</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+</div>
 <div class="cell">
 <div class="cell-output-display">
 <div>
 <figure class="figure">
-<p><img src="handout-17-single-mean_files/figure-html/unnamed-chunk-2-1.png" class="img-fluid figure-img" width="672"></p>
+<p><img src="handout-17-single-mean_files/figure-html/unnamed-chunk-3-1.png" class="img-fluid figure-img" width="672"></p>
 </figure>
 </div>
 </div>
 </div>
+<p>Why isn’t this useful for obtaining p-value?</p>
 <p><strong>How do we obtain the null distribution?</strong></p>
 <div class="cell">
-<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb1"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb1-1"><a href="#cb1-1"></a>mu0 <span class="ot">&lt;-</span> <span class="dv">5</span></span>
-<span id="cb1-2"><a href="#cb1-2"></a></span>
-<span id="cb1-3"><a href="#cb1-3"></a><span class="co"># xbar holds observed sample mean</span></span>
-<span id="cb1-4"><a href="#cb1-4"></a>shift <span class="ot">&lt;-</span> xbar <span class="sc">-</span> mu0</span>
-<span id="cb1-5"><a href="#cb1-5"></a></span>
-<span id="cb1-6"><a href="#cb1-6"></a><span class="co"># boot_means is a vector holding B bootstrapped sample means</span></span>
-<span id="cb1-7"><a href="#cb1-7"></a>null_dist <span class="ot">&lt;-</span> boot_means <span class="sc">-</span> shift</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb2"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb2-1"><a href="#cb2-1"></a>mu0 <span class="ot">&lt;-</span> <span class="fl">7.5</span></span>
+<span id="cb2-2"><a href="#cb2-2"></a></span>
+<span id="cb2-3"><a href="#cb2-3"></a><span class="co"># xbar stores observed sample mean</span></span>
+<span id="cb2-4"><a href="#cb2-4"></a>shift <span class="ot">&lt;-</span> xbar <span class="sc">-</span> mu0</span>
+<span id="cb2-5"><a href="#cb2-5"></a></span>
+<span id="cb2-6"><a href="#cb2-6"></a><span class="co"># boot_means is a vector holding B bootstrapped sample means</span></span>
+<span id="cb2-7"><a href="#cb2-7"></a>null_dist <span class="ot">&lt;-</span> boot_means <span class="sc">-</span> shift</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
 </div>
 <div class="cell">
 <div class="cell-output-display">
 <div>
 <figure class="figure">
-<p><img src="handout-17-single-mean_files/figure-html/unnamed-chunk-4-1.png" class="img-fluid figure-img" width="672"></p>
+<p><img src="handout-17-single-mean_files/figure-html/unnamed-chunk-5-1.png" class="img-fluid figure-img" width="672"></p>
+</figure>
+</div>
+</div>
+</div>
+<p>p-value: </p>
+<p>Decision: </p>
+<p>Conclusion: </p>
+</section>
+<section id="research-question-2" class="level2">
+<h2 class="anchored" data-anchor-id="research-question-2">Research Question 2</h2>
+<p>Instead, I am interested in learning if Middlebury students who have an 8:15am class get 7.5 hours of sleep or not (on average). Then our hypotheses are:</p>
+<p>How to find p-value now?</p>
+<div class="cell">
+<div class="cell-output-display">
+<div>
+<figure class="figure">
+<p><img src="handout-17-single-mean_files/figure-html/unnamed-chunk-6-1.png" class="img-fluid figure-img" width="672"></p>
 </figure>
 </div>
 </div>
@@ -261,6 +290,7 @@ window.Quarto = {
 <p>Conclusion: </p>
 
 
+</section>
 
 </main> <!-- /main -->
 <script id="quarto-html-after-body" type="application/javascript">
