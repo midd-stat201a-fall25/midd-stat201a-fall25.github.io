@@ -15,9 +15,10 @@ editor_options:
 ---
 
 \vspace{-2cm}
+
 ## Research Question 1
 
-Suppose I am interested in learning if Middlebury students who have an 8:15am class get at least 7.5 hours of sleep (on average). \vspace{1cm}
+Suppose I am interested in learning if Middlebury students who have an 8:15am class get at most 7.5 hours of sleep (on average). \vspace{1cm}
 
 $H_{0}:$ \vspace{1cm}
 
@@ -59,7 +60,6 @@ p1
 ```
 
 Why isn't this useful for obtaining p-value?
-
 
 \clearpage
 

@@ -63,7 +63,7 @@ What type of variable(s) do we have?
 mu0 <- 7.5
 ```
 
--   Before we look at the data, we should form our hypotheses. Suppose I am interested in learning if Middlebury students who have an 8:15am class get at least 7.5 hours of sleep (on average).
+-   Before we look at the data, we should form our hypotheses. Suppose I am interested in learning if Middlebury students who have an 8:15am class get at most 7.5 hours of sleep (on average).
 
 -   ::: discuss
     What might our hypotheses be?
