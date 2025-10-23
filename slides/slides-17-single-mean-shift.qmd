@@ -19,6 +19,8 @@ draft: false
 
 ## Housekeeping
 
+-   Make sure to start working on Problem Set 6!
+
 ```{r echo = F, message= F}
 knitr::opts_chunk$set(echo = F, warning = F, messabundance = F)
 library(tidyverse)
@@ -49,7 +51,13 @@ source("../stat201_fns.R")
 
 ## Running example + form hypotheses
 
-We will use the the data I collected from you about average hours of sleep per night. I know most college students don't receive the recommended 8 hours of sleep. But what about 7.5 hours?
+We will use the the data I collected from you about average hours of sleep per night.
+
+::: discuss
+What type of variable(s) do we have?
+:::
+
+-   I know most college students don't receive the recommended 8 hours of sleep. But what about 7.5 hours?
 
 ```{r echo = F}
 mu0 <- 7.5
@@ -62,7 +70,7 @@ mu0 <- 7.5
     :::
 
     -   $H_{0}$: $\mu =$ `r mu0` versus $H_{A}$: $\mu <$ `r mu0`, where $\mu$ is the true mean of the average hours of sleep Middlebury students with an 8:15 am class get.
-    -   Terminology: I will refer to $\mu_{0} =$ `r mu0` as my "null hypothesized value". (i.e. the specific value of $\mu$ in $H_{0}$)
+        -   Terminology: I will refer to $\mu_{0} =$ `r mu0` as my "null hypothesized value". (i.e. the specific value of $\mu$ in $H_{0}$)
 
 ## Collect and summarise data
 
@@ -89,7 +97,7 @@ The observed/sample mean of average hours of sleep per night is $\bar{x}_{obs} =
 
 To simulate from the null distribution, we need to operate in a world where $H_{0}$ is true.
 
--   So, I need to repeatedly simulate data sets of size `r n` where the true mean is `r mu0`, without changing anything else
+-   So, I need to repeatedly simulate data sets of size `r n` where true mean is $\mu_{0} =$ `r mu0`, without changing anything else
 
     -   Specifically, my hypotheses aren't saying anything about spread, just center!
 
@@ -114,14 +122,14 @@ Remind ourselves: Where should the bootstrap distribution be centered?
 ::: fragment
 ```{r}
 B <- 5000
-set.seed(1230)
+set.seed(123)
 boot_means <- bootstrap_mean(n, B, sleep, 2)
 p1 <- data.frame(means = boot_means) |>
   ggplot(aes(x = means)) +
   geom_histogram(col = "white", bins = 40) +
-  labs(x = "Sample mean of average sleep per night (hours)", title = "Bootstrap distribution")  +
+  labs(x = "Sample mean of average sleep (hours)", title = "Bootstrap distribution")  +
   theme_minimal()+
-  theme(text = element_text(size = 24))+
+  theme(text = element_text(size = 20))+
   scale_x_continuous(n.breaks = 8) 
 p1
 ```
@@ -184,7 +192,7 @@ p2 <-  null_dist_df |>
   geom_histogram(col = "white", bins = 40) +
   labs(x = "Sample mean of average sleep (hours)", title = "Null distribution")  +
   theme_minimal()+
-  theme(text = element_text(size = 24))+
+  theme(text = element_text(size = 20))+
   scale_x_continuous(n.breaks = 8) 
 library(patchwork)
 p1 + p2
@@ -240,10 +248,6 @@ Make a decision and conclusion in the context of the research question.
 What if instead, I am interested in learning if Middlebury students who have an 8:15am class get 7.5 hours of sleep or not (on average). Then our hypotheses are:
 
 $$H_{0}: \mu = `r mu0` \qquad \text{ vs. } \qquad H_{A}: \mu \neq `r mu0`$$
-
--   This is the first time we've seen a *two-sided* hypothesis
-
--   Since the alternative is two-sided, we need to be more careful about the p-value calculation
 
 ::: discuss
 -   What does it mean to be "as or more extreme" now? Remember, $\bar{x}_{obs} = `r xbar`$
@@ -307,4 +311,8 @@ Make a decision and conclusion in the context of the research question.
 
 -   Why did we shift the bootstrap distribution?
 
--   How do we estimate the p-value in the case of a two-sided alternative hypothesis?
+-   Why can't we simulate null world like we did in the case of proportions?
+
+-   How does the p-value from a two-sided $H_{A}$ compare to that of a one-sided $H_{A}$?
+
+-   How is this different from the homework problem where you're comparing two means?

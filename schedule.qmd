@@ -465,7 +465,9 @@ format:
       <td> R 10/23 </td>
       <td>
         <ul>
-          <li> Topic: Simulation-based test for mean
+          <li> Topic: <a href="slides/slides-17-single-mean-shift.qmd">Simulation-based test for one mean</a> (pdf <a href="slides/pdf/slides-17.pdf">here</a>)
+          </li>
+          <li> Handout <a href="slides/handout-17-single-mean.qmd">here</a>
           </li>
         </ul>
       </td>

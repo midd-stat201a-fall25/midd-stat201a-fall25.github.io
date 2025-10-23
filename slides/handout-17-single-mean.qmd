@@ -29,7 +29,7 @@ dat <- read_csv("../data/stat201_data.csv")
 sleep <- dat$avg_sleep
 n <- length(sleep)
 xbar <- round(mean(sleep), 3)
-set.seed(1230)
+set.seed(123)
 ```
 
 Summary information: \vspace{0.75cm}

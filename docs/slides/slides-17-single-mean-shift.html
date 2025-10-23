@@ -203,6 +203,9 @@
 </section>
 <section id="housekeeping" class="slide level2">
 <h2>Housekeeping</h2>
+<ul>
+<li class="fragment">Make sure to start working on Problem Set 6!</li>
+</ul>
 </section>
 <section id="recap" class="slide level2">
 <h2>Recap</h2>
@@ -229,15 +232,23 @@
 </section>
 <section id="running-example-form-hypotheses" class="slide level2">
 <h2>Running example + form hypotheses</h2>
-<p>We will use the the data I collected from you about average hours of sleep per night. I know most college students don’t receive the recommended 8 hours of sleep. But what about 7.5 hours?</p>
+<p>We will use the the data I collected from you about average hours of sleep per night.</p>
+<div class="discuss">
+<p>What type of variable(s) do we have?</p>
+</div>
+<ul>
+<li class="fragment">I know most college students don’t receive the recommended 8 hours of sleep. But what about 7.5 hours?</li>
+</ul>
 <ul>
 <li class="fragment"><p>Before we look at the data, we should form our hypotheses. Suppose I am interested in learning if Middlebury students who have an 8:15am class get at least 7.5 hours of sleep (on average).</p></li>
 <li class="fragment"><div class="discuss">
 <p>What might our hypotheses be?</p>
 </div>
 <ul>
-<li class="fragment"><span class="math inline">\(H_{0}\)</span>: <span class="math inline">\(\mu =\)</span> 7.5 versus <span class="math inline">\(H_{A}\)</span>: <span class="math inline">\(\mu &lt;\)</span> 7.5, where <span class="math inline">\(\mu\)</span> is the true mean of the average hours of sleep Middlebury students with an 8:15 am class get.</li>
+<li class="fragment"><span class="math inline">\(H_{0}\)</span>: <span class="math inline">\(\mu =\)</span> 7.5 versus <span class="math inline">\(H_{A}\)</span>: <span class="math inline">\(\mu &lt;\)</span> 7.5, where <span class="math inline">\(\mu\)</span> is the true mean of the average hours of sleep Middlebury students with an 8:15 am class get.
+<ul>
 <li class="fragment">Terminology: I will refer to <span class="math inline">\(\mu_{0} =\)</span> 7.5 as my “null hypothesized value”. (i.e.&nbsp;the specific value of <span class="math inline">\(\mu\)</span> in <span class="math inline">\(H_{0}\)</span>)</li>
+</ul></li>
 </ul></li>
 </ul>
 </section>
@@ -253,7 +264,7 @@
 <h2>Simulating null distribution</h2>
 <p>To simulate from the null distribution, we need to operate in a world where <span class="math inline">\(H_{0}\)</span> is true.</p>
 <ul>
-<li class="fragment"><p>So, I need to repeatedly simulate data sets of size 27 where the true mean is 7.5, without changing anything else</p>
+<li class="fragment"><p>So, I need to repeatedly simulate data sets of size 27 where true mean is <span class="math inline">\(\mu_{0} =\)</span> 7.5, without changing anything else</p>
 <ul>
 <li class="fragment">Specifically, my hypotheses aren’t saying anything about spread, just center!</li>
 </ul></li>
@@ -390,10 +401,6 @@
 <h2>Two-sided alternative hypothesis</h2>
 <p>What if instead, I am interested in learning if Middlebury students who have an 8:15am class get 7.5 hours of sleep or not (on average). Then our hypotheses are:</p>
 <p><span class="math display">\[H_{0}: \mu = 7.5 \qquad \text{ vs. } \qquad H_{A}: \mu \neq 7.5\]</span></p>
-<ul>
-<li class="fragment"><p>This is the first time we’ve seen a <em>two-sided</em> hypothesis</p></li>
-<li class="fragment"><p>Since the alternative is two-sided, we need to be more careful about the p-value calculation</p></li>
-</ul>
 <div class="discuss">
 <ul>
 <li class="fragment">What does it mean to be “as or more extreme” now? Remember, <span class="math inline">\(\bar{x}_{obs} = 6.896\)</span></li>
@@ -415,7 +422,7 @@
 </div>
 </div>
 <ul>
-<li class="fragment">Note that there are now 1 simulations that are “as or more extreme”, so p-value is approximately 0.0002.</li>
+<li class="fragment">Note that there are now 2 simulations that are “as or more extreme”, so p-value is approximately 0.0004.</li>
 </ul>
 </section>
 <section id="obtain-the-p-value-cont." class="slide level2">
@@ -434,7 +441,7 @@
 <div class="cell">
 <div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb2"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb2-1"><a></a><span class="fu">sum</span>( (null_dist <span class="sc">&lt;=</span> mu0 <span class="sc">+</span> shift) <span class="sc">|</span> (null_dist <span class="sc">&gt;=</span> mu0 <span class="sc">-</span> shift))<span class="sc">/</span>B</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
 <div class="cell-output cell-output-stdout">
-<pre><code>[1] 0.0002</code></pre>
+<pre><code>[1] 0.0004</code></pre>
 </div>
 </div>
 </div>
@@ -445,14 +452,16 @@
 <p>Make a decision and conclusion in the context of the research question.</p>
 </div>
 <ul>
-<li class="fragment">Since our p-value of 0.0002 is less than the significance level of 0.05, we reject <span class="math inline">\(H_{0}\)</span>. We have convincing evidence to suggest that the true mean of the average hours of sleep per night that a Middlebury student with an 8:15am course receives per night is <strong>different from</strong> 7.5 hours.</li>
+<li class="fragment">Since our p-value of 0.0004 is less than the significance level of 0.05, we reject <span class="math inline">\(H_{0}\)</span>. We have convincing evidence to suggest that the true mean of the average hours of sleep per night that a Middlebury student with an 8:15am course receives per night is <strong>different from</strong> 7.5 hours.</li>
 </ul>
 </section>
 <section id="comprehension-questions" class="slide level2">
 <h2>Comprehension questions</h2>
 <ul>
 <li class="fragment"><p>Why did we shift the bootstrap distribution?</p></li>
-<li class="fragment"><p>How do we estimate the p-value in the case of a two-sided alternative hypothesis?</p></li>
+<li class="fragment"><p>Why can’t we simulate null world like we did in the case of proportions?</p></li>
+<li class="fragment"><p>How does the p-value from a two-sided <span class="math inline">\(H_{A}\)</span> compare to that of a one-sided <span class="math inline">\(H_{A}\)</span>?</p></li>
+<li class="fragment"><p>How is this different from the homework problem where you’re comparing two means?</p></li>
 </ul>
 
 
