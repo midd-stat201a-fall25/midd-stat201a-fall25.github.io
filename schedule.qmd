@@ -20,7 +20,7 @@ format:
     <td> <a href="#week5">Week 5</a> </td>
     <td> <a href="#week6">Week 6</a> </td>
     <td> <a href="#week7">Week 7</a> </td>
-    <td> Week 8 </td>
+    <td> <a href="#week8">Week 8</a> </td>
     <td> Week 9 </td>
     <td> Week 10 </td>
     <td> Week 11 </td>
@@ -476,6 +476,66 @@ format:
       <td>
         <ul>
           <li> Thursday problems on Problem Set 6 </li>
+        </ul>
+      </td>
+    </tr>
+    <!-- week 8 -->
+    <tr>
+      <td id="week8"><strong>8</strong></td>
+      <td> M 10/27 </td>
+      <td>
+        <ul>
+          <li> Topic: Normal distribution (no slides) </li>
+          <ul>
+            <li>  Handout <a href="slides/handout-18-normal.qmd">here</a> </li>
+          </ul>
+          <li> Introduce <a href="project/project_description.qmd">final project</a>! </li>
+        </ul>
+      </td>
+      <td>
+      </td>
+      <td>
+        <ul>
+          <li> Monday problems on Problem Set 7 </li>
+        </ul>
+      </td>
+    </tr>
+    <tr>
+      <td></td>
+      <td> W 10/29 </td>
+      <td>
+        <ul>
+          <li> Topic: Central Limit Theorem, CLT-based CI for single proportion </li>
+          <ul>
+            <li>  Handout </li>
+          </ul>
+        </ul>
+      </td>
+      <td>
+      </td>
+      <td>
+        <ul>
+          <li> Continue working on Problem Set 7 </li>
+        </ul>
+      </td>
+    </tr>
+    <tr>
+      <td></td>
+      <td> R 10/30 </td>
+      <td>
+        <ul>
+          <li> Topic: CLT-based HT for single proportion
+          </li>
+          <ul>
+            <li>  Handout </li>
+          </ul>
+        </ul>
+      </td>
+      <td>
+      </td>
+      <td>
+        <ul>
+          <li> Thursday problems on Problem Set 7 </li>
         </ul>
       </td>
     </tr>

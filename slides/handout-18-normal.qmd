@@ -17,7 +17,9 @@ include-in-header:
   - text: |
       \pagenumbering{gobble}
 ---
+
 \vspace{-2cm}
+
 ```{r message= F, echo = F}
 library(tidyverse)
 library(patchwork)
@@ -106,9 +108,9 @@ Suppose $X \sim N(0,1)$ (i.e. $X$ is "standard Normal").
 ::: {layout-ncol="3"}
 Area less than -2 and greater than 2.
 
-Area between 0 and 1.
+$\quad$ Area between 0 and 1.
 
-Area to the right of 1.
+$\quad$ Area to the right of 1.
 
 ```{r fig.height=1.5, fig.width=2}
 p_std  
@@ -127,10 +129,7 @@ p_std
 
 ## z-scores
 
-
 \vspace{5cm}
-
-
 
 ## Z-score problem
 
@@ -159,10 +158,9 @@ p_act <- base +
 p_sat / p_act
 ```
 
-
 \vspace{3cm}
 
-Since we assume nearly Normal behavior, we can answer the question: what percent of people did Ann and Tom do better than?
+Since we assume nearly Normal behavior, we can answer the question: about what percent of people did Ann do better than? What percent of people did Tom do better than?
 
 \clearpage
 
@@ -214,19 +212,28 @@ Suppose SAT scores are Normally distributed with mean 1100 and standard deviatio
 
     \vspace{3cm}
 
+
 ## Some practice problems
 
 1.  In a law school class, the entering students averaged 160 on the LSAT. The \emph{variance} was 64. The histogram of LSAT scores followed the normal curve reasonable well.
 
     a.  About what percentage of the class scored below 152?
+    
+    \vspace{3cm}
 
     b.  One student was 0.5 standard deviations above average on the LSAT. About what percentage of the students had lower scores than he did?
+
+\clearpage 
 
 2.  Weights of 10-year-old girls are known to be Normally distributed with mean of 70 pounds and standard deviation of 13 pounds. Find the probability that a 10-year-old girl weighs between 60 and 85 pounds in the following two ways. *Optional, but helpful: draw a sketch of the curve and shade in the region of interest.*
 
     a.  Write the probability of interest in $P()$ form. Then write the `R` code necessary to find this probability, and actually execute the code to obtain the probability.
+    
+    \vspace{3cm}
 
     b.  Confirm your solution in (b) by transforming to z-scores first, then using code again to obtain the probability.
+    
+    \vspace{4cm}
 
 3.  Consider the same scenario as in 2. Without using any code than what is provided below, find the 60th percentile for the weight of 10-year-old girls.
 

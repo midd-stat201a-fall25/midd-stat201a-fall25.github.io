@@ -1,4 +1,5 @@
 % Options for packages loaded elsewhere
+% Options for packages loaded elsewhere
 \PassOptionsToPackage{unicode}{hyperref}
 \PassOptionsToPackage{hyphens}{url}
 \PassOptionsToPackage{dvipsnames,svgnames,x11names}{xcolor}
@@ -7,18 +8,23 @@
   letterpaper,
   DIV=11,
   numbers=noendperiod]{scrartcl}
-
+\usepackage{xcolor}
+\usepackage[left=1in,right=1in,top=1in]{geometry}
 \usepackage{amsmath,amssymb}
-\usepackage{lmodern}
+\setcounter{secnumdepth}{-\maxdimen} % remove section numbering
 \usepackage{iftex}
 \ifPDFTeX
   \usepackage[T1]{fontenc}
   \usepackage[utf8]{inputenc}
   \usepackage{textcomp} % provide euro and other symbols
 \else % if luatex or xetex
-  \usepackage{unicode-math}
+  \usepackage{unicode-math} % this also loads fontspec
   \defaultfontfeatures{Scale=MatchLowercase}
   \defaultfontfeatures[\rmfamily]{Ligatures=TeX,Scale=1}
+\fi
+\usepackage{lmodern}
+\ifPDFTeX\else
+  % xetex/luatex font selection
 \fi
 % Use upquote if available, for straight quotes in verbatim environments
 \IfFileExists{upquote.sty}{\usepackage{upquote}}{}
@@ -36,19 +42,29 @@
 }{% if KOMA class
   \KOMAoptions{parskip=half}}
 \makeatother
-\usepackage{xcolor}
-\usepackage[left=1in,right=1in,top=1in]{geometry}
-\setlength{\emergencystretch}{3em} % prevent overfull lines
-\setcounter{secnumdepth}{-\maxdimen} % remove section numbering
 % Make \paragraph and \subparagraph free-standing
+\makeatletter
 \ifx\paragraph\undefined\else
   \let\oldparagraph\paragraph
-  \renewcommand{\paragraph}[1]{\oldparagraph{#1}\mbox{}}
+  \renewcommand{\paragraph}{
+    \@ifstar
+      \xxxParagraphStar
+      \xxxParagraphNoStar
+  }
+  \newcommand{\xxxParagraphStar}[1]{\oldparagraph*{#1}\mbox{}}
+  \newcommand{\xxxParagraphNoStar}[1]{\oldparagraph{#1}\mbox{}}
 \fi
 \ifx\subparagraph\undefined\else
   \let\oldsubparagraph\subparagraph
-  \renewcommand{\subparagraph}[1]{\oldsubparagraph{#1}\mbox{}}
+  \renewcommand{\subparagraph}{
+    \@ifstar
+      \xxxSubParagraphStar
+      \xxxSubParagraphNoStar
+  }
+  \newcommand{\xxxSubParagraphStar}[1]{\oldsubparagraph*{#1}\mbox{}}
+  \newcommand{\xxxSubParagraphNoStar}[1]{\oldsubparagraph{#1}\mbox{}}
 \fi
+\makeatother
 
 \usepackage{color}
 \usepackage{fancyvrb}
@@ -68,7 +84,7 @@
 \newcommand{\CommentTok}[1]{\textcolor[rgb]{0.37,0.37,0.37}{#1}}
 \newcommand{\CommentVarTok}[1]{\textcolor[rgb]{0.37,0.37,0.37}{\textit{#1}}}
 \newcommand{\ConstantTok}[1]{\textcolor[rgb]{0.56,0.35,0.01}{#1}}
-\newcommand{\ControlFlowTok}[1]{\textcolor[rgb]{0.00,0.23,0.31}{#1}}
+\newcommand{\ControlFlowTok}[1]{\textcolor[rgb]{0.00,0.23,0.31}{\textbf{#1}}}
 \newcommand{\DataTypeTok}[1]{\textcolor[rgb]{0.68,0.00,0.00}{#1}}
 \newcommand{\DecValTok}[1]{\textcolor[rgb]{0.68,0.00,0.00}{#1}}
 \newcommand{\DocumentationTok}[1]{\textcolor[rgb]{0.37,0.37,0.37}{\textit{#1}}}
@@ -78,7 +94,7 @@
 \newcommand{\FunctionTok}[1]{\textcolor[rgb]{0.28,0.35,0.67}{#1}}
 \newcommand{\ImportTok}[1]{\textcolor[rgb]{0.00,0.46,0.62}{#1}}
 \newcommand{\InformationTok}[1]{\textcolor[rgb]{0.37,0.37,0.37}{#1}}
-\newcommand{\KeywordTok}[1]{\textcolor[rgb]{0.00,0.23,0.31}{#1}}
+\newcommand{\KeywordTok}[1]{\textcolor[rgb]{0.00,0.23,0.31}{\textbf{#1}}}
 \newcommand{\NormalTok}[1]{\textcolor[rgb]{0.00,0.23,0.31}{#1}}
 \newcommand{\OperatorTok}[1]{\textcolor[rgb]{0.37,0.37,0.37}{#1}}
 \newcommand{\OtherTok}[1]{\textcolor[rgb]{0.00,0.23,0.31}{#1}}
@@ -91,8 +107,7 @@
 \newcommand{\VerbatimStringTok}[1]{\textcolor[rgb]{0.13,0.47,0.30}{#1}}
 \newcommand{\WarningTok}[1]{\textcolor[rgb]{0.37,0.37,0.37}{\textit{#1}}}
 
-\providecommand{\tightlist}{%
-  \setlength{\itemsep}{0pt}\setlength{\parskip}{0pt}}\usepackage{longtable,booktabs,array}
+\usepackage{longtable,booktabs,array}
 \usepackage{calc} % for calculating minipage widths
 % Correct order of tables after \paragraph or \subparagraph
 \usepackage{etoolbox}
@@ -104,25 +119,37 @@
 \makesavenoteenv{longtable}
 \usepackage{graphicx}
 \makeatletter
-\def\maxwidth{\ifdim\Gin@nat@width>\linewidth\linewidth\else\Gin@nat@width\fi}
-\def\maxheight{\ifdim\Gin@nat@height>\textheight\textheight\else\Gin@nat@height\fi}
-\makeatother
-% Scale images if necessary, so that they will not overflow the page
-% margins by default, and it is still possible to overwrite the defaults
-% using explicit options in \includegraphics[width, height, ...]{}
-\setkeys{Gin}{width=\maxwidth,height=\maxheight,keepaspectratio}
+\newsavebox\pandoc@box
+\newcommand*\pandocbounded[1]{% scales image to fit in text height/width
+  \sbox\pandoc@box{#1}%
+  \Gscale@div\@tempa{\textheight}{\dimexpr\ht\pandoc@box+\dp\pandoc@box\relax}%
+  \Gscale@div\@tempb{\linewidth}{\wd\pandoc@box}%
+  \ifdim\@tempb\p@<\@tempa\p@\let\@tempa\@tempb\fi% select the smaller of both
+  \ifdim\@tempa\p@<\p@\scalebox{\@tempa}{\usebox\pandoc@box}%
+  \else\usebox{\pandoc@box}%
+  \fi%
+}
 % Set default figure placement to htbp
-\makeatletter
 \def\fps@figure{htbp}
 \makeatother
+
+
+
+
+
+\setlength{\emergencystretch}{3em} % prevent overfull lines
+
+\providecommand{\tightlist}{%
+  \setlength{\itemsep}{0pt}\setlength{\parskip}{0pt}}
+
+
+
+ 
+
 
 \pagenumbering{gobble}
 \setkomafont{title}{\small} \setkomafont{date}{\small}
 \KOMAoption{captions}{tableheading}
-\makeatletter
-\makeatother
-\makeatletter
-\makeatother
 \makeatletter
 \@ifpackageloaded{caption}{}{\usepackage{caption}}
 \AtBeginDocument{%
@@ -159,23 +186,14 @@
 \newcommand*\listoflistings{\listof{codelisting}{List of Listings}}
 \makeatother
 \makeatletter
+\makeatother
+\makeatletter
 \@ifpackageloaded{caption}{}{\usepackage{caption}}
 \@ifpackageloaded{subcaption}{}{\usepackage{subcaption}}
 \makeatother
-\makeatletter
-\@ifpackageloaded{tcolorbox}{}{\usepackage[many]{tcolorbox}}
-\makeatother
-\makeatletter
-\@ifundefined{shadecolor}{\definecolor{shadecolor}{rgb}{.97, .97, .97}}
-\makeatother
-\makeatletter
-\makeatother
-\ifLuaTeX
-  \usepackage{selnolig}  % disable illegal ligatures
-\fi
-\IfFileExists{bookmark.sty}{\usepackage{bookmark}}{\usepackage{hyperref}}
+\usepackage{bookmark}
 \IfFileExists{xurl.sty}{\usepackage{xurl}}{} % add URL line breaks if available
-\urlstyle{same} % disable monospaced font for URLs
+\urlstyle{same}
 \hypersetup{
   pdftitle={Normal distribution},
   colorlinks=true,
@@ -185,144 +203,81 @@
   urlcolor={Blue},
   pdfcreator={LaTeX via pandoc}}
 
+
 \title{Normal distribution}
 \author{}
 \date{}
-
 \begin{document}
 \maketitle
-\ifdefined\Shaded\renewenvironment{Shaded}{\begin{tcolorbox}[frame hidden, boxrule=0pt, interior hidden, enhanced, sharp corners, borderline west={3pt}{0pt}{shadecolor}, breakable]}{\end{tcolorbox}}\fi
+
 
 \vspace{-2cm}
 
-\includegraphics{handout-18-normal_files/figure-pdf/unnamed-chunk-3-1.pdf}
+\pandocbounded{\includegraphics[keepaspectratio]{handout-18-normal_files/figure-pdf/unnamed-chunk-3-1.pdf}}
 
-\hypertarget{rule}{%
-\subsection{68-95-99.7 rule}\label{rule}}
+\subsection{68-95-99.7 rule}\label{rule}
 
-\includegraphics{handout-18-normal_files/figure-pdf/unnamed-chunk-4-1.pdf}
+\pandocbounded{\includegraphics[keepaspectratio]{handout-18-normal_files/figure-pdf/unnamed-chunk-4-1.pdf}}
 
-\hypertarget{finding-areas}{%
-\subsection{Finding areas}\label{finding-areas}}
+\subsection{Finding areas}\label{finding-areas}
 
 Suppose \(X \sim N(0,1)\) (i.e.~\(X\) is ``standard Normal'').
 
 \begin{figure}
 
-\begin{minipage}[t]{0.33\linewidth}
-
-{\centering 
-
-Area less than -2 and greater than 2.
-
-}
-
-\end{minipage}%
+\begin{minipage}{0.33\linewidth}
+Area less than -2 and greater than 2.\end{minipage}%
 %
-\begin{minipage}[t]{0.33\linewidth}
-
-{\centering 
-
-Area between 0 and 1.
-
-}
-
-\end{minipage}%
+\begin{minipage}{0.33\linewidth}
+\(\quad\) Area between 0 and 1.\end{minipage}%
 %
-\begin{minipage}[t]{0.33\linewidth}
-
-{\centering 
-
-Area to the right of 1.
-
-}
-
-\end{minipage}%
+\begin{minipage}{0.33\linewidth}
+\(\quad\) Area to the right of 1.\end{minipage}%
 \newline
-\begin{minipage}[t]{0.33\linewidth}
+\begin{minipage}{0.33\linewidth}
 
-{\centering 
-
-\includegraphics{handout-18-normal_files/figure-pdf/unnamed-chunk-5-1.pdf}
-
-}
+\pandocbounded{\includegraphics[keepaspectratio]{handout-18-normal_files/figure-pdf/unnamed-chunk-5-1.pdf}}
 
 \end{minipage}%
 %
-\begin{minipage}[t]{0.33\linewidth}
+\begin{minipage}{0.33\linewidth}
 
-{\centering 
-
-\includegraphics{handout-18-normal_files/figure-pdf/unnamed-chunk-6-1.pdf}
-
-}
+\pandocbounded{\includegraphics[keepaspectratio]{handout-18-normal_files/figure-pdf/unnamed-chunk-6-1.pdf}}
 
 \end{minipage}%
 %
-\begin{minipage}[t]{0.33\linewidth}
+\begin{minipage}{0.33\linewidth}
 
-{\centering 
-
-\includegraphics{handout-18-normal_files/figure-pdf/unnamed-chunk-7-1.pdf}
-
-}
+\pandocbounded{\includegraphics[keepaspectratio]{handout-18-normal_files/figure-pdf/unnamed-chunk-7-1.pdf}}
 
 \end{minipage}%
 
-\end{figure}
+\end{figure}%
 
 \clearpage
 
-\hypertarget{z-scores}{%
-\subsection{z-scores}\label{z-scores}}
+\subsection{z-scores}\label{z-scores}
 
 \vspace{5cm}
 
-\hypertarget{z-score-problem}{%
-\subsection{Z-score problem}\label{z-score-problem}}
+\subsection{Z-score problem}\label{z-score-problem}
 
 The distribution of SAT and ACT scores are both nearly Normal. The SAT
 has a mean of 1100 and standard deviation of 200, while the ACT has a
 mean of 21 and standard deviation of 6. Suppose Ann scored 1300 on her
 SAT and Tom scored 24 on his ACT. Who performed better?
 
-\includegraphics{handout-18-normal_files/figure-pdf/unnamed-chunk-8-1.pdf}
+\pandocbounded{\includegraphics[keepaspectratio]{handout-18-normal_files/figure-pdf/unnamed-chunk-8-1.pdf}}
 
 \vspace{3cm}
 
-Since we assume nearly Normal behavior, we can answer the question: what
-percent of people did Ann and Tom do better than?
+Since we assume nearly Normal behavior, we can answer the question:
+about what percent of people did Ann do better than? What percent of
+people did Tom do better than?
 
 \clearpage
 
-\hypertarget{percentiles}{%
-\subsection{Percentiles}\label{percentiles}}
-
-\begin{figure}
-
-\begin{minipage}[t]{0.50\linewidth}
-
-{\centering 
-
-\includegraphics{handout-18-normal_files/figure-pdf/unnamed-chunk-9-1.pdf}
-
-}
-
-\end{minipage}%
-%
-\begin{minipage}[t]{0.50\linewidth}
-
-{\centering 
-
-\includegraphics{handout-18-normal_files/figure-pdf/unnamed-chunk-10-1.pdf}
-
-}
-
-\end{minipage}%
-\newline
-\begin{minipage}[t]{0.50\linewidth}
-
-{\centering 
+\subsection{Percentiles}\label{percentiles}
 
 \begin{Shaded}
 \begin{Highlighting}[]
@@ -330,22 +285,24 @@ percent of people did Ann and Tom do better than?
 \end{Highlighting}
 \end{Shaded}
 
-}
+\begin{figure}
+
+\begin{minipage}{0.50\linewidth}
+
+\pandocbounded{\includegraphics[keepaspectratio]{handout-18-normal_files/figure-pdf/unnamed-chunk-9-1.pdf}}
 
 \end{minipage}%
 %
-\begin{minipage}[t]{0.50\linewidth}
+\begin{minipage}{0.50\linewidth}
 
-{\centering 
-
-}
+\pandocbounded{\includegraphics[keepaspectratio]{handout-18-normal_files/figure-pdf/unnamed-chunk-10-1.pdf}}
 
 \end{minipage}%
+\newline
 
-\end{figure}
+\end{figure}%
 
-\hypertarget{percentile-problems}{%
-\subsection{Percentile problems}\label{percentile-problems}}
+\subsection{Percentile problems}\label{percentile-problems}
 
 Suppose SAT scores are Normally distributed with mean 1100 and standard
 deviation 200.
@@ -399,8 +356,7 @@ deviation 200.
   \vspace{3cm}
 \end{enumerate}
 
-\hypertarget{some-practice-problems}{%
-\subsection{Some practice problems}\label{some-practice-problems}}
+\subsection{Some practice problems}\label{some-practice-problems}
 
 \begin{enumerate}
 \def\labelenumi{\arabic{enumi}.}
@@ -411,12 +367,28 @@ deviation 200.
 
   \begin{enumerate}
   \def\labelenumii{\alph{enumii}.}
+  \tightlist
   \item
     About what percentage of the class scored below 152?
+  \end{enumerate}
+
+  \vspace{3cm}
+
+  \begin{enumerate}
+  \def\labelenumii{\alph{enumii}.}
+  \setcounter{enumii}{1}
+  \tightlist
   \item
     One student was 0.5 standard deviations above average on the LSAT.
     About what percentage of the students had lower scores than he did?
   \end{enumerate}
+\end{enumerate}
+
+\clearpage
+
+\begin{enumerate}
+\def\labelenumi{\arabic{enumi}.}
+\setcounter{enumi}{1}
 \item
   Weights of 10-year-old girls are known to be Normally distributed with
   mean of 70 pounds and standard deviation of 13 pounds. Find the
@@ -426,14 +398,25 @@ deviation 200.
 
   \begin{enumerate}
   \def\labelenumii{\alph{enumii}.}
+  \tightlist
   \item
     Write the probability of interest in \(P()\) form. Then write the
     \texttt{R} code necessary to find this probability, and actually
     execute the code to obtain the probability.
+  \end{enumerate}
+
+  \vspace{3cm}
+
+  \begin{enumerate}
+  \def\labelenumii{\alph{enumii}.}
+  \setcounter{enumii}{1}
+  \tightlist
   \item
     Confirm your solution in (b) by transforming to z-scores first, then
     using code again to obtain the probability.
   \end{enumerate}
+
+  \vspace{4cm}
 \item
   Consider the same scenario as in 2. Without using any code than what
   is provided below, find the 60th percentile for the weight of
@@ -441,6 +424,7 @@ deviation 200.
 
   \texttt{qnorm(0.6,\ mean\ =\ 0,\ sd\ =\ 1)\ =} 0.2533471
 \end{enumerate}
+
 
 
 
