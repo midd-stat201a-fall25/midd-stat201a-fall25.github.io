@@ -1,0 +1,32 @@
+---
+title: "Code for normal distribution"
+---
+
+The following displays `R` code to compute the Normal probabilities associated with the graphs at the bottom of page 1. Remember, if $X \sim N(mu, sigma)$ and I want $\text{Pr}(X \leq q)$, I'll type `pnorm(q, mu, sigma)`.
+
+### First graph
+
+```{r}
+# option 1
+2*pnorm(-2, 0, 1)
+
+# option 2
+pnorm(-2, 0, 1) + (1 - pnorm(2, 0, 1))
+```
+
+### Second graph
+
+```{r}
+pnorm(1, 0, 1) - pnorm(0, 0, 1)
+```
+
+### Third graph
+
+```{r}
+# option 1
+1 - pnorm(1, 0, 1)
+
+# option 2
+pnorm(-1, 0, 1)
+```
+

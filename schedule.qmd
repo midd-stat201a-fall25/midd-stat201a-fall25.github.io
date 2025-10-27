@@ -488,6 +488,7 @@ format:
           <li> Topic: Normal distribution (no slides) </li>
           <ul>
             <li>  Handout <a href="slides/handout-18-normal.qmd">here</a> </li>
+            <li>  <a href="live_code/normal_probs.qmd">Code</a> for Normal probabilities </li>
           </ul>
           <li> Introduce <a href="project/project_description.qmd">final project</a>! </li>
         </ul>
@@ -496,7 +497,8 @@ format:
       </td>
       <td>
         <ul>
-          <li> Monday problems on Problem Set 7 </li>
+          <li> Monday problems on <a href="homework/hw7.pdf">Problem Set 7</a> </li>
+          <li> Project group by Thursday </li>
         </ul>
       </td>
     </tr>
