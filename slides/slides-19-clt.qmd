@@ -1,6 +1,6 @@
 ---
 title: "Central Limit Theorem"
-date: "April 9, 2025"
+date: "October 29, 2025"
 title-slide-attributes:
     data-background-image: "figs/bikeshare-plots.png"
     data-background-size: contain
@@ -19,9 +19,9 @@ draft: false
 
 ## Housekeeping
 
--   Final project groups!
+-   Final project groups by tomorrow morning!
 
--   No office hours this Friday, but make-up hours Thursday 2:30-3:30pm
+-   Dessert social
 
 ## Recap
 
@@ -59,13 +59,14 @@ source("../stat201_fns.R")
 
 -   Assume that you have a **sufficiently large** sample of $n$ **independent** values $x_{1},\ldots, x_{n}$ from a population with mean $\mu$ and standard deviation $\sigma$.
 
--   Then the distribution of sample means is approximately Normal:
+-   Then the distribution of sample means is *approximately* Normal:
 
     $$
     \bar{X} \overset{\cdot}{\sim} N\left(\mu, \frac{\sigma}{\sqrt{n}}\right)
     $$
 
-    -   That is, the *sampling distribution* of the sample mean is approximately normal with mean $\mu$ and standard error $\sigma/\sqrt{n}$
+    -   That is, the *sampling distribution* of the sample mean is approximately Normal with mean $\mu$ and standard error $\sigma/\sqrt{n}$
+        -   Recall: standard error = standard deviation of a sample statistic
 
 ## CLT assumptions
 
@@ -75,8 +76,8 @@ source("../stat201_fns.R")
 
 2.  Normality condition:
 
-    -   If the data $x_{1},\ldots, x_{n}$ are known to be Normal and independent, then the distribution of $\bar{X}$ is ***exactly*** Normal
-    -   If data are not known to be Normal, then check:
+    -   If the data $x_{1},\ldots, x_{n}$ are known to be Normal and independent, then the distribution of $\bar{X}$ is ***exactly*** $N(\mu, \frac{\sigma}{\sqrt{n}})$
+    -   If data are *not* known to be Normal, then check:
         -   If $n$ is small $(n < 30)$: if there are no clear outliers, we assume data are approximately normal
 
         -   If $n$ is larger $(30 \leq n < ?)$: if there are no particularly extreme outliers, we assume data are approximately normal
@@ -212,7 +213,9 @@ Customers are standing in line at a bank.
 -   Suppose that the average service time for all customers is 5 minutes, with a standard deviation of 6 minutes.
 
 ::: discuss
--   Assume that a bank currently has 36 customers in it, and all customers are independent of each other. What is the probability that the average service time of all these customers is less than 4 minutes?
+-   Assume that a bank currently has 36 customers in it, and all customers are independent of each other. We want to find the probability that the average service time of all these customers is less than 4 minutes.
+    -   Write down probability of interest as $\text{Pr}()$ statement
+    -   Does CLT apply? If so, use CLT and either empirical rule or `R` code to obtain this probability.
 :::
 
 ## Bank example: solution
@@ -317,7 +320,7 @@ ggplot() +
 
 ::::::: columns
 ::: {.column width="50%"}
--   If we incorrectly applied CLT, we *might* think $$\begin{align*}
+-   If we **incorrectly** applied CLT, we *might* think $$\begin{align*}
     \hat{p} &\overset{\cdot}{\sim} N\left(0.13, \sqrt{\frac{0.13(1-0.13)}{10}}\right) \\
     &=  N(0.13, 0.106 )
     \end{align*}$$
@@ -367,12 +370,12 @@ ggplot() +
 -   Formula for a (symmetric) $\gamma \times 100\%$ confidence interval:
 
     $$
-    \text{point estimate} \pm \underbrace{\text{critical value} \times \text{SE}}_{\text{Margin of Error}}
+    \text{point estimate} \pm \color{blue}{\text{critical value} \times \text{SE}} \equiv \text{point estimate} \pm \color{blue}{\text{Margin of Error}}
     $$
 
-    1.  **point estimate**: the "best guess" statistic from our observed data (e.g. $\hat{p}_{obs}$ and $\bar{x}_{obs}$)
+    1.  **point estimate**: the "best guess" statistic from our *observed* data (e.g. $\hat{p}_{obs}$ and $\bar{x}_{obs}$)
 
-    2.  **SE**: standard error of the statistic
+    2.  **SE**: standard error of the statistic (comes from CLT)
 
     3.  **critical value**: percentile that guarantees the $\gamma\times 100$. This will vary depending on your data/assumptions
 
@@ -394,7 +397,9 @@ $$
 
     -   Let's use our best guess: $\hat{p}_{obs}$
 
-    -   Success-failure condition ***for confidence intervals***: $n\hat{p}_{obs}$ and $n(1-\hat{p}_{obs})$ both $\geq 10$
+    -   Success-failure condition ***for confidence intervals***: $n\hat{p}_{obs} \geq 10$ and $n(1-\hat{p}_{obs}) \geq 10$
+
+-   Note: $\hat{p}$ is distributed approximately Normal, not $\hat{p}_{obs}$
 
 ## Towards a CI for a single proportion (cont.)
 
@@ -477,7 +482,7 @@ NOTE: we could have obtained the CI directly from the sampling distribution of $
 A poll of 100 randomly sampled registered voters in a town was conducted, asking voters if they support legalized marijuana. It was found that 60% of respondents were in support.
 
 ::: discuss
-What is the population parameter? What is the point estimate/statistic?
+What is the population parameter? What is the (observed) point estimate/statistic?
 :::
 
 ::: {.fragment style="color: maroon"}

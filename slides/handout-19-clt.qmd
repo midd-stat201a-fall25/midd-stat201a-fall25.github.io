@@ -49,7 +49,7 @@ p_nba
 
 ***What is the sampling distribution of the sample mean heights?***
 
-**Check conditions**
+**Check conditions for CLT**
 
 \vspace{4cm}
 
@@ -79,9 +79,7 @@ rbind(sample_df, sampling_df, pop_df) |>
 
 ## Bank example
 
-Customers are standing in line at a bank.
-
--   Let $X_{i}$ represent the service time for customer $i$.
+Customers are standing in line at a bank. Let $X_{i}$ represent the service time for customer $i$.
 
 -   Suppose that the average service time for all customers is 5 minutes, with a standard deviation of 6 minutes.
 
@@ -89,13 +87,19 @@ Customers are standing in line at a bank.
 
 -   ***What is the probability that the average service time of all these customers is less than 4 minutes?***
 
-**Check conditions**
+**Write down probability of interest**
 
-\vspace{4cm}
+\vspace{1cm}
+
+**Check conditions for CLT**
+
+\vspace{2cm}
 
 **Proceed if conditions met**
 
-\vspace{3cm}
+-   What is the sampling distribution? \vspace{3cm}
+
+-   What is the value of the probability of interest?
 
 \clearpage
 
@@ -172,12 +176,14 @@ A poll of 100 randomly sampled registered voters in a town was conducted, asking
 
 ***Find a 90% confidence interval for the true proportion of town residents in favor of legalized marijuana.***
 
-**Check conditions**
+**Check conditions for CLT**
 
 \vspace{4cm}
 
-**If conditions met, construct CI**
+**If conditions met**
 
-\vspace{8cm}
+-   What does CLT give us? \vspace{3cm}
+
+-   Construct CI \vspace{5cm}
 
 **Interpret the confidence interval in context!**
