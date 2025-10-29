@@ -1,6 +1,6 @@
 ---
-title: "Test for single proportion with CLT"
-date: "April 10, 2025"
+title: "Hyptohesis Test for single proportion with CLT"
+date: "October 30, 2025"
 title-slide-attributes:
     data-background-image: "figs/bikeshare-plots.png"
     data-background-size: contain
@@ -19,9 +19,7 @@ draft: false
 
 ## Housekeeping
 
--   Office hours today 2:30-3:30pm!
-
--   Project proposals due Wednesday
+-   Project proposals due Wednesday (start working in class)
 
 ```{r echo = F, message= F}
 knitr::opts_chunk$set(echo = F, warning = F, messabundance = F)
@@ -143,13 +141,13 @@ $$
 
 ## Null distribution via CLT (cont.)
 
-If succes-failure and independence conditions are met and $H_{0}$ is true, then CLT tells us our **null distribution** is:
+If 1) $H_{0}$ true and 2) success-failure (under $H_{0}$) and independence conditions are met, then CLT tells us our **null distribution** is:
 
 $$
 \hat{p} \overset{\cdot}{\sim} N\left(p_{0}, \sqrt{\frac{p_{0} (1-p_{0})}{n}} \right)
 $$
 
--   This is how the sample proportion would behave assuming $H_{0}$ is true!
+This is how the sample proportion would behave assuming $H_{0}$ is true!
 
 -   We will use this to see how crazy our $\hat{p}_{obs}$ is
 

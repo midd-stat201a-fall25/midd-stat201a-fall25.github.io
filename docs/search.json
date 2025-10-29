@@ -25,7 +25,7 @@
     "href": "schedule.html",
     "title": "Schedule",
     "section": "",
-    "text": "Jump to:\n\n\n\n\nWeek 1\n\n\nWeek 2\n\n\nWeek 3\n\n\nWeek 4\n\n\nWeek 5\n\n\nWeek 6\n\n\nWeek 7\n\n\nWeek 8\n\n\nWeek 9\n\n\nWeek 10\n\n\nWeek 11\n\n\nWeek 12\n\n\n\n\n\n\n\n\nWeek\n\n\nDate\n\n\nIn-class material\n\n\nCoding practice\n\n\nAssignments\n\n\n\n\n\n\n\n1\n\n\nM 9/08\n\n\n\n\nTopic: Welcome!\n\n\nDirections for printing at bottom\n\n\n\n\n\n\n\n\nSubmit Problem Set 0 by tomorrow 9/09 11:59pm class\n\n\nTry to install R and RStudio before Thursday’s 9/11 class using these instructions\n\n\n\n\n\n\n\n\nW 9/10\n\n\n\n\nTopic: Study design Study design (pdf here)\n\n\n\n\n\n\n\n\n\nInstall R and RStudio before Thursday class using these instructions\n\n\nWednesday problems on Problem Set 1\n\n\n\n\n\n\n\n\nR 9/11\n\n\n\n\nTopic: Programming toolkit (no need to take notes!)\n\n\n\nRStudio help sheet\n\n\n\nR and .qmd basics\n\n\n\nDownload the following .qmd template and drag to your new STAT 201 folder  Intro to R template \n\n\n\n\n\n\n\nIntro to R and Quarto Markdown. Due Friday 9/12 at 11:59pm!  Coding practice \n\n\n\n\n\n\nThursday problems on Problem Set 1\n\n\n\n\n\n\n\n2\n\n\nM 9/15\n\n\n\n\nTopic: Numerical data (part 1) (pdf here)\n\n\n\nCode: here\n\n\n\n\n\n\n\n\n\nMonday problems on Problem Set 2\n\n\n\n\n\n\n\n\nW 9/17\n\n\n\n\nTopic: Numerical data (part 2) (pdf here)\n\n\n\n\n\n\nNumerical data. Due tonight at 11:59pm!  Coding practice \n\n\n\n\n\n\nWednesday problems on Problem Set 2\n\n\n\n\n\n\n\n\nR 9/18\n\n\n\n\nTopic: Introduction to ggplot (pdf here)\n\n\n\n.qmd template to follow live code  Live code \n\n\n\n\n\n\n\nIntroduction to ggplot  Coding practice \n\n\n\n\n\n\nThursday problems on Problem Set 2, i.e. the problems in the following .qmd  hw2_R \n\n\n\nFor easier reading: the rendered R problems\n\n\n\n\n\n\n\n\n3\n\n\nM 9/22\n\n\n\n\nTopic: Categorical data (pdf here)\n\n\n\n\n\n\nVisualizing categorical data in ggplot  Coding practice \n\n\n\n\n\n\nMonday problems on Problem Set 3\n\n\n\n\n\n\n\n\nW 9/24\n\n\n\n\nPartner programming: Activity 1\n\n\nTopic: Data wrangling (pdf here)\n\nurl_file &lt;- \"https://raw.githubusercontent.com/midd-stat201a-fall25/midd-stat201a-fall25.github.io/refs/heads/main/data/amazon_books.csv\"\nCopy\n\n\n\nLive code from today\n\n\n\n\n\n\nData wrangling practice (due tomorrow night!)  Coding practice  Note: 0, 3 and 4 are doable after today!\n\n\n\n\n\n\nWednesday problems in Problem Set 3  hw3_R \n\n\nRendered version of .qmd template for easier reading!\n\n\n\n\n\n\n\n\nR 9/25\n\n\n\n\nPartner programming: Activity 2\n\n\nTopic: More wrangling\n\n\n\nLive code from today\n\n\nExtra code with descriptions!\n\n\n\n\n\n\n\nFinish data wrangling coding practice\n\n\n\n\n\n\nThursday problems in Problem Set 3\n\n\n\n\n\n\n\n4\n\n\nM 9/29\n\n\n\n\nPartner programming: Activity 3\n\n\nTopic: Intro to Probability (pdf here)\n\n\n\n\n\n\n\n\nNone for today; bigger set for Wednesday.\n\n\n\n\n\n\n\n\nW 10/01\n\n\n\n\nIntroduce Midterm 1\n\n\nTopic: Finish Intro to Probability\n\n\nTopic: Conditional Probability (pdf here)\n\n\n\n\n\n\n\n\nWednesday problems in Problem Set 4\n\n\n\n\n\n\n\n\nR 10/02\n\n\n\n\nTopic: Finish Conditional Probability\n\n\nTopic: Simpson’s Paradox (pdf here)\n\n\nurl_file &lt;- \"https://raw.githubusercontent.com/midd-stat201a-fall25/midd-stat201a-fall25.github.io/refs/heads/main/slides/data/ucb_admissions.csv\"\nCopy\n\n\n\n\n\n\nJoins, case_when, tables  Coding practice  due tomorrow (10/03 at 11:59pm)\n\n\n\n\n\n\nThursday problems in Problem Set 4  hw4_R  Note there was a typo in the .qmd; R Exercise 5 should read “Re-create your first visualization from Exercise 1”!\n\n\nStudy for Midterm 1\n\n\n\n\n\n\n\n5\n\n\nM 10/06\n\n\n\n\nPartner programming: Activity 4\n\n\nTopic: Sampling distributions (pdf here)\n\n\n\n\n\n\n\n\nNone! Ensure you sign up for oral midterm time slot.\n\n\n\n\n\n\n\n\nW 10/08\n\n\n\n\nNo class!\n\n\n\n\n\n\n\n\nStudy for midterm.\n\n\n\n\n\n\n\n\nR 10/02\n\n\n\n\nMidterm 1: written component\n\n\n\n\n\n\n\n\nNone! Enjoy Fall break!\n\n\n\n\n\n\n\n6\n\n\nM 10/13\n\n\n\n\nTopic: Bootstrap (pdf here)\n\n\n\nCode\n\n\n\n\n\n\n\n\n\nMonday problems on Problem Set 5\n\n\n\n\n\n\n\n\nW 10/15\n\n\n\n\nTopic: Bootstrap Confidence Intervals (pdf here)\n\n\n\n\n\n\nBootstrap CIs  Coding practice \n\n\n\n\n\n\nWednesday problems on Problem Set 5  hw5_R \n\n\n\n\n\n\n\n\nR 10/16\n\n\n\n\nTopic: Intro to Hypothesis Testing (pdf here)\n\n\nHandout here\n\n\n\n\n\n\n\n\nThursday problems on Problem Set 5\n\n\n\n\n\n\n\n7\n\n\nM 10/20\n\n\n\n\nWrap-up previous slides\n\n\nTopic: Randomization tests (pdf here)\n\n\n\nHandout here\n\n\n\n\n\n\n\n\n\nMonday problems on Problem Set 6  hw6_R \n\n\nA rendered version of the .qmd for easier reading.\n\n\n\n\n\n\n\n\nW 10/22\n\n\n\n\nTopic: Finish up randomization tests from Monday\n\n\n\n\n\n\n\n\nContinue working on Problem Set 6\n\n\n\n\n\n\n\n\nR 10/23\n\n\n\n\nTopic: Simulation-based test for one mean (pdf here)\n\n\nHandout here\n\n\n\n\n\n\n\n\nThursday problems on Problem Set 6\n\n\n\n\n\n\n\n8\n\n\nM 10/27\n\n\n\n\nTopic: Normal distribution (no slides)\n\n\n\nHandout here. Solutions to practice problems here.\n\n\nCode for Normal probabilities\n\n\n\nIntroduce final project!\n\n\n\n\n\n\n\n\nMonday problems on Problem Set 7\n\n\nProject group by Thursday\n\n\n\n\n\n\n\n\nW 10/29\n\n\n\n\nTopic: Central Limit Theorem, CLT-based CI for single proportion (pdf here)\n\n\n\nHandout here\n\n\n\n\n\n\n\n\n\nContinue working on Problem Set 7\n\n\n\n\n\n\n\n\nR 10/30\n\n\n\n\nTopic: CLT-based HT for single proportion\n\n\n\nHandout\n\n\n\n\n\n\n\n\n\nThursday problems on Problem Set 7"
+    "text": "Jump to:\n\n\n\n\nWeek 1\n\n\nWeek 2\n\n\nWeek 3\n\n\nWeek 4\n\n\nWeek 5\n\n\nWeek 6\n\n\nWeek 7\n\n\nWeek 8\n\n\nWeek 9\n\n\nWeek 10\n\n\nWeek 11\n\n\nWeek 12\n\n\n\n\n\n\n\n\nWeek\n\n\nDate\n\n\nIn-class material\n\n\nCoding practice\n\n\nAssignments\n\n\n\n\n\n\n\n1\n\n\nM 9/08\n\n\n\n\nTopic: Welcome!\n\n\nDirections for printing at bottom\n\n\n\n\n\n\n\n\nSubmit Problem Set 0 by tomorrow 9/09 11:59pm class\n\n\nTry to install R and RStudio before Thursday’s 9/11 class using these instructions\n\n\n\n\n\n\n\n\nW 9/10\n\n\n\n\nTopic: Study design Study design (pdf here)\n\n\n\n\n\n\n\n\n\nInstall R and RStudio before Thursday class using these instructions\n\n\nWednesday problems on Problem Set 1\n\n\n\n\n\n\n\n\nR 9/11\n\n\n\n\nTopic: Programming toolkit (no need to take notes!)\n\n\n\nRStudio help sheet\n\n\n\nR and .qmd basics\n\n\n\nDownload the following .qmd template and drag to your new STAT 201 folder  Intro to R template \n\n\n\n\n\n\n\nIntro to R and Quarto Markdown. Due Friday 9/12 at 11:59pm!  Coding practice \n\n\n\n\n\n\nThursday problems on Problem Set 1\n\n\n\n\n\n\n\n2\n\n\nM 9/15\n\n\n\n\nTopic: Numerical data (part 1) (pdf here)\n\n\n\nCode: here\n\n\n\n\n\n\n\n\n\nMonday problems on Problem Set 2\n\n\n\n\n\n\n\n\nW 9/17\n\n\n\n\nTopic: Numerical data (part 2) (pdf here)\n\n\n\n\n\n\nNumerical data. Due tonight at 11:59pm!  Coding practice \n\n\n\n\n\n\nWednesday problems on Problem Set 2\n\n\n\n\n\n\n\n\nR 9/18\n\n\n\n\nTopic: Introduction to ggplot (pdf here)\n\n\n\n.qmd template to follow live code  Live code \n\n\n\n\n\n\n\nIntroduction to ggplot  Coding practice \n\n\n\n\n\n\nThursday problems on Problem Set 2, i.e. the problems in the following .qmd  hw2_R \n\n\n\nFor easier reading: the rendered R problems\n\n\n\n\n\n\n\n\n3\n\n\nM 9/22\n\n\n\n\nTopic: Categorical data (pdf here)\n\n\n\n\n\n\nVisualizing categorical data in ggplot  Coding practice \n\n\n\n\n\n\nMonday problems on Problem Set 3\n\n\n\n\n\n\n\n\nW 9/24\n\n\n\n\nPartner programming: Activity 1\n\n\nTopic: Data wrangling (pdf here)\n\nurl_file &lt;- \"https://raw.githubusercontent.com/midd-stat201a-fall25/midd-stat201a-fall25.github.io/refs/heads/main/data/amazon_books.csv\"\nCopy\n\n\n\nLive code from today\n\n\n\n\n\n\nData wrangling practice (due tomorrow night!)  Coding practice  Note: 0, 3 and 4 are doable after today!\n\n\n\n\n\n\nWednesday problems in Problem Set 3  hw3_R \n\n\nRendered version of .qmd template for easier reading!\n\n\n\n\n\n\n\n\nR 9/25\n\n\n\n\nPartner programming: Activity 2\n\n\nTopic: More wrangling\n\n\n\nLive code from today\n\n\nExtra code with descriptions!\n\n\n\n\n\n\n\nFinish data wrangling coding practice\n\n\n\n\n\n\nThursday problems in Problem Set 3\n\n\n\n\n\n\n\n4\n\n\nM 9/29\n\n\n\n\nPartner programming: Activity 3\n\n\nTopic: Intro to Probability (pdf here)\n\n\n\n\n\n\n\n\nNone for today; bigger set for Wednesday.\n\n\n\n\n\n\n\n\nW 10/01\n\n\n\n\nIntroduce Midterm 1\n\n\nTopic: Finish Intro to Probability\n\n\nTopic: Conditional Probability (pdf here)\n\n\n\n\n\n\n\n\nWednesday problems in Problem Set 4\n\n\n\n\n\n\n\n\nR 10/02\n\n\n\n\nTopic: Finish Conditional Probability\n\n\nTopic: Simpson’s Paradox (pdf here)\n\n\nurl_file &lt;- \"https://raw.githubusercontent.com/midd-stat201a-fall25/midd-stat201a-fall25.github.io/refs/heads/main/slides/data/ucb_admissions.csv\"\nCopy\n\n\n\n\n\n\nJoins, case_when, tables  Coding practice  due tomorrow (10/03 at 11:59pm)\n\n\n\n\n\n\nThursday problems in Problem Set 4  hw4_R  Note there was a typo in the .qmd; R Exercise 5 should read “Re-create your first visualization from Exercise 1”!\n\n\nStudy for Midterm 1\n\n\n\n\n\n\n\n5\n\n\nM 10/06\n\n\n\n\nPartner programming: Activity 4\n\n\nTopic: Sampling distributions (pdf here)\n\n\n\n\n\n\n\n\nNone! Ensure you sign up for oral midterm time slot.\n\n\n\n\n\n\n\n\nW 10/08\n\n\n\n\nNo class!\n\n\n\n\n\n\n\n\nStudy for midterm.\n\n\n\n\n\n\n\n\nR 10/02\n\n\n\n\nMidterm 1: written component\n\n\n\n\n\n\n\n\nNone! Enjoy Fall break!\n\n\n\n\n\n\n\n6\n\n\nM 10/13\n\n\n\n\nTopic: Bootstrap (pdf here)\n\n\n\nCode\n\n\n\n\n\n\n\n\n\nMonday problems on Problem Set 5\n\n\n\n\n\n\n\n\nW 10/15\n\n\n\n\nTopic: Bootstrap Confidence Intervals (pdf here)\n\n\n\n\n\n\nBootstrap CIs  Coding practice \n\n\n\n\n\n\nWednesday problems on Problem Set 5  hw5_R \n\n\n\n\n\n\n\n\nR 10/16\n\n\n\n\nTopic: Intro to Hypothesis Testing (pdf here)\n\n\nHandout here\n\n\n\n\n\n\n\n\nThursday problems on Problem Set 5\n\n\n\n\n\n\n\n7\n\n\nM 10/20\n\n\n\n\nWrap-up previous slides\n\n\nTopic: Randomization tests (pdf here)\n\n\n\nHandout here\n\n\n\n\n\n\n\n\n\nMonday problems on Problem Set 6  hw6_R \n\n\nA rendered version of the .qmd for easier reading.\n\n\n\n\n\n\n\n\nW 10/22\n\n\n\n\nTopic: Finish up randomization tests from Monday\n\n\n\n\n\n\n\n\nContinue working on Problem Set 6\n\n\n\n\n\n\n\n\nR 10/23\n\n\n\n\nTopic: Simulation-based test for one mean (pdf here)\n\n\nHandout here\n\n\n\n\n\n\n\n\nThursday problems on Problem Set 6\n\n\n\n\n\n\n\n8\n\n\nM 10/27\n\n\n\n\nTopic: Normal distribution (no slides)\n\n\n\nHandout here. Solutions to practice problems here.\n\n\nCode for Normal probabilities\n\n\n\nIntroduce final project!\n\n\n\n\n\n\n\n\nMonday problems on Problem Set 7\n\n\nProject group by Thursday\n\n\n\n\n\n\n\n\nW 10/29\n\n\n\n\nTopic: Central Limit Theorem, CLT-based CI for single proportion (pdf here)\n\n\n\nHandout here\n\n\n\n\n\n\n\n\n\nContinue working on Problem Set 7\n\n\nProject group by tomorrow class!\n\n\n\n\n\n\n\nR 10/30\n\n\n\n\nTopic: Wrap-up CLT-based CI for single proportion\n\n\nTopic: CLT-based HT for single proportion\n\n\n\nHandout\n\n\n\n\n\n\n\n\n\nThursday problems on Problem Set 7"
   },
   {
     "objectID": "slides/slides-01-study-design.html#population-and-samples",
@@ -8012,14 +8012,14 @@
     "href": "slides/slides-19-clt.html#bank-example",
     "title": "Central Limit Theorem",
     "section": "Bank example",
-    "text": "Bank example\nCustomers are standing in line at a bank.\n\nLet \\(X_{i}\\) represent the service time for customer \\(i\\).\nSuppose that the average service time for all customers is 5 minutes, with a standard deviation of 6 minutes.\n\n\n\nAssume that a bank currently has 36 customers in it, and all customers are independent of each other. We want to find the probability that the average service time of all these customers is less than 4 minutes.\n\nWrite down probability of interest as \\(\\text{Pr}()\\) statement\nDoes CLT apply? If so, use CLT and either empirical rule or R code to obtain this probability."
+    "text": "Bank example\nCustomers are standing in line at a bank.\n\nLet \\(X_{i}\\) represent the service time for customer \\(i\\).\nSuppose that the average service time for all customers is 5 minutes, with a standard deviation of 6 minutes. The bank will not allow any customer to wait an absurdly long amount of time.\n\n\n\nAssume that a bank currently has 36 customers in it, and all customers’ wait times are independent of each other. We want to find the probability that the average service time of all these customers is less than 4 minutes.\n\nWrite down probability of interest as \\(\\text{Pr}()\\) statement\nDoes CLT apply? If so, use CLT and either empirical rule or R code to obtain this probability."
   },
   {
     "objectID": "slides/slides-19-clt.html#bank-example-solution",
     "href": "slides/slides-19-clt.html#bank-example-solution",
     "title": "Central Limit Theorem",
     "section": "Bank example: solution",
-    "text": "Bank example: solution\n\nWe want \\(\\text{Pr}(\\bar{X} &lt; 4)\\)\nConditions for CLT met: independence (random sample) and sufficiently large sample size \\((n=36)\\).\n\nSo by CLT, \\(\\bar{X} \\overset{\\cdot}{\\sim}N(5, \\frac{6}{\\sqrt{36}}) = N(5, 1)\\)\n\nUsing 68-95-99.7 rule, probability that the average service time of all these customers is less than 4 minutes is about \\(1 - (0.34 + 0.5) = 0.16\\)\n\npnorm(4, 5, 1) = 0.159"
+    "text": "Bank example: solution\n\nWe want \\(\\text{Pr}(\\bar{X} &lt; 4)\\)\nConditions for CLT met: independence (given) and sufficiently large sample size \\((n=36)\\).\n\nSo by CLT, \\(\\bar{X} \\overset{\\cdot}{\\sim}N(5, \\frac{6}{\\sqrt{36}}) = N(5, 1)\\)\n\nUsing 68-95-99.7 rule, probability that the average service time of all these customers is less than 4 minutes is about \\(1 - (0.34 + 0.5) = 0.16\\)\n\npnorm(4, 5, 1) = 0.159"
   },
   {
     "objectID": "slides/slides-19-clt.html#proportion-as-a-mean",
@@ -8164,9 +8164,9 @@
   {
     "objectID": "slides/slides-20-ht-prop.html#housekeeping",
     "href": "slides/slides-20-ht-prop.html#housekeeping",
-    "title": "Test for single proportion with CLT",
-    "section": "",
-    "text": "Office hours today 2:30-3:30pm!\nProject proposals due Wednesday"
+    "title": "Hyptohesis Test for single proportion with CLT",
+    "section": "Housekeeping",
+    "text": "Housekeeping\n\nProject proposals due Wednesday (start working in class)"
   },
   {
     "objectID": "slides/slides-20-ht-prop.html#recap",
@@ -8178,14 +8178,14 @@
   {
     "objectID": "slides/slides-20-ht-prop.html#hypothesis-testing-using-mathematical-model",
     "href": "slides/slides-20-ht-prop.html#hypothesis-testing-using-mathematical-model",
-    "title": "Test for single proportion with CLT",
+    "title": "Hyptohesis Test for single proportion with CLT",
     "section": "Hypothesis testing using mathematical model",
     "text": "Hypothesis testing using mathematical model\n\nWe learned how to conduct hypothesis tests (HTs) using simulation to obtain null distribution\nBut we can also use CLT to obtain null distribution!\nSo the only step that will “look different” is #3: how we obtain our null distribution and p-value\n\nLooks different depending on type of data\n\nMake a conclusion in terms of \\(H_{A}\\)"
   },
   {
     "objectID": "slides/slides-20-ht-prop.html#steps-1-and-2-dont-change",
     "href": "slides/slides-20-ht-prop.html#steps-1-and-2-dont-change",
-    "title": "Test for single proportion with CLT",
+    "title": "Hyptohesis Test for single proportion with CLT",
     "section": "Steps 1 and 2 don’t change",
     "text": "Steps 1 and 2 don’t change\nWant to conduct a hypothesis test about a population proportion.\n\nDefine hypotheses\n\n\\(H_{0}: p = p_{0}\\)\n\\(H_{A}: p \\neq p_{0}\\) (or \\(H_{A}: p &gt; p_{0}\\) or \\(H_{A}: p &lt; p_{0}\\))\nRemember, \\(p_{0}\\) is our “null hypothesized value”\n\n\n\n\nCollect data, set significance level\n\nObtain observed sample proportion \\(\\hat{p}_{obs}\\)\nSet \\(\\alpha\\) significance level"
   },
@@ -8206,79 +8206,79 @@
   {
     "objectID": "slides/slides-20-ht-prop.html#test-statistic",
     "href": "slides/slides-20-ht-prop.html#test-statistic",
-    "title": "Test for single proportion with CLT",
+    "title": "Hyptohesis Test for single proportion with CLT",
     "section": "Test statistic",
     "text": "Test statistic\n\np-value requires us to compare our observed data to the null distribution\nWe calculate a test statistic: a quantity that assesses how consistent our sampled data are with \\(H_{0}\\)\n\nOur test statistic is always of the form:\n\n\n\\[\\frac{\\text{point estimate} - \\text{null value}}{\\text{SE}_{0}}\\] where \\(\\text{SE}_{0}\\) represents the standard error under \\(H_{0}\\)\n\n\nFor this specific test, our test statistic is the \\(z\\)-score of \\(\\hat{p}_{obs}\\):\n\n\n\\[z =\\frac{\\hat{p}_{\\text{obs}} - p_{0}}{\\sqrt{\\frac{p_{0} (1-p_{0})}{n}}}\\]\n\n\nBecause null distribution is Normal, this z-score follows \\(N(0,1)\\) distribution!"
   },
   {
     "objectID": "slides/slides-20-ht-prop.html#obtain-p-value",
     "href": "slides/slides-20-ht-prop.html#obtain-p-value",
-    "title": "Test for single proportion with CLT",
+    "title": "Hyptohesis Test for single proportion with CLT",
     "section": "Obtain p-value",
     "text": "Obtain p-value\n\nIf \\(|z|\\) large, then that usually means observed value is extremely unusual for \\(H_{0}\\), which is convincing evidence against \\(H_{0}\\)\np-value is then \\(\\text{Pr}(Z \\geq z)\\) or \\(\\text{Pr}(Z \\leq z)\\) (or both), depending on \\(H_{A}\\)\n\nEasily obtained using pnorm()\n\nStep 4: doesn’t change!"
   },
   {
     "objectID": "slides/slides-20-ht-prop.html#example-taste-test",
     "href": "slides/slides-20-ht-prop.html#example-taste-test",
-    "title": "Test for single proportion with CLT",
+    "title": "Hyptohesis Test for single proportion with CLT",
     "section": "Example: taste test",
     "text": "Example: taste test\nSome people claim that they can tell the difference between a diet soda and a regular soda in the first sip. A researcher wanted to test this claim using a hypothesis test at the 0.05 significance level.\n\nHe randomly sampled 80 people.\nHe then filled 80 plain white cups with soda, half diet and half regular through random assignment, and asked each person to take one sip from their cup and identify the soda as diet or regular.\n53 participants correctly identified the soda.\n\n\nLet \\(p\\) be the proportion of people who correctly identify soda type.\n\n\n\nTry defining \\(H_{0}\\) and \\(H_{A}\\)."
   },
   {
     "objectID": "slides/slides-20-ht-prop.html#example-taste-test-cont.",
     "href": "slides/slides-20-ht-prop.html#example-taste-test-cont.",
-    "title": "Test for single proportion with CLT",
+    "title": "Hyptohesis Test for single proportion with CLT",
     "section": "Example: taste test (cont.)",
     "text": "Example: taste test (cont.)\n\nDefine hypotheses\n\n\\(H_{0}\\): \\(p = 0.5\\) (random guessing)\n\\(H_{A}\\): \\(p &gt; 0.5\\) (better than random guessing)\nNote: \\(p_{0} = 0.5\\) is our null hypothesized value!\n\nCollect data\n\n\\(\\hat{p}_{\\text{obs}} = \\frac{53}{80} = 0.6625\\)\n\n\n\nNote: significance level already determined to be 0.05"
   },
   {
     "objectID": "slides/slides-20-ht-prop.html#example-taste-test-cont.-1",
     "href": "slides/slides-20-ht-prop.html#example-taste-test-cont.-1",
-    "title": "Test for single proportion with CLT",
+    "title": "Hyptohesis Test for single proportion with CLT",
     "section": "Example: taste test (cont.)",
     "text": "Example: taste test (cont.)\n\nObtain null distribution and p-value\n\n\nCheck conditions for inference satisfied\n\n\nIndependence: random sample\nsuccess-failure: \\(np_{0} = 80(0.5) = 40 \\geq 10\\) and \\(n(1-p_{0}) = 40 \\geq 10\\)\n\nBecause conditions for CLT are met, we can obtain the null distribution using CLT.\n\n\n\nNull distribution\n\n\n\\[\\hat{p} \\overset{\\cdot}{\\sim} N\\left(0.5, \\sqrt{\\frac{0.5(1-0.5)}{80}} = 0.056 \\right)\\]"
   },
   {
     "objectID": "slides/slides-20-ht-prop.html#example-taste-test-cont.-2",
     "href": "slides/slides-20-ht-prop.html#example-taste-test-cont.-2",
-    "title": "Test for single proportion with CLT",
+    "title": "Hyptohesis Test for single proportion with CLT",
     "section": "Example: taste test (cont.)",
     "text": "Example: taste test (cont.)\n\n\nTest statistic:\n\n\n\\[z = \\frac{\\hat{p}_{obs} - p_{0}}{\\text{SE}_{0}} = \\frac{0.6625 - 0.5}{0.056} = 2.90\\]\n\nThis means that if \\(H_{0}\\) true, our observed \\(\\hat{p}_{obs}\\) is 2.90 SDs above the mean\n\nDoes this seem like “convincing evidence”?"
   },
   {
     "objectID": "slides/slides-20-ht-prop.html#example-mms",
     "href": "slides/slides-20-ht-prop.html#example-mms",
-    "title": "Test for single proportion with CLT",
+    "title": "Hyptohesis Test for single proportion with CLT",
     "section": "Example: M&M’s",
-    "text": "Example: M&M’s\nM&M’s reported that 14% of its candies are yellow. We are interested in testing this claim. In a random sample of 100 M&M’s, 9 were found to be yellow. Conduct a hypothesis test via CLT at the \\(0.10\\) level.\n\n\n\n\nWrite out null and alternative hypotheses in statistical notation (don’t forget to define quantities)\nSummarise data and set \\(\\alpha\\)\nVerify conditions for CLT are met\n\n\n\n\n\\(H_{0}: p = 0.14\\) vs \\(H_{A}: p \\neq 0.14\\), where \\(p =\\) true proportion of yellow M&M’s\n\\(\\hat{p}_{obs} = \\frac{9}{100} = 0.09\\)\n\\(\\alpha = 0.10\\)\nIndependence? Yes, via random sample\nSuccess-failure: Yes: \\(np_{0} = 100(0.14) = 14 \\geq 10\\) and \\(n(1-p_{0}) = 86 \\geq 10\\)\n\n\n\n\n\nBecause conditions for CLT are met, we can obtain the null distribution using CLT."
+    "text": "Example: M&M’s\nM&M’s reported that 14% of its candies are yellow. We are interested in testing this claim. In a random sample of 100 M&M’s, 9 were found to be yellow. Conduct a hypothesis test via CLT at the \\(0.10\\) level.\n\n\n\n\nWrite out null and alternative hypotheses in statistical notation (don’t forget to define quantities)\nSummarise data and set \\(\\alpha\\)\nVerify conditions for CLT are met\n\n\n\n\n\\(H_{0}: p = 0.14\\) vs \\(H_{A}: p \\neq 0.14\\), where \\(p =\\) true proportion of yellow M&M’s\n\\(\\hat{p}_{obs} = \\frac{9}{100} = 0.09\\)\n\\(\\alpha = 0.10\\)\nIndependence? Yes, via random sample\nSuccess-failure: Yes: \\(np_{0} = 100(0.14) = 14 \\geq 10\\) and \\(n(1-p_{0}) = 86 \\geq 10\\)\n\n\n\n\nBecause conditions for CLT are met, we can obtain the null distribution using CLT."
   },
   {
     "objectID": "slides/slides-20-ht-prop.html#example-mms-cont.",
     "href": "slides/slides-20-ht-prop.html#example-mms-cont.",
-    "title": "Test for single proportion with CLT",
+    "title": "Hyptohesis Test for single proportion with CLT",
     "section": "Example: M&M’s (cont.)",
     "text": "Example: M&M’s (cont.)\n\n\nObtain null distribution and obtain observed test statistic\n\n\n\nBy CLT, our null distribution is \\(\\hat{p} \\overset{\\cdot}{\\sim} N\\left(0.14, \\sqrt{\\frac{0.14(1-0.14)}{100}} = 0.035 \\right)\\)\n\n\nTest statistic:\n\\[z = \\frac{\\hat{p}_{obs} - p_{0}}{\\text{SE}_{0}} = \\frac{0.09 - 0.14}{0.035} = -1.43\\]"
   },
   {
     "objectID": "slides/slides-20-ht-prop.html#example-mms-cont.-1",
     "href": "slides/slides-20-ht-prop.html#example-mms-cont.-1",
-    "title": "Test for single proportion with CLT",
+    "title": "Hyptohesis Test for single proportion with CLT",
     "section": "Example: M&M’s (cont.)",
     "text": "Example: M&M’s (cont.)\n\n\nObtain p-value. First draw a picture, then write out in \\(\\text{Pr}()\\) notation and in code what we want to find.\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\nSince \\(H_{A}\\) is two-sided, we want \\[\\begin{align*}\n    &\\text{Pr}(Z \\leq -1.43 \\cup Z \\geq 1.43) \\\\\n    &= \\text{Pr}(Z \\leq -1.43) + \\text{Pr}(Z \\geq 1.43)  \\\\\n    &= 2\\times \\text{Pr}(Z \\leq -1.43) \\\\\n    \\end{align*}\\]\n\n\n2 * pnorm(-1.43, 0, 1)\n\n[1] 0.152717\n\n2 * (1-pnorm(1.43, 0, 1))\n\n[1] 0.152717"
   },
   {
     "objectID": "slides/slides-20-ht-prop.html#null-distribution-via-clt",
     "href": "slides/slides-20-ht-prop.html#null-distribution-via-clt",
-    "title": "Test for single proportion with CLT",
+    "title": "Hyptohesis Test for single proportion with CLT",
     "section": "Null distribution via CLT",
     "text": "Null distribution via CLT\nRecall CLT for sample proportion: if we have \\(n\\) independent binary observations that satisfy the success-failure condition, then\n\\[\n\\hat{p} \\overset{\\cdot}{\\sim} N\\left(p, \\sqrt{\\frac{p(1-p)}{n}} \\right)\n\\]\n\nThis is the sampling distribution of \\(\\hat{p}\\)\nBut we want the null distribution of \\(\\hat{p}\\): the sampling distribution under \\(H_{0}\\)\nWe should operate in a world where \\(H_{0}\\) is true\nSo to use CLT for null distribution, we must satisfy:\n\nIndependence\n\nSuccess-failure condition under \\(H_{0}\\): \\(np_{0} \\geq 10\\) and \\(n(1-p_{0}) \\geq 10\\)"
   },
   {
     "objectID": "slides/slides-20-ht-prop.html#null-distribution-via-clt-cont.",
     "href": "slides/slides-20-ht-prop.html#null-distribution-via-clt-cont.",
-    "title": "Test for single proportion with CLT",
+    "title": "Hyptohesis Test for single proportion with CLT",
     "section": "Null distribution via CLT (cont.)",
-    "text": "Null distribution via CLT (cont.)\nIf succes-failure and independence conditions are met and \\(H_{0}\\) is true, then CLT tells us our null distribution is:\n\\[\n\\hat{p} \\overset{\\cdot}{\\sim} N\\left(p_{0}, \\sqrt{\\frac{p_{0} (1-p_{0})}{n}} \\right)\n\\]\n\nThis is how the sample proportion would behave assuming \\(H_{0}\\) is true!\nWe will use this to see how crazy our \\(\\hat{p}_{obs}\\) is"
+    "text": "Null distribution via CLT (cont.)\nIf 1) \\(H_{0}\\) true and 2) success-failure (under \\(H_{0}\\)) and independence conditions are met, then CLT tells us our null distribution is:\n\\[\n\\hat{p} \\overset{\\cdot}{\\sim} N\\left(p_{0}, \\sqrt{\\frac{p_{0} (1-p_{0})}{n}} \\right)\n\\]\nThis is how the sample proportion would behave assuming \\(H_{0}\\) is true!\n\nWe will use this to see how crazy our \\(\\hat{p}_{obs}\\) is"
   },
   {
     "objectID": "slides/handout-20-ht-prop.html",
@@ -8479,42 +8479,42 @@
   {
     "objectID": "slides/slides-20-ht-prop.html#clt-recap",
     "href": "slides/slides-20-ht-prop.html#clt-recap",
-    "title": "Test for single proportion with CLT",
+    "title": "Hyptohesis Test for single proportion with CLT",
     "section": "CLT recap",
     "text": "CLT recap\nStart off with a sample of size \\(n\\). Assuming independent observations,\n\n\n\nCLT for sample means\nAssume population with mean \\(\\mu\\) and standard deviation \\(\\sigma\\). If normality condition met: \\[\n\\bar{X} \\sim N\\left(\\mu, \\frac{\\sigma}{\\sqrt{n}}\\right) \\quad \\text{or} \\quad \\bar{X} \\overset{\\cdot}{\\sim}  N\\left(\\mu, \\frac{\\sigma}{\\sqrt{n}}\\right)\n\\]\n\n\nNormality condition\n\nExactly normal\nNot normal and \\(n &lt; 30\\): no outliers\nNot normal and \\(n \\geq 30\\): no particularly extreme outliers\n\n\n\n\nCLT for sample proportions\nAssume population proportion \\(p\\). If success-failure condition met: \\[\n\\hat{p} \\overset{\\cdot}{\\sim} N\\left (p, \\sqrt{\\frac{p(1-p)}{n}}\\right)\n\\]\n\nSuccess-failure condition: \\(np \\geq 10\\) and \\(n(1-p) \\geq 10\\)"
   },
   {
     "objectID": "slides/slides-20-ht-prop.html#hypothesis-testing-recap",
     "href": "slides/slides-20-ht-prop.html#hypothesis-testing-recap",
-    "title": "Test for single proportion with CLT",
+    "title": "Hyptohesis Test for single proportion with CLT",
     "section": "Hypothesis testing recap",
     "text": "Hypothesis testing recap\n\nNow we’re returning to hypothesis testing!\n\nTwo sets of hypotheses (competing claims)\nCollect data, calculate a statistic from the observed data, set significance level\nObtain p-value from the null distribution\n\np-value: probability of observing data as or more extreme as our own, assuming \\(H_{0}\\) true\n\nMake a decision"
   },
   {
     "objectID": "slides/slides-20-ht-prop.html#example-taste-test-cont.-3",
     "href": "slides/slides-20-ht-prop.html#example-taste-test-cont.-3",
-    "title": "Test for single proportion with CLT",
+    "title": "Hyptohesis Test for single proportion with CLT",
     "section": "Example: taste test (cont.)",
     "text": "Example: taste test (cont.)\n\n\nCalculate p-value (i.e. draw picture, set-up the calculation, and/or write code)\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\\[\n\\text{p-value} = \\text{Pr}(Z \\geq z) = \\text{Pr}(Z \\geq 2.90)\n\\]\n\n1 - pnorm(2.90, 0, 1)\n\n[1] 0.001865813"
   },
   {
     "objectID": "slides/slides-20-ht-prop.html#example-taste-test-cont.-4",
     "href": "slides/slides-20-ht-prop.html#example-taste-test-cont.-4",
-    "title": "Test for single proportion with CLT",
+    "title": "Hyptohesis Test for single proportion with CLT",
     "section": "Example: taste test (cont.)",
     "text": "Example: taste test (cont.)\n\n\nDecision and conclusion\n\n\nSince our p-value of 0.0019 is less than our significance level of 0.05, we reject \\(H_{0}\\).\nThe data provide strong evidence that the rate of correctly identifying a soda for these people is better than random guessing."
   },
   {
     "objectID": "slides/slides-20-ht-prop.html#example-mms-cont.-2",
     "href": "slides/slides-20-ht-prop.html#example-mms-cont.-2",
-    "title": "Test for single proportion with CLT",
+    "title": "Hyptohesis Test for single proportion with CLT",
     "section": "Example: M&M’s (cont.)",
     "text": "Example: M&M’s (cont.)\n\n\nMake a decision and conclusion in context.\n\n\n\nSince our p-value of 0.153 is greater than our significance level of 0.10, we fail to reject \\(H_{0}\\).\nThe data do not provide strong enough evidence to suggest that the true proportion of yellow M&Ms is different from 14%."
   },
   {
     "objectID": "slides/slides-20-ht-prop.html#comprehension-questions",
     "href": "slides/slides-20-ht-prop.html#comprehension-questions",
-    "title": "Test for single proportion with CLT",
+    "title": "Hyptohesis Test for single proportion with CLT",
     "section": "Comprehension questions",
     "text": "Comprehension questions\n\nWhy/how do the CLT conditions and/or statements change when obtaining:\n\nSampling distribution of \\(\\hat{p}\\)\nNull distribution of \\(\\hat{p}\\)"
   },

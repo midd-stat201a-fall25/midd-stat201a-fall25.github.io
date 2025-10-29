@@ -210,10 +210,10 @@ Customers are standing in line at a bank.
 
 -   Let $X_{i}$ represent the service time for customer $i$.
 
--   Suppose that the average service time for all customers is 5 minutes, with a standard deviation of 6 minutes.
+-   Suppose that the average service time for all customers is 5 minutes, with a standard deviation of 6 minutes. The bank will not allow any customer to wait an absurdly long amount of time.
 
 ::: discuss
--   Assume that a bank currently has 36 customers in it, and all customers are independent of each other. We want to find the probability that the average service time of all these customers is less than 4 minutes.
+-   Assume that a bank currently has 36 customers in it, and all customers' wait times are independent of each other. We want to find the probability that the average service time of all these customers is less than 4 minutes.
     -   Write down probability of interest as $\text{Pr}()$ statement
     -   Does CLT apply? If so, use CLT and either empirical rule or `R` code to obtain this probability.
 :::
@@ -222,7 +222,7 @@ Customers are standing in line at a bank.
 
 -   We want $\text{Pr}(\bar{X} < 4)$
 
--   Conditions for CLT met: independence (random sample) and sufficiently large sample size $(n=36)$.
+-   Conditions for CLT met: independence (given) and sufficiently large sample size $(n=36)$.
 
     -   So by CLT, $\bar{X} \overset{\cdot}{\sim}N(5, \frac{6}{\sqrt{36}}) = N(5, 1)$
 

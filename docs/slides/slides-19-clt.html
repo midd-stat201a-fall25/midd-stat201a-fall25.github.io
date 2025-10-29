@@ -286,11 +286,11 @@
 <p>Customers are standing in line at a bank.</p>
 <ul>
 <li class="fragment"><p>Let <span class="math inline">\(X_{i}\)</span> represent the service time for customer <span class="math inline">\(i\)</span>.</p></li>
-<li class="fragment"><p>Suppose that the average service time for all customers is 5 minutes, with a standard deviation of 6 minutes.</p></li>
+<li class="fragment"><p>Suppose that the average service time for all customers is 5 minutes, with a standard deviation of 6 minutes. The bank will not allow any customer to wait an absurdly long amount of time.</p></li>
 </ul>
 <div class="discuss">
 <ul>
-<li class="fragment">Assume that a bank currently has 36 customers in it, and all customers are independent of each other. We want to find the probability that the average service time of all these customers is less than 4 minutes.
+<li class="fragment">Assume that a bank currently has 36 customers in it, and all customers’ wait times are independent of each other. We want to find the probability that the average service time of all these customers is less than 4 minutes.
 <ul>
 <li class="fragment">Write down probability of interest as <span class="math inline">\(\text{Pr}()\)</span> statement</li>
 <li class="fragment">Does CLT apply? If so, use CLT and either empirical rule or <code>R</code> code to obtain this probability.</li>
@@ -302,7 +302,7 @@
 <h2>Bank example: solution</h2>
 <ul>
 <li class="fragment"><p>We want <span class="math inline">\(\text{Pr}(\bar{X} &lt; 4)\)</span></p></li>
-<li class="fragment"><p>Conditions for CLT met: independence (random sample) and sufficiently large sample size <span class="math inline">\((n=36)\)</span>.</p>
+<li class="fragment"><p>Conditions for CLT met: independence (given) and sufficiently large sample size <span class="math inline">\((n=36)\)</span>.</p>
 <ul>
 <li class="fragment">So by CLT, <span class="math inline">\(\bar{X} \overset{\cdot}{\sim}N(5, \frac{6}{\sqrt{36}}) = N(5, 1)\)</span></li>
 </ul></li>
