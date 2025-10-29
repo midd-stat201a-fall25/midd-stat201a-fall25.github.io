@@ -507,9 +507,9 @@ format:
       <td> W 10/29 </td>
       <td>
         <ul>
-          <li> Topic: Central Limit Theorem, CLT-based CI for single proportion </li>
+          <li> Topic: <a href="slides/slides-19-clt.qmd">Central Limit Theorem, CLT-based CI for single proportion</a> (pdf <a href="slides/pdf/slides-19.pdf">here</a>)</li>
           <ul>
-            <li>  Handout </li>
+            <li>  Handout <a href="slides/handout-19-clt.qmd">here</a> </li>
           </ul>
         </ul>
       </td>
