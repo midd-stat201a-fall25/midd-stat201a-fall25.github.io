@@ -95,8 +95,6 @@ $$
 
     -   Looks different depending on type of data
 
--   Make a conclusion in terms of $H_{A}$
-
 # Hypothesis test for single proportion
 
 ## Steps 1 and 2 don't change
@@ -127,13 +125,13 @@ $$
 
 -   This is the ***sampling distribution*** of $\hat{p}$
 
--   But we want the ***null distribution*** of $\hat{p}$: the sampling distribution under $H_{0}$
+-   But we want the ***null distribution*** of $\hat{p}$: the sampling distribution **under** $H_{0}$
 
 -   We should operate in a world where $H_{0}$ is true
 
 -   So to use CLT for null distribution, we must satisfy:
 
-    -   Independence
+    -   Independence (like usual)
 
     -   ::: important
         Success-failure condition under $H_{0}$: $np_{0} \geq 10$ and $n(1-p_{0}) \geq 10$
@@ -153,9 +151,7 @@ This is how the sample proportion would behave assuming $H_{0}$ is true!
 
 ## Test statistic
 
--   p-value requires us to compare our observed data to the null distribution
-
--   We calculate a **test statistic**: a quantity that assesses how consistent our sampled data are with $H_{0}$
+-   Will obtain p-value using a **test statistic**: a quantity that assesses how consistent our sampled data are with $H_{0}$
 
     -   Our test statistic is always of the form:
 
@@ -163,7 +159,7 @@ This is how the sample proportion would behave assuming $H_{0}$ is true!
     $$\frac{\text{point estimate} - \text{null value}}{\text{SE}_{0}}$$ where $\text{SE}_{0}$ represents the standard error under $H_{0}$
     :::
 
-    -   For this specific test, our test statistic is the $z$-score of $\hat{p}_{obs}$:
+    -   For this specific test, our test statistic is the $z$-score of $\hat{p}_{obs}$ from the null distribution:
 
     ::: fragment
     $$z =\frac{\hat{p}_{\text{obs}} - p_{0}}{\sqrt{\frac{p_{0} (1-p_{0})}{n}}}$$
@@ -173,11 +169,15 @@ This is how the sample proportion would behave assuming $H_{0}$ is true!
 
 ## Obtain p-value
 
+::: discuss
+Remember, $z$ here is our test statistic. Is large $|z|$ or small $|z|$ considered unusual for $H_{0}$?
+:::
+
 -   If $|z|$ large, then that usually means observed value is extremely unusual for $H_{0}$, which is convincing evidence against $H_{0}$
 
 -   p-value is then $\text{Pr}(Z \geq z)$ or $\text{Pr}(Z \leq z)$ (or both), depending on $H_{A}$
 
-    -   Easily obtained using `pnorm()`
+    -   Easily obtained using `pnorm()` : either `pnorm(z, 0, 1)` and/or `1 - pnorm(z, 0, 1)`
 
 -   Step 4: doesn't change!
 
@@ -225,7 +225,7 @@ Try defining $H_{0}$ and $H_{A}$.
 
         -   Independence: random sample
 
-        -   success-failure: $np_{0} = 80(0.5) = 40 \geq 10$ and $n(1-p_{0}) = 40 \geq 10$
+        -   Success-failure (under $H_{0}$): $np_{0} = 80(0.5) = 40 \geq 10$ and $n(1-p_{0}) = 40 \geq 10$
 
         -   ::: important
             Because conditions for CLT are met, we can obtain the null distribution using CLT.
@@ -367,7 +367,6 @@ ggplot() +
 ::::: columns
 ::: {.column width="50%"}
 Since $H_{A}$ is two-sided, we want $$\begin{align*}
-    &\text{Pr}(Z \leq -1.43 \cup Z \geq 1.43) \\
     &= \text{Pr}(Z \leq -1.43) + \text{Pr}(Z \geq 1.43)  \\
     &= 2\times \text{Pr}(Z \leq -1.43) \\
     \end{align*}$$

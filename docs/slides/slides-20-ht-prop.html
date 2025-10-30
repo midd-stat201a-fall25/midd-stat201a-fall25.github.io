@@ -262,7 +262,6 @@
 <ul>
 <li class="fragment">Looks different depending on type of data</li>
 </ul></li>
-<li class="fragment"><p>Make a conclusion in terms of <span class="math inline">\(H_{A}\)</span></p></li>
 </ul>
 </section>
 <section>
@@ -298,11 +297,11 @@
 \]</span></p>
 <ul>
 <li class="fragment"><p>This is the <strong><em>sampling distribution</em></strong> of <span class="math inline">\(\hat{p}\)</span></p></li>
-<li class="fragment"><p>But we want the <strong><em>null distribution</em></strong> of <span class="math inline">\(\hat{p}\)</span>: the sampling distribution under <span class="math inline">\(H_{0}\)</span></p></li>
+<li class="fragment"><p>But we want the <strong><em>null distribution</em></strong> of <span class="math inline">\(\hat{p}\)</span>: the sampling distribution <strong>under</strong> <span class="math inline">\(H_{0}\)</span></p></li>
 <li class="fragment"><p>We should operate in a world where <span class="math inline">\(H_{0}\)</span> is true</p></li>
 <li class="fragment"><p>So to use CLT for null distribution, we must satisfy:</p>
 <ul>
-<li class="fragment"><p>Independence</p></li>
+<li class="fragment"><p>Independence (like usual)</p></li>
 <li class="fragment"><div class="important">
 <p>Success-failure condition under <span class="math inline">\(H_{0}\)</span>: <span class="math inline">\(np_{0} \geq 10\)</span> and <span class="math inline">\(n(1-p_{0}) \geq 10\)</span></p>
 </div></li>
@@ -323,8 +322,7 @@
 <section id="test-statistic" class="slide level2">
 <h2>Test statistic</h2>
 <ul>
-<li class="fragment"><p>p-value requires us to compare our observed data to the null distribution</p></li>
-<li class="fragment"><p>We calculate a <strong>test statistic</strong>: a quantity that assesses how consistent our sampled data are with <span class="math inline">\(H_{0}\)</span></p>
+<li class="fragment"><p>Will obtain p-value using a <strong>test statistic</strong>: a quantity that assesses how consistent our sampled data are with <span class="math inline">\(H_{0}\)</span></p>
 <ul>
 <li class="fragment">Our test statistic is always of the form:</li>
 </ul>
@@ -332,7 +330,7 @@
 <p><span class="math display">\[\frac{\text{point estimate} - \text{null value}}{\text{SE}_{0}}\]</span> where <span class="math inline">\(\text{SE}_{0}\)</span> represents the standard error under <span class="math inline">\(H_{0}\)</span></p>
 </div>
 <ul>
-<li class="fragment">For this specific test, our test statistic is the <span class="math inline">\(z\)</span>-score of <span class="math inline">\(\hat{p}_{obs}\)</span>:</li>
+<li class="fragment">For this specific test, our test statistic is the <span class="math inline">\(z\)</span>-score of <span class="math inline">\(\hat{p}_{obs}\)</span> from the null distribution:</li>
 </ul>
 <div class="fragment">
 <p><span class="math display">\[z =\frac{\hat{p}_{\text{obs}} - p_{0}}{\sqrt{\frac{p_{0} (1-p_{0})}{n}}}\]</span></p>
@@ -344,11 +342,14 @@
 </section>
 <section id="obtain-p-value" class="slide level2">
 <h2>Obtain p-value</h2>
+<div class="discuss">
+<p>Remember, <span class="math inline">\(z\)</span> here is our test statistic. Is large <span class="math inline">\(|z|\)</span> or small <span class="math inline">\(|z|\)</span> considered unusual for <span class="math inline">\(H_{0}\)</span>?</p>
+</div>
 <ul>
 <li class="fragment"><p>If <span class="math inline">\(|z|\)</span> large, then that usually means observed value is extremely unusual for <span class="math inline">\(H_{0}\)</span>, which is convincing evidence against <span class="math inline">\(H_{0}\)</span></p></li>
 <li class="fragment"><p>p-value is then <span class="math inline">\(\text{Pr}(Z \geq z)\)</span> or <span class="math inline">\(\text{Pr}(Z \leq z)\)</span> (or both), depending on <span class="math inline">\(H_{A}\)</span></p>
 <ul>
-<li class="fragment">Easily obtained using <code>pnorm()</code></li>
+<li class="fragment">Easily obtained using <code>pnorm()</code> : either <code>pnorm(z, 0, 1)</code> and/or <code>1 - pnorm(z, 0, 1)</code></li>
 </ul></li>
 <li class="fragment"><p>Step 4: doesn’t change!</p></li>
 </ul>
@@ -398,7 +399,7 @@
 </div>
 <ul>
 <li class="fragment"><p>Independence: random sample</p></li>
-<li class="fragment"><p>success-failure: <span class="math inline">\(np_{0} = 80(0.5) = 40 \geq 10\)</span> and <span class="math inline">\(n(1-p_{0}) = 40 \geq 10\)</span></p></li>
+<li class="fragment"><p>Success-failure (under <span class="math inline">\(H_{0}\)</span>): <span class="math inline">\(np_{0} = 80(0.5) = 40 \geq 10\)</span> and <span class="math inline">\(n(1-p_{0}) = 40 \geq 10\)</span></p></li>
 <li class="fragment"><div class="important">
 <p>Because conditions for CLT are met, we can obtain the null distribution using CLT.</p>
 </div></li>
@@ -535,7 +536,6 @@
 <div class="columns">
 <div class="column" style="width:50%;">
 <p>Since <span class="math inline">\(H_{A}\)</span> is two-sided, we want <span class="math display">\[\begin{align*}
-    &amp;\text{Pr}(Z \leq -1.43 \cup Z \geq 1.43) \\
     &amp;= \text{Pr}(Z \leq -1.43) + \text{Pr}(Z \geq 1.43)  \\
     &amp;= 2\times \text{Pr}(Z \leq -1.43) \\
     \end{align*}\]</span></p>

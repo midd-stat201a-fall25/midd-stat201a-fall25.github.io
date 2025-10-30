@@ -528,9 +528,9 @@ format:
       <td>
         <ul>
           <li> Topic: Wrap-up CLT-based CI for single proportion </li>
-          <li> Topic: CLT-based HT for single proportion </li>
+          <li> Topic: <a href="slides/slides-20-ht-prop.qmd">HT for single proportion</a> (pdf <a href="slides/pdf/slides-20.pdf">here</a>)</li>
           <ul>
-            <li>  Handout </li>
+            <li>  Handout <a href="slides/handout-20-ht-prop.qmd">here</a> </li>
           </ul>
         </ul>
       </td>
