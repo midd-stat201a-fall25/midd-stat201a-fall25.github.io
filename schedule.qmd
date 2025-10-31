@@ -497,7 +497,7 @@ format:
       </td>
       <td>
         <ul>
-          <li> Monday problems on <a href="homework/hw7.pdf">Problem Set 7</a> </li>
+          <li> Monday problems on <a href="homework/hw7.pdf">Problem Set 7</a> Update 10/31: there was a typo on Problem 3. Should be standard deviation of $7000. </li>
           <li> Project group by Thursday </li>
         </ul>
       </td>
@@ -517,7 +517,7 @@ format:
       </td>
       <td>
         <ul>
-          <li> Continue working on <a href="homework/hw7.pdf">Problem Set 7</a> </li>
+          <li> Continue working on <a href="homework/hw7.pdf">Problem Set 7</a> Update 10/31: there was a typo on Problem 3. Should be standard deviation of $7000. </li>
           <li> Project group by tomorrow class! </li
         </ul>
       </td>
@@ -538,7 +538,7 @@ format:
       </td>
       <td>
         <ul>
-          <li> Thursday problems on <a href="homework/hw7.pdf">Problem Set 7</a>. Update 10/31: there was a typo on Problem 3. Should be standard deviation of $7000. </li>
+          <li> Thursday problems on <a href="homework/hw7.pdf">Problem Set 7</a>. <b>Update 10/31: there was a typo on Problem 3. Should be standard deviation of $7000.</b> </li>
           <li> Work on project proposal </li>
         </ul>
       </td>
