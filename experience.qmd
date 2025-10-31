@@ -24,7 +24,12 @@ Below lists opportunities that count toward having a Statistics or Data Science 
     -   10/03: Fall Faculty Forum talks by our Stats Faculty at 1:15pm in Axinn 229
     -   **11/08: Women in Data Science Conference at Middlebury**
     -   More forthcoming!
-3.  GitHub repo + Tidy Tuesday (TBA)
+3.  Tidy Tuesday
+    -   **Tuesdays 11/4, 11/11, and 11/18 from 3:30-5:00 in MBH 169 (Q-Center Classroom)**
+
+    -   TidyTuesday is an opensource project where people around the globe play with a dataset. These sessions are a weekly chance to practice working with data. Middlebury’s TidyTuesdays will be led by Jonathan Cummings, a biologist highly experienced with coding and analytics, who regularly works in R.
+
+    -   Attend one Tidy Tuesday and take a screenshot of your final product to include in your reflection!
 
 ## Reflect
 
@@ -34,6 +39,6 @@ After having your experience, please create a brief set of slides (e.g. PowerPoi
 2.  Description of the experience
 3.  Something(s) you learned from the experience (3-5 sentences/bullet points)
 4.  Connection to STAT 201 (3-5 sentences/bullet points)
-5.  **If you attended an event/talk**: a photo of the experience with a descriptive caption. *Please obtain consent from all people in the photo to share the photo with Prof. Tang and if possible, a public-facing website or bulletin board. If someone does not agree to share the photo with the public, please note that in the slide!*
+5.  **If you attended an event/talk**: a photo/screenshot of the experience with a descriptive caption. *Please obtain consent from all people in the photo to share the photo with Prof. Tang and if possible, a public-facing website or bulletin board. If someone does not agree to share the photo with the public, please note that in the slide!*
 
 The slides should be well-designed and have large enough font for presenting to an audience.
