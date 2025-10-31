@@ -1,7 +1,7 @@
 ---
 title: "CIs and HTs for a single mean"
 subtitle: "CLT-based"
-date: "April 14, 2025"
+date: "November 3, 2025"
 title-slide-attributes:
     data-background-image: "figs/bikeshare-plots.png"
     data-background-size: contain
@@ -20,13 +20,13 @@ draft: false
 
 ## Housekeeping
 
--   Dessert social today! 3-4:30pm in WNS 105!
+-   Dessert social today! 3:30-4:30pm in WNS 105!
 
--   Modified office hours today: 1:30-2:30pm instead of 2-3pm
+-   Modified office hours today: 1:00-2:00pm
 
 -   Homework 7 due tonight
 
--   Project proposals due Wednesday night
+-   Project proposals due Wednesday night at 11:59pm
 
 ## Recap
 
@@ -40,7 +40,9 @@ plot_theme <- theme(text = element_text(size = 24))
 source("../stat201_fns.R")
 ```
 
--   CLT: if we have a sufficiently large sample of $n$ independent observations from a population with mean $\mu$ and standard deviation $\sigma$, then $\bar{X} \overset{\cdot}{\sim} N\left(\mu, \frac{\sigma}{\sqrt{n}}\right)$
+-   Back to numerical data
+
+-   CLT: if we have a "sufficiently large" sample of $n$ independent observations from a population with mean $\mu$ and standard deviation $\sigma$, then $\bar{X} \overset{\cdot}{\sim} N\left(\mu, \frac{\sigma}{\sqrt{n}}\right)$
 
 -   To obtain a $\gamma\times 100\%$ CI via CLT, we use
 
@@ -50,7 +52,7 @@ source("../stat201_fns.R")
     $$
     :::
 
-    -   We may need to replace the standard error with an estimate $\widehat{SE}$
+    -   We *may* need to replace the standard error with an estimate $\widehat{SE}$
 
 ## Checking normality
 
@@ -64,9 +66,11 @@ source("../stat201_fns.R")
 
 # CI for a single mean
 
-## CI for a single mean (known variance)
+If you'd like supplemental reading on CLT-based inference for a single mean: [Section 19.2](https://openintro-ims.netlify.app/inference-one-mean#sec-one-mean-math) of the textbook can be helpful!
 
-Suppose we want a $\gamma\times 100\%$ CI for population mean $\mu$.
+## CI for a single mean (known SD)
+
+Suppose we want a $\gamma\times 100\%$ CI for population mean $\mu$. Also suppose that $\sigma$ is known to us!
 
 -   *If* CLT holds, then we know
 
@@ -77,8 +81,10 @@ Suppose we want a $\gamma\times 100\%$ CI for population mean $\mu$.
 -   So our $\gamma \times 100\%$ CI for $\mu$ is:
 
     $$
-    \text{point estimate} \pm \underbrace{\text{critical value} \times \text{SE}}_{\text{Margin of Error}} = \bar{x}_{obs} \pm z_{(1+\gamma)/2}^* \times \frac{\sigma}{\sqrt{n}}
+    \text{point estimate} \pm \text{critical value} \times \text{SE} = \bar{x}_{obs} \pm z_{(1+\gamma)/2}^* \times \frac{\sigma}{\sqrt{n}}
     $$
+
+-   Here, because we assumed $\sigma$ known, we don't need to (and shouldn't) approximate $\text{SE}$
 
 ## Example: age at marriage
 
@@ -179,11 +185,11 @@ where $s$ is the observed sample standard deviation
 
 -   Estimating variance is extremely difficult when $n$ is small, and still not great for large $n$
 
-    -   Thus, replacing $\sigma$ with $s$ invalidates CLT
+    -   Replacing $\sigma$ with $s$ actually invalidates CLT
 
--   So if $\sigma$ is unknown, we ***cannot*** use the Normal approximation to model $\bar{X}$ for inferential tasks
+-   **So if** $\sigma$ **is unknown**, we ***cannot*** use the Normal approximation to model $\bar{X}$ for inferential tasks
 
--   Instead, we will use a new distribution for inference calculations, called the $t$-distribution
+-   Instead, we will use a different distribution for inference calculations, called the $t$-distribution
 
 ## $t$-distribution
 

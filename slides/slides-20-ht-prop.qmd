@@ -97,6 +97,8 @@ $$
 
 # Hypothesis test for single proportion
 
+If you'd like supplemental reading about CLT-based inference for one proportion, [Section 16.2](https://openintro-ims.netlify.app/inference-one-prop#sec-one-prop-norm) of the textbook can be helpful!
+
 ## Steps 1 and 2 don't change
 
 Want to conduct a hypothesis test about a population proportion.

@@ -538,7 +538,7 @@ format:
       </td>
       <td>
         <ul>
-          <li> Thursday problems on <a href="homework/hw7.pdf">Problem Set 7</a> </li>
+          <li> Thursday problems on <a href="homework/hw7.pdf">Problem Set 7</a>. Update 10/31: there was a typo on Problem 3. Should be standard deviation of $7000. </li>
           <li> Work on project proposal </li>
         </ul>
       </td>
