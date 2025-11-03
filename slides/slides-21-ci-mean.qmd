@@ -187,7 +187,7 @@ where $s$ is the observed sample standard deviation
 
     -   Replacing $\sigma$ with $s$ actually invalidates CLT
 
--   **So if** $\sigma$ **is unknown**, we ***cannot*** use the Normal approximation to model $\bar{X}$ for inferential tasks
+-   **So if** $\sigma$ **is unknown**, we ***cannot*** directly use the Normal approximation to model $\bar{X}$ for inferential tasks
 
 -   Instead, we will use a different distribution for inference calculations, called the $t$-distribution
 
@@ -286,7 +286,7 @@ ggplot() +
 
 ## CI for a single mean (unknown variance)
 
--   Still require independent observations and the Normality condition for CLT
+-   Still require CLT to hold before swapping $s$ with $\sigma$ (independent observations and the Normality condition)
 
 -   General formula for $\gamma \times 100\%$ CI is the same, but we simply change what goes into the margin of error.
 

@@ -24,13 +24,16 @@ se <- s / sqrt(n)
 t <- (xbar - mu0)/se
 t
 
-# obtain p-value
+# obtain p-value for two-sided H_A
 df <- n-1
-# option 1
+# option 1 (relies on knowing that t is positive)
 p_val <- 2 * (1 - pt(t, df))
 p_val
 
-# option 2: works no matter if t is positive or negative
+# option 2 (relies on knowing that t is positive)
+p_vale <- 2 * pt(-t, df)
+
+# option 3: works no matter if t is positive or negative
 p_val <- 2 * (1 - pt(abs(t), df))
 p_val
 ```

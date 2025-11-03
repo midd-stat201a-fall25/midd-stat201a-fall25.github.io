@@ -552,6 +552,7 @@ format:
           <li> Topic: <a href="slides/slides-21-ci-mean.qmd">CLT-based inference for single mean</a> (pdf <a href="slides/pdf/slides-21.pdf">here</a>) </li>
           <ul>
             <li>  Handout <a href="slides/handout-21-ci-mean.qmd">here</a></li>
+            <li>  <a href="live_code/ht_single_mean_clt.qmd">Code</a> for implementing t-test example </li>
           </ul>
         </ul>
       </td>
@@ -559,7 +560,7 @@ format:
       </td>
       <td>
         <ul>
-          <li> Monday problems on Problem Set 8. </li>
+          <li> Monday problems on <a href="homework/hw8.pdf">Problem Set 8.</a> </li>
           <li> Work on project proposal. </li>
         </ul>
       </td>
