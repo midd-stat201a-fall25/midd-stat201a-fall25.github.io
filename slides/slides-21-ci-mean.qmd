@@ -370,6 +370,8 @@ Want to conduct a hypothesis test for the mean $\mu$ of a population.
 $$
 \bar{X} \overset{\cdot}{\sim}  N\left(\boldsymbol{\mu_{0}}, \frac{\sigma}{\sqrt{n}}\right)
 $$
+
+Notice that the SE for sampling and null distribution of $\bar{X}$ remains unchanged!
 :::
 
 ## z-test and *t*-test statistics
@@ -377,7 +379,7 @@ $$
 Our test statistic is always of the form:
 
 $$
-\frac{\text{observed} - \text{null}}{\text{SE}} \qquad \text{ or } \qquad \frac{\text{observed} - \text{null}}{\widehat{\text{SE}}}
+\frac{\text{observed} - \text{null}}{\text{SE}_{0}} \qquad \text{ or } \qquad \frac{\text{observed} - \text{null}}{\widehat{\text{SE}}_{0}}
 $$
 
 ::::::: columns

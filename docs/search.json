@@ -8544,14 +8544,14 @@
     "href": "slides/slides-21-ci-mean.html#hypotheses-and-null-distribution",
     "title": "CIs and HTs for a single mean",
     "section": "Hypotheses and null distribution",
-    "text": "Hypotheses and null distribution\nWant to conduct a hypothesis test for the mean \\(\\mu\\) of a population.\n\nHypotheses: \\(H_0: \\mu= \\mu_{0}\\) versus \\(H_{A}: \\mu \\neq \\mu_{0} \\ (\\text{or } \\mu &gt; \\mu_{0} \\text{ or } \\mu &lt; \\mu_{0})\\)\nVerify conditions for CLT\n\nIndependence\nApproximate normality or large sample size\n\nThen from population with mean \\(\\mu\\) and standard deviation \\(\\sigma\\), we have \\(\\bar{X} \\overset{\\cdot}{\\sim} N\\left(\\mu, \\frac{\\sigma}{\\sqrt{n}}\\right)\\)\n\nWhat does the (approximate) null distribution for \\(\\bar{X}\\) look like?\n\n\n\n\\[\n\\bar{X} \\overset{\\cdot}{\\sim}  N\\left(\\boldsymbol{\\mu_{0}}, \\frac{\\sigma}{\\sqrt{n}}\\right)\n\\]"
+    "text": "Hypotheses and null distribution\nWant to conduct a hypothesis test for the mean \\(\\mu\\) of a population.\n\nHypotheses: \\(H_0: \\mu= \\mu_{0}\\) versus \\(H_{A}: \\mu \\neq \\mu_{0} \\ (\\text{or } \\mu &gt; \\mu_{0} \\text{ or } \\mu &lt; \\mu_{0})\\)\nVerify conditions for CLT\n\nIndependence\nApproximate normality or large sample size\n\nThen from population with mean \\(\\mu\\) and standard deviation \\(\\sigma\\), we have \\(\\bar{X} \\overset{\\cdot}{\\sim} N\\left(\\mu, \\frac{\\sigma}{\\sqrt{n}}\\right)\\)\n\nWhat does the (approximate) null distribution for \\(\\bar{X}\\) look like?\n\n\n\n\\[\n\\bar{X} \\overset{\\cdot}{\\sim}  N\\left(\\boldsymbol{\\mu_{0}}, \\frac{\\sigma}{\\sqrt{n}}\\right)\n\\]\nNotice that the SE for sampling and null distribution of \\(\\bar{X}\\) remains unchanged!"
   },
   {
     "objectID": "slides/slides-21-ci-mean.html#z-test-and-t-test-statistics",
     "href": "slides/slides-21-ci-mean.html#z-test-and-t-test-statistics",
     "title": "CIs and HTs for a single mean",
     "section": "z-test and t-test statistics",
-    "text": "z-test and t-test statistics\nOur test statistic is always of the form:\n\\[\n\\frac{\\text{observed} - \\text{null}}{\\text{SE}} \\qquad \\text{ or } \\qquad \\frac{\\text{observed} - \\text{null}}{\\widehat{\\text{SE}}}\n\\]\n\n\n\nIf \\(\\sigma\\) known and CLT met, we perform a z-test where our test-statistic is:\n\n\n\\[z = \\frac{\\bar{x}_{obs} - \\mu_{0}}{\\frac{\\sigma}{\\sqrt{n}}} \\sim N(0,1)\\]\nand we obtain our p-value using pnorm()\n\n\n\nIf \\(\\sigma\\) unknown and CLT met, we perform a t-test by estimating \\(\\sigma\\) with \\(s\\). Our test statistic is:\n\n\n\\[\nt = \\frac{\\bar{x}_{obs} - \\mu_{0}}{\\frac{s}{\\sqrt{n}}} \\sim t_{df} \\qquad df = n-1\n\\]\nand we obtain our p-value using pt()\n\n\n\nEverything else proceeds as usual!"
+    "text": "z-test and t-test statistics\nOur test statistic is always of the form:\n\\[\n\\frac{\\text{observed} - \\text{null}}{\\text{SE}_{0}} \\qquad \\text{ or } \\qquad \\frac{\\text{observed} - \\text{null}}{\\widehat{\\text{SE}}_{0}}\n\\]\n\n\n\nIf \\(\\sigma\\) known and CLT met, we perform a z-test where our test-statistic is:\n\n\n\\[z = \\frac{\\bar{x}_{obs} - \\mu_{0}}{\\frac{\\sigma}{\\sqrt{n}}} \\sim N(0,1)\\]\nand we obtain our p-value using pnorm()\n\n\n\nIf \\(\\sigma\\) unknown and CLT met, we perform a t-test by estimating \\(\\sigma\\) with \\(s\\). Our test statistic is:\n\n\n\\[\nt = \\frac{\\bar{x}_{obs} - \\mu_{0}}{\\frac{s}{\\sqrt{n}}} \\sim t_{df} \\qquad df = n-1\n\\]\nand we obtain our p-value using pt()\n\n\n\nEverything else proceeds as usual!"
   },
   {
     "objectID": "slides/slides-21-ci-mean.html#example-salinity",
@@ -8691,7 +8691,7 @@
     "href": "slides/slides-22-ht-ci-diffs.html#recap",
     "title": "HTs and CIs for differences",
     "section": "Recap",
-    "text": "Recap\n\nTest and CI for a single mean\n\nIf we know \\(\\sigma\\), use standard Normal distribution\nIf we don’t know \\(\\sigma\\) and only have access to \\(s\\), use \\(t\\) distribution"
+    "text": "Recap\n\nTest and CI for a single mean if CLT applies:\n\nIf we know \\(\\sigma\\), use \\(SE = \\frac{\\sigma}{\\sqrt{n}}\\) and standard \\(N(0,1)\\) distribution\nIf we don’t know \\(\\sigma\\), use \\(\\hat{SE} = \\frac{s}{\\sqrt{n}}\\) and \\(t\\) distribution with \\(df = n-1\\)\n\nCI for a single proportion if CLT applies:\n\nUse \\(\\hat{p}_{obs}\\) in place of \\(p\\) to check success-failure and obtain \\(\\hat{SE}\\)"
   },
   {
     "objectID": "slides/slides-22-ht-ci-diffs.html#paired-data",
@@ -8844,8 +8844,8 @@
     "objectID": "slides/slides-22-ht-ci-diffs.html#housekeeping",
     "href": "slides/slides-22-ht-ci-diffs.html#housekeeping",
     "title": "HTs and CIs for differences",
-    "section": "",
-    "text": "Project proposals due tonight!"
+    "section": "Housekeeping",
+    "text": "Housekeeping\n\nProject proposals due tonight!"
   },
   {
     "objectID": "slides/slides-22-ht-ci-diffs.html#difference-of-two-proportions",
@@ -8859,7 +8859,7 @@
     "href": "slides/slides-22-ht-ci-diffs.html#sampling-dist.-of-difference-of-two-proportions",
     "title": "HTs and CIs for differences",
     "section": "Sampling dist. of difference of two proportions",
-    "text": "Sampling dist. of difference of two proportions\n\nIn order to use CLT approximation, we have to ensure conditions are met:\n\nIndependence (extended): data are independent within and between groups\nSuccess-failure (extended): success-failure conditions holds for both groups\n\n\\(n_{1} p_{1} \\geq 10\\), \\(n_{1} (1-p_{1}) \\geq 10\\), \\(n_{2} p_{2} \\geq 10\\), and \\(n_{2} (1-p_{2}) \\geq 10\\)\n\n\nIf above hold, then:\n\n\n\\[\n\\hat{p}_{1} - \\hat{p}_{2} \\overset{\\cdot}{\\sim} N\\left(p_{1} - p_{2}, \\sqrt{\\frac{p_{1} (1-p_{1})}{n_{1}} + \\frac{p_{2} (1-p_{2})}{n_{2}}} \\right)\n\\]\nwhere \\(p_{1}\\) and \\(p_{2}\\) are the population proportions"
+    "text": "Sampling dist. of difference of two proportions\n\nIn order to use CLT approximation for diff. in proportions, we have to ensure conditions are met:\n\nIndependence (extended): data are independent within and between groups\nSuccess-failure (extended): success-failure conditions holds for both groups\n\n\\(n_{1} p_{1} \\geq 10\\), \\(n_{1} (1-p_{1}) \\geq 10\\), \\(n_{2} p_{2} \\geq 10\\), and \\(n_{2} (1-p_{2}) \\geq 10\\)\n\n\nIf above hold, then:\n\n\n\\[\n\\hat{p}_{1} - \\hat{p}_{2} \\overset{\\cdot}{\\sim} N\\left(p_{1} - p_{2}, \\sqrt{\\frac{p_{1} (1-p_{1})}{n_{1}} + \\frac{p_{2} (1-p_{2})}{n_{2}}} \\right)\n\\]\nwhere \\(p_{1}\\) and \\(p_{2}\\) are the population proportions"
   },
   {
     "objectID": "slides/slides-22-ht-ci-diffs.html#confidence-interval-for-difference-in-proportions",
@@ -8894,28 +8894,28 @@
     "href": "slides/slides-22-ht-ci-diffs.html#hypothesis-test-for-difference-in-proportions",
     "title": "HTs and CIs for differences",
     "section": "Hypothesis test for difference in proportions",
-    "text": "Hypothesis test for difference in proportions\nHypothesis tests for difference in proportions in this class will take the form:\n\n\\[\n\\begin{align*}\nH_{0}: p_{1} - p_{2}  &= 0 \\\\\nH_{A}: \\ p_{1} - p_{2}  &\\neq 0\\\\\n\\text{ or }\\ &&lt;   \\\\\n\\text{ or }\\ &&gt;\n\\end{align*}\n\\]\n\n\nFor success-failure condition for difference in two proportions, we don’t have null-hypothesized values for \\(p_{1}\\) or \\(p_{2}\\).\nSo how do we check the condition??"
+    "text": "Hypothesis test for difference in proportions\nRecall, hypothesis tests for differences take the form:\n\n\\[\\begin{align*}\nH_{0}:\\  p_{1} - p_{2}  &= 0 \\\\\nH_{A}: \\ p_{1} - p_{2}  &\\neq 0 \\qquad (\\text{ or } &gt; \\qquad \\text{ or } &lt;)\n\\end{align*}\\]\n\n\nTo use CLT, need independence (extended) and success-failure condition under \\(H_{0}\\) (extended)\nUnlike before, we don’t have specific null-hypothesized values for \\(p_{1}\\) or \\(p_{2}\\).\nSo how do we check the success-failure condition??"
   },
   {
     "objectID": "slides/slides-22-ht-ci-diffs.html#pooled-proportion",
     "href": "slides/slides-22-ht-ci-diffs.html#pooled-proportion",
     "title": "HTs and CIs for differences",
     "section": "Pooled proportion",
-    "text": "Pooled proportion\n\nSince \\(H_{0}: p_{1} = p_{2}\\), then under the null \\(\\hat{p}_{1,obs}\\) and \\(\\hat{p}_{2,obs}\\) come from the same population\nSo under this null, we use a special proportion called the pooled proportion:\n\n\n\\[\n\\hat{p}_{pooled} = \\frac{\\text{total # of successes from both samples}}{\\text{combined sample size}}\n\\]\n\n\nThis is the best estimate of both \\(p_{1}\\) and \\(p_{2}\\) if \\(H_{0}: p_{1} = p_{2}\\) is true!\n\n\n\n\nFor this reason, use \\(\\hat{p}_{pooled}\\) to verify success-failure conditions for HT for difference of proportions:\n\n\\(n_{1} \\hat{p}_{pooled} \\geq 10\\) and \\(n_{1} (1-\\hat{p}_{pooled}) \\geq 10\\)\n\\(n_{2} \\hat{p}_{pooled} \\geq 10\\) and \\(n_{2} (1-\\hat{p}_{pooled}) \\geq 10\\)"
+    "text": "Pooled proportion\n\nSince \\(H_{0}: p_{1} = p_{2}\\), then under the null \\(\\hat{p}_{1,obs}\\) and \\(\\hat{p}_{2,obs}\\) come from the same population\nSo under this null, we use a special proportion called the pooled proportion:\n\n\n\\[\n\\hat{p}_{pooled} = \\frac{\\text{total # of successes from both samples}}{\\text{combined sample size}}\n\\]\n\n\nThis is the best estimate of both \\(p_{1}\\) and \\(p_{2}\\) if \\(H_{0}: p_{1} = p_{2}\\) is true! Thus putting us in \\(H_{0}\\)\n\n\n\n\nFor this reason, use \\(\\hat{p}_{pooled}\\) to verify success-failure conditions for HT for difference of proportions:\n\n\\(n_{1} \\hat{p}_{pooled} \\geq 10\\) and \\(n_{1} (1-\\hat{p}_{pooled}) \\geq 10\\)\n\\(n_{2} \\hat{p}_{pooled} \\geq 10\\) and \\(n_{2} (1-\\hat{p}_{pooled}) \\geq 10\\)"
   },
   {
     "objectID": "slides/slides-22-ht-ci-diffs.html#hypothesis-test-cont.",
     "href": "slides/slides-22-ht-ci-diffs.html#hypothesis-test-cont.",
     "title": "HTs and CIs for differences",
     "section": "Hypothesis test (cont.)",
-    "text": "Hypothesis test (cont.)\n\nObtain null distribution\n\nIf conditions satisfied, then we know the sampling distribution of \\(\\hat{p}_{1} - \\hat{p}_{2}\\)\nTo obtain the null distribution we assume \\(H_{0}: p_{1} - p_{2} = 0\\) is true and we \\(\\hat{p}_{pooled}\\) to estimate \\(p_{1}\\) and \\(p_{2}\\) to approximate standard error under the null:\n\n\n\n\\[\n\\begin{align*}\n\\hat{p}_{1} - \\hat{p}_{2} &\\overset{\\cdot}{\\sim} N\\left(p_{1} - p_{2}, \\sqrt{\\frac{p_{1} (1-p_{1})}{n_{1}} + \\frac{p_{2} (1-p_{2})}{n_{2}}}  \\right) \\qquad \\text{(CLT)} \\\\ &\\overset{\\cdot}{\\sim} N\\big(0, \\underbrace{\\sqrt{\\frac{\\hat{p}_{pooled}(1 - \\hat{p}_{pooled})}{n_{1}} + \\frac{\\hat{p}_{pooled}(1 - \\hat{p}_{pooled})}{n_{2}}}}_{\\widehat{\\text{SE}}_{0}} \\big) \\qquad (H_{0})\n\\end{align*}\n\\]"
+    "text": "Hypothesis test (cont.)\n\nObtain null distribution\n\nIf conditions satisfied, then we know the sampling distribution of \\(\\hat{p}_{1} - \\hat{p}_{2}\\)\nTo obtain the null distribution we assume \\(H_{0}: p_{1} - p_{2} = 0\\) is true and we \\(\\hat{p}_{pooled}\\) to estimate \\(p_{1}\\) and \\(p_{2}\\) to approximate standard error under the null:\n\n\n\n\\[\\begin{align*}\n\\hat{p}_{1} - \\hat{p}_{2} &\\overset{\\cdot}{\\sim} N\\left(p_{1} - p_{2}, \\sqrt{\\frac{p_{1} (1-p_{1})}{n_{1}} + \\frac{p_{2} (1-p_{2})}{n_{2}}}  \\right) \\qquad \\text{(CLT)} \\\\ &\\overset{\\cdot}{\\sim} N\\big(0, \\sqrt{\\frac{\\hat{p}_{pooled}(1 - \\hat{p}_{pooled})}{n_{1}} + \\frac{\\hat{p}_{pooled}(1 - \\hat{p}_{pooled})}{n_{2}}} \\big) \\qquad (H_{0})\n\\end{align*}\\]\n\n\nThis last square root is \\(\\widehat{SE}_{0}\\), our approximate standard error under \\(H_{0}\\)"
   },
   {
     "objectID": "slides/slides-22-ht-ci-diffs.html#hypothesis-test-cont.-1",
     "href": "slides/slides-22-ht-ci-diffs.html#hypothesis-test-cont.-1",
     "title": "HTs and CIs for differences",
     "section": "Hypothesis test (cont.)",
-    "text": "Hypothesis test (cont.)\nObtain test-statistic:\n\\[\nz = \\frac{\\text{point estimate} - \\text{null value}}{\\text{SE}} \\approx \\frac{(\\hat{p}_{1,obs} - \\hat{p}_{2,obs}) - 0}{\\widehat{\\text{SE}}_{0}}\n\\]\n\nTo obtain p-value, we want \\(\\text{Pr}(Z \\geq z)\\) and/or \\(\\text{Pr}(Z \\leq z)\\) where \\(Z \\sim N(0,1)\\)\n\nObtain using pnorm(z, 0, 1)"
+    "text": "Hypothesis test (cont.)\nObtain test-statistic:\n\\[\nz = \\frac{\\text{point estimate} - \\text{null value}}{\\text{SE}_{0}} \\approx \\frac{(\\hat{p}_{1,obs} - \\hat{p}_{2,obs}) - 0}{\\widehat{\\text{SE}}_{0}}\n\\]\n\nTo obtain p-value, we want \\(\\text{Pr}(Z \\geq z)\\) and/or \\(\\text{Pr}(Z \\leq z)\\) where \\(Z \\sim N(0,1)\\)\n\nAs before, obtain using pnorm(z, 0, 1)"
   },
   {
     "objectID": "slides/slides-22-ht-ci-diffs.html#example-offshore-drilling-1",
@@ -8999,49 +8999,49 @@
     "href": "slides/slides-22-ht-ci-diffs.html#diff.-props-ci-example-offshore-drilling",
     "title": "HTs and CIs for differences",
     "section": "Diff. props CI example: offshore drilling",
-    "text": "Diff. props CI example: offshore drilling\nA survey asked 592 randomly sampled registered voters in California: Do you support or oppose drilling for oil and natural gas off the Coast of California? We have the following distribution of responses separated by whether the respondent graduated from college:\n\n\n`summarise()` has grouped output by 'position'. You can override using the\n`.groups` argument.\n\n\n\n\n\nposition\nno\nyes\ntotal\n\n\n\n\noppose\n126\n180\n306\n\n\nsupport\n132\n154\n286\n\n\ntotal\n258\n334\n592\n\n\n\n\n\n\n\n\nLet’s obtain a 95% CI via the CLT for the difference in the proportion of college and non-college Californians who support offshore drilling."
+    "text": "Diff. props CI example: offshore drilling\nA study in 1994 examined over 1400 randomly sampled dogs, some of which had been exposed to the herbicide 2,4-Dichlorophenoxyacetic acid. They wanted to do know if there is an increased risk in dogs in developing cancer due to exposure to 2,4-D. We have the following data:\n\n\n\n\n\ntreatment\ncancer\nno cancer\ntotal\n\n\n\n\ncontrol\n300\n641\n941\n\n\nherbicide\n191\n304\n495\n\n\ntotal\n491\n945\n1436\n\n\n\n\n\n\nLet’s obtain a 95% CI via the CLT for the difference in the proportion cancer outcomes between dogs exposed to 2,4-D and dogs not exposed to the herbicide."
   },
   {
     "objectID": "slides/slides-22-ht-ci-diffs.html#diff.-props-ci-example-cont.",
     "href": "slides/slides-22-ht-ci-diffs.html#diff.-props-ci-example-cont.",
     "title": "HTs and CIs for differences",
     "section": "Diff. props CI example (cont.)",
-    "text": "Diff. props CI example (cont.)\nLet population 1 be college attendees, and population 2 be non-college attendees. We want a 95% CI for \\(p_{1} - p_{2}\\), where \\(p_{i}\\) is the proportion of population \\(i\\) who support offshore drilling.\n\n\n\n\nObtain useful statistics\n\n\n\\(n_{1} = 334\\), \\(n_{2} = 258\\)\n\\(\\hat{p}_{1, obs} = \\frac{154}{334} = 0.461\\)\n\\(\\hat{p}_{2, obs} = \\frac{132}{258} = 0.512\\)\n\n\n\n\n\nCheck conditions for CLT.\n\n\nIndependence (extended)? Randomly sampled\nSuccess-failure (extended)?\n\n\\(n_{1}\\hat{p}_{1,obs} = 154 \\geq 10\\)\n\\(n_{1}(1-\\hat{p}_{1,obs}) = 180 \\geq 10\\)\n\\(n_{2}\\hat{p}_{2,obs} = 132 \\geq 10\\)\n\\(n_{2}(1-\\hat{p}_{2,obs}) = 126 \\geq 10\\)\n\n\n\n\n\n\nSince both conditions are met, we can proceed with the CLT."
+    "text": "Diff. props CI example (cont.)\nLet population 1 be dogs exposed to 2,4-D, and population 2 be dogs not exposed to 2,4-D. We want a 95% CI for \\(p_{1} - p_{2}\\), where \\(p_{i}\\) is the rate of cancer in population \\(i\\).\n\n\n\n\nObtain useful statistics\n\n\n\\(n_{1} = 495\\), \\(n_{2} = 941\\)\n\\(\\hat{p}_{1, obs} = \\frac{191}{495} = 0.386\\)\n\\(\\hat{p}_{2, obs} = \\frac{300}{941} = 0.319\\)\n\n\n\n\n\nCheck conditions for CLT.\n\n\nIndependence (extended)? Randomly sampled\nSuccess-failure (extended)?\n\n\\(n_{1}\\hat{p}_{1,obs} = 154 \\geq 10\\)\n\\(n_{1}(1-\\hat{p}_{1,obs}) = 180 \\geq 10\\)\n\\(n_{2}\\hat{p}_{2,obs} = 132 \\geq 10\\)\n\\(n_{2}(1-\\hat{p}_{2,obs}) = 126 \\geq 10\\)\n\n\n\n\n\nSince both conditions are met, we can proceed with the CLT."
   },
   {
     "objectID": "slides/slides-22-ht-ci-diffs.html#diff.-props-ci-example-cont.-1",
     "href": "slides/slides-22-ht-ci-diffs.html#diff.-props-ci-example-cont.-1",
     "title": "HTs and CIs for differences",
     "section": "Diff. props CI example (cont.)",
-    "text": "Diff. props CI example (cont.)\nCollect the components of CI:\n\n\n\n\nPoint estimate\n\n\nCritical value (code)\n\n\n\\(\\text{SE}\\) or \\(\\widehat{\\text{SE}}\\)\n\n\n\n\n\\(\\hat{p}_{1,obs} - \\hat{p}_{2,obs} = 0.461 - 0.512 = -0.051\\)\n\\(z^{*}_{0.975} =\\) qnorm(0.975, 0, 1) \\(\\approx 1.96\\)\n\\(\\widehat{\\text{SE}} = \\sqrt{\\frac{0.461(1 - 0.461)}{334} + \\frac{0.512(1 - 0.512)}{258}} = 0.041\\)\n\n\n\n\nSo putting it all together, our 95% CI is:\n\\[\n-0.051 \\pm 1.96 \\times 0.041 = (-0.131, 0.029)\n\\]\n\nInterpret!"
+    "text": "Diff. props CI example (cont.)\nCollect the components of CI:\n\n\n\n\nPoint estimate\n\n\nCritical value (code)\n\n\n\\(\\text{SE}\\) or \\(\\widehat{\\text{SE}}\\)\n\n\n\n\n\\(\\hat{p}_{1,obs} - \\hat{p}_{2,obs} = 0.386 - 0.319 = 0.067\\)\n\\(z^{*}_{0.975} =\\) qnorm(0.975, 0, 1) \\(\\approx 1.96\\)\n\\(\\widehat{\\text{SE}} = \\sqrt{\\frac{0.386(1 - 0.386)}{495} + \\frac{0.319(1 - 0.319)}{941}} = 0.027\\)\n\n\n\nSo putting it all together, our 95% CI is:\n\\[\n0.067 \\pm 1.96 \\times 0.027 = (0.014, 0.12)\n\\]\n\nInterpret!\n\n\nWe are 95% confident the that the true difference in rates of cancer among dogs exposed to 2,4-D and dogs not exposed to 2,4-D is between 0.014 and 0.12 (exposed - control)."
   },
   {
     "objectID": "slides/slides-22-ht-ci-diffs.html#diff.-props-ht-example-offshore-drilling-again",
     "href": "slides/slides-22-ht-ci-diffs.html#diff.-props-ht-example-offshore-drilling-again",
     "title": "HTs and CIs for differences",
     "section": "Diff. props HT example: offshore drilling (again)",
-    "text": "Diff. props HT example: offshore drilling (again)\nUsing the same data as before, let’s answer the following question:\n\nDo the data provide strong evidence at the 0.05 level that the proportion of college graduates who support off-shore drilling in California is different than that of non-college graduates?\n\n\nLet \\(p_{1}\\) and \\(p_{2}\\) be defined as before.\n\nDefine hypotheses\n\n\n\\(H_{0}: p_{1} - p_{2} = 0\\) and \\(H_{A}: p_{1} - p_{2} \\neq 0\\)"
+    "text": "Diff. props HT example: offshore drilling (again)\nUsing the same data as before, let’s answer the following question:\n\nDo the data provide strong evidence at the 0.05 level that the rate of cancer is higher for dogs exposed to 2,4-D than that of dogs not exposed to the herbicide?\n\n\nLet \\(p_{1}\\) and \\(p_{2}\\) be defined as before.\n\nDefine hypotheses\n\n\n\\(H_{0}: p_{1} - p_{2} = 0\\) and \\(H_{A}: p_{1} - p_{2} &gt; 0\\)"
   },
   {
     "objectID": "slides/slides-22-ht-ci-diffs.html#diff.-props-ht-example-cont.",
     "href": "slides/slides-22-ht-ci-diffs.html#diff.-props-ht-example-cont.",
     "title": "HTs and CIs for differences",
     "section": "Diff. props HT example (cont.)",
-    "text": "Diff. props HT example (cont.)\n\nObtain pooled proportion, and use it to check conditions for CLT.\n\n\n\\(\\hat{p}_{pooled} =\\frac{154 + 132}{334 + 258} = \\frac{286}{592} = 0.483\\)\nConditions\n\nIndependence (extended): random sample\nSuccess-failure (extended):\n\n\\(n_{1} \\hat{p}_{pooled} = 334 \\times 0.483 = 161.32 \\geq 10\\)\n\\(n_{1} (1 - \\hat{p}_{pooled}) = 334 \\times (1 - 0.483) = 172.68 \\geq 10\\)\n\\(n_{2} \\hat{p}_{pooled} = 258 \\times 0.483 = 124.61 \\geq 10\\)\n\\(n_{2} (1 - \\hat{p}_{pooled}) = 258 \\times (1 - 0.483) = 133.39 \\geq 10\\)\n\n\nSince conditions are met, we can proceed with CLT-based test!"
+    "text": "Diff. props HT example (cont.)\n\nObtain pooled proportion, and use it to check conditions for CLT.\n\n\n\\(\\hat{p}_{pooled} =\\frac{191 + 300}{495 + 941} = \\frac{491}{1436} = 0.342\\)\nConditions\n\nIndependence (extended): random sample\nSuccess-failure (extended):\n\n\\(n_{1} \\hat{p}_{pooled} = 495 \\times 0.342 = 169.29 \\geq 10\\)\n\\(n_{1} (1 - \\hat{p}_{pooled}) = 495 \\times (1 - 0.342) = 325.71 \\geq 10\\)\n\\(n_{2} \\hat{p}_{pooled} = 941 \\times 0.342 = 321.82 \\geq 10\\)\n\\(n_{2} (1 - \\hat{p}_{pooled}) = 941 \\times (1 - 0.342) = 619.18 \\geq 10\\)\n\n\nSince conditions are met, we can proceed with CLT-based test!"
   },
   {
     "objectID": "slides/slides-22-ht-ci-diffs.html#diff.-props-ht-example-cont.-1",
     "href": "slides/slides-22-ht-ci-diffs.html#diff.-props-ht-example-cont.-1",
     "title": "HTs and CIs for differences",
     "section": "Diff. props HT example (cont.)",
-    "text": "Diff. props HT example (cont.)\n\n\nFind the null distribution for \\(\\hat{p}_{1} - \\hat{p}_{2}\\).\n\n\n\n\\[\n\\hat{p}_{1} - \\hat{p}_{2} \\overset{\\cdot}{\\sim}N\\left(0, \\sqrt{\\frac{0.483(1 - 0.483)}{334} + \\frac{0.483(1 - 0.483)}{258}} = 0.041 \\right)\n\\]\n\n\n\nSet up calculation for test statistic\n\n\n\n\\[\n    z =\\frac{( \\hat{p}_{1, obs}- \\hat{p}_{2, obs}) - 0}{\\widehat{\\text{SE}}_{0}} = \\frac{(0.461 - 0.512) - 0}{0.041} = -1.244\n\\]"
+    "text": "Diff. props HT example (cont.)\n\n\nFind the null distribution for \\(\\hat{p}_{1} - \\hat{p}_{2}\\).\n\n\n\n\\[\n\\hat{p}_{1} - \\hat{p}_{2} \\overset{\\cdot}{\\sim}N\\left(0, \\sqrt{\\frac{0.342(1 - 0.342)}{495} + \\frac{0.342(1 - 0.342)}{941}} = 0.026 \\right)\n\\]\n\n\n\nSet up calculation for test statistic\n\n\n\n\\[\n    z =\\frac{( \\hat{p}_{1, obs}- \\hat{p}_{2, obs}) - 0}{\\widehat{\\text{SE}}_{0}} = \\frac{(0.386 - 0.319) - 0}{0.026} = 2.577\n\\]"
   },
   {
     "objectID": "slides/slides-22-ht-ci-diffs.html#diff.-props-ht-example-cont.-2",
     "href": "slides/slides-22-ht-ci-diffs.html#diff.-props-ht-example-cont.-2",
     "title": "HTs and CIs for differences",
     "section": "Diff. props HT example (cont.)",
-    "text": "Diff. props HT example (cont.)\n\nDraw picture and write code for p-value\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\np-value calculation:\n\n\\(\\text{Pr}(Z \\leq z) + \\text{Pr}(Z \\geq -z)\\)\n2 * pnorm(-1.244, 0, 1) = 0.2134996\n\n\n\n\n\n\nMake a decision and conclusion in context.\n\n\n\nSince our p-value is greater than 0.05, we fail to reject \\(H_{0}\\). The data do not provide strong evidence of a difference between the proportions of college graduates and non-college graduates who support off-shore drilling among California voters."
+    "text": "Diff. props HT example (cont.)\n\nDraw picture and write code for p-value\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\np-value calculation:\n\n\\(\\text{Pr}(Z \\geq z) = \\text{Pr}(Z \\geq 2.577)\\)\n1 - pnorm(2.577, 0, 1) = 0.0049831\n\n\n\n\n\nMake a decision and conclusion in context.\n\n\n\nSince our p-value is less than 0.05, we reject \\(H_{0}\\). The data do provide strong evidence that dogs exposed to 2,4-D have higher rates of cancer than dogs not exposed to the herbicide."
   },
   {
     "objectID": "slides/slides-22-ht-ci-diffs.html#diff.-props-ht-example-cont.-3",
@@ -9069,7 +9069,7 @@
     "href": "slides/slides-22-ht-ci-diffs.html#diff.-means-ci-example-c02-concentrations",
     "title": "HTs and CIs for differences",
     "section": "Diff. means CI example: C02 concentrations",
-    "text": "Diff. means CI example: C02 concentrations\n\nThe Mauna Loa Observatory in Hawaii of monitors atmospheric solar, atmospheric, and meteorological parameters\nWe have data on annual atmospheric CO2 concentrations from 1980-2015.\n\nWe will obtain a 90% confidence interval for the difference between the average atmospheric C02 levels (ppm) from years 2000-2015 and years 1980-1999.\n\n\n\n\n\n\n\nRows: 66 Columns: 3\n── Column specification ────────────────────────────────────────────────────────\nDelimiter: \",\"\ndbl (3): year, mean, unc\n\nℹ Use `spec()` to retrieve the full column specification for this data.\nℹ Specify the column types or set `show_col_types = FALSE` to quiet this message.\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\ngroup\nn\nxbar\ns\n\n\n\n\n1980-1999\n20\n353.12\n9.0\n\n\n2000-2015\n16\n385.02\n9.9"
+    "text": "Diff. means CI example: C02 concentrations\n\nThe Mauna Loa Observatory in Hawaii of monitors atmospheric solar, atmospheric, and meteorological parameters\nWe have data on annual atmospheric CO2 concentrations from 1980-2015.\n\nWe will obtain a 90% confidence interval for the difference between the average atmospheric C02 levels (ppm) from years 2000-2015 and years 1980-1999.\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\ngroup\nn\nxbar\ns\n\n\n\n\n1980-1999\n20\n353.12\n9.0\n\n\n2000-2015\n16\n385.02\n9.9"
   },
   {
     "objectID": "slides/slides-22-ht-ci-diffs.html#diff.-means-ci-example-cont.",
@@ -9083,7 +9083,7 @@
     "href": "slides/slides-22-ht-ci-diffs.html#diff.-means-ci-example-cont.-1",
     "title": "HTs and CIs for differences",
     "section": "Diff. means CI example (cont.)",
-    "text": "Diff. means CI example (cont.)\n\nCollect components for CI:\n\n\n\n\nPoint estimate\nCritical value (code)\n\\(\\text{SE}\\) or \\(\\widehat{\\text{SE}}\\)\n\n\n\n\\(\\bar{x}_{1,obs} - \\bar{x}_{2,obs} = 385.02 - 353.12 = 31.9\\)\nSince we don’t know \\(\\sigma_{1}\\) nor \\(\\sigma_{2}\\), need to use \\(t\\)-distribution\n\nDegrees of freedom = \\(\\min\\{16 - 1, 20 -1\\} = 15\\)\n\\(t^*_{0.95}\\) = qt(0.95, df = 15) = 1.75\n\n\\(\\widehat{\\text{SE}} = \\sqrt{\\frac{9.9^2}{16} + \\frac{9^2}{20}} = 3.19\\)\n\n\n\n\n\nPut it all together:\n\n\n\n\\[\n\\text{point est.} \\pm \\text{crit. val}\\times \\text{SE} = 31.9 \\pm 1.75 \\times 3.19 = (26.3175, 37.4825)\n\\]"
+    "text": "Diff. means CI example (cont.)\n\nCollect components for CI:\n\n\n\n\nPoint estimate\nCritical value (code)\n\\(\\text{SE}\\) or \\(\\widehat{\\text{SE}}\\)\n\n\n\n\\(\\bar{x}_{1,obs} - \\bar{x}_{2,obs} = 385.02 - 353.12 = 31.9\\)\nSince we don’t know \\(\\sigma_{1}\\) nor \\(\\sigma_{2}\\), need to use \\(t\\)-distribution\n\nDegrees of freedom = \\(\\min\\{16 - 1, 20 -1\\} = 15\\)\n\\(t^*_{0.95}\\) = qt(0.95, df = 15) = 1.75\n\n\\(\\widehat{\\text{SE}} = \\sqrt{\\frac{9.9^2}{16} + \\frac{9^2}{20}} = 3.19\\)\n\n\n\n\nPut it all together:\n\n\n\n\\[\n\\text{point est.} \\pm \\text{crit. val}\\times \\text{SE} = 31.9 \\pm 1.75 \\times 3.19 = (26.3175, 37.4825)\n\\]"
   },
   {
     "objectID": "slides/slides-22-ht-ci-diffs.html#diff.-means-ci-example-cont.-2",
@@ -9125,14 +9125,14 @@
     "href": "slides/slides-22-ht-ci-diffs.html#diff.-means-ht-example-co2",
     "title": "HTs and CIs for differences",
     "section": "Diff. means HT example: CO2",
-    "text": "Diff. means HT example: CO2\nNow let’s test if the mean CO2 level in 2000-2015 was greater than that mean CO2 level in 1980-1999 at the \\(0.05\\) level using CLT.\n\n\\(H_{0}: \\mu_{1} - \\mu_{2} = 0\\) versus \\(H_{A}: \\mu_{1} &gt; \\mu_{2}\\), where \\(\\mu_{1}\\) and \\(\\mu_{2}\\) were defined previously\nLet \\(\\alpha = 0.05\\)\nConditions for CLT are same as before (proceed with caution)"
+    "text": "Diff. means HT example: CO2\nNow let’s test if the mean CO2 level in 2000-2015 was greater than that mean CO2 level in 1980-1999 at the \\(0.05\\) level using CLT.\n\n\\(H_{0}: \\mu_{1} - \\mu_{2} = 0\\) versus \\(H_{A}: \\mu_{1} - \\mu_{2} &gt; 0\\), where \\(\\mu_{1}\\) and \\(\\mu_{2}\\) were defined previously\nLet \\(\\alpha = 0.05\\)\nConditions for CLT are same as before (proceed with caution)"
   },
   {
     "objectID": "slides/slides-22-ht-ci-diffs.html#diff.-means-ht-example-cont.",
     "href": "slides/slides-22-ht-ci-diffs.html#diff.-means-ht-example-cont.",
     "title": "HTs and CIs for differences",
     "section": "Diff. means HT example (cont.)",
-    "text": "Diff. means HT example (cont.)\nObtain test-statistic and p-value.\n\n\nFind the value of the test-statistic and its distribution\n\n\n\n\\[\nt = \\frac{(385.02 - 353.12)- 0}{3.19} = 10 \\sim t_{15}\n\\]\n\n\n\nWrite code for p-value (optionally draw picture)\n\np-value = 1- pt(10, df = 15) = 0 (tiny!)"
+    "text": "Diff. means HT example (cont.)\nObtain test-statistic and p-value.\n\n\nFind the value of the test-statistic and its distribution\n\n\n\n\\[\nt = \\frac{(385.02 - 353.12)- 0}{3.19} = 10 \\sim t_{15}\n\\]\n\n\n\nWrite code for p-value (optionally draw picture)\n\np-value = 1 - pt(10, df = 15) = 0 (tiny!)"
   },
   {
     "objectID": "slides/slides-23-chi-square.html#housekeeping",
@@ -12024,5 +12024,19 @@
     "title": "CIs and HTs for a single mean",
     "section": "CI for a single mean (known SD)",
     "text": "CI for a single mean (known SD)\nSuppose we want a \\(\\gamma\\times 100\\%\\) CI for population mean \\(\\mu\\). Also suppose that \\(\\sigma\\) is known to us!\n\nIf CLT holds, then we know\n\\[\n\\bar{X} \\overset{\\cdot}{\\sim} N\\left(\\mu, \\frac{\\sigma}{\\sqrt{n}}\\right)\n\\]\nSo our \\(\\gamma \\times 100\\%\\) CI for \\(\\mu\\) is:\n\\[\n\\text{point estimate} \\pm \\text{critical value} \\times \\text{SE} = \\bar{x}_{obs} \\pm z_{(1+\\gamma)/2}^* \\times \\frac{\\sigma}{\\sqrt{n}}\n\\]\nHere, because we assumed \\(\\sigma\\) known, we don’t need to (and shouldn’t) approximate \\(\\text{SE}\\)"
+  },
+  {
+    "objectID": "slides/slides-22-ht-ci-diffs.html#diff.-props-ci-example-cancer-in-dogs",
+    "href": "slides/slides-22-ht-ci-diffs.html#diff.-props-ci-example-cancer-in-dogs",
+    "title": "HTs and CIs for differences",
+    "section": "Diff. props CI example: cancer in dogs",
+    "text": "Diff. props CI example: cancer in dogs\nA study in 1994 examined over 1400 randomly sampled dogs, some of which had been exposed to the herbicide 2,4-Dichlorophenoxyacetic acid. They wanted to do know if there is an increased risk in dogs in developing cancer due to exposure to 2,4-D. We have the following data:\n\n\n\n\n\ngroup\ncancer\nno cancer\ntotal\n\n\n\n\ncontrol\n300\n641\n941\n\n\nherbicide\n191\n304\n495\n\n\ntotal\n491\n945\n1436\n\n\n\n\n\n\nLet’s obtain a 95% CI via the CLT for the difference in the rate cancer outcomes between dogs exposed to 2,4-D and dogs not exposed to the herbicide."
+  },
+  {
+    "objectID": "slides/slides-22-ht-ci-diffs.html#diff.-props-ht-example-cancer-in-dogs-again",
+    "href": "slides/slides-22-ht-ci-diffs.html#diff.-props-ht-example-cancer-in-dogs-again",
+    "title": "HTs and CIs for differences",
+    "section": "Diff. props HT example: cancer in dogs (again)",
+    "text": "Diff. props HT example: cancer in dogs (again)\nUsing the same data as before, let’s answer the following question:\n\nDo the data provide strong evidence at the 0.05 level that the rate of cancer is higher for dogs exposed to 2,4-D than that of dogs not exposed to the herbicide?\n\n\nLet \\(p_{1}\\) and \\(p_{2}\\) be defined as before.\n\nDefine hypotheses\n\n\n\\(H_{0}: p_{1} - p_{2} = 0\\) and \\(H_{A}: p_{1} - p_{2} &gt; 0\\)"
   }
 ]

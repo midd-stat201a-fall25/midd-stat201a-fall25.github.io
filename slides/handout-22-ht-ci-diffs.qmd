@@ -27,21 +27,18 @@ library(kableExtra)
 
 # Difference in proportions
 
-A survey asked 827 randomly sampled registered voters in California: Do you support or oppose drilling for oil and natural gas off the Coast of California? We have the following distribution of responses separated by whether the respondent graduated from college:
+A study in 1994 examined over 1400 randomly sampled dogs, some of which had been exposed to the herbicide 2,4-Dichlorophenoxyacetic acid. They wanted to do know if there is an increased risk in dogs in developing cancer due to exposure to 2,4-D.
 
 ```{r message = F}
-drilling <- openintro::offshore_drilling |>
-  slice(-1) |>
-  rename("position" = 1,  "college_grad" = 2) |>
-    filter(position != "do_not_know") |>
-  mutate(position = as.character(position),
-         college_grad = as.character(college_grad)) 
-ct <- drilling |>
-  group_by(position, college_grad) |>
+cancer <- cancer_in_dogs |>
+  mutate(group = if_else(order == "2,4-D", "herbicide", "control")) |>
+  select(group, response)
+ct <- cancer |>
+  group_by(group, response) |>
   summarise(n = n()) |>
-  spread(college_grad, n) |>
+  spread(response, n) |>
   ungroup() |>
-  mutate(total =  no + yes)
+  mutate(total =  cancer + `no cancer`)
 
 ct <- ct |>
   rbind(c("total", colSums(ct[-1])))
@@ -54,9 +51,9 @@ ct
 
 ### Confidence interval
 
-Let population 1 be college attendees, and population 2 be non-college attendees. We want a 95% CI for $p_{1} - p_{2}$, where $p_{i}$ is the proportion of population $i$ who support offshore drilling.
+Let population 1 be dogs exposed to 2,4-D, and population 2 be dogs not exposed to 2,4-D. We want a 95% CI for $p_{1} - p_{2}$, where $p_{i}$ is the rate of cancer in population $i$.
 
--   Obtain useful statistics: \vspace{3cm}
+Obtain useful statistics: \vspace{3cm}
 
 -   Check conditions for CLT: \vspace{5cm}
 
@@ -70,7 +67,7 @@ Let population 1 be college attendees, and population 2 be non-college attendees
 
 ### Hypothesis test
 
-Do the data provide strong evidence at the 0.05 level that the proportion of college graduates who support off-shore drilling in California is different than that of non-college graduates?
+Do the data provide strong evidence at the 0.05 level that the rate of cancer is higher for dogs exposed to 2,4-D than that of dogs not exposed to the herbicide?
 
 -   Define hypotheses \vspace{3cm}
 
@@ -133,4 +130,6 @@ Obtain a 90% confidence interval for the difference between the average atmosphe
 
 -   Find the value of the test-statistic and its distribution \vspace{5cm}
 
--   Draw picture and write code to obtain p-value \vspace{4cm}
+-   Draw picture and write code to obtain p-value \vspace{5cm}
+
+-   What code would you write if $H_{A}$ was two-sided?
