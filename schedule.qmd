@@ -570,7 +570,11 @@ format:
       <td> W 11/05 </td>
       <td>
         <ul>
-          <li> Topic: CLT-based inference for two proportions </li>
+          <li> Topic: <a href="slides/slides-22-ht-ci-diffs.qmd">CLT-based inference for differences in two proportions or means</a> (pdf <a href="slides/pdf/slides-22.pdf">here</a>)  </li>
+          <ul>
+            <li>  Handout <a href="slides/handout-22-ht-ci-diffs.qmd">here</a></li>
+          </ul>
+        </ul>
         </ul>
       </td>
       <td>

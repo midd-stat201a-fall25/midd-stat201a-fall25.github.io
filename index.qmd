@@ -8,11 +8,8 @@ Welcome to the website for Middlebury College’s Fall 2025 STAT 201A. On this w
 
 ## Announcements
 
--   Saturday 11/08 from 3-6pm: [Women in Data Science](https://www.middlebury.edu/events/event/women-data-science-conference-2025) at Middlebury
+-   [**Women in Data Science Conference**](WiDSFall25_Flyer.pdf)this Saturday, 11/8 from 3-6pm in Hillcrest 103. Come for all or part of it!
     -   Good opportunity for SDS experience!
--   **Monday 11/03 from 3:30-4:30pm: pre-registration dessert social in WNS 105**
-    -   Modified office hours on 11/03: 1-2pm
--   Note: Friday 10/31 is last day to drop or declare credit/no credit!
 -   Video recording for 10/13 content:
     -   [Zoom recording link (see password below)](https://middlebury.zoom.us/rec/share/cTZvySPxnhw_VBrL5wBz2VEBuYNg5cviL2VKfg_Btmkvclzpq5if03p774tww1Xk.snLwycfQdUtv0yZJ)
     -   Passcode: @ujH9e18

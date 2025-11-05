@@ -103,7 +103,7 @@ ggplot(co2_subset,aes(x =CO2)) +
 co2_subset |>
   group_by(group) |>
   summarise(n = n(), xbar = mean(CO2), s = sd(CO2)) |>
-  kable(digits = 2) 
+  kable(digits = 2, col.names = c("years","n", "$\\bar{x}$", "s") )
 ```
 
 ### Confidence interval
