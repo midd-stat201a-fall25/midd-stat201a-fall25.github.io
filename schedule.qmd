@@ -581,7 +581,7 @@ format:
       </td>
       <td>
         <ul>
-          <li> Wednesday problems in Problem Set 8. </li>
+          <li> Wednesday problems on <a href="homework/hw8.pdf">Problem Set 8.</a> </li>
           <li> Project proposal due tonight! </li
         </ul>
       </td>
@@ -591,6 +591,7 @@ format:
       <td> R 11/06 </td>
       <td>
         <ul>
+          <li> Topic: Finish CLT-based inference for difference in means </li>
           <li> Topic: Chi-squared test </li>
         </ul>
       </td>
