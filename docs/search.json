@@ -2314,7 +2314,7 @@
     "href": "index.html#announcements",
     "title": "Introduction to Statistical and Data Sciences",
     "section": "Announcements",
-    "text": "Announcements\n\nSaturday 11/08 from 3-6pm: Women in Data Science at Middlebury\n\nGood opportunity for SDS experience!\n\nVideo recording for 10/13 content:\n\nZoom recording link (see password below)\nPasscode: @ujH9e18"
+    "text": "Announcements\n\nWomen in Data Science Conferencethis Saturday, 11/8 from 3-6pm in Hillcrest 103. Come for all or part of it!\n\nGood opportunity for SDS experience!\n\nVideo recording for 10/13 content:\n\nZoom recording link (see password below)\nPasscode: @ujH9e18"
   },
   {
     "objectID": "slides/slides-09-conditional-probability.html#recap",
@@ -9006,7 +9006,7 @@
     "href": "slides/slides-22-ht-ci-diffs.html#diff.-props-ci-example-cont.",
     "title": "HTs and CIs for differences",
     "section": "Diff. props CI example (cont.)",
-    "text": "Diff. props CI example (cont.)\nLet population 1 be dogs exposed to 2,4-D, and population 2 be dogs not exposed to 2,4-D. We want a 95% CI for \\(p_{1} - p_{2}\\), where \\(p_{i}\\) is the rate of cancer in population \\(i\\).\n\n\n\n\nObtain useful statistics\n\n\n\\(n_{1} = 495\\), \\(n_{2} = 941\\)\n\\(\\hat{p}_{1, obs} = \\frac{191}{495} = 0.386\\)\n\\(\\hat{p}_{2, obs} = \\frac{300}{941} = 0.319\\)\n\n\n\n\n\nCheck conditions for CLT.\n\n\nIndependence (extended)? Randomly sampled\nSuccess-failure (extended)?\n\n\\(n_{1}\\hat{p}_{1,obs} = 154 \\geq 10\\)\n\\(n_{1}(1-\\hat{p}_{1,obs}) = 180 \\geq 10\\)\n\\(n_{2}\\hat{p}_{2,obs} = 132 \\geq 10\\)\n\\(n_{2}(1-\\hat{p}_{2,obs}) = 126 \\geq 10\\)\n\n\n\n\n\nSince both conditions are met, we can proceed with the CLT."
+    "text": "Diff. props CI example (cont.)\nLet population 1 be dogs exposed to 2,4-D, and population 2 be dogs not exposed to 2,4-D. We want a 95% CI for \\(p_{1} - p_{2}\\), where \\(p_{i}\\) is the rate of cancer in population \\(i\\).\n\n\n\n\nObtain useful statistics\n\n\n\\(n_{1} = 495\\), \\(n_{2} = 941\\)\n\\(\\hat{p}_{1, obs} = \\frac{191}{495} = 0.386\\)\n\\(\\hat{p}_{2, obs} = \\frac{300}{941} = 0.319\\)\n\n\n\n\n\nCheck conditions for CLT.\n\n\nIndependence (extended)? Randomly sampled\nSuccess-failure (extended)?\n\n\\(n_{1}\\hat{p}_{1,obs} = 191 \\geq 10\\)\n\\(n_{1}(1-\\hat{p}_{1,obs}) = 304 \\geq 10\\)\n\\(n_{2}\\hat{p}_{2,obs} = 300 \\geq 10\\)\n\\(n_{2}(1-\\hat{p}_{2,obs}) = 641 \\geq 10\\)\n\n\n\n\n\nSince both conditions are met, we can proceed with the CLT."
   },
   {
     "objectID": "slides/slides-22-ht-ci-diffs.html#diff.-props-ci-example-cont.-1",

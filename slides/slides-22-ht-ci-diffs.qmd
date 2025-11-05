@@ -201,10 +201,10 @@ Let population 1 be dogs exposed to 2,4-D, and population 2 be dogs not exposed 
 
     -   **Success-failure (extended)**?
 
-        -   $n_{1}\hat{p}_{1,obs} = 154 \geq 10$
-        -   $n_{1}(1-\hat{p}_{1,obs}) = 180 \geq 10$
-        -   $n_{2}\hat{p}_{2,obs} = 132 \geq 10$
-        -   $n_{2}(1-\hat{p}_{2,obs}) = 126 \geq 10$
+        -   $n_{1}\hat{p}_{1,obs} = 191 \geq 10$
+        -   $n_{1}(1-\hat{p}_{1,obs}) = 304 \geq 10$
+        -   $n_{2}\hat{p}_{2,obs} = 300 \geq 10$
+        -   $n_{2}(1-\hat{p}_{2,obs}) = 641 \geq 10$
 :::
 :::::
 
