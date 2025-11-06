@@ -602,7 +602,7 @@ format:
       </td>
       <td>
         <ul>
-          <li> Thursday problems on Problem Set 8 </li>
+          <li> Thursday problems on <a href="homework/hw8.pdf">Problem Set 8</a> </li>
         </ul>
       </td>
     </tr>
