@@ -42,12 +42,12 @@ $H_{A}$:
 
 **Table of expected counts**
 
-|                   | Did not die               | Died         | Total |
-|-------------------|---------------------------|--------------|-------|
-| No coffee         | \vspace{1cm} \hspace{4cm} | \hspace{4cm} | 6477  |
-| Occasional coffee | \vspace{1cm}              |              | 34152 |
-| Regular coffee    | \vspace{1cm}              |              | 28535 |
-| Total             | 60084                     | 9080         | 69164 |
+|                   | Did not die                  | Died         | Total |
+|-------------------|------------------------------|--------------|-------|
+| No coffee         | \vspace{1.05cm} \hspace{4cm} | \hspace{4cm} | 6477  |
+| Occasional coffee | \vspace{1.25cm}              |              | 34152 |
+| Regular coffee    | \vspace{1.25cm}              |              | 28535 |
+| Total             | 60084                        | 9080         | 69164 |
 
 **Our observed test-statistic:** \vspace{5cm}
 
@@ -58,6 +58,7 @@ $H_{A}$:
 **Conditions** (better late than never!):
 
 1.  \vspace{0.5cm}
+
 2.  
 
 \clearpage

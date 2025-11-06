@@ -1,6 +1,6 @@
 ---
 title: "Chi-squared test"
-date: "November 5, 2025"
+date: "November 6, 2025"
 title-slide-attributes:
     data-background-image: "figs/bikeshare-plots.png"
     data-background-size: contain
@@ -29,7 +29,8 @@ plot_theme <- theme(text = element_text(size = 24))
 source("../stat201_fns.R")
 ```
 
--   Project proposals due tonight!
+-   Look for project proposal feedback over the weekend!
+-   Details about Midterm 2 will be announced next week
 
 # Chi-squared test for independence
 
@@ -100,18 +101,16 @@ o3 <-  c(24934, 3601)
 ::: fragment
 **Assuming** **independence:**
 
-$$
-\begin{align*}
-\text{P}(\text{no coffee} \cap \text{die not die}) &= \text{P}(\text{no coffee}) \times \text{P}(\text{die not die}) \\
-&= \left( \frac{6477}{69164} \right)\times \left( \frac{60084}{69164} \right)
-\end{align*}
+$$\small
+\text{P}(\text{no coffee} \cap \text{die not die}) = \text{P}(\text{no coffee}) \times \text{P}(\text{die not die})
+=  \frac{6477}{69164} \times  \frac{60084}{69164}
 $$
 :::
 
 -   So the **expected *count*** of this cell is the the sample size times this probability:
 
-    $$
-    \text{expected count} = 69164 \times \left( \frac{6477}{69164} \right)\times \left( \frac{60084}{69164} \right) = \frac{6477 \times 60084}{69164}
+    $$ \small
+    \text{expected count} = 69164 \times \frac{6477}{69164} \times \frac{60084}{69164}  = \frac{6477 \times 60084}{69164}
     $$
 
 ## Table of expected counts

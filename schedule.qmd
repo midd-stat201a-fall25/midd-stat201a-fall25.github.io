@@ -592,7 +592,10 @@ format:
       <td>
         <ul>
           <li> Topic: Finish CLT-based inference for difference in means </li>
-          <li> Topic: Chi-squared test </li>
+          <li> Topic: <a href="slides/slides-23-chi-square.qmd">Chi-squared test</a> (pdf <a href="slides/pdf/slides-23.pdf">here</a>)</li>
+          <ul>
+            <li> Handout <a href="slides/handout-23-chi-square.qmd"> here</a> </li>
+          </ul>
         </ul>
       </td>
       <td>
