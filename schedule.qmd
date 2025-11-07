@@ -609,7 +609,7 @@ format:
     <!-- week 9 -->
     <tr>
       <td id="week10"><strong>10</strong></td>
-      <td> M 11/13 </td>
+      <td> M 11/10 </td>
       <td>
         <ul>
           <li> Topic: Introduction to Simple Linear Regression (pdf here) </li>
@@ -628,7 +628,7 @@ format:
     </tr>
     <tr>
       <td></td>
-      <td> W 11/05 </td>
+      <td> W 11/12 </td>
       <td>
         <ul>
           <li> Topic: SLR interpretation </li>
@@ -648,7 +648,7 @@ format:
     </tr>
     <tr>
       <td></td>
-      <td> R 11/16 </td>
+      <td> R 11/13 </td>
       <td>
         <ul>
           <li> Topic: Inference in SLR </li>
