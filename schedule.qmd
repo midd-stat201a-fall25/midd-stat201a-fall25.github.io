@@ -612,9 +612,9 @@ format:
       <td> M 11/10 </td>
       <td>
         <ul>
-          <li> Topic: Introduction to Simple Linear Regression (pdf here) </li>
+          <li> Topic: <a href="slides/slides-24-slr-intro.qmd">Introduction to Simple Linear Regression</a> (pdf <a href="slides/pdf/slides-24.pdf">here</a>) </li>
           <ul>
-            <li>  Handout here </li>
+            <li>  Handout <a href="slides/handout-24-slr-intro.qmd">here</a> </li>
           </ul>
         </ul>
       </td>

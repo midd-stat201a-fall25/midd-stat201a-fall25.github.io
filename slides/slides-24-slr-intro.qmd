@@ -1,6 +1,6 @@
 ---
 title: "Introduction to Simple Linear Regression"
-date: "April 21, 2025"
+date: "November 10, 2025"
 title-slide-attributes:
     data-background-image: "figs/bikeshare-plots.png"
     data-background-size: contain
@@ -34,7 +34,7 @@ source("../stat201_fns.R")
 
 -   Homework 8 due tonight!
 
--   Project proposal feedback
+-   Project proposal feedback (revisions due tonight midnight)
 
 # Linear regression
 
@@ -42,7 +42,7 @@ Crash course; take STAT 211 for more depth!
 
 ## Fitting a line to data
 
--   Hopefully we are all familiar with the equation of a line: $y = mx + b$
+-   Recall equation of a line: $y = mx + b$
 
     -   Intercept $b$ and slope $m$ determine specific line
 
@@ -64,7 +64,7 @@ $$
 
 -   We have two variables:
 
-    1.  $y$ is response variable. **Must be continuous numerical.**
+    1.  $y$ is response variable. **Must be (continuous) numerical.**
     2.  $x$ is explanatory variable, also called the **predictor** variable
         -   Can be numerical or categorical
 
@@ -195,8 +195,8 @@ df |>
   theme_minimal() +
   theme(text = element_text(size = 28)) +
   geom_hline(yintercept = 0, linetype = "dashed") +
-  geom_point(data = df_fit, aes(x = x, y = y - y_end), size = 2, col = "#F8766D" ) +
-  labs(title = "Residual plot", caption = "Red dots = specific points from previous plot")
+  geom_point(data = df_fit, aes(x = x, y = y - y_end), size = 2, col = "#00BFC4" ) +
+  labs(title = "Residual plot", caption = "Blue dots = residuals for specific points from previous plot")
 ```
 :::
 
@@ -424,9 +424,9 @@ ggplot(cherry, aes(x= diam, y = volume)) +
 
 ::: discuss
 Does there appear to be a linear relationship between diameter and volume?
+:::
 
 -   I would say yes
-:::
 
 ## 2. Independence
 
@@ -530,11 +530,13 @@ augment(cherry_lm) |>
 :::::
 ::::::
 
+::: {.fragment}
 ::: discuss
--   Do the residuals appear approximately Normal?
-
-    -   I think so!
+Do the residuals appear approximately Normal?
 :::
+:::
+
+-   I think so!
 
 ## 4. Equal variance
 

@@ -18,7 +18,7 @@ editor_options:
 \vspace{-2cm}
 
 ```{r echo = F, message= F}
-knitr::opts_chunk$set(echo = F, warning = F, messabundance = F, fig.height = 2.25, fig.width = 4, fig.align = "center")
+knitr::opts_chunk$set(echo = F, warning = F, messabundance = F, fig.height = 2.15, fig.width = 4, fig.align = "center")
 library(tidyverse)
 library(openintro)
 library(broom)
@@ -44,7 +44,7 @@ p <- ggplot(df, aes(x=x, y = y)) +
 p
 ```
 
-A line "fit" to the data above. What are the residuals of the highlighted observations?
+The yellow line is the line "fit" to the data above. We highlight three specific points in blue to compare the observed values to their fitted values:
 
 ```{r fig.width=5}
 ids <- c(9, 22, 45)
@@ -63,6 +63,8 @@ p_resid <- p1 +
 p_resid
 ```
 
+What are the residuals of the highlighted observations?
+
 ```{r}
 df |>
   add_column(y_hat) |>
@@ -71,8 +73,8 @@ df |>
   geom_point(size = 2) +
   theme_minimal() +
   geom_hline(yintercept = 0, linetype = "dashed") +
-  geom_point(data = df_fit, aes(x = x, y = y - y_end), size = 2, col = "#F8766D" ) +
-  labs(title = "Residual plot", caption = "Red dots = specific points from previous plot")
+  geom_point(data = df_fit, aes(x = x, y = y - y_end), size = 2.5, col = "#00BFC4" ) +
+  labs(title = "Residual plot", caption = "Blue dots = residuals for specific points from previous plot")
 ```
 
 \clearpage

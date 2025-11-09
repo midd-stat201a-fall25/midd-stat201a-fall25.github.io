@@ -8,8 +8,6 @@ Welcome to the website for Middlebury College’s Fall 2025 STAT 201A. On this w
 
 ## Announcements
 
--   [**Women in Data Science Conference**](WiDSFall25_Flyer.pdf)this Saturday, 11/8 from 3-6pm in Hillcrest 103. Come for all or part of it!
-    -   Good opportunity for SDS experience!
 -   Video recording for 10/13 content:
     -   [Zoom recording link (see password below)](https://middlebury.zoom.us/rec/share/cTZvySPxnhw_VBrL5wBz2VEBuYNg5cviL2VKfg_Btmkvclzpq5if03p774tww1Xk.snLwycfQdUtv0yZJ)
     -   Passcode: @ujH9e18

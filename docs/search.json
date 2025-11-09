@@ -2300,7 +2300,7 @@
     "href": "midterms.html",
     "title": "Midterms",
     "section": "",
-    "text": "When and where: Thursday, 11/20 during class (8:15-9:30am) in WNS 105\nWhat: content through end of Week 10 (i.e. through Simple Linear Regression)\n\nYou are allowed to bring a single, one-sided 8.5x11 inch piece of paper as your note sheet. Your note sheet cannot have any example problems. You will submit your note sheet alongside your midterm. No other outside resources besides your note sheet will be allowed.\nI will provide a calculator to you for the midterm. You are not allowed to use your own.\nYou will be provided a table z, t, and \\(\\chi^2\\) table. We will familiarize ourselves with them in class prior to the midterm.\nThere won’t be any tidyverse/ggplot coding assessed on this midterm, but you will have to feel comfortable with the pnorm(), pt(), pchisq(), qnorm(), qt() functions and how to use them.\nThis midterm will focus on content from Week 5 onward, but some concepts do rely on content from first part of semester (e.g. random sampling, summary statistics, independence)\n\n\n\n\n\n\nCome to office hours!\n\nExtra office hours: TBD\n\nMy personal working strategy:\n\nFirst review your notes and homework\nMake a first draft of your note sheet, then do some practice problems using only your note sheet to see if what you wrote on it is actually useful for you\nMake a new note sheet\nRepeat as necessary\n\nExtra practice problems will be made available here.\nYou should make sure you understand how to read the distribution tables. Prof. Tang will not be able to help you read them during the midterm."
+    "text": "When and where: Thursday, 11/20 during class (8:15-9:30am) in WNS 105\nWhat: content through end of Week 10 (i.e. through Simple Linear Regression)\n\nYou are allowed to bring a single, one-sided 8.5x11 inch piece of paper as your note sheet. Your note sheet cannot have any example problems. You will submit your note sheet alongside your midterm. No other outside resources besides your note sheet will be allowed.\nI will provide a calculator to you for the midterm. You are not allowed to use your own.\nYou will be provided a table z, t, and \\(\\chi^2\\) table. We will familiarize ourselves with them in class prior to the midterm.\nThere won’t be any wrangling/ggplot coding assessed on this midterm, but you will have to feel comfortable with the pnorm(), pt(), pchisq(), qnorm(), qt() functions and how to use them.\nThis midterm will focus on content from Week 5-Week 10, but some concepts do rely on content from first part of semester (e.g. random sampling, summary statistics, independence)\n\n\n\n\n\n\nCome to office hours!\n\nExtra office hours: TBD\n\nMy personal working strategy:\n\nFirst review your notes and homework\nMake a first draft of your note sheet, then do some practice problems using only your note sheet to see if what you wrote on it is actually useful for you\nMake a new note sheet\nRepeat as necessary\n\nExtra practice problems will be made available here.\nYou should make sure you understand how to read the distribution tables. Prof. Tang will not be able to help you read them during the midterm."
   },
   {
     "objectID": "midterms.html#preparation",
@@ -2314,7 +2314,7 @@
     "href": "index.html#announcements",
     "title": "Introduction to Statistical and Data Sciences",
     "section": "Announcements",
-    "text": "Announcements\n\nWomen in Data Science Conferencethis Saturday, 11/8 from 3-6pm in Hillcrest 103. Come for all or part of it!\n\nGood opportunity for SDS experience!\n\nVideo recording for 10/13 content:\n\nZoom recording link (see password below)\nPasscode: @ujH9e18"
+    "text": "Announcements\n\nVideo recording for 10/13 content:\n\nZoom recording link (see password below)\nPasscode: @ujH9e18"
   },
   {
     "objectID": "slides/slides-09-conditional-probability.html#recap",
@@ -9320,15 +9320,15 @@
     "objectID": "slides/slides-24-slr-intro.html#housekeeping",
     "href": "slides/slides-24-slr-intro.html#housekeeping",
     "title": "Introduction to Simple Linear Regression",
-    "section": "",
-    "text": "Homework 8 due tonight!\nProject proposal feedback"
+    "section": "Housekeeping",
+    "text": "Housekeeping\n\nHomework 8 due tonight!\nProject proposal feedback (revisions due tonight midnight)"
   },
   {
     "objectID": "slides/slides-24-slr-intro.html#fitting-a-line-to-data",
     "href": "slides/slides-24-slr-intro.html#fitting-a-line-to-data",
     "title": "Introduction to Simple Linear Regression",
     "section": "Fitting a line to data",
-    "text": "Fitting a line to data\n\nHopefully we are all familiar with the equation of a line: \\(y = mx + b\\)\n\nIntercept \\(b\\) and slope \\(m\\) determine specific line\nThis function is deterministic: as long as we know \\(x\\), we know value of \\(y\\) exactly\n\nSimple linear regression: statistical method where the relationship between variables \\(x\\) and \\(y\\) is modeled as a line + error:\n\n\n\\[\ny = \\underbrace{\\beta_{0} \\ +\\ \\beta_{1} x}_{\\text{line}} \\ + \\underbrace{\\epsilon}_{\\text{error}}\n\\]"
+    "text": "Fitting a line to data\n\nRecall equation of a line: \\(y = mx + b\\)\n\nIntercept \\(b\\) and slope \\(m\\) determine specific line\nThis function is deterministic: as long as we know \\(x\\), we know value of \\(y\\) exactly\n\nSimple linear regression: statistical method where the relationship between variables \\(x\\) and \\(y\\) is modeled as a line + error:\n\n\n\\[\ny = \\underbrace{\\beta_{0} \\ +\\ \\beta_{1} x}_{\\text{line}} \\ + \\underbrace{\\epsilon}_{\\text{error}}\n\\]"
   },
   {
     "objectID": "slides/slides-24-slr-intro.html#linear-regression-model",
@@ -9342,7 +9342,7 @@
     "href": "slides/slides-24-slr-intro.html#linear-relationship",
     "title": "Introduction to Simple Linear Regression",
     "section": "Linear relationship",
-    "text": "Linear relationship\nSuppose we have the following data:\n\n\n\n\n\n\n\n\n\n\nObservations won’t fall exactly on a line, but do fall around a straight line, so maybe a linear relationship makes sense!"
+    "text": "Linear relationship\nSuppose we have the following data:\n\n\nObservations won’t fall exactly on a line, but do fall around a straight line, so maybe a linear relationship makes sense!"
   },
   {
     "objectID": "slides/slides-24-slr-intro.html#fitted-values",
@@ -9356,7 +9356,7 @@
     "href": "slides/slides-24-slr-intro.html#fitted-values-cont.",
     "title": "Introduction to Simple Linear Regression",
     "section": "Fitted values (cont.)",
-    "text": "Fitted values (cont.)\n\n\n\n\n\n\n\n\n\n\nSuppose our estimated line is the yellow one: \\(\\hat{y} = 1.11 + 0.41 x\\)\nThe fitted value \\(\\hat{y}_{i}\\) for \\(y_{i}\\) lies on the line; the above plot shows three specific examples"
+    "text": "Fitted values (cont.)\n\n\nSuppose our estimated line is the yellow one: \\(\\hat{y} = 1.11 + 0.41 x\\)\nThe fitted value \\(\\hat{y}_{i}\\) for \\(y_{i}\\) lies on the line; the above plot shows three specific examples"
   },
   {
     "objectID": "slides/slides-24-slr-intro.html#residual",
@@ -9370,7 +9370,7 @@
     "href": "slides/slides-24-slr-intro.html#residual-cont.",
     "title": "Introduction to Simple Linear Regression",
     "section": "Residual (cont.)",
-    "text": "Residual (cont.)\n\n\n\n\n\n\n\n\n\n\nResidual values for the three highlighted observations:\n\n\n\n\n\nx\ny\ny_hat\nresidual\n\n\n\n\n-2.991\n2.481\n-0.130\n2.611\n\n\n-1.005\n-1.302\n0.691\n-1.994\n\n\n3.990\n3.929\n2.757\n1.172"
+    "text": "Residual (cont.)\n\n\nResidual values for the three highlighted observations:\n\n\n\n\n\nx\ny\ny_hat\nresidual\n\n\n\n\n-2.991\n2.481\n-0.130\n2.611\n\n\n-1.005\n-1.302\n0.691\n-1.994\n\n\n3.990\n3.929\n2.757\n1.172"
   },
   {
     "objectID": "slides/slides-24-slr-intro.html#residual-plot",
@@ -9391,7 +9391,7 @@
     "href": "slides/slides-24-slr-intro.html#describing-linear-relationships",
     "title": "Introduction to Simple Linear Regression",
     "section": "Describing linear relationships",
-    "text": "Describing linear relationships\nDifferent data may exhibit different strength of linear relationships:\n\n\n\n\n\n\n\n\n\n\nCan we quantify the strength of the linear relationship?"
+    "text": "Describing linear relationships\nDifferent data may exhibit different strength of linear relationships:\n\n\nCan we quantify the strength of the linear relationship?"
   },
   {
     "objectID": "slides/slides-24-slr-intro.html#correlation",
@@ -9405,7 +9405,7 @@
     "href": "slides/slides-24-slr-intro.html#different-lines",
     "title": "Introduction to Simple Linear Regression",
     "section": "Different lines",
-    "text": "Different lines\nThe following display the same set of 50 observations.\n\n\n\n\n\n\n\n\n\n\n\n\n\nWhich line would you say fits the data the best?\n\n\n\n\nThere are infinitely many choices of \\((b_{0}, b_{1})\\) that could be used to create a line\nWe want the BEST choice (i.e. the one that gives us the “line of best fit”)\n\n\nHow to define “best”?"
+    "text": "Different lines\nThe following display the same set of 50 observations.\n\n\n\n\n\n\n\n\n\n\n\n\n\nWhich line would you say fits the data the best?\n\n\n\nThere are infinitely many choices of \\((b_{0}, b_{1})\\) that could be used to create a line\nWe want the BEST choice (i.e. the one that gives us the “line of best fit”)\n\n\nHow to define “best”?"
   },
   {
     "objectID": "slides/slides-24-slr-intro.html#line-of-best-fit",
@@ -9433,14 +9433,14 @@
     "href": "slides/slides-24-slr-intro.html#running-example",
     "title": "Introduction to Simple Linear Regression",
     "section": "Running example",
-    "text": "Running example\nWe will see how to check for these four LINE conditions using the cherry data from openintro.\n\n\n\n\n\n\n\ndiam\nvolume\n\n\n\n\n8.3\n10.3\n\n\n8.6\n10.3\n\n\n8.8\n10.2\n\n\n10.5\n16.4\n\n\n10.7\n18.8\n\n\n\n\n\n\n\nExplanatory variable \\(x\\): diam\nResponse variable \\(y\\): volume\n\n\n\n\nOur candidate linear regression model is as follows\n\\[\n\\text{volume} = \\beta_{0} + \\beta_{1} \\text{diameter} +\\epsilon\n\\]"
+    "text": "Running example\nWe will see how to check for these four LINE conditions using the cherry data from openintro.\n\n\n\n\n\n\n\ndiam\nvolume\n\n\n\n\n8.3\n10.3\n\n\n8.6\n10.3\n\n\n8.8\n10.2\n\n\n10.5\n16.4\n\n\n10.7\n18.8\n\n\n\n\n\n\n\nExplanatory variable \\(x\\): diam\nResponse variable \\(y\\): volume\n\n\n\nOur candidate linear regression model is as follows\n\\[\n\\text{volume} = \\beta_{0} + \\beta_{1} \\text{diameter} +\\epsilon\n\\]"
   },
   {
     "objectID": "slides/slides-24-slr-intro.html#linearity",
     "href": "slides/slides-24-slr-intro.html#linearity",
     "title": "Introduction to Simple Linear Regression",
     "section": "1. Linearity",
-    "text": "1. Linearity\nAssess before fitting the linear regression model by making a scatterplot of \\(x\\) vs. \\(y\\):\n\n\n\n\n\n\n\n\n\n\nDoes there appear to be a linear relationship between diameter and volume?\n\nI would say yes"
+    "text": "1. Linearity\nAssess before fitting the linear regression model by making a scatterplot of \\(x\\) vs. \\(y\\):\n\n\nDoes there appear to be a linear relationship between diameter and volume?\n\n\nI would say yes"
   },
   {
     "objectID": "slides/slides-24-slr-intro.html#independence",
@@ -9461,28 +9461,28 @@
     "href": "slides/slides-24-slr-intro.html#nearly-normal-residuals",
     "title": "Introduction to Simple Linear Regression",
     "section": "3. Nearly normal residuals",
-    "text": "3. Nearly normal residuals\nAssess after fitting the model by making histogram of residuals and checking for approximate Normality.\n\nRemember, residuals are \\(e_{i} = y_{i} - \\hat{y}_{i}\\)\n\n\n\n\n\ncherry |&gt;\n  mutate(volume_hat = -36.94 + 5.07*diam) |&gt;\n  mutate(residual = volume - volume_hat) \n\n\n\n\n\n\ndiam\nvolume\nvolume_hat\nresidual\n\n\n\n\n8.3\n10.3\n5.141\n-5.159\n\n\n8.6\n10.3\n6.662\n-3.638\n\n\n8.8\n10.2\n7.676\n-2.524\n\n\n10.5\n16.4\n16.295\n-0.105\n\n\n10.7\n18.8\n17.309\n-1.491\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\nDo the residuals appear approximately Normal?\n\nI think so!"
+    "text": "3. Nearly normal residuals\nAssess after fitting the model by making histogram of residuals and checking for approximate Normality.\n\nRemember, residuals are \\(e_{i} = y_{i} - \\hat{y}_{i}\\)\n\n\n\n\n\ncherry |&gt;\n  mutate(volume_hat = -36.94 + 5.07*diam) |&gt;\n  mutate(residual = volume - volume_hat) \n\n\n\n\n\n\ndiam\nvolume\nvolume_hat\nresidual\n\n\n\n\n8.3\n10.3\n5.141\n-5.159\n\n\n8.6\n10.3\n6.662\n-3.638\n\n\n8.8\n10.2\n7.676\n-2.524\n\n\n10.5\n16.4\n16.295\n-0.105\n\n\n10.7\n18.8\n17.309\n-1.491\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\nDo the residuals appear approximately Normal?\n\n\n\nI think so!"
   },
   {
     "objectID": "slides/slides-24-slr-intro.html#equal-variance",
     "href": "slides/slides-24-slr-intro.html#equal-variance",
     "title": "Introduction to Simple Linear Regression",
     "section": "4. Equal variance",
-    "text": "4. Equal variance\nAssess after fitting the model by examining a residual plot and looking for patterns.\n\n\nA good residual plot:\n\n\n\n\n\n\n\n\n\n\nA bad residual plot:\n\n\n\n\n\n\n\n\n\n\n\nWe usually add a horizontal line at 0."
+    "text": "4. Equal variance\nAssess after fitting the model by examining a residual plot and looking for patterns.\n\n\nA good residual plot:\n\n\n\n\n\n\n\n\n\n\nA bad residual plot:\n\n\n\n\n\n\n\n\n\n\nWe usually add a horizontal line at 0."
   },
   {
     "objectID": "slides/slides-24-slr-intro.html#equal-variance-cont.",
     "href": "slides/slides-24-slr-intro.html#equal-variance-cont.",
     "title": "Introduction to Simple Linear Regression",
     "section": "4. Equal variance (cont.)",
-    "text": "4. Equal variance (cont.)\nLet’s examine the residual plot of our fitted model for the cherry data:\n\n\n\n\n\n\n\n\n\n\n\nDo we think equal variance is met?\n\n\nI would say there is a definite pattern in the residuals, so equal variance condition is not met.\nSome of the variability in the errors appear related to diameter"
+    "text": "4. Equal variance (cont.)\nLet’s examine the residual plot of our fitted model for the cherry data:\n\n\n\nDo we think equal variance is met?\n\n\nI would say there is a definite pattern in the residuals, so equal variance condition is not met.\nSome of the variability in the errors appear related to diameter"
   },
   {
     "objectID": "slides/slides-24-slr-intro.html#simple-linear-regression-model",
     "href": "slides/slides-24-slr-intro.html#simple-linear-regression-model",
     "title": "Introduction to Simple Linear Regression",
     "section": "Simple linear regression model",
-    "text": "Simple linear regression model\n\\[\ny = \\beta_{0} + \\beta_{1} x + \\epsilon\n\\]\n\nWe have two variables:\n\n\\(y\\) is response variable. Must be continuous numerical.\n\\(x\\) is explanatory variable, also called the predictor variable\n\nCan be numerical or categorical\n\n\n\\(\\beta_{0}\\) and \\(\\beta_{1}\\) are the model parameters (intercept and slope)\n\nEstimated using the data, with point estimates \\(b_{0}\\) and \\(b_{1}\\)\n\n\\(\\epsilon\\) (epsilon) represents the error\n\nAccounts for variability: we do not expect all data to fall perfectly on the line!\nSometimes we drop the \\(\\epsilon\\) term for convenience"
+    "text": "Simple linear regression model\n\\[\ny = \\beta_{0} + \\beta_{1} x + \\epsilon\n\\]\n\nWe have two variables:\n\n\\(y\\) is response variable. Must be (continuous) numerical.\n\\(x\\) is explanatory variable, also called the predictor variable\n\nCan be numerical or categorical\n\n\n\\(\\beta_{0}\\) and \\(\\beta_{1}\\) are the model parameters (intercept and slope)\n\nEstimated using the data, with point estimates \\(b_{0}\\) and \\(b_{1}\\)\n\n\\(\\epsilon\\) (epsilon) represents the error\n\nAccounts for variability: we do not expect all data to fall perfectly on the line!\nSometimes we drop the \\(\\epsilon\\) term for convenience"
   },
   {
     "objectID": "slides/slides-25-slr-interpretation.html",
@@ -12044,6 +12044,6 @@
     "href": "midterms.html#midterm-2",
     "title": "Midterms",
     "section": "",
-    "text": "When and where: Thursday, 11/20 during class (8:15-9:30am) in WNS 105\nWhat: content through end of Week 10 (i.e. through Simple Linear Regression)\n\nYou are allowed to bring a single, one-sided 8.5x11 inch piece of paper as your note sheet. Your note sheet cannot have any example problems. You will submit your note sheet alongside your midterm. No other outside resources besides your note sheet will be allowed.\nI will provide a calculator to you for the midterm. You are not allowed to use your own.\nYou will be provided a table z, t, and \\(\\chi^2\\) table. We will familiarize ourselves with them in class prior to the midterm.\nThere won’t be any tidyverse/ggplot coding assessed on this midterm, but you will have to feel comfortable with the pnorm(), pt(), pchisq(), qnorm(), qt() functions and how to use them.\nThis midterm will focus on content from Week 5 onward, but some concepts do rely on content from first part of semester (e.g. random sampling, summary statistics, independence)\n\n\n\n\n\n\nCome to office hours!\n\nExtra office hours: TBD\n\nMy personal working strategy:\n\nFirst review your notes and homework\nMake a first draft of your note sheet, then do some practice problems using only your note sheet to see if what you wrote on it is actually useful for you\nMake a new note sheet\nRepeat as necessary\n\nExtra practice problems will be made available here.\nYou should make sure you understand how to read the distribution tables. Prof. Tang will not be able to help you read them during the midterm."
+    "text": "When and where: Thursday, 11/20 during class (8:15-9:30am) in WNS 105\nWhat: content through end of Week 10 (i.e. through Simple Linear Regression)\n\nYou are allowed to bring a single, one-sided 8.5x11 inch piece of paper as your note sheet. Your note sheet cannot have any example problems. You will submit your note sheet alongside your midterm. No other outside resources besides your note sheet will be allowed.\nI will provide a calculator to you for the midterm. You are not allowed to use your own.\nYou will be provided a table z, t, and \\(\\chi^2\\) table. We will familiarize ourselves with them in class prior to the midterm.\nThere won’t be any wrangling/ggplot coding assessed on this midterm, but you will have to feel comfortable with the pnorm(), pt(), pchisq(), qnorm(), qt() functions and how to use them.\nThis midterm will focus on content from Week 5-Week 10, but some concepts do rely on content from first part of semester (e.g. random sampling, summary statistics, independence)\n\n\n\n\n\n\nCome to office hours!\n\nExtra office hours: TBD\n\nMy personal working strategy:\n\nFirst review your notes and homework\nMake a first draft of your note sheet, then do some practice problems using only your note sheet to see if what you wrote on it is actually useful for you\nMake a new note sheet\nRepeat as necessary\n\nExtra practice problems will be made available here.\nYou should make sure you understand how to read the distribution tables. Prof. Tang will not be able to help you read them during the midterm."
   }
 ]
