@@ -22,10 +22,9 @@ Below lists opportunities that count toward having a Statistics or Data Science 
     -   For this opportunity, a maximum of two students may attend the same conversation.
 2.  Attend one of the events below (for at least 30 minutes).
     -   10/03: Fall Faculty Forum talks by our Stats Faculty at 1:15pm in Axinn 229
-    -   **11/08: Women in Data Science Conference at Middlebury**
-    -   More forthcoming!
+    -   11/08: Women in Data Science Conference at Middlebury
 3.  Tidy Tuesday
-    -   **Tuesdays 11/4, 11/11, and 11/18 from 3:30-5:00 in MBH 169 (Q-Center Classroom)**
+    -   **Tuesdays** 11/4**, 11/11, and 11/18 from 3:30-5:00 in MBH 169 (Q-Center Classroom)**
 
     -   TidyTuesday is an opensource project where people around the globe play with a dataset. These sessions are a weekly chance to practice working with data. Middlebury’s TidyTuesdays will be led by Jonathan Cummings, a biologist highly experienced with coding and analytics, who regularly works in R.
 
