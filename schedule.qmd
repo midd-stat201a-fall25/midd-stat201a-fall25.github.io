@@ -622,7 +622,7 @@ format:
       </td>
       <td>
         <ul>
-          <li> Monday problems on Problem Set 9 (last one!) </li>
+          <li> Monday problems on <a href="homework/hw9.pdf">Problem Set 9</a> (last one!) </li>
         </ul>
       </td>
     </tr>
