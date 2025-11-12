@@ -631,9 +631,9 @@ format:
       <td> W 11/12 </td>
       <td>
         <ul>
-          <li> Topic: SLR interpretation </li>
+          <li> Topic: <a href="slides/slides-25-slr-interpretation.qmd">SLR interpretation</a> (pdf <a href="slides/pdf/slides-25.pdf">here</a>) </li>
           <ul>
-            <li>  Handout here </li>
+            <li>  Handout <a href="slides/handout-25-slr-interpretation.qmd">here</a> </li>
           </ul>
         </ul>
         </ul>

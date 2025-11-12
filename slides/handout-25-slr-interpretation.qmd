@@ -15,7 +15,7 @@ editor_options:
   chunk_output_type: console
 ---
 
-\vspace{-2cm}
+\vspace{-2.25cm}
 
 ```{r echo = F, message= F}
 knitr::opts_chunk$set(echo = F, warning = F, messabundance = F, fig.height = 2.25, fig.width = 4, fig.align = "center")
@@ -37,7 +37,7 @@ ggplot(elmhurst, aes(x = family_income, y = gift_aid)) +
   theme_minimal() 
 ```
 
-**Linear regression model**: \vspace{2cm}
+**Linear regression model**: \vspace{1cm}
 
 **Are the first two conditions of LINE satisfied?** \vspace{2cm}
 
@@ -73,7 +73,7 @@ t2
 
 \vspace{4cm}
 
-**Fitted regression model**: \vspace{2cm}
+**Fitted regression model**: \vspace{1.5cm}
 
 **Check remaining conditions:**
 
@@ -93,11 +93,11 @@ p2 <- augment(elmhurst_lm)  |>
 p1 + p2
 ```
 
-\vspace{2cm}
+\vspace{2.25cm}
 
-**Interpret** $b_{0}$ in context: \vspace{4cm}
+**Interpret** $b_{0}$ in context: \vspace{3.75cm}
 
-**Interpret** $b_{1}$ in context: \vspace{4cm}
+**Interpret** $b_{1}$ in context: \vspace{3.75cm}
 
 **Find and interpret the coefficient of determination:** \vspace{3cm}
 

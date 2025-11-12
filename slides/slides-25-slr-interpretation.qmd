@@ -1,6 +1,6 @@
 ---
 title: "SLR coefficient estimates"
-date: "April 23, 2025"
+date: "November 12, 2025"
 title-slide-attributes:
     data-background-image: "figs/bikeshare-plots.png"
     data-background-size: contain
@@ -33,9 +33,7 @@ plot_theme <-  theme_minimal() +
 source("../stat201_fns.R")
 ```
 
--   Will discuss details of Midterm 2 next week!
-
--   This Problem Set 9 is our last problem set!
+-   Discuss details of Midterm 2
 
 ## Recap
 
@@ -43,7 +41,7 @@ source("../stat201_fns.R")
 
 ::: fragment
 $$
-y = \underbrace{\beta_{0} + \beta_{1} x}_{\text{line}} + \underbrace{\epsilon}_{\text{error}}
+y = \beta_{0} + \beta_{1} x + \epsilon
 $$
 :::
 
@@ -77,7 +75,7 @@ ggplot(elmhurst, aes(x = family_income, y = gift_aid)) +
 :::::::: {.column width="45%"}
 ::::: discuss
 ::: fragment
-Write down the linear regression model.
+Write down the linear regression model of interest, in context.
 :::
 
 ::: fragment
@@ -187,9 +185,9 @@ R <- round(R , 3)
 ::::
 
 ::: {.column width="60%"}
--   $b_{1} = \frac{`r s_y`}{`r s_x`} \times `r R` = `r elmhurst_coefs[2]`$
+-   $b_{1} = \frac{`r s_y`}{`r s_x`} ( `r R`) = `r elmhurst_coefs[2]`$
 
--   $b_{0} = `r ybar` -  `r elmhurst_coefs[2]` \times `r xbar` = `r elmhurst_coefs[1]`$
+-   $b_{0} = `r ybar` -  (`r elmhurst_coefs[2]`) `r xbar` = `r elmhurst_coefs[1]`$
 
 -   Write out the fitted model!
 :::
@@ -284,14 +282,17 @@ $$
 ::::
 
 ::: {.column width="50%"}
--   Interpretation of estimated **slope** $b_{1}$: for a 1 unit increase in the explanatory variable $x$, we expect the response variable $y$ to change by $b_{1}$ units
+-   ::: {style="color: maroon"}
+    Interpretation of estimated **slope** $b_{1}$: for a 1 unit increase in the explanatory variable $x$, we expect the response variable $y$ to change by $b_{1}$ units
+    :::
 :::
 ::::::
 
 ::: discuss
 -   Interpret in context the estimated slope coefficient in the `elmhurst` model
 
-    -   For every \$1000 increase in a family's income, we expect that the gift aid the student receives will *decrease* by about \$`r format(abs(elmhurst_coefs[2]*1000), scientific = F)`
+    -   Fine interpretation: For every \$1000 increase in a family's income, we expect the gift aid (in \$1000) the student receives will *decrease* by about \$`r format(abs(elmhurst_coefs[2]), scientific = F)`
+    -   Better interpretation: ..., we expect that the gift aid the student receives will *decrease* by about \$`r format(abs(elmhurst_coefs[2]*1000), scientific = F)`
 :::
 
 ## Running SLR in `R`
@@ -520,7 +521,7 @@ $$\widehat{\text{tail length}} = `r possum_b0` + `r possum_b1`\times \text{pop_o
     -   Changing from to a `pop` value of "Vic" to "other"
 
 -   ::: {style="color: maroon"}
-    When $x$ is categorical, the interpretation of $b_{1}$ is the expected change in $y$ when moving from the base level to the non-base level
+    When $x$ is categorical, the interpretation of $b_{1}$ is the expected change in $y$ when moving from the base level to that non-base level
     :::
 
 -   ::: discuss
