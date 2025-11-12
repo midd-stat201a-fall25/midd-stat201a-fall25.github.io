@@ -642,7 +642,7 @@ format:
       </td>
       <td>
         <ul>
-          <li> Wednesday problems on Problem Set 9</li>
+          <li> Wednesday problems on <a href="homework/hw9.pdf">Problem Set 9</a></li>
         </ul>
       </td>
     </tr>

@@ -1,6 +1,6 @@
 ---
 title: "Inference in SLR"
-date: "April 24, 2025"
+date: "November 13, 2025"
 title-slide-attributes:
     data-background-image: "figs/bikeshare-plots.png"
     data-background-size: contain
@@ -20,8 +20,6 @@ draft: false
 ## Housekeeping
 
 -   Midterm 2 is one week from today (in class)
-
-    -   Content through this week is fair game for midterm
 
     -   Practice problems to be released over the weekend
 
@@ -46,9 +44,18 @@ source("../stat201_fns.R")
     -   $b_0$ is estimate of $\hat{y}$ when $x=0$
     -   $b_{1}$ is expected change in $\hat{y}$ for a one unit increase in $x$
 -   When explanatory $x$ is categorical, we have a slightly more nuanced interpretation
+    -   Created indicator variable with 0 = base level and 1 = non-base level
 -   Coefficient of determination $R^2$ assesses strength of linear model fit
 
+## Live code!
+
+How to fit a sample linear regression model in `R`. (Code posted after class!)
+
+# Inference for SLR
+
 ## Variability of coefficient estimates
+
+*No need to take notes on this slide!*
 
 -   Remember, a linear regression is fit using a sample of data
 
@@ -98,8 +105,6 @@ p2<- data.frame(b_mat) |>
   labs(title = "Sampling distribution")
 p1 + p2
 ```
-
-# Inference for SLR
 
 ## What are we interested in?
 
@@ -190,10 +195,11 @@ se <- tidy_eval|>
   pull(std.error)
 test_stat <- tidy_eval|>
   filter(term == "bty_avg") |>
-  pull(statistic)
+  pull(statistic) |>
+  round(3)
 n <- nrow(evals)
 df <- n -2
-p_val <- 2*(1-pt(test_stat,df))
+p_val <- round(2*(1-pt(test_stat,df)), 5)
 ```
 
 ```{r fig.width=12}
@@ -248,13 +254,13 @@ tidy_eval |>
 
 ::::: columns
 ::: {.column width="50%"}
--   `estimate`: the observed point estimate ($b_{0}$ or $b_{1}$)
+-   `estimate`: point estimate ($b_{0}$ or $b_{1}$)
 
--   `std.error`: the estimated standard error of the estimate
+-   `std.error`: estimated standard error of the estimate $(\widehat{\text{SE}})$
 :::
 
 ::: {.column width="50%"}
--   `statistic`: the value of the test statistic
+-   `statistic`: value of the test statistic (follows $t_{df = n-2}$ distribution for SLR)
 
 -   `p.value`: p-value associated with the ***two-sided alternative*** $H_{A}: \beta_{1} \neq 0$
 :::
@@ -264,10 +270,8 @@ tidy_eval |>
 
 ::: fragment
 $$
-t = \frac{\text{observed} - \text{null}}{\text{SE}_{0}} =\frac{b_{1,obs} - \beta_{1, 0}}{\widehat{\text{SE}}_{0}} = \frac{`r est` - 0}{`r se`} = `r test_stat` \sim t_{df}
+t = \frac{\text{observed} - \text{null}}{\widehat{\text{SE}_{0}}} =\frac{b_{1,obs} - \beta_{1, 0}}{\widehat{\text{SE}}_{0}} = \frac{`r round(est,3)` - 0}{`r round(se,3)`} = `r test_stat`
 $$
-
-where $df = n-2$
 :::
 
 ## p-value and conclusion
@@ -280,7 +284,7 @@ tidy_eval |>
 
 Let's confirm the p-value calculation:
 
-$$\text{p-value} = \text{Pr}(T \geq 4.09) + \text{Pr}(T \leq -4.09)$$ where $T \sim t_{`r df`}$
+$$\text{Pr}(T \geq 4.09) + \text{Pr}(T \leq -4.09) \qquad \text{ where } T \sim t_{`r df`}$$
 
 ::: discuss
 -   Write out the code you would use to calculate the p-value.
@@ -334,7 +338,7 @@ tidy_eval |>
 We can also construct confidence intervals using the output from `lm()`! Remember:
 
 $$
-\text{CI} = \text{point est.} \pm \text{critical value} \times \widehat{\text{SE}}
+\text{CI} = \text{point est.} \pm \text{critical value} \times \widehat{\text{SE}} \qquad \text{ (or SE if we have it)}
 $$
 
 -   Critical value also comes from $t_{n-2}$ distribution

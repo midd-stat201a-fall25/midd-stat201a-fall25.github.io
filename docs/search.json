@@ -2314,7 +2314,7 @@
     "href": "index.html#announcements",
     "title": "Introduction to Statistical and Data Sciences",
     "section": "Announcements",
-    "text": "Announcements\n\nJust a few more opportunities for SDS experience!\nVideo recording for 10/13 content:\n\nZoom recording link (see password below)\nPasscode: @ujH9e18"
+    "text": "Announcements\n\nMidterm 2 details announced\nJust a few more opportunities for SDS experience!\nVideo recording for 10/13 content:\n\nZoom recording link (see password below)\nPasscode: @ujH9e18"
   },
   {
     "objectID": "slides/slides-09-conditional-probability.html#recap",
@@ -9657,14 +9657,14 @@
     "href": "slides/slides-26-slr-inference.html#recap",
     "title": "Inference in SLR",
     "section": "Recap",
-    "text": "Recap\n\nLearned how to interpret slope and intercept of fitted model\n\n\\(b_0\\) is estimate of \\(\\hat{y}\\) when \\(x=0\\)\n\\(b_{1}\\) is expected change in \\(\\hat{y}\\) for a one unit increase in \\(x\\)\n\nWhen explanatory \\(x\\) is categorical, we have a slightly more nuanced interpretation\nCoefficient of determination \\(R^2\\) assesses strength of linear model fit"
+    "text": "Recap\n\nLearned how to interpret slope and intercept of fitted model\n\n\\(b_0\\) is estimate of \\(\\hat{y}\\) when \\(x=0\\)\n\\(b_{1}\\) is expected change in \\(\\hat{y}\\) for a one unit increase in \\(x\\)\n\nWhen explanatory \\(x\\) is categorical, we have a slightly more nuanced interpretation\n\nCreated indicator variable with 0 = base level and 1 = non-base level\n\nCoefficient of determination \\(R^2\\) assesses strength of linear model fit"
   },
   {
     "objectID": "slides/slides-26-slr-inference.html#variability-of-coefficient-estimates",
     "href": "slides/slides-26-slr-inference.html#variability-of-coefficient-estimates",
     "title": "Inference in SLR",
     "section": "Variability of coefficient estimates",
-    "text": "Variability of coefficient estimates\n\nRemember, a linear regression is fit using a sample of data\nDifferent samples from the same population will yield different point estimates of \\((b_{0}, b_{1})\\)\n\nI will generate 30 data points under the following model: \\(y = 1 + 0.5x+\\epsilon\\)\n\nHow? Randomly generate some \\(x\\) and \\(\\epsilon\\) values and then plug into model to get corresponding \\(y\\)\n\nFit SLR to these \\((x,y)\\) data, and obtain estimates \\((b_{0}, b_{1})\\)\nRepeat this 50 times"
+    "text": "Variability of coefficient estimates\nNo need to take notes on this slide!\n\nRemember, a linear regression is fit using a sample of data\nDifferent samples from the same population will yield different point estimates of \\((b_{0}, b_{1})\\)\n\nI will generate 30 data points under the following model: \\(y = 1 + 0.5x+\\epsilon\\)\n\nHow? Randomly generate some \\(x\\) and \\(\\epsilon\\) values and then plug into model to get corresponding \\(y\\)\n\nFit SLR to these \\((x,y)\\) data, and obtain estimates \\((b_{0}, b_{1})\\)\nRepeat this 50 times"
   },
   {
     "objectID": "slides/slides-26-slr-inference.html#variability-of-coefficient-estimates-1",
@@ -9692,7 +9692,7 @@
     "href": "slides/slides-26-slr-inference.html#teaching-evaluations-data",
     "title": "Inference in SLR",
     "section": "Teaching evaluations data",
-    "text": "Teaching evaluations data\n\n\n`geom_smooth()` using formula = 'y ~ x'\n\n\n\n\n\n\n\n\n\n\nDoes this line really have a non-zero slope?"
+    "text": "Teaching evaluations data\n\n\nDoes this line really have a non-zero slope?"
   },
   {
     "objectID": "slides/slides-26-slr-inference.html#hypothesis-test-for-slope",
@@ -9706,42 +9706,42 @@
     "href": "slides/slides-26-slr-inference.html#teaching-evaluations-model-assessment",
     "title": "Inference in SLR",
     "section": "Teaching evaluations: model assessment",
-    "text": "Teaching evaluations: model assessment\nWe fit the model in R, and obtain the following plots.\n\nAre all conditions of LINE met?\n\n\n\n`geom_smooth()` using formula = 'y ~ x'"
+    "text": "Teaching evaluations: model assessment\nWe fit the model in R, and obtain the following plots.\n\nAre all conditions of LINE met?"
   },
   {
     "objectID": "slides/slides-26-slr-inference.html#looking-at-lm-output",
     "href": "slides/slides-26-slr-inference.html#looking-at-lm-output",
     "title": "Inference in SLR",
     "section": "Looking at lm() output",
-    "text": "Looking at lm() output\n\nlibrary(broom)\neval_mod &lt;- lm(score ~ bty_avg, data = evals)\neval_mod |&gt;\n  tidy()\n\n\n\n\n\n\nterm\nestimate\nstd.error\nstatistic\np.value\n\n\n\n\n(Intercept)\n3.880\n0.076\n50.961\n0.00000\n\n\nbty_avg\n0.067\n0.016\n4.090\n0.00005\n\n\n\n\n\n\n\n\nAssuming the linear model is appropriate, interpret the coefficients!\n\n\nIntercept: an instructor with an average beauty score of 0 has an estimated evaluation score of 3.88\nSlope: for every one point increase in average beauty score an instructor receives, their evaluation score is estimated to increase by 0.067 points"
+    "text": "Looking at lm() output\n\nlibrary(broom)\neval_mod &lt;- lm(score ~ bty_avg, data = evals)\neval_mod |&gt;\n  tidy()\n\n\n\n\n\n\nterm\nestimate\nstd.error\nstatistic\np.value\n\n\n\n\n(Intercept)\n3.880\n0.076\n50.961\n0.00000\n\n\nbty_avg\n0.067\n0.016\n4.090\n0.00005\n\n\n\n\n\n\nAssuming the linear model is appropriate, interpret the coefficients!\n\n\nIntercept: an instructor with an average beauty score of 0 has an estimated evaluation score of 3.88\nSlope: for every one point increase in average beauty score an instructor receives, their evaluation score is estimated to increase by 0.067 points"
   },
   {
     "objectID": "slides/slides-26-slr-inference.html#looking-at-lm-output-1",
     "href": "slides/slides-26-slr-inference.html#looking-at-lm-output-1",
     "title": "Inference in SLR",
     "section": "Looking at lm() output",
-    "text": "Looking at lm() output\n\n\n\n\n\nterm\nestimate\nstd.error\nstatistic\np.value\n\n\n\n\n(Intercept)\n3.880\n0.076\n50.961\n0.00000\n\n\nbty_avg\n0.067\n0.016\n4.090\n0.00005\n\n\n\n\n\n\n\n\n\n\nestimate: the observed point estimate (\\(b_{0}\\) or \\(b_{1}\\))\nstd.error: the estimated standard error of the estimate\n\n\n\nstatistic: the value of the test statistic\np.value: p-value associated with the two-sided alternative \\(H_{A}: \\beta_{1} \\neq 0\\)\n\n\n\n\nLet’s confirm the test statistic calculation:\n\n\n\\[\nt = \\frac{\\text{observed} - \\text{null}}{\\text{SE}_{0}} =\\frac{b_{1,obs} - \\beta_{1, 0}}{\\widehat{\\text{SE}}_{0}} = \\frac{0.066637 - 0}{0.0162912} = 4.0903823 \\sim t_{df}\n\\]\nwhere \\(df = n-2\\)"
+    "text": "Looking at lm() output\n\n\n\n\n\nterm\nestimate\nstd.error\nstatistic\np.value\n\n\n\n\n(Intercept)\n3.880\n0.076\n50.961\n0.00000\n\n\nbty_avg\n0.067\n0.016\n4.090\n0.00005\n\n\n\n\n\n\n\n\nestimate: point estimate (\\(b_{0}\\) or \\(b_{1}\\))\nstd.error: estimated standard error of the estimate \\((\\widehat{\\text{SE}})\\)\n\n\n\nstatistic: value of the test statistic (follows \\(t_{df = n-2}\\) distribution for SLR)\np.value: p-value associated with the two-sided alternative \\(H_{A}: \\beta_{1} \\neq 0\\)\n\n\n\nLet’s confirm the test statistic calculation:\n\n\n\\[\nt = \\frac{\\text{observed} - \\text{null}}{\\widehat{\\text{SE}_{0}}} =\\frac{b_{1,obs} - \\beta_{1, 0}}{\\widehat{\\text{SE}}_{0}} = \\frac{0.067 - 0}{0.016} = 4.09\n\\]"
   },
   {
     "objectID": "slides/slides-26-slr-inference.html#p-value-and-conclusion",
     "href": "slides/slides-26-slr-inference.html#p-value-and-conclusion",
     "title": "Inference in SLR",
     "section": "p-value and conclusion",
-    "text": "p-value and conclusion\n\n\n\n\n\nterm\nestimate\nstd.error\nstatistic\np.value\n\n\n\n\n(Intercept)\n3.880\n0.076\n50.961\n0.00000\n\n\nbty_avg\n0.067\n0.016\n4.090\n0.00005\n\n\n\n\n\n\n\nLet’s confirm the p-value calculation:\n\\[\\text{p-value} = \\text{Pr}(T \\geq 4.09) + \\text{Pr}(T \\leq -4.09)\\] where \\(T \\sim t_{461}\\)\n\n\nWrite out the code you would use to calculate the p-value.\n\n\n\n2 * (1 - pt(4.09, df = 461)) = 0.00005082731\nAssuming the LINE conditions are met: since our p-value 0.00005082731 is extremely small, we would reject \\(H_{0}\\) at any reasonable significant level. Thus, the data provide convincing evidence that there is a linear relationship between instructor’s beauty score and evaluation score."
+    "text": "p-value and conclusion\n\n\n\n\n\nterm\nestimate\nstd.error\nstatistic\np.value\n\n\n\n\n(Intercept)\n3.880\n0.076\n50.961\n0.00000\n\n\nbty_avg\n0.067\n0.016\n4.090\n0.00005\n\n\n\n\n\nLet’s confirm the p-value calculation:\n\\[\\text{Pr}(T \\geq 4.09) + \\text{Pr}(T \\leq -4.09) \\qquad \\text{ where } T \\sim t_{461}\\]\n\n\nWrite out the code you would use to calculate the p-value.\n\n\n\n2 * (1 - pt(4.09, df = 461)) = 0.00005\nAssuming the LINE conditions are met: since our p-value 0.00005 is extremely small, we would reject \\(H_{0}\\) at any reasonable significant level. Thus, the data provide convincing evidence that there is a linear relationship between instructor’s beauty score and evaluation score."
   },
   {
     "objectID": "slides/slides-26-slr-inference.html#different-h_a",
     "href": "slides/slides-26-slr-inference.html#different-h_a",
     "title": "Inference in SLR",
     "section": "Different \\(H_{A}\\)",
-    "text": "Different \\(H_{A}\\)\n\n\n\n\n\nterm\nestimate\nstd.error\nstatistic\np.value\n\n\n\n\n(Intercept)\n3.880\n0.076\n50.961\n0.00000\n\n\nbty_avg\n0.067\n0.016\n4.090\n0.00005\n\n\n\n\n\n\n\n\n\n\nWrite code for your p-value if your alternative was \\(H_{A}: \\beta_{1} &gt; 0\\). What would your conclusion be?\n\n\n\\(\\text{Pr}(T \\geq 4.09)\\) = 1-pt(4.09, 461) = 0.00002541365\nThe data provide convincing evidence that there is a positive relationship between instructor’s beauty score and evaluation score.\n\n\n\nWrite code for your p-value if your alternative was \\(H_{A}: \\beta_{1} &lt; 0\\). What would your conclusion be?\n\n\n\\(\\text{Pr}(T \\leq 4.09)\\) = pt(4.09, 461) = 0.9999745\nThe data do not provide convincing evidence that there is a negative relationship between instructor’s beauty score and evaluation score."
+    "text": "Different \\(H_{A}\\)\n\n\n\n\n\nterm\nestimate\nstd.error\nstatistic\np.value\n\n\n\n\n(Intercept)\n3.880\n0.076\n50.961\n0.00000\n\n\nbty_avg\n0.067\n0.016\n4.090\n0.00005\n\n\n\n\n\n\n\n\nWrite code for your p-value if your alternative was \\(H_{A}: \\beta_{1} &gt; 0\\). What would your conclusion be?\n\n\n\\(\\text{Pr}(T \\geq 4.09)\\) = 1-pt(4.09, 461) = 0.000025\nThe data provide convincing evidence that there is a positive relationship between instructor’s beauty score and evaluation score.\n\n\n\nWrite code for your p-value if your alternative was \\(H_{A}: \\beta_{1} &lt; 0\\). What would your conclusion be?\n\n\n\\(\\text{Pr}(T \\leq 4.09)\\) = pt(4.09, 461) = 0.9999745\nThe data do not provide convincing evidence that there is a negative relationship between instructor’s beauty score and evaluation score."
   },
   {
     "objectID": "slides/slides-26-slr-inference.html#confidence-intervals",
     "href": "slides/slides-26-slr-inference.html#confidence-intervals",
     "title": "Inference in SLR",
     "section": "Confidence intervals",
-    "text": "Confidence intervals\n\n\n\n\n\nterm\nestimate\nstd.error\nstatistic\np.value\n\n\n\n\n(Intercept)\n3.880\n0.076\n50.961\n0.00000\n\n\nbty_avg\n0.067\n0.016\n4.090\n0.00005\n\n\n\n\n\n\n\nWe can also construct confidence intervals using the output from lm()! Remember:\n\\[\n\\text{CI} = \\text{point est.} \\pm \\text{critical value} \\times \\widehat{\\text{SE}}\n\\]\n\nCritical value also comes from \\(t_{n-2}\\) distribution\nSuppose we want a 95% confidence intervals for \\(\\beta_{1}\\):\n\n\nWhat code would you use to obtain critical value? Then set up your CI!\n\nqt(0.975, 461) = 1.97\n\n\n\n\\[\\text{95% CI}: 0.067 \\pm 1.97 \\times 0.016 = (0.035, 0.099)\\]"
+    "text": "Confidence intervals\n\n\n\n\n\nterm\nestimate\nstd.error\nstatistic\np.value\n\n\n\n\n(Intercept)\n3.880\n0.076\n50.961\n0.00000\n\n\nbty_avg\n0.067\n0.016\n4.090\n0.00005\n\n\n\n\n\nWe can also construct confidence intervals using the output from lm()! Remember:\n\\[\n\\text{CI} = \\text{point est.} \\pm \\text{critical value} \\times \\widehat{\\text{SE}} \\qquad \\text{ (or SE if we have it)}\n\\]\n\nCritical value also comes from \\(t_{n-2}\\) distribution\nSuppose we want a 95% confidence intervals for \\(\\beta_{1}\\):\n\n\nWhat code would you use to obtain critical value? Then set up your CI!\n\nqt(0.975, 461) = 1.97\n\n\n\n\\[\\text{95% CI}: 0.067 \\pm 1.97 \\times 0.016 = (0.035, 0.099)\\]"
   },
   {
     "objectID": "slides/slides-26-slr-inference.html#remarks",
@@ -9810,8 +9810,8 @@
     "objectID": "slides/slides-26-slr-inference.html#housekeeping",
     "href": "slides/slides-26-slr-inference.html#housekeeping",
     "title": "Inference in SLR",
-    "section": "",
-    "text": "Midterm 2 is one week from today (in class)\n\nContent through this week is fair game for midterm\nPractice problems to be released over the weekend"
+    "section": "Housekeeping",
+    "text": "Housekeeping\n\nMidterm 2 is one week from today (in class)\n\nPractice problems to be released over the weekend"
   },
   {
     "objectID": "slides/slides-26-slr-inference.html#housekeeping-1",
@@ -12045,5 +12045,12 @@
     "title": "Midterms",
     "section": "",
     "text": "When and where: Thursday, 11/20 during class (8:15-9:30am) in WNS 105\nWhat: content through end of Week 10 (i.e. through Simple Linear Regression)\n\nYou are allowed to bring a single, one-sided 8.5x11 inch piece of paper as your note sheet. Your note sheet cannot have any example problems. You will submit your note sheet alongside your midterm. No other outside resources besides your note sheet will be allowed.\nI will provide a calculator to you for the midterm. You are not allowed to use your own.\nYou will be provided a table z, t, and \\(\\chi^2\\) table. We will familiarize ourselves with them in class prior to the midterm.\nThere won’t be any wrangling/ggplot coding assessed on this midterm, but you will have to feel comfortable with the pnorm(), pt(), pchisq(), qnorm(), qt() functions and how to use them.\nThis midterm will focus on content from Week 5-Week 10, but some concepts do rely on content from first part of semester (e.g. random sampling, summary statistics, independence)\n\n\n\n\n\n\nCome to office hours!\n\nExtra office hours: TBD\n\nMy personal working strategy:\n\nFirst review your notes and homework\nMake a first draft of your note sheet, then do some practice problems using only your note sheet to see if what you wrote on it is actually useful for you\nMake a new note sheet\nRepeat as necessary\n\nExtra practice problems will be made available here.\nYou should make sure you understand how to read the distribution tables. Prof. Tang will not be able to help you read them during the midterm."
+  },
+  {
+    "objectID": "slides/slides-26-slr-inference.html#live-code",
+    "href": "slides/slides-26-slr-inference.html#live-code",
+    "title": "Inference in SLR",
+    "section": "Live code!",
+    "text": "Live code!\nHow to fit a sample linear regression model in R. (Code posted after class!)"
   }
 ]

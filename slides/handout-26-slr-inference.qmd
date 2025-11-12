@@ -38,7 +38,7 @@ We will look at the variables:
 
 ## Hypothesis test
 
-**Hypotheses:** \vspace{3cm}
+**Hypotheses:** \vspace{2.25cm}
 
 **Are conditions for SLR met?**
 
@@ -86,9 +86,9 @@ tidy_eval |>
 **Calculate the test-statistic and p-value for the hypotheses:** \vspace{4cm}
 
 ::: {layout-ncol="2"}
-**If instead** $H_{A}: \beta_{1} > 0$, what code would you write for the p-value?
+**If instead** $H_{A}: \beta_{1} > 0$, what code would you use for p-value? $\quad$
 
-**If instead** $H_{A}: \beta_{1} < 0$, what code would you write for the p-value?
+**If instead** $H_{A}: \beta_{1} < 0$, what code would you use for p-value?
 :::
 
 \vspace{1.5cm}
