@@ -665,7 +665,8 @@ format:
       </td>
       <td>
         <ul>
-          <li> Thursday problems on Problem Set 9 </li>
+          <li> Thursday problems on <a href="homework/hw9.pdf">Problem Set 9</a> {{< downloadthis homework/hw9_r.qmd dname="homework9_R" label="hw9_R" id=mtcars-btn >}} </li>
+          <li> A <a href="homework/hw9_r.qmd">rendered version</a> of the `.qmd` for easier reading.</li>
         </ul>
       </td>
     </tr>

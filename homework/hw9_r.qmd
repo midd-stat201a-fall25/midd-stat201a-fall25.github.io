@@ -1,11 +1,11 @@
 ---
 title: 'STAT 201: Homework 9 (R)'
 author: "Your name here"
-date: 'April 28, 2025'
+date: 'November 17, 2025'
 format: pdf
 ---
 
-We will examine data that were collected at Baystate Medical Center, Springfield, MA during 1986 on the birth weights of 189 babies, along with descriptive information about the mother. Researchers wanted to learn about risk factors for underweight babies. The variables are:
+We will examine data that were collected at Baystate Medical Center in Springfield, MA during 1986. We have the birth weights of 189 babies at the time of sampling, along with descriptive information about the mother. Researchers wanted to learn about risk factors for underweight babies. The variables are:
 
 -   `low`: indicator of `bwt` less than 2.5 kg
 -   `age`: mother's age in years
@@ -43,14 +43,13 @@ $$bwt = \beta_{0} + \beta_{1}*lwt + \epsilon$$
 
 **Answer:**
 
-3.  Using your new data frame, fit a linear regression model for the birth weight of the baby using the mother's weight at last menstrual period as the explanatory variable. Store this as an object called `birth_lm`, then display summary information of the coefficients of `birth_lm` as as a beautiful table.
+3.  Using your new data frame, fit a linear regression model for the birth weight of the baby using the mother's weight at last menstrual period as the explanatory variable. Store this as an object called `birth_lm`, then display summary information of the coefficients of `birth_lm` as as a beautiful and tidy table (remember the `kable()` function from awhile go...).
 
 ```{r}
 
 ```
 
-
-4.  Check if the remaining conditions are satisfied. Briefly explain in words why or why not. Be sure to have informative axis labels and title. 
+4.  Check if the remaining conditions for SLR are satisfied. Briefly explain in words why or why not, using visuals as support as necessary. Be sure to have informative axis labels and title.
 
 ```{r fig.height = 3}
 
@@ -58,13 +57,13 @@ $$bwt = \beta_{0} + \beta_{1}*lwt + \epsilon$$
 
 **Answer:**
 
-We will continue assuming all conditions are met. 
+We will continue assuming all conditions are met.
 
-5. Interpret the estimated slope coefficient.
+5.  Interpret the estimated slope coefficient.
 
 **Answer**:
 
-6.  Based off the model output, is there evidence of a linear relationship between the mother's weight at last period and the birth weight of the baby? Why or why not? 
+6.  Based on the model output, is there evidence of a linear relationship between the mother's weight at last period and the birth weight of the baby? Why or why not?
 
 **Answer:**
 
