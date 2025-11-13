@@ -60,7 +60,7 @@ coef(elmhurst_lm)
 The `broom` package has a function that turns the output from `lm()` into tidy, data frame form. We simply pass in the fitted model into the function of interest!
 
 ::: column-margin
-Install the package either by typing `install.packages("broom")` in your Console, or in the Packages pane.
+Install the package `broom` in the Packages pane!
 :::
 
 ### `tidy()`

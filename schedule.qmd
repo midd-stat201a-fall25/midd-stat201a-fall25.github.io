@@ -654,7 +654,7 @@ format:
           <li> Topic: <a href="slides/slides-26-slr-inference.qmd">Inference for SLR</a> (pdf <a href="slides/pdf/slides-26.pdf">here</a>) </li>
           <ul>
             <li> Handout <a href="slides/handout-26-slr-inference.qmd">here</a> </li>
-            <li> Code </li>
+            <li> <a href="live_code/slr1.qmd">Code for SLR</a> </li>
           </ul>
         </ul>
       </td>
