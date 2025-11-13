@@ -1181,7 +1181,7 @@ Thursday problems on <a href="homework/hw8.pdf">Problem Set 8</a>
 </ul>
 </td>
 </tr>
-<!-- week 9 -->
+<!-- week 10 -->
 <tr>
 <td id="week10">
 <strong>10</strong>
@@ -1249,11 +1249,11 @@ R 11/13
 <td>
 <ul>
 <li>
-Topic: Inference in SLR
+Topic: <a href="./slides/slides-26-slr-inference.html">Inference for SLR</a> (pdf <a href="slides/pdf/slides-26.pdf">here</a>)
 </li>
 <ul>
 <li>
-Handout here
+Handout <a href="./slides/handout-26-slr-inference.pdf">here</a>
 </li>
 <li>
 Code
@@ -1264,7 +1264,15 @@ Code
 <td>
 <ul>
 <li>
-SLR in <code>R</code>
+SLR in <code>R</code> <a href="#mtcars-btn" onclick="fetch('data:text/plain;base64,LS0tCnRpdGxlOiAiU0xSIGNvZGluZyBwcmFjdGljZSIKYXV0aG9yOiAiWW91ciBuYW1lIgpkYXRlOiAiTm92ZW1iZXIgMTMsIDIwMjUiCmZvcm1hdDogcGRmCi0tLQoKYGBge3IgbWVzc2FnZSA9IEZ9CmxpYnJhcnkodGlkeXZlcnNlKQpsaWJyYXJ5KG9wZW5pbnRybykKbGlicmFyeShicm9vbSkKYGBgCgoxLiAgVXNpbmcgdGhlIGBwb3NzdW1gIGRhdGEgZnJvbSBgb3BlbmludHJvYCwgZml0IGEgbGluZWFyIHJlZ3Jlc3Npb24gZm9yIHRoZSBsZW5ndGggb2YgaGVhZHMgZm9yIGEgcG9zc3VtIHVzaW5nIHRoZWlyIHRhaWwgbGVuZ3RocyBhcyBhIHByZWRpY3Rvci4gU3RvcmUgdGhlIG1vZGVsIG91dHB1dCBhcyBhIHZhcmlhYmxlIGNhbGxlZCBgcG9zc3VtX2xtYCBhbmQgZGlzcGxheSBpbmZvcm1hdGlvbiBhYm91dCB0aGUgY29lZmZpY2llbnRzIGluICp0aWR5KiBmb3JtIHVzaW5nIHRoZSBhcHByb3ByaWF0ZSBmdW5jdGlvbi4KCmBgYHtyfQoKYGBgCgoyLiAgQ3JlYXRlIGEgcmVzaWR1YWwgcGxvdCBvZiB0aGUgZml0dGVkIG1vZGVsIHVzaW5nIHRoZSBgYXVnbWVudCgpYCBmdW5jdGlvbiBhbmQgYGdncGxvdCgpYC4gVHJ5IGFkZGluZyBhIGhvcml6b250YWwgZGFzaGVkIGxpbmUgYXQgMCEKCmBgYHtyfQoKYGBgCgozLiAgU3VwcG9zZSB3ZSBmb3VuZCBhIHRhaWwgb2YgYSBwb3NzdW0gb24gdGhlIGdyb3VuZCEgV2UgbWVhc3VyZSB0aGUgdGFpbCB0byBiZSAzNi4xIGNtLiBCZWluZyBhcyByZXByb2R1Y2libGUgYXMgcG9zc2libGUsIG9idGFpbiB0aGUgZXN0aW1hdGVkIGhlYWQgbGVuZ3RoIG9mIHRoaXMgc3F1aXJyZWwgYnkgZG9pbmcgdGhlIGZvbGxvd2luZzoKCi0gICBDcmVhdGUgdmFyaWFibGUgY2FsbGVkIGB4X3ByZWRgIHRoYXQgc3RvcmVzIHRoZSB2YWx1ZSBvZiB0aGUgZXhwbGFuYXRvcnkgdmFyaWFibGUgd2UnZCBsaWtlIHRvIG9idGFpbiBhIHByZWRpY3Rpb24gZm9yLgoKLSAgIE9idGFpbiB0aGUgZXN0aW1hdGVkIGNvZWZmaWNpZW50cyBmcm9tIHRoZSB0aWR5IG91dHB1dCBieSBgcHVsbCgpYC1pbmcgdGhlIHJlbGV2YW50IGNvbHVtbi4gU3RvcmUgdGhlbSBhcyBhIHZhcmlhYmxlIGNhbGxlZCBgcG9zc3VtX2NvZWZmc2AuCgotICAgSW5kZXhpbmcgYGNvZWZmc2AgKGkuZS4gdXNpbmcgYnJhY2tldCBub3RhdGlvbikgYW5kIHVzaW5nIGB4YCwgb2J0YWluIHRoZSBlc3RpbWF0ZWQgaGVhZCBsZW5ndGggYW5kIHN0b3JlIHRoaXMgYXMgYSB2YWx1ZSBjYWxsZWQgYGhlYWRfbF9wcmVkYC4KCmBgYHtyfQojIGNyZWF0ZSB4X3ByZWQKCiMgY3JlYXRlIHBvc3N1bV9jb2VmZnMKCiMgY3JlYXRlIGhlYWRfbF9wcmVkCgpgYGAKClJlcG9ydCB5b3VyIGFuc3dlciB1c2luZyBpbi1saW5lIGNvZGUuCgoqKkFuc3dlcjoqKgo=').then(res => res.blob()).then(blob => {
+      const downloadURL = window.URL.createObjectURL(blob);
+      const a = document.createElement('a');
+      document.body.appendChild(a);
+      a.href = downloadURL;
+      a.download = 'coding-practice-slr.qmd'; a.click();
+      window.URL.revokeObjectURL(downloadURL);
+      document.body.removeChild(a);
+        });"><button class="btn btn-default downloadthis  " id="mtcars-btn"><i class="bi bi-download"></i> Coding practice </button></a>
 </li>
 </ul>
 </td>

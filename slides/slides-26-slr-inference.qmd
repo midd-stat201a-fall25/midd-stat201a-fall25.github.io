@@ -23,6 +23,8 @@ draft: false
 
     -   Practice problems to be released over the weekend
 
+-   Coding practice due tonight
+
 ```{r echo = F, message= F}
 knitr::opts_chunk$set(echo = F, warning = F, messabundance = F)
 library(tidyverse)

@@ -606,7 +606,7 @@ format:
         </ul>
       </td>
     </tr>
-    <!-- week 9 -->
+    <!-- week 10 -->
     <tr>
       <td id="week10"><strong>10</strong></td>
       <td> M 11/10 </td>
@@ -651,16 +651,16 @@ format:
       <td> R 11/13 </td>
       <td>
         <ul>
-          <li> Topic: Inference in SLR </li>
+          <li> Topic: <a href="slides/slides-26-slr-inference.qmd">Inference for SLR</a> (pdf <a href="slides/pdf/slides-26.pdf">here</a>) </li>
           <ul>
-            <li> Handout here </li>
+            <li> Handout <a href="slides/handout-26-slr-inference.qmd">here</a> </li>
             <li> Code </li>
           </ul>
         </ul>
       </td>
       <td>
         <ul>
-          <li> SLR in `R` </li>
+          <li> SLR in `R` {{< downloadthis coding_practice/coding-practice-26-slr.qmd dname="coding-practice-slr" label="Coding practice" id=mtcars-btn >}} </li>
         </ul>
       </td>
       <td>
