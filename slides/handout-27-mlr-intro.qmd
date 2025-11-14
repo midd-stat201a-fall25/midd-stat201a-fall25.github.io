@@ -54,7 +54,6 @@ tidy(shimmer_lm) |>
  kable(digits = c(3,3,3,3,7))
 ```
 
-
 **Fitted model**: \vspace{1.5cm}
 
 **Interpretation of**:
@@ -92,7 +91,6 @@ p3 <- augment(shimmer_lm) |>
 p2 + p3
 ```
 
-
 **Inference**
 
 -   **Hypotheses**: \vspace{3cm}
@@ -112,7 +110,7 @@ tidy(shimmer_lm2) |>
   kable(digits = c(3, 3, 3, 3, 7))
 ```
 
-**Fitted model**: \vspace{1.5cm}
+**Fitted model**: \vspace{2.5cm}
 
 **Interpretation of**:
 
@@ -129,5 +127,3 @@ glance(shimmer_lm) |>
 ```
 
 **Which model seems "better", and why?**
-
-

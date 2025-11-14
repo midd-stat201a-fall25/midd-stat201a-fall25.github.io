@@ -9824,15 +9824,15 @@
     "objectID": "slides/slides-27-mlr-intro.html#housekeeping",
     "href": "slides/slides-27-mlr-intro.html#housekeeping",
     "title": "Introduction to Multiple Linear Regression",
-    "section": "",
-    "text": "Study for midterm!\nToday’s content will not be assessed on midterm, but might be useful for your final project and future coursework!"
+    "section": "Housekeeping",
+    "text": "Housekeeping\n\nStudy for midterm!\nToday’s content will not be assessed on midterm, but might be useful for your final project and future coursework!"
   },
   {
     "objectID": "slides/slides-27-mlr-intro.html#voice-shimmer-and-jitter-data",
     "href": "slides/slides-27-mlr-intro.html#voice-shimmer-and-jitter-data",
     "title": "Introduction to Multiple Linear Regression",
     "section": "Voice shimmer and jitter data",
-    "text": "Voice shimmer and jitter data\nRecall the data from a previous problem set about voice jitter and shimmer among patients with and without Parkinson’s Disease (PD).\n\n\nRows: 195 Columns: 6\n── Column specification ────────────────────────────────────────────────────────\nDelimiter: \",\"\nchr (2): clip, status\ndbl (4): jitter, shimmer, hnr, avg.f.q\n\nℹ Use `spec()` to retrieve the full column specification for this data.\nℹ Specify the column types or set `show_col_types = FALSE` to quiet this message.\n\n\nThe variables in the dataset are as follows:\n\n\nclip: ID of the recording\njitter: a measure of variation in fundamental frequency\nshimmer: a measure of variation in amplitude\nhnr: a ratio of total components vs. noise in the voice recording\nstatus: PD vs. Healthy\navg.f.q: 1, 2, or 3, corresponding to average vocal fundamental frequency (1 = low, 2 = mid, 3 = high)"
+    "text": "Voice shimmer and jitter data\nRecall the data from a previous problem set about voice jitter and shimmer among patients with and without Parkinson’s Disease (PD).\nThe variables in the dataset are as follows:\n\nclip: ID of the recording\njitter: a measure of variation in fundamental frequency\nshimmer: a measure of variation in amplitude\nhnr: a ratio of total components vs. noise in the voice recording\nstatus: PD vs. Healthy\navg.f.q: 1, 2, or 3, corresponding to average vocal fundamental frequency (1 = low, 2 = mid, 3 = high)"
   },
   {
     "objectID": "slides/slides-27-mlr-intro.html#analysis-goal",
@@ -9860,7 +9860,7 @@
     "href": "slides/slides-27-mlr-intro.html#multiple-regression-in-r",
     "title": "Introduction to Multiple Linear Regression",
     "section": "Multiple regression in R",
-    "text": "Multiple regression in R\nVery easy to code:\n\nshimmer_lm &lt;- lm(shimmer ~ hnr + jitter, data = pd)\ntidy(shimmer_lm)\n\n\n\n\n\n\nterm\nestimate\nstd.error\nstatistic\np.value\n\n\n\n\n(Intercept)\n0.732\n0.091\n8.022\n0.0000000\n\n\nhnr\n-0.025\n0.004\n-7.066\n0.0000000\n\n\njitter\n13.467\n2.574\n5.232\n0.0000012\n\n\n\n\n\n\n\n\nSimply identify the estimated coefficients from the output to obtain fitted model\n\nTry writing down the fitted model\n\n\n\n\\[\n\\begin{align*}\n\\widehat{\\text{shimmer}} &= 0.732  -0.025 \\text{hnr}+ 13.467 \\text{jitter}\n\\end{align*}\n\\]"
+    "text": "Multiple regression in R\nVery easy to code:\n\nshimmer_lm &lt;- lm(shimmer ~ hnr + jitter, data = pd)\ntidy(shimmer_lm)\n\n\n\n\n\n\nterm\nestimate\nstd.error\nstatistic\np.value\n\n\n\n\n(Intercept)\n0.732\n0.091\n8.022\n0.0000000\n\n\nhnr\n-0.025\n0.004\n-7.066\n0.0000000\n\n\njitter\n13.467\n2.574\n5.232\n0.0000012\n\n\n\n\n\n\nSimply identify the estimated coefficients from the output to obtain fitted model\n\nTry writing down the fitted model\n\n\n\n\\[\n\\begin{align*}\n\\widehat{\\text{shimmer}} &= 0.732  -0.025 \\text{hnr}+ 13.467 \\text{jitter}\n\\end{align*}\n\\]\n\n\nFOR NOW: assume conditions are met just for sake of interpretation practice"
   },
   {
     "objectID": "slides/slides-27-mlr-intro.html#interpretation-of-intercept",
@@ -9909,14 +9909,14 @@
     "href": "slides/slides-27-mlr-intro.html#conditions-for-inference",
     "title": "Introduction to Multiple Linear Regression",
     "section": "Conditions for inference",
-    "text": "Conditions for inference\nWe still need LINE to hold\n\nLinearity: harder to assess now that multiple predictors are involved. Good idea to make several scatter plots\nIndependence: same as before\nNearly normal residuals: same as before\nEqual variance: residual plot has fitted values \\(\\hat{y}\\) on the x-axis"
+    "text": "Conditions for inference\nWe still need LINE to hold\n\nLinearity: harder to assess now that multiple predictors are involved. Good idea to make several scatter plots\nIndependence: same as before\nNearly normal residuals: same as before\nEqual variance: because we have multiple explanatory variables, residual plot in MLR has fitted values \\(\\hat{y}\\) on the x-axis"
   },
   {
     "objectID": "slides/slides-27-mlr-intro.html#hypothesis-testing-in-mlr",
     "href": "slides/slides-27-mlr-intro.html#hypothesis-testing-in-mlr",
     "title": "Introduction to Multiple Linear Regression",
     "section": "Hypothesis testing in MLR",
-    "text": "Hypothesis testing in MLR\n\nIn MLR, we are interested in the effect of each predictor variable on the response \\(y\\).\n\nNeed to account for presence of other predictors in the model\n\n\\(H_{0}: \\beta_{k} = 0\\), given other predictors in the model\n\\(H_{A}: \\beta_{k} \\neq 0\\), given other predictors in the model (or \\(&gt;, &lt;\\))\nWe can write down one null hypothesis for each coefficient in the model"
+    "text": "Hypothesis testing in MLR\n\nIn MLR, we are interested in the effect of each predictor variable on response \\(y\\)\n\nNeed to account for presence of other predictors in the model\n\n\\(H_{0}: \\beta_{k} = 0\\), given other predictors in the model\n\\(H_{A}: \\beta_{k} \\neq 0\\), given other predictors in the model (or \\(&gt;, &lt;\\))\nWe can write down one null hypothesis for each coefficient in the model"
   },
   {
     "objectID": "slides/slides-27-mlr-intro.html#hypothesis-tests-from-lm",
@@ -9930,21 +9930,21 @@
     "href": "slides/slides-27-mlr-intro.html#hypothesis-tests-from-lm-1",
     "title": "Introduction to Multiple Linear Regression",
     "section": "Hypothesis tests from lm()",
-    "text": "Hypothesis tests from lm()\n\n\n\n\n\nterm\nestimate\nstd.error\nstatistic\np.value\n\n\n\n\n(Intercept)\n0.73\n0.091\n8.022\n0.0000000\n\n\nhnr\n-0.02\n0.004\n-7.066\n0.0000000\n\n\njitter\n13.47\n2.574\n5.232\n0.0000012\n\n\n\n\n\n\n\n\nOutput from lm() provides:\n\nTest statistic, which follows \\(t_{n-p}\\) where \\(p =\\) total number of unknown parameters (i.e. \\(\\beta\\) terms)\np-values for testing two-sided \\(H_{A}\\) provided\n\n\n\n\nBased on the model fit, which variables seem to be important predictors of voice shimmer? Why?"
+    "text": "Hypothesis tests from lm()\n\n\n\n\n\nterm\nestimate\nstd.error\nstatistic\np.value\n\n\n\n\n(Intercept)\n0.73\n0.091\n8.022\n0.0000000\n\n\nhnr\n-0.02\n0.004\n-7.066\n0.0000000\n\n\njitter\n13.47\n2.574\n5.232\n0.0000012\n\n\n\n\n\n\nOutput from lm() provides:\n\nTest statistic, which follows \\(t_{n-p}\\) where \\(p =\\) total number of unknown parameters (i.e. \\(\\beta\\) terms)\np-values for testing two-sided \\(H_{A}\\) provided\n\n\n\n\nBased on the model fit, which variables seem to be important predictors of voice shimmer? Why?"
   },
   {
     "objectID": "slides/slides-27-mlr-intro.html#hypothesis-tests-from-lm-cont.",
     "href": "slides/slides-27-mlr-intro.html#hypothesis-tests-from-lm-cont.",
     "title": "Introduction to Multiple Linear Regression",
     "section": "Hypothesis tests from lm() (cont.)",
-    "text": "Hypothesis tests from lm() (cont.)\n\n\n\n\n\nterm\nestimate\nstd.error\nstatistic\np.value\n\n\n\n\n(Intercept)\n0.732\n0.091\n8.022\n0.0000000\n\n\nhnr\n-0.025\n0.004\n-7.066\n0.0000000\n\n\njitter\n13.467\n2.574\n5.232\n0.0000012\n\n\n\n\n\n\n\n\nHNR does seem to be an important predictor for voice shimmer, even when including jitter in the model\n\nLow p-value suggests it would be extremely unlikely to see data that produce \\(b_{1} =  -0.025\\) if the true relationship between shimmer and HNR was non-existent (i.e., if \\(\\beta_{1} = 0\\)) and the model also included jitter\n\nJitter does seem to be an important predictor, even when including HNR in the model"
+    "text": "Hypothesis tests from lm() (cont.)\n\n\n\n\n\nterm\nestimate\nstd.error\nstatistic\np.value\n\n\n\n\n(Intercept)\n0.732\n0.091\n8.022\n0.0000000\n\n\nhnr\n-0.025\n0.004\n-7.066\n0.0000000\n\n\njitter\n13.467\n2.574\n5.232\n0.0000012\n\n\n\n\n\n\nHNR does seem to be an important predictor for voice shimmer, even when including jitter in the model\n\nLow p-value suggests it would be extremely unlikely to see data that produce \\(b_{1} =  -0.025\\) if the true relationship between shimmer and HNR was non-existent (i.e., if \\(\\beta_{1} = 0\\)) and the model also included jitter\n\nJitter does seem to be an important predictor, even when including HNR in the model"
   },
   {
     "objectID": "slides/slides-27-mlr-intro.html#more-complex-model",
     "href": "slides/slides-27-mlr-intro.html#more-complex-model",
     "title": "Introduction to Multiple Linear Regression",
     "section": "More complex model",
-    "text": "More complex model\nLet’s see a model that now includes the status of the patient as a predictor:\n\nshimmer_lm2 &lt;- lm(shimmer ~ hnr + jitter + status, data = pd)\ntidy(shimmer_lm2)\n\n\n\n\n\n\nterm\nestimate\nstd.error\nstatistic\np.value\n\n\n\n\n(Intercept)\n0.688\n0.103\n6.668\n0.0000000\n\n\nhnr\n-0.024\n0.004\n-6.273\n0.0000000\n\n\njitter\n13.662\n2.585\n5.285\n0.0000010\n\n\nstatusPD\n0.020\n0.022\n0.915\n0.3628131\n\n\n\n\n\n\n\n\nRemember, status is categorical with two levels. lm() converted to indicator variable for us: statusPD = 1 when status = \"PD\"\n\n\n\nWrite out the fitted model."
+    "text": "More complex model\nLet’s see a model that now includes the status of the patient as a predictor:\n\nshimmer_lm2 &lt;- lm(shimmer ~ hnr + jitter + status, data = pd)\ntidy(shimmer_lm2)\n\n\n\n\n\n\nterm\nestimate\nstd.error\nstatistic\np.value\n\n\n\n\n(Intercept)\n0.688\n0.103\n6.668\n0.0000000\n\n\nhnr\n-0.024\n0.004\n-6.273\n0.0000000\n\n\njitter\n13.662\n2.585\n5.285\n0.0000010\n\n\nstatusPD\n0.020\n0.022\n0.915\n0.3628131\n\n\n\n\n\n\nRemember, status is categorical with two levels. lm() converted to indicator variable for us: statusPD = 1 when status = \"PD\"\n\n\n\nWrite out the fitted model."
   },
   {
     "objectID": "slides/slides-27-mlr-intro.html#interpretation-with-categorical-variable",
@@ -9958,21 +9958,21 @@
     "href": "slides/slides-27-mlr-intro.html#interpretation-of-slope-coefficients",
     "title": "Introduction to Multiple Linear Regression",
     "section": "Interpretation of slope coefficients",
-    "text": "Interpretation of slope coefficients\n\\[\n\\widehat{shimmer} = 0.688  -0.024 \\text{hnr} + 13.662 \\text{jitter} + 0.02 \\text{statusPD}\n\\]\n\nTry interpreting the coefficients of hnr, jitter, and statusPD. Remember the special wording/acknowledgement now that we are in MLR world!\n\n\nCoefficient for hnr: for every one unit increase in HNR, we expect the patient’s shimmer to decrease by 0.024 units, holding the other variables (jitter and status) constant.\nCoefficient for jitter: for every one unit increase in jitter, we expect the patient’s shimmer to increase by 13.662 units, holding the other variables constant.\nCoefficient for statusPD: patients with PD are estimated to have a voice shimmer 0.02 units higher than patients without PD, holding the other variables constant"
+    "text": "Interpretation of slope coefficients\n\\[\n\\widehat{\\text{shimmer}} = 0.688  -0.024 \\text{hnr} + 13.662 \\text{jitter} + 0.02 \\text{statusPD}\n\\]\n\nTry interpreting the coefficients of hnr, jitter, and statusPD. Remember the special wording/acknowledgement now that we are in MLR world!\n\n\nCoefficient for hnr: for every one unit increase in HNR, we expect the patient’s shimmer to decrease by 0.024 units, holding the other variables (jitter and status) constant.\nCoefficient for jitter: for every one unit increase in jitter, we expect the patient’s shimmer to increase by 13.662 units, holding the other variables constant.\nCoefficient for statusPD: patients with PD are estimated to have a voice shimmer 0.02 units higher than patients without PD, holding the other variables constant"
   },
   {
     "objectID": "slides/slides-27-mlr-intro.html#effect-of-status",
     "href": "slides/slides-27-mlr-intro.html#effect-of-status",
     "title": "Introduction to Multiple Linear Regression",
     "section": "Effect of status",
-    "text": "Effect of status\n\n\n\n\n\nterm\nestimate\nstd.error\nstatistic\np.value\n\n\n\n\n(Intercept)\n0.688\n0.103\n6.668\n0.0000000\n\n\nhnr\n-0.024\n0.004\n-6.273\n0.0000000\n\n\njitter\n13.662\n2.585\n5.285\n0.0000010\n\n\nstatusPD\n0.020\n0.022\n0.915\n0.3628131\n\n\n\n\n\n\n\n\nBased off the model output, does it appear that status is an important predictor of a patient’s voice shimmer? Why or why not? What about the other two variables hnr and jitter?"
+    "text": "Effect of status\n\n\n\n\n\nterm\nestimate\nstd.error\nstatistic\np.value\n\n\n\n\n(Intercept)\n0.688\n0.103\n6.668\n0.0000000\n\n\nhnr\n-0.024\n0.004\n-6.273\n0.0000000\n\n\njitter\n13.662\n2.585\n5.285\n0.0000010\n\n\nstatusPD\n0.020\n0.022\n0.915\n0.3628131\n\n\n\n\n\n\nBased off the model output, does it appear that status is an important predictor of a patient’s voice shimmer? Why or why not? What about the other two variables hnr and jitter?"
   },
   {
     "objectID": "slides/slides-27-mlr-intro.html#comparing-models",
     "href": "slides/slides-27-mlr-intro.html#comparing-models",
     "title": "Introduction to Multiple Linear Regression",
     "section": "Comparing models",
-    "text": "Comparing models\nLet’s compare the two models:\n\n\n\ntidy(shimmer_lm) |&gt;\n  select(term, estimate, p.value)\n\n\n\n\n\n\nterm\nestimate\np.value\n\n\n\n\n(Intercept)\n0.732\n0.000000\n\n\nhnr\n-0.025\n0.000000\n\n\njitter\n13.467\n0.000001\n\n\n\n\n\n\n\n\nglance(shimmer_lm)\n\n\n\n\n\n\nr.squared\nadj.r.squared\nsigma\nstatistic\np.value\ndf\nlogLik\nAIC\nBIC\ndeviance\ndf.residual\nnobs\n\n\n\n\n0.807\n0.8024\n0.0744\n173.5385\n0\n2\n102.9875\n-197.975\n-188.1576\n0.4591\n83\n86\n\n\n\n\n\n\n\n\n\ntidy(shimmer_lm2) |&gt;\n  select(term, estimate, p.value)\n\n\n\n\n\n\nterm\nestimate\np.value\n\n\n\n\n(Intercept)\n0.688\n0.000000\n\n\nhnr\n-0.024\n0.000000\n\n\njitter\n13.662\n0.000001\n\n\nstatusPD\n0.020\n0.362813\n\n\n\n\n\n\n\n\nglance(shimmer_lm2)\n\n\n\n\n\n\nr.squared\nadj.r.squared\nsigma\nstatistic\np.value\ndf\nlogLik\nAIC\nBIC\ndeviance\ndf.residual\nnobs\n\n\n\n\n0.809\n0.802\n0.0744\n115.7449\n0\n3\n103.4244\n-196.8488\n-184.5771\n0.4544\n82\n86\n\n\n\n\n\n\n\n\n\n\nWhat do you notice about the estimated coefficients, \\(R^2\\), and adjusted \\(R^2\\) across the two models?"
+    "text": "Comparing models\nLet’s compare the two models:\n\n\n\ntidy(shimmer_lm) |&gt;\n  select(term, estimate, p.value)\n\n\n\n\n\n\nterm\nestimate\np.value\n\n\n\n\n(Intercept)\n0.732\n0.000000\n\n\nhnr\n-0.025\n0.000000\n\n\njitter\n13.467\n0.000001\n\n\n\n\n\n\nglance(shimmer_lm)\n\n\n\n\n\n\nr.squared\nadj.r.squared\nsigma\nstatistic\np.value\ndf\nlogLik\nAIC\nBIC\ndeviance\ndf.residual\nnobs\n\n\n\n\n0.807\n0.8024\n0.0744\n173.5385\n0\n2\n102.9875\n-197.975\n-188.1576\n0.4591\n83\n86\n\n\n\n\n\n\n\ntidy(shimmer_lm2) |&gt;\n  select(term, estimate, p.value)\n\n\n\n\n\n\nterm\nestimate\np.value\n\n\n\n\n(Intercept)\n0.688\n0.000000\n\n\nhnr\n-0.024\n0.000000\n\n\njitter\n13.662\n0.000001\n\n\nstatusPD\n0.020\n0.362813\n\n\n\n\n\n\nglance(shimmer_lm2)\n\n\n\n\n\n\nr.squared\nadj.r.squared\nsigma\nstatistic\np.value\ndf\nlogLik\nAIC\nBIC\ndeviance\ndf.residual\nnobs\n\n\n\n\n0.809\n0.802\n0.0744\n115.7449\n0\n3\n103.4244\n-196.8488\n-184.5771\n0.4544\n82\n86\n\n\n\n\n\n\n\nWhat do you notice about the estimated coefficients, \\(R^2\\), and adjusted \\(R^2\\) across the two models?"
   },
   {
     "objectID": "slides/slides-27-mlr-intro.html#remarks",

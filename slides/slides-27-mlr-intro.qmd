@@ -1,6 +1,6 @@
 ---
 title: "Introduction to Multiple Linear Regression"
-date: "April 28, 2025"
+date: "November 17, 2025"
 title-slide-attributes:
     data-background-image: "figs/bikeshare-plots.png"
     data-background-size: contain
@@ -145,6 +145,8 @@ $$
 $$
 :::
 
+-   FOR NOW: assume conditions are met just for sake of interpretation practice
+
 ## Interpretation of intercept
 
 -   Interpretation of the estimated intercept $b_{0}$ in MLR is very similar to SLR!
@@ -195,7 +197,7 @@ $$
 \end{align*}
 $$
 
--   For every one unit increase in a patient's voice jitter, their voice shimmer is expected to $\color{orange}{\text{increase by } `r mlr_coefs[3]`}$ units, holding their HNR value constant
+-   For every one unit increase in a patient's voice jitter, their voice shimmer is expected to $\color{orange}{\text{increase by } `r mlr_coefs[3]`}$ units, **holding their HNR value constant**
 
 ## More isn't always better
 
@@ -253,15 +255,15 @@ We still need LINE to hold
 
 -   **Nearly normal residuals**: same as before
 
--   **Equal variance**: residual plot has *fitted* values $\hat{y}$ on the x-axis
+-   **Equal variance**: because we have multiple explanatory variables, residual plot in MLR has *fitted* values $\hat{y}$ on the x-axis
 
 ::: fragment
-```{r fig.height=3}
+```{r fig.height=2.75}
 p2 <- augment(shimmer_lm) |>
   ggplot(aes(x= .resid)) + 
   geom_histogram(bins = 20) +
   theme_minimal() +
-  theme(text =element_text(size = 25)) +
+  theme(text =element_text(size = 20)) +
   labs(x = "Residual")
 
 p3 <- augment(shimmer_lm) |>
@@ -269,7 +271,7 @@ p3 <- augment(shimmer_lm) |>
   geom_point(size = 2) +
   geom_hline(yintercept = 0, linetype = "dashed") +
   theme_minimal() +
-  theme(text =element_text(size = 25)) +
+  theme(text =element_text(size = 20)) +
   labs(x = "Estimated shimmer", y = "Residual")
 
 p2 + p3
@@ -280,7 +282,7 @@ p2 + p3
 
 ## Hypothesis testing in MLR
 
--   In MLR, we are interested in the effect of each predictor variable on the response $y$.
+-   In MLR, we are interested in the effect of each predictor variable on response $y$
 
     -   Need to account for presence of other predictors in the model
 
@@ -377,7 +379,7 @@ $$
 ## Interpretation of slope coefficients
 
 $$
-\widehat{shimmer} = `r coefs[1]`  `r coefs[2]` \text{hnr} + `r coefs[3]` \text{jitter} + `r coefs[4]` \text{statusPD}
+\widehat{\text{shimmer}} = `r coefs[1]`  `r coefs[2]` \text{hnr} + `r coefs[3]` \text{jitter} + `r coefs[4]` \text{statusPD}
 $$
 
 ::: discuss
