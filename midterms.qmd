@@ -19,7 +19,7 @@ format:
     -   **I will provide a calculator to you for the midterm**. You are not allowed to use your own.
 
     -   ::: {style="color: purple"}
-        You will be provided a table [z](z_table.pdf), [t](t_table.pdf), and [$\chi^2$](chi_square_table.pdf) table. Familiarize yourself with them by watching [this video](https://middlebury.zoom.us/rec/share/IiwdvdjN0aIS5c4g9AZdhWGQBTtc0E5zCuTkvOGbvsU2Vi5nlDqZHrg9jh2w8Iqm.Q2fdej1_aHJnqNKX  Passcode: 4es^$9F8). Feel free to ask Prof. Tang questions about how to use them prior to the midterm!
+        You will be provided a table [z](z_table.pdf), [t](t_table.pdf), and [$\chi^2$](chi_square_table.pdf) table. Familiarize yourself with them by watching [this video](https://middlebury.zoom.us/rec/share/IiwdvdjN0aIS5c4g9AZdhWGQBTtc0E5zCuTkvOGbvsU2Vi5nlDqZHrg9jh2w8Iqm.Q2fdej1_aHJnqNKX  Passcode: 4es^$9F8) (password: 4es\^\$9F8). Feel free to ask Prof. Tang questions about how to use them prior to the midterm!
         :::
 
     -   There won't be any wrangling/ggplot coding assessed on this midterm, but you will have to feel comfortable with the `pnorm(), pt(), pchisq(), qnorm(), qt()` functions and how to use them.
