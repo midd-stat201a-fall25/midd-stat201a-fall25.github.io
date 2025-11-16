@@ -29,13 +29,13 @@ format:
 ### Preparation
 
 -   Come to office hours!
-    -   **Extra office hours**: TBD
+    -   **Extra office hours**: Tuesday, 11/18 from 3:30-4:30pm
 -   My personal working strategy:
     1.  First review your notes and homework
     2.  Make a first draft of your note sheet, then do some practice problems using only your note sheet to see if what you wrote on it is actually useful for you
     3.  Make a new note sheet
     4.  Repeat as necessary
--   Extra practice problems will be made available here.
+-   Extra practice problems are available [here](midterms/midterm2_practice_probs.pdf).
 -   You should make sure you understand how to read the distribution tables. Prof. Tang will not be able to help you read them during the midterm.
 
 ------------------------------------------------------------------------
