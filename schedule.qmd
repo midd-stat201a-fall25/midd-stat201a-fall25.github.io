@@ -676,9 +676,9 @@ format:
       <td> M 11/17 </td>
       <td>
         <ul>
-          <li> Topic: Multiple linear regression </li>
+          <li> Topic: <a href="slides/slides-27-mlr-intro.qmd">Multiple linear regression</a> (pdf <a href="slides/pdf/slides-27.pdf">here</a>) </li>
           <ul>
-            <li>  Handout  </li>
+            <li>  Handout  <a href="slides/handout-27-mlr-intro.qmd">here</a></li>
           </ul>
         </ul>
       </td>
