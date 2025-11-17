@@ -9930,7 +9930,7 @@
     "href": "slides/slides-27-mlr-intro.html#hypothesis-tests-from-lm-1",
     "title": "Introduction to Multiple Linear Regression",
     "section": "Hypothesis tests from lm()",
-    "text": "Hypothesis tests from lm()\n\n\n\n\n\nterm\nestimate\nstd.error\nstatistic\np.value\n\n\n\n\n(Intercept)\n0.73\n0.091\n8.022\n0.0000000\n\n\nhnr\n-0.02\n0.004\n-7.066\n0.0000000\n\n\njitter\n13.47\n2.574\n5.232\n0.0000012\n\n\n\n\n\n\nOutput from lm() provides:\n\nTest statistic, which follows \\(t_{n-p}\\) where \\(p =\\) total number of unknown parameters (i.e. \\(\\beta\\) terms)\np-values for testing two-sided \\(H_{A}\\) provided\n\n\n\n\nBased on the model fit, which variables seem to be important predictors of voice shimmer? Why?"
+    "text": "Hypothesis tests from lm()\n\n\n\n\n\nterm\nestimate\nstd.error\nstatistic\np.value\n\n\n\n\n(Intercept)\n0.73\n0.091\n8.022\n0.0000000\n\n\nhnr\n-0.02\n0.004\n-7.066\n0.0000000\n\n\njitter\n13.47\n2.574\n5.232\n0.0000012\n\n\n\n\n\n\nOutput from lm() provides:\n\nTest statistic, which follows \\(t_{n-q}\\) where \\(q =\\) total number of unknown coefficients (i.e. \\(\\beta\\) terms)\np-values for testing two-sided \\(H_{A}\\) provided\n\n\n\n\nBased on the model fit, which variables seem to be important predictors of voice shimmer? Why?"
   },
   {
     "objectID": "slides/slides-27-mlr-intro.html#hypothesis-tests-from-lm-cont.",

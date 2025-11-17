@@ -312,7 +312,7 @@ tidy(shimmer_lm) |>
 
 -   Output from `lm()` provides:
 
-    -   Test statistic, which follows $t_{n-p}$ where $p =$ total number of unknown parameters (i.e. $\beta$ terms)
+    -   Test statistic, which follows $t_{n-q}$ where $q =$ total number of unknown coefficients (i.e. $\beta$ terms)
 
     -   **p-values for testing two-sided** $H_{A}$ **provided**
 
