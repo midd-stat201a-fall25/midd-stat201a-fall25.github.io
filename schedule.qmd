@@ -697,6 +697,7 @@ format:
       <td>
         <ul>
           <li> Topic: Time to study for Midterm 2 </li>
+          <li> Go over deliverables for after Thanksgiving break </li>
         </ul>
         </ul>
       </td>
