@@ -135,7 +135,6 @@ A general breakdown of scoring for the final report and presentation is as follo
 |  | Clean code + reproducibility | 3 points |
 |  | Submission of both PDF and .qmd report | 1 point |
 | **Reflection** |  | 3 points |
-| **Misc. items** | Finalized data set with accompanying dictionary (5/18) | 2 point |
+| **Misc. items** | Finalized data set with accompanying dictionary | 2 point |
 |  | Contribution to group | 10 points |
-|  | DataFest project | 5 points |
-| **Total** |  | 125 points |
+| **Total** |  | 120 points |

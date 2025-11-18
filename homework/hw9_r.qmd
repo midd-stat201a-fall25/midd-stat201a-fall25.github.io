@@ -43,7 +43,7 @@ $$bwt = \beta_{0} + \beta_{1}*lwt + \epsilon$$
 
 **Answer:**
 
-3.  Using your new data frame, fit a linear regression model for the birth weight of the baby using the mother's weight at last menstrual period as the explanatory variable. Store this as an object called `birth_lm`, then display summary information of the coefficients of `birth_lm` as as a beautiful and tidy table (remember the `kable()` function from awhile go...).
+3.  Using your data frame, fit a linear regression model for the birth weight of the baby using the mother's weight at last menstrual period as the explanatory variable. Store this as an object called `birth_lm`, then display summary information of the coefficients of `birth_lm` as as a beautiful and tidy table (remember the `kable()` function from awhile go...).
 
 ```{r}
 
