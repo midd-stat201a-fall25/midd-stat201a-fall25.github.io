@@ -2314,7 +2314,7 @@
     "href": "index.html#announcements",
     "title": "Introduction to Statistical and Data Sciences",
     "section": "Announcements",
-    "text": "Announcements\n\nEnjoy your break!"
+    "text": "Announcements\n\nWelcome back!\nSDS experience due tonight at midnight!"
   },
   {
     "objectID": "slides/slides-09-conditional-probability.html#recap",
@@ -6190,16 +6190,16 @@
   {
     "objectID": "slides/slides-08-joins.html#joining-data-frames",
     "href": "slides/slides-08-joins.html#joining-data-frames",
-    "title": "Joins data frames, case_when, and prettier tables",
+    "title": "Joins data frames and pivoting",
     "section": "Joining data frames",
     "text": "Joining data frames\nAssume we have two data frames, df1 and df2. There are some shared variable(s) across the two.\nWe want to combine df1 and df2 into one single data frame. The dplyr code will look something like:\n\n\nxxx_join(df1, df2)\n\n\n\nHow do we combine df1 and df2 them? The following mutating joins give us rules:\n\nleft_join(): keep all cases from df1\nright_join(): keep all cases from df2\nfull_join(): keep all cases from both df1 and df2\ninner_join(): keep all cases from df1 where there are matching values in df2 (more complicated in the scenario of multiple matches)\n\n\n\nI know this is confusing! Examples will help clarify!"
   },
   {
     "objectID": "slides/slides-08-joins.html#setup",
     "href": "slides/slides-08-joins.html#setup",
-    "title": "Joins data frames, case_when, and prettier tables",
+    "title": "Joins data frames and pivoting",
     "section": "Setup",
-    "text": "Setup\nFor the next few slides…\n\n\n\ndf1\n\n\n\n\n\n\nID\nname\n\n\n\n\n1\nx1\n\n\n2\nx2\n\n\n3\nx3\n\n\n\n\n\n\n\ndf2\n\n\n\n\n\n\nID\ngrade\n\n\n\n\n1\ny1\n\n\n2\ny2\n\n\n4\ny4\n\n\n\n\n\n\n\nI recommend writing these two down, as we will work with them in the next few slides.\n\nNote! The variable ID is shared between these two data frames. We will “join on” ID."
+    "text": "Setup\nFor the next few slides…\n\n\n\ndf1\n\n\n\n\n\n\nID\nname\n\n\n\n\n1\nx1\n\n\n2\nx2\n\n\n3\nx3\n\n\n\n\n\n\n\ndf2\n\n\n\n\n\n\nID\ngrade\n\n\n\n\n1\ny1\n\n\n2\ny2\n\n\n4\ny4\n\n\n\n\n\n\nI recommend writing these two down, as we will work with them in the next few slides.\n\nNote! The variable ID is shared between these two data frames. We will “join on” ID."
   },
   {
     "objectID": "slides/slides-08-joins.html#left_join",
@@ -6267,9 +6267,9 @@
   {
     "objectID": "slides/slides-08-joins.html#example",
     "href": "slides/slides-08-joins.html#example",
-    "title": "Joins data frames, case_when, and prettier tables",
+    "title": "Joins data frames and pivoting",
     "section": "Example",
-    "text": "Example\n\n\nRows: 216 Columns: 3\n── Column specification ────────────────────────────────────────────────────────\nDelimiter: \",\"\nchr (1): country\ndbl (2): capture, aquaculture\n\nℹ Use `spec()` to retrieve the full column specification for this data.\nℹ Specify the column types or set `show_col_types = FALSE` to quiet this message.\nRows: 245 Columns: 2\n── Column specification ────────────────────────────────────────────────────────\nDelimiter: \",\"\nchr (2): country, continent\n\nℹ Use `spec()` to retrieve the full column specification for this data.\nℹ Specify the column types or set `show_col_types = FALSE` to quiet this message.\n\n\n\n\nWe have data on fishery harvests (in tons) by countries from 2016, stored in data frame fish:\n\nWhat does this code do?\n\n\nfish |&gt;\n    slice(1:8)\n\n\n\n\n\n\n\ncountry\ncapture\naquaculture\n\n\n\n\nAfghanistan\n1000\n1200\n\n\nAlbania\n7886\n950\n\n\nAlgeria\n95000\n1361\n\n\nAmerican Samoa\n3047\n20\n\n\nAndorra\n0\n0\n\n\nAngola\n486490\n655\n\n\nAntigua and Barbuda\n3000\n10\n\n\nArgentina\n755226\n3673\n\n\n\n\n\n\n\n\nSuppose I would like to explore the data on a continent level. We have another data frame called continent that looks like this:\n\ncontinents |&gt;\n  slice(1:8)\n\n\n\n\n\n\nCountry\ncontinent\n\n\n\n\nAfghanistan\nAsia\n\n\nÅland Islands\nEurope\n\n\nAlbania\nEurope\n\n\nAlgeria\nAfrica\n\n\nAmerican Samoa\nOceania\n\n\nAndorra\nEurope\n\n\nAngola\nAfrica\n\n\nAnguilla\nAmericas"
+    "text": "Example\n\n\nWe have data on fishery harvests (in tons) by countries from 2016, stored in data frame fish:\n\nfish |&gt;\n    slice(1:8)\n\n\n\n\n\n\n\ncountry\ncapture\naquaculture\n\n\n\n\nAfghanistan\n1000\n1200\n\n\nAlbania\n7886\n950\n\n\nAlgeria\n95000\n1361\n\n\nAmerican Samoa\n3047\n20\n\n\nAndorra\n0\n0\n\n\nAngola\n486490\n655\n\n\nAntigua and Barbuda\n3000\n10\n\n\nArgentina\n755226\n3673\n\n\n\n\n\n\n\n\nSuppose I would like to explore the data on a continent level. We have another data frame called continent that looks like this:\n\ncontinents |&gt;\n  slice(1:8)\n\n\n\n\n\n\nCountry\ncontinent\n\n\n\n\nAfghanistan\nAsia\n\n\nÅland Islands\nEurope\n\n\nAlbania\nEurope\n\n\nAlgeria\nAfrica\n\n\nAmerican Samoa\nOceania\n\n\nAndorra\nEurope\n\n\nAngola\nAfrica\n\n\nAnguilla\nAmericas"
   },
   {
     "objectID": "slides/slides-08-joins.html#bringing-in-continent",
@@ -6281,9 +6281,9 @@
   {
     "objectID": "slides/slides-08-joins.html#example-cont.",
     "href": "slides/slides-08-joins.html#example-cont.",
-    "title": "Joins data frames, case_when, and prettier tables",
+    "title": "Joins data frames and pivoting",
     "section": "Example (cont.)",
-    "text": "Example (cont.)\n\n\nQuestion 1:\n\nleft_join(fish, continents, \n          by = c(\"country\" = \"Country\")) |&gt;\n  slice(1:8)\n\n\n\n\n\n\ncountry\ncapture\naquaculture\ncontinent\n\n\n\n\nAfghanistan\n1000\n1200\nAsia\n\n\nAlbania\n7886\n950\nEurope\n\n\nAlgeria\n95000\n1361\nAfrica\n\n\nAmerican Samoa\n3047\n20\nOceania\n\n\nAndorra\n0\n0\nEurope\n\n\nAngola\n486490\n655\nAfrica\n\n\nAntigua and Barbuda\n3000\n10\nNA\n\n\nArgentina\n755226\n3673\nAmericas\n\n\n\n\n\n\nNotice the NA\n\n\n\nQuestion 2:\n\ninner_join(fish, continents, \n           by = c(\"country\" = \"Country\")) |&gt;\n  slice(1:8)\n\n\n\n\n\n\ncountry\ncapture\naquaculture\ncontinent\n\n\n\n\nAfghanistan\n1000\n1200\nAsia\n\n\nAlbania\n7886\n950\nEurope\n\n\nAlgeria\n95000\n1361\nAfrica\n\n\nAmerican Samoa\n3047\n20\nOceania\n\n\nAndorra\n0\n0\nEurope\n\n\nAngola\n486490\n655\nAfrica\n\n\nArgentina\n755226\n3673\nAmericas\n\n\nArmenia\n3758\n16381\nAsia\n\n\n\n\n\n\n\n\n\nNotice we don’t have two copies of same country/Country variable!"
+    "text": "Example (cont.)\n\n\nQuestion 1:\n\nleft_join(fish, continents, \n          by = c(\"country\" = \"Country\")) |&gt;\n  slice(1:8)\n\n\n\n\n\n\ncountry\ncapture\naquaculture\ncontinent\n\n\n\n\nAfghanistan\n1000\n1200\nAsia\n\n\nAlbania\n7886\n950\nEurope\n\n\nAlgeria\n95000\n1361\nAfrica\n\n\nAmerican Samoa\n3047\n20\nOceania\n\n\nAndorra\n0\n0\nEurope\n\n\nAngola\n486490\n655\nAfrica\n\n\nAntigua and Barbuda\n3000\n10\nNA\n\n\nArgentina\n755226\n3673\nAmericas\n\n\n\n\n\n\nNotice the NA\n\n\n\nQuestion 2:\n\ninner_join(fish, continents, \n           by = c(\"country\" = \"Country\")) |&gt;\n  slice(1:8)\n\n\n\n\n\n\ncountry\ncapture\naquaculture\ncontinent\n\n\n\n\nAfghanistan\n1000\n1200\nAsia\n\n\nAlbania\n7886\n950\nEurope\n\n\nAlgeria\n95000\n1361\nAfrica\n\n\nAmerican Samoa\n3047\n20\nOceania\n\n\nAndorra\n0\n0\nEurope\n\n\nAngola\n486490\n655\nAfrica\n\n\nArgentina\n755226\n3673\nAmericas\n\n\nArmenia\n3758\n16381\nAsia\n\n\n\n\n\n\n\n\nNotice we don’t have two copies of same country/Country variable!"
   },
   {
     "objectID": "slides/slides-08-joins.html#live-code",
@@ -6393,9 +6393,9 @@
   {
     "objectID": "slides/slides-08-joins.html#housekeeping",
     "href": "slides/slides-08-joins.html#housekeeping",
-    "title": "Joins data frames, case_when, and prettier tables",
-    "section": "",
-    "text": "Content through today is fair game for midterm!"
+    "title": "Joins data frames and pivoting",
+    "section": "Housekeeping",
+    "text": "Housekeeping\nContent today is optional; might be useful for your final project!"
   },
   {
     "objectID": "slides/slides-08-joins.html#wrangle",
@@ -11034,56 +11034,56 @@
   {
     "objectID": "slides/slides-08-joins.html#left_joindf1-df2",
     "href": "slides/slides-08-joins.html#left_joindf1-df2",
-    "title": "Joins data frames, case_when, and prettier tables",
+    "title": "Joins data frames and pivoting",
     "section": "left_join(df1, df2)",
-    "text": "left_join(df1, df2)\nAdds columns to df1 from df2, matching the cases in df1. Retains ALL cases from left data frame df1, and adds NA for variables from df2 that have no match.\n\n\n\n\n\ndf1\n\n\n\n\n\n\nID\nname\n\n\n\n\n1\nx1\n\n\n2\nx2\n\n\n3\nx3\n\n\n\n\n\n\n\ndf2\n\n\n\n\n\n\nID\ngrade\n\n\n\n\n1\ny1\n\n\n2\ny2\n\n\n4\ny4\n\n\n\n\n\n\n\n\nleft_join(df1, df2, by = \"ID\")\n\n\n\n\n\n\nID\nname\ngrade\n\n\n\n\n1\nx1\ny1\n\n\n2\nx2\ny2\n\n\n3\nx3\nNA\n\n\n\n\n\n\n\n\n\nThink of left data frame as fixed."
+    "text": "left_join(df1, df2)\nAdds columns to df1 from df2, matching the cases in df1. Retains ALL cases from left data frame df1, and adds NA for variables from df2 that have no match.\n\n\n\n\n\ndf1\n\n\n\n\n\n\nID\nname\n\n\n\n\n1\nx1\n\n\n2\nx2\n\n\n3\nx3\n\n\n\n\n\n\n\ndf2\n\n\n\n\n\n\nID\ngrade\n\n\n\n\n1\ny1\n\n\n2\ny2\n\n\n4\ny4\n\n\n\n\n\n\n\nleft_join(df1, df2, by = \"ID\")\n\n\n\n\n\n\nID\nname\ngrade\n\n\n\n\n1\nx1\ny1\n\n\n2\nx2\ny2\n\n\n3\nx3\nNA\n\n\n\n\n\n\n\n\n\nThink of left data frame as fixed."
   },
   {
     "objectID": "slides/slides-08-joins.html#right_joindf1-df2",
     "href": "slides/slides-08-joins.html#right_joindf1-df2",
-    "title": "Joins data frames, case_when, and prettier tables",
+    "title": "Joins data frames and pivoting",
     "section": "right_join(df1, df2)",
-    "text": "right_join(df1, df2)\nAdds columns to df1 from df2, matching the cases in df2. Retains ALL cases from right data frame df2, and adds NA for variables from df1 that have no match.\n\n\n\n\n\ndf1\n\n\n\n\n\n\nID\nname\n\n\n\n\n1\nx1\n\n\n2\nx2\n\n\n3\nx3\n\n\n\n\n\n\n\ndf2\n\n\n\n\n\n\nID\ngrade\n\n\n\n\n1\ny1\n\n\n2\ny2\n\n\n4\ny4\n\n\n\n\n\n\n\n\nright_join(df1, df2, by = \"ID\")\n\n\n\n\n\n\nID\nname\ngrade\n\n\n\n\n1\nx1\ny1\n\n\n2\nx2\ny2\n\n\n4\nNA\ny4\n\n\n\n\n\n\n\n\n\nThink of right data frame as fixed"
+    "text": "right_join(df1, df2)\nAdds columns to df1 from df2, matching the cases in df2. Retains ALL cases from right data frame df2, and adds NA for variables from df1 that have no match.\n\n\n\n\n\ndf1\n\n\n\n\n\n\nID\nname\n\n\n\n\n1\nx1\n\n\n2\nx2\n\n\n3\nx3\n\n\n\n\n\n\n\ndf2\n\n\n\n\n\n\nID\ngrade\n\n\n\n\n1\ny1\n\n\n2\ny2\n\n\n4\ny4\n\n\n\n\n\n\n\nright_join(df1, df2, by = \"ID\")\n\n\n\n\n\n\nID\nname\ngrade\n\n\n\n\n1\nx1\ny1\n\n\n2\nx2\ny2\n\n\n4\nNA\ny4\n\n\n\n\n\n\n\n\n\nThink of right data frame as fixed"
   },
   {
     "objectID": "slides/slides-08-joins.html#full_joindf1-df2",
     "href": "slides/slides-08-joins.html#full_joindf1-df2",
-    "title": "Joins data frames, case_when, and prettier tables",
+    "title": "Joins data frames and pivoting",
     "section": "full_join(df1, df2)",
-    "text": "full_join(df1, df2)\nAdds columns to df1 from df2, fully combining the two data frames, matching when possible. Retains ALL cases from df1 AND df2, and adds NAs as necesary.\n\n\n\n\n\ndf1\n\n\n\n\n\n\nID\nname\n\n\n\n\n1\nx1\n\n\n2\nx2\n\n\n3\nx3\n\n\n\n\n\n\n\ndf2\n\n\n\n\n\n\nID\ngrade\n\n\n\n\n1\ny1\n\n\n2\ny2\n\n\n4\ny4\n\n\n\n\n\n\n\n\nfull_join(df1, df2, by = \"ID\")\n\n\n\n\n\n\nID\nname\ngrade\n\n\n\n\n1\nx1\ny1\n\n\n2\nx2\ny2\n\n\n3\nx3\nNA\n\n\n4\nNA\ny4\n\n\n\n\n\n\n\n\n\nNo chance for losing information."
+    "text": "full_join(df1, df2)\nAdds columns to df1 from df2, fully combining the two data frames, matching when possible. Retains ALL cases from df1 AND df2, and adds NAs as necesary.\n\n\n\n\n\ndf1\n\n\n\n\n\n\nID\nname\n\n\n\n\n1\nx1\n\n\n2\nx2\n\n\n3\nx3\n\n\n\n\n\n\n\ndf2\n\n\n\n\n\n\nID\ngrade\n\n\n\n\n1\ny1\n\n\n2\ny2\n\n\n4\ny4\n\n\n\n\n\n\n\nfull_join(df1, df2, by = \"ID\")\n\n\n\n\n\n\nID\nname\ngrade\n\n\n\n\n1\nx1\ny1\n\n\n2\nx2\ny2\n\n\n3\nx3\nNA\n\n\n4\nNA\ny4\n\n\n\n\n\n\n\n\n\nNo chance for losing information."
   },
   {
     "objectID": "slides/slides-08-joins.html#inner_joindf1-df2",
     "href": "slides/slides-08-joins.html#inner_joindf1-df2",
-    "title": "Joins data frames, case_when, and prettier tables",
+    "title": "Joins data frames and pivoting",
     "section": "inner_join(df1, df2)",
-    "text": "inner_join(df1, df2)\nAdds columns to df1 from df2, retaining only cases that exist in both df1 AND df2.\n\n\n\n\n\ndf1\n\n\n\n\n\n\nID\nname\n\n\n\n\n1\nx1\n\n\n2\nx2\n\n\n3\nx3\n\n\n\n\n\n\n\ndf2\n\n\n\n\n\n\nID\ngrade\n\n\n\n\n1\ny1\n\n\n2\ny2\n\n\n4\ny4\n\n\n\n\n\n\n\n\ninner_join(df1, df2, by = \"ID\")\n\n\n\n\n\n\nID\nname\ngrade\n\n\n\n\n1\nx1\ny1\n\n\n2\nx2\ny2"
+    "text": "inner_join(df1, df2)\nAdds columns to df1 from df2, retaining only cases that exist in both df1 AND df2.\n\n\n\n\n\ndf1\n\n\n\n\n\n\nID\nname\n\n\n\n\n1\nx1\n\n\n2\nx2\n\n\n3\nx3\n\n\n\n\n\n\n\ndf2\n\n\n\n\n\n\nID\ngrade\n\n\n\n\n1\ny1\n\n\n2\ny2\n\n\n4\ny4\n\n\n\n\n\n\n\ninner_join(df1, df2, by = \"ID\")\n\n\n\n\n\n\nID\nname\ngrade\n\n\n\n\n1\nx1\ny1\n\n\n2\nx2\ny2"
   },
   {
     "objectID": "slides/slides-08-joins.html#comprehension-check",
     "href": "slides/slides-08-joins.html#comprehension-check",
-    "title": "Joins data frames, case_when, and prettier tables",
+    "title": "Joins data frames and pivoting",
     "section": "Comprehension check",
     "text": "Comprehension check\n\n\nIn which of the joins are NAs possibly introduced? In which of the joins are NAs never going to be introduced?\nIf we have some df1 and df2, in what scenario will the result of the four joins be the same? (i.e. what has to be true about df1 and df2?)\nWhat do you think we call these “mutating” joins? Think about where we’ve seen that verb before!\n\n\n\nNote: it’s possible to join on more than one variable!"
   },
   {
     "objectID": "slides/slides-08-joins.html#discuss",
     "href": "slides/slides-08-joins.html#discuss",
-    "title": "Joins data frames, case_when, and prettier tables",
+    "title": "Joins data frames and pivoting",
     "section": "Discuss",
-    "text": "Discuss\n\n\nfish data frame snapshot:\n\n\n\n\n\ncountry\ncapture\naquaculture\n\n\n\n\nAfghanistan\n1000\n1200\n\n\nAlbania\n7886\n950\n\n\nAlgeria\n95000\n1361\n\n\nAmerican Samoa\n3047\n20\n\n\nAndorra\n0\n0\n\n\n\n\n\n\ncontinents data frame snapshot:\n\n\n\n\n\nCountry\ncontinent\n\n\n\n\nAfghanistan\nAsia\n\n\nÅland Islands\nEurope\n\n\nAlbania\nEurope\n\n\nAlgeria\nAfrica\n\n\nAmerican Samoa\nOceania\n\n\n\n\n\n\n\n\n\nWe want to keep all rows and columns from fish and add a column for corresponding continents. Which join function should we use?\nWe want to keep only the rows from fish for which we have a corresponding continent and add a column for corresponding continents. Which join function should we use?\nWhich variable(s) are we joining on?"
+    "text": "Discuss\n\n\nfish data frame snapshot:\n\n\n\n\n\ncountry\ncapture\naquaculture\n\n\n\n\nAfghanistan\n1000\n1200\n\n\nAlbania\n7886\n950\n\n\nAlgeria\n95000\n1361\n\n\nAmerican Samoa\n3047\n20\n\n\nAndorra\n0\n0\n\n\n\n\n\n\ncontinents data frame snapshot:\n\n\n\n\n\nCountry\ncontinent\n\n\n\n\nAfghanistan\nAsia\n\n\nÅland Islands\nEurope\n\n\nAlbania\nEurope\n\n\nAlgeria\nAfrica\n\n\nAmerican Samoa\nOceania\n\n\n\n\n\n\n\n\nWe want to keep all rows and columns from fish and add a column for corresponding continents. Which join function should we use?\nWe want to keep only the rows from fish for which we have a corresponding continent and add a column for corresponding continents. Which join function should we use?\nWhich variable(s) are we joining on?"
   },
   {
     "objectID": "slides/slides-08-joins.html#piping-into-xxx_join",
     "href": "slides/slides-08-joins.html#piping-into-xxx_join",
-    "title": "Joins data frames, case_when, and prettier tables",
+    "title": "Joins data frames and pivoting",
     "section": "Piping into xxx_join()",
     "text": "Piping into xxx_join()\n\nIn the following line of code, when would an NA be introduced? (Answer forthcoming.)\n\n\nright_join(fish, continents, by = c(\"country\" = \"Country\"))\n\n\nRemember in data wrangling, we pipe from a previous line of code directly into another\nWe can pipe directly into the join functions! The following achieves the same as above:\n\n\n\nfish |&gt;\n  right_join(continents, by = c(\"country\" = \"Country\"))"
   },
   {
     "objectID": "slides/slides-08-joins.html#answer-to-previous-question",
     "href": "slides/slides-08-joins.html#answer-to-previous-question",
-    "title": "Joins data frames, case_when, and prettier tables",
+    "title": "Joins data frames and pivoting",
     "section": "Answer to previous question",
     "text": "Answer to previous question\nNAs would be introduced if there is a country in continents that does not appear in fish. See the last 50-ish cases:"
   },
@@ -12066,5 +12066,54 @@
     "title": "Final project",
     "section": "Peer review",
     "text": "Peer review\nBy Wednesday at 12:00pm, please submit to Canvas your team’s rough draft of the Introduction and Data Collection sections as a single PDF or Word Document. You will then be individually assigned another team’s draft for peer review. In class the following day, be prepared to discuss and give a physical copy of your comments that address some criteria (provided soon). This will count towards the Participation component of the course."
+  },
+  {
+    "objectID": "slides/slides-08-joins.html#wide-data",
+    "href": "slides/slides-08-joins.html#wide-data",
+    "title": "Joins data frames and pivoting",
+    "section": "Wide data",
+    "text": "Wide data\nLet’s take a look at first few observations of the relig_income data frame from tidyverse package:\n\nrelig_income |&gt;\n  head()\n\n# A tibble: 6 × 11\n  religion  `&lt;$10k` `$10-20k` `$20-30k` `$30-40k` `$40-50k` `$50-75k` `$75-100k`\n  &lt;chr&gt;       &lt;dbl&gt;     &lt;dbl&gt;     &lt;dbl&gt;     &lt;dbl&gt;     &lt;dbl&gt;     &lt;dbl&gt;      &lt;dbl&gt;\n1 Agnostic       27        34        60        81        76       137        122\n2 Atheist        12        27        37        52        35        70         73\n3 Buddhist       27        21        30        34        33        58         62\n4 Catholic      418       617       732       670       638      1116        949\n5 Don’t kn…      15        14        15        11        10        35         21\n6 Evangeli…     575       869      1064       982       881      1486        949\n# ℹ 3 more variables: `$100-150k` &lt;dbl&gt;, `&gt;150k` &lt;dbl&gt;,\n#   `Don't know/refused` &lt;dbl&gt;\n\n\n\nThis data is currently in “wide” format: a row has more than one observation. That is, the same outcome variable appears in multiple columns.\n\nThe outcome observation that spans across several columns is income range.\nThe different incomes columns are essentially different levels of the same categorical variable."
+  },
+  {
+    "objectID": "slides/slides-08-joins.html#long-data",
+    "href": "slides/slides-08-joins.html#long-data",
+    "title": "Joins data frames and pivoting",
+    "section": "Long data",
+    "text": "Long data\nWe might want long format: the outcome variable only exists in one column, and a second column/variable tells us the different levels.\n\nEach row has one observation, but the units of observation (in this case, number of people in each income bracket) are repeated down one column.\nThis is helpful for us to perform group_by() or facet_wrap()."
+  },
+  {
+    "objectID": "slides/slides-08-joins.html#converting-from-wide---long",
+    "href": "slides/slides-08-joins.html#converting-from-wide---long",
+    "title": "Joins data frames and pivoting",
+    "section": "Converting from wide -> long",
+    "text": "Converting from wide -&gt; long\nWe will do this with the pivot_longer() function. This function requires a couple of arguments:\n\ncols: which columns to pivot into a “longer” format. That is, the columns that we should “move”\nnames_to: a string character that provides the new column name for the categorical variable you are creating\nvalues_to: a string character that provides the new variable name for the response/outcome variable that is common across all levels of the categorical variable\n\n\n\nrelig_income |&gt;\n  pivot_longer(cols = 2:11, \n               names_to = \"income_range\",  \n               values_to = \"count\")"
+  },
+  {
+    "objectID": "slides/slides-08-joins.html#pivot_longer",
+    "href": "slides/slides-08-joins.html#pivot_longer",
+    "title": "Joins data frames and pivoting",
+    "section": "pivot_longer()",
+    "text": "pivot_longer()\n\n\nResulting data frame:\n\n\n# A tibble: 20 × 3\n   religion income_range       count\n   &lt;chr&gt;    &lt;chr&gt;              &lt;dbl&gt;\n 1 Agnostic &lt;$10k                 27\n 2 Agnostic $10-20k               34\n 3 Agnostic $20-30k               60\n 4 Agnostic $30-40k               81\n 5 Agnostic $40-50k               76\n 6 Agnostic $50-75k              137\n 7 Agnostic $75-100k             122\n 8 Agnostic $100-150k            109\n 9 Agnostic &gt;150k                 84\n10 Agnostic Don't know/refused    96\n11 Atheist  &lt;$10k                 12\n12 Atheist  $10-20k               27\n13 Atheist  $20-30k               37\n14 Atheist  $30-40k               52\n15 Atheist  $40-50k               35\n16 Atheist  $50-75k               70\n17 Atheist  $75-100k              73\n18 Atheist  $100-150k             59\n19 Atheist  &gt;150k                 74\n20 Atheist  Don't know/refused    76\n\n\n\n\nNote that the unit of observation is repeated down several rows!\n\n\n\n# This also works\nrelig_income |&gt;\n  pivot_longer(cols = !religion, names_to = \"income_range\",  values_to = \"count\")"
+  },
+  {
+    "objectID": "slides/slides-08-joins.html#converting-long---wide",
+    "href": "slides/slides-08-joins.html#converting-long---wide",
+    "title": "Joins data frames and pivoting",
+    "section": "Converting long -> wide",
+    "text": "Converting long -&gt; wide\nLet’s look at the fish_encounters data. Convince yourself that it’s currently in long format!\n\n\n# A tibble: 6 × 3\n  fish  station  seen\n  &lt;fct&gt; &lt;fct&gt;   &lt;int&gt;\n1 4842  Release     1\n2 4842  I80_1       1\n3 4842  Lisbon      1\n4 4842  Rstr        1\n5 4842  Base_TD     1\n6 4842  BCE         1\n\n\n\nWe want to pivot the data such that each fish is an observation, and we can easily see which stations it was observed at.\nWe can do this using the pivot_wider() function!"
+  },
+  {
+    "objectID": "slides/slides-08-joins.html#pivot_wider",
+    "href": "slides/slides-08-joins.html#pivot_wider",
+    "title": "Joins data frames and pivoting",
+    "section": "pivot_wider()",
+    "text": "pivot_wider()\nThe pivot_wider() function takes two arguments:\n\nnames_from: the name of the variable(s) in the data frame to get the name of the output column.\nvalues_from: the name of the variable(s) in the data frame to get the cell values from\n\n\nThe input to names_from should be the categorical variable(s), and the different levels of this categorical variable will be the new column names.\n\nWhat should we fill these cells with? The values specified by values_from.\n\n\n\n\nfish_encounters |&gt;\n  pivot_wider(names_from = station, values_from = seen)"
+  },
+  {
+    "objectID": "slides/slides-08-joins.html#pivot_wider-1",
+    "href": "slides/slides-08-joins.html#pivot_wider-1",
+    "title": "Joins data frames and pivoting",
+    "section": "pivot_wider()",
+    "text": "pivot_wider()\n\n\n# A tibble: 19 × 12\n   fish  Release I80_1 Lisbon  Rstr Base_TD   BCE   BCW  BCE2  BCW2   MAE   MAW\n   &lt;fct&gt;   &lt;int&gt; &lt;int&gt;  &lt;int&gt; &lt;int&gt;   &lt;int&gt; &lt;int&gt; &lt;int&gt; &lt;int&gt; &lt;int&gt; &lt;int&gt; &lt;int&gt;\n 1 4842        1     1      1     1       1     1     1     1     1     1     1\n 2 4843        1     1      1     1       1     1     1     1     1     1     1\n 3 4844        1     1      1     1       1     1     1     1     1     1     1\n 4 4845        1     1      1     1       1    NA    NA    NA    NA    NA    NA\n 5 4847        1     1      1    NA      NA    NA    NA    NA    NA    NA    NA\n 6 4848        1     1      1     1      NA    NA    NA    NA    NA    NA    NA\n 7 4849        1     1     NA    NA      NA    NA    NA    NA    NA    NA    NA\n 8 4850        1     1     NA     1       1     1     1    NA    NA    NA    NA\n 9 4851        1     1     NA    NA      NA    NA    NA    NA    NA    NA    NA\n10 4854        1     1     NA    NA      NA    NA    NA    NA    NA    NA    NA\n11 4855        1     1      1     1       1    NA    NA    NA    NA    NA    NA\n12 4857        1     1      1     1       1     1     1     1     1    NA    NA\n13 4858        1     1      1     1       1     1     1     1     1     1     1\n14 4859        1     1      1     1       1    NA    NA    NA    NA    NA    NA\n15 4861        1     1      1     1       1     1     1     1     1     1     1\n16 4862        1     1      1     1       1     1     1     1     1    NA    NA\n17 4863        1     1     NA    NA      NA    NA    NA    NA    NA    NA    NA\n18 4864        1     1     NA    NA      NA    NA    NA    NA    NA    NA    NA\n19 4865        1     1      1    NA      NA    NA    NA    NA    NA    NA    NA\n\n\n\nNote that there are some NA values after pivoting. From the Help file, this is because misses were not directly recorded in the original form of the data. Try adding the argument values_fill = 0 to the pivot_wider() function."
   }
 ]

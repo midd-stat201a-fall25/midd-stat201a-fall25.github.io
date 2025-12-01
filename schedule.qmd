@@ -731,7 +731,7 @@ format:
       <td> M 12/01 </td>
       <td>
         <ul>
-          <li> Topic: pivoting and joining data </li>
+          <li> Topic: <a href="slides/slides-08-joins.qmd">pivoting and joining data</a> </li>
           <li> Project work </li>
         </ul>
       </td>

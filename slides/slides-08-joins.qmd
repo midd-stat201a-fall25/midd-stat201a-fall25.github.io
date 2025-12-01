@@ -1,6 +1,6 @@
 ---
-title: "Joins data frames, case_when, and prettier tables"
-date: "October 2, 2025"
+title: "Joins data frames and pivoting"
+date: "December 1, 2025"
 title-slide-attributes:
     data-background-image: "figs/bikeshare-plots.png"
     data-background-size: contain
@@ -21,11 +21,131 @@ draft: false
 
 ```{r echo = F, warning = F, message = F}
 library(tidyverse)
+library(openintro)
 knitr::opts_chunk$set(echo = T, warning = F, messabundance = F)
 library(kableExtra)
 ```
 
-Content through today is fair game for midterm!
+Content today is optional; might be useful for your final project!
+
+# Pivoting
+
+## Wide data
+
+Let's take a look at first few observations of the `relig_income` data frame from `tidyverse` package:
+
+```{r}
+relig_income |>
+  head()
+```
+
+-   This data is currently in "**wide**" format: a row has more than one observation. That is, the same outcome variable appears in multiple columns.
+
+    -   The outcome observation that spans across several columns is income range.
+
+    -   The different incomes columns are essentially different levels of the *same* categorical variable.
+
+## Long data
+
+We might want **long** format: the outcome variable only exists in one column, and a second column/variable tells us the different levels.
+
+-   Each row has one observation, but the units of observation (in this case, number of people in each income bracket) are repeated down one column.
+
+-   This is helpful for us to perform group_by() or facet_wrap().
+
+## Converting from wide -\> long
+
+We will do this with the `pivot_longer()` function. This function requires a couple of arguments:
+
+1.  `cols`: which columns to pivot into a "longer" format. That is, the columns that we should "move"
+
+2.  `names_to`: a string character that provides the new column name for the categorical variable you are creating
+
+3.  `values_to`: a string character that provides the new variable name for the response/outcome variable that is common across all levels of the categorical variable
+
+::: fragment
+```{r eval = F}
+relig_income |>
+  pivot_longer(cols = 2:11, 
+               names_to = "income_range",  
+               values_to = "count")
+```
+:::
+
+## pivot_longer()
+
+:::::: columns
+::: {.column width="50%"}
+```{r echo = F}
+relig_long <- relig_income |>
+  pivot_longer(cols = 2:11, 
+               names_to = "income_range",  
+               values_to = "count")
+```
+
+Resulting data frame:
+
+```{r echo = F}
+relig_long |>
+  slice(1:20)
+```
+:::
+
+:::: {.column width="50%"}
+-   Note that the unit of observation is repeated down several rows!
+
+::: fragment
+```{r eval = F}
+# This also works
+relig_income |>
+  pivot_longer(cols = !religion, names_to = "income_range",  values_to = "count")
+```
+:::
+::::
+::::::
+
+## Converting long -\> wide
+
+Let's look at the `fish_encounters` data. Convince yourself that it's currently in long format!
+
+```{r echo = F}
+fish_encounters |>
+  head()
+```
+
+-   We want to pivot the data such that each fish is an observation, and we can easily see which stations it was observed at.
+-   We can do this using the `pivot_wider()` function!
+
+## pivot_wider()
+
+The `pivot_wider()` function takes two arguments:
+
+1.  `names_from`: the name of the variable(s) in the data frame to get the name of the output column.
+
+2.  `values_from`: the name of the variable(s) in the data frame to get the cell values from
+
+-   The input to `names_from` should be the categorical variable(s), and the different levels of this categorical variable will be the new column names.
+
+    -   What should we fill these cells with? The values specified by `values_from`.
+
+::: fragment
+```{r eval = F}
+fish_encounters |>
+  pivot_wider(names_from = station, values_from = seen)
+```
+:::
+
+## pivot_wider()
+
+```{r echo = F}
+fish_encounters |>
+  pivot_wider(names_from = station, values_from = seen)
+```
+
+- Note that there are some `NA` values after pivoting. From the Help file, this is because misses were not directly recorded in the original form of the data. Try adding the argument `values_fill = 0` to the `pivot_wider()` function.
+
+
+# Joins
 
 ## Joining data frames
 
@@ -305,9 +425,6 @@ continents <- read_csv(countries_url) |>
 ::::: {.column width="50%"}
 We have data on fishery harvests (in tons) by countries from 2016, stored in data frame `fish`:
 
-::: discuss
-What does this code do?
-:::
 
 ```{r eval = F}
 fish |>
@@ -458,5 +575,3 @@ shrink_DT(fish |>
   right_join(continents, by = c("country" = "Country")) |>
   DT::datatable())
 ```
-
-
