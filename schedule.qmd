@@ -24,7 +24,7 @@ format:
     <td> <a href="#week9">Week 9</a> </td>
     <td> <a href="#week10">Week 10</a> </td>
     <td> <a href="#week11">Week 11</a> </td>
-    <td> Week 12 </td>
+    <td> <a href="#week12">Week 12</a> </td>
     </tr>
   </tbody>
 </table>
@@ -722,6 +722,60 @@ format:
       <td>
         <ul>
           <li> Enjoy break! </li>
+        </ul>
+      </td>
+    </tr>
+    <!-- week 12 -->
+    <tr>
+      <td id="week12"><strong>12</strong></td>
+      <td> M 12/01 </td>
+      <td>
+        <ul>
+          <li> Topic: pivoting and joining data </li>
+          <li> Project work </li>
+        </ul>
+      </td>
+      <td>
+      </td>
+      <td>
+        <ul>
+          <li> Work on project </li>
+        </ul>
+      </td>
+    </tr>
+    <tr>
+      <td></td>
+      <td> W 12/03 </td>
+      <td>
+        <ul>
+          <li> Project work (explain presentation) </li>
+        </ul>
+        </ul>
+      </td>
+      <td>
+      </td>
+      <td>
+        <ul>
+          <li> Submit draft of Intro + Data Collection methods by 12:00pm</li>
+           <li> Prepare peer review feedback by class tomorrow</li>
+        </ul>
+      </td>
+    </tr>
+    <tr>
+      <td></td>
+      <td> R 12/04 </td>
+      <td>
+        <ul>
+          <li> CRFs </li>
+          <li> Project peer review  </li>
+        </ul>
+      </td>
+      <td>
+      </td>
+      <td>
+        <ul>
+          <li> Continue working on project </li>
+          <li> Rough draft of Methods due Sunday </li>
         </ul>
       </td>
     </tr>

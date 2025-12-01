@@ -12,12 +12,14 @@ toc: true
 | Revised proposal for data collection (if applicable) | Sunday 11/09 | 11:59pm |
 | Collect your data | Anytime between proposal approval and Sunday 5/04 |  |
 | [Excel/GoogleSheets of your data](#dataset) | Monday 12/01 | Beginning of class |
-| Rough draft of report | Sunday 12/07 | 11:59pm |
-| Final Presentation | Thursday 12/11 | 9am-12pm? (slides due one hours before) |
-| Final report (rendered version and .qmd) and data with data dictionary | Sunday 12/14 (tentative) | 11:59pm |
-| Reflection\* | Sunday 12/14 (tentative) | 11:59pm |
+| [Peer review] draft | Wednesday 12/03 | 12:00pm |
+| [Peer review] feedback\* | Thursday 12/04 | Beginning of class |
+| Rough draft of Methods | Sunday 12/07 | 11:59pm |
+| [Presentation] | Thursday 12/11 | 7:00-10:00pm (slides due one hour before) |
+| [Report] (rendered version and .qmd) and [Finalized data set + dictionary] | Sunday 12/14 (tentative) | 11:59pm |
+| [Reflection]\* | Sunday 12/14 (tentative) | 11:59pm |
 
-\*Reflection should be submitted individually. All other deliverables are one-per-group.
+\*Reflection should be submitted individually, and peer review feedback should be prepared individually. All other deliverables are one-per-group.
 
 ## Description
 
@@ -89,15 +91,76 @@ Once you have collected your data, you should compile it all into a single Excel
 
 ## Report
 
-TBD
+Each group will write a final report created in an `.qmd` file. You can download the template here:
+
+{{< downloadthis stat201_final_project.qmd dname="stat201_final_project" label="template" id=mtcars-btn >}}
+
+Your report will be submitted both as a PDF and as a `.qmd` file. **The code in your report should be as reproducible as possible** (e.g. not hard coding specific values, setting a seed when appropriate). All tables should be beautiful!
+
+**Additionally, only the output/execution from the code relevant for the report should be visible to the reader, not the code itself.** This means that as the viewer, I should not see any code or extraneous output. The former is achieved by setting the chunk header option `echo = F`. That being said, if there is some code that you believe is useful/important for the reader to see, you are welcome to make that code visible by setting `echo = T`.
+
+The report does not have a minimum length, but should contain each of the following sections. *The report should also have an informative, academically appropriate title along with each group member's name.*
+
+#### **Introduction**
+
+-   The introduction should introduce your research questions and the population(s) of interest. **Your report should have at least one research question per team member**. In the introduction, you should briefly motivate the research questions (i.e. explain why they were of interest to your group)!
+    -   It could be helpful to identify/label your research questions as "Question 1", "Question 2", etc. for easier reference moving forward.
+
+#### **Data collection**
+
+This section should describe your data and the sampling process: **how** the data were collected and a summary description of the variables you collected. In this section, you should clearly explain how you incorporated random sampling. You should also identify your original target/desired sample size, along with the number of samples you ended up collecting.
+
+#### **Methods**
+
+For **each** research question, you should:
+
+1.  Identify the specific variables used to address the research question. Also describe if you had to create/mutate new variables or filter out/subset your analysis to focus on certain observations for this research question. For each analysis, please tell us the sample size you end up working with for that question.
+
+2.  Include at least one visualization or table of summary statistics that will be useful/informative for answering the research question. Briefly interpret the visualization/summary table.
+
+    -   It is okay if if one visualization is complex enough to address multiple research questions!
+
+3.  Describe and justify the statistical method(s) that you will use to answer your research questions. Part of the "justification" component includes conditions being met, if applicable. For linear regression, you should only verify the "L" and the "I" at this point.
+
+    -   Be specific about different groups/populations, direction of differences, explanatory vs response variable, etc.
+
+    -   If you are conducting a hypothesis test, don't forget to define your hypotheses and set the significance level. If you are creating a confidence interval, be sure to specify the level of confidence.
+
+#### **Results**
+
+-   Using appropriate code, conduct the statistical methods you described in the Methods section for each research question. Then interpret your results in context (i.e. use your interval/p-value/model to actually answer the question).
+    -   If you do linear regression, you should check the "N" and "E" conditions here.
+-   The goal is not to do an exhaustive data analysis (i.e., do not calculate every statistic and procedure you have learned for every variable), but rather let me know that you are proficient at asking meaningful questions and answering them with results of data analysis, that you are proficient in using R, and that you are proficient at interpreting and presenting the results.
+
+#### **Discussion**
+
+This section is a conclusion and discussion. This will require:
+
+1.  A summary of what you have learned about your research questions along with statistical arguments supporting your conclusions.
+2.  A critique your own methods and provide suggestions for improving your analysis. Issues pertaining to the reliability and validity of your data/data collection and appropriateness of the statistical analysis should also be discussed here.
+3.  A paragraph on what your group would do differently if you were able to start over with the project or what you would do next if you were going to continue work on the project should also be included.
 
 ## Presentation
 
-TBD
+Each group will present their work during the exam period.
+
+More details will be announced on the last day of class 12/04.
+
+## Peer review
+
+By Wednesday at 12:00pm, please submit to Canvas your team's rough draft of the Introduction and Data Collection sections as a single PDF or Word Document. You will then be individually assigned another team's draft for peer review. In class the following day, be prepared to **discuss and give a physical copy of your comments** that address some criteria (provided soon). *This will count towards the Participation component of the course.*
 
 ## Misc. submission items
 
-TBD
+### Finalized data set + dictionary
+
+You will be asked to submit your finalized, clean dataset. This may take the form of a `.csv` file or a link to a GoogleSheet. Please give each variable an informative one-word name. Alongside the submission, please include a separate file for the **data dictionary**: a bulleted list or table containing each variable name, a brief description of the variable, and the variable type. Include units if appropriate. If the variable is categorical, please provide all the levels as they appear in the cleaned data.
+
+The purpose of the data dictionary is to enable future use of your data.
+
+### Reflection
+
+You will be asked to write a brief reflection about the final project. There will be a few questions/prompts pertaining to your specific contribution, learning, and experience, along with an opportunity to comment on the group dynamics and working methods. The prompts/questions will be provided on the associated Canvas assignment.
 
 ## Grading
 
@@ -123,7 +186,7 @@ A general breakdown of scoring for the final report and presentation is as follo
 |------------------------|------------------------|------------------------|
 | **Project proposal** |  | 15 points |
 | **Initial data set submission** |  | 1 point |
-| **Rough draft** | Pick one-two sections you'd like Prof. Tang to give feedback on! | 5 points |
+| **Rough draft** | Methods\*\* | 5 points |
 | **Presentation** | Presentation style: well-practiced, equal distribution of speaking time, within time limit | 8 points |
 |  | Slides: content, quality | 5 points |
 |  | Participation | 2 points |
@@ -138,3 +201,5 @@ A general breakdown of scoring for the final report and presentation is as follo
 | **Misc. items** | Finalized data set with accompanying dictionary | 2 point |
 |  | Contribution to group | 10 points |
 | **Total** |  | 120 points |
+
+$^{**}$ Even if you include more sections, Prof. Tang will only provide feedback on the Methods section!
