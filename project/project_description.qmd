@@ -16,7 +16,7 @@ toc: true
 | [Peer review] feedback\* | Thursday 12/04 | Beginning of class |
 | Rough draft of Methods | Sunday 12/07 | 11:59pm |
 | [Presentation] | Thursday 12/11 | 7:00-10:00pm (slides due one hour before) |
-| [Report] (rendered version and .qmd) and [Finalized data set + dictionary] | Sunday 12/14 (tentative) | 11:59pm |
+| [Report] (rendered version and .qmd) and [Finalized data set + dictionary](#finalized-data-set-dictionary) | Sunday 12/14 (tentative) | 11:59pm |
 | [Reflection]\* | Sunday 12/14 (tentative) | 11:59pm |
 
 \*Reflection should be submitted individually, and peer review feedback should be prepared individually. All other deliverables are one-per-group.
@@ -130,6 +130,7 @@ For **each** research question, you should:
 
 -   Using appropriate code, conduct the statistical methods you described in the Methods section for each research question. Then interpret your results in context (i.e. use your interval/p-value/model to actually answer the question).
     -   If you do linear regression, you should check the "N" and "E" conditions here.
+    -   Do **not** use R functions that will automatically run the tests for you (with the exception of `lm()`). Using functions like `t.test()` will not yield credit for this section. Demonstrate to Prof. Tang that you understand the concepts in this course!
 -   The goal is not to do an exhaustive data analysis (i.e., do not calculate every statistic and procedure you have learned for every variable), but rather let me know that you are proficient at asking meaningful questions and answering them with results of data analysis, that you are proficient in using R, and that you are proficient at interpreting and presenting the results.
 
 #### **Discussion**
@@ -152,7 +153,7 @@ By Wednesday at 12:00pm, please submit to Canvas your team's rough draft of the 
 
 ## Misc. submission items
 
-### Finalized data set + dictionary
+### Finalized data set + dictionary {#finalized-data-set-dictionary}
 
 You will be asked to submit your finalized, clean dataset. This may take the form of a `.csv` file or a link to a GoogleSheet. Please give each variable an informative one-word name. Alongside the submission, please include a separate file for the **data dictionary**: a bulleted list or table containing each variable name, a brief description of the variable, and the variable type. Include units if appropriate. If the variable is categorical, please provide all the levels as they appear in the cleaned data.
 

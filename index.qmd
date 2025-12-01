@@ -12,7 +12,13 @@ Welcome to the website for Middlebury College’s Fall 2025 STAT 201A. On this w
 
 -   SDS experience due tonight at midnight!
 
-<!--# - Midterm 2 revisions due beginning of class Wednesday 12/03 - Problems eligible for revision: 2d, 3c, 4, 5, and 8 - You only need to do the specific part of the problem. However, if you part of your solution depends on the answer in a previous part and which was wrong, you should also re-do that previous part. - For #8: explain why the new answer is the correct one-->
+-   Midterm 2 revisions due beginning of class Wednesday 12/03
+
+    -   Problems eligible for revision: 2d, 3c, 4, 5, and 8. You only need to do the specific part of the problem. However, if you part of your solution depends on the answer in a previous part which was wrong, you should also re-do that previous part
+
+        -   For #8: explain why the new answer is the correct one.
+
+    -   Please attach your revisions to your original midterm. Only work by yourself or consult Prof. Tang. You should sign the honor code on your revisions as acknowledgement that you adhere to this policy, otherwise no points back!
 
 ## Course details
 
