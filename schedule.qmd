@@ -757,7 +757,7 @@ format:
       <td>
         <ul>
           <li> Submit draft of Intro + Data Collection methods by 12:00pm</li>
-           <li> Prepare peer review feedback by class tomorrow</li>
+           <li> Prepare <a href="project/project_peer_review.qmd">peer review feedback</a> by class tomorrow</li>
         </ul>
       </td>
     </tr>

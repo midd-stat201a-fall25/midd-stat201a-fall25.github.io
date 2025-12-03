@@ -1,0 +1,37 @@
+---
+title: "Peer feedback guide"
+format: pdf
+---
+
+\vspace{-3cm}
+
+### **Some guidelines for peer review (general)**
+
+Your job as the reviewer is to raise questions. Let the writer respond to those questions and ultimately make the choices.
+
+-   Try to read the document all the way through before making your first comment. 
+-   Try to enter with an open mindset and give yourself enough time to thoughtfully respond to what you are reading
+-   Offer suggestions or questions, not commands.
+    -   e.g. Instead of saying “get rid of this sentence”, maybe write “what is the purpose of this sentence?” or “consider removing”
+-   Your comments should be appropriate, constructive, and actionable. There is no need to be rude!
+-   Make sure your comments are clear and specific so the peer will know what you are referring to.
+    -   e.g. “this is vague” is a bit unclear. Briefly describe what exactly is vague and why.
+-   Note some strengths in the document.
+
+### **Peer review for final project draft**
+
+You will be randomly assigned someone else’s rough draft of Introduction and Data Collection sections . It will be emailed to you on the afternoon of Wednesday 12/03 after you submit your rough draft. Plan to spend a 10-15 minutes on this assignment.
+
+**Instructions:**
+
+1.  Print out a physical copy of the draft.
+2.  Read through the entire draft once without making any comments. 
+3.  Read the draft again, and now either on the draft or on a separate sheet of paper:
+    i.  Try to identify what the research question(s) is/are and why the group chose to explore those questions.
+    ii. Try to identify how random sampling or experimentation was implemented in data collection.
+    iii. Try to identify the desired and ultimate sample sizes.
+    iv. Identify any areas (particularly in Data Collection section) that require clarity, more detail, or seem a bit out of place. Offer some suggestions, if possible and appropriate. *It is extremely helpful for the writer to know what's confusing or doesn't come across clearly!*
+    v.  Write down at least one thing that the writer did well.
+    vi. Offer one “main” suggestion that you think could strengthen the two sections and is feasible for the writer to implement before the final draft.
+    vii. Write down any questions you still have about the two sections.
+4.  Bring the completed feedback to class on Thursday for discussion!
