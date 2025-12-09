@@ -101,6 +101,12 @@ Your report will be submitted both as a PDF and as a `.qmd` file. **The code in 
 
 The report does not have a minimum length, but should contain each of the following sections. *The report should also have an informative, academically appropriate title along with each group member's name.*
 
+**An example of reports from previous years:** note that they are not perfect, but they might give you an idea of what I'm looking for!
+
+-   [Example 1](f24_living_sleep.pdf)
+
+-   [Example 2](s25_housing.pdf)
+
 #### **Introduction**
 
 -   The introduction should introduce your research questions and the population(s) of interest. **Your report should have at least one research question per team member**. In the introduction, you should briefly motivate the research questions (i.e. explain why they were of interest to your group)!
